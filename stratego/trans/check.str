@@ -1,0 +1,68 @@
+module check
+
+imports
+  libstratego-lib
+  include/Company
+  lib/editor-common.generated
+
+rules
+
+  // Analysis: does a topdown traversal of the tree,
+  // and tries to apply the record-entity rule.
+  analyzeDept:
+    t -> t
+    with
+      <topdown(try(record-dept))> t
+    
+  analyzeEmployee:
+   	t -> t
+   	with
+   		<topdown(try(record-employee))> t
+   		
+      
+  record-dept:
+  	Dept(x, manager, subunits) -> Dept(x, manager, subunits)
+  	with
+  		rules(
+  			GetDept :+ x -> x
+  		)		
+  
+  record-employee:
+  	Employee(x, address, salary) -> Employee(x, address, salary)
+  	with
+  		rules(
+  			GetEmployee :+  x -> x
+  		)
+
+  	 		
+rules
+    
+
+  employeeToSalary : Employee(_, _, s) -> <string-to-real> s
+  
+    
+  // Containment: Check that employees and department are not referenced twice.
+  constraint-error:
+    Dept(x, _, _) -> (x, $[Duplicate department name "[x]"])
+    where
+      not(<bagof-GetDept> x => [_])
+      
+  constraint-error:
+  	Employee(x, _, _) -> (x, $[Duplicate employee name "[x] [<length> <bagof-GetEmployee>]"])
+  	where
+  	  not(<bagof-GetEmployee> x => [_])
+
+  
+  // Percedence: Check that salaries increase with rank in hierarchy.
+  constraint-error:
+  	Dept(_ ,Employee(_, _, ms ), _ ) -> (ms, $[Manager does not receive the highest salary in this department])
+  	where
+  		(<gt> (<length> <filter(<geq> (<id>, <string-to-real> ms))> <map(employeeToSalary)> <collect(?Employee(_, _, _))>,1))
+  		
+
+  // Total	 
+  constraint-note:
+    Company(x, _) -> (x, $[[x]'s salary total =  [<foldr(!0.0,add)> <map(employeeToSalary)> <collect(?Employee(_, _, _))>]])
+                                     		 
+  constraint-note:
+  	Dept(x, _, _) -> (x, $[[x]'s salary total =  [<foldr(!0.0,add)> <map(employeeToSalary)> <collect(?Employee(_, _, _))>]])

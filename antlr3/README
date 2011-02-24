@@ -1,0 +1,7 @@
+We provide a parser for companies which constructs company objects as ASTs.
+We reuse the object model of project "alpha".
+In this manner, we can also perform the scenarios total and cut.
+
+See the Tests class for test cases.
+
+See project "antlr" for general instructions on ANTLR usage.

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?eclipse version="3.0"?>
+
+<plugin>
+       <extension point="org.eclipse.imp.runtime.languageDescription">
+          <language extensions="com" description="Company" language="Company" derivedFrom="DynamicRoot" validator="com.softlang.company.CompanyValidator" validatorClass="com.softlang.company.CompanyValidator"></language>
+       </extension>
+       <extension id="com.softlang.company.parser" name="Company Parser" point="org.eclipse.imp.runtime.parser">
+          <parser class="com.softlang.company.CompanyParseController" language="Company">
+          </parser>
+       </extension>    
+    </plugin>

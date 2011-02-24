@@ -1,0 +1,25 @@
+
+insert into EMPLOYEE (NAME, ADDRESS, SALARY) values ('Craig', 'Redmond', 123456);		-- EMPLOYEE_ID = 1
+insert into EMPLOYEE (NAME, ADDRESS, SALARY) values ('Erik', 'Utrecht', 12345);		  	-- EMPLOYEE_ID = 2
+insert into EMPLOYEE (NAME, ADDRESS, SALARY) values ('Ralf', 'Koblenz', 1234);		  	-- EMPLOYEE_ID = 3
+insert into EMPLOYEE (NAME, ADDRESS, SALARY) values ('Ray', 'Redmond', 234567);		  	-- EMPLOYEE_ID = 4
+insert into EMPLOYEE (NAME, ADDRESS, SALARY) values ('Klaus', 'Boston', 23456);		  	-- EMPLOYEE_ID = 5
+insert into EMPLOYEE (NAME, ADDRESS, SALARY) values ('Karl', 'Riga', 2345);		  		-- EMPLOYEE_ID = 6
+insert into EMPLOYEE (NAME, ADDRESS, SALARY) values ('Joe', 'Wifi City', 2344);		  	-- EMPLOYEE_ID = 7
+
+insert into DEPT (MANAGER_ID, NAME) values (1, 'Research'); 							-- DEPT_ID = 1
+update EMPLOYEE set DEPT_ID = 1 where EMPLOYEE_ID = 1;
+update EMPLOYEE set DEPT_ID = 1 where EMPLOYEE_ID = 2;
+update EMPLOYEE set DEPT_ID = 1 where EMPLOYEE_ID = 3;
+
+insert into DEPT (MANAGER_ID, NAME) values (6, 'Dev1.1');								-- DEPT_ID = 2
+update EMPLOYEE set DEPT_ID = 2 where EMPLOYEE_ID = 6;
+update EMPLOYEE set DEPT_ID = 2 where EMPLOYEE_ID = 7;
+
+insert into DEPT (MANAGER_ID, NAME) values (5, 'Dev1');									-- DEPT_ID = 3
+update EMPLOYEE set DEPT_ID = 3 where EMPLOYEE_ID = 5;
+update DEPT set UPPER_DEPT_ID = 3 where DEPT_ID = 2;
+
+insert into DEPT (MANAGER_ID, NAME) values (4, 'Development');							-- DEPT_ID = 4
+update EMPLOYEE set DEPT_ID = 4 where EMPLOYEE_ID = 4;
+update DEPT set UPPER_DEPT_ID = 4 where DEPT_ID = 3;

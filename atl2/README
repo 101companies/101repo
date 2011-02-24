@@ -1,0 +1,5 @@
+This is a variation on project "alt".
+Make sure you understand and can run "alt".
+The variation is concerned with metamodeling details.
+That is, atl2's metamodel involves subtyping while atl's doesn't.
+See Employee -> Subunit; Dept -> Subunit in Company.ecore.

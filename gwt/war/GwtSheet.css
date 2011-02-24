@@ -1,0 +1,330 @@
+.all {
+	background-image: url("img/backgroundMiddle.png");
+	background-repeat: repeat-y;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 500px;
+	width: 450px;
+	padding-right: 40px;
+}
+
+.borderPanel {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	padding-top: 1px;
+	width: 380px;
+	border-color: #454666;
+	border-style: solid;
+	border-width: 1px 0;
+}
+
+.butPanel {
+	font-family: century gothic;
+	font-size: 17px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+	
+.depName {
+	font-family: century gothic;
+	font-size: 17px;
+	text-decoration: underline;
+}
+
+.deptButton {
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	background-color: #454666;
+	border-radius: 3px 3px 3px 3px;
+	color: #FFF;
+	font-family: century gothic;
+	font-size: 20px;
+	font-weight: 700;
+	width: 200px;
+	border-width: 1px;
+}
+
+.deptButton:HOVER,.employeeButton:HOVER {
+	cursor: pointer;
+}
+
+.empEditBox {
+	background-color: #d6e6f6;
+	color: #444;
+	font-family: century gothic;
+	font-size: 19px;
+	font-weight: 700;
+	height: 30px;
+	margin-bottom: 23px;
+	margin-top: 2px;
+	text-align: left;
+	width: 180px;
+}
+
+.deptEditBox,.companyEditBox {
+	background-color: #d6e6f6;
+	color: #444;
+	font-family: century gothic;
+	font-size: 19px;
+	font-weight: 700;
+	height: 30px;
+	margin-bottom: 23px;
+	margin-top: 2px;
+	text-align: left;
+	width: 200px;
+}
+
+.empEditBoxOff {
+	background-color: #708090;
+	color: silver;
+	font-family: century gothic;
+	font-size: 19px;
+	font-weight: 700;
+	height: 30px;
+	margin-bottom: 23px;
+	margin-left: 0;
+	margin-top: 2px;
+	text-align: left;
+	width: 180px;
+	border-width: 0;
+}
+
+.deptEditBoxOff,.companyEditBoxOff {
+	background-color: #708090;
+	color: silver;
+	font-family: century gothic;
+	font-size: 19px;
+	font-weight: 700;
+	height: 30px;
+	margin-bottom: 23px;
+	margin-left: 0;
+	margin-top: 2px;
+	text-align: left;
+	width: 191px;
+	border-width: 0;
+}
+
+.companyInfoPanel,.deptInfoPanel,.empInfoPanel {
+	margin: 25px auto 0 0;
+}
+
+.companyInfoText,.deptInfoText,.empInfoText {
+	color: #121333;
+	font-family: century gothic;
+	font-size: 19px;
+	font-weight: 700;
+	margin-left: 40px;
+	margin-right: 10px;
+	margin-top: 5px;
+	text-align: left;
+	width: 100px;
+}
+
+.employeeButton {
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	background-color: #454666;
+	border-radius: 3px 3px 3px 3px;
+	color: #FFF;
+	font-family: century gothic;
+	font-size: 20px;
+	font-weight: 700;
+	width: 150px;
+	border-width: 1px;
+}
+
+.list {
+	text-align: center;
+	width: 380px;
+	margin: 10px auto 20px;
+}
+
+.listInfo {
+	color: #121333;
+	font-family: century gothic;
+	font-size: 19px;
+	font-weight: 700;
+	margin-left: 1px;
+	text-align: left;
+	width: 300px;
+}
+
+.listTop {
+	margin-left: 40px;
+	margin-right: auto;
+	margin-top: 15px;
+	text-align: left;
+}
+
+.managerInfo {
+	color: #121333;
+	font-family: century gothic;
+	font-size: 19px;
+	font-weight: 700;
+	margin-left: 40px;
+	margin-right: 0;
+	margin-top: 5px;
+	text-align: left;
+	width: 50px;
+}
+
+.managerPanel {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 25px;
+	padding-bottom: 10px;
+	text-align: center;
+	width: 400px;
+}
+
+.menuPanel {
+	margin-left: 0;
+	margin-right: auto;
+	text-align: center;
+	padding: 0 0 10px;
+}
+
+.navButton,.saveButton,.okButton,.editButton,.cutButton {
+	font-size: 16px;
+}
+
+.salaryBorderPanel {
+	margin-left: 40px;
+	margin-top: 50px;
+	text-align: left;
+	width: 380px;
+	border-color: #121333;
+	border-style: solid;
+	border-width: 0 0 1px;
+}
+
+.salaryInfo {
+	color: #121333;
+	font-family: century gothic;
+	font-size: 14px;
+	font-weight: 700;
+	margin-left: 40px;
+	margin-right: 0;
+	margin-top: 5px;
+	text-align: left;
+	width: 200px;
+}
+
+.salaryPanel {
+	margin-left: 0;
+	margin-right: auto;
+	margin-top: 5px;
+	padding-bottom: 10px;
+	text-align: center;
+	width: 4px;
+}
+
+.topHr {
+	background-color: #000;
+	height: 4px;
+	width: 400px;
+}
+
+.topInnerPanel {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 0 0 10px;
+}
+
+.topPanel {
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 0;
+	padding-top: 10px;
+	text-align: center;
+	width: 400px;
+	min-height: 50px;
+	border-color: #121333;
+	border-style: solid;
+	border-width: 0 0 4px;
+}
+
+.viewInfo {
+	color: #121333;
+	font-family: century gothic;
+	font-size: 22px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.viewInfoExtCompany,.viewInfoExtDept,.viewInfoExtEmpl {
+	color: #FFF;
+	font-family: century gothic;
+	font-size: 22px;
+	font-weight: 700;
+	margin-left: 10px;
+	text-align: center;
+}
+
+.headline {
+	background-image: url("img/backgroundMiddle.png");
+	background-repeat: repeat-y;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	padding-right: 40px;
+	color: #FFF;
+	font-family: century gothic;
+	font-size: 30px;
+	font-weight: 700;
+	padding-bottom: 18px;
+	padding-top: 0;
+	text-align: center;
+}
+
+.header1 {
+	background-image: url("img/header.png");
+	background-repeat: repeat-y;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	padding-right: 40px;
+	height: 18px;
+	margin-top: 20px;
+}
+
+.footer1 {
+	background-image: url("img/footer.png");
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	padding-right: 40px;
+	height: 20px;
+	margin-bottom: 10px;
+}
+
+.footer2 {
+	background-image: url("img/footer.png");
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+	width: 490px;
+	height: 20px;
+	margin-bottom: 10px;
+	padding-left: 0;
+}
+
+.header2 {
+	background-image: url("img/header.png");
+	background-repeat: repeat-y;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	padding-right: 40px;
+	height: 18px;
+}

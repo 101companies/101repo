@@ -1,0 +1,16 @@
+module Company.main
+
+imports Company-Builders Company-Colorer Company-Completions Company-Folding Company-Outliner Company-References Company-Syntax
+
+language General properties
+                  
+  name          : Company
+  id            : com.softlang.company
+  extends       : Root
+                  
+  description   : "Spoofax/IMP-generated editor for the Company language"
+  url           : http://strategoxt.org
+                  
+  extensions    : com
+  table         : include/Company.tbl
+  start symbols : Start

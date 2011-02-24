@@ -1,0 +1,18 @@
+%% Grammar for the Company language
+%% By default, based on an example "entities" syntax
+module Company
+
+imports Common
+
+exports
+
+  context-free start-symbols
+    Start
+
+  context-free syntax
+  
+    "company" Id "{" Dept* "}"     				   	-> Start 	{cons("Company")}
+    "dept" Id "{" "manager" Employee  Subunit* "}"  -> Dept 	{cons("Dept")}
+    "employee" Employee         		  			-> Subunit  {cons("Pu")}
+    Dept                           		   			-> Subunit  {cons("Du")}
+    Id "{" "address" Id "salary" FloatLiteral  "}" 	-> Employee {cons("Employee") }

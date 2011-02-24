@@ -1,0 +1,51 @@
+== Summary == 
+The present project provides a very simple C/S WebApp for companies.
+
+== Description ==
+
+The present project provides a very simple C/S WebApp for companies.
+The implementation relies on GWT (Ajax).
+Specifically, the client in the browser provides the following features:
+- Navigate hierarchical structure of departmental nesting.
+- Edit all fields of types string and number.
+
+=== Architecture of the project ===
+ 
+Client classes are to be found in the client package.
+See org.softlang.client.
+There is the GUI and a special object model for the client.
+See org.softlang.client.company for the latter.
+This object model holds "shallow" data for the widgets.
+The entry point for the client is the Gwt.java class.
+Here we describe the app's client side appearance and functionality.
+ 
+Server classes are to be found in the server package.
+See org.softlang.server.
+We use an object model for companies very much like in project serializable.
+(We use a cloned object model for the sake of a simple build for this GWT project.)
+The server maintains an index (see class Index.java) between shallow and proper objects.
+That is, departments and employees are identifiable by their ids (say, names).
+ 
+The communication between client and server is modeled by the Service interface.
+See the client package.
+There is also the asynchronous version of it: ServiceAsync.java.
+These services allow the client to load and save data and perform scenarios total and cut.
+
+
+== Requirements ==
+
+We make use of GWT. Update Sites:
+* Eclipse 3.6 (Helios) : http://dl.google.com/eclipse/plugin/3.6
+* Eclipse 3.5 (Galileo): http://dl.google.com/eclipse/plugin/3.5
+
+
+== Demo ==
+
+To run a demo:
+* compile org.softlang.client.Gwt (click the red GWT icon).
+* run org.softlang.server.ServiceImpl .
+* open http://localhost:8888 in your browser.
+The server runs until is terminated explicitly; see red box.
+
+== Contributors ==
+* Thomas Schmorleiz

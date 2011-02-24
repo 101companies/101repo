@@ -1,0 +1,62 @@
+module company
+
+imports
+  libstratego-lib
+  libstratego-gpp
+  libstratego-aterm
+  include/Company
+  lib/editor-common.generated
+  check
+  generate
+  
+
+rules // Main editor interface (defined by editor/Company-Builders and -References.esv)
+ 
+  
+  // Analyzes the current program, returning a tuple with errors, warnings, and notes;
+  // each a list of (term, message) tuples or simply (message) terms.
+  editor-analyze:
+    (ast, path, project-path) -> (ast, errors, warnings , notes)
+    with
+      editor-init;
+      analyzeDept;
+      analyzeEmployee;
+      errors   := <collect-all(constraint-error, conc)> ast;
+      warnings := [];
+      notes    := <collect-all(constraint-note, conc)> ast
+  
+  generate-aterm:
+    (selected, position, ast, path, project-path) -> (filename, result)
+    with
+      filename := <guarantee-extension(|"aterm")> path;
+      result   := selected // we just return the input term    
+  
+// Inline transformation
+  cutCompanyAST:
+    (selected, position, ast, path, project-path) -> (filename, txt)
+    with
+      filename := "test/exampleCut.com";
+      txt := <pp-company-string> (<cutCompany> ast)
+  
+  cutCompany:
+    t -> <topdown(try(cutEmployee))> t
+  
+  cutSalary:
+  	s -> <real-to-string> (<div2> (<string-to-real> s)) 
+  	   
+  cutEmployee:	
+  	Employee(n, a, s) -> Employee(n, a, <cutSalary> s) 
+ 
+ /**
+  * Replaces a textfragment in the file being edited and
+  * returns the new content
+  * @type:
+  * (AstNode, (start-offset, end-offset), String)  -> String
+  */
+  apply-text-change= prim("SSL_EXT_text_change",<Fst>, <Snd>, <Third>)
+
+ /*
+  * Returns the offset of the node in the source file
+  * AstNode -> (Int, Int)
+  */
+  origin-offset= prim("SSL_EXT_origin_offset", <id>)

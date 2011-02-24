@@ -1,0 +1,6 @@
+We make use of the Ruby Development Tools plug-in for Eclipse:
+http://www.ibm.com/developerworks/opensource/library/os-rubyeclipse/
+
+We use a simple object model for companies.
+These are plain ruby objects plus instance methods for some of the scenarios.
+See the tests package for test cases.

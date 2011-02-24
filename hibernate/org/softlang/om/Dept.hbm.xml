@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="org.softlang.om.Dept" table="DEPT">
+		<id name="id" column="DEPT_ID">
+			<generator class="native" />
+		</id>
+
+		<property name="name" />
+
+		<many-to-one name="manager" column="MANAGER_ID"
+			class="org.softlang.om.Employee" />
+
+		<set name="employees" cascade="all">
+			<key column="DEPT_ID" />
+			<one-to-many class="org.softlang.om.Employee" />
+		</set>
+
+		<set name="subDepartments" cascade="all">
+			<key column="UPPER_DEPT_ID" />
+			<one-to-many class="org.softlang.om.Dept" />
+		</set>
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+module init
+ 
+import data
+ 
+function initialData(){
+  //resetDatabase(); 					// ADDED
+  var mega = Company(name="meganalysis");
+  var res = Department(name="Research");
+  res.manager = Employee(name="Craig", address="Redmond", salary=123456);
+  res.employees.add(Employee(name="Erik", address="Utrecht", salary=12345));
+  res.employees.add(Employee(name="Ralf", address="Koblenz", salary=1234));
+  mega.departments.add(res);
+
+  var dev = Department(name="Development");
+  dev.manager = Employee(name="Ray", address="Redmond", salary=234567);
+  var dev1 = Department(name="Dev1");
+  dev1.manager = Employee(name="Klaus", address="Boston", salary=23456);
+  
+  var dev11 = Department(name="Dev1.1"); 
+  dev11.manager = Employee(name="Karl", address="Riga", salary=2345);
+  dev11.employees.add(Employee(name="Joe", address="Wifi city", salary=2344));
+  dev1.departments.add(dev11);
+  dev.departments.add(dev1);
+
+  mega.departments.add(dev);
+  add(mega);
+}

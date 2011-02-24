@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:com="http://www.company.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="com" ecore:package="company" targetNamespace="http://www.company.com">
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
+  <xsd:element ecore:ignore="true" name="Company" type="com:Company"/>
+  <xsd:element ecore:ignore="true" name="Dept" type="com:Dept"/>
+  <xsd:element ecore:ignore="true" name="Employee" type="com:Employee"/>
+  <xsd:element ecore:ignore="true" name="Person" type="com:Person"/>
+  <xsd:element ecore:ignore="true" name="Subunit" type="com:Subunit"/>
+  <xsd:complexType name="Company">
+    <xsd:sequence>
+      <xsd:element ecore:ordered="false" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="depts" type="com:Dept"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Dept">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" name="manager" type="com:Employee"/>
+      <xsd:element ecore:ordered="false" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="subunits" type="com:Subunit"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="ecore:EString" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Employee">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" name="person" type="com:Person"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:unsettable="false" name="salary" type="ecore:EDouble"/>
+    <xsd:attribute ecore:reference="com:Employee" name="mentor" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType name="Person">
+    <xsd:attribute name="name" type="ecore:EString" use="required"/>
+    <xsd:attribute name="address" type="ecore:EString" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Subunit">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="pu" type="com:Employee"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="du" type="com:Dept"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

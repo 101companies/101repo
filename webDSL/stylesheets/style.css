@@ -1,0 +1,163 @@
+body {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	font-family: century gothic;
+}
+
+.headline {
+	background-color: #708090;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	font-size: 30px;
+	margin-bottom: 20px;
+	width: 450px;
+	padding: 18px 0px 18px 0px;
+	border: solid #121333 3px;
+	-moz-border-radius-bottomleft: 9px;
+	-moz-border-radius-bottomright: 9px;
+	-moz-border-radius-topleft: 9px;
+	-moz-border-radius-topright: 9px;
+	border-radius: 9px 9px 9px 9px;
+}
+
+.content {
+	background-color: #708090;
+	text-align: center;
+	min-height: 500px;
+	width: 450px;
+	border: solid #121333 3px;
+	-moz-border-radius-bottomleft: 9px;
+	-moz-border-radius-bottomright: 9px;
+	-moz-border-radius-topleft: 9px;
+	-moz-border-radius-topright: 9px;
+	border-radius: 9px 9px 9px 9px;
+}
+
+.back {
+	margin-left: 25px;
+	margin-right: auto;
+	margin-top: 5px;
+	padding-bottom: 0px;
+	width: 400px;
+	height: 30px;
+	text-align: left;
+}
+
+.viewTitle {
+	width: 400px;
+	font-weight: bold;
+	color: white;
+	margin-top: 0px;
+	font-size: 22px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 0px;
+	padding-bottom: 10px;
+	border: solid #121333;
+	border-width: 0px 0px 4px 0px;
+}
+
+.viewTitleC {
+	width: 400px;
+	font-weight: bold;
+	color: white;
+	font-size: 22px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 35px;
+	padding-bottom: 10px;
+	border: solid #121333;
+	border-width: 0px 0px 4px 0px;
+}
+
+.infoComp {
+	color: #121333;
+	font-weight: bold;
+	padding-top: 20px;
+	text-align: left;
+	padding-bottom: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid #121333;
+	border-width: 0px 0px 2px 0px;
+	width: 400px;
+}
+
+.listE {
+	text-align: center;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.listE input[type=button] {
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	margin-top: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #454666;
+	border-width: 1px;
+	border-style: solid;
+	border-color: white #121333 #121333 white;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.listE input[type=button]:HOVER {
+	background-color: #121333;
+}
+
+
+.empInfo {
+	font-weight: bold;
+	padding-top: 20px;
+	text-align: left;
+	padding-bottom: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+}
+
+.empInfoText {
+	float: left;
+	color: #121333;
+	text-align: left;
+	margin-left: 30px;
+	margin-top: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	width: 100px;
+}
+
+.empInfoValue {
+	float: left;
+	color: silver;
+	text-align: left;
+	margin-top: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	width: 200px;
+}
+
+.tac {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	margin-top: 5px;
+	color: #121333;
+}

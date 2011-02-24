@@ -1,0 +1,5 @@
+We use DOM for XML processing.
+We exercise some scenarios for companies.
+We compute the total for companies.
+We cut the salaries in half. 
+See the Tests class for JUnit test cases.

@@ -1,0 +1,58 @@
+module scenarios
+
+import data
+
+// Total all salaries in a company
+// Interpretation: all salaries known to man
+function total() : Num {
+  var sum = 0;
+  foreach(e in Employee.all()) {
+    sum = sum + e.salary;
+  } 
+  return sum;
+}
+
+function totalDept(dept : Department) : Num {
+  var sum = dept.manager.salary;
+  foreach(employee in dept.employees) {
+    sum = sum + employee.salary;
+  }
+  foreach(dept in dept.departments) {
+    sum = sum + totalDept(dept);
+  }
+  return sum;
+}
+
+// Cut all salaries in half
+function cut() {
+  foreach(e in Employee.all()) {
+    e.salary = e.salary / 2; 
+  }
+}
+
+function cutDept(d : Department) {
+	d.manager.salary = d.manager.salary / 2;
+	foreach(subDept in d.departments){
+		cutDept(subDept);	
+	} 
+	foreach(employee in d.employees){
+		employee.salary = employee.salary / 2;
+	} 
+}
+
+function depthDept(d : Department) : Num {
+  var max = 0;
+  foreach(dept in d.departments) {
+    max = Math.max(depthDept(dept), max);
+  }
+  return max + 1;
+}
+
+// depth: Determine depth of department nesting
+function depth(c : Company) : Num {
+  var max = 0;
+  foreach(dept in c.departments) {
+    max = Math.max(depthDept(dept), max);
+  }
+  return max + 1;
+}

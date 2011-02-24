@@ -1,0 +1,32 @@
+== Summary == 
+The present project provides a simple implementation of 101companies in Clojure. 
+
+== Description ==
+
+We define the company's hierarchical structure by making use of clojure's defrecord.
+defrecord will generate compiled class bytecode for companies, departments and employees. Each class with a set of the given fields. 
+
+There are two scenarios: Cutting and summing up salaries in a company.
+We also provide a sample company (meganalysis).   
+
+=== Architecture of the project ===
+ 
+In company.clj we make use of clojure's defrecord to define the companies structure.
+scenarios.clj provides functionality to cut and total salaries.
+A sample company can be found in meganalysis.clj
+
+== Requirements ==
+
+We make use of CounterClockwise: http://code.google.com/p/counterclockwise/ 
+Update Site:
+http://updatesite.counterclockwise.googlecode.com/hg/
+
+== Demo ==
+
+To run a demo:
+* Open meganalysis.clj
+* Hit "run"
+* Type "(totalCompany meganalysis)" or "(totalCompany (cutCompany meganalysis))" to cut and total the sample company's salaries.
+
+== Contributors ==
+* Thomas Schmorleiz

@@ -1,0 +1,9 @@
+We use Jena for RDF processing.
+Jena is a Java framework for building Semantic Web applications.
+http://jena.sourceforge.net/downloads.html
+We exercise some company scenarios.
+The present project leverages Jena's query engine for ARQ (SPARQL).
+See project "jena" for illustrations of Jena's based RDF API. 
+The present project depends on "jena".
+
+See the Tests class for JUnit test cases.

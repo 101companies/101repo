@@ -1,0 +1,19 @@
+
+{
+  "name": "companies",
+  "version": "1",
+  "app": {
+    "launch": {
+      "local_path": "companies.html"
+    }
+  },
+  "icons": {
+    "24": "img/default-icon.png",
+    "128": "img/default-icon.png"
+  },
+  "permissions": [
+    "unlimited_storage",
+    "geolocation",
+    "notifications"
+  ]
+}

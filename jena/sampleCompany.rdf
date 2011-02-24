@@ -1,0 +1,126 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://www.company.com/ns#" > 
+  <rdf:Description rdf:nodeID="A0">
+    <j.0:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Koblenz</j.0:address>
+    <j.0:pName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ralf</j.0:pName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <rdf:_1 rdf:resource="http://www.company.com/ns#joe"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#research">
+    <j.0:depts rdf:nodeID="A2"/>
+    <j.0:employees rdf:nodeID="A3"/>
+    <j.0:manager rdf:resource="http://www.company.com/ns#craig"/>
+    <j.0:dName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Research</j.0:dName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#ray">
+    <j.0:person rdf:nodeID="A4"/>
+    <j.0:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#double">234567.0</j.0:salary>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#Dev1">
+    <j.0:depts rdf:nodeID="A5"/>
+    <j.0:employees rdf:nodeID="A6"/>
+    <j.0:manager rdf:resource="http://www.company.com/ns#klaus"/>
+    <j.0:dName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev1</j.0:dName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <rdf:_2 rdf:resource="http://www.company.com/ns#ralf"/>
+    <rdf:_1 rdf:resource="http://www.company.com/ns#erik"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <rdf:_2 rdf:resource="http://www.company.com/ns#development"/>
+    <rdf:_1 rdf:resource="http://www.company.com/ns#research"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <rdf:_1 rdf:resource="http://www.company.com/ns#Dev1.1"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <j.0:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boston</j.0:address>
+    <j.0:pName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Klaus</j.0:pName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#klaus">
+    <j.0:mentor rdf:resource="http://www.company.com/ns#ray"/>
+    <j.0:person rdf:nodeID="A8"/>
+    <j.0:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23456.0</j.0:salary>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#karl">
+    <j.0:mentor rdf:resource="http://www.company.com/ns#klaus"/>
+    <j.0:person rdf:nodeID="A9"/>
+    <j.0:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2345.0</j.0:salary>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <j.0:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redmond</j.0:address>
+    <j.0:pName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ray</j.0:pName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#development">
+    <j.0:depts rdf:nodeID="A10"/>
+    <j.0:employees rdf:nodeID="A11"/>
+    <j.0:manager rdf:resource="http://www.company.com/ns#ray"/>
+    <j.0:dName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Development</j.0:dName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#Dev1.1">
+    <j.0:depts rdf:nodeID="A12"/>
+    <j.0:employees rdf:nodeID="A1"/>
+    <j.0:manager rdf:resource="http://www.company.com/ns#karl"/>
+    <j.0:dName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev1.1</j.0:dName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#ralf">
+    <j.0:mentor rdf:resource="http://www.company.com/ns#erik"/>
+    <j.0:person rdf:nodeID="A0"/>
+    <j.0:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1234.0</j.0:salary>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#joe">
+    <j.0:mentor rdf:resource="http://www.company.com/ns#karl"/>
+    <j.0:person rdf:nodeID="A13"/>
+    <j.0:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2344.0</j.0:salary>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <j.0:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Utrecht</j.0:address>
+    <j.0:pName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Erik</j.0:pName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <j.0:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redmond</j.0:address>
+    <j.0:pName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Craig</j.0:pName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <j.0:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Riga</j.0:address>
+    <j.0:pName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Karl</j.0:pName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <j.0:address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wifi City</j.0:address>
+    <j.0:pName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Joe</j.0:pName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#erik">
+    <j.0:mentor rdf:resource="http://www.company.com/ns#craig"/>
+    <j.0:person rdf:nodeID="A14"/>
+    <j.0:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12345.0</j.0:salary>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <rdf:_1 rdf:resource="http://www.company.com/ns#Dev1"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.company.com/ns#craig">
+    <j.0:person rdf:nodeID="A15"/>
+    <j.0:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#double">123456.0</j.0:salary>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <j.0:depts rdf:nodeID="A7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,17 @@
+We use JDBC/SQL for data processing.
+We exercise some company scenarios.
+That is, we use embedded SQL in Java.
+
+See the Tests class for test cases.
+
+Prerequisites:
+
+- A suitable company database.
+  Please use project "sql" to set up the company database.
+  That is, we assume that you have an initial database image.
+  Tests will only succeed for an *initial* database image.
+  Corollary: tests will succeed at most once.
+
+- A suitable JDBC Driver for MySQL:
+  An appropriate driver is available through the project "library".
+  See the corresponding JAR in the build path of the present project. 

@@ -1,0 +1,27 @@
+This is a sophistication of project "jdbc".
+Please make sure you understand "jdbc" first.
+Both projects also rely on project "sql"; see README in project "jdbc".
+
+We experiment with a naive O/R mapping for companies.
+We exercise some company scenarios with the resulting object model.
+In the implementation of the O/R mapping, we use JDBC.
+
+The package org.softlang.company contains the object model.
+The ObjectFactory is used to retrieve objects from the database.
+The PersistenceTool writes objects back to the database.
+Some minimal effort is made to only commit *changes* to the database.
+
+See the tests package for test cases.
+
+Prerequisites (very much like in project "jdbc"):
+
+- A suitable company database.
+  Please use project "sql" to set up the company database.
+  That is, we assume that you have an initial database image.
+  Scenario tests will only succeed for an *initial* database image.
+  Corollary: tests will succeed at most once.
+  The test class Persistence should succeed for any database image.
+
+- A suitable JDBC Driver for MySQL:
+  An appropriate driver is available through the project "library".
+  See the corresponding JAR in the build path of the present project. 

@@ -1,0 +1,24 @@
+We use SQL for data processing.
+We exercise some company scenarios.
+This project is entirely SQL/scripting-based.
+
+We need a local database Server.
+In the following we explain the steps for XAMPP.  
+
+XAMPP download location: 
+http://www.apachefriends.org/en/xampp.html
+
+ - Download and install XAMPP. 
+ - Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
+ - A local MySQL Server is now running.
+ 	> Server Host : "localhost"
+ 	> Port : 3306
+ 	> Username : "root"
+ 	> Password : "" (no password)
+ - Start admin in browser.
+ - Create database company. 
+ - Create tables (run SQL script Company.sql)
+ - Populate tables (run SQL script sampleCompany.sql)
+ - Execute scenario total (run SQL script Total.sql)
+ - Execute scenario cut (run SQL script Cut.sql)
+ - Execute scenario total, again (run SQL script Total.sql)

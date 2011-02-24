@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="Company">
+    <eClassifiers xsi:type="ecore:EClass" name="Company">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="depts" ordered="false"
+          upperBound="-1" eType="#/0/Dept" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Subunit" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Dept" eSuperTypes="#/0/Subunit">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          unique="false" lowerBound="1" eType="#/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="manager" ordered="false"
+          lowerBound="1" eType="#/0/Employee" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subunits" ordered="false"
+          upperBound="-1" eType="#/0/Subunit" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Employee" eSuperTypes="#/0/Subunit">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary" ordered="false"
+          unique="false" lowerBound="1" eType="#/1/Double"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="person" ordered="false"
+          lowerBound="1" eType="#/0/Person" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Person">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          unique="false" lowerBound="1" eType="#/1/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" ordered="false"
+          unique="false" lowerBound="1" eType="#/1/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Double"/>
+  </ecore:EPackage>
+</xmi:XMI>

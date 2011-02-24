@@ -1,0 +1,15 @@
+<project name="clean-project" default="clean-project">
+	<target name="clean-project">
+		<delete dir="${basedir}/.webdsl-parsecache" />
+		<delete dir="${basedir}/.cache" />
+		<delete dir="${basedir}/.servletapp" />
+		<delete dir="${basedir}/.webdsl-fragment-cache" />
+		<delete file="${basedir}/.dependencies.webdsl" />
+		<delete includeemptydirs="true">
+			<fileset dir="${basedir}/WebContent" includes="**/*"/>
+		</delete>
+		<echo file=".saved-but-not-built"/>
+		<eclipse.convertPath fileSystemPath="${basedir}" property="resourcePath" />
+		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite" />
+	</target>
+</project>

@@ -1,0 +1,20 @@
+module Company-Completions
+
+imports Company-Completions.generated
+
+completions
+                                                                   
+  // This file is used to define content completion.               
+  //                                                               
+  // See the imported file for a brief introduction and examples.  
+                                                                   
+
+completions
+                                         
+  // Syntax completion:                  
+  completion template                  : "module " <m> (blank)
+  completion template                  : "entity " <e> " {}" (blank)
+                                         
+  // Semantic (identifier) completion:   
+  completion proposer                  : editor-complete
+  completion trigger                   : ":"

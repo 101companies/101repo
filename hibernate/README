@@ -1,0 +1,114 @@
+###############################################################
+
+The scenarios are concerned with the "company" data structure.
+That is, there are hierarchically organized departments.
+There are managers and other employees.
+Those have names and they receive a salary.
+
+We persist company objects by making use of hibernate.
+
+It is a bit tricky to reproduce the demo.
+This is because we rely on the state of the persistence component.
+So please follow the instructions given below.
+
+###############################################################
+
+Prerequisites
+- Tested with Java 6 SDK
+- Tested and saved with Eclipse 3.5
+
+###############################################################
+
+Requirements
+- The hsqldb distribution and a minimal set of Hibernate .jar's (see library Project @ Sourceforge: 
+  http://developers.svn.sourceforge.net/svnroot/developers/repository/101companies/code/library/hibernate)
+
+###############################################################
+
+Content of distribution
+- Classes with functionality to cut and total salaries (see package org.softlang.or).
+- Makefile with *optional* conveniences.
+
+###############################################################
+
+Steps of a typical demo
+
+1. Make sure you start from an initial distribution.
+
+2. Build the project with Eclipse.
+
+(The following steps are explained in detail below.)
+
+3. Start the HSQL database server.
+
+4. Run org/softlang/Main.java to create tables.
+
+5. Run the database monitor and populate the tables with scripts/PopulateTables.
+
+6. Patch hibernate.cfg.xml to disable "drop and re-recreate".
+
+7. Run org/softlang/Main.java again.
+
+
+###############################################################
+
+How to start the database server?
+
+Start it from the command line.
+It is a Java program.
+Go to the data dir of the distribution.
+Run the following command:
+> java -classpath ../../library/hibernate/hsqldb.jar org.hsqldb.Server 
+You can also send it to the background if you like.
+
+You can also go to the root dir and run a "make start-db".
+
+###############################################################
+
+How to run org/softlang/main.java?
+
+1. Comment out lines 13-31 
+2. Run to create new tables.
+3. Undo step 1
+
+
+###############################################################
+
+How and why to start the database monitor?
+
+Start it from the command line.
+It is a Java program.
+Run the following command:
+> java -classpath ../library/hibernate/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
+You can also send it to the background if you like.
+
+You can also go to the root dir and run a "make start-gui".
+
+When the GUI pops up, make sure to select "HSQL Database Engine Server".
+If you had performed Main already, you see the tables of the app.
+
+Populate these tables:
+- Open scripts/PopulateTables (File -> Open Script)
+- Press "Execute SQL"
+
+Try an SQL command such as SELECT * FROM EMPLOYEE;
+You can see the row count; -> View; -> Show Row Counts.
+You can shut down the server from here; see menu Command.
+
+###############################################################
+
+How and why to patch hibernate.cfg.xml?
+
+You can edit that XML file in Eclipse.
+It is the configuration that is used for Hibernate for persistency.
+Upon the first use the EventManager the database must be initialized.
+Hence it says:
+<property name="hbm2ddl.auto">create</property>
+Subsequently, we want to keep all data.
+Hence the line should be commented out.
+<!-- <property name="hbm2ddl.auto">create</property> -->
+
+###############################################################
+
+Run org/softlang/Main.java again. It will demonstrate the use of Cut and Total.
+

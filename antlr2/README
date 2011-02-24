@@ -1,0 +1,8 @@
+We define both concrete and abstract syntax for companies.
+We use ANTLR to execute that syntax in a parser-like manner.
+
+See the Tests class for test cases.
+The test case(s) simply prints the AST.
+We use ANTLR's generic tree format to represent ASTs.
+
+See project "antlr" for general instructions on ANTLR usage.

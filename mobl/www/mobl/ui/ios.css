@@ -1,0 +1,463 @@
+body {
+  background-color: #ddd;
+  color: #222;
+  font-family: Helvetica;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  /*overflow: hidden;*/
+  -webkit-user-select: none;
+  -webkit-text-size-adjust: none;
+  background: rgb(197, 204, 211) url(ios/stripes.png);
+  /*height: 640px;*/
+}
+
+div#scrollwrapper {
+  position: relative; /* needed */
+  z-index: 1; /* needed and important */
+  width: 100%;
+  height: 250px; /* needed */
+  overflow: hidden; /* suggested */
+}
+
+div#scroller {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  margin: 0 5px 0 5px;
+}
+
+div.text-content {
+  background-color: #FFFFFF;
+  border: 1px solid #999999;
+  color: #222222;
+  display: block;
+  padding: 12px 10px;
+  text-decoration: none;
+  margin: 10px 10px 10px 10px;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  -moz-border-radius-bottomright: 8px;
+}
+
+.checkbox {
+  margin: 0 7px 0 3px;
+  vertical-align: top;
+}
+
+h2 {
+  font-size: 1.1em;
+  text-align: center;
+  padding: 0;
+  color: #303030;
+}
+
+div.header {
+  margin: 0;
+  padding: 8px;
+  line-height: 28px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+  text-overflow: ellipsis;
+  color: #FFFFFF;
+  background: url(ios/iPhoneToolbar.png) #6d84a2 repeat-x;
+  border-bottom: 1px solid #2d3642;
+  height: 28px;
+}
+
+div.headerContainer {
+  width: 150px;
+  position: absolute;
+  left: 50%;
+}
+
+div.headerText {
+  position: absolute;
+  left: -75px;
+  width: 150px;
+  /*white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;*/
+}
+
+div.header span.button {
+  float: right;
+  -webkit-border-image: url(ios/iPhoneButton.png) 0 5 0 5;
+  -webkit-border-radius: 0;
+  -moz-border-image: url(ios/iPhoneButton.png) 0 5 0 5;
+  -moz-border-radius: 0;
+  border-width: 0 5px 0 5px;
+  margin: 0;
+  padding: 0;
+  height: 28px;
+  line-height: 28px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+  background: inherit;
+}
+
+#footer {
+  box-sizing: border-box;
+  margin: 0;
+  text-overflow: ellipsis;
+  color: #FFFFFF;
+  /*height: 40px;*/
+  background: url(ios/iPhoneToolbar.png) #6d84a2 repeat-x;
+}
+
+img.toolbarButton {
+  padding: 5px 0 5px 10px;
+}
+
+.backButton {
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  -webkit-border-image: url(ios/iPhoneBackButton.png) 0 8 0 14;
+  -moz-border-image: url(ios/iPhoneBackButton.png) 0 8 0 14;
+  border-width: 0 8px 0 14px;
+  line-height: 28px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+  text-decoration: none;
+  background: none;
+}
+
+a.whiteButton {
+  display: block;
+  margin: 10px;
+  /*width: 250px; /* if no width was set, the button would
+     expand to the width of its parent */
+  text-align: center;
+  line-height: 46px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+  text-shadow: #fff 0px 1px 1px;
+  border-width: 0 14px;
+  -webkit-border-image: url(ios/whiteButton.png) 0 14 0 14;
+  -moz-border-image: url(ios/whiteButton.png) 0 14 0 14;
+}
+
+span.button {
+  display: block;
+  margin: 10px;
+  /*width: 250px; /* if no width was set, the button would
+     expand to the width of its parent */
+  text-align: center;
+  line-height: 46px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: #000 0 1px 0;
+  border-width: 0 14px;
+  -webkit-border-image: url(ios/redButton.png) 0 14 0 14;
+  -moz-border-image: url(ios/redButton.png) 0 14 0 14;
+}
+
+div.screen ul {
+  list-style: none;
+  margin: 10px;
+  padding: 0;
+}
+
+span.inputLabel {
+  color: #999999;
+  font-size: 12px;
+  display: inline-block;
+  width: 60px;
+  position: relative;
+  top: -2px;
+}
+
+div.screen ul li {
+  background-color: #FFFFFF;
+  border: 1px solid #999999;
+  color: #222222;
+  display: block;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: -1px;
+  padding: 12px 10px;
+  text-decoration: none;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+div.screen ul li.arrow {
+  background-image: url(ios/chevron.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+div.screen ul li:first-child {
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+}
+
+div.screen ul li:last-child {
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  -moz-border-radius-bottomright: 8px;
+}
+
+div.screen input[type=text] {
+  -webkit-text-size-adjust: 140%;
+  -moz-text-size-adjust: 140%;
+  color: #555;
+  background: #fff url(../.png);
+  border: 0;
+  font: normal 17px Helvetica;
+  padding: 0;
+  display: inline-block;
+  margin-left: 0px;
+  width: 100%;
+  -webkit-appearance: textarea;
+}
+
+div.screen input[type=text].labelled {
+  position: relative;
+  width: 210px;
+}
+
+div.screen textarea {
+  -webkit-text-size-adjust: 140%;
+  -moz-text-size-adjust: 140%;
+  color: #555;
+  background: #fff url(../.png);
+  border: 0;
+  font: normal 17px Helvetica;
+  padding: 0;
+  display: inline-block;
+  margin-left: 0px;
+  width: 100%;
+  height: 5em;
+  -webkit-appearance: textarea;
+}
+
+input[type=password] {
+  -webkit-text-size-adjust: 140%;
+  -moz-text-size-adjust: 140%;
+  color: #555;
+  background: #fff url(../.png);
+  border: 0;
+  font: normal 17px Helvetica;
+  padding: 0;
+  display: inline-block;
+  margin-left: 0px;
+  width: 100%;
+  -webkit-appearance: textarea;
+}
+
+div#optionpanel {
+  display: none;
+  background: url(ios/blackbg.png) top left repeat-x;
+  text-align: center;
+  padding: 20px 10px 15px 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+div#tabbar {
+  background: url(ios/tabbg.png) top left repeat-x;
+  text-align: center;
+  height: 48px;
+  /*position: absolute;
+     left: 0;
+     right: 0;
+     bottom: 0;*/
+  z-index: 3;
+}
+
+div#tabbar div {
+  float: left;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 10px;
+  color: #c0c0c0;
+  -webkit-border-image: url(ios/empty.png) 0 5 0 5;
+  -moz-border-image: url(ios/empty.png) 0 5 0 5;
+  width: 50px;
+}
+
+div.inActiveTab {
+  display: none;
+}
+
+div#tabbar div.activeTabButton {
+  -webkit-border-image: url(ios/selectedtabbg.png) 0 5 0 5;
+  -moz-border-image: url(ios/selectedtabbg.png) 0 5 0 5;
+}
+
+div#optionpanel h2 {
+  font-size: 17px;
+  color: #fff;
+  text-shadow: #000 0 1px 0;
+}
+
+.view {
+  display: none;
+}
+
+span.sideButton {
+  position: absolute;
+  right: 25px;
+  margin-top: -3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  /*z-index: 3;*/
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  -webkit-border-image: url(ios/redButton.png) 0 12 0 12;
+  -moz-border-image: url(ios/redButton.png) 0 12 0 12;
+  color: #fff;
+  text-shadow: #7a0001 0 -1px 0;
+}
+
+div.contextMenu {
+  position: absolute;
+}
+
+div.contextMenu span.button {
+  position: absolute;
+  right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 10px;
+  margin-right: 0;
+  /*z-index: 3;*/
+  color: #fff;
+  height: 20px;
+  line-height: 20px;
+  text-decoration: none;
+  font-size: 12px;
+  -webkit-border-image: url(ios/redButton.png) 0 12 0 12;
+  -moz-border-image: url(ios/redButton.png) 0 12 0 12;
+  color: #fff;
+  text-shadow: #7a0001 0 -1px 0;
+}
+
+div.datepicker {
+  background: white;
+  padding: 6px 6px 6px 26px;
+  background-image: url(ios/calendar.gif);
+  background-repeat: no-repeat;
+  background-position: 5px 6px;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  -moz-border-radius-bottomright: 8px;
+}
+
+/* iPad pop-over */
+div.iPadSomething {
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-image:
+    url(http://developer.apple.com/iphone/library/iPad/images/popover_border.png)
+    6 6 6 6 stretch stretch;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.496094) 0px 0px 40px;
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 18);
+  display: block;
+  height: 600px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 320px;
+}
+
+table {
+  padding: 8px 10px 8px 10px;
+  width: 100%;
+  border-spacing: 0;
+}
+
+td {
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background: #eeeeee
+}
+
+tr:nth-child(odd) {
+  background: #ffffff
+}
+
+tbody tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+}
+
+tbody tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+}
+
+tbody tr:last-child td:first-child {
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+}
+
+tbody tr:last-child td:last-child {
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+}
+
+div.searchbox {
+  background-color: #FFFFFF;
+  margin: 0;
+  border: 1px solid #999999;
+  color: #222222;
+  padding: 10px 6px;
+  border-width: 0 30px 0 30px;
+  -webkit-border-image: url(ios/search.png) 0 30 0 30;
+  -moz-border-image: url(ios/search.png) 0 30 0 30;
+  height: 23px;
+}
+
+div.searchbox>input[type=text] {
+  color: #555;
+  background: #fff url(../.png);
+  border: 0;
+  font: normal 12px Helvetica;
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+}

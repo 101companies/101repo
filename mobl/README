@@ -1,0 +1,26 @@
+== Summary ==
+Implementation of 101 companies in mobl (http://mobl-lang.org). 
+
+== Description == 
+
+Implements:
+* Data model (plus sample data)
+* Total, cut and depth scenarios
+
+=== Architecture of the project ===
+
+Main file is "companies.mobl"
+"data.mobl" holds the company model, while "init.mobl" cotains functionality to fill the database 
+with meganalysis (as an model instance).
+
+== Requirements ==
+Requires the mobl Eclipse plug-in to be installed (from the update site: http://mobl-lang.org/update).
+
+== Demo ==
+
+To demo execute "java -jar fileserver.jar 8080 www" in the project's directory and 
+open http://localhost:8080/companies.html in your browser.
+
+== Contributors ==
+* Zef Hemel 
+* Thomas Schmorleiz

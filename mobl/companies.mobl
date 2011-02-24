@@ -1,0 +1,82 @@
+application companies
+
+
+import init
+import data 
+import scenarios
+import mobl::ui::generic
+
+
+screen root() {
+	header("101 companies") {
+    	button("Initialize Application" , onclick={
+      		resetDatabase();	
+      		initialData();
+      		reload(); 
+    	})
+	}
+  	group {
+
+    	list (company in Company.all() order by name asc){
+    		html("<h3>Start here:</h3>")
+    		item(onclick={viewCompany(company); }) {label(company.name)}
+    	}
+  	}  
+} 
+
+screen viewCompany(c : Company) {
+	header(c.name) { 
+    	button("Cut", onclick={{cut(); viewCompany(c);}})
+  	}
+  	group {
+  		item() {html("<b>Total = " + total() + "</b>" + " / " + "<b>Depth = " + depth(c) + "</b>")}
+  	}
+  	group {
+  		html("<h4>Top Departments:</h4>")
+    	list (deptartment in c.departments order by name asc){
+    		item(onclick={ viewDepartment(deptartment);}) {label("- " + deptartment.name)}
+    	}
+  	}
+}
+
+screen viewDepartment(d : Department){
+	header(d.name) {
+		backButton()
+  		button("Cut", onclick={{cutDept(d); viewDepartment(d);}})
+
+	}
+	group {
+    	item() {html("<b>Total = " + totalDept(d) + "</b>" + " / " + "<b>Depth = " + depthDept(d) + "</b>")}
+  	}
+  	group {
+  		html("<h4>Manager:</h4>")
+  		item(onclick={viewEmployee(d.manager);}) {label("- " + d.manager.name)}	
+  	}
+  	group {
+  		html("<h4>Sub Deparments:</h4> ")
+  		list (subDept in d.departments order by name asc){
+  			item(onclick={ viewDepartment(subDept);}) {label("- " + subDept.name)}
+  		}
+  	}
+  	group {
+  		html("<h4>Employees:</h4>")
+  		list (employee in d.employees order by name asc){
+  			item(onclick={ viewEmployee(employee);}) {label("- " + employee.name)}
+  		}
+  	}
+ }
+ 
+screen viewEmployee(e : Employee) {
+	header(e.name){ 
+ 		backButton()		
+ 	}
+ 	group {
+ 		html("<h4>Name:</h4>")
+ 		item() {label(e.name)}
+ 		html("<h4>Address:</h4>")
+ 		item() {label(e.address)}
+ 		html("<h4>Salary:</h4>")
+ 		item() {label(e.salary)}
+ 	}
+ 	
+ }

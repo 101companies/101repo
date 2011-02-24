@@ -1,0 +1,22 @@
+module data
+
+entity Company {
+  name : String 
+  departments : Collection<Department> (inverse: company)
+}
+
+entity Department {
+  company   : Company (inverse: departments)
+  name      : String
+  manager   : Employee
+  employees : Collection<Employee> (inverse: department)
+  parentDept  : Department (inverse: departments)
+  departments : Collection<Department> (inverse: parentDept)
+}
+
+entity Employee {
+  department : Department (inverse: employees)
+  name       : String
+  address    : String
+  salary     : Num 
+}

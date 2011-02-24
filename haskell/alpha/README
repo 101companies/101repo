@@ -1,0 +1,6 @@
+We implement some "company" scenarios in Haskell.
+There is a function "total" to total all salaries in a company.
+There is a function "cut" to cut all salaries in half.
+We use plain Haskell 98 style.
+See the Makefile for running the tests.
+The code has been tested with GHC 6.10.

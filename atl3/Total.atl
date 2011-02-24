@@ -1,0 +1,16 @@
+-- @path Company=/atl3/Company.ecore
+-- @path Total=/atl3/Total.ecore
+
+module Total;
+
+create OUT: Total from IN: Company;
+
+
+rule Company2Total {
+	from
+	 company : Company!Company 
+	to 
+	 t : Total!TotalWrapper (
+	   	total <- Company!Employee.allInstances() -> collect(e | e.salary) -> sum()			
+	 )
+}

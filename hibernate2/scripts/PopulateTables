@@ -1,0 +1,41 @@
+INSERT INTO person VALUES (1, 'Craig', 'Redmond');   		
+INSERT INTO person VALUES (2, 'Erik', 'Utrecht');    		
+INSERT INTO person VALUES (3, 'Ralf', 'Koblenz');    		
+INSERT INTO person VALUES (4, 'Ray', 'Redmond');     		
+INSERT INTO person VALUES (5, 'Klaus', 'Boston');    		
+INSERT INTO person VALUES (6, 'Karl', 'Riga');       		
+INSERT INTO person VALUES (7, 'Joe', 'Wifi City');   		
+
+
+INSERT INTO employee VALUES (1, 1, 123456);		  	
+INSERT INTO employee VALUES (2, 2, 12345);		  		
+INSERT INTO employee VALUES (3, 3, 1234);		  		
+INSERT INTO employee VALUES (4, 4, 234567);		  	
+INSERT INTO employee VALUES (5, 5, 23456);		  		
+INSERT INTO employee VALUES (6, 6, 2345);		  		
+INSERT INTO employee VALUES (7, 7, 2344);		  		
+
+INSERT INTO subunit VALUES (1, 2, NULL);						  	
+INSERT INTO subunit VALUES (2, 3, NULL);						  	
+
+INSERT INTO dept VALUES(1, 'Research', 1);          		
+INSERT INTO dept_subunit VALUES (1, 1);
+INSERT INTO dept_subunit VALUES (1, 2);
+ 
+INSERT INTO subunit VALUES (3, 7, NULL);
+
+INSERT INTO dept VALUES (2, 'Dev1.1', 6);
+
+INSERT INTO dept_subunit VALUES (2, 3);
+
+INSERT INTO subunit VALUES (4, NULL, 2);							 
+
+INSERT INTO dept VALUES (3, 'Dev1', 5);			  
+
+INSERT INTO dept_subunit VALUES (3, 4);
+
+INSERT INTO subunit VALUES (5, NULL, 3);							
+
+INSERT INTO dept VALUES (4,'Development',4);		  	
+  
+INSERT INTO dept_subunit VALUES (4,5);

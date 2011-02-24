@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="org.softlang.om.Employee" table="EMPLOYEE">
+		<id name="id" column="EMPLOYEE_ID">
+			<generator class="native" />
+		</id>
+
+		<property name="name" />
+
+		<property name="address" />
+
+		<property name="salary" />
+
+	</class>
+
+</hibernate-mapping>

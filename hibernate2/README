@@ -1,0 +1,6 @@
+This is a variation on project "hibernate". 
+See "hibernate"'s README for steps of a typical demo.
+The variation is concerned with object model and relational schema details.
+That is, "hibernate2"'s object model is mapped to a relational schema, 
+which represents the company structure in a compositional way, while "hibernate"'s
+relational schema uses backward references.

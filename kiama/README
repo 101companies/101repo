@@ -1,0 +1,27 @@
+101companies in Scala using Kiama
+Tony Sloane, January 2011
+
+Note that the containment scenario is not relevant for Scala since the data
+type ensures that the desired topology cannot be violated.
+
+Use the simple-build-tool to build: sbt script for Unix and MacOSX and
+sbt.bat script for Windows.
+
+* (One time only) Download Scala compiler and needed libraries.
+
+$ ./sbt update
+
+This downloads and installs the relevant jars in your project, so you
+need to be on the net for it to work. The remaining steps can be
+performed without a net connection.
+
+* To compile the project (if necessary) and run the main program:
+
+$ ./sbt run
+399747.0
+199873.5
+3
+
+* To run the tests with logging:
+
+$ ./sbt info test

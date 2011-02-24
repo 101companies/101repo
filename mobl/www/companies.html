@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>companies</title>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <script src="js/persistence.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.store.sql.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.store.websql.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.store.memory.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.search.js" type="application/x-javascript" charset="utf-8"></script>
+        <script type="application/x-javascript" charset="utf-8">
+        if (window && window.google && google.gears || window.openDatabase) {
+          persistence.store.websql.config(persistence, 'companies', 'mobl database', 5 * 1024 * 1024, '1.0');
+          persistence.search.config(persistence, persistence.store.websql.sqliteDialect);
+        } else {
+          persistence.store.memory.config(persistence);
+        }
+        </script>
+        <script src="js/gears_init.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/jquery-1.4.min.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/jquery-ui-1.7.2.custom.min.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/mobl.boot.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/gestures.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/iscroll.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.store.sql.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.store.websql.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.store.memory.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/persistence.search.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="mobl.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="data.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="init.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="scenarios.js" type="application/x-javascript" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="mobl/ui/generic.css"/>
+        <script src="mobl/ui/generic.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="companies.js" type="application/x-javascript" charset="utf-8"></script>
+        
+        <script type="application/x-javascript" charset="utf-8">
+        mobl.icon = "img/default-icon.png";
+        $(function(){
+          persistence.schemaSync(function(tx) {
+            mobl.call("companies.root", [], function() {});
+          });
+        });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

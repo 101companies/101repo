@@ -1,0 +1,17 @@
+== Summary ==
+We use a simple object model for companies.
+
+== Description ==
+
+These are POJOs plus instance methods for some of the scenarios.
+We also enable object de-/serialization for the object model.
+To this end, the class implement the empty interface Serializable.
+
+See the tests package for test cases.
+
+Some other projects may leverage this object model.
+
+== Contributors ==
+* Ralf Lämmel
+* Thomas Schmorleiz
+* Betim Sojeva

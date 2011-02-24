@@ -1,0 +1,21 @@
+
+module Company-Builders
+
+imports Company-Builders.generated
+
+builders
+                                                                      
+  // This file can be used for custom analysis and builder rules.     
+  //                                                                  
+  // See the imported file for a brief introduction and examples.     
+
+builders
+                                                                                                                               
+  provider                  : include/company.ctree                                                                            
+                                                                                                                               
+  observer                  : editor-analyze                                                                                   
+                                                                                                                                                  
+  builder                   : "Show abstract syntax (for selection)" = generate-aterm (openeditor) (realtime) (meta) (source)
+  builder 					: "Cut Company" = cutCompanyAST
+                                                                                                                               
+  // on save: generate-java                                                                                                    

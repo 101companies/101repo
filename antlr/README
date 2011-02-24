@@ -1,0 +1,34 @@
+We define a concrete syntax for companies.
+We use ANTLR to execute that syntax in an acceptor-like manner.
+
+See the Tests class for test cases.
+
+An appropriate ANTLR runtime etc. is imported from project "library".
+There are Makefiles at the top of the project and within the org.softlang.antlr package.
+Run "make" at either of these locations to re-generate the parser.
+Refresh the project in Eclipse if you re-generated outside Eclipse.
+In this manner, the parser is compiled.
+
+You may also use an ANTLR IDE.
+http://antlrv3ide.sourceforge.net/
+
+Just for fun, here is the signature corresponding to the grammar.
+
+Introduced sorts
+ Company,
+ Dept,
+ Employee
+ 
+Assumed sorts
+ Float,
+ String,
+ List(_)
+ 
+Function symbols:
+ company  : List(Dept) -> Company
+ dept     : String x Employee x List(Employee) x List(Dept) -> Dept
+ employee : String x String x Float -> Employee
+ 
+ Notes:
+ - We allow ourselves lists.
+ 

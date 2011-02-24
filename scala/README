@@ -1,0 +1,6 @@
+We make use of the Scala IDE for Eclipse.
+Update-Site: http://download.scala-ide.org/update-current-35
+
+We use a simple object model for companies.
+These are plain scala objects plus instance methods for some of the scenarios.
+See the tests package for test cases.

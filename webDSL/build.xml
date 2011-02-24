@@ -1,0 +1,31 @@
+<project name="webdsl-eclipse-plugin" default="plugin-eclipse-build">
+	<fail unless="plugindir" message="WebDSL plugin is not correctly installed. The 'plugindir' property is not available." />
+	<property name="templatedir" value="${plugindir}/webdsl-template"/>
+	<property name="currentdir" value="${basedir}"/>
+	<property name="webdsl-java-cp" value="${plugindir}/include/webdsl.jar"/>
+	<property name="webdslexec" value="java"/>
+	<import file="${plugindir}/webdsl-template/webdsl-build.xml"/>
+	<target name="plugin-eclipse-build">
+		<antcall target="eclipse-build"/>
+	</target>
+	<target name="plugin-build">
+		<property name="buildoptions" value="build" />
+		<antcall target="command"/>
+	</target>
+	<target name="plugin-run">
+		<property name="buildoptions" value="run" />
+		<antcall target="command"/>
+	</target>
+	<target name="plugin-deploy">
+		<property name="buildoptions" value="deploy" />
+		<antcall target="command"/>
+	</target>
+	<target name="plugin-tomcatdeploy">
+		<property name="buildoptions" value="tomcatdeploy" />
+		<antcall target="command"/>
+	</target>
+	<target name="plugin-cleanall">
+		<property name="buildoptions" value="cleanall" />
+		<antcall target="command"/>
+	</target>
+</project>
