@@ -1,4 +1,4 @@
-package org.softlang.alpha.tests;
+package org.softlang.java.tests;
 
 import org.softlang.company.Company;
 import org.junit.Test;

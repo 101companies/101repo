@@ -1,4 +1,4 @@
-package org.softlang.alpha.tests;
+package org.softlang.java.tests;
 
 import java.lang.reflect.Field;
 import java.util.LinkedList;
