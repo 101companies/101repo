@@ -1,8 +1,0 @@
-We implement some "company" scenarios in Haskell.
-There is a function "total" to total all salaries in a company.
-There is a function "cut" to cut all salaries in half.
-There is a function "depth" to compute the nesting depth of departments.
-We use "Scrap your boilerplate" (SYB) style of generic programming.
-See the Makefile for running the tests.
-The code has been tested with GHC 6.10.
-We rely on Haskell 98 extensions for SYB.
