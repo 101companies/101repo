@@ -3,7 +3,7 @@ package org.softlang.company;
 import java.io.Serializable;
 
 /**
- * An Employee has a salary and some person information
+ * An employee has a salary and some person information
  * 
  */
 public class Employee implements Serializable {

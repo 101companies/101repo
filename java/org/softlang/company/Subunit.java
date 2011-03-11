@@ -3,43 +3,43 @@ package org.softlang.company;
 import java.io.Serializable;
 
 /**
- * A subunit is either a person unit or a department unit
+ * A subunit is either an employee unit or a department unit
  * 
  */
 public class Subunit implements Serializable {
 
 	private static final long serialVersionUID = -2008895922137165250L;
 
-	private Employee pu;
-	private Dept du;
+	private Employee eUnit;
+	private Department dUnit;
 
-	public Employee getPu() {
-		return pu;
+	public Employee getEu() {
+		return eUnit;
 	}
 
-	public void setPu(Employee pu) {
-		du = null;
-		this.pu = pu;
+	public void setEu(Employee eu) {
+		dUnit = null;
+		this.eUnit = eu;
 	}
 
-	public Dept getDu() {
-		return du;
+	public Department getDu() {
+		return dUnit;
 	}
 
-	public void setDu(Dept du) {
-		pu = null;
-		this.du = du;
+	public void setDu(Department du) {
+		eUnit = null;
+		this.dUnit = du;
 	}
 
 	public double total() {
 		double total = 0;
 		total += getDu() == null ? 0 : getDu().total();
-		total += getPu() == null ? 0 : getPu().total();
+		total += getEu() == null ? 0 : getEu().total();
 		return total;	
 	}	
 	
 	public void cut() {
 		if (getDu() != null) getDu().cut();
-		if (getPu() != null) getPu().cut();
+		if (getEu() != null) getEu().cut();
 	}	
 }

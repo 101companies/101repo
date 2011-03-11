@@ -13,10 +13,10 @@ public class Company implements Serializable {
 
 	private static final long serialVersionUID = -200889592677165250L;
 	private String name;
-	private List<Dept> depts;
+	private List<Department> depts;
 
 	public Company() {
-		depts = new LinkedList<Dept>();
+		depts = new LinkedList<Department>();
 	}
 
 	/**
@@ -67,19 +67,19 @@ public class Company implements Serializable {
 		this.name = name;
 	}
 
-	public List<Dept> getDepts() {
+	public List<Department> getDepts() {
 		return depts;
 	}
 
 	public Double total() {
 		double total = 0;
-		for (Dept d : getDepts())
+		for (Department d : getDepts())
 			total += d.total();
 		return total;
 	}
 
 	public void cut() {
-		for (Dept d : getDepts())
+		for (Department d : getDepts())
 			d.cut();
 	}
 }

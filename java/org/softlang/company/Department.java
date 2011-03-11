@@ -8,14 +8,14 @@ import java.util.List;
  * A department has a name, a manager and a list of subunits
  * 
  */
-public class Dept implements Serializable {
+public class Department implements Serializable {
 
 	private static final long serialVersionUID = -2008895922177165250L;
 	private String name;
 	private Employee manager;
 	private List<Subunit> subunits;
 
-	public Dept() {
+	public Department() {
 		name = "";
 		subunits = new LinkedList<Subunit>();
 	}
