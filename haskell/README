@@ -19,7 +19,7 @@ a simple implementation in [[Technology:Haskell]]
 Basic style of [[functional programming]] is applied. That is,
 [[algebraic datatype]]s are used to represent companies, and recursive,
 [[Pure computation|pure]] functions implement the [[query]] for
-totaling salaries and the [[Category:transformation]] for cutting
+totaling salaries and the [[:Category:transformation]] for cutting
 salaries. Since (sufficently restrictive) algebraic datatypes are
 amenable to uniform read and show functions, basic [[serialization]] is
 immediately enabled.
