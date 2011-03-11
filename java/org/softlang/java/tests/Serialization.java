@@ -67,35 +67,35 @@ public class Serialization {
 		karlE.setSalary(2345);
 		joeE.setSalary(2344);
 
-		Dept research = new Dept();
+		Department research = new Department();
 		Subunit researchS1 = new Subunit();
 		Subunit researchS2 = new Subunit();
 
 		research.setManager(CraigE);
 		research.setName("Research");
-		researchS1.setPu(erikE);
-		researchS2.setPu(ralfE);
+		researchS1.setEu(erikE);
+		researchS2.setEu(ralfE);
 		research.getSubunits().add(researchS1);
 		research.getSubunits().add(researchS2);
 
 
-		Dept development = new Dept();
+		Department development = new Department();
 		development.setManager(rayE);
 		development.setName("Development");
 		Subunit developmentS1 = new Subunit();
 		development.getSubunits().add(developmentS1);
-		Dept dev1 = new Dept();
+		Department dev1 = new Department();
 		dev1.setName("Dev1");
 		dev1.setManager(klausE);
 		developmentS1.setDu(dev1);
 		Subunit dev1S1 = new Subunit();
 		dev1.getSubunits().add(dev1S1);
-		Dept dev11 = new Dept();
+		Department dev11 = new Department();
 		dev11.setName("Dev1.1");
 		dev11.setManager(karlE);
 		dev1S1.setDu(dev11);
 		Subunit dev11S1 = new Subunit();
-		dev11S1.setPu(joeE);
+		dev11S1.setEu(joeE);
 		dev11.getSubunits().add(dev11S1);
 
 		company.getDepts().add(research);

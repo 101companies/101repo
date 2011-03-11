@@ -4,7 +4,7 @@ import org.softlang.company.Company;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class Scenarios {
+public class Basics {
 	
 	@Test
 	public void testTotal() {
