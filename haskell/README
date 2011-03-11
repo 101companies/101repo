@@ -2,13 +2,39 @@
 
 a simple implementation in Haskell
 
-== Description ==
+== Technologies ==
 
+* [Technology:Haskell 98]: Programming language used for all code
+* [Technology:GHCi]: Haskell interpreter used for testing (Version 6.12.3)
 
+== Features ==
 
-We implement some "company" scenarios in Haskell.
-There is a function "total" to total all salaries in a company.
-There is a function "cut" to cut all salaries in half.
-We use plain Haskell 98 style.
-See the Makefile for running the tests.
-The code has been tested with GHC 6.10.
+* [101feature:Company]
+* [101feature:Total]
+* [101feature:Cut]
+* [101feature:Serialization???]
+
+== Motivation ==
+
+Basic style of [functional programming] is applied. That is,
+[algebraic datatype]s are used to represent companies, and recursive,
+[Pure computation|pure] functions implement the [Category:query] for
+totaling salaries and the [Category:transformation] for cutting
+salaries. Since (sufficently restrictive) algebraic datatypes are
+amenable to uniform read and show functions, basic [serialization] is
+immediately enabled.
+
+== Architecture ==
+
+The implementation is straightforward. The basic features map to
+Haskell modules of the features' names (except for serialization which
+is enabled by "deriving" clauses on the company datatypes). There is a
+''Main'' module which collects a few test scenarios.
+
+== Usage ==
+
+The Haskell module ''Main'' has to be consulted with GHCi, and the
+''main'' function has to be applied so that output for the test
+scenarios is produced. The ''expected'' output is available through
+the file ''baseline''. There is a ''Makefile'' with a target ''test''
+which can be executed to perform an [automated diff test].
