@@ -22,7 +22,7 @@ Basic style of [[OO programming]] is applied. A simple [[object model]]
 for companies is provided with virtual methods to implement the [[query]] for
 totaling salaries and the [[:Category:transformation]] for cutting
 salaries. Basic [[serialization]] in the sense of [[Technology:Object
-Streams]] is enabled by means of the [[Marker interface patterm|marker interface]]
+Streams]] is enabled by means of the [[Marker interface pattern|marker interface]]
 ''Serializable'', which is applied to the classes of the object model 
 for companies.
 
@@ -32,11 +32,11 @@ To this end, the class implement the empty interface Serializable.
 
 == Architecture ==
 
-The object model for [[101feature:Company]] with the virtual methods
-for [[101feature:Total]] and [[101feature:Cut]] are hosted by the [[package]]
-''org.softlang.company''. Some boilerplate code for [[101feature:Serialization]]
-is also hosted by the class ''org.softlang.company.Company'' (see methods
-''readObject'' and ''writeObject'').
+Package ''org.softlang.company'' hosts the object model for [[101feature:Company]] 
+with the virtual methods for [[101feature:Total]] and [[101feature:Cut]]. Some 
+boilerplate code for [[101feature:Serialization]] is implemented in the class 
+''org.softlang.company.Company'' (see methods ''readObject'' and ''writeObject'').
+Package ''org.softlang.java.tests'' hosts JUnit tests; see below.
 
 == Usage ==
 
