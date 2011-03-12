@@ -2,12 +2,12 @@
 
 a simple implementation in Java
 
-== Technologies
+== Technologies ==
 
-* [[Technology::Eclipse]]: IDE for building and running implementation (Version 3.4.1)
-* [[Technology::Java JDK Compiler]]: Java compiler used within Eclipse (Compliance level 1.6)
-* [[Technology::JSE]]: Java platform (Version 1.6)
-* [[Technology::JUnit]]: Used for automated testing (Version 4)
+* [[Technology:Eclipse]]: IDE for building and running implementation (Version 3.4.1)
+* [[Technology:Java JDK Compiler]]: Java compiler used within Eclipse (Compliance level 1.6)
+* [[Technology:JSE]]: Java platform (Version 1.6)
+* [[Technology:JUnit]]: Used for automated testing (Version 4)
 
 == Features ==
 
