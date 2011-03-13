@@ -1,0 +1,37 @@
+﻿== Intent ==
+
+a simple implementation in [[Technology:CSharp]] for [[Technology:.NET]] Framework
+
+== Technologies ==
+
+* [[Technology:CSharp]](C#): Programming language used for all code (Version 4.0)
+* [[Technology:.NET]]: Framework used to execute compiled code. (Version 4.0)
+* [[Technology:NUnit]]: Unit testing framework used for testing (Version 2.5.9.10348)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Depth]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+Basic style of [[OO programming]] is applied. C# type system is used to create in-memory representation of the [[object model]].
+Relevant classes contain methods which implement the [[query]] for totaling salaries, the [[:Category:transformation]] for cutting salaries and a [[query]] to check department's [[:101feature:Depth|depth]]. XML [[serialization]] for public [[Category:.NET]] classes is enabled by default, [[in-memory XML processing]] is used to create object model from XML file.
+Simple usage of [[builder pattern]] to create in-memory representation of meganalysis company is shown.
+
+== Architecture ==
+C# object-oriented representation of 101companies model is located in the ''CompanyModel folder''. It contains classes with required properties and methods(features implementations).
+''Tests'' folder contains:
+* ''FeaturesTest'' class which covers test cases for the features: [[:101feature:Total|Total]], [[:101feature:Cut|Cut]], [[:101feature:Depth|Depth]].
+* ''SerializationTests'' class which covers test cases for [[serialization]]/de-serialization.
+Also helpers for building in-memory model for meganalysis company and serialization are implemented.
+
+== Usage ==
+[[Technology:Visual Studio]] 2010 should be used to open a project file.
+The project itself is a class-library and compiles into a DLL. To run a project you must execute at least one unit test (or all at once).
+Nunit GUI or other Visual studio extension (e.g. Resharper) should be used for executing unit tests.
+
+== Contributors ==
+* [[Contributor:Andrei Varanovich]]
