@@ -2,6 +2,10 @@
 
 a simple implementation in [[Language:Haskell]]
 
+== Languages ==
+
+* [[Language:Haskell 98]]
+
 == Technologies ==
 
 * [[Technology:GHCi]]: Haskell interpreter used for testing (Version 6.12.3)
@@ -21,8 +25,7 @@ Basic style of [[functional programming]] is applied. That is,
 totaling salaries and the [[:Category:transformation]] for cutting
 salaries. Since (sufficently restrictive) algebraic datatypes are
 amenable to uniform read and show functions, basic [[serialization]] is
-immediately enabled. The implementation limits itself to the 
-[[Language:Haskell 98]] version of [[Language:Haskell]].
+immediately enabled.
 
 == Architecture ==
 
