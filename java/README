@@ -1,11 +1,10 @@
 == Intent ==
 
-a simple implementation in Java
+a simple implementation in [[Language:Java]]
 
 == Technologies ==
 
-* [[Technology:Java]]: programming language at use (Version 1.6)
-* [[Technology:javac]]: Java compiler at use (Version 1.6)
+* [[Technology:javac]]: Java compiler (Version 1.6)
 * [[Technology:JDK]]: provider of javac et al.
 * [[Technology:JSE]]: execution platform (Version 1.6)
 * [[Technology:JUnit]]: automated testing support (Version 4)
