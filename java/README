@@ -2,6 +2,10 @@
 
 a simple implementation in [[Language:Java]]
 
+== Languages ==
+
+* [[Language:Java]]
+
 == Technologies ==
 
 * [[Technology:javac]]: Java compiler (Version 1.6)
@@ -26,10 +30,6 @@ salaries. Basic [[serialization]] in the sense of [[Technology:Object Streams]]
 is enabled by means of the [[Marker interface pattern|marker interface]]
 ''Serializable'', which is applied to the classes of the object model 
 for companies.
-
-These are POJOs plus instance methods for some of the scenarios.
-We also enable object [[serialization]] for the object model.
-To this end, the class implement the empty interface Serializable.
 
 == Architecture ==
 
