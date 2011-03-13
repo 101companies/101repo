@@ -18,7 +18,7 @@ a simple implementation in [[Technology:CSharp]] for [[Technology:.NET]] Framewo
 
 == Motivation ==
 Basic style of [[OO programming]] is applied. C# type system is used to create in-memory representation of the [[object model]].
-Relevant classes contain methods which implement the [[query]] for totaling salaries, the [[:Category:transformation]] for cutting salaries and a [[query]] to check department's [[:101feature:Depth|depth]]. XML [[serialization]] for public [[Category:.NET]] classes is enabled by default, [[in-memory XML processing]] is used to create object model from XML file.
+Relevant classes contain methods which implement the [[query]] for totaling salaries, the [[:Category:transformation]] for cutting salaries and a [[query]] to check department's [[:101feature:Depth|depth]]. XML [[serialization]] for public [[Technology:.NET]] classes is enabled by default, [[in-memory XML processing]] is used to create object model from XML file.
 Simple usage of [[builder pattern]] to create in-memory representation of meganalysis company is shown.
 
 == Architecture ==
