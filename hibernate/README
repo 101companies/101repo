@@ -1,27 +1,30 @@
-###############################################################
+== Intent == 
 
-The scenarios are concerned with the "company" data structure.
-That is, there are hierarchically organized departments.
-There are managers and other employees.
-Those have names and they receive a salary.
+Object [[persistence]] and [[O/R mapping]] with [[Technology:Hibernate]]
 
-We persist company objects by making use of hibernate.
+== Languages ==
 
-It is a bit tricky to reproduce the demo.
-This is because we rely on the state of the persistence component.
-So please follow the instructions given below.
+* [[Language:XML]]
+* Java
 
-###############################################################
+== Technologies ==
+* [[Technology:Hibernate]: Hibernate jars 
+* [[Technology:javac]]: Java compiler (Version 1.6)
+* [[Technology:JDK]]: provider of javac et al.
+* [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:JUnit]]: automated testing support (Version 4)
+* [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
 
-Prerequisites
-- Tested with Java 6 SDK
-- Tested and saved with Eclipse 3.5
+== Features ==
 
-###############################################################
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
 
-Requirements
-- The hsqldb distribution and a minimal set of Hibernate .jar's (see library Project @ Sourceforge: 
-  http://developers.svn.sourceforge.net/svnroot/developers/repository/101companies/code/library/hibernate)
+== Motivation == 
+
+We apply a basic style of [[OO programming]]. A [[object model]] for [[101feature:Company|companies]] is provided. 
+Instances of this model are [[Persistence||persisted]] by making use of [[Technology:Hibernate]]. To that end [[Language:
 
 ###############################################################
 
