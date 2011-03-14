@@ -31,7 +31,7 @@ To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-ma
 == Architecture ==
 
 Package ''org.softlang.om'' holds the java object model for [[101feature:Company|companies]] and the xml-mapping files.
-''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:cut]] salaries. This package also hosts main.java for a demo.
+''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut]] salaries. This package also hosts main.java for a demo.
 ''scripts'' contains sql-scripts for demo purposes, extracted for the hibernate log. 
 Hibernate configuration files (see below) can be found in the project's root folder.
 
@@ -84,18 +84,23 @@ You can edit that XML file in Eclipse.
 It is the configuration that is used for Hibernate for persistency.
 Upon the first use the EventManager the database must be initialized.
 Hence it says:
-<property name="hbm2ddl.auto">create</property>
+:<property name="hbm2ddl.auto">create</property>
 Subsequently, we want to keep all data.
 Hence the line should be commented out.
-<!-- <property name="hbm2ddl.auto">create</property> -->
+:<!-- <property name="hbm2ddl.auto">create</property> -->
 
 '''How to cut and total:'''
 
 * Run org/softlang/Main.java again. It will demonstrate the use of Cut and Total.
 
+
 == Contributors ==
 
 * [[Contributor:Thomas Schmorleiz]]
+
+== Issues == 
+
+* How to deal with acknowledgements? (See COPYRIGHT in svn)  
 
 
 
