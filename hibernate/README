@@ -84,10 +84,9 @@ You can edit that XML file in Eclipse.
 It is the configuration that is used for Hibernate for persistency.
 Upon the first use the EventManager the database must be initialized.
 Hence it says:
-* <property name="hbm2ddl.auto">create</property>
+: <property name="hbm2ddl.auto">create</property>
 Subsequently, we want to keep all data.
 Hence the line should be commented out.
-* <!-- <property name="hbm2ddl.auto">create</property> -->
 
 '''How to cut and total:'''
 
