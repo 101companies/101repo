@@ -37,7 +37,7 @@ Hibernate configuration files (see below) can be found in the project's root fol
 
 == Usage ==
 
-''Steps of a typical demo:''
+'''Steps of a typical demo:'''
 * Make sure you start from an initial distribution.
 * Build the project with Eclipse.
 (The following steps are explained in detail below.)
@@ -47,7 +47,8 @@ Hibernate configuration files (see below) can be found in the project's root fol
 * Patch hibernate.cfg.xml to disable "drop and re-recreate".
 * Run org/softlang/Main.java again.
 
-'' How to start the database server:''
+
+'''How to start the database server:'''
 * Start it from the command line.
 * Go to the data dir of the distribution.
 * Run the following command:
@@ -55,12 +56,14 @@ Hibernate configuration files (see below) can be found in the project's root fol
 ** You can also send it to the background if you like.
 You can also go to the root dir and run a "make start-db".
 
-''How to run org/softlang/main.java:''
+
+'''How to run org/softlang/main.java:'''
 * Comment out lines 13-31 
 * Run to create new tables
 * Undo the first step
 
-''How and why to start the database monitor:''
+
+'''How and why to start the database monitor:'''
 
 * Start it from the command line.
 * Run the following command:
@@ -74,7 +77,8 @@ You can also go to the root dir and run a "make start-gui".
 ** Press "Execute SQL"
 * You can shut down the server from here; see menu Command.
 
-''How and why to patch hibernate.cfg.xml?''
+
+'''How and why to patch hibernate.cfg.xml?'''
 
 You can edit that XML file in Eclipse.
 It is the configuration that is used for Hibernate for persistency.
@@ -85,7 +89,9 @@ Subsequently, we want to keep all data.
 Hence the line should be commented out.
 <!-- <property name="hbm2ddl.auto">create</property> -->
 
-Run org/softlang/Main.java again. It will demonstrate the use of Cut and Total.
+'''How to cut and total:'''
+
+* Run org/softlang/Main.java again. It will demonstrate the use of Cut and Total.
 
 == Contributors ==
 
