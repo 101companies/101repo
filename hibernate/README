@@ -94,7 +94,7 @@ Hence the line should be commented out.
 
 '''How to test:'''
 
-* Run org/softlang/Tests.java.
+* Run org/softlang/hibernate/Tests.java.
 
 == Contributors ==
 
