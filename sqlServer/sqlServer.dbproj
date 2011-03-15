@@ -204,7 +204,7 @@
     </Build>
   </ItemGroup>
   <ItemGroup>
-    <NotInBuild Include="README.txt">
+    <NotInBuild Include="README">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Scripts\ScriptsIgnoredOnImport.sql">

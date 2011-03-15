@@ -1,0 +1,9 @@
+﻿== Summary ==
+101companies model for SQL Server with .NET Entity Framework model on top of it.
+
+== Description == 
+Entity Framework model is generated for SQL Server representation of 101companies model. 
+Unit tests for operations are attached.
+
+== Contributors ==
+* Andrei Varanovich

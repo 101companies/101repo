@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CompanyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CompanyModelStoreContainer">
+          <EntitySet Name="Company" EntityType="CompanyModel.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Department" EntityType="CompanyModel.Store.Department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee" EntityType="CompanyModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Person" EntityType="CompanyModel.Store.Person" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="R_11" Association="CompanyModel.Store.R_11">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="R_14" Association="CompanyModel.Store.R_14">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="R_15" Association="CompanyModel.Store.R_15">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Name="Name" Type="nchar" Nullable="false" MaxLength="255" />
+          <Property Name="company_id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="Name" Type="char" MaxLength="18" />
+          <Property Name="department_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="company_id" Type="uniqueidentifier" />
+          <Property Name="parent_id" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employee_id" />
+            <PropertyRef Name="person_id" />
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="employee_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="person_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="department_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsManager" Type="bit" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="Name" Type="char" MaxLength="18" />
+          <Property Name="Address" Type="char" MaxLength="18" />
+          <Property Name="person_id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="R_11">
+          <End Role="Company" Type="CompanyModel.Store.Company" Multiplicity="0..1" />
+          <End Role="Department" Type="CompanyModel.Store.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_14">
+          <End Role="Person" Type="CompanyModel.Store.Person" Multiplicity="1" />
+          <End Role="Employee" Type="CompanyModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_15">
+          <End Role="Department" Type="CompanyModel.Store.Department" Multiplicity="1" />
+          <End Role="Employee" Type="CompanyModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CompanyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CompanyDataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="CompanyModel.Company" />
+          <EntitySet Name="Departments" EntityType="CompanyModel.Department" />
+          <EntitySet Name="Employees" EntityType="CompanyModel.Employee" />
+          <EntitySet Name="People" EntityType="CompanyModel.Person" />
+          <AssociationSet Name="R_11" Association="CompanyModel.R_11">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="R_15" Association="CompanyModel.R_15">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="R_14" Association="CompanyModel.R_14">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Type="Guid" Name="company_id" Nullable="false" />
+          <NavigationProperty Name="Departments" Relationship="CompanyModel.R_11" FromRole="Company" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Type="String" Name="Name" MaxLength="18" FixedLength="true" Unicode="false" />
+          <Property Type="Guid" Name="department_id" Nullable="false" />
+          <Property Type="Guid" Name="company_id" />
+          <Property Type="Guid" Name="parent_id" />
+          <NavigationProperty Name="Company" Relationship="CompanyModel.R_11" FromRole="Department" ToRole="Company" />
+          <NavigationProperty Name="Employees" Relationship="CompanyModel.R_15" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employee_id" />
+            <PropertyRef Name="person_id" />
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Type="Decimal" Name="Salary" Precision="10" Scale="1" />
+          <Property Type="Guid" Name="employee_id" Nullable="false" />
+          <Property Type="Guid" Name="person_id" Nullable="false" />
+          <Property Type="Guid" Name="department_id" Nullable="false" />
+          <Property Type="Boolean" Name="IsManager" />
+          <NavigationProperty Name="Department" Relationship="CompanyModel.R_15" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Person" Relationship="CompanyModel.R_14" FromRole="Employee" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Type="String" Name="Name" MaxLength="18" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="18" FixedLength="true" Unicode="false" />
+          <Property Type="Guid" Name="person_id" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="CompanyModel.R_14" FromRole="Person" ToRole="Employee" />
+        </EntityType>
+        <Association Name="R_11">
+          <End Type="CompanyModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="CompanyModel.Department" Role="Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_15">
+          <End Type="CompanyModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="CompanyModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_14">
+          <End Type="CompanyModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="CompanyModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CompanyModelStoreContainer" CdmEntityContainer="CompanyDataContext">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="CompanyModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="CompanyModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CompanyModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IsManager" ColumnName="IsManager" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="CompanyModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CompanyModel">
+        <EntityTypeShape EntityType="CompanyModel.Company" Width="1.5" PointX="2.125" PointY="1.25" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="CompanyModel.Department" Width="1.5" PointX="4.375" PointY="0.875" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="CompanyModel.Employee" Width="1.5" PointX="6.625" PointY="0.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="CompanyModel.Person" Width="1.5" PointX="4.375" PointY="5.125" Height="1.7879850260416674" />
+        <AssociationConnector Association="CompanyModel.R_11" >
+          <ConnectorPoint PointX="3.625" PointY="2.047841796875" />
+          <ConnectorPoint PointX="4.375" PointY="2.047841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="CompanyModel.R_15" >
+          <ConnectorPoint PointX="5.875" PointY="1.9612939453124998" />
+          <ConnectorPoint PointX="6.625" PointY="1.9612939453124998" />
+        </AssociationConnector>
+        <AssociationConnector Association="CompanyModel.R_14" >
+          <ConnectorPoint PointX="5.875" PointY="6.0189925130208337" />
+          <ConnectorPoint PointX="7.375" PointY="6.0189925130208337" />
+          <ConnectorPoint PointX="7.375" PointY="3.2398893229166674" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
