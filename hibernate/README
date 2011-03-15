@@ -65,7 +65,7 @@ You can also go to the root dir and run a "make start-db".
 
 
 '''How to create new tables:'''
-* Run ''Init.java'' in ''org.softlang.hibernate''
+* Run ''Init.java'' in ''org.softlang.hibernate''.
 
 
 '''How and why to start the database monitor:'''
