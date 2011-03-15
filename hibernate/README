@@ -6,6 +6,7 @@ Object [[persistence]] and [[O/R mapping]] with [[Technology:Hibernate]]
 
 * [[Language:XML]]
 * [[Language:Java]]
+* [[Language:SQL]]
 
 == Technologies ==
 * [[Technology:Hibernate]]: Hibernate jars 
