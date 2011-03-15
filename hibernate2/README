@@ -1,6 +1,106 @@
-This is a variation on project "hibernate". 
-See "hibernate"'s README for steps of a typical demo.
-The variation is concerned with object model and relational schema details.
-That is, "hibernate2"'s object model is mapped to a relational schema, 
-which represents the company structure in a compositional way, while "hibernate"'s
-relational schema uses backward references.
+== Intent == 
+
+Object [[persistence]] and [[O/R mapping]] with [[Technology:Hibernate]]
+
+== Implementations ==
+
+There is another Hibernate implementation available: [[101implementation:hibernate]]. The variation is concerned with object model and relational schema details. 
+That is, this project's object model is mapped to a relational schema, which represents the company structure in a compositional way, while [[101implementation:hibernate|hibernate]]'s relational schema uses backward references.
+
+== Languages ==
+
+* [[Language:XML]]
+* [[Language:Java]]
+* [[Language:SQL]]
+
+== Technologies ==
+* [[Technology:Hibernate]]: Hibernate jars 
+* [[Technology:javac]]: Java compiler (Version 1.6)
+* [[Technology:JDK]]: provider of javac et al.
+* [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Persistence]]
+
+== Motivation == 
+
+An [[object model]] for [[101feature:Company|companies]] is provided, as well as classes to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries.
+This is, we apply a basic style of [[OO programming]]. Instances the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
+technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files both for departments and employees. 
+
+== Architecture ==
+
+Package ''org.softlang.om'' holds the java object model for [[101feature:Company|companies]] and the xml-mapping files.
+''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. This package also hosts main.java for a demo.
+''scripts'' contains sql-scripts for demo purposes, extracted for the hibernate log. 
+Hibernate configuration files (see below) can be found in the project's root folder.
+
+== Usage ==
+
+'''Steps of a typical demo:'''
+* Make sure you start from an initial distribution.
+* Build the project with Eclipse.
+(The following steps are explained in detail below.)
+* Start the HSQL database server.
+* Run org/softlang/Main.java to create tables.
+* Run the database monitor and populate the tables with scripts/PopulateTables.
+* Patch hibernate.cfg.xml to disable "drop and re-recreate".
+* Run org/softlang/Main.java again.
+
+
+'''How to start the database server:'''
+* Start it from the command line.
+* Go to the data dir of the distribution.
+* Run the following command:
+** > java -classpath ../../library/hibernate/hsqldb.jar org.hsqldb.Server 
+** You can also send it to the background if you like.
+You can also go to the root dir and run a "make start-db".
+
+
+'''How to run org/softlang/main.java:'''
+* Comment out lines 13-31 
+* Run to create new tables
+* Undo the first step
+
+
+'''How and why to start the database monitor:'''
+
+* Start it from the command line.
+* Run the following command:
+** java -classpath ../library/hibernate/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
+** You can also send it to the background if you like.
+You can also go to the root dir and run a "make start-gui".
+* When the GUI pops up, make sure to select "HSQL Database Engine Server".
+* If you had performed Main already, you see the tables of the app.
+* Populate these tables:
+** Open scripts/PopulateTables (File -> Open Script)
+** Press "Execute SQL"
+* You can shut down the server from here; see menu Command.
+
+
+'''How and why to patch hibernate.cfg.xml?'''
+
+You can edit that XML file in Eclipse.
+It is the configuration that is used for Hibernate for persistency.
+Upon the first use the EventManager the database must be initialized.
+Hence it says:
+: <property name="hbm2ddl.auto">create</property>
+Subsequently, we want to keep all data.
+Hence the line should be commented out.
+
+'''How to cut and total:'''
+
+* Run org/softlang/Main.java again. It will demonstrate the use of Cut and Total.
+
+== Contributors ==
+
+* [[Contributor:Thomas Schmorleiz]]
+
+== Issues == 
+
+* How to deal with acknowledgements? (See COPYRIGHT in svn)  

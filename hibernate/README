@@ -4,9 +4,8 @@ Object [[persistence]] and [[O/R mapping]] with [[Technology:Hibernate]]
 
 == Implementations ==
 
-There is another Hibernate implementation available: [[101implementation:hibernate2]]. The present implementation uses xml-mapping files, which map the
-company's structure in a strictly aggregational way. In hibernate2 the relationship between departments for example is expressed by 
-a reference of the sub-department to the owning department (Same for departments and their employees).
+There is another Hibernate implementation available: [[101implementation:hibernate2]]. The variation is concerned with object model and relational schema details. 
+That is, this project's object model is mapped to a relational schema, which uses backward references, while [[101implementation:hibernate2|hibernate2]]'s schema represents the company structure in a compositional way 
 
 == Languages ==
 
