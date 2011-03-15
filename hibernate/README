@@ -38,7 +38,8 @@ technology. To that end the [[O/R mapping]] is realized by making use of [[Langu
 
 Package ''org.softlang.om'' holds the java object model for [[101feature:Company|companies]] and the xml-mapping files.
 ''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
-This package also hosts Init.java to create tables and test cases (see below).
+This package also hosts Init.java to create tables, test cases (see below).
+and HibernateConnectivity to easily load and save company objects. This class uses the SessionFactory provided by HibernateUtil in ''org.softlang.util''.
 ''scripts'' contains sql-scripts for demo purposes, extracted for the hibernate log. 
 Hibernate configuration files (see below) can be found in the project's root folder.
 
