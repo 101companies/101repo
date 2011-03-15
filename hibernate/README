@@ -18,6 +18,7 @@ That is, this project's object model is mapped to a relational schema, which use
 * [[Technology:javac]]: Java compiler (Version 1.6)
 * [[Technology:JDK]]: provider of javac et al.
 * [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:JUnit]]: automated testing support (Version 4)
 * [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
 
 == Features ==
@@ -63,8 +64,8 @@ Hibernate configuration files (see below) can be found in the project's root fol
 You can also go to the root dir and run a "make start-db".
 
 
-'''How to run org/softlang/Init.java:'''
-* Run to create new tables
+'''How to create new tables:'''
+* Run Init.java in org.softlang.hibernate
 
 
 '''How and why to start the database monitor:'''
