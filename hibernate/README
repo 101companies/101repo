@@ -24,7 +24,7 @@ Object [[persistence]] and [[O/R mapping]] with [[Technology:Hibernate]]
 == Motivation == 
 
 An [[object model]] for [[101feature:Company|companies]] is provided, as well as classes to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries.
-This is, we apply a basic style of [[OO Programming]]. Instances the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
+This is, we apply a basic style of [[OO programming]]. Instances the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
 technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files both for departments and employees. 
 
 == Architecture ==
