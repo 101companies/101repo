@@ -65,7 +65,7 @@ You can also go to the root dir and run a "make start-db".
 
 
 '''How to create new tables:'''
-* Run Init.java in org.softlang.hibernate
+* Run ''Init.java'' in ''org.softlang.hibernate''
 
 
 '''How and why to start the database monitor:'''
@@ -82,7 +82,7 @@ You can also go to the root dir and run a "make start-gui".
 ** Press "Execute SQL"
 
 
-'''How and why to patch hibernate.cfg.xml?'''
+'''How and why to patch ''hibernate.cfg.xml?'' '''
 
 You can edit that XML file in Eclipse.
 It is the configuration that is used for Hibernate for persistency.
@@ -94,7 +94,7 @@ Hence the line should be commented out.
 
 '''How to test:'''
 
-* Run org/softlang/hibernate/Tests.java.
+* Run ''Tests.java'' in ''org.softlang.hibernate''.
 
 == Contributors ==
 
