@@ -36,7 +36,8 @@ technology. To that end the [[O/R mapping]] is realized by making use of [[Langu
 == Architecture ==
 
 Package ''org.softlang.om'' holds the java object model for [[101feature:Company|companies]] and the xml-mapping files.
-''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. This package also hosts main.java for a demo.
+''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
+This package also hosts Init.java to create tables and test cases (see below).
 ''scripts'' contains sql-scripts for demo purposes, extracted for the hibernate log. 
 Hibernate configuration files (see below) can be found in the project's root folder.
 
@@ -57,7 +58,7 @@ Hibernate configuration files (see below) can be found in the project's root fol
 * Start it from the command line.
 * Go to the data dir of the distribution.
 * Run the following command:
-** > java -classpath ../../library/hibernate/hsqldb.jar org.hsqldb.Server 
+** > java -classpath ../lib/hsqldb.jar org.hsqldb.Server 
 ** You can also send it to the background if you like.
 You can also go to the root dir and run a "make start-db".
 
@@ -70,7 +71,7 @@ You can also go to the root dir and run a "make start-db".
 
 * Start it from the command line.
 * Run the following command:
-** java -classpath ../library/hibernate/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
+** > java -classpath lib/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
 ** You can also send it to the background if you like.
 You can also go to the root dir and run a "make start-gui".
 * When the GUI pops up, make sure to select "HSQL Database Engine Server".
@@ -78,7 +79,6 @@ You can also go to the root dir and run a "make start-gui".
 * Populate these tables:
 ** Open scripts/PopulateTables (File -> Open Script)
 ** Press "Execute SQL"
-* You can shut down the server from here; see menu Command.
 
 
 '''How and why to patch hibernate.cfg.xml?'''
@@ -91,9 +91,9 @@ Hence it says:
 Subsequently, we want to keep all data.
 Hence the line should be commented out.
 
-'''How to cut and total:'''
+'''How to test:'''
 
-* Run org/softlang/Tests.java. It will demonstrate and test the use of Cut and Total.
+* Run org/softlang/Tests.java.
 
 == Contributors ==
 
