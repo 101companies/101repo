@@ -50,10 +50,10 @@ Hibernate configuration files (see below) can be found in the project's root fol
 * Build the project with Eclipse.
 (The following steps are explained in detail below.)
 * Start the HSQL database server.
-* Run org/softlang/Init.java to create tables.
+* Run ''org/softlang/hibernate/Init.java'' to create tables.
 * Run the database monitor and populate the tables with scripts/PopulateTables.
 * Patch hibernate.cfg.xml to disable "drop and re-recreate".
-* Run org/softlang/Tests.java again.
+* Run ''org/softlang/hibernate/Tests.java''.
 
 
 '''How to start the database server:'''
