@@ -11,7 +11,7 @@ public class Total {
 		return total;
 	}
 
-	private static double total(Dept dept) {
+	public static double total(Dept dept) {
 		double total = total(dept.getManager());
 		for (Subunit subunit : dept.getSubunits())
 			total += total(subunit);
@@ -19,14 +19,14 @@ public class Total {
 
 	}
 
-	private static double total(Subunit subunit) {
+	public static double total(Subunit subunit) {
 		if (subunit.getPu() != null)
 			return total(subunit.getPu());
 		else
 			return total(subunit.getDu());
 	}
 
-	private static double total(Employee employee) {
+	public static double total(Employee employee) {
 		return employee.getSalary();
 	}
 }

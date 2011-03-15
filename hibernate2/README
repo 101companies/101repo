@@ -31,12 +31,13 @@ That is, this project's object model is mapped to a relational schema, which rep
 
 An [[object model]] for [[101feature:Company|companies]] is provided, as well as classes to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries.
 This is, we apply a basic style of [[OO programming]]. Instances the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
-technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files both for departments and employees. 
+technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files for departments, employees, subunits and persons.  
 
 == Architecture ==
 
 Package ''org.softlang.om'' holds the java object model for [[101feature:Company|companies]] and the xml-mapping files.
-''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. This package also hosts main.java for a demo
+''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
+This package also hosts Init.java to create tables, test cases (see below).
 and HibernateConnectivity to easily load and save company objects. This class uses the SessionFactory provided by HibernateUtil in ''org.softlang.util''.
 ''scripts'' contains sql-scripts for demo purposes, extracted for the hibernate log. 
 Hibernate configuration files (see below) can be found in the project's root folder.
@@ -48,32 +49,30 @@ Hibernate configuration files (see below) can be found in the project's root fol
 * Build the project with Eclipse.
 (The following steps are explained in detail below.)
 * Start the HSQL database server.
-* Run org/softlang/Main.java to create tables.
+* Run ''org/softlang/hibernate/Init.java'' to create tables.
 * Run the database monitor and populate the tables with scripts/PopulateTables.
 * Patch hibernate.cfg.xml to disable "drop and re-recreate".
-* Run org/softlang/Main.java again.
+* Run ''org/softlang/hibernate/Tests.java''.
 
 
 '''How to start the database server:'''
 * Start it from the command line.
 * Go to the data dir of the distribution.
 * Run the following command:
-** > java -classpath ../../library/hibernate/hsqldb.jar org.hsqldb.Server 
+** > java -classpath ../../hibernate/lib/hsqldb.jar org.hsqldb.Server
 ** You can also send it to the background if you like.
 You can also go to the root dir and run a "make start-db".
 
 
-'''How to run org/softlang/main.java:'''
-* Comment out lines 13-31 
-* Run to create new tables
-* Undo the first step
+'''How to create new tables:'''
+* Run ''Init.java'' in ''org.softlang.hibernate''.
 
 
 '''How and why to start the database monitor:'''
 
 * Start it from the command line.
 * Run the following command:
-** java -classpath ../library/hibernate/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
+** > java -classpath ../hibernate/lib/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
 ** You can also send it to the background if you like.
 You can also go to the root dir and run a "make start-gui".
 * When the GUI pops up, make sure to select "HSQL Database Engine Server".
@@ -81,10 +80,9 @@ You can also go to the root dir and run a "make start-gui".
 * Populate these tables:
 ** Open scripts/PopulateTables (File -> Open Script)
 ** Press "Execute SQL"
-* You can shut down the server from here; see menu Command.
 
 
-'''How and why to patch hibernate.cfg.xml?'''
+'''How and why to patch ''hibernate.cfg.xml?'' '''
 
 You can edit that XML file in Eclipse.
 It is the configuration that is used for Hibernate for persistency.
@@ -94,9 +92,9 @@ Hence it says:
 Subsequently, we want to keep all data.
 Hence the line should be commented out.
 
-'''How to cut and total:'''
+'''How to test:'''
 
-* Run org/softlang/Main.java again. It will demonstrate the use of Cut and Total.
+* Run ''Tests.java'' in ''org.softlang.hibernate''.
 
 == Contributors ==
 
