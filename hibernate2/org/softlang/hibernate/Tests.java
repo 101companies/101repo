@@ -1,13 +1,13 @@
 package org.softlang.hibernate;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import org.softlang.om.Company;
 
+// See README for detailed usage instructions
+
 public class Tests {
-	// See README for detailed usage instructions
 
 	Company meganalysis;
 	HibernateConnectivity hc = new HibernateConnectivity();
@@ -20,13 +20,13 @@ public class Tests {
 	@Test
 	public void testTotalAndCut() {
 		// Test scenario "total"
-//		double oldTotal = Total.total(meganalysis);
-//		assertEquals(399747, oldTotal, 0.0);
+		double oldTotal = Total.total(meganalysis);
+		assertEquals(399747, oldTotal, 0.0);
 
 		// Test scenario "cut"
 		Cut.cut(meganalysis);
-//		double cutTotal = Total.total(meganalysis);
-//		assertEquals(oldTotal / 2, cutTotal, 0.0);
+		double cutTotal = Total.total(meganalysis);
+		assertEquals(oldTotal / 2, cutTotal, 0.0);
 
 	}
 
