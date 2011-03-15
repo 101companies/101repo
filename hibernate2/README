@@ -6,7 +6,7 @@ Object [[persistence]] and [[O/R mapping]] with [[Technology:Hibernate]]
 
 [[101implementation:hibernate|Hibernate]] is a technical '''prerequisite''' for this implementation, since it holds the hibernate jars.
 
-The given implementation is also a '''variation''' of [[101implementation:hibernate]]. The variation is concerned with object model and relational schema details. 
+The given implementation is also a '''variation''' of [[101implementation:hibernate|hibernate]]. The variation is concerned with object model and relational schema details. 
 That is, this project's object model is mapped to a relational schema, which represents the company structure in a compositional way, while [[101implementation:hibernate|hibernate]]'s relational schema uses backward references.
 
 == Languages ==
