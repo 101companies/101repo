@@ -1,0 +1,6 @@
+﻿ALTER TABLE [Employee]
+	ADD CONSTRAINT [R_14] FOREIGN KEY ([person_id]) REFERENCES [Person]([person_id])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+
+

@@ -4,7 +4,7 @@ a simple implementation in [[Technology:CSharp|C#]] for [[Technology:.NET]] Fram
 
 == Technologies ==
 
-* [[Technology:CSharp]](C#): Programming language used for all code (Version 4.0)
+* [[Language:CSharp]](C#): Programming language used for all code (Version 4.0)
 * [[Technology:Csc.exe]]: C# compiler (Version 4.0)
 * [[Technology:.NET]]: Framework used to execute compiled code (Version 4.0)
 * [[Technology:NUnit]]: Unit testing framework used for testing (Version 2.5.9.10348)
