@@ -24,7 +24,7 @@ A simple C/S [[Web Application|WebApp] for companies
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
-== Description ==
+== Motivation ==
 
 The present project provides a simple [[Web Application|WebApp] for [[101feature:Company|companies]] by making use
 of the [[Technology:GWT| Google Web Toolkit]] and therefore [[Technology:Ajax]]. 
@@ -32,7 +32,7 @@ The server provides services to obtain company objects.
 and to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
 The client presents the provided functionality via predefined [[GUI]] components. 
 
-=== Architecture ===
+== Architecture ==
 
 '''Client''': 
 Client classes are to be found in the client package. See ''org.softlang.client''.
