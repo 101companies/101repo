@@ -1,51 +1,63 @@
-== Summary == 
-The present project provides a very simple C/S WebApp for companies.
+== Intent == 
+
+A simple C/S [[Web Application|WebApp] for companies
+
+== Languages ==
+
+* [[Language:Java]]
+* [[Language:Javascript]]
+* [[Language:HTML]]
+* [[Language:XML]]
+* [[Language:CSS]]
+
+== Technologies ==
+
+* [[Technology:GWT]]: Google Web Toolkit SDK
+* [[Technology:javac]]: Java compiler (Version 1.6)
+* [[Technology:JDK]]: provider of javac et al.
+* [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:Eclipse]]: optional IDE (Version 3.6.2)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
 
 == Description ==
 
-The present project provides a very simple C/S WebApp for companies.
-The implementation relies on GWT (Ajax).
-Specifically, the client in the browser provides the following features:
-- Navigate hierarchical structure of departmental nesting.
-- Edit all fields of types string and number.
+The present project provides a simple [[Web Application|WebApp] for [[101feature:Company|companies]] by making use
+of the [[Technology:GWT| Google Web Toolkit]] and therefore [[Technology:Ajax]]. 
+The server provides services to obtain company objects. 
+and to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
+The client presents the provided functionality via predefined [[GUI]] components. 
 
-=== Architecture of the project ===
- 
-Client classes are to be found in the client package.
-See org.softlang.client.
-There is the GUI and a special object model for the client.
-See org.softlang.client.company for the latter.
-This object model holds "shallow" data for the widgets.
-The entry point for the client is the Gwt.java class.
+=== Architecture ===
+
+'''Client''': 
+Client classes are to be found in the client package. See ''org.softlang.client''.
+There is the GUI and a special [[101feature:Company|company]] object model for the client. See ''org.softlang.client.company'' for the latter.
+This object model holds "shallow" data for the widgets. The entry point for the client is the ''Gwt.java'' class.
 Here we describe the app's client side appearance and functionality.
  
-Server classes are to be found in the server package.
-See org.softlang.server.
-We use an object model for companies very much like in project serializable.
+Server classes are to be found in the server package. See ''org.softlang.server''.
+We use an object model for [[101feature:Company|companies]] very much like in project [[101implementation:java]].
 (We use a cloned object model for the sake of a simple build for this GWT project.)
 The server maintains an index (see class Index.java) between shallow and proper objects.
 That is, departments and employees are identifiable by their ids (say, names).
  
-The communication between client and server is modeled by the Service interface.
-See the client package.
-There is also the asynchronous version of it: ServiceAsync.java.
-These services allow the client to load and save data and perform scenarios total and cut.
+The communication between client and server is modeled by the ''Service'' interface. See the client package.
+There is also the asynchronous version of it: ''ServiceAsync.java''.
+These services allow the client to load and save data and perform scenarios[[101feature:Total|total]] and [[101feature:Cut|cut]]. 
 
+== Usage ==
 
-== Requirements ==
-
-We make use of GWT. Update Sites:
-* Eclipse 3.6 (Helios) : http://dl.google.com/eclipse/plugin/3.6
-* Eclipse 3.5 (Galileo): http://dl.google.com/eclipse/plugin/3.5
-
-
-== Demo ==
-
-To run a demo:
-* compile org.softlang.client.Gwt (click the red GWT icon).
-* run org.softlang.server.ServiceImpl .
-* open http://localhost:8888 in your browser.
-The server runs until is terminated explicitly; see red box.
+* To run a demo:
+** compile org.softlang.client.Gwt (click the red GWT icon).
+** run org.softlang.server.ServiceImpl .
+** open http://localhost:8888 in your browser.
+* The server runs until is terminated explicitly in the eclipse console;
 
 == Contributors ==
-* Thomas Schmorleiz
+
+* [[Contributor:Thomas Schmorleiz]]
