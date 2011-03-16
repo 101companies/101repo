@@ -4,7 +4,7 @@ import org.softlang.company.*;
 
 public aspect Total {
 
-	public Double Company.total() {
+	public double Company.total() {
 		double total = 0;
 		for (Dept dept : getDepts())
 			total += dept.total();

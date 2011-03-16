@@ -28,4 +28,13 @@ public class Tests {
 		assertEquals(preCutTotal / 2, newTotal, 0.0);
 	}
 
+	@Test
+	public void testDepth() {
+		int resDepth = meganalysis.getDepts().get(0).depth();
+		assertEquals(0, resDepth);
+		int devDepth = meganalysis.getDepts().get(1).depth();
+		assertEquals(2, devDepth);
+		assertEquals(Math.max(resDepth, devDepth) + 1, meganalysis.depth());
+	}
+
 }

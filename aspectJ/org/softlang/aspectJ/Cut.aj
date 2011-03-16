@@ -10,9 +10,9 @@ public aspect Cut {
 	}
 
 	public void Dept.cut() {
-		getManager().cut();
 		for (Subunit s : getSubunits())
 			s.cut();
+		getManager().cut();
 	}
 
 	public void Subunit.cut() {
