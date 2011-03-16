@@ -26,10 +26,9 @@ A simple C/S [[Web Application|WebApp] for companies
 
 == Motivation ==
 
-The present project provides a simple [[Web Application|WebApp] for [[101feature:Company|companies]] by making use
+The present project provides a simple [[Web Application|WebApp]] for [[101feature:Company|companies]] by making use
 of the [[Technology:GWT| Google Web Toolkit]] and therefore [[Technology:Ajax]]. 
-The server provides services to obtain company objects. 
-and to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
+The server provides services to obtain company objects and to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
 The client presents the provided functionality via predefined [[GUI]] components. 
 
 == Architecture ==
@@ -39,7 +38,8 @@ Client classes are to be found in the client package. See ''org.softlang.client'
 There is the GUI and a special [[101feature:Company|company]] object model for the client. See ''org.softlang.client.company'' for the latter.
 This object model holds "shallow" data for the widgets. The entry point for the client is the ''Gwt.java'' class.
 Here we describe the app's client side appearance and functionality.
- 
+
+'''Server''': 
 Server classes are to be found in the server package. See ''org.softlang.server''.
 We use an object model for [[101feature:Company|companies]] very much like in project [[101implementation:java]].
 (We use a cloned object model for the sake of a simple build for this GWT project.)
@@ -53,8 +53,8 @@ These services allow the client to load and save data and perform scenarios[[101
 == Usage ==
 
 * To run a demo:
-** compile org.softlang.client.Gwt (click the red GWT icon).
-** run org.softlang.server.ServiceImpl .
+** compile ''org.softlang.client.Gwt'' (click the red GWT icon).
+** run ''org.softlang.server.ServiceImpl''.
 ** open http://localhost:8888 in your browser.
 * The server runs until is terminated explicitly in the eclipse console;
 
