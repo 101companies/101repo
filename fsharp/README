@@ -1,0 +1,20 @@
+﻿== Summary ==
+F# based object model for 101companies
+
+== Description == 
+101comanies model based on F# type system. The model is created in-memory.
+Unit tests are attached.
+
+To make NUnit GUI working with .NET 4.0
+Under <configuration> add:
+<startup>
+  <supportedRuntime version="v4.0.30319" />
+</startup>
+
+and under <runtime> add:
+<loadFromRemoteSources enabled="true" />
+
+
+== Contributors ==
+* Andrei Varanovich
+
