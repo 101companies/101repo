@@ -32,7 +32,7 @@ That is, this project's object model is mapped to a relational schema, which use
 
 == Motivation == 
 
-An [[object model]] for companies is provided, as well as classes to total and 101feature:Cut|cut salaries.
+An [[object model]] for companies is provided, as well as classes to total and cut salaries.
 This is, we apply a basic style of [[OO programming]]. Instances of the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
 technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files both for departments and employees. 
 
