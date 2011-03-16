@@ -34,14 +34,14 @@ That is, this project's object model is mapped to a relational schema, which rep
 
 == Motivation == 
 
-An [[object model]] for [[101feature:Company|companies]] is provided, as well as classes to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries.
+An [[object model]] for companies is provided, as well as classes to total and cut salaries.
 This is, we apply a basic style of [[OO programming]]. Instances the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
 technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files for departments, employees, subunits and persons.  
 
 == Architecture ==
 
-Package ''org.softlang.om'' holds the java object model for [[101feature:Company|companies]] and the xml-mapping files.
-''org.softlang.hibernate'' provides functionality to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
+Package ''org.softlang.om'' holds the java object model for [[101feature:Company]] and the xml-mapping files.
+''org.softlang.hibernate'' provides functionality to [[101feature:Total]] and [[101feature:Cut]] salaries. 
 This package also hosts ''Init.java'' which tells hibernate to create tables; also test cases (see below) and
 and ''HibernateConnectivity.java'' to easily load and save company objects. This class uses the ''SessionFactory'' provided by ''HibernateUtil.java'' in ''org.softlang.util''.
 The folder ''scripts'' contains sql-scripts to create tables (extracted from the hibernate log), populate data and to drop tables.
