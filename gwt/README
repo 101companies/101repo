@@ -57,7 +57,7 @@ These services allow the client to load and save data and perform scenarios [[10
 ** compile ''org.softlang.client.Gwt'' (click the red GWT icon).
 ** run ''org.softlang.server.ServiceImpl''.
 ** open http://localhost:8888 in your browser.
-* The server runs until is terminated explicitly in the eclipse console;
+* The server runs until is terminated explicitly in the eclipse console.
 
 == Contributors ==
 
