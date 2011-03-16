@@ -26,29 +26,30 @@ A simple C/S [[Web Application|WebApp]] for companies
 
 == Motivation ==
 
-The present project provides a simple [[Web Application|WebApp]] for [[101feature:Company|companies]] by making use
-of the [[Technology:GWT| Google Web Toolkit]] and therefore [[Technology:Ajax]]. 
-The server provides services to obtain company objects and to [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. 
-The client presents the provided functionality via predefined [[GUI]] components. 
+The present project provides a simple [[Web Application|WebApp]] for companies by making use of the [[Technology:GWT| Google Web Toolkit]] and therefore [[Technology:Ajax]]. 
+Via [[asynchronous communication]] the server provides functionality for cutting and totaling salaries.
+The server allows the client to retrieve instances of [[Serialization|serializable]] classes of the company's [[object model]].
+The client presents the provided functionality and retrieved data via predefined [[GUI]] components.
+ 
 
 == Architecture ==
 
 '''Client''': 
 Client classes are to be found in the client package. See ''org.softlang.client''.
-There is the GUI and a special [[101feature:Company|company]] object model for the client. See ''org.softlang.client.company'' for the latter.
+There is the GUI and a special [[101feature:Company]] object model for the client. See ''org.softlang.client.company'' for the latter.
 This object model holds "shallow" data for the widgets. The entry point for the client is the ''Gwt.java'' class.
 Here we describe the app's client side appearance and functionality.
 
 '''Server''': 
-Server classes are to be found in the server package. See ''org.softlang.server''.
-We use an object model for [[101feature:Company|companies]] very much like in project [[101implementation:java]].
+Server classes are to be found in the server package. See ''org.softlang.server''. 
+We use an object model for [[101feature:Company]] very much like in project [[101implementation:java]]
 (We use a cloned object model for the sake of a simple build for this GWT project.)
 The server maintains an index (see class Index.java) between shallow and proper objects.
 That is, departments and employees are identifiable by their ids (say, names).
  
 The communication between client and server is modeled by the ''Service'' interface. See the client package.
 There is also the asynchronous version of it: ''ServiceAsync.java''.
-These services allow the client to load and save data and perform scenarios[[101feature:Total|total]] and [[101feature:Cut|cut]]. 
+These services allow the client to load and save data and perform scenarios [[101feature:Total]] and [[101feature:Cut]]. 
 
 == Usage ==
 
