@@ -14,7 +14,8 @@ That is, this project's object model is mapped to a relational schema, which use
 * [[Language:SQL]]
 
 == Technologies ==
-* [[Technology:Hibernate]]: Hibernate jars 
+* [[Technology:Hibernate]]: Hibernate Framework
+* [[Technology:HSQLDB]]: Hibernate [:Category:Database management system|DBMS]
 * [[Technology:javac]]: Java compiler (Version 1.6)
 * [[Technology:JDK]]: provider of javac et al.
 * [[Technology:JSE]]: execution platform (Version 1.6)
