@@ -15,3 +15,10 @@ Prerequisites:
 - A suitable JDBC Driver for MySQL:
   An appropriate driver is available through the project "library".
   See the corresponding JAR in the build path of the present project. 
+  
+
+== Issues ==
+
+Load and save needs to become lazier.
+* Reported: Ralf
+* Assigned:Thomas
