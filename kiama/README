@@ -1,27 +1,62 @@
-101companies in Scala using Kiama
-Tony Sloane, January 2011
+== Intent ==
 
-Note that the containment scenario is not relevant for Scala since the data
-type ensures that the desired topology cannot be violated.
+demonstrate Kiama
+
+== Languages ==
+
+* [[Language:Scala]]
+
+== Technologies ==
+
+* [[Technology:Kiama]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Depth]]
+* [[101feature:Precedence]]
+
+== Motivation ==
+
+Kiama provides several advanced programming concepts:
+context-sensitive attribute equations, circular attribute equations,
+rewrite rules and higher-order rewriting strategies.  The present
+implementation puts to work some of them for the benefit of a
+declarative and concise implementation of the 101companies system.
+
+== Usage ==
 
 Use the simple-build-tool to build: sbt script for Unix and MacOSX and
 sbt.bat script for Windows.
 
-* (One time only) Download Scala compiler and needed libraries.
+(One time only) Download Scala compiler and needed libraries:
 
+<pre>
 $ ./sbt update
+</pre>
 
 This downloads and installs the relevant jars in your project, so you
-need to be on the net for it to work. The remaining steps can be
-performed without a net connection.
+need to be on the net for it to work. 
 
-* To compile the project (if necessary) and run the main program:
+The remaining steps can be performed without a net connection.
 
+To compile the project (if necessary) and run the main program:
+
+<pre>
 $ ./sbt run
 399747.0
 199873.5
 3
+</pre>
 
-* To run the tests with logging:
+To run the tests with logging:
 
+<pre>
 $ ./sbt info test
+</pre>
+
+== Contributors ==
+
+* [[Contributor:Tony Sloane]]
