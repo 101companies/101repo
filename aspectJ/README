@@ -26,8 +26,8 @@ advanced modular implementations of some features in [[Language:AspectJ]]
 
 Some concepts of [[aspect-oriented programming]] are put to work. The starting 
 point is a simple [[object model]] for companies without any interesting methods,
-but only [[getter]]s, [[setter]]s, and [[constructor]]s. A [[query]] for totaling 
-salaries and a [[:Category:transformation]] for cutting salaries are provided
+but only [[getter]]s, [[setter]]s, and [[constructor method]]s. A [[query]] for
+totaling salaries and a [[:Category:transformation]] for cutting salaries are provided
 by means of [[inter-type declaration]]s. Logging is supported by [[around advice]]
 attached to any call for cutting salaries. These implementations are all arguably
 more modular than implementations that would only use basic concepts of 
