@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * 
- * Check that employees and department are not referenced twice.
+ * Check that employees and departments are not referenced twice.
  * 
  */
 public class Containment {
