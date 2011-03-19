@@ -24,11 +24,11 @@ a simple implementation in [[Language:Java]]
 == Motivation ==
 
 Basic style of [[OO programming]] is applied. A simple [[object model]]
-for companies is provided with virtual methods to implement the [[query]] for
-totaling salaries and the [[:Category:transformation]] for cutting
+for companies is provided with [[virtual method]]s to implement a [[query]] for
+totaling salaries and a [[:Category:transformation]] for cutting
 salaries. Basic [[serialization]] in the sense of [[Technology:Object Streams]] 
 is enabled by means of the [[Marker interface pattern|marker interface]]
-''Serializable'', which is applied to the classes of the object model 
+''Serializable'', which is applied to the [[:Category:class]]es of the object model 
 for companies.
 
 == Architecture ==
