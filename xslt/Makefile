@@ -4,6 +4,7 @@ saxon = saxon/saxon9he.jar
 test:
 	make test-xsltproc
 	make test-saxon
+	rm *.result
 
 test-xsltproc:
 	xsltproc total.xslt ${input} > total.result
