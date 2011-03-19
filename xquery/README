@@ -1,12 +1,40 @@
-We address the 101companies scenarios with XQuery.
+== Intent ==
+
+exercise the basic 101companies features with XQuery
+
+== Languages ==
+
+* [[Language:XQuery]]
+
+== Technologies ==
+
+* [[Technology:Saxon]]: Free XQuery
+* [[Technology:BaseX]]: Free XQuery incl. update facility
+* [[Technology:JSE]]: Version 6 needed for BaseX
+
+== Features ==
+
+* [[101feature:Company]] (no explicit model)
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Depth]]
+
+== Architecture ==
+
+There are two implementations of [[101feature:Cut]]:
+* cut.xq: uses XQuery w/o update facility
+* cut.uf.xq: uses XQuery w/ update facility
+
+== Usage ==
+
 See the Makefile for running some tests.
-We use the BaseX implementation available for Java platform from:
-	http://www.inf.uni-konstanz.de/dbis/basex/index
-Requires Java 6.
+
+Versions of Saxon and BaseX are included in the code repository for this implementation.
 
 Tested with this version of BaseX:
 
-$ java -cp ../library/basex/BaseX61.jar org.basex.BaseX -h
+<pre>
+$ java -cp basex/BaseX61.jar org.basex.BaseX -h
 BaseX 6.1; DBIS, University of Konstanz
 Usage: BaseX [-dioqsvVxz] [query] [-c]
   [query]    query file
@@ -19,25 +47,33 @@ Usage: BaseX [-dioqsvVxz] [query] [-c]
   -v/V       show (all) process info
   -w         wrap query result to xml
   -z         skip query output
-
-The version without the update facility (has a different cut implementation)
-uses Saxon from:
-	http://saxon.sourceforge.net/ or http://www.saxonica.com/
+</pre>
 
 Tested with this version of Saxon:
 
-$ java -jar ../library/saxon/saxon9he.jar
+<pre>
+$ java -jar saxon/saxon9he.jar
 No source file name
 Saxon-HE 9.2.1.2J from Saxonica
 Usage: see http://www.saxonica.com/documentation/using-xsl/commandline.html
 Options: 
    ...
-
+</pre>
 
 Tested on the following machines:
+
+<pre>
 	Darwin ... 9.8.0 Darwin Kernel Version 9.8.0: Wed Jul 15 16:55:01 PDT 2009; root:xnu-1228.15.4~1/RELEASE_I386 i386
 		(both test-saxon and test-basex)
 	Linux ... 2.6.32-21-generic #32-Ubuntu SMP Fri Apr 16 08:09:38 UTC 2010 x86_64 GNU/Linux
 		(both test-saxon and test-basex-unix)
 	Microsoft Windows XP [Version 5.1.2600]
 		(both with and without update facility)
+</pre>
+
+The project can be opened with Eclipse for convenience.
+		
+== Contributors ==
+
+* [[Contributor:Ralf Lämmel]]
+* [[Contributor:Vadim Zaytsev]]

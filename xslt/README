@@ -15,7 +15,7 @@ Any XSLT implementation may do.
 
 == Features ==
 
-* [[101feature:Company]]
+* [[101feature:Company]] (no explicit model)
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
@@ -44,7 +44,7 @@ Also possible to work with Saxon from:
 Tested with this version of Saxon:
 
 <pre>
-$ java -jar ../library/saxon/saxon9he.jar
+$ java -jar saxon/saxon9he.jar
 No source file name
 Saxon-HE 9.2.1.2J from Saxonica
 Usage: see http://www.saxonica.com/documentation/using-xsl/commandline.html
@@ -66,6 +66,8 @@ Tested on the following machines:
 	Microsoft Windows XP [Version 5.1.2600]
 		(only saxon due to the lack of xsltproc)
 </pre>
+
+The project can be opened with Eclipse for convenience.
 
 == Contributors ==
 
