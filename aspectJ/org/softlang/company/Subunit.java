@@ -7,7 +7,7 @@ package org.softlang.company;
 public class Subunit {
 
 	private Employee eUnit;
-	private Dept dUnit;
+	private Department dUnit;
 
 	public Employee getEu() {
 		return eUnit;
@@ -18,11 +18,11 @@ public class Subunit {
 		this.eUnit = eu;
 	}
 
-	public Dept getDu() {
+	public Department getDu() {
 		return dUnit;
 	}
 
-	public void setDu(Dept du) {
+	public void setDu(Department du) {
 		eUnit = null;
 		this.dUnit = du;
 	}

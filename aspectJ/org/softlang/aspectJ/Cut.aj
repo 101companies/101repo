@@ -5,11 +5,11 @@ import org.softlang.company.*;
 public aspect Cut {
 
 	public void Company.cut() {
-		for (Dept dept : getDepts())
+		for (Department dept : getDepts())
 			dept.cut();
 	}
 
-	public void Dept.cut() {
+	public void Department.cut() {
 		for (Subunit s : getSubunits())
 			s.cut();
 		getManager().cut();

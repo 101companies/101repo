@@ -1,1 +1,57 @@
-TBD
+== Intent ==
+
+an advanced modular implementation of some features in [[Language:AspectJ]]
+
+== Languages ==
+
+* [[Language:AspectJ]]
+
+== Technologies ==
+
+* [[Technology:AJDT]]: compilation and IDE support for AspectJ
+* [[Technology:AspectJ compiler]]: compilation (provided by AJDT)
+* [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:JUnit]]: automated testing support (Version 4)
+* [[Technology:Eclipse]]: optional IDE (Version 3.6)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Depth]]
+* [[101feature:Logging]]
+
+== Motivation ==
+
+Some concepts of [[aspect-oriented programming]] are put to work.
+The starting point is a simple [[object model]] for companies without any
+interesting methods. The [[query]] for totaling salaries and the 
+[[:Category:transformation]] for cutting salaries are provided by means
+of [[inter-type declaration]]s. Logging is supported by [[around advice]]
+attached to any call for cutting salaries. These implementations are 
+all arguably more modular than implementations that would only use
+basic concepts of [[OO programming]].
+
+== Architecture ==
+
+Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
+The classes of this object model do not any other features.
+Note that the regular [[object-oriented programming]]-based implementation
+would use virtual methods for at least some of the features.
+Package ''org.softlang.aspectj'' hosts aspects for [[101feature:Total]], 
+[[101feature:Cut]], [[101feature:Depth]], and [[101feature:Logging]]. 
+Package ''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project.
+* AJDT must be installed in Eclipse if Eclipse is to be used.
+* Open the project with Eclipse; this will also build the project.
+* There are JUnit tests available as the package ''org.softlang.java.tests''.
+** Run class Tests with JUnit to exercise all features.
+
+== Contributors ==
+
+* [[Contributor:Ralf Lämmel]]
+* [[Contributor:Thomas Schmorleiz]]

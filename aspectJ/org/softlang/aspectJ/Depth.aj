@@ -7,14 +7,14 @@ public aspect Depth {
 	public int Company.depth() {
 		int depth = 0;
 		if (getDepts().size() != 0) {
-			for (Dept dept : getDepts())
+			for (Department dept : getDepts())
 				depth = Math.max(depth, dept.depth());
 			depth++;
 		}
 		return depth;
 	}
 
-	public int Dept.depth() {
+	public int Department.depth() {
 		int depth = 0;
 		if (getSubunits().size() != 0) {
 			for (Subunit subunit : getSubunits())

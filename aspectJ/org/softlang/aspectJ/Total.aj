@@ -6,12 +6,12 @@ public aspect Total {
 
 	public double Company.total() {
 		double total = 0;
-		for (Dept dept : getDepts())
+		for (Department dept : getDepts())
 			total += dept.total();
 		return total;
 	}
 
-	public double Dept.total() {
+	public double Department.total() {
 		double total = 0;
 		total += getManager().total();
 		for (Subunit s : getSubunits())

@@ -10,10 +10,10 @@ import java.util.List;
 public class Company {
 
 	private String name;
-	private List<Dept> depts;
+	private List<Department> depts;
 	
 	public Company() {
-		depts = new LinkedList<Dept>();
+		depts = new LinkedList<Department>();
 	}
 
 	public String getName() {
@@ -24,7 +24,7 @@ public class Company {
 		this.name = name;
 	}
 
-	public List<Dept> getDepts() {
+	public List<Department> getDepts() {
 		return depts;
 	}
 }
