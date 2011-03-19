@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<company xmlns="http://www.softlang.org/company.xsd">
+<?xml version="1.0" encoding="UTF-8"?><company xmlns="http://www.softlang.org/company.xsd">
 	<dept>
 		<name>Research</name>
 		<manager>
@@ -10,22 +9,22 @@
 			<salary>61728</salary>
 		</manager>
 		<subunit>
-			<pu>
+			<eUnit>
 				<person>
 					<name>Erik</name>
 					<address>Utrecht</address>
 				</person>
 				<salary>6172.5</salary>
-			</pu>
+			</eUnit>
 		</subunit>
 		<subunit>
-			<pu>
+			<eUnit>
 				<person>
 					<name>Ralf</name>
 					<address>Koblenz</address>
 				</person>
 				<salary>617</salary>
-			</pu>
+			</eUnit>
 		</subunit>
 	</dept>
 	<dept>
@@ -38,7 +37,7 @@
 			<salary>117283.5</salary>
 		</manager>
 		<subunit>
-			<du>
+			<dUnit>
 				<name>Dev1</name>
 				<manager>
 					<person>
@@ -48,7 +47,7 @@
 					<salary>11728</salary>
 				</manager>
 				<subunit>
-					<du>
+					<dUnit>
 						<name>Dev1.1</name>
 						<manager>
 							<person>
@@ -58,17 +57,17 @@
 							<salary>1172.5</salary>
 						</manager>
 						<subunit>
-							<pu>
+							<eUnit>
 								<person>
 									<name>Joe</name>
 									<address>Wifi City</address>
 								</person>
 								<salary>1172</salary>
-							</pu>
+							</eUnit>
 						</subunit>
-					</du>
+					</dUnit>
 				</subunit>
-			</du>
+			</dUnit>
 		</subunit>
 	</dept>
 </company>

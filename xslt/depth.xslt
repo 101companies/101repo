@@ -3,12 +3,12 @@
 	<xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
 	<xsl:template match="/*">
 		<xsl:choose>
-			<xsl:when test="com:dept//com:du">
-				<xsl:for-each select="com:dept//com:du">
-					<xsl:sort select="count(ancestor::com:du)"/>
+			<xsl:when test="com:dept//com:dUnit">
+				<xsl:for-each select="com:dept//com:dUnit">
+					<xsl:sort select="count(ancestor::com:dUnit)"/>
 					<xsl:if test="position()=last()">
 <!-- +1 for the root dept; +1 for the found node itself -->
-						<xsl:copy-of select="2+count(ancestor::com:du)"/>
+						<xsl:copy-of select="2+count(ancestor::com:dUnit)"/>
 					</xsl:if>
 				</xsl:for-each>
 			</xsl:when>

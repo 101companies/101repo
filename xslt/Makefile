@@ -1,5 +1,9 @@
-input = ../sax/sampleCompany.xml
-saxon = ../library/saxon/saxon9he.jar
+input = sampleCompany.xml
+saxon = saxon/saxon9he.jar
+
+test:
+	make test-xsltproc
+	make test-saxon
 
 test-xsltproc:
 	xsltproc total.xslt ${input} > total.result
