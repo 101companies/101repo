@@ -25,7 +25,7 @@ public class Cut {
 	}
 	
 	public static void cut(Subunit s) {
-		cut(s.getDu());
-		cut(s.getPu());
+		cut(s.getEmployee());
+		cut(s.getSubdept());
 	}
 }

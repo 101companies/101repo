@@ -32,8 +32,8 @@ public class Total {
 	
 	public static double total(Subunit s) {
 		double total = 0;
-		total += total(s.getDu());
-		total += total(s.getPu());
+		total += total(s.getEmployee());
+		total += total(s.getSubdept());
 		return total;
 	}
 }
