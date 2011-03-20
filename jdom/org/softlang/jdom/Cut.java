@@ -1,4 +1,4 @@
-package org.softlang;
+package org.softlang.jdom;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -7,7 +7,7 @@ import java.util.List;
 import org.jdom.*;
 import org.jdom.filter.ElementFilter;
 
-import static org.softlang.CompanyConstants.*;
+import static org.softlang.jdom.Company.*;
 
 public class Cut {
 

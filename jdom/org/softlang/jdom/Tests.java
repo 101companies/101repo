@@ -1,4 +1,4 @@
-package org.softlang.testing;
+package org.softlang.jdom;
 
 import static org.junit.Assert.*;
 
@@ -10,8 +10,6 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.junit.Before;
 import org.junit.Test;
-import org.softlang.Cut;
-import org.softlang.Total;
 
 public class Tests {
 
@@ -19,8 +17,7 @@ public class Tests {
 
 	@Before
 	public void init() throws IOException, JDOMException {
-		doc = (new SAXBuilder().build(new File(".." + File.separator + "sax"
-				+ File.separator + "sampleCompany.xml")));
+		doc = (new SAXBuilder().build(new File("sampleCompany.xml")));
 	}
 
 	@Test

@@ -22,7 +22,7 @@ exercise the basic 101companies features with [[Technology:DOM]] in [[Language:J
 
 == Motivation ==
 
-Read XML into DOM.
+Read XML into DOM objects.
 
 Query DOM objects with DOM axes.
 

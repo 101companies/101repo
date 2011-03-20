@@ -1,10 +1,10 @@
-package org.softlang;
+package org.softlang.jdom;
 
 import java.util.Iterator;
 import org.jdom.*;
 import org.jdom.filter.ElementFilter;
 
-import static org.softlang.CompanyConstants.*;
+import static org.softlang.jdom.Company.*;
 
 public class Total {
 
