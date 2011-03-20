@@ -22,5 +22,6 @@ To demo execute "java -jar fileserver.jar 8080 www" in the project's directory a
 open http://localhost:8080/companies.html in your browser.
 
 == Contributors ==
-* Zef Hemel 
-* Thomas Schmorleiz
+
+* [[Contributor:Zef Hemel]]
+* [[Contributor:Thomas Schmorleiz]]
