@@ -32,7 +32,7 @@ Transform JDOM objects impurely.
 
 * The implementation is provided as an Eclipse project.
 * Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available though class ''org.softlang.dom.Tests''.
+* There are JUnit tests available though class ''org.softlang.jdom.Tests''.
 
 == Contributors ==
 

@@ -1,10 +1,10 @@
-package org.softlang;
+package org.softlang.xom;
 
 import java.util.HashSet;
 import nu.xom.Element;
 import nu.xom.Elements;
 import nu.xom.Text;
-import static org.softlang.CompanyConstants.*;
+import static org.softlang.xom.Company.*;
 
 public class Cut {
 

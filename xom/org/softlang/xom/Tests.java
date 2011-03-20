@@ -1,4 +1,4 @@
-package org.softlang.testing;
+package org.softlang.xom;
 
 import static org.junit.Assert.*;
 
@@ -12,8 +12,6 @@ import nu.xom.ValidityException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.softlang.Cut;
-import org.softlang.Total;
 
 public class Tests {
 
@@ -21,9 +19,7 @@ public class Tests {
 
 	@Before
 	public void init() throws ValidityException, ParsingException, IOException {
-		docRoot = new Builder().build(
-				new File(".." + File.separator + "sax" + File.separator
-						+ "sampleCompany.xml")).getRootElement();
+		docRoot = new Builder().build(new File("sampleCompany.xml")).getRootElement();
 	}
 
 	@Test

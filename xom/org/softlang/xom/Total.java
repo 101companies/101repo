@@ -1,11 +1,11 @@
-package org.softlang;
+package org.softlang.xom;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import nu.xom.Element;
 import nu.xom.Elements;
-import static org.softlang.CompanyConstants.*;
+import static org.softlang.xom.Company.*;
 
 public class Total {
 
@@ -18,12 +18,12 @@ public class Total {
 		for (int i = 0; i < subunitElements.size(); i++) {
 			Element suElement = subunitElements.get(i);
 			Element puElement = suElement
-					.getFirstChildElement("pu", COMPANY_NS);
+					.getFirstChildElement("employee", COMPANY_NS);
 			if (puElement != null)
 				employeeElements.add(puElement);
 			else
 				employeeElements.addAll(collectAllEmployees(suElement
-						.getFirstChildElement("du", COMPANY_NS)));
+						.getFirstChildElement("subdept", COMPANY_NS)));
 		}
 		return employeeElements;
 	}
