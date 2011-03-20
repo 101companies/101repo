@@ -17,8 +17,8 @@
 	<xs:element name="subunit">
 		<xs:complexType>
 			<xs:choice>
-				<xs:element name="pu" type="employee"/>
-				<xs:element name="du" type="dept"/>
+				<xs:element name="employee" type="employee"/>
+				<xs:element name="subdept" type="dept"/>
 			</xs:choice>
 		</xs:complexType>
 	</xs:element>
