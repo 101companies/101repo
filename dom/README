@@ -1,5 +1,39 @@
-We use DOM for XML processing.
-We exercise some scenarios for companies.
-We compute the total for companies.
-We cut the salaries in half. 
-See the Tests class for JUnit test cases.
+== Intent ==
+
+exercise the basic 101companies features with [[Technology:DOM]] in [[Language:Java]]
+
+== Languages ==
+
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:JAXP]]: implementation of DOM and other XML functionality
+* [[Technology:JDK]]: provider of javac et al.
+* [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:JUnit]]: automated testing support (Version 4)
+* [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
+
+== Features ==
+
+* [[101feature:Company]] (no explicit model)
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+Read XML into DOM.
+
+Query DOM objects with DOM axes.
+
+Transform DOM objects impurely.
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project.
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available though class ''org.softlang.dom.Tests''.
+
+== Contributors ==
+
+* [[Contributor:Ralf Lämmel]]

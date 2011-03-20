@@ -8,10 +8,7 @@ import static org.junit.Assert.*;
 
 public class Tests {
 		
-	private static String sampleCompany =
-		  ".." + File.separator
-		+ "sax" + File.separator
-		+ "sampleCompany.xml";
+	private static String sampleCompany = "sampleCompany.xml";
 	
     @Test
 	public void testTotal() throws Exception {
