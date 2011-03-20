@@ -2,6 +2,11 @@
 
 a simple implementation in [[Language:Java]]
 
+== Implementations ==
+
+The present implementation is the baseline for another implementation:
+[[101implementation:jaxb2]].
+
 == Languages ==
 
 * [[Language:Java]]

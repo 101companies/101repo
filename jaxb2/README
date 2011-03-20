@@ -4,7 +4,7 @@ put to work XML data binding with [[Technology:JAXB]]
 
 == Implementations ==
 
-See [[101implementation:jaxb]] for simpler JAXB-based implementation.
+See [[101implementation:jaxb]] for a simpler JAXB-based implementation.
 It is simpler in so far that the underlying XML Schema is simpler, and hence, 
 the resulting object model is easier to operate on. 
 In particular, the simpler XML Schema deliberately avoids XSD-like subtyping 
