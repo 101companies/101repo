@@ -5,7 +5,7 @@ basex = basex/BaseX61.jar
 test-all:
 	make test-basex
 	make test-saxon
-	rm -f *.result.xml
+	rm -f *.result.xml *.result
 
 test-basex:
 	java -classpath ${basex} org.basex.BaseX total.xq -i${input} > total.result.xml

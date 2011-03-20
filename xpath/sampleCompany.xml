@@ -10,22 +10,22 @@
 			<salary>123456</salary>
 		</manager>
 		<subunit>
-			<eUnit>
+			<employee>
 				<person>
 					<name>Erik</name>
 					<address>Utrecht</address>
 				</person>
 				<salary>12345</salary>
-			</eUnit>
+			</employee>
 		</subunit>
 		<subunit>
-			<eUnit>
+			<employee>
 				<person>
 					<name>Ralf</name>
 					<address>Koblenz</address>
 				</person>
 				<salary>1234</salary>
-			</eUnit>
+			</employee>
 		</subunit>
 	</dept>
 	<dept>
@@ -38,7 +38,7 @@
 			<salary>234567</salary>
 		</manager>
 		<subunit>
-			<dUnit>
+			<subdept>
 				<name>Dev1</name>
 				<manager>
 					<person>
@@ -48,7 +48,7 @@
 					<salary>23456</salary>
 				</manager>
 				<subunit>
-					<dUnit>
+					<subdept>
 						<name>Dev1.1</name>
 						<manager>
 							<person>
@@ -58,17 +58,17 @@
 							<salary>2345</salary>
 						</manager>
 						<subunit>
-							<eUnit>
+							<employee>
 								<person>
 									<name>Joe</name>
 									<address>Wifi City</address>
 								</person>
 								<salary>2344</salary>
-							</eUnit>
+							</employee>
 						</subunit>
-					</dUnit>
+					</subdept>
 				</subunit>
-			</dUnit>
+			</subdept>
 		</subunit>
 	</dept>
 </company>

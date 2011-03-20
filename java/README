@@ -8,7 +8,6 @@ a simple implementation in [[Language:Java]]
 
 == Technologies ==
 
-* [[Technology:javac]]: Java compiler (Version 1.6)
 * [[Technology:JDK]]: provider of javac et al.
 * [[Technology:JSE]]: execution platform (Version 1.6)
 * [[Technology:JUnit]]: automated testing support (Version 4)
