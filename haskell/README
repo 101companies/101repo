@@ -23,7 +23,7 @@ Basic style of [[functional programming]] is applied. That is,
 [[algebraic datatype]]s are used to represent companies, and recursive,
 [[Pure computation|pure]] functions implement the [[query]] for
 totaling salaries and the [[:Category:transformation]] for cutting
-salaries. Since (sufficently restrictive) algebraic datatypes are
+salaries. Since (sufficiently restrictive) algebraic datatypes are
 amenable to uniform read and show functions, basic [[serialization]] is
 immediately enabled.
 
@@ -38,8 +38,7 @@ There are Haskell modules for the basic features.
 * [[101feature:Cut]]: ''Cut.hs''
 
 [[101feature:Serialization]] is enabled by "deriving" clauses in ''Company.hs''.
-
-Finally, there is a ''Main'' module which collects a few test scenarios.
+Finally, there is a ''Main'' module which collects a few test scenarios; see below.
 
 == Usage ==
 

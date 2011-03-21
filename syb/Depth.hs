@@ -15,5 +15,5 @@ depth = depth'
    where
     recurse :: GenericQ Int
     recurse = foldr max 0 . gmapQ depth'
-    atDept :: Dept -> Int
+    atDept :: Department -> Int
     atDept = const 1

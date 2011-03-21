@@ -1,5 +1,5 @@
 test:
-	echo "main" | ghci -v0 -i.:../alpha Demo.hs > log
+	echo "main" | ghci -v0 Main.hs > log
 	diff log baseline
 	rm log
 
