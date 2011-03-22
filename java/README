@@ -4,8 +4,8 @@ a simple implementation in [[Language:Java]]
 
 == Implementations ==
 
-The present implementation is the baseline for another implementation:
-[[101implementation:jaxb2]].
+See [[101implementation:java2]] for a variation on the present implementation 
+which uses [[object composition]] instead of [[class inheritance]].
 
 == Languages ==
 
@@ -28,12 +28,16 @@ The present implementation is the baseline for another implementation:
 == Motivation ==
 
 Basic style of [[OO programming]] is applied. A simple [[object model]]
-for companies is provided with [[virtual method]]s to implement a [[query]] for
-totaling salaries and a [[:Category:transformation]] for cutting
-salaries. Basic [[serialization]] in the sense of [[Technology:Object Streams]] 
-is enabled by means of the [[Marker interface pattern|marker interface]]
-''Serializable'', which is applied to the [[:Category:class]]es of the object model 
-for companies.
+for companies is provided. [[Object composition]] is put to work to 
+compose companies, and nested departments. Methods implement a [[query]] 
+for totaling salaries and a [[:Category:transformation]] for cutting salaries/
+Since [[class inheritance]] is  not used, and, in fact, no [[:Category:subtyping]] 
+is used whatsoever, no [[virtual method]]s are needed for the query and
+the transformation. Instead, a collection of static methods an be used.
+Basic [[serialization]] in the sense of [[Technology:Object Streams]] is 
+enabled by means of the [[Marker interface pattern|marker interface]] 
+''Serializable'', which is applied to the [[:Category:class]]es of the 
+object model for companies.
 
 == Architecture ==
 

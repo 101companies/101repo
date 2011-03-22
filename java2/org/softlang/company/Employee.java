@@ -6,7 +6,7 @@ import java.io.Serializable;
  * An employee has a salary and some person information
  * 
  */
-public class Employee extends Subunit implements Serializable {
+public class Employee implements Serializable {
 
 	private static final long serialVersionUID = -210889592677165250L;
 
@@ -38,11 +38,4 @@ public class Employee extends Subunit implements Serializable {
 		this.address = address;
 	}
 	
-	public double total() {
-		return getSalary();
-	}	
-	
-	public void cut() {
-		setSalary(getSalary() / 2);
-	}	
 }

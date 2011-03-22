@@ -56,8 +56,8 @@ public class Serialization {
 		Department research = new Department();
 		research.setManager(craig);
 		research.setName("Research");
-		research.getSubunits().add(erik);
-		research.getSubunits().add(ralf);
+		research.getEmployees().add(erik);
+		research.getEmployees().add(ralf);
 		company.getDepts().add(research);
 
 		// Create development department
@@ -68,16 +68,16 @@ public class Serialization {
 
 		// Create sub-department dev1
 		Department dev1 = new Department();
-		development.getSubunits().add(dev1);
+		development.getSubdepts().add(dev1);
 		dev1.setName("Dev1");
 		dev1.setManager(klaus);
 
 		// Create sub-department dev11
 		Department dev11 = new Department();
-		dev1.getSubunits().add(dev11);
+		dev1.getSubdepts().add(dev11);
 		dev11.setName("Dev1.1");
 		dev11.setManager(karl);
-		dev11.getSubunits().add(joe);
+		dev11.getEmployees().add(joe);
 
 		return company;
 	}

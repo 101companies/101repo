@@ -8,15 +8,17 @@ import java.util.List;
  * A department has a name, a manager and a list of subunits
  * 
  */
-public class Department extends Subunit implements Serializable {
+public class Department implements Serializable {
 
 	private static final long serialVersionUID = -2008895922177165250L;
 	private String name;
 	private Employee manager;
-	private List<Subunit> subunits;
+	private List<Department> subdepts;
+	private List<Employee> employees;
 
 	public Department() {
-		subunits = new LinkedList<Subunit>();
+		subdepts = new LinkedList<Department>();
+		employees = new LinkedList<Employee>();
 	}
 
 	public String getName() {
@@ -35,21 +37,11 @@ public class Department extends Subunit implements Serializable {
 		this.manager = manager;
 	}
 
-	public List<Subunit> getSubunits() {
-		return subunits;
+	public List<Department> getSubdepts() {
+		return subdepts;
 	}
 
-	public double total() {
-		double total = 0;
-		total += getManager().total();
-		for (Subunit s : getSubunits())
-			total += s.total();
-		return total;		
-	}	
-	
-	public void cut() {
-		getManager().cut();
-		for (Subunit s : getSubunits())
-			s.cut();
-	}	
+	public List<Employee> getEmployees() {
+		return employees;
+	}
 }
