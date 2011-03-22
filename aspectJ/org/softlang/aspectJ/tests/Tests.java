@@ -7,34 +7,30 @@ import static org.junit.Assert.*;
 
 public class Tests {
 
-	Company meganalysis;
+	Company sampleCompany;
 
 	@Before
 	public void setup() {
-		meganalysis = SampleCompany.getSampleCompany();
+		sampleCompany = SampleCompany.getSampleCompany();
 	}
 
 	@Test
 	public void testTotal() {
-		double total = meganalysis.total();
+		double total = sampleCompany.total();
 		assertEquals(399747.0, total, 0.0);
 	}
 
 	@Test
 	public void testCut() {
-		double preCutTotal = meganalysis.total();
-		meganalysis.cut();
-		double newTotal = meganalysis.total();
+		double preCutTotal = sampleCompany.total();
+		sampleCompany.cut();
+		double newTotal = sampleCompany.total();
 		assertEquals(preCutTotal / 2, newTotal, 0.0);
 	}
 
 	@Test
 	public void testDepth() {
-		int resDepth = meganalysis.getDepts().get(0).depth();
-		assertEquals(0, resDepth);
-		int devDepth = meganalysis.getDepts().get(1).depth();
-		assertEquals(2, devDepth);
-		assertEquals(Math.max(resDepth, devDepth) + 1, meganalysis.depth());
+		assertEquals(3, sampleCompany.depth());
 	}
 
 }

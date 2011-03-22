@@ -7,14 +7,13 @@ import java.util.List;
  * A department has a name, a manager and a list of subunits
  * 
  */
-public class Department {
+public class Department extends Subunit {
 
 	private String name;
 	private Employee manager;
 	private List<Subunit> subunits;
 
 	public Department() {
-		name = "";
 		subunits = new LinkedList<Subunit>();
 	}
 

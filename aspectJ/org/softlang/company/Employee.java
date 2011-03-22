@@ -4,17 +4,18 @@ package org.softlang.company;
  * An employee has a salary and some person information
  * 
  */
-public class Employee {
+public class Employee extends Subunit {
 
-	private Person person;
+	private String name;
 	private double salary;
+	private String address;
 
-	public Person getPerson() {
-		return person;
+	public String getName() {
+		return name;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public double getSalary() {
@@ -23,5 +24,13 @@ public class Employee {
 
 	public void setSalary(double salary) {
 		this.salary = salary;
+	}
+		
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

@@ -46,9 +46,9 @@ public aspect Logging {
 
 	// Logging a employee salary cut
 	void around(Employee e): cutEmployee(e) {
-		System.out.println(cutLogBefore("Employee", e.getPerson().getName(), e.total()));
+		System.out.println(cutLogBefore("Employee", e.getName(), e.total()));
 		proceed(e);
-		System.out.println(cutLogAfter("Employee", e.getPerson().getName(), e.total()));
+		System.out.println(cutLogAfter("Employee", e.getName(), e.total()));
 	}
 
 }

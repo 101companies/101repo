@@ -26,22 +26,24 @@ advanced modular implementations of some features in [[Language:AspectJ]]
 
 Some concepts of [[aspect-oriented programming]] are put to work. The starting 
 point is a simple [[object model]] for companies without any interesting methods,
-but only [[getter]]s, [[setter]]s, and [[constructor method]]s. A [[query]] for
-totaling salaries and a [[:Category:transformation]] for cutting salaries are provided
-by means of [[inter-type declaration]]s. Logging is supported by [[around advice]]
-attached to any call for cutting salaries. These implementations are all arguably
-more modular than implementations that would only use basic concepts of 
-[[OO programming]].
+but only [[getter]]s, [[setter]]s, and [[constructor method]]s. Some computations
+on companies are provided by means of [[inter-type declaration]]s. Logging is 
+supported by [[around advice]] attached to any call for cutting salaries. These 
+implementations are all arguably more modular than implementations that would 
+only use basic concepts of [[OO programming]]. (If we were not using [[subtyping]],
+then we can use static methods instead of instance methods--in which case 
+computations can be modularized without inter-type declarations; see
+[[101implementation:java2]].) 
 
 == Architecture ==
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
 The Java classes of this object model do not implement any other features.
-Note that the regular [[OO programming]]-based implementation
-would use regular virtual methods for at least some of the features.
-Package ''org.softlang.aspectj'' hosts aspects for [[101feature:Total]], 
-[[101feature:Cut]], [[101feature:Depth]], and [[101feature:Logging]]. 
-Package ''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
+Note that the regular [[OO programming]]-based implementation (in the presence
+of [[subtyping]]) would use regular virtual methods for at least some of the 
+features. Package ''org.softlang.aspectj'' hosts aspects for [[101feature:Total]], 
+[[101feature:Cut]], [[101feature:Depth]], and [[101feature:Logging]]. Package
+''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
 
 == Usage ==
 

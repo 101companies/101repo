@@ -15,12 +15,7 @@ public aspect Cut {
 		getManager().cut();
 	}
 
-	public void Subunit.cut() {
-		if (getDu() != null)
-			getDu().cut();
-		if (getEu() != null)
-			getEu().cut();
-	}
+	public abstract void Subunit.cut();
 
 	public void Employee.cut() {
 		setSalary(getSalary() / 2);

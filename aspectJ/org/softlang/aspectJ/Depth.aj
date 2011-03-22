@@ -9,10 +9,11 @@ public aspect Depth {
 		if (getDepts().size() != 0) {
 			for (Department dept : getDepts())
 				depth = Math.max(depth, dept.depth());
-			depth++;
 		}
 		return depth;
 	}
+
+	public abstract int Subunit.depth();
 
 	public int Department.depth() {
 		int depth = 0;
@@ -20,12 +21,10 @@ public aspect Depth {
 			for (Subunit subunit : getSubunits())
 				depth = Math.max(depth, subunit.depth());
 		}
-		return depth;
+		return ++depth;
 	}
 
-	public int Subunit.depth() {
-		if (getDu() != null)
-			return getDu().depth() + 1;
+	public int Employee.depth() {
 		return 0;
 	}
 

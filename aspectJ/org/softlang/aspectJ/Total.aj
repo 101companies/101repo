@@ -11,18 +11,13 @@ public aspect Total {
 		return total;
 	}
 
+	public abstract double Subunit.total();
+
 	public double Department.total() {
 		double total = 0;
 		total += getManager().total();
 		for (Subunit s : getSubunits())
 			total += s.total();
-		return total;
-	}
-
-	public double Subunit.total() {
-		double total = 0;
-		total += getDu() == null ? 0 : getDu().total();
-		total += getEu() == null ? 0 : getEu().total();
 		return total;
 	}
 

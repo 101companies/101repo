@@ -5,91 +5,69 @@ import org.softlang.company.*;
 public class SampleCompany {
 
 	public static Company getSampleCompany() {
-		Company meganalysis = new Company();
-
-		meganalysis.setName("meganalysis");
-
-		Person craig = new Person();
+		
+		// Create company
+		Company company = new Company();
+		company.setName("meganalysis");
+		
+		// Create all employees
+		Employee craig = new Employee();
 		craig.setName("Craig");
+		craig.setSalary(123456);
 		craig.setAddress("Redmond");
-		Person erik = new Person();
+		Employee erik = new Employee();
 		erik.setName("Erik");
+		erik.setSalary(12345);
 		erik.setAddress("Utrecht");
-		Person ralf = new Person();
+		Employee ralf = new Employee();
 		ralf.setName("Ralf");
+		ralf.setSalary(1234);		
 		ralf.setAddress("Koblenz");
-		Person ray = new Person();
+		Employee ray = new Employee();
 		ray.setName("Ray");
+		ray.setSalary(234567);
 		ray.setAddress("Redmond");
-		Person klaus = new Person();
+		Employee klaus = new Employee();
 		klaus.setName("Klaus");
+		klaus.setSalary(23456);
 		klaus.setAddress("Boston");
-		Person karl = new Person();
+		Employee karl = new Employee();
 		karl.setName("Karl");
+		karl.setSalary(2345);
 		karl.setAddress("Riga");
-		Person joe = new Person();
+		Employee joe = new Employee();
 		joe.setName("Joe");
+		joe.setSalary(2344);								
 		joe.setAddress("Wifi City");
 
-		Employee CraigE = new Employee();
-		Employee erikE = new Employee();
-		Employee ralfE = new Employee();
-		Employee rayE = new Employee();
-		Employee klausE = new Employee();
-		Employee karlE = new Employee();
-		Employee joeE = new Employee();
-
-		CraigE.setPerson(craig);
-		erikE.setPerson(erik);
-		ralfE.setPerson(ralf);
-		rayE.setPerson(ray);
-		klausE.setPerson(klaus);
-		karlE.setPerson(karl);
-		joeE.setPerson(joe);
-
-		CraigE.setSalary(123456);
-		erikE.setSalary(12345);
-		ralfE.setSalary(1234);
-		rayE.setSalary(234567);
-		klausE.setSalary(23456);
-		karlE.setSalary(2345);
-		joeE.setSalary(2344);
-
+		// Create research department
 		Department research = new Department();
-		Subunit researchS1 = new Subunit();
-		Subunit researchS2 = new Subunit();
-
-		research.setManager(CraigE);
+		research.setManager(craig);
 		research.setName("Research");
-		researchS1.setEu(erikE);
-		researchS2.setEu(ralfE);
-		research.getSubunits().add(researchS1);
-		research.getSubunits().add(researchS2);
+		research.getSubunits().add(erik);
+		research.getSubunits().add(ralf);
+		company.getDepts().add(research);
 
+		// Create development department
 		Department development = new Department();
-		development.setManager(rayE);
+		development.setManager(ray);
 		development.setName("Development");
-		Subunit developmentS1 = new Subunit();
-		development.getSubunits().add(developmentS1);
+		company.getDepts().add(development);
+
+		// Create sub-department dev1
 		Department dev1 = new Department();
+		development.getSubunits().add(dev1);
 		dev1.setName("Dev1");
-		dev1.setManager(klausE);
-		developmentS1.setDu(dev1);
-		Subunit dev1S1 = new Subunit();
-		dev1.getSubunits().add(dev1S1);
+		dev1.setManager(klaus);
+
+		// Create sub-department dev11
 		Department dev11 = new Department();
+		dev1.getSubunits().add(dev11);
 		dev11.setName("Dev1.1");
-		dev11.setManager(karlE);
-		dev1S1.setDu(dev11);
-		Subunit dev11S1 = new Subunit();
-		dev11S1.setEu(joeE);
-		dev11.getSubunits().add(dev11S1);
+		dev11.setManager(karl);
+		dev11.getSubunits().add(joe);
 
-		meganalysis.getDepts().add(research);
-		meganalysis.getDepts().add(development);
-
-		return meganalysis;
-
+		return company;
 	}
 
 }
