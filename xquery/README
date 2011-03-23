@@ -1,6 +1,6 @@
 == Intent ==
 
-exercise the basic 101companies features with XQuery
+exercise [[:Category:XML_processing]] with [[Language:XQuery]]
 
 == Languages ==
 
@@ -15,10 +15,14 @@ exercise the basic 101companies features with XQuery
 
 == Features ==
 
-* [[101feature:Company]] (no explicit model)
+* [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
+
+The data model for companies is provided as an XML schema.
+
+Validity is not checked or otherwise implied.
 
 == Architecture ==
 

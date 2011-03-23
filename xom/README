@@ -1,6 +1,6 @@
 == Intent ==
 
-exercise the basic 101companies features with [[Technology:XOM]] in [[Language:Java]]
+exercise [[in-memory XML processing]] with [[Technology:XOM]] in [[Language:Java]]
 
 == Languages ==
 
@@ -17,17 +17,20 @@ exercise the basic 101companies features with [[Technology:XOM]] in [[Language:J
 
 == Features ==
 
-* [[101feature:Company]] (no explicit model)
+* [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
+The data model for companies is provided as an XML schema.
+
+Validity is not checked or otherwise implied.
+
 == Motivation ==
 
-Read XML into XOM objects.
-
-Query XOM objects with DOM axes.
-
-Transform XOM objects impurely.
+See [[implementation101:dom]] for a general motivation for exercising
+[[in-memory XML processing]]. The present implementation simply exercises
+yet another DOM-like API. We end up providing a descendants axis to this
+end.
 
 == Usage ==
 
@@ -37,4 +40,5 @@ Transform XOM objects impurely.
 
 == Contributors ==
 
+* [[Contributor:Ralf Lämmel]]
 * [[Contributor:Thomas Schmorleiz]]

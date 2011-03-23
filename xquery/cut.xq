@@ -19,7 +19,7 @@ declare function local:cut-salary($element as element()) as element()
 
 <company>
 {
-	for $dept in //dept
-	return local:cut-salary($dept)
+	for $x in *
+	return local:cut-salary($x)
 }
 </company>

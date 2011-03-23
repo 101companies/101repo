@@ -35,6 +35,10 @@ Transform DOM objects impurely.
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available though class ''org.softlang.dom.Tests''.
 
+== Issues ==
+
+* DOM-based validation shall be demonstrated some day.
+
 == Contributors ==
 
 * [[Contributor:Ralf Lämmel]]

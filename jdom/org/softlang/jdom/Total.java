@@ -4,14 +4,11 @@ import java.util.Iterator;
 import org.jdom.*;
 import org.jdom.filter.ElementFilter;
 
-import static org.softlang.jdom.Company.*;
-
 public class Total {
 
 	public static double total(Document doc) {
 		double ttl = 0;
-		Iterator<?> salaryElementsIt = doc.getDescendants(new ElementFilter(
-				"salary", COMPANY_NS));
+		Iterator<?> salaryElementsIt = doc.getDescendants(new ElementFilter("salary"));
 		while (salaryElementsIt.hasNext())
 			ttl += Double.valueOf(((Element) salaryElementsIt.next()).getValue());
 		return ttl;

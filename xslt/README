@@ -1,25 +1,55 @@
 == Intent ==
 
-exercise the basic 101companies features with XSLT
+exercise XML transformation with XSLT
 
 == Languages ==
 
 * [[Language:XML]]
 * [[Language:XSLT]]
+* [[Language:XSD]]
 
 == Technologies ==
 
 Any XSLT implementation may do.
+
+Two processors were tested and their usage was scripted in a Makefile.
 
 * [[Technology:xsltproc]]
 * [[Technology:Saxon]]
 
 == Features ==
 
-* [[101feature:Company]] (no explicit model)
+* [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
+
+The data model for companies is provided as an XML schema.
+
+Validity is not checked or otherwise implied.
+
+== Motivation ==
+
+XSLT is easily applied to the basic query/transformation features.
+Structurally recursive,
+[[endogenous transformation]]s are taken care of by XSLT transformations
+that leverage the "copy-recurse" idiom for all elements that do not require
+any "local" change; see below. Structurally recursive queries are handled similarly;
+output mode "text" is used, though.
+
+'''"copy-recurse" idiom:'''
+
+<pre>
+	<xsl:template match="@*|node()">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()"/>
+		</xsl:copy>
+	</xsl:template>
+</pre>
+
+== Architecture ==
+
+Each of the implemented query/transformation features is modeled by a designated XML transformation.
 
 == Usage ==
 

@@ -1,19 +1,18 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:com="http://www.softlang.org/company.xsd" version="1.0">
 	<xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
-	<xsl:template match="/*">
+	<xsl:template match="*">
 		<xsl:choose>
-			<xsl:when test="com:dept//com:subdept">
-				<xsl:for-each select="com:dept//com:subdept">
-					<xsl:sort select="count(ancestor::com:subdept)"/>
+			<xsl:when test="//com:department">
+				<xsl:for-each select="//com:department">
+					<xsl:sort select="count(ancestor::com:department)"/>
 					<xsl:if test="position()=last()">
-<!-- +1 for the root dept; +1 for the found node itself -->
-						<xsl:copy-of select="2+count(ancestor::com:subdept)"/>
+						<xsl:copy-of select="1+count(ancestor::com:department)"/>
 					</xsl:if>
 				</xsl:for-each>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:text>1</xsl:text>
+				<xsl:text>0</xsl:text>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

@@ -17,9 +17,13 @@ exercise the basic 101companies features with [[Technology:JDOM]] in [[Language:
 
 == Features ==
 
-* [[101feature:Company]] (no explicit model)
+* [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+
+The data model for companies is provided as an XML schema.
+
+Validity is not checked or otherwise implied.
 
 == Motivation ==
 
