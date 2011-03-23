@@ -25,32 +25,32 @@ public class Serialization {
 		// Create all employees
 		Employee craig = new Employee();
 		craig.setName("Craig");
-		craig.setSalary(123456);
 		craig.setAddress("Redmond");
+		craig.setSalary(123456);
 		Employee erik = new Employee();
 		erik.setName("Erik");
-		erik.setSalary(12345);
 		erik.setAddress("Utrecht");
+		erik.setSalary(12345);
 		Employee ralf = new Employee();
 		ralf.setName("Ralf");
-		ralf.setSalary(1234);		
 		ralf.setAddress("Koblenz");
+		ralf.setSalary(1234);		
 		Employee ray = new Employee();
 		ray.setName("Ray");
-		ray.setSalary(234567);
 		ray.setAddress("Redmond");
+		ray.setSalary(234567);
 		Employee klaus = new Employee();
 		klaus.setName("Klaus");
-		klaus.setSalary(23456);
 		klaus.setAddress("Boston");
+		klaus.setSalary(23456);
 		Employee karl = new Employee();
 		karl.setName("Karl");
-		karl.setSalary(2345);
 		karl.setAddress("Riga");
+		karl.setSalary(2345);
 		Employee joe = new Employee();
 		joe.setName("Joe");
-		joe.setSalary(2344);								
 		joe.setAddress("Wifi City");
+		joe.setSalary(2344);								
 
 		// Create research department
 		Department research = new Department();

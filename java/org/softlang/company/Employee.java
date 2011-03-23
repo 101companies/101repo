@@ -11,8 +11,8 @@ public class Employee extends Subunit implements Serializable {
 	private static final long serialVersionUID = -210889592677165250L;
 
 	private String name;
-	private double salary;
 	private String address;
+	private double salary;
 
 	public String getName() {
 		return name;
@@ -20,14 +20,6 @@ public class Employee extends Subunit implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
 	}
 		
 	public String getAddress() {
@@ -38,6 +30,15 @@ public class Employee extends Subunit implements Serializable {
 		this.address = address;
 	}
 	
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
 	public double total() {
 		return getSalary();
 	}	

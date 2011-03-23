@@ -11,8 +11,8 @@ public class Employee implements Serializable {
 	private static final long serialVersionUID = -210889592677165250L;
 
 	private String name;
-	private double salary;
 	private String address;
+	private double salary;
 
 	public String getName() {
 		return name;
@@ -22,14 +22,6 @@ public class Employee implements Serializable {
 		this.name = name;
 	}
 
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-		
 	public String getAddress() {
 		return address;
 	}
@@ -37,5 +29,12 @@ public class Employee implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
 }

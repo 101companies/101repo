@@ -2,11 +2,6 @@
 
 a simple implementation in [[Language:Java]]
 
-== Implementations ==
-
-See [[101implementation:java2]] for a variation on the present implementation 
-which uses [[object composition]] instead of [[class inheritance]].
-
 == Languages ==
 
 * [[Language:Java]]
@@ -28,9 +23,12 @@ which uses [[object composition]] instead of [[class inheritance]].
 == Motivation ==
 
 Basic style of [[OO programming]] is applied. A simple [[object model]]
-for companies is provided with [[virtual method]]s to implement a [[query]] for
-totaling salaries and a [[:Category:transformation]] for cutting
-salaries. Basic [[serialization]] in the sense of [[Technology:Object Streams]] 
+for companies is provided with [[method]]s to implement a [[query]] for
+totaling salaries and a [[:Category:transformation]] for cutting salaries.
+In fact, [[class inheritance]] is leveraged, but see [[101implementation:java2]] 
+for a variation that uses [[object composition]]. Because of the use of class
+inheritance, the aforementioned methods are actual [[Virtual method|virtual]].
+Basic [[serialization]] in the sense of [[Technology:Object Streams]] 
 is enabled by means of the [[Marker interface pattern|marker interface]]
 ''Serializable'', which is applied to the [[:Category:class]]es of the object model 
 for companies.
