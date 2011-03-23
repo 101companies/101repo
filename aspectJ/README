@@ -27,25 +27,25 @@ advanced modular implementations of some features in [[Language:AspectJ]]
 Some concepts of [[aspect-oriented programming]] are put to work. The starting 
 point is a simple [[object model]] for companies without any interesting methods,
 but only [[getter]]s, [[setter]]s, and [[constructor method]]s. Some computations
-on companies are provided by means of [[inter-type declaration]]s. Logging is 
-supported by [[around advice]] attached to any call for cutting salaries. These 
-implementations are all arguably more modular than implementations that would 
-only use basic concepts of [[OO programming]]. (If we were not using [[subtyping]],
-then we can use static methods instead of instance methods--in which case 
-computations can be modularized without inter-type declarations; see
-[[101implementation:java2]].) 
+on companies are provided by means of [[inter-type declaration]]s. Here it should
+be noted that the object model uses an abstract base class of subunits which 
+implies that operations on the object model should be implemented in terms of 
+[[virtual method]]s. Inter-type declarations allow us here to implement those
+virtual methods "after the fact" in an extra module. (If we were not using 
+[[subtype polymorphism]], then we can use static methods instead of instance 
+methods--in which case computations can be modularized without inter-type 
+declarations; see [[101implementation:java2]].) Besides, logging is 
+supported by [[around advice]] attached to any call for cutting salaries. 
 
 == Architecture ==
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
 The Java classes of this object model do not implement any other features.
-Note that the regular [[OO programming]]-based implementation (in the presence
-of [[subtyping]]) would use regular virtual methods for at least some of the 
-features. Package ''org.softlang.aspectj'' hosts aspects for [[101feature:Total]], 
+Package ''org.softlang.aspectj'' hosts aspects for [[101feature:Total]], 
 [[101feature:Cut]], [[101feature:Depth]], and [[101feature:Logging]]. There is 
-another aspect ''Polymorphism.aj'' which rehashes all the operations (getName,
-total, cut) as an interface on the various classes. Finally, package
-''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
+another aspect ''Polymorphism'' which rehashes existing operations (getName,
+total, cut) as an interface ''Operations'' on the relevant classes. Finally, 
+package ''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
 
 == Usage ==
 
