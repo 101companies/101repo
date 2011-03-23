@@ -1,0 +1,64 @@
+== Intent ==
+
+exercise [[X/O mapping]] with [[Technology:JAXB]]
+
+== Languages ==
+
+* [[Language:XML]]
+* [[Language:XSD]]
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:JAXB]]: XML data binding technology
+* [[Technology:xjc]]: XML Schema-to-class compilation (part of JAXB)
+* [[Technology:JDK]]: provider of javac, xjc, et al.
+* [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:JUnit]]: automated testing support (Version 4)
+* [[Technology:Eclipse]]: optional IDE (Version 3.6)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+The primary data model for the present implementation is an XML schema from which 
+Java classes are derived by means of the schema compiler [[Technology:xjc]] which 
+is part of [[Technology:JAXB]]. The resulting object model essentially models
+departmental nesting by means of [[object composition]]. (The object model happens
+to be very similar to the one that was natively developed for the introductory
+Java-based implementation [[101implementation:java2]].) The 101companies features
+are not implemented by [[instance method]]s since this would imply modification
+of schema-derived classes (unless advanced modularization mechanisms were 
+leveraged). Hence, the features are implemented by static methods outside the
+schema-derived classes. Overall, this implementation is helpful in analyzing 
+differences between native object models and schema-derived ones.
+
+== Architecture ==
+
+''Company.xsd'' is the schema for [[schema-first mapping]].
+''Makefile'' shows how to (trivially) invoke the schema compiler [[Technology:xjc]] 
+of [[Technology:JAXB]]. Package ''org.softlang.company'' hosts all schema-derived
+classes and interfaces. Package ''org.softlang.jaxb'' hosts feature
+implementations for [[101feature:Total]] and [[101feature:Cut]] as well as
+class ''Tests'' with JUnit tests.
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project.
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available though class ''org.softlang.jaxb.Tests''.
+* If you want to regenerate classes from the scheme, see the ''Makefile''.
+
+Hint: if you need to add schema files to a project so that XML files are 
+automatically validated on the grounds of their namespace, as it is useful for
+the schema Company.xsd, which is part of the present implementation, then 
+you need to add the files via Eclipse preferences -> XML -> XML catalog.
+
+== Contributors ==
+
+* [[Contributor:Ralf Lämmel]]
+* [[Contributor:Thomas Schmorleiz]]
