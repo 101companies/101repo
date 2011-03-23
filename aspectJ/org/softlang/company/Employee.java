@@ -7,8 +7,8 @@ package org.softlang.company;
 public class Employee extends Subunit {
 
 	private String name;
-	private double salary;
 	private String address;
+	private double salary;
 
 	public String getName() {
 		return name;
@@ -18,14 +18,6 @@ public class Employee extends Subunit {
 		this.name = name;
 	}
 
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-		
 	public String getAddress() {
 		return address;
 	}
@@ -33,4 +25,12 @@ public class Employee extends Subunit {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}	
 }

@@ -42,7 +42,9 @@ The Java classes of this object model do not implement any other features.
 Note that the regular [[OO programming]]-based implementation (in the presence
 of [[subtyping]]) would use regular virtual methods for at least some of the 
 features. Package ''org.softlang.aspectj'' hosts aspects for [[101feature:Total]], 
-[[101feature:Cut]], [[101feature:Depth]], and [[101feature:Logging]]. Package
+[[101feature:Cut]], [[101feature:Depth]], and [[101feature:Logging]]. There is 
+another aspect ''Polymorphism.aj'' which rehashes all the operations (getName,
+total, cut) as an interface on the various classes. Finally, package
 ''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
 
 == Usage ==
