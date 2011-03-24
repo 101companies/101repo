@@ -1,6 +1,6 @@
 == Intent ==
 
-exercise the basic 101companies features with XPath
+exercise [[:Category:XML processing]] with [[Language:XPath]] embedded in [[Language:Java]]
 
 == Languages ==
 
@@ -27,7 +27,7 @@ exercise the basic 101companies features with XPath
 
 XPath can be embedded in Java code which makes it possible to process
 query results in Java. Query results are bound to DOM-like node sets, and
-one can even iterate over those and mutate them, thereby implementing
+one can iterate over those and mutate them, thereby implementing
 impure transformations.
 
 == Architecture ==

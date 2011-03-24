@@ -23,6 +23,10 @@ exercise [[push-based XML parsing]] with [[Technology:SAX]] in [[Language:Java]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
+== Terms ==
+
+* [[:Category:XML processing]]
+
 == Architecture ==
 
 [[101feature:Company]] is implemented by an XML Schema in Company.xsd.

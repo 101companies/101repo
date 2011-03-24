@@ -25,6 +25,10 @@ The data model for companies is provided as an XML schema.
 
 Validity is not checked or otherwise implied.
 
+== Terms ==
+
+* [[:Category:XML processing]]
+
 == Motivation ==
 
 See [[implementation101:dom]] for a general motivation for exercising

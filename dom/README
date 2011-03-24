@@ -1,6 +1,6 @@
 == Intent ==
 
-exercise the basic 101companies features with [[Technology:DOM]] in [[Language:Java]]
+exercise [[in-memory XML processing]] with [[Technology:DOM]] in [[Language:Java]]
 
 == Languages ==
 
@@ -21,13 +21,17 @@ exercise the basic 101companies features with [[Technology:DOM]] in [[Language:J
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
+== Terms ==
+
+* [[:Category:XML processing]]
+
 == Motivation ==
 
-Read XML into DOM objects.
-
-Query DOM objects with DOM axes.
-
-Transform DOM objects impurely.
+DOM represents XML in memory and provides rich axes on the representation.
+For instance, one can even navigate upwads from children to ancestors.
+Also, the representation is generic, whereby it is easy to navigate data generically as well.
+DOM trees are also mutable, whereby it is easy to transform data.
+The basic features of 101companies are easily implemented hence.
 
 == Usage ==
 

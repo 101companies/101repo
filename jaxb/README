@@ -23,6 +23,10 @@ exercise [[O/X mapping]] with [[Technology:JAXB]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
+== Terms ==
+
+* [[:Category:XML processing]]
+
 == Motivation ==
 
 The primary data model for the present implementation is an XML schema from which 

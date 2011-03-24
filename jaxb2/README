@@ -23,6 +23,10 @@ exercise [[O/X mapping]] with [[Technology:JAXB]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
+== Terms ==
+
+* [[:Category:XML processing]]
+
 == Motivation ==
 
 See [[101implementation:jaxb]] for the overall motivation of exercising 

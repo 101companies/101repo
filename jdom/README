@@ -1,6 +1,6 @@
 == Intent ==
 
-exercise the basic 101companies features with [[Technology:JDOM]] in [[Language:Java]]
+exercise [[in-memory XML processing]] with [[Technology:JDOM]] in [[Language:Java]]
 
 == Languages ==
 
@@ -25,13 +25,15 @@ The data model for companies is provided as an XML schema.
 
 Validity is not checked or otherwise implied.
 
+== Terms ==
+
+* [[:Category:XML processing]]
+
 == Motivation ==
 
-Read XML into JDOM objects.
-
-Query JDOM objects with DOM axes.
-
-Transform JDOM objects impurely.
+See [[implementation101:dom]] for a general motivation for exercising
+[[in-memory XML processing]]. The present implementation simply exercises
+yet another DOM-like API.
 
 == Usage ==
 
