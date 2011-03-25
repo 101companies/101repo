@@ -25,7 +25,7 @@ a simple implementation in [[Language:Java]]
 Basic style of [[OO programming]] is applied. A simple [[object model]]
 for companies is provided with [[method]]s to implement a [[query]] for
 totaling salaries and a [[:Category:transformation]] for cutting salaries.
-In fact, [[class inheritance]] is leveraged, but see [[101implementation:java2]] 
+In fact, [[class inheritance]] is leveraged, but see [[101implementation:java]] 
 for a variation that uses [[object composition]]. Because of the use of class
 inheritance, the aforementioned methods are actual [[Virtual method|virtual]].
 Basic [[serialization]] in the sense of [[Technology:Object Streams]] 
