@@ -46,8 +46,8 @@ Package ''org.softlang.tests'' hosts JUnit tests; see below.
 * The implementation is provided as an Eclipse project.
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available as the package ''org.softlang.tests''.
-** Run class Basics with JUnit to exercise basic features.
-** Run class Serialization with JUnit to exercise serialization.
+** Run class ''Basics'' with JUnit to exercise basic features.
+** Run class ''Serialization'' with JUnit to exercise serialization.
 
 == Contributors ==
 
