@@ -1,3 +1,7 @@
+== Intent ==
+
+
+
 The present project provides a very simple GUI for companies.
 We reuse the object model of project "alpha".
 Specifically, the GUI provides the following gestures:
@@ -13,3 +17,9 @@ There are two views: one for departments (and companies) and another for employe
 The controller provides services that push effect of gestures into the model.
 The views delegates event handlers to the controller.
 The controller calls into the model and the view.
+
+== Contributors ==
+
+* [[Contributor:Ralf Lämmel]]
+* [[Contributor:Thomas Schmorleiz]]
+* [[Contributor:Betim Sojeva]]

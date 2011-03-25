@@ -1,5 +1,6 @@
-package org.softlang.swing;
+package org.softlang.tests;
 
+import org.softlang.swing.GUI;
 import org.softlang.company.Company;
 
 public class Test {
