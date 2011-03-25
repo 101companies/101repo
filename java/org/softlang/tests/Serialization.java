@@ -1,9 +1,9 @@
-package org.softlang.java.tests;
+package org.softlang.tests;
 
 import java.lang.reflect.Field;
 import java.util.LinkedList;
 
-import org.softlang.company.*;
+import org.softlang.basics.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

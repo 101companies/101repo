@@ -1,4 +1,4 @@
-package org.softlang.company;
+package org.softlang.basics;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

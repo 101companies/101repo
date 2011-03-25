@@ -1,8 +1,10 @@
-package org.softlang.java.tests;
+package org.softlang.tests;
 
-import org.softlang.company.Company;
-import static org.softlang.java.Total.*;
-import static org.softlang.java.Cut.*;
+import org.softlang.basics.Company;
+
+import static org.softlang.basics.Cut.*;
+import static org.softlang.basics.Total.*;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 

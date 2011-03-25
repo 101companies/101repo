@@ -1,6 +1,6 @@
-package org.softlang.java;
+package org.softlang.basics;
 
-import org.softlang.company.*;
+import org.softlang.basics.*;
 
 public class Cut {
 
