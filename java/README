@@ -39,19 +39,19 @@ object model for companies.
 == Architecture ==
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
-Package ''org.softlang.java'' hosts designated classes with static methods for
-[[101feature:Total]] and [[101feature:Cut]]. Some boilerplate code for 
+Package ''org.softlang.operations'' hosts designated classes with static methods for
+the operations [[101feature:Total]] and [[101feature:Cut]]. Some boilerplate code for 
 [[101feature:Serialization]] is implemented in the class ''org.softlang.company.Company'' 
-(see methods ''readObject'' and ''writeObject''). Package ''org.softlang.java.tests'' 
+(see methods ''readObject'' and ''writeObject''). Package ''org.softlang.tests'' 
 hosts JUnit tests; see below.
 
 == Usage ==
 
 * The implementation is provided as an Eclipse project.
 * Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available as the package ''org.softlang.java.tests''.
-** Run class Basics with JUnit to exercise basic features.
-** Run class Serialization with JUnit to exercise serialization.
+* There are JUnit tests available as the package ''org.softlang.tests''.
+** Run class ''Basics'' with JUnit to exercise basic features.
+** Run class ''Serialization'' with JUnit to exercise serialization.
 
 == Contributors ==
 
