@@ -56,3 +56,7 @@ The Haskell module ''Main'' has to be consulted with GHCi, and the
 scenarios is produced. The ''expected'' output is available through
 the file ''baseline''. There is a ''Makefile'' with a target ''test''
 for [[test automation]].
+
+== Contributors ==
+
+* [[Contributor:Ralf Lämmel]]
