@@ -1,9 +1,9 @@
 package org.softlang.tests;
 
-import org.softlang.features.Company;
+import org.softlang.company.Company;
 
-import static org.softlang.features.Cut.*;
-import static org.softlang.features.Total.*;
+import static org.softlang.operations.Cut.*;
+import static org.softlang.operations.Total.*;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

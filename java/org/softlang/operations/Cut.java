@@ -1,6 +1,6 @@
-package org.softlang.features;
+package org.softlang.operations;
 
-import org.softlang.features.*;
+import org.softlang.company.*;
 
 public class Cut {
 
