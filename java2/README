@@ -35,10 +35,10 @@ for companies.
 
 == Architecture ==
 
-Package ''org.softlang.company'' hosts the object model for [[101feature:Company]] 
+Package ''org.softlang.basics'' hosts the object model for [[101feature:Company]] 
 with the virtual methods for [[101feature:Total]] and [[101feature:Cut]]. Some 
 boilerplate code for [[101feature:Serialization]] is implemented in the class 
-''org.softlang.company.Company'' (see methods ''readObject'' and ''writeObject'').
+''org.softlang.basics.Company'' (see methods ''readObject'' and ''writeObject'').
 Package ''org.softlang.tests'' hosts JUnit tests; see below.
 
 == Usage ==

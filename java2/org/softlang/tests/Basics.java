@@ -1,6 +1,6 @@
 package org.softlang.tests;
 
-import org.softlang.company.Company;
+import org.softlang.basics.Company;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package org.softlang.company;
+package org.softlang.basics;
 
 /**
  * A subunit is either an employee unit or a department unit
