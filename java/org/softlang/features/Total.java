@@ -1,6 +1,6 @@
-package org.softlang.basics;
+package org.softlang.features;
 
-import org.softlang.basics.*;
+import org.softlang.features.*;
 
 public class Total {
 	

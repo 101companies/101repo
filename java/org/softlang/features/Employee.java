@@ -1,4 +1,4 @@
-package org.softlang.basics;
+package org.softlang.features;
 
 import java.io.Serializable;
 
