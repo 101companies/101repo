@@ -1,7 +1,6 @@
 package org.softlang.dom;
 
 import org.w3c.dom.Document;
-import java.io.File;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
