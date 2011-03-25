@@ -1,22 +1,26 @@
 == Intent ==
 
+provide interaction on companies by means of [[Technology:Swing]]
 
+== Motivation ==
 
-The present project provides a very simple GUI for companies.
-We reuse the object model of project "alpha".
 Specifically, the GUI provides the following gestures:
-- Navigate hierarchical structure of departmental nesting.
-- Edit all fields of types string and number.
+* Navigate hierarchical structure of departmental nesting.
+* Edit all fields of types string and number.
 
-Run Test.java to start the GUI for the sample company.
+== Architecture ==
 
-The project uses a poorman's MVC architecture.
-Project "alpha" provides the model for the present project.
+The implementation uses a poorman's MVC architecture.
+It is based on the object model of [[101implementation:java]].
 We do not assume any change-notification services on the model.
 There are two views: one for departments (and companies) and another for employees.
 The controller provides services that push effect of gestures into the model.
 The views delegates event handlers to the controller.
 The controller calls into the model and the view.
+
+== Usage ==
+
+Run Interaction.java to start the GUI for the sample company.
 
 == Contributors ==
 
