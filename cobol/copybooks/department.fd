@@ -1,0 +1,8 @@
+         FD    DEPT-FILE.
+         01    DEPT-RECORD.
+          05   DEPT-KEY.
+           10  DEPT-COMPANY    PIC X(42).
+           10  DEPT-NAME       PIC X(42).
+          05   DEPT-ANCESTOR   PIC X(42).
+          05   DEPT-MANAGER    PIC X(42).
+

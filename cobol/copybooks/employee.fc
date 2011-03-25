@@ -1,0 +1,6 @@
+          SELECT EMPL-FILE ASSIGN "data/employee.idx"
+           FILE STATUS   IS  FILE-STATUS
+           ORGANIZATION  IS  INDEXED
+           ACCESS        IS  DYNAMIC               
+           RECORD KEY    IS  EMPL-KEY.
+

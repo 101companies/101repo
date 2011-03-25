@@ -1,0 +1,9 @@
+         FD    EMPL-FILE.
+         01    EMPL-RECORD.
+          05   EMPL-KEY.
+           10  EMPL-COMPANY    PIC X(42).
+           10  EMPL-DEPT       PIC X(42).
+           10  EMPL-NAME       PIC X(42).
+          05   EMPL-ADDR       PIC X(42).
+          05   EMPL-SALARY     PIC 9(9)V99.
+

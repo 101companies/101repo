@@ -1,0 +1,6 @@
+          SELECT DEPT-FILE ASSIGN "data/department.idx"
+           FILE STATUS   IS  FILE-STATUS
+           ORGANIZATION  IS  INDEXED
+           ACCESS MODE   IS  DYNAMIC
+           RECORD KEY    IS  DEPT-KEY.
+

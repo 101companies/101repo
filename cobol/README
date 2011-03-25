@@ -1,0 +1,45 @@
+== Intent ==
+
+a simple implementation in [[Language:Cobol]]
+
+== Languages ==
+
+* [[Language:Cobol 85]]
+
+== Technologies ==
+
+Any Cobol 85 compiler should do.
+
+* [[Technology:OpenCOBOL]] (Version 1.0)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Depth]]
+* [[101feature:Persistence]]
+
+== Motivation ==
+
+Cobol is a language that readily comes with means of data modeling and
+storage (persistence). Hence, it provides a good fit for the basic features
+and persistence.
+
+== Architecture ==
+
+Directory hierarchy:
+* ''programs'': main Cobol programs for sample data and features
+* ''copybooks'': copybooks reused across the different programs
+* ''data'': location for keyed files
+* ''baselines'': baselines for automated test; see below
+
+== Usage ==
+
+There is a ''Makefile'' that exercises all features in some scripted order.
+All programs are compiled with the OpenCobol compiler and executed with 
+its runtime.
+
+== Issues ==
+
+It would be interested to provide a Cobol-like user interface.
