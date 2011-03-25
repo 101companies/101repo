@@ -1,6 +1,8 @@
 package org.softlang.swing;
 
 import org.softlang.company.*;
+import static org.softlang.operations.Total.*;
+import static org.softlang.operations.Cut.*;
 import java.util.Stack;
 
 public class Controller {
@@ -33,7 +35,7 @@ public class Controller {
 	}
 
 	private void showCompany() {
-		deptView.showCompany(company, company.total());
+		deptView.showCompany(company, total(company));
 	}
 
 	public void deptClicked(Department dept) {
@@ -44,7 +46,7 @@ public class Controller {
 		if (openDept != null && deeper)
 			deptStack.push(openDept);
 		openDept = dept;
-		deptView.showDept(dept, dept.total());
+		deptView.showDept(dept, total(dept));
 	}
 
 	public void saveCompanyClicked(String name) {
@@ -60,7 +62,7 @@ public class Controller {
 		openDept.setName(name);
 		if (deptStack.isEmpty()) {
 			openDept = null;
-			deptView.showCompany(company, company.total());
+			deptView.showCompany(company, total(company));
 		} else
 			showDept(deptStack.pop(), false);
 	}
@@ -68,7 +70,7 @@ public class Controller {
 	public void cancelDeptClicked() {
 		if (deptStack.isEmpty()) {
 			openDept = null;
-			deptView.showCompany(company, company.total());
+			deptView.showCompany(company, total(company));
 		} else {
 			showDept(deptStack.pop(), false);
 		}
@@ -120,21 +122,21 @@ public class Controller {
 	}
 
 	public void cutCompanyClicked() {
-		company.cut();
+		cut(company);
 		showCompany();
 		if (openEmployee != null)
 			showEmployee(openEmployee);
 	}
 
 	public void cutDeptClicked() {
-		openDept.cut();
+		cut(openDept);
 		showDept(openDept, false);
 		if (openEmployee != null)
 			showEmployee(openEmployee);
 	}
 
 	public void cutEmployeeClicked() {
-		openEmployee.cut();
+		cut(openEmployee);
 		showEmployee(openEmployee);
 		showDept(openDept, false);
 	}
