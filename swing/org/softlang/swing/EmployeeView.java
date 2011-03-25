@@ -42,9 +42,9 @@ public class EmployeeView {
 	}
 
 	public void showEmployee(Employee employee) {
-		frame.setTitle("Employee  \"" + employee.getPerson().getName() + "\"");
-		nameField.setText(employee.getPerson().getName());
-		addressField.setText(employee.getPerson().getAddress());
+		frame.setTitle("Employee  \"" + employee.getName() + "\"");
+		nameField.setText(employee.getName());
+		addressField.setText(employee.getAddress());
 		salaryField.setText(Double.toString(employee.getSalary()));
 		for (ActionListener al : cutButton.getActionListeners())
 			cutButton.removeActionListener(al);

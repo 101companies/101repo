@@ -23,8 +23,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import org.softlang.company.Company;
-import org.softlang.company.Dept;
-import org.softlang.company.Subunit;
+import org.softlang.company.Department;
+import org.softlang.company.Employee;
 
 public class DeptView {
 
@@ -82,13 +82,13 @@ public class DeptView {
 			}
 		});
 		subDeptLabel.setText("Top departments: ");
-		for (Dept dept : company.getDepts())
+		for (Department dept : company.getDepts())
 			addDept(dept);
 		frame.setVisible(true);
 
 	}
 
-	public void showDept(final Dept dept, double total) {
+	public void showDept(final Department dept, double total) {
 		isTop = false;
 		setNonTopPanelVisibilty(true);
 		removeListener();
@@ -105,7 +105,7 @@ public class DeptView {
 				controller.cutDeptClicked();
 			}
 		});
-		managerButton.setText(dept.getManager().getPerson().getName());
+		managerButton.setText(dept.getManager().getName());
 		if (managerButton.getActionListeners().length != 0)
 			managerButton.removeActionListener(managerButton
 					.getActionListeners()[0]);
@@ -115,9 +115,10 @@ public class DeptView {
 				controller.employeeClicked(dept.getManager());
 			}
 		});
-		for (Subunit subunit : dept.getSubunits()) {
-			addSubunit(subunit);
-		}
+		for (Department d : dept.getSubdepts())
+			addDepartment(d);
+		for (Employee e : dept.getEmployees())
+			addEmployee(e);
 	}
 
 	private void removeListener() {
@@ -140,34 +141,32 @@ public class DeptView {
 		cancelButton.setVisible(visibility);
 	}
 
-	private void addSubunit(final Subunit subunit) {
-		if (subunit.getPu() != null) {
+	private void addEmployee(final Employee employee) {
 			final int newIndex = employeeListModel.size();
-			employeeListModel.add(newIndex, subunit.getPu().getPerson()
-					.getName());
+			employeeListModel.add(newIndex, employee.getName());
 			employeeList.addListSelectionListener(new ListSelectionListener() {
-				@Override
 				public void valueChanged(ListSelectionEvent e) {
 					if (employeeList.getSelectedIndex() == newIndex)
-						controller.employeeClicked(subunit.getPu());
+						controller.employeeClicked(employee);
 
 				}
 			});
-		} else {
+	}
+
+	private void addDepartment(final Department dept) {
 			final int newIndex = subDeptListModel.size();
-			subDeptListModel.add(newIndex, subunit.getDu().getName());
+			subDeptListModel.add(newIndex, dept.getName());
 			subDeptList.addListSelectionListener(new ListSelectionListener() {
 				@Override
 				public void valueChanged(ListSelectionEvent e) {
 					if (subDeptList.getSelectedIndex() == newIndex)
-						controller.deptClicked(subunit.getDu());
+						controller.deptClicked(dept);
 
 				}
 			});
-		}
 	}
 
-	private void addDept(final Dept dept) {
+	private void addDept(final Department dept) {
 		final int newIndex = subDeptListModel.size();
 		subDeptListModel.add(newIndex, dept.getName());
 		subDeptList.addListSelectionListener(new ListSelectionListener() {

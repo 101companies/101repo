@@ -9,8 +9,8 @@ public class Controller {
 	private EmployeeView employeeView;
 
 	private Company company;
-	private Stack<Dept> deptStack = new Stack<Dept>();
-	private Dept openDept;
+	private Stack<Department> deptStack = new Stack<Department>();
+	private Department openDept;
 	private Employee openEmployee;
 
 	public Controller(Company company) {
@@ -36,11 +36,11 @@ public class Controller {
 		deptView.showCompany(company, company.total());
 	}
 
-	public void deptClicked(Dept dept) {
+	public void deptClicked(Department dept) {
 		showDept(dept, true);
 	}
 
-	private void showDept(Dept dept, boolean deeper) {
+	private void showDept(Department dept, boolean deeper) {
 		if (openDept != null && deeper)
 			deptStack.push(openDept);
 		openDept = dept;
@@ -95,8 +95,8 @@ public class Controller {
 
 	public void saveEmployeeClicked(String name, String address, double salary) {
 		if (openEmployee != null) {
-			openEmployee.getPerson().setName(name);
-			openEmployee.getPerson().setAddress(address);
+			openEmployee.setName(name);
+			openEmployee.setAddress(address);
 			openEmployee.setSalary(salary);
 		}
 		showDept(openDept, false);
@@ -105,8 +105,8 @@ public class Controller {
 
 	public void okEmployeeClicked(String name, String address, double salary) {
 		if (openEmployee != null) {
-			openEmployee.getPerson().setName(name);
-			openEmployee.getPerson().setAddress(address);
+			openEmployee.setName(name);
+			openEmployee.setAddress(address);
 			openEmployee.setSalary(salary);
 		}
 		employeeView.setVisibility(false);
