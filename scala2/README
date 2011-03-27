@@ -1,0 +1,45 @@
+== Intent ==
+
+an implementation of the basic spec in [[Language:Scala]] providing typeclass based serialization using SJSON
+
+== Languages ==
+
+* [[Language:Scala 2.8.1]]
+
+== Technologies ==
+
+* [[Technology:Scala]]: The Scala compiler and runtime library (Version 2.8.1)
+* [[Technology:sbt]]: Simple Build Tool - a build tool for Scala projects (Version 0.7.4)
+* [[Technology:sjson]]: sjson - an idiomatic JSON serialization library for Scala (Version 0.10)
+* [[Technology:sbt-idea]]: A plugin to generate IntelliJ IDEA project descriptions from sbt projects (Version 0.4)
+* [[Technology:ScalaTest]]: A library for BDD and unit testing in Scala (Version 1.3)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+This implementation utilizes an idiomatic, functional style approach. The model is realized using only immutable data structures and the total and cut computation are realized by recursively mapping over the elements of the Department tree.
+Because the model is immutable, it is easily serialized. In addition, an example of JSON serialization was implemented using the sjson Library by Debasish Ghosh. Serialization patterns for all types of the Company domain are realized by implementing typeclass for each one.
+
+== Architecture ==
+
+The implementation is straightforward. All of the basic features are contained in ''Company.scala'' and [[101feature:Serialization]] is found in ''JSONSerialization.scala''. Basic test cases are provided.
+
+== Usage ==
+
+You need to install sbt to build and run this project as shown on the sbt [http://code.google.com/p/simple-build-tool/wiki/Setup website]. Then change into the base directory of the project and run
+ <nowiki>sbt update</nowiki>
+This should fetch all needed dependencies. After that you can compile the project by typing
+ <nowiki>sbt compile</nowiki>
+and then
+ <nowiki>sbt test</nowiki>
+to run the tests.
+
+== Contributors ==
+
+* [[Contributor:Sebastian Jackel]]
