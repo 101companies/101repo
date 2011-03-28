@@ -62,13 +62,22 @@ class CompanyTest extends WordSpec with ShouldMatchers {
     )
   )
 
-  "A Company" should {
+  "Meganalysis Ltd." should {
     "not have an empty name" in {
       company.name should not have length(0)
     }
+
+    "pay it's employees a monthly salary of 399747" in {
+      Company.total(company) should equal(399747.0)
+    }
+
+    "reduce company total pay by half in case of a cut" in {
+      val cutCompany = Company.cut(company)
+      Company.total(cutCompany) should equal(Company.total(company)/2.0)
+    }
   }
 
-  "All of a Company's departments" should {
+  "All of Meganalysis Ltd.'s departments" should {
     "not have an empty name" in {
       def getDepts(s: SubUnit): List[Dept] = s match {
         case d@Dept(_, _, subs) => d :: (subs.flatMap(getDepts))
