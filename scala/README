@@ -1,6 +1,47 @@
-We make use of the Scala IDE for Eclipse.
-Update-Site: http://download.scala-ide.org/update-current-35
+== Intent ==
 
-We use a simple object model for companies.
-These are plain scala objects plus instance methods for some of the scenarios.
-See the tests package for test cases.
+a very very OO implementation of the basic spec in Scala
+
+== Languages ==
+
+* [[Language:Scala 2.8.1]]
+
+== Technologies ==
+
+* [[Technology:Scala]]: The Scala compiler and runtime library (Version 2.8.1)
+* [[Technology:sbt]]: Simple Build Tool - a build tool for Scala projects (Version 0.7.4)
+* [[Technology:sbt-idea]]: A plugin to generate IntelliJ IDEA project descriptions from sbt projects (Version 0.4)
+* [[Technology:ScalaTest]]: A library for BDD and unit testing in Scala (Version 1.3)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+This defines a minimal approach to realize the basic spec using Scala's OO features. In Scala terms this could be considered a ''Java without semicolons'' implementation.
+
+== Architecture ==
+
+The implementation features fully mutable classes and total and cut are implemented as instance methods. The implementation contains three files:
+
+* ''Company.scala'' contains everything related to the Company entity
+* ''Employee.scala'' contains classes describing the company personnel
+* ''Dept.scala'' contains the implementation of Departments
+
+== Usage ==
+
+You need to install sbt to build and run this project as shown on the sbt [http://code.google.com/p/simple-build-tool/wiki/Setup website]. Then change into the base directory of the project and run
+ <nowiki>sbt update</nowiki>
+This should fetch all needed dependencies. After that you can compile the project by typing
+ <nowiki>sbt compile</nowiki>
+and then
+ <nowiki>sbt test</nowiki>
+to run the tests.
+
+== Contributors ==
+
+* [[Contributor:Thomas Schmorleiz]] - initial implementation
+* [[Contributor:Sebastian Jackel]] - general overhaul
