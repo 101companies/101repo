@@ -1,0 +1,16 @@
+#Sat Mar 26 21:56:25 BRT 2011
+action.package=org.softlang.web
+action.sources=/seam/src/hot
+eclipse.preferences.version=1
+model.package=org.softlang.model
+model.sources=/seam/src/main
+seam.ejb.project=seam
+seam.project.connection.profile=
+seam.project.deployment.type=war
+seam.project.settings.version=1.1
+seam.project.web.root.folder=/seam/view
+seam.runtime.name=jboss-seam-2.1
+seam.test.creating=true
+seam.test.project=seam
+test.package=org.softlang.tests
+test.sources=/seam/src/test

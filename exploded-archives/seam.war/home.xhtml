@@ -1,0 +1,31 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+    <ui:define name="body">
+
+        <h1>Welcome to the Seam implementation of 101 companies!</h1>
+        <rich:panel>
+            <h:panelGrid columns="2">
+                <h:graphicImage value="/img/seamlogo.png" alt="Seam logo"/>
+                <s:div styleClass="info">
+                    <p><strong>Your 101companies seam implementation is deployed!</strong> Here are some of the features this project provides:</p>
+                    <ul class="bullets">
+                    	<li>Web tier using AJAX</li>
+                        <li>Service tier using JavaBean Seam components</li>
+                        <li>OR mapping using JPA entity classes</li>
+               			<li>Dependency Injection (see @In fields)</li>
+               			<li>AOP using JBOSS technologies</li>
+                   </ul>
+                </s:div>
+            </h:panelGrid>
+        </rich:panel>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Persistence deployment descriptor for prod profile -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" 
+             version="1.0">
+             
+   <persistence-unit name="seam" transaction-type="JTA">
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      <jta-data-source>seamDatasource</jta-data-source>
+      <properties>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+         <property name="hibernate.hbm2ddl.auto" value="validate"/>
+         <property name="hibernate.jdbc.batch_size" value="20"/>
+         <!-- Only relevant if Seam is loading the persistence unit (Java SE bootstrap) -->
+         <property name="hibernate.transaction.manager_lookup_class" value="@transactionManagerLookupClass@"/>
+      </properties>
+   </persistence-unit>
+    
+</persistence>
