@@ -25,5 +25,13 @@ namespace csharpEntityFramework.Tests
             var afterCut = company.Total();
             Assert.AreEqual(total / 2, afterCut);
         }
+
+        [Test]
+        public void DepthTest()
+        {
+            var ctx = new CompanyDataContext();
+            var devDept = ctx.Departments.Where(d => d.Name == "Development").First();
+            Assert.AreEqual(2, devDept.Depth());
+        }
     }
 }

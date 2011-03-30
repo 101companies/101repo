@@ -23,5 +23,21 @@ namespace csharpEntityFramework
             }
             company.SaveChanges();
         }
+
+        public static int Depth(this Department department)
+        {
+                var depth = 0;
+                if (department.SubUnits.Count > 0)
+                {
+                    depth += 1;
+                    foreach (var subUnit in department.SubUnits.ToList())
+                    {
+                        depth += subUnit.Depth();
+                        return depth;
+                    }
+                }
+
+                return depth;
+        }
     }
 }

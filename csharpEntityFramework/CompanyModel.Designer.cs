@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("CompanyModel", "R_11", "Company", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(csharpEntityFramework.Company), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(csharpEntityFramework.Department), true)]
+[assembly: EdmRelationshipAttribute("CompanyModel", "FK_Department_Departmnent", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(csharpEntityFramework.Department), "Department1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(csharpEntityFramework.Department), true)]
 [assembly: EdmRelationshipAttribute("CompanyModel", "R_15", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(csharpEntityFramework.Department), "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(csharpEntityFramework.Employee), true)]
 [assembly: EdmRelationshipAttribute("CompanyModel", "R_14", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(csharpEntityFramework.Person), "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(csharpEntityFramework.Employee), true)]
 
@@ -446,6 +447,66 @@ namespace csharpEntityFramework
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Company>("CompanyModel.R_11", "Company", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CompanyModel", "FK_Department_Departmnent", "Department1")]
+        public EntityCollection<Department> SubUnits
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Department>("CompanyModel.FK_Department_Departmnent", "Department1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Department>("CompanyModel.FK_Department_Departmnent", "Department1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CompanyModel", "FK_Department_Departmnent", "Department")]
+        public Department Parent
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("CompanyModel.FK_Department_Departmnent", "Department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("CompanyModel.FK_Department_Departmnent", "Department").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Department> ParentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("CompanyModel.FK_Department_Departmnent", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("CompanyModel.FK_Department_Departmnent", "Department", value);
                 }
             }
         }

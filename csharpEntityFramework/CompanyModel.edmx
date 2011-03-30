@@ -10,6 +10,10 @@
           <EntitySet Name="Department" EntityType="CompanyModel.Store.Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Employee" EntityType="CompanyModel.Store.Employee" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Person" EntityType="CompanyModel.Store.Person" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Department_Departmnent" Association="CompanyModel.Store.FK_Department_Departmnent">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Department1" EntitySet="Department" />
+          </AssociationSet>
           <AssociationSet Name="R_11" Association="CompanyModel.Store.R_11">
             <End Role="Company" EntitySet="Company" />
             <End Role="Department" EntitySet="Department" />
@@ -59,6 +63,18 @@
           <Property Name="Address" Type="char" MaxLength="18" />
           <Property Name="person_id" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Department_Departmnent">
+          <End Role="Department" Type="CompanyModel.Store.Department" Multiplicity="0..1" />
+          <End Role="Department1" Type="CompanyModel.Store.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="Department1">
+              <PropertyRef Name="parent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="R_11">
           <End Role="Company" Type="CompanyModel.Store.Company" Multiplicity="0..1" />
           <End Role="Department" Type="CompanyModel.Store.Department" Multiplicity="*" />
@@ -108,6 +124,10 @@
             <End Role="Company" EntitySet="Companies" />
             <End Role="Department" EntitySet="Departments" />
           </AssociationSet>
+          <AssociationSet Name="FK_Department_Departmnent" Association="CompanyModel.FK_Department_Departmnent">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Department1" EntitySet="Departments" />
+          </AssociationSet>
           <AssociationSet Name="R_15" Association="CompanyModel.R_15">
             <End Role="Department" EntitySet="Departments" />
             <End Role="Employee" EntitySet="Employees" />
@@ -134,6 +154,8 @@
           <Property Type="Guid" Name="company_id" />
           <Property Type="Guid" Name="parent_id" />
           <NavigationProperty Name="Company" Relationship="CompanyModel.R_11" FromRole="Department" ToRole="Company" />
+          <NavigationProperty Name="SubUnits" Relationship="CompanyModel.FK_Department_Departmnent" FromRole="Department" ToRole="Department1" />
+          <NavigationProperty Name="Parent" Relationship="CompanyModel.FK_Department_Departmnent" FromRole="Department1" ToRole="Department" />
           <NavigationProperty Name="Employees" Relationship="CompanyModel.R_15" FromRole="Department" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Employee">
@@ -168,6 +190,18 @@
             </Principal>
             <Dependent Role="Department">
               <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Departmnent">
+          <End Type="CompanyModel.Department" Role="Department" Multiplicity="0..1" />
+          <End Type="CompanyModel.Department" Role="Department1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="Department1">
+              <PropertyRef Name="parent_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -260,22 +294,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="CompanyModel">
-        <EntityTypeShape EntityType="CompanyModel.Company" Width="1.5" PointX="2.125" PointY="1.25" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="CompanyModel.Department" Width="1.5" PointX="4.375" PointY="0.875" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="CompanyModel.Employee" Width="1.5" PointX="6.625" PointY="0.875" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="CompanyModel.Person" Width="1.5" PointX="4.375" PointY="5.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="CompanyModel.Company" Width="1.5" PointX="3.5" PointY="1.375" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="CompanyModel.Department" Width="1.5" PointX="5.75" PointY="1" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="CompanyModel.Employee" Width="1.5" PointX="8" PointY="1" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="CompanyModel.Person" Width="1.5" PointX="8.125" PointY="4" Height="1.7879850260416674" />
         <AssociationConnector Association="CompanyModel.R_11" >
-          <ConnectorPoint PointX="3.625" PointY="2.047841796875" />
-          <ConnectorPoint PointX="4.375" PointY="2.047841796875" />
+          <ConnectorPoint PointX="5" PointY="2.172841796875" />
+          <ConnectorPoint PointX="5.75" PointY="2.172841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="CompanyModel.FK_Department_Departmnent" >
+          <ConnectorPoint PointX="6.2819230769230767" PointY="3.5571907552083317" />
+          <ConnectorPoint PointX="6.2819230769230767" PointY="3.8071907552083317" />
+          <ConnectorPoint PointX="6.7284615384615378" PointY="3.8071907552083317" />
+          <ConnectorPoint PointX="6.7284615384615378" PointY="3.5571907552083317" />
         </AssociationConnector>
         <AssociationConnector Association="CompanyModel.R_15" >
-          <ConnectorPoint PointX="5.875" PointY="1.9612939453124998" />
-          <ConnectorPoint PointX="6.625" PointY="1.9612939453124998" />
+          <ConnectorPoint PointX="7.25" PointY="2.1824446614583337" />
+          <ConnectorPoint PointX="8" PointY="2.1824446614583337" />
         </AssociationConnector>
         <AssociationConnector Association="CompanyModel.R_14" >
-          <ConnectorPoint PointX="5.875" PointY="6.0189925130208337" />
-          <ConnectorPoint PointX="7.375" PointY="6.0189925130208337" />
-          <ConnectorPoint PointX="7.375" PointY="3.2398893229166674" />
+          <ConnectorPoint PointX="8.8125" PointY="4" />
+          <ConnectorPoint PointX="8.8125" PointY="3.3648893229166674" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
