@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 
 /**
  * A subunit is either an employee or a department
@@ -16,6 +17,9 @@ public abstract class Subunit {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
+	@ManyToOne(optional=true)
+	private Department department;
 	
 	private String name;
 	
@@ -34,7 +38,15 @@ public abstract class Subunit {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	public abstract double total();
 	
 	public abstract void cut();
