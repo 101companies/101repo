@@ -1,6 +1,6 @@
 ﻿== Intent ==
 
-an implementation for [[Technology:SQL_Server|SQL Server]] with [[Technology:.NET]] [[Technology:Entity_Framework|Entity Framework]]
+object [persistence] and [[Technology:O/R mapping]] with [[Technology:.NET]] [[Technology:Entity Framework]]
 
 == Languages ==
 * [[Language:CSharp]](C#): Programming language used for all code (Version 4.0)
@@ -19,7 +19,7 @@ an implementation for [[Technology:SQL_Server|SQL Server]] with [[Technology:.NE
 * [[101feature:Depth]]
 
 == Motivation ==
-Entity Framework model is generated for SQL Server representation of 101companies model. 
+Entity Framework object model is generated for SQL Server representation of 101companies model. 
 
 == Architecture ==
 CompanyModel.edmx represents all Entity Framework artifacts required for O/R Mapping. This is an XML file contains:
