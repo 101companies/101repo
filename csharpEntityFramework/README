@@ -2,28 +2,39 @@
 
 an implementation for [[Technology:SQL_Server|SQL Server]] with [[Technology:.NET]] [[Technology:Entity_Framework|Entity Framework]]
 
-== Technologies ==
-
+== Languages ==
 * [[Language:CSharp]](C#): Programming language used for all code (Version 4.0)
-* [[Technology:Csc.exe]]: C# compiler (Version 4.0)
+
+== Technologies ==
+* [[Technology:csc.exe]]: C# compiler (Version 4.0)
 * [[Technology:.NET]]: Framework used to execute compiled code (Version 4.0)
 * [[Technology:Entity Framework]] Entity Framework toolkit (Version 3.0)
 * [[Technology:NUnit]]: Unit testing framework used for testing (Version 2.5.9.1034)
 * [[Technology:SQL Server]]: SQL Server 2008 used as a data storage. (Free Express edition is enough)
 
 == Features ==
-
-* [[101feature:Company]]
+* [[101feature:Company]] (generated from [[101implementation:SQL Server]] data model)
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
 
 == Motivation ==
-Entity Framework model is generated for SQL Server representation of 101companies model. Unit tests for operations are attached.
+Entity Framework model is generated for SQL Server representation of 101companies model. 
 
 == Architecture ==
+CompanyModel.edmx represents all Entity Framework artifacts required for O/R Mapping. This is an XML file contains:
+* SSDL content
+* CSDL content
+* C-S mapping content
+* EF Designer content
+ 
+and also a *.cs file with C# objects.
+
+Tests folder contains unit tests showing implemented features.
 
 == Usage ==
+[[101implementation:SQL Server]] should be evaluated as soon as current implementation requires [[101feature:Company]] to be created in the database.
+
 [[Technology:Visual Studio]] 2010 should be used to open a project file.
 The project itself is a class-library and compiles into a DLL. To run a project you must execute at least one unit test (or all at once).
 Nunit GUI or other Visual studio extension (e.g. Resharper) should be used for executing unit tests.
