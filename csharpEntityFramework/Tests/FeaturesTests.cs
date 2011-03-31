@@ -10,7 +10,7 @@ namespace csharpEntityFramework.Tests
     public class FeaturesTests
     {
         [Test]
-        public void TotalTest()
+        public void TotalCutTest()
         {
             /*NOTE: please recreate database before running this test as soon as "Cut" operation modifies the data and total reduced
              every time you run the test, so we can't expect the same total */
