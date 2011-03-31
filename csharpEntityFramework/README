@@ -27,8 +27,9 @@ CompanyModel.edmx represents all Entity Framework artifacts required for O/R Map
 * CSDL content
 * C-S mapping content
 * EF Designer content
- 
-and also a *.cs file with C# objects.
+ and also a *.cs file with C# objects.
+
+*.edmx files are visualized in ADO .NET Entity Data Model Designer by default, but also can be opened as raw xml files.
 
 Tests folder contains unit tests showing implemented features.
 
