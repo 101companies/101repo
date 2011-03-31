@@ -13,7 +13,7 @@ an implementation for [[Technology:SQL_Server|SQL Server]] with [[Technology:.NE
 * [[Technology:SQL Server]]: SQL Server 2008 used as a data storage. (Free Express edition is enough)
 
 == Features ==
-* [[101feature:Company]] (generated from [[101implementation:SQL Server]] data model)
+* [[101feature:Company]] (generated from [[101implementation:sqlServer]] data model)
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
@@ -27,14 +27,16 @@ CompanyModel.edmx represents all Entity Framework artifacts required for O/R Map
 * CSDL content
 * C-S mapping content
 * EF Designer content
- and also a *.cs file with C# objects.
+<nowiki>and also a *.cs file with C# objects.</nowiki>
 
-*.edmx files are visualized in ADO .NET Entity Data Model Designer by default, but also can be opened as raw xml files.
-
+<nowiki>*.edmx files are visualized in Entity Data Model Designer by default, but also can be opened as raw xml files.</nowiki>
+The Entity Data Model Designer (Entity Designer) stores storage model information in an .edmx file at design time. 
+At build time the Entity Designer uses information in an .edmx file to create the .ssdl file that is needed by the Entity Framework at runtime.
+ 
 Tests folder contains unit tests showing implemented features.
 
 == Usage ==
-[[101implementation:SQL Server]] should be evaluated as soon as current implementation requires [[101feature:Company]] to be created in the database.
+[[101implementation:sqlServer]] should be evaluated as soon as current implementation requires [[101feature:Company]] to be created in the database.
 
 [[Technology:Visual Studio]] 2010 should be used to open a project file.
 The project itself is a class-library and compiles into a DLL. To run a project you must execute at least one unit test (or all at once).
