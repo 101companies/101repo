@@ -1,21 +1,33 @@
 -- SQL statements which are executed at application startup if hibernate.hbm2ddl.auto is 'create' or 'create-drop'
 
-INSERT INTO COMPANY(NAME) VALUES ('Meganalysis');
 
-INSERT INTO SUBUNIT(ID, NAME) VALUES(1, 'Research');
 
--- Unities representing sub-departments or employees must inform 
--- the id of the parent department
+INSERT INTO TB_101_COMPANY(ID, NAME) VALUES (1, 'Meganalysis');
 
-INSERT INTO DEPARTMENT(ID) VALUES(1);
-  
-INSERT INTO SUBUNIT(ID, NAME, DEPARTMENT_ID) VALUES(2, 'Craig', 1);
+-- we do not set a manager as being an employee of 
+-- a department.
+-- I think that we could have modeled this better.
 
-INSERT INTO EMPLOYEE(ID, ADDRESS, SALARY) VALUES(2, 'Redmond', 123456);
+INSERT INTO TB_101_EMPLOYEE(ID, NAME, ADDRESS, SALARY) VALUES(1, 'Craig', 'Redmond', 123456);
+INSERT INTO TB_101_EMPLOYEE(ID, NAME, ADDRESS, SALARY) VALUES(2, 'Ray', 'Redmond', 234567);
+INSERT INTO TB_101_EMPLOYEE(ID, NAME, ADDRESS, SALARY) VALUES(3, 'Klaus', 'Boston', 23456);
+INSERT INTO TB_101_EMPLOYEE(ID, NAME, ADDRESS, SALARY) VALUES(4, 'Karl', 'Riga', 2345);
 
---
--- set the department Id. necessary to insert a department 
--- without a manager because there exists a cyclical dependency.
---  
-UPDATE DEPARTMENT SET MANAGER_ID=2 WHERE ID = 1 
+
+
+INSERT INTO TB_101_DEPARTMENT(ID, NAME, MANAGER_ID, COMPANY_ID) VALUES(1,'Research', 1, 1);
+INSERT INTO TB_101_DEPARTMENT(ID, NAME, MANAGER_ID, COMPANY_ID) VALUES(2,'Development', 2, 1);
+INSERT INTO TB_101_DEPARTMENT(ID, NAME, MANAGER_ID, PARENT_ID)  VALUES(3,'Development-1', 3, 2);
+INSERT INTO TB_101_DEPARTMENT(ID, NAME, MANAGER_ID, PARENT_ID)  VALUES(4,'Development-1.1', 4, 3);
+
+ 
+INSERT INTO TB_101_EMPLOYEE(ID, NAME, ADDRESS, SALARY, DEPARTMENT_ID) VALUES(5, 'Erik', 'Utrecht', 12345, 1);
+INSERT INTO TB_101_EMPLOYEE(ID, NAME, ADDRESS, SALARY, DEPARTMENT_ID) VALUES(6, 'Ralf', 'Koblenz', 1234, 1);
+
+INSERT INTO TB_101_EMPLOYEE(ID, NAME, ADDRESS, SALARY, DEPARTMENT_ID) VALUES(7, 'Joe', 'Wifi City', 2344, 4);
+
+
+
+
+ 
  

@@ -1,0 +1,63 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="loginForm">
+
+        <rich:panel>
+            <f:facet name="header">Department details</f:facet>
+
+            <div class="dialog">
+                <h1>Name: #{department.name}</h1> <br/>
+                <h1>Manager: #{department.manager}</h1><br/>
+                <h1>Total salaries: #{department.total()}</h1><br/>
+                <rich:dataTable value="#{department.departments}" var="d" width="300px" hender="#{department.hasSubDepartments()}">
+        		     <f:facet name="header">Departments</f:facet>
+            		<rich:column>
+			        	<f:facet name="header">Name</f:facet>
+	        		    <h:outputText value="#{d.name}" />
+				    </rich:column>
+				    <rich:column>
+			        	<f:facet name="header">Manager</f:facet>
+	        		    <h:outputText value="#{d.manager.name}" />
+				    </rich:column>
+				    <rich:column>
+			        	<f:facet name="header">Total salaries</f:facet>
+	        		    <h:outputText value="#{d.total()}" />
+				    </rich:column>
+				    <rich:column>
+	        		    <s:button value="Detail" action="#{companyAction.showDepartmentDetails(d.id)}" />
+				    </rich:column>
+       		</rich:dataTable>
+       		
+       		<rich:spacer height="20px"/>
+       		
+           <rich:dataTable value="#{department.employees}" var="e" width="300px" rendered="#{department.hasEmployees()}">
+                <f:facet name="header">Employees</f:facet>
+        		<rich:column>
+		        	<f:facet name="header">Name</f:facet>
+        		    <h:outputText value="#{e.name}" />
+			    </rich:column>
+			    <rich:column>
+		        	<f:facet name="header">Address</f:facet>
+        		    <h:outputText value="#{e.address}" />
+			    </rich:column>
+			    <rich:column>
+		        	<f:facet name="header">Salary</f:facet>
+        		    <h:outputText value="#{e.salary}" />
+			    </rich:column>
+       		</rich:dataTable>
+            </div>
+        </rich:panel>
+    </h:form>
+
+ </ui:define>
+</ui:composition>

@@ -11,7 +11,27 @@
             <rule if-outcome="home">
                 <redirect view-id="/home.xhtml"/>
             </rule>
+            <rule if-outcome="listAllCompanies">
+            	<begin-conversation join="true"/>
+            	<redirect view-id="/listAllCompanies.xhtml"/>
+            </rule>
         </navigation>
+    </page>
+    
+    <page view-id="/listAllCompanies.xhtml" action="#{companyAction.listAllCompanies()}">
+    	<navigation>
+    		<rule if-outcome="showCompanyDetails">
+    			<redirect view-id="/showCompanyDetails.xhtml" />
+    		</rule>
+    	</navigation>
+    </page>
+    
+    <page view-id="/showCompanyDetails.xhtml">
+    	<navigation>
+    		<rule if-outcome="showDepartmentDetails" >
+    			<redirect view-id="/showDepartmentDetails.xhtml" />
+    		</rule>
+    	</navigation>
     </page>
 
     <exception class="org.jboss.seam.framework.EntityNotFoundException">

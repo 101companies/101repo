@@ -1,0 +1,45 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="loginForm">
+
+        <rich:panel>
+            <f:facet name="header">Comany details</f:facet>
+
+            <div class="dialog">
+                <h1>Name: #{company.name}</h1> <br/>
+                <h1>Total salaries: #{company.total()}</h1><br/>
+                <rich:dataTable value="#{company.depts}" var="d" width="300px">
+        		    <f:facet name="header">Employees</f:facet>
+        	
+	        		<rich:column>
+			        	<f:facet name="header">Name</f:facet>
+	        		    <h:outputText value="#{d.name}" />
+				    </rich:column>
+				    <rich:column>
+			        	<f:facet name="header">Manager</f:facet>
+	        		    <h:outputText value="#{d.manager.name}" />
+				    </rich:column>
+				    <rich:column>
+			        	<f:facet name="header">Total salaries</f:facet>
+	        		    <h:outputText value="#{d.total()}" />
+				    </rich:column>
+				    <rich:column>
+	        		    <h:commandButton value="Detail" action="#{companyAction.showDepartmentDetails(d)}" />
+				    </rich:column>
+       		</rich:dataTable>
+            </div>
+        </rich:panel>
+    </h:form>
+
+ </ui:define>
+</ui:composition>

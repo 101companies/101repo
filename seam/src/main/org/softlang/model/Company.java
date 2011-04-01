@@ -7,10 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
-public class Company {
+@Table(name="TB_101_COMPANY")
+public class Company implements Subunit {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;

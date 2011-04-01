@@ -8,6 +8,7 @@
     <rich:toolBarGroup>
         <h:outputText value="#{projectName}:"/>
         <s:link id="menuHomeId" view="/home.xhtml" value="Home" propagation="none"/>
+		<s:link id="allCompanies" value="List all companies" action="listAllCompanies" rendered="#{identity.loggedIn}"/> 
     </rich:toolBarGroup>
     <!-- @newMenuItem@ -->
     <rich:toolBarGroup location="right">
