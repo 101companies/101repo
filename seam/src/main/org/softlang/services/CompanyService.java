@@ -9,6 +9,7 @@ import org.jboss.seam.annotations.AutoCreate;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.security.Restrict;
 import org.softlang.model.Company;
 import org.softlang.model.Department;
 
@@ -31,5 +32,11 @@ public class CompanyService {
 	
 	public Department findDepartment(Integer id) {
 		return entityManager.find(Department.class, id);
+	}
+
+	@Restrict("#{s:hasRole('admin')}") 
+	public void cutSalaries(Company selectedCompany) {
+		selectedCompany.cut();
+		entityManager.merge(selectedCompany);
 	}
 }

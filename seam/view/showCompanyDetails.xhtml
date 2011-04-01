@@ -16,10 +16,10 @@
             <f:facet name="header">Comany details</f:facet>
 
             <div class="dialog">
-                <h1>Name: #{company.name}</h1> <br/>
-                <h1>Total salaries: #{company.total()}</h1><br/>
+                <h2>Name: #{company.name}</h2> <br/>
+                <h2>Total salaries: #{company.total()}</h2><br/>
                 <rich:dataTable value="#{company.depts}" var="d" width="300px">
-        		    <f:facet name="header">Employees</f:facet>
+        		    <f:facet name="header">Departments</f:facet>
         	
 	        		<rich:column>
 			        	<f:facet name="header">Name</f:facet>
