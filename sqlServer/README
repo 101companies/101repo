@@ -1,0 +1,30 @@
+== Intent ==
+a relational database model for [[Technology:SQL Server]]
+
+== Languages ==
+* [[Language:SQL]]
+
+== Technologies ==
+* [[Technology:SQL Server]]: SQL Server 2008 used as a data storage. (Free Express edition is enough)
+
+== Features ==
+[[101feature:Company]] 
+
+== Motivation ==
+[[Language:SQL]] is used to create relational representation of 101comanies model. The model can be used in [[Technology:O/R Mapping]] scenarious.
+
+== Architecture ==
+The following artifacts are used to create relational model for 101companies:
+* Tables (TableName.table.sql)
+* Primary keys (Name.pkey.sql)
+* Foreign keys (Name.fkey.sql)
+* Triggers (Name.trigger.sql)
+
+Scripts/Post-Deployment folder contais script file executed after the database schema was created to fill in the database with actual 101companies data.
+
+== Usage ==
+[[Technology:Visual Studio]] 2010 should be used to open a project file. Deploy option should be used to create the database.
+Target connection (in project properties) should be adjusted for your local database server.
+
+== Contributors ==
+* [[Contributor:Andrei Varanovich]]
