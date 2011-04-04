@@ -12,6 +12,7 @@ import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.security.Restrict;
 import org.softlang.model.Company;
 import org.softlang.model.Department;
+import org.softlang.model.Employee;
 
 @Name("companyService")
 @Scope(ScopeType.CONVERSATION)
@@ -35,8 +36,21 @@ public class CompanyService {
 	}
 
 	@Restrict("#{s:hasRole('admin')}") 
-	public void cutSalaries(Company selectedCompany) {
-		selectedCompany.cut();
-		entityManager.merge(selectedCompany);
+	public void cutSalaries(Company company) {
+		company.cut();
+		entityManager.merge(company);
 	}
+
+	@Restrict("#{s:hasRole('admin')}") 
+	public void cutSalaries(Department department) {
+		department.cut();
+		entityManager.merge(department);
+	}
+	
+	@Restrict("#{s:hasRole('admin')}") 
+	public void cutSalaries(Employee employee) {
+		employee.cut();
+		entityManager.merge(employee);
+	}
+	
 }

@@ -36,6 +36,9 @@
 				    <rich:column>
 	        		    <h:commandButton value="Detail" action="#{companyAction.showDepartmentDetails(d)}" />
 				    </rich:column>
+				    <rich:column>
+	        		    <h:commandButton value="Cut salaries" action="#{companyAction.cutSalariesFromDepartment(d)}" />
+				    </rich:column>
        		</rich:dataTable>
        		
        		<rich:spacer height="20px"/>
@@ -54,6 +57,9 @@
 		        	<f:facet name="header">Salary</f:facet>
         		    <h:outputText value="#{e.salary}" />
 			    </rich:column>
+			    <rich:column>
+	        		    <h:commandButton value="Cut salaries" action="#{companyAction.cutSalariesFromEmployee(e)}" />
+				    </rich:column>
        		</rich:dataTable>
             </div>
         </rich:panel>

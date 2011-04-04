@@ -15,6 +15,7 @@ import org.jboss.seam.annotations.datamodel.DataModelSelection;
 import org.jboss.seam.faces.FacesMessages;
 import org.softlang.model.Company;
 import org.softlang.model.Department;
+import org.softlang.model.Employee;
 import org.softlang.services.CompanyService;
 
 @Name("companyAction")
@@ -31,10 +32,10 @@ public class CompanyAction {
 	@Out(required=false) 
 	Department department;
 
-	@DataModel
+	@DataModel //just a simple annotation for handling tables
 	private List<Company> allCompanies;
-	
-	@DataModelSelection
+	 
+	@DataModelSelection //just a simple annotation for getting selected items from a table
 	private Company selectedCompany;
 	
 	@In
@@ -53,18 +54,46 @@ public class CompanyAction {
 			facesMessages.add(FacesMessage.SEVERITY_ERROR, "Error when trying to cut salaries. " + e.getMessage());
 			e.printStackTrace();
 		}
-		
+		//this might sound a little bit crazy, but the navigation 
+		//framework expects a String pointing to the next view. 
+		//if we return null, this will just (re)render the current 
+		//view. I do not agree with this style, but... 
+		return null;
+	}
+
+	public String cutSalariesFromDepartment(Department department) {
+		try {
+			companyService.cutSalaries(department);
+			facesMessages.add(FacesMessage.SEVERITY_INFO, "The cut salary operation was successfully applied.");
+		} 
+		catch (Exception e){
+			facesMessages.add(FacesMessage.SEVERITY_ERROR, "Error when trying to cut salaries. " + e.getMessage());
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String cutSalariesFromEmployee(Employee employee) {
+		try {
+			companyService.cutSalaries(employee);
+			facesMessages.add(FacesMessage.SEVERITY_INFO, "The cut salary operation was successfully applied.");
+		}
+		catch(Exception e) {
+			facesMessages.add(FacesMessage.SEVERITY_ERROR, "Error when trying to cut salaries. " + e.getMessage());
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
 	public String showDetails() {	
 		company = selectedCompany;
-		return "showCompanyDetails";
+		return "showCompanyDetails"; //see the pages.xml file, that maps this string to a specific view
 	}
 	
 	public String showDepartmentDetails(Department d) {
-		department = companyService.findDepartment(d.getId());
-		
+		department = companyService.findDepartment(d.getId());	
 		return "showDepartmentDetails";
 	}
+	
+	
 }
