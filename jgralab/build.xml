@@ -4,12 +4,13 @@
   <property name="projectname" value="jgralab" />
   <property name="main.fq" value="TODO" />
   <property name="technology.dir" value="${project.dir}/../../../technologies/jgralab" />
-  <property name="jgralab.location" value="${technology.dir}/jgralab.jar" />
   <property name="project.dir" value="." />
-  <property name="classes.dir" value="${build.dir}/classes" />
-  <property name="schema.file" value="${project.dir}/TODO.tg" />
   <property name="src.dir" value="${project.dir}/src" />
-  <property name="xmi.schema.file" value="${project.dir}/TODO.xmi" />
+  <property name="build.dir" value="${project.dir}/build" />
+  <property name="classes.dir" value="${build.dir}/classes" />
+  <property name="jgralab.location" value="${technology.dir}/jgralab.jar" />
+  <property name="schema.file" value="${project.dir}/101companies-schema.tg" />
+  <property name="xmi.schema.file" value="${project.dir}/101companies-schema.xmi" />
 
   <path id="classpath">
     <pathelement location="${classes.dir}" />
@@ -32,7 +33,7 @@
 
   <target name="genschema">
     <rsa2tg xmifile="${xmi.schema.file}" schemafile="${schema.file}" useFromRole="true" removeUnusedDomains="true" useNavigability="true" />
-    <tgschema2java schemaFile="${schema.file}" sourcePath="${src.dir}" implementationMode="${schema.implementationMode}" withoutTypes="${schema.withoutTypes}" subtypeFlag="${schema.subtypeFlag}" />
+    <tgschema2java schemaFile="${schema.file}" sourcePath="${src.dir}" implementationMode="standard" withoutTypes="false" subtypeFlag="true" />
   </target>
 
   <target name="build" depends="customAntTasks, clean, genschema, compile">
