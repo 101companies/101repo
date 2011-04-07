@@ -40,6 +40,7 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_s3-fMGEjEeCvuJXjPZIUfQ" name="Person" isAbstract="true">
+    <generalization xmi:type="uml:Generalization" xmi:id="_EXmgcGEmEeCvuJXjPZIUfQ" general="_bQRBoGEjEeCvuJXjPZIUfQ"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_xzq9IGEjEeCvuJXjPZIUfQ" name="address" visibility="protected">
       <type xmi:type="uml:PrimitiveType" href="http://schema.omg.org/spec/UML/2.1.1/uml.xml#String"/>
     </ownedAttribute>

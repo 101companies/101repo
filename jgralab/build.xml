@@ -33,7 +33,7 @@
 
   <target name="genschema">
     <rsa2tg xmifile="${xmi.schema.file}" schemafile="${schema.file}" useFromRole="true" removeUnusedDomains="true" useNavigability="true" />
-    <tgschema2java schemaFile="${schema.file}" sourcePath="${src.dir}" implementationMode="standard" withoutTypes="false" subtypeFlag="true" />
+    <tgschema2java schemaFile="${schema.file}" sourcePath="${src.dir}" implementationMode="standard" withoutTypes="false" subtypeFlag="false" />
   </target>
 
   <target name="build" depends="customAntTasks, clean, genschema, compile">
