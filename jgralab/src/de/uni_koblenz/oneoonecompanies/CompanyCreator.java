@@ -58,6 +58,7 @@ public class CompanyCreator {
 
 		Department dev1_1Dept = g.createDepartment();
 		dev1_1Dept.set_name("Dev 1.1");
+		g.createHasSubDepartment(dev1Dept, dev1_1Dept);
 
 		Manager karl = g.createManager();
 		karl.set_name("Karl");
