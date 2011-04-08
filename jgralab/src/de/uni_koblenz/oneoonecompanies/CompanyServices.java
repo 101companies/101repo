@@ -23,6 +23,7 @@ import de.uni_koblenz.jgralab.utilities.tg2dot.Tg2Dot;
 import de.uni_koblenz.jgralab.utilities.tg2dot.dot.GraphVizOutputFormat;
 import de.uni_koblenz.oneoonecompanies.schema.CompaniesGraph;
 import de.uni_koblenz.oneoonecompanies.schema.Company;
+import de.uni_koblenz.oneoonecompanies.schema.Employee;
 import de.uni_koblenz.oneoonecompanies.schema.OneOOneSchema;
 import de.uni_koblenz.oneoonecompanies.schema.Person;
 
@@ -139,6 +140,18 @@ public class CompanyServices {
 		return null;
 	}
 
+	public void addMentor(Company c, String mentorName, String menteeName) {
+		Person mentor = (Person) greqlEval(
+				"theElement(from p: V{Person} with p.name = '" + mentorName
+						+ "' and getVertex(" + c.getId()
+						+ ") <>--* p reportSet p end)").toVertex();
+		Employee mentee = (Employee) greqlEval(
+				"theElement(from p: V{Employee} with p.name = '" + menteeName
+						+ "' and getVertex(" + c.getId()
+						+ ") <>--* p reportSet p end)").toVertex();
+		mentee.add_mentor(mentor);
+	}
+
 	public static void main(String[] args) {
 		Company meganalysis = CompanyServices.instance().getCompany(
 				"Meganalysis");
@@ -157,6 +170,9 @@ public class CompanyServices {
 		System.out.println("Depth of department structure: "
 				+ CompanyServices.instance().depthOfDeptartmentStructure(
 						meganalysis));
+
+		System.out.println("Establishing a mentorship between Ray and Joe.");
+		CompanyServices.instance().addMentor(meganalysis, "Ray", "Joe");
 
 		CompanyServices.instance().visualizeCompanies();
 	}

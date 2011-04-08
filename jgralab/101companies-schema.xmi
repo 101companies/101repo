@@ -47,6 +47,10 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_zB7gAGEjEeCvuJXjPZIUfQ" name="salary" visibility="protected">
       <type xmi:type="uml:PrimitiveType" href="http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-_YMkGHrEeCBJKSFn7cDIA" name="mentee" visibility="private" type="_T25K4GEkEeCvuJXjPZIUfQ" association="_-_EqkGHrEeCBJKSFn7cDIA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-_hWgWHrEeCBJKSFn7cDIA" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-_hWgGHrEeCBJKSFn7cDIA"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_FQ5K0GEkEeCvuJXjPZIUfQ" name="HasSubDepartment" memberEnd="_FRC70GEkEeCvuJXjPZIUfQ _FRC702EkEeCvuJXjPZIUfQ">
     <ownedEnd xmi:type="uml:Property" xmi:id="_FRC702EkEeCvuJXjPZIUfQ" name="parentDept" visibility="private" type="_kmMPMGEjEeCvuJXjPZIUfQ" association="_FQ5K0GEkEeCvuJXjPZIUfQ">
@@ -65,6 +69,12 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_T25K4GEkEeCvuJXjPZIUfQ" name="Employee">
     <generalization xmi:type="uml:Generalization" xmi:id="_VoaL0GEkEeCvuJXjPZIUfQ" general="_s3-fMGEjEeCvuJXjPZIUfQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_-_EqkGHrEeCBJKSFn7cDIA" name="Mentors" memberEnd="_-_YMkGHrEeCBJKSFn7cDIA _-_hWgmHrEeCBJKSFn7cDIA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_-_hWgmHrEeCBJKSFn7cDIA" name="mentor" visibility="private" type="_s3-fMGEjEeCvuJXjPZIUfQ" association="_-_EqkGHrEeCBJKSFn7cDIA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-_rHgWHrEeCBJKSFn7cDIA" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-_rHgGHrEeCBJKSFn7cDIA"/>
+    </ownedEnd>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_1TfIZWEiEeCvuJXjPZIUfQ">
     <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">

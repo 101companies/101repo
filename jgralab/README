@@ -26,6 +26,10 @@ ordered, and directed graphs.
 * [[101feature:Serialization]]
 * [[101feature:Depth]]
 
+== Extras ==
+
+* [[101extras:Mentoring]]
+
 == Motivation ==
 
 Basic style of programming using TGraphs as the repository technology
@@ -52,7 +56,7 @@ The ''src.de.uni_koblenz.oneoonecompanies'' package contains two hand-written cl
 	created before. Otherwise, the model is created first and then written to
 	the ''companies.tg'' file. The TG file format is the TGraph-specific format
 	for persistency. This class also contains a main method that can be run to
-	execute the sample methods that operate on the company data (cut/total/depth).
+	execute the sample methods that operate on the company data (cut/total/depth/mentoring).
 	
 The ''101companies-schema.xmi'' is the schema TGraph that represents the data
 structure for companies. This file was exported from the
@@ -71,8 +75,8 @@ The ''01companies-schema.emx'' is the original IBM RSA model file.
   This API is then used by the CompanyServices and CompaniesCreator classes.
 * Run class ''CompanyService'', which prints the sum of salaries.
   The cut operation is implemented once using GReTL and another time using the Java API.
-  The depth of the department depth is computed using GReQL.
-  Finally, the application shows a graphical visualization of the company TGraph.
+  The depth of the department depth is computed using GReQL and a mentored employee is
+  found likewise. Finally, the application shows a graphical visualization of the company TGraph.
 
 == Contributors ==
 
