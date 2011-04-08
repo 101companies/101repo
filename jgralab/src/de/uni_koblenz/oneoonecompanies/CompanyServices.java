@@ -32,10 +32,15 @@ public class CompanyServices {
 	private static CompanyServices instance;
 	private GreqlEvaluator eval;
 
-	private CompanyServices() throws GraphIOException {
-		File gf = new File("company-graph.tg");
+	private CompanyServices() {
+		File gf = new File("companies.tg");
 		if (gf.exists()) {
-			graph = OneOOneSchema.instance().loadCompaniesGraph(gf.getPath());
+			try {
+				graph = OneOOneSchema.instance().loadCompaniesGraph(
+						gf.getPath());
+			} catch (GraphIOException e) {
+				e.printStackTrace();
+			}
 		}
 		if (graph == null) {
 			resetGraph();
@@ -45,11 +50,7 @@ public class CompanyServices {
 
 	public static CompanyServices instance() {
 		if (instance == null) {
-			try {
-				instance = new CompanyServices();
-			} catch (GraphIOException e) {
-				e.printStackTrace();
-			}
+			instance = new CompanyServices();
 		}
 		return instance;
 	}
@@ -67,7 +68,12 @@ public class CompanyServices {
 
 	public void resetGraph() {
 		graph = CompanyCreator.createCompanyGraph();
-		OneOOneSchema.instance().saveCompaniesGraph(gf.getPath(), graph);
+		try {
+			OneOOneSchema.instance().saveCompaniesGraph(
+					new File("companies.tg").getPath(), graph);
+		} catch (GraphIOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void visualizeCompanies() {
