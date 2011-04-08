@@ -22,6 +22,7 @@ import de.uni_koblenz.jgralab.gretl.MatchReplace;
 import de.uni_koblenz.jgralab.utilities.tg2dot.Tg2Dot;
 import de.uni_koblenz.jgralab.utilities.tg2dot.dot.GraphVizOutputFormat;
 import de.uni_koblenz.oneoonecompanies.schema.CompaniesGraph;
+import de.uni_koblenz.oneoonecompanies.schema.Company;
 import de.uni_koblenz.oneoonecompanies.schema.OneOOneSchema;
 import de.uni_koblenz.oneoonecompanies.schema.Person;
 
@@ -57,21 +58,31 @@ public class CompanyServices {
 		return instance;
 	}
 
-	public long getSumOfSalaries() {
+	public long getSumOfSalaries(Company c) {
 		return Math.round(greqlEval(
-				"sum(from p: V{Person} reportSet p.salary end)").toDouble());
+				"sum(from p: V{Person} with getVertex(" + c.getId()
+						+ ") <>--* p" + " reportSet p.salary end)").toDouble());
 	}
 
-	public void cutSalaries(float factor) {
-		for (Person p : graph.getPersonVertices()) {
+	public void cutSalaries(Company c, float factor) {
+		// Use GReQL for iterating many hops in java
+		for (Person p : c.reachableVertices("<>--* & {Person}", Person.class)) {
 			p.set_salary(Math.round(p.get_salary() / factor));
 		}
 	}
 
-	public void cutSalariesWithGReTL() {
-		Context c = new Context(graph);
-		new MatchReplace(c, "('$[0]' | salary = 'round($[0].salary / 2)')",
-				"V{Person}").execute();
+	public void cutSalariesWithGReTL(Company c, float facor) {
+		Context context = new Context(graph);
+		new MatchReplace(context, "('$[0]' | salary = 'round($[0].salary / "
+				+ facor + ")')", "getVertex(" + c.getId()
+				+ ") <>--* & {Person}").execute();
+	}
+
+	public int depthOfDeptartmentStructure(Company c) {
+		return greqlEval(
+				"depth(pathSystem(getVertex(" + c.getId() + "), "
+						+ "  <>--{HasDepartment} <>--{HasSubDepartment}*))")
+				.toInteger();
 	}
 
 	public void resetGraph() {
@@ -119,15 +130,34 @@ public class CompanyServices {
 		return eval.getEvaluationResult();
 	}
 
+	public Company getCompany(String name) {
+		for (Company c : graph.getCompanyVertices()) {
+			if (c.get_name().equals(name)) {
+				return c;
+			}
+		}
+		return null;
+	}
+
 	public static void main(String[] args) {
+		Company meganalysis = CompanyServices.instance().getCompany(
+				"Meganalysis");
+
 		System.out.println("Before cut: "
-				+ CompanyServices.instance().getSumOfSalaries());
-		CompanyServices.instance().cutSalaries(2);
+				+ CompanyServices.instance().getSumOfSalaries(meganalysis));
+
+		CompanyServices.instance().cutSalaries(meganalysis, 2);
 		System.out.println("After first cut: "
-				+ CompanyServices.instance().getSumOfSalaries());
-		CompanyServices.instance().cutSalariesWithGReTL();
+				+ CompanyServices.instance().getSumOfSalaries(meganalysis));
+
+		CompanyServices.instance().cutSalariesWithGReTL(meganalysis, 2);
 		System.out.println("After 2nd cut: "
-				+ CompanyServices.instance().getSumOfSalaries());
+				+ CompanyServices.instance().getSumOfSalaries(meganalysis));
+
+		System.out.println("Depth of department structure: "
+				+ CompanyServices.instance().depthOfDeptartmentStructure(
+						meganalysis));
+
 		CompanyServices.instance().visualizeCompanies();
 	}
 }
