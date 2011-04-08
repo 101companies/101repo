@@ -17,6 +17,7 @@ ordered, and directed graphs.
 * [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
 * [[Technology:Ant]]: for building
 * [[Technology:JGraLab]]: the core of the TGraph technological space
+* [[Technology:GraphViz]]: graph visualization
 
 == Features ==
 
