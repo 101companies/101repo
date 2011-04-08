@@ -3,18 +3,16 @@
 <project name="jgralab" basedir="." default="build">
   <property name="projectname" value="jgralab" />
   <property name="main.fq" value="TODO" />
-  <property name="technology.dir" value="${project.dir}/../../../technologies/jgralab" />
   <property name="project.dir" value="." />
   <property name="src.dir" value="${project.dir}/src" />
   <property name="build.dir" value="${project.dir}/build" />
   <property name="classes.dir" value="${build.dir}/classes" />
-  <property name="jgralab.location" value="${technology.dir}/jgralab.jar" />
   <property name="schema.file" value="${project.dir}/101companies-schema.tg" />
   <property name="xmi.schema.file" value="${project.dir}/101companies-schema.xmi" />
 
   <path id="classpath">
     <pathelement location="${classes.dir}" />
-    <fileset dir="${technology.dir}" includes="*.jar" />
+    <fileset dir="${project.dir}" includes="*.jar" />
   </path>
 
   <target name="customAntTasks">
