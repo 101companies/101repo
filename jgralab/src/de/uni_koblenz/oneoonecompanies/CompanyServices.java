@@ -17,6 +17,8 @@ import de.uni_koblenz.jgralab.GraphIOException;
 import de.uni_koblenz.jgralab.JGraLab;
 import de.uni_koblenz.jgralab.greql2.evaluator.GreqlEvaluator;
 import de.uni_koblenz.jgralab.greql2.jvalue.JValue;
+import de.uni_koblenz.jgralab.gretl.Context;
+import de.uni_koblenz.jgralab.gretl.MatchReplace;
 import de.uni_koblenz.jgralab.utilities.tg2dot.Tg2Dot;
 import de.uni_koblenz.jgralab.utilities.tg2dot.dot.GraphVizOutputFormat;
 import de.uni_koblenz.oneoonecompanies.schema.CompaniesGraph;
@@ -64,6 +66,12 @@ public class CompanyServices {
 		for (Person p : graph.getPersonVertices()) {
 			p.set_salary(Math.round(p.get_salary() / factor));
 		}
+	}
+
+	public void cutSalariesWithGReTL() {
+		Context c = new Context(graph);
+		new MatchReplace(c, "('$[0]' | salary = 'round($[0].salary / 2)')",
+				"V{Person}").execute();
 	}
 
 	public void resetGraph() {
@@ -115,7 +123,10 @@ public class CompanyServices {
 		System.out.println("Before cut: "
 				+ CompanyServices.instance().getSumOfSalaries());
 		CompanyServices.instance().cutSalaries(2);
-		System.out.println("After cut: "
+		System.out.println("After first cut: "
+				+ CompanyServices.instance().getSumOfSalaries());
+		CompanyServices.instance().cutSalariesWithGReTL();
+		System.out.println("After 2nd cut: "
 				+ CompanyServices.instance().getSumOfSalaries());
 		CompanyServices.instance().visualizeCompanies();
 	}
