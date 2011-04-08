@@ -58,7 +58,7 @@ public class CompanyServices {
 		return instance;
 	}
 
-	public long getSumOfSalaries(Company c) {
+	public long totalSalaries(Company c) {
 		return Math.round(greqlEval(
 				"sum(from p: V{Person} with getVertex(" + c.getId()
 						+ ") <>--* p" + " reportSet p.salary end)").toDouble());
@@ -144,15 +144,15 @@ public class CompanyServices {
 				"Meganalysis");
 
 		System.out.println("Before cut: "
-				+ CompanyServices.instance().getSumOfSalaries(meganalysis));
+				+ CompanyServices.instance().totalSalaries(meganalysis));
 
 		CompanyServices.instance().cutSalaries(meganalysis, 2);
 		System.out.println("After first cut: "
-				+ CompanyServices.instance().getSumOfSalaries(meganalysis));
+				+ CompanyServices.instance().totalSalaries(meganalysis));
 
 		CompanyServices.instance().cutSalariesWithGReTL(meganalysis, 2);
 		System.out.println("After 2nd cut: "
-				+ CompanyServices.instance().getSumOfSalaries(meganalysis));
+				+ CompanyServices.instance().totalSalaries(meganalysis));
 
 		System.out.println("Depth of department structure: "
 				+ CompanyServices.instance().depthOfDeptartmentStructure(

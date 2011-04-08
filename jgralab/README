@@ -1,10 +1,14 @@
 == Intent ==
 
 A simple implementation in [[Language:Java]] using [[Technology:JGraLab]].
+At the heart of this technological space are TGraphs, i.e., typed, attributed,
+ordered, and directed graphs.
 
 == Languages ==
 
 * [[Language:Java]]
+* [[Language:GReQL]]
+* [[Language:GReTL]]
 
 == Technologies ==
 
@@ -12,6 +16,7 @@ A simple implementation in [[Language:Java]] using [[Technology:JGraLab]].
 * [[Technology:JSE]]: execution platform (Version 1.6)
 * [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
 * [[Technology:Ant]]: for building
+* [[Technology:JGraLab]]: the core of the TGraph technological space
 
 == Features ==
 
@@ -19,42 +24,57 @@ A simple implementation in [[Language:Java]] using [[Technology:JGraLab]].
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Serialization]]
+* [[101feature:Depth]]
 
 == Motivation ==
 
-Basic style of [[OO programming]] is applied. A simple [[object model]] for
-companies is provided. [[Object composition]] is put to work to compose
-companies, and nested departments. See [[101implementation:java2]] for a
-variation on the present implementation which uses [[class inheritance]]
-instead of [[object composition]]. Methods implement a [[query]] for totaling
-salaries and a [[:Category:transformation]] for cutting salaries/ Since [[class
-inheritance]] is not used, and, in fact, no [[subtype polymorphism]] is used
-whatsoever, no [[virtual method]]s are needed for the query and the
-transformation. Instead, a collection of static methods an be used.  Basic
-[[serialization]] in the sense of [[Technology:Object Streams]] is enabled by
-means of the [[Marker interface pattern|marker interface]] ''Serializable'',
-which is applied to the [[:Category:class]]es of the object model for
-companies.
+Basic style of programming using TGraphs as the repository technology
+is demonstrated. The company and its depending data is represented by a
+schema TGraph. A TGraph instance represents the company data and this model
+conforms to the schema. The model can be queried using the
+Graph Repository Query Language (GReQL). Furthermore, it can be transformed by
+either using the Graph Repository Transformation Language (GReTL), or by using
+an auto-generated Java API that is specific to the given schema.
 
 == Architecture ==
 
-Package ''org.softlang.company'' hosts the object model for
-[[101feature:Company]].  Package ''org.softlang.operations'' hosts designated
-classes with static methods for the operations [[101feature:Total]] and
-[[101feature:Cut]]. Some boilerplate code for [[101feature:Serialization]] is
-implemented in the class ''org.softlang.company.Company'' (see methods
-''readObject'' and ''writeObject''). Package ''org.softlang.tests'' hosts JUnit
-tests; see below.
+The jgralab.jar contains the core technology for creating and operating on TGraphs.
+It also contains the facilities for using GReQL.
+
+The gretl.jar contains GReTL for modifying TGraphs.
+
+The ''src.de.uni_koblenz.oneoonecompanies'' package contains two hand-written classes:
+	(i) ''CompanyCreator.java''
+	Creates the companies TGraph/model. This utility class is used by CompanyServices.
+	
+	(ii) ''CompanyServices.java''
+	A full example class that loads the model from a TG file if a model has been
+	created before. Otherwise, the model is created first and then written to
+	the ''companies.tg'' file. The TG file format is the TGraph-specific format
+	for persistency. This class also contains a main method that can be run to
+	execute the sample methods that operate on the company data (cut/total/depth).
+	
+The ''101companies-schema.xmi'' is the schema TGraph that represents the data
+structure for companies. This file was exported from the
+IBM Rational Software Architect (RSA) tool and is based on a simple UML class diagram.
+
+The ''101companies-schema.pdf'' illustrates the UML class diagram that was
+modeled to represent the schema.
+
+The ''01companies-schema.emx'' is the original IBM RSA model file.
 
 == Usage ==
 
 * The implementation is provided as an Eclipse project.
-* Run ant on the command line (or via Eclipse)
-* Run class ''CompanyService'', which will print the sum of salaries, the cut
-  them by 2, then print the new sum again.  Then it will show a visualization
-  of the Company graph.
+* Run ant on the command line (or via Eclipse) on the build.xml file.
+  This process reads the ''101companies-schema.xmi'' and generates a Java API.
+  This API is then used by the CompanyServices and CompaniesCreator classes.
+* Run class ''CompanyService'', which prints the sum of salaries.
+  The cut operation is implemented once using GReTL and another time using the Java API.
+  The depth of the department depth is computed using GReQL.
+  Finally, the application shows a graphical visualization of the company TGraph.
 
 == Contributors ==
 
 * [[Contributor:Tassilo Horn]]
-* [[Contributor:Mahdi D.]]
+* [[Contributor:Mahdi Derakhshanmanesh]]
