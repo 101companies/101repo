@@ -21,28 +21,13 @@ an Erlang-based implementation
 
 == Motivation ==
 
-Concurrency is implemented in a simple way. The company itself is a
-server process with which you communicate through an API (meganalysis
-for now). If that process has a bug, it crashes, but a supervisor will
-restart it back up (though it does not yet persist its state under
-crashes). Thus, it is already an example of fault tolerance as well,
-albeit naively implemented.
+Concurrency is implemented in a simple way. The company itself is a server process with which you communicate through an API (meganalysis for now). If that process has a bug, it crashes, but a supervisor will restart it back up (though it does not yet persist its state under crashes). Thus, it is already an example of fault tolerance as well, albeit naively implemented.
 
 == Architecture ==
 
-The code makes extensive use of the OTP (Open Telecom Platform). Aptly
-misnamed, this is a library of common concurrency tasks which most
-concurrent programs will use. Rather than writing code that uses the
-primitive send (`!`) and receive (`receive .. end`) constructs, these
-are wrapped in OTP.
+The code makes extensive use of the OTP (Open Telecom Platform). Aptly misnamed, this is a library of common concurrency tasks which most concurrent programs will use. Rather than writing code that uses the primitive send (`!`) and receive (`receive .. end`) constructs, these are wrapped in OTP.
 
-A common OTP idiom is that OTP provides a *generic* version of a task,
-a server, a supervisor, and so on. This generic version is then
-specialized by injecting the name of a module. Whenever specific hook
-points in the generic server is reached, a callback is made to the
-module according to a protocol. Thus our code is call-backed to handle
-the specialization. A consequence as that we don't have to handle all
-the gritty parts of message passing concurrency.
+A common OTP idiom is that OTP provides a *generic* version of a task, a server, a supervisor, and so on. This generic version is then specialized by injecting the name of a module. Whenever specific hook points in the generic server is reached, a callback is made to the module according to a protocol. Thus our code is call-backed to handle the specialization. A consequence as that we don't have to handle all the gritty parts of message passing concurrency.
 
 The code consist of several modules:
 
