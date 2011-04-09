@@ -1,0 +1,12 @@
+{application, meganalysis,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { meganalysis_app, []}},
+  {env, []}
+ ]}.
