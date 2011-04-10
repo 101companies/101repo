@@ -39,16 +39,17 @@ or ''plain'' Java based on the schema-derived API.
 * [[101feature:Cut]]
 * [[101feature:Depth]]
 * [[101feature:Mentoring]]
-* [[101feature:Exchange]]
+* [[101feature:Serialization]]
 * [[101feature:Visualization]]
 
 == Architecture ==
 
-The ''101companies-schema.xmi'' is the schema TGraph that represents the data
+The file ''101companies-schema.xmi'' is the schema TGraph that represents the data
 structure for companies. This file was exported from the
 IBM Rational Software Architect (RSA) tool and is based on a simple UML class diagram.
-The ''101companies-schema.pdf'' illustrates the UML class diagram that was
-modeled to represent the schema. The ''101companies-schema.emx'' is the original IBM RSA model file.
+The file ''101companies-schema.pdf'' illustrates the UML class diagram that was
+modeled to represent the schema. The file ''101companies-schema.emx'' is the original IBM RSA model file.
+Once generated, the file ''101companies-schema.tg''
 
 The jgralab.jar contains the core technology for creating and operating on TGraphs.
 It also contains the facilities for using GReQL. The gretl.jar contains GReTL for modifying TGraphs.
@@ -77,7 +78,7 @@ These packages provide the API for ''CompanyServices''.
 * There are JUnit tests in package ''...tests''.
 Run these tests to exercise all implemented operations and capabilities.
 GReQL queries and GReTL transformations are evaluated in due the process.
-One of the tests is, in fact, a main method (for the visualization).
+One of the tests (namely the one for the visualization) is a main method.
 
 == Discussion ==
 
