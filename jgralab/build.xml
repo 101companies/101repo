@@ -2,11 +2,8 @@
 
 <project name="jgralab" basedir="." default="build">
   <property name="projectname" value="jgralab" />
-  <property name="main.fq" value="TODO" />
   <property name="project.dir" value="." />
   <property name="src.dir" value="${project.dir}/src" />
-  <property name="build.dir" value="${project.dir}/build" />
-  <property name="classes.dir" value="${build.dir}/classes" />
   <property name="schema.file" value="${project.dir}/101companies-schema.tg" />
   <property name="xmi.schema.file" value="${project.dir}/101companies-schema.xmi" />
 
