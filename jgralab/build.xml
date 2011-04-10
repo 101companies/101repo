@@ -2,8 +2,11 @@
 
 <project name="jgralab" basedir="." default="build">
   <property name="projectname" value="jgralab" />
+  <property name="main.fq" value="TODO" />
   <property name="project.dir" value="." />
   <property name="src.dir" value="${project.dir}/src" />
+  <property name="build.dir" value="${project.dir}/build" />
+  <property name="classes.dir" value="${build.dir}/classes" />
   <property name="schema.file" value="${project.dir}/101companies-schema.tg" />
   <property name="xmi.schema.file" value="${project.dir}/101companies-schema.xmi" />
 
@@ -15,6 +18,7 @@
   <target name="customAntTasks">
     <taskdef name="tgschema2java" classname="de.uni_koblenz.jgralab.utilities.ant.TgSchema2JavaTask" classpathref="classpath" />
     <taskdef name="rsa2tg" classname="de.uni_koblenz.jgralab.utilities.ant.Rsa2TgTask" classpathref="classpath" />
+    <taskdef name="deletegeneratedschema" classname="de.uni_koblenz.jgralab.utilities.ant.DeleteGeneratedSchemaTask" classpathref="classpath" />
   </target>
 
   <target name="genschema">
@@ -22,7 +26,13 @@
     <tgschema2java schemaFile="${schema.file}" sourcePath="${src.dir}" implementationMode="standard" withoutTypes="false" subtypeFlag="false" />
   </target>
 
-  <target name="build" depends="customAntTasks, genschema">
+  <target name="build" depends="customAntTasks, clean, genschema">
   </target>
 
+  <target name="clean">
+    <delete dir="${classes.dir}" />
+    <deletegeneratedschema sourcePath="${src.dir}" schemaFile="${schema.file}" />
+    <delete file="${schema.file}" />
+  </target>
+	
 </project>
