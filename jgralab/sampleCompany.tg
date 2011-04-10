@@ -15,7 +15,7 @@ EdgeClass HasDepartment from Company (1,1) to Department (1,*) role departments 
 EdgeClass HasEmployee from Department (1,1) role department to Person (1,*) role persons aggregation shared;
 EdgeClass HasSubDepartment from Department (1,1) role parentDept to Department (0,*) role subDepts aggregation composite;
 EdgeClass Mentors from Person (0,*) role mentor to Employee (0,1) role mentee;
-Graph "f868266b-5b6f0e14-47ed09a1-a692e65a" 49 CompaniesGraph (1000 1000 12 11);
+Graph "776cdb39-ce2fa565-e19383cc-b903ee86" 49 CompaniesGraph (1000 1000 12 11);
 Package ;
 1 Company <1 5> "meganalysis";
 2 Department <-1 2 3 4> "Research";

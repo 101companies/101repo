@@ -44,10 +44,16 @@ or ''plain'' Java based on the schema-derived API.
 
 == Architecture ==
 
-The jgralab.jar contains the core technology for creating and operating on TGraphs.
-It also contains the facilities for using GReQL.
+The ''101companies-schema.xmi'' is the schema TGraph that represents the data
+structure for companies. This file was exported from the
+IBM Rational Software Architect (RSA) tool and is based on a simple UML class diagram.
+The ''101companies-schema.pdf'' illustrates the UML class diagram that was
+modeled to represent the schema. The ''101companies-schema.emx'' is the original IBM RSA model file.
 
-The gretl.jar contains GReTL for modifying TGraphs.
+The jgralab.jar contains the core technology for creating and operating on TGraphs.
+It also contains the facilities for using GReQL. The gretl.jar contains GReTL for modifying TGraphs.
+
+
 
 The ''src.de.uni_koblenz.oneoonecompanies'' package contains two hand-written classes:
 	(i) ''CompanyCreator.java''
@@ -60,15 +66,6 @@ The ''src.de.uni_koblenz.oneoonecompanies'' package contains two hand-written cl
 	for persistency. This class also contains a main method that can be run to
 	execute the sample methods that operate on the company data (cut/total/depth/mentoring).
 	
-The ''101companies-schema.xmi'' is the schema TGraph that represents the data
-structure for companies. This file was exported from the
-IBM Rational Software Architect (RSA) tool and is based on a simple UML class diagram.
-
-The ''101companies-schema.pdf'' illustrates the UML class diagram that was
-modeled to represent the schema.
-
-The ''101companies-schema.emx'' is the original IBM RSA model file.
-
 == Usage ==
 
 * The implementation is provided as an Eclipse project.

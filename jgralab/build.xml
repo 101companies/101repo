@@ -21,26 +21,12 @@
     <taskdef name="deletegeneratedschema" classname="de.uni_koblenz.jgralab.utilities.ant.DeleteGeneratedSchemaTask" classpathref="classpath" />
   </target>
 
-  <target name="compile" depends="genschema">
-    <mkdir dir="${classes.dir}" />
-    <javac fork="true" srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" target="1.6">
-      <compilerarg line="-Xlint:unchecked" />
-    </javac>
-  </target>
-
-
   <target name="genschema">
     <rsa2tg xmifile="${xmi.schema.file}" schemafile="${schema.file}" useFromRole="true" removeUnusedDomains="true" useNavigability="true" />
     <tgschema2java schemaFile="${schema.file}" sourcePath="${src.dir}" implementationMode="standard" withoutTypes="false" subtypeFlag="false" />
   </target>
 
-  <target name="build" depends="customAntTasks, clean, genschema, compile">
+  <target name="build" depends="customAntTasks, genschema">
   </target>
 
-  <target name="clean">
-    <delete dir="${classes.dir}" />
-    <deletegeneratedschema sourcePath="${src.dir}" schemaFile="${schema.file}" />
-    <delete file="${schema.file}" />
-  </target>
-	
 </project>

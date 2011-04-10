@@ -6,7 +6,7 @@ import de.uni_koblenz.oneoonecompanies.schema.Company;
 import org.junit.Test;
 import org.junit.Before;
 
-public class Features {
+public class Operations {
 
 	CompanyServices api;
 	Company meganalysis;
