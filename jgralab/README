@@ -62,8 +62,7 @@ contain schema-derived interfaces and classes for companies.
 == Usage ==
 
 * The implementation is provided as an Eclipse project.
-* If the TGraphs schema ''101companies-schema.xmi'' is ever changed, then code-generation must be re-executed. To this end, run ''ant'' on the included ''build.xml'' file from the command line or from within Eclipse.
-This process would re-generate all types in the packages ''...schema'' and ''...schema.impl.std''. These packages provide the API for ''CompanyServices''.
+* If the TGraphs schema ''101companies-schema.xmi'' is ever changed, then code-generation must be re-executed. To this end, run ''ant'' on the included ''build.xml'' file from the command line or from within Eclipse. This process would re-generate all types in the packages ''...schema'' and ''...schema.impl.std''. These packages provide the API for ''CompanyServices''.
 * There are JUnit tests in package ''...tests''. Run these tests to exercise all implemented operations and capabilities. GReQL queries and GReTL transformations are evaluated in due the process. One of the tests (namely the one for the visualization) is a main method.
 
 == Discussion ==
