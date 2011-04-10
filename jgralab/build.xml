@@ -18,7 +18,6 @@
   <target name="customAntTasks">
     <taskdef name="tgschema2java" classname="de.uni_koblenz.jgralab.utilities.ant.TgSchema2JavaTask" classpathref="classpath" />
     <taskdef name="rsa2tg" classname="de.uni_koblenz.jgralab.utilities.ant.Rsa2TgTask" classpathref="classpath" />
-    <taskdef name="deletegeneratedschema" classname="de.uni_koblenz.jgralab.utilities.ant.DeleteGeneratedSchemaTask" classpathref="classpath" />
   </target>
 
   <target name="genschema">
