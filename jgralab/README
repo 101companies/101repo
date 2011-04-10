@@ -54,18 +54,10 @@ Once generated, the file ''101companies-schema.tg''
 The jgralab.jar contains the core technology for creating and operating on TGraphs.
 It also contains the facilities for using GReQL. The gretl.jar contains GReTL for modifying TGraphs.
 
-
-
-The ''src.de.uni_koblenz.oneoonecompanies'' package contains two hand-written classes:
-	(i) ''CompanyCreator.java''
-	Creates the companies TGraph/model. This utility class is used by CompanyServices.
-	
-	(ii) ''CompanyServices.java''
-	A full example class that loads the model from a TG file if a model has been
-	created before. Otherwise, the model is created first and then written to
-	the ''companies.tg'' file. The TG file format is the TGraph-specific format
-	for persistency. This class also contains a main method that can be run to
-	execute the sample methods that operate on the company data (cut/total/depth/mentoring).
+Package ''src.de.uni_koblenz.oneoonecompanies'' contains a programmer-defined
+class ''CompanyServices'' that provides an API for several operations on TGraphs. 
+Packages ''src.de.uni_koblenz.oneoonecompanies.schema'' and ''...schema.impl.std''
+contain schema-derived interfaces and classes for companies.
 	
 == Usage ==
 
