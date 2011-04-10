@@ -1,0 +1,42 @@
+// JGraLab - The Java graph laboratory
+//   Version : Efraasia
+//   Revision: 3062:65b6031fd543
+
+TGraph 2;
+Schema de.uni_koblenz.oneoonecompanies.schema.OneOOneSchema;
+GraphClass CompaniesGraph;
+VertexClass Company: NamedElement;
+VertexClass Department: NamedElement;
+VertexClass Employee: Person;
+VertexClass Manager: Person;
+abstract VertexClass NamedElement { name: String };
+abstract VertexClass Person: NamedElement { address: String,  salary: Integer };
+EdgeClass HasDepartment from Company (1,1) to Department (1,*) role departments aggregation composite;
+EdgeClass HasEmployee from Department (1,1) role department to Person (1,*) role persons aggregation shared;
+EdgeClass HasSubDepartment from Department (1,1) role parentDept to Department (0,*) role subDepts aggregation composite;
+EdgeClass Mentors from Person (0,*) role mentor to Employee (0,1) role mentee;
+Graph "f868266b-5b6f0e14-47ed09a1-a692e65a" 49 CompaniesGraph (1000 1000 12 11);
+Package ;
+1 Company <1 5> "meganalysis";
+2 Department <-1 2 3 4> "Research";
+3 Manager <-2> "Redmond" "Craig" 123456;
+4 Employee <-3> "Utrecht" "Erik" 12345;
+5 Employee <-4> "Koblenz" "Ralf" 1234;
+6 Department <-5 6 7> "Development";
+7 Manager <-6> "Redmond" "Ray" 234567;
+8 Department <-7 8 9> "Dev 1";
+9 Manager <-8> "Boston" "Klaus" 23456;
+10 Department <-9 10 11> "Dev 1.1";
+11 Manager <-10> "Riga" "Karl" 2345;
+12 Employee <-11> "WiFi City" "Joe" 2344;
+1 HasDepartment;
+2 HasEmployee;
+3 HasEmployee;
+4 HasEmployee;
+5 HasDepartment;
+6 HasEmployee;
+7 HasSubDepartment;
+8 HasEmployee;
+9 HasSubDepartment;
+10 HasEmployee;
+11 HasEmployee;

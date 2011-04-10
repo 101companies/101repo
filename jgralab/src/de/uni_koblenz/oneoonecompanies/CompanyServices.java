@@ -27,31 +27,30 @@ import de.uni_koblenz.oneoonecompanies.schema.Employee;
 import de.uni_koblenz.oneoonecompanies.schema.OneOOneSchema;
 import de.uni_koblenz.oneoonecompanies.schema.Person;
 
+/**
+ * Provide many 101companies features through a single service object
+ */
 public class CompanyServices {
+	
+	// Turn off logging
 	static {
 		JGraLab.setLogLevel(Level.OFF);
 	}
 
-	private CompaniesGraph graph;
+	// The singleton for the service object
 	private static CompanyServices instance;
+	
+	// The graph on which to serve
+	private CompaniesGraph graph;
+	
+	// A GReQL evaluator
 	private GreqlEvaluator eval;
 
+	// The singleton constructor which loads graph into memory
 	private CompanyServices() {
-		File gf = new File("companies.tg");
-		if (gf.exists()) {
-			try {
-				graph = OneOOneSchema.instance().loadCompaniesGraph(
-						gf.getPath());
-			} catch (GraphIOException e) {
-				e.printStackTrace();
-			}
-		}
-		if (graph == null) {
-			resetGraph();
-		}
-		eval = new GreqlEvaluator((String) null, graph, null);
 	}
 
+	// Accessor for singleton for company services
 	public static CompanyServices instance() {
 		if (instance == null) {
 			instance = new CompanyServices();
@@ -59,26 +58,67 @@ public class CompanyServices {
 		return instance;
 	}
 
+	/**
+	 * Load previously persisted graph
+	 */
+	public void loadGraph(String s) {
+		File gf = new File(s);
+		if (gf.exists()) {
+			try {
+				graph = OneOOneSchema.
+							instance().
+							loadCompaniesGraph(gf.getPath());
+			} catch (GraphIOException e) {
+				e.printStackTrace();
+			}
+		}
+		eval = new GreqlEvaluator((String) null, graph, null);
+	}
+	
+	/**
+	 * Look up company by name
+	 */
+	public Company getCompany(String name) {
+		for (Company c : graph.getCompanyVertices()) {
+			if (c.get_name().equals(name)) {
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 *  Total all salaries for employees of a company
+	 */
 	public long totalSalaries(Company c) {
 		return Math.round(greqlEval(
 				"sum(from p: V{Person} with getVertex(" + c.getId()
 						+ ") <>--* p" + " reportSet p.salary end)").toDouble());
 	}
 
-	public void cutSalaries(Company c, float factor) {
+	/**
+	 * Cut all salaries for employees of a company
+	 */
+	public void cutSalaries(Company c) {
 		// Use GReQL for iterating many hops in java
 		for (Person p : c.reachableVertices("<>--* & {Person}", Person.class)) {
-			p.set_salary(Math.round(p.get_salary() / factor));
+			p.set_salary(Math.round(p.get_salary() / 2.0f));
 		}
 	}
 
-	public void cutSalariesWithGReTL(Company c, float facor) {
+	/**
+	 * Cut all salaries for employees of a company with GReTL
+	 */
+	public void cutSalariesWithGReTL(Company c) {
 		Context context = new Context(graph);
 		new MatchReplace(context, "('$[0]' | salary = 'round($[0].salary / "
-				+ facor + ")')", "getVertex(" + c.getId()
+				+ 2.0f + ")')", "getVertex(" + c.getId()
 				+ ") <>--* & {Person}").execute();
 	}
 
+	/**
+	 * Determine depth of department nesting
+	 */
 	public int depthOfDeptartmentStructure(Company c) {
 		return greqlEval(
 				"depth(pathSystem(getVertex(" + c.getId() + "), "
@@ -86,21 +126,30 @@ public class CompanyServices {
 				.toInteger();
 	}
 
-	public void resetGraph() {
-		graph = CompanyCreator.createCompanyGraph();
+	/**
+	 * Add a mentoring relationship
+	 */
+	public void addMentor(Company c, String mentorName, String menteeName) {
+		Person mentor = (Person) greqlEval(
+				"theElement(from p: V{Person} with p.name = '" + mentorName
+						+ "' and getVertex(" + c.getId()
+						+ ") <>--* p reportSet p end)").toVertex();
+		Employee mentee = (Employee) greqlEval(
+				"theElement(from p: V{Employee} with p.name = '" + menteeName
+						+ "' and getVertex(" + c.getId()
+						+ ") <>--* p reportSet p end)").toVertex();
+		mentee.add_mentor(mentor);
+	}	
+	
+	/**
+	 *  Visualize company graph
+	 */
+	public void visualizeGraph(String s) {
 		try {
-			OneOOneSchema.instance().saveCompaniesGraph(
-					new File("companies.tg").getPath(), graph);
-		} catch (GraphIOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void visualizeCompanies() {
-		try {
-			final File png = new File("companies.png");
+			final File png = new File(s);
 			png.deleteOnExit();
-			Tg2Dot.convertGraph(graph, png.getCanonicalPath(),
+			Tg2Dot.convertGraph(graph,
+					png.getCanonicalPath(),
 					GraphVizOutputFormat.PNG);
 			final Image i = ImageIO.read(png);
 			JPanel panel = new JPanel() {
@@ -114,7 +163,7 @@ public class CompanyServices {
 			panel.setPreferredSize(new Dimension(i.getWidth(panel), i
 					.getHeight(panel)));
 			panel.setVisible(true);
-			JFrame f = new JFrame("Companies");
+			JFrame f = new JFrame("Company Graph");
 			f.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			JScrollPane sp = new JScrollPane(panel);
 			f.getContentPane().add(sp);
@@ -125,55 +174,10 @@ public class CompanyServices {
 		}
 	}
 
+	// Helper for GReQL query evaluation
 	private JValue greqlEval(String query) {
 		eval.setQuery(query);
 		eval.startEvaluation();
 		return eval.getEvaluationResult();
-	}
-
-	public Company getCompany(String name) {
-		for (Company c : graph.getCompanyVertices()) {
-			if (c.get_name().equals(name)) {
-				return c;
-			}
-		}
-		return null;
-	}
-
-	public void addMentor(Company c, String mentorName, String menteeName) {
-		Person mentor = (Person) greqlEval(
-				"theElement(from p: V{Person} with p.name = '" + mentorName
-						+ "' and getVertex(" + c.getId()
-						+ ") <>--* p reportSet p end)").toVertex();
-		Employee mentee = (Employee) greqlEval(
-				"theElement(from p: V{Employee} with p.name = '" + menteeName
-						+ "' and getVertex(" + c.getId()
-						+ ") <>--* p reportSet p end)").toVertex();
-		mentee.add_mentor(mentor);
-	}
-
-	public static void main(String[] args) {
-		Company meganalysis = CompanyServices.instance().getCompany(
-				"Meganalysis");
-
-		System.out.println("Before cut: "
-				+ CompanyServices.instance().totalSalaries(meganalysis));
-
-		CompanyServices.instance().cutSalaries(meganalysis, 2);
-		System.out.println("After first cut: "
-				+ CompanyServices.instance().totalSalaries(meganalysis));
-
-		CompanyServices.instance().cutSalariesWithGReTL(meganalysis, 2);
-		System.out.println("After 2nd cut: "
-				+ CompanyServices.instance().totalSalaries(meganalysis));
-
-		System.out.println("Depth of department structure: "
-				+ CompanyServices.instance().depthOfDeptartmentStructure(
-						meganalysis));
-
-		System.out.println("Establishing a mentorship between Ray and Joe.");
-		CompanyServices.instance().addMentor(meganalysis, "Ray", "Joe");
-
-		CompanyServices.instance().visualizeCompanies();
-	}
+	}	
 }

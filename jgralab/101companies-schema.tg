@@ -1,0 +1,18 @@
+TGraph 2;
+
+Schema de.uni_koblenz.oneoonecompanies.schema.OneOOneSchema;
+
+GraphClass CompaniesGraph;
+
+Package ;
+VertexClass Company: NamedElement;
+abstract VertexClass NamedElement {name: String};
+VertexClass Department: NamedElement;
+EdgeClass HasDepartment from Company (1,1) to Department (1,*) role departments aggregation composite;
+abstract VertexClass Person: NamedElement {address: String, salary: Integer};
+EdgeClass HasSubDepartment from Department (1,1) role parentDept to Department (0,*) role subDepts aggregation composite;
+EdgeClass HasEmployee from Department (1,1) role department to Person (1,*) role persons aggregation shared;
+VertexClass Manager: Person;
+VertexClass Employee: Person;
+EdgeClass Mentors from Person (0,*) role mentor to Employee (0,1) role mentee;
+

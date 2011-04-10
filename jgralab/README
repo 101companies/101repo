@@ -1,22 +1,35 @@
 == Intent ==
 
-A simple implementation in [[Language:Java]] using [[Technology:JGraLab]].
-At the heart of this technological space are TGraphs, i.e., typed, attributed,
-ordered, and directed graphs.
+use [[Language:TGraphs]] with [[Technology:JGraLab]] in [[Language:Java]]
+
+== Motivation ==
+
+TGraphs are typed, attributed, ordered, and directed graphs.
+TGraphs can be maintained in a repository and programmatically processed.
+One can clearly use TGraphs to represent companies.
+In fact, a TGraphs schema defines the structure of companies.
+One can then use supplementary languages and technologies to query and transform such graphs 
+so that typical operations on companies are implemented.
+In particular, [[Technology:JGraLab]] supports Java-class generation from a TGraphs schema,
+and query evaluation with [[Language:GReQL]] on TGraphs.
+Transformations can be performed with [[Language:GReTL]]
+or ''plain'' Java based on the schema-derived API.
 
 == Languages ==
 
-* [[Language:Java]]
+* [[Language:TGraphs]]
 * [[Language:GReQL]]
 * [[Language:GReTL]]
+* [[Language:Java]]
 
 == Technologies ==
 
+* [[Technology:JGraLab]]: Java-based support for the TGraph technical space
+* [[Technology:GReTL]]: the implementation of [[Language:GReTL]]
 * [[Technology:JDK]]: provider of javac et al.
 * [[Technology:JSE]]: execution platform (Version 1.6)
 * [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
 * [[Technology:Ant]]: for building
-* [[Technology:JGraLab]]: the core of the TGraph technological space
 * [[Technology:GraphViz]]: graph visualization
 
 == Features ==
@@ -24,22 +37,10 @@ ordered, and directed graphs.
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
-* [[101feature:Serialization]]
 * [[101feature:Depth]]
-
-== Extras ==
-
-* [[101extras:Mentoring]]
-
-== Motivation ==
-
-Basic style of programming using TGraphs as the repository technology
-is demonstrated. The company and its depending data is represented by a
-schema TGraph. A TGraph instance represents the company data and this model
-conforms to the schema. The model can be queried using the
-Graph Repository Query Language (GReQL). Furthermore, it can be transformed by
-either using the Graph Repository Transformation Language (GReTL), or by using
-an auto-generated Java API that is specific to the given schema.
+* [[101feature:Mentoring]]
+* [[101feature:Exchange]]
+* [[101feature:Visualization]]
 
 == Architecture ==
 
@@ -66,18 +67,31 @@ IBM Rational Software Architect (RSA) tool and is based on a simple UML class di
 The ''101companies-schema.pdf'' illustrates the UML class diagram that was
 modeled to represent the schema.
 
-The ''01companies-schema.emx'' is the original IBM RSA model file.
+The ''101companies-schema.emx'' is the original IBM RSA model file.
 
 == Usage ==
 
 * The implementation is provided as an Eclipse project.
-* Run ant on the command line (or via Eclipse) on the build.xml file.
-  This process reads the ''101companies-schema.xmi'' and generates a Java API.
-  This API is then used by the CompanyServices and CompaniesCreator classes.
-* Run class ''CompanyService'', which prints the sum of salaries.
-  The cut operation is implemented once using GReTL and another time using the Java API.
-  The depth of the department depth is computed using GReQL and a mentored employee is
-  found likewise. Finally, the application shows a graphical visualization of the company TGraph.
+* If the TGraphs schema ''101companies-schema.xmi'' is ever changed, 
+then code-generation must be re-executed. 
+To this end, run ''ant'' on the included ''build.xml'' file from the command line or from within Eclipse.
+This process would re-generate all types in the packages ''...schema'' and ''...schema.impl.std''.
+These packages provide the API for ''CompanyServices''.
+* There are JUnit tests in package ''...tests''.
+Run these tests to exercise all implemented operations and capabilities.
+GReQL queries and GReTL transformations are evaluated in due the process.
+One of the tests is, in fact, a main method (for the visualization).
+
+== Discussion ==
+
+Here are some minor issues that could be normalized/improved:
+* Managers are employees definitely.
+* Person not really needed (inheritance illustrated with NamedElement).
+* Use float or double instead of ints for salaries.
+* Mentors and mentees should be both employees.
+* Enforce cardinality constraints for mentors:
+** See [[101feature:Mentoring]].
+** See prepared test testAddMentorNotOk.
 
 == Contributors ==
 
