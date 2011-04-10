@@ -53,33 +53,6 @@ public interface Department extends de.uni_koblenz.oneoonecompanies.schema.Named
 	 */
 	public de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment getFirstHasSubDepartmentIncidence(EdgeDirection orientation);
 		/**
-		 * adds the given vertex as <code>parentDept</code> to this vertex, i.e. creates an
-		 * <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edge from this vertex to the given 
-		 * one and returns the created edge.
-		 * @return  a newly created edge of type <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code>
-		 *          between this vertex and the given one.
-		 */
-		public de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment add_parentDept(de.uni_koblenz.oneoonecompanies.schema.Department vertex);
-		/**
-		 * removes all parentDept adjacences to all vertices by 
-		 * deleting the <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edges of this vertex to 
-		 * all other ones, but doesn't delete those vertices.
-		 *
-		 * @return the adjacent vertices prior to removal of incidences
-		 */
-		public java.util.List<? extends de.uni_koblenz.oneoonecompanies.schema.Department> remove_parentDept();
-		/**
-		 * removes the given vertex as <code>parentDept</code> from this vertex, i.e. 
-		 * deletes the <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edge connections of this vertex with 
-		 * the given one.
-		 */
-		public boolean remove_parentDept(de.uni_koblenz.oneoonecompanies.schema.Department vertex);
-		/**
-		 * @return the vertex to this one with the rolename 'parentDept' 
-		 *         (connected with a <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edge), or null if no such vertex exists
-		 */
-		public de.uni_koblenz.oneoonecompanies.schema.Department get_parentDept();
-		/**
 		 * adds the given vertex as <code>persons</code> to this vertex, i.e. creates an
 		 * <code>de.uni_koblenz.oneoonecompanies.schema.HasEmployee</code> edge from this vertex to the given 
 		 * one and returns the created edge.
@@ -106,6 +79,33 @@ public interface Department extends de.uni_koblenz.oneoonecompanies.schema.Named
 		 *         (connected with a <code>de.uni_koblenz.oneoonecompanies.schema.HasEmployee</code> edge).
 		 */
 		public Iterable<? extends de.uni_koblenz.oneoonecompanies.schema.Person> get_persons();
+		/**
+		 * adds the given vertex as <code>parentDept</code> to this vertex, i.e. creates an
+		 * <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edge from this vertex to the given 
+		 * one and returns the created edge.
+		 * @return  a newly created edge of type <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code>
+		 *          between this vertex and the given one.
+		 */
+		public de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment add_parentDept(de.uni_koblenz.oneoonecompanies.schema.Department vertex);
+		/**
+		 * removes all parentDept adjacences to all vertices by 
+		 * deleting the <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edges of this vertex to 
+		 * all other ones, but doesn't delete those vertices.
+		 *
+		 * @return the adjacent vertices prior to removal of incidences
+		 */
+		public java.util.List<? extends de.uni_koblenz.oneoonecompanies.schema.Department> remove_parentDept();
+		/**
+		 * removes the given vertex as <code>parentDept</code> from this vertex, i.e. 
+		 * deletes the <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edge connections of this vertex with 
+		 * the given one.
+		 */
+		public boolean remove_parentDept(de.uni_koblenz.oneoonecompanies.schema.Department vertex);
+		/**
+		 * @return the vertex to this one with the rolename 'parentDept' 
+		 *         (connected with a <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edge), or null if no such vertex exists
+		 */
+		public de.uni_koblenz.oneoonecompanies.schema.Department get_parentDept();
 		/**
 		 * adds the given vertex as <code>subDepts</code> to this vertex, i.e. creates an
 		 * <code>de.uni_koblenz.oneoonecompanies.schema.HasSubDepartment</code> edge from this vertex to the given 

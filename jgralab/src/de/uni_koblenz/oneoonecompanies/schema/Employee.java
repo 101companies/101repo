@@ -36,33 +36,6 @@ public interface Employee extends de.uni_koblenz.oneoonecompanies.schema.Person 
 	 */
 	public de.uni_koblenz.oneoonecompanies.schema.Mentors getFirstMentorsIncidence(EdgeDirection orientation);
 		/**
-		 * adds the given vertex as <code>mentor</code> to this vertex, i.e. creates an
-		 * <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edge from this vertex to the given 
-		 * one and returns the created edge.
-		 * @return  a newly created edge of type <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code>
-		 *          between this vertex and the given one.
-		 */
-		public de.uni_koblenz.oneoonecompanies.schema.Mentors add_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex);
-		/**
-		 * removes all mentor adjacences to all vertices by 
-		 * deleting the <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edges of this vertex to 
-		 * all other ones, but doesn't delete those vertices.
-		 *
-		 * @return the adjacent vertices prior to removal of incidences
-		 */
-		public java.util.List<? extends de.uni_koblenz.oneoonecompanies.schema.Person> remove_mentor();
-		/**
-		 * removes the given vertex as <code>mentor</code> from this vertex, i.e. 
-		 * deletes the <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edge connections of this vertex with 
-		 * the given one.
-		 */
-		public boolean remove_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex);
-		/**
-		 * @return an Iterable of all vertices adjacent to this one with the rolename 'mentor'
-		 *         (connected with a <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edge).
-		 */
-		public Iterable<? extends de.uni_koblenz.oneoonecompanies.schema.Person> get_mentor();
-		/**
 		 * adds the given vertex as <code>department</code> to this vertex, i.e. creates an
 		 * <code>de.uni_koblenz.oneoonecompanies.schema.HasEmployee</code> edge from this vertex to the given 
 		 * one and returns the created edge.
@@ -116,6 +89,33 @@ public interface Employee extends de.uni_koblenz.oneoonecompanies.schema.Person 
 		 *         (connected with a <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edge), or null if no such vertex exists
 		 */
 		public de.uni_koblenz.oneoonecompanies.schema.Employee get_mentee();
+		/**
+		 * adds the given vertex as <code>mentor</code> to this vertex, i.e. creates an
+		 * <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edge from this vertex to the given 
+		 * one and returns the created edge.
+		 * @return  a newly created edge of type <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code>
+		 *          between this vertex and the given one.
+		 */
+		public de.uni_koblenz.oneoonecompanies.schema.Mentors add_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex);
+		/**
+		 * removes all mentor adjacences to all vertices by 
+		 * deleting the <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edges of this vertex to 
+		 * all other ones, but doesn't delete those vertices.
+		 *
+		 * @return the adjacent vertices prior to removal of incidences
+		 */
+		public java.util.List<? extends de.uni_koblenz.oneoonecompanies.schema.Person> remove_mentor();
+		/**
+		 * removes the given vertex as <code>mentor</code> from this vertex, i.e. 
+		 * deletes the <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edge connections of this vertex with 
+		 * the given one.
+		 */
+		public boolean remove_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex);
+		/**
+		 * @return an Iterable of all vertices adjacent to this one with the rolename 'mentor'
+		 *         (connected with a <code>de.uni_koblenz.oneoonecompanies.schema.Mentors</code> edge).
+		 */
+		public Iterable<? extends de.uni_koblenz.oneoonecompanies.schema.Person> get_mentor();
 
 	/**
 	 * Returns an Iterable for all incidence edges of this vertex that are of type Mentors or subtypes.

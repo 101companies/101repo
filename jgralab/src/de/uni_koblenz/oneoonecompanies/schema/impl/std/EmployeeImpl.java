@@ -220,39 +220,6 @@ public class EmployeeImpl extends VertexImpl implements de.uni_koblenz.oneooneco
 		return (de.uni_koblenz.oneoonecompanies.schema.HasEmployee)getFirstIncidence(de.uni_koblenz.oneoonecompanies.schema.HasEmployee.class, orientation);
 	}
 		@Override
-		public de.uni_koblenz.oneoonecompanies.schema.Mentors add_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex) {
-			return ((de.uni_koblenz.oneoonecompanies.schema.CompaniesGraph)getGraph()).createEdge(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, (de.uni_koblenz.oneoonecompanies.schema.Person) vertex, (de.uni_koblenz.oneoonecompanies.schema.Employee) this);
-		}
-		@Override
-		public java.util.List<? extends de.uni_koblenz.oneoonecompanies.schema.Person> remove_mentor() {
-			java.util.List<de.uni_koblenz.oneoonecompanies.schema.Person> adjacences = new java.util.ArrayList<de.uni_koblenz.oneoonecompanies.schema.Person>();
-			de.uni_koblenz.oneoonecompanies.schema.Mentors edge = (de.uni_koblenz.oneoonecompanies.schema.Mentors) getFirstIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
-			while (edge != null) {
-				de.uni_koblenz.oneoonecompanies.schema.Mentors next = (de.uni_koblenz.oneoonecompanies.schema.Mentors) edge.getNextIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
-				adjacences.add((de.uni_koblenz.oneoonecompanies.schema.Person) edge.getThat());
-				edge.delete();
-				edge = next;
-			}
-			return adjacences;
-		}
-		@Override
-		public boolean remove_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex) {
-			boolean elementRemoved = false;
-			de.uni_koblenz.oneoonecompanies.schema.Mentors edge = (de.uni_koblenz.oneoonecompanies.schema.Mentors) getFirstIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
-			while (edge != null) {
-				de.uni_koblenz.oneoonecompanies.schema.Mentors next = (de.uni_koblenz.oneoonecompanies.schema.Mentors) edge.getNextIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
-				if (edge.getThat().equals(vertex)) {			edge.delete();
-					elementRemoved = true;
-				}
-				edge = next;
-			}
-			return elementRemoved;
-		}
-		@Override
-		public Iterable<? extends de.uni_koblenz.oneoonecompanies.schema.Person> get_mentor() {
-			return new de.uni_koblenz.jgralab.impl.NeighbourIterable<de.uni_koblenz.oneoonecompanies.schema.Mentors, de.uni_koblenz.oneoonecompanies.schema.Person>(this, de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
-		}
-		@Override
 		public de.uni_koblenz.oneoonecompanies.schema.HasEmployee add_department(de.uni_koblenz.oneoonecompanies.schema.Department vertex) {
 			return ((de.uni_koblenz.oneoonecompanies.schema.CompaniesGraph)getGraph()).createEdge(de.uni_koblenz.oneoonecompanies.schema.HasEmployee.class, (de.uni_koblenz.oneoonecompanies.schema.Department) vertex, (de.uni_koblenz.oneoonecompanies.schema.Employee) this);
 		}
@@ -325,6 +292,39 @@ public class EmployeeImpl extends VertexImpl implements de.uni_koblenz.oneooneco
 				return (de.uni_koblenz.oneoonecompanies.schema.Employee) edge.getThat();
 			}
 			return null;
+		}
+		@Override
+		public de.uni_koblenz.oneoonecompanies.schema.Mentors add_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex) {
+			return ((de.uni_koblenz.oneoonecompanies.schema.CompaniesGraph)getGraph()).createEdge(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, (de.uni_koblenz.oneoonecompanies.schema.Person) vertex, (de.uni_koblenz.oneoonecompanies.schema.Employee) this);
+		}
+		@Override
+		public java.util.List<? extends de.uni_koblenz.oneoonecompanies.schema.Person> remove_mentor() {
+			java.util.List<de.uni_koblenz.oneoonecompanies.schema.Person> adjacences = new java.util.ArrayList<de.uni_koblenz.oneoonecompanies.schema.Person>();
+			de.uni_koblenz.oneoonecompanies.schema.Mentors edge = (de.uni_koblenz.oneoonecompanies.schema.Mentors) getFirstIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
+			while (edge != null) {
+				de.uni_koblenz.oneoonecompanies.schema.Mentors next = (de.uni_koblenz.oneoonecompanies.schema.Mentors) edge.getNextIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
+				adjacences.add((de.uni_koblenz.oneoonecompanies.schema.Person) edge.getThat());
+				edge.delete();
+				edge = next;
+			}
+			return adjacences;
+		}
+		@Override
+		public boolean remove_mentor(de.uni_koblenz.oneoonecompanies.schema.Person vertex) {
+			boolean elementRemoved = false;
+			de.uni_koblenz.oneoonecompanies.schema.Mentors edge = (de.uni_koblenz.oneoonecompanies.schema.Mentors) getFirstIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
+			while (edge != null) {
+				de.uni_koblenz.oneoonecompanies.schema.Mentors next = (de.uni_koblenz.oneoonecompanies.schema.Mentors) edge.getNextIncidence(de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
+				if (edge.getThat().equals(vertex)) {			edge.delete();
+					elementRemoved = true;
+				}
+				edge = next;
+			}
+			return elementRemoved;
+		}
+		@Override
+		public Iterable<? extends de.uni_koblenz.oneoonecompanies.schema.Person> get_mentor() {
+			return new de.uni_koblenz.jgralab.impl.NeighbourIterable<de.uni_koblenz.oneoonecompanies.schema.Mentors, de.uni_koblenz.oneoonecompanies.schema.Person>(this, de.uni_koblenz.oneoonecompanies.schema.Mentors.class, EdgeDirection.IN);
 		}
 
 	@Override
