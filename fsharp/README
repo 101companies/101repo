@@ -1,4 +1,4 @@
-﻿== Summary ==
+== Summary ==
 F# based object model for 101companies
 
 == Description == 
@@ -16,5 +16,6 @@ and under <runtime> add:
 
 
 == Contributors ==
-* Andrei Varanovich
+
+* {{101contributor|Andrei Varanovich|developer}}
 
