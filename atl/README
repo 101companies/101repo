@@ -23,3 +23,8 @@ Steps:
 Comments:
 - The locations for the metamodels are taken from the .atl files.
 - You can also specific a "run configuration" as usual.
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|reviewer}}

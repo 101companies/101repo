@@ -57,5 +57,5 @@ package ''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
 
 == Contributors ==
 
-* [[Contributor:Ralf Lämmel]]
-* [[Contributor:Thomas Schmorleiz]]
+* {{101contributor|Ralf Lämmel|developer}}
+* {{101contributor|Thomas Schmorleiz|developer}}

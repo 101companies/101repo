@@ -6,3 +6,7 @@ The test case(s) simply prints the AST.
 We use ANTLR's generic tree format to represent ASTs.
 
 See project "antlr" for general instructions on ANTLR usage.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
