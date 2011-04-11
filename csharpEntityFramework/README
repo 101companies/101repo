@@ -1,4 +1,4 @@
-﻿== Intent ==
+== Intent ==
 
 object [[persistence]] and [[O/R mapping]] with [[Technology:.NET]] [[Technology:Entity Framework]]
 
@@ -43,4 +43,5 @@ The project itself is a class-library and compiles into a DLL. To run a project 
 Nunit GUI or other Visual studio extension (e.g. Resharper) should be used for executing unit tests.
 
 == Contributors ==
-* [[Contributor:Andrei Varanovich]]
+
+* {{101contributor|Andrei Varanovich|developer}}

@@ -26,6 +26,12 @@ might have expected "java.lang.String". Fortunately the ATL VM sets
 this property to "java.lang." + name (here "String") whatever the
 property's value was [2].
 
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|reviewer}}
+
+
 Resources:
 [1] http://download.eclipse.org/modeling/m2m/atl/updates/2.0.0
 [2]

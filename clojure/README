@@ -29,4 +29,6 @@ To run a demo:
 * Type "(totalCompany meganalysis)" or "(totalCompany (cutCompany meganalysis))" to cut and total the sample company's salaries.
 
 == Contributors ==
-* Thomas Schmorleiz
+
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|user}}
