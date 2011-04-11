@@ -1,0 +1,68 @@
+== Intent ==
+
+a simple implementation in [[Language:Java for Hadoop]]
+
+== Languages ==
+
+* [[Language:Java for Hadoop]]
+
+== Technologies ==
+
+* [[Technology:JDK]]: provider of javac et al.
+* [[Technology:JSE]]: execution platform (Version 1.6)
+* [[Technology:JUnit]]: automated testing support (Version 4)
+* [[Technology:Eclipse]]: optional IDE (Version 3.6.2)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+
+== Architecture ==
+
+Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
+Package ''org.softlang.operations'' hosts designated classes with static methods for
+the MapReduce jobs [[101feature:Total]] and [[101feature:Cut]]. Some boilerplate code for 
+[[101feature:Serialization]] is implemented in the class ''org.softlang.company.Company'' 
+(see methods ''readObject'' and ''writeObject''). Package ''org.softlang.tests'' 
+hosts JUnit tests; see below.
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project.
+* Hence, open the project with Eclipse; this will also build the project.
+* The default settings runs [[Hadoop]] on your local machine. For distributed setup see below.
+* There are JUnit tests available as the package ''org.softlang.tests''.
+** Run class ''Serialization'' with JUnit to create and serialize an example Company.
+** Run class ''Basics'' with JUnit to exercise basic features.
+
+== Distributed Setup ==
+
+An official release for Hadoop can be downloaded here: http://hadoop.apache.org/common/releases.html
+The Hadoop Wiki describes how to set up Hadoop in local (http://hadoop.apache.org/common/docs/current/single_node_setup.html)
+and distributed mode (http://hadoop.apache.org/common/docs/current/cluster_setup.html).
+
+These configurations require jobs being run via the command line using a jar file. The jar can be build
+from our Eclipse project by simply specifying the class ''OperationRunner'' as main class. 
+
+Using Hadoop in distributed mode under Eclipse is not that trivial. Instructions can be found here:
+http://wiki.apache.org/hadoop/EclipseEnvironment
+
+== Possible issues ==
+
+Running Hadoop under Windows requires ''Cygwin'' being installed. Instructions can be found here:
+http://wiki.apache.org/hadoop/GettingStartedWithHadoop
+
+Hadoop also requires ''ssh'' to access all machines (including ''localhost'') without password prompt.
+Instructions how to do this can be found for example here: http://www.maths.qmul.ac.uk/~dhruba/tips_and_tricks/node2.html
+
+== Contributors ==
+
+* [[Contributor:Ralf LŠmmel]]
+* [[Contributor:Thomas Schmorleiz]]
+* [[Contributor:Betim Sojeva]]
