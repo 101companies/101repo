@@ -8,7 +8,7 @@ illustrate building of web applications with Seam
 
 	JBOSS-4.2.x (http://sourceforge.net/projects/jboss/files/JBoss/JBoss-4.2.3.GA)
 
-== Build === 
+=== Build === 
 
 	(a) change the build.properties file, reviewing the jboss.home property that must refer 
 	to the place where you have installed the jboss distribution. 
