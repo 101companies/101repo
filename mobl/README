@@ -23,5 +23,6 @@ open http://localhost:8080/companies.html in your browser.
 
 == Contributors ==
 
-* [[Contributor:Zef Hemel]]
-* [[Contributor:Thomas Schmorleiz]]
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Zef Hemel|developer}}
+* {{101contributor|Ralf Lämmel|reviewer}}

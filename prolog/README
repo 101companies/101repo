@@ -4,3 +4,7 @@ There is a predicate cut/2 to cut all salaries in half.
 There is a predicate depth/2 to compute the nesting depth of departments.
 See the Makefile for running the tests.
 The code has been tested with SWI-Prolog 5.10.1.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
