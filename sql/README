@@ -22,3 +22,8 @@ http://www.apachefriends.org/en/xampp.html
  - Execute scenario total (run SQL script Total.sql)
  - Execute scenario cut (run SQL script Cut.sql)
  - Execute scenario total, again (run SQL script Total.sql)
+ 
+ == Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|reviewer}}

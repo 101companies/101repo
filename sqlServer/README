@@ -27,4 +27,5 @@ Scripts/Post-Deployment folder contais script file executed after the database s
 Target connection (in project properties) should be adjusted for your local database server.
 
 == Contributors ==
-* [[Contributor:Andrei Varanovich]]
+
+* {{101contributor|Andrei Varanovich|developer}}
