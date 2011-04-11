@@ -25,3 +25,8 @@ Prerequisites (very much like in project "jdbc"):
 - A suitable JDBC Driver for MySQL:
   An appropriate driver is available through the project "library".
   See the corresponding JAR in the build path of the present project. 
+  
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|reviewer}}  

@@ -7,3 +7,8 @@ See project "jena" for illustrations of Jena's based RDF API.
 The present project depends on "jena".
 
 See the Tests class for JUnit test cases.
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|user}}
