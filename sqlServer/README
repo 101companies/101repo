@@ -1,16 +1,22 @@
 == Intent ==
+
 a relational database model for [[Technology:SQL Server]]
 
 == Languages ==
+
 * [[Language:SQL]]
 
 == Technologies ==
+
 * [[Technology:SQL Server]]: SQL Server 2008 used as a data storage. (Free Express edition is enough)
 
 == Features ==
-[[101feature:Company]] 
+
+* [[101feature:Company]] 
+* [[101feature:Indexing]] 
 
 == Motivation ==
+
 [[Language:SQL]] is used to create relational representation of 101comanies model. The model can be used in [[Technology:O/R Mapping]] scenarious.
 
 == Architecture ==

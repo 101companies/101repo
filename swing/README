@@ -2,6 +2,14 @@
 
 provide interaction on companies by means of [[Technology:Swing]]
 
+== Features == 
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+* [[101feature:Interaction]]
+
 == Motivation ==
 
 Specifically, the GUI provides the following gestures:
