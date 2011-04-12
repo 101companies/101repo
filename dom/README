@@ -17,9 +17,10 @@ exercise [[in-memory XML processing]] with [[Technology:DOM]] in [[Language:Java
 
 == Features ==
 
-* [[101feature:Company]] (no explicit model)
+* [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Data exchange]]
 
 == Terms ==
 

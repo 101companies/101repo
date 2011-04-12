@@ -13,12 +13,15 @@ object [[persistence]] and [[O/R mapping]] with [[Technology:.NET]] [[Technology
 * [[Technology:SQL Server]]: SQL Server 2008 used as a data storage. (Free Express edition is enough)
 
 == Features ==
-* [[101feature:Company]] (generated from [[101implementation:sqlServer]] data model)
+
+* [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
+* [[101feature:Persistence]]
 
 == Motivation ==
+
 Entity Framework object model is generated for SQL Server representation of 101companies model. 
 
 == Architecture ==

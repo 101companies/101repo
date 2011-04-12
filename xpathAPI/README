@@ -19,9 +19,10 @@ exercise [[:Category:XML processing]] with [[Language:XPath]] embedded in [[Lang
 
 == Features ==
 
-* [[101feature:Company]] (no explicit model)
+* [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Data exchange]]
 
 == Motivation ==
 
