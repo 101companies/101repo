@@ -17,7 +17,7 @@ an Erlang-based implementation
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
-* [[101feature:Availability]]
+* [[101feature:Fault tolerance]]
 
 == Motivation ==
 
