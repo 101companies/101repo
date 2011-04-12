@@ -3,7 +3,7 @@
 object [[persistence]] and [[O/R mapping]] with [[Technology:.NET]] [[Technology:Entity Framework]]
 
 == Languages ==
-* [[Language:CSharp]](C#): Programming language used for all code (Version 4.0)
+* [[Language:CSharp]] (C#): Programming language used for all code (Version 4.0)
 
 == Technologies ==
 * [[Technology:csc.exe]]: C# compiler (Version 4.0)

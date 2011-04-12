@@ -1,3 +1,10 @@
+== Features ==
+
+* [[101feature:Company]] 
+* [[101feature:Parsing]] 
+
+== Discussion ==
+
 We define a concrete syntax for companies.
 We use ANTLR to execute that syntax in an acceptor-like manner.
 

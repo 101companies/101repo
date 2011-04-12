@@ -19,6 +19,7 @@ a simple implementation in [[Language:Java for Hadoop]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Serialization]]
+* [[101feature:Parallelism]]
 
 == Motivation ==
 
