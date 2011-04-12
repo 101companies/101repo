@@ -4,6 +4,8 @@ import Company
 import Total
 import Cut
 import Depth
+import Mentoring
+import Precedence
 import SampleCompany
 
 main 
@@ -19,3 +21,10 @@ main
 
       -- Compute depth of department nesting
       print $ depth company
+
+      -- Check mentoring constraint
+      print $ mentoring company
+
+      -- Check precedence constraint
+      print $ precedence company
+  

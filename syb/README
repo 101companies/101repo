@@ -23,6 +23,8 @@ style of generic programming.
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
+* [[101feature:Mentoring]]
+* [[101feature:Precedence]]
 * [[101feature:Serialization]]
 
 == Motivation ==
@@ -38,12 +40,14 @@ function implementations become drastically more concise.
 
 The implementation is straightforward. 
 
-There are Haskell modules for the basic features.
+There are Haskell modules for the implemented operations.
 
 * [[101feature:Company]]: ''Company.hs''
 * [[101feature:Total]]: ''Total.hs''
 * [[101feature:Cut]]: ''Cut.hs''
 * [[101feature:Depth]]: ''Depth.hs''
+* [[101feature:Mentoring]]: ''Mentoring.hs''
+* [[101feature:Precedence]]: ''Precedence.hs''
 
 [[101feature:Serialization]] is enabled by "deriving" clauses for type classes ''Read'' and ''Show'' in ''Company.hs''.
 [[SYB]] style of generic programming is enabled by "deriving" clauses for type classes ''Typeable'' and ''Data'' in ''Company.hs''.
