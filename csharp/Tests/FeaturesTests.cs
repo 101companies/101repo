@@ -21,7 +21,7 @@ namespace csharpBaseline.Tests
         [Test]
         public void TotalTest()
         {
-            var total = Company.TotalSalaries;
+            var total = Company.Total;
 
             // http://sourceforge.net/apps/mediawiki/developers/index.php?title=101companies is used for a salary source
             Assert.AreEqual(123456 + 12345 + 1234 + 234567 + 23456 + 2345 + 2344, total);
@@ -31,9 +31,9 @@ namespace csharpBaseline.Tests
         public void CutTest()
         {
             var c = Company;
-            var total = c.TotalSalaries;
-            c.CutSalaries();
-            var totalAfterCut = c.TotalSalaries;
+            var total = c.Total;
+            c.Cut();
+            var totalAfterCut = c.Total;
             Assert.AreEqual(total, totalAfterCut * 2);
         }
 

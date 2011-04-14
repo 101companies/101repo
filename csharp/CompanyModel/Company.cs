@@ -11,7 +11,7 @@ namespace csharpBaseline.CompanyModel
         public string Name { get; set; }
         public List<Department> Departments { get; set; }
 
-        public void CutSalaries()
+        public void Cut()
         {
             foreach (var dept in Departments)
             {
@@ -19,7 +19,7 @@ namespace csharpBaseline.CompanyModel
             }
         }
 
-        public decimal TotalSalaries
+        public decimal Total
         {
             get
             {
@@ -45,7 +45,7 @@ namespace csharpBaseline.CompanyModel
                 if (!c1.Departments.Contains(department)) return false;
             }
 
-            return ((c1.Name == Name) && (c1.TotalSalaries == TotalSalaries));
+            return ((c1.Name == Name) && (c1.Total == Total));
         }
 
         public override int GetHashCode()

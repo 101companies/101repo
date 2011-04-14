@@ -6,7 +6,7 @@ namespace csharpBaseline.CompanyModel
     {
         public Department()
         {
-            SubUnits = new List<Department>();
+            SubDepartments = new List<Department>();
             Employees = new List<Employee>();
         }
 
@@ -19,7 +19,7 @@ namespace csharpBaseline.CompanyModel
         public string Name { get; set; }
         public Employee Manager { get; set; }
         public List<Employee> Employees { get; set; }
-        public List<Department> SubUnits { get; set; }
+        public List<Department> SubDepartments { get; set; }
 
         /// <summary>
         /// Total all salaries in a department and subdepartments. 
@@ -31,7 +31,7 @@ namespace csharpBaseline.CompanyModel
                 var total = Manager.Salary;
                 
                 // calculate total across sub units
-                foreach (var department in SubUnits)
+                foreach (var department in SubDepartments)
                 {
                     total += department.Total;
                 }
@@ -51,7 +51,7 @@ namespace csharpBaseline.CompanyModel
         /// </summary>
         public void Cut()
         {
-            foreach (var department in SubUnits)
+            foreach (var department in SubDepartments)
             {
                 department.Cut();
             }
@@ -72,10 +72,10 @@ namespace csharpBaseline.CompanyModel
             get
             {
                 var depth = 0;
-                if (SubUnits.Count > 0)
+                if (SubDepartments.Count > 0)
                 {
                     depth += 1;
-                    foreach (var subUnit in SubUnits)
+                    foreach (var subUnit in SubDepartments)
                     {
                         depth += subUnit.Depth;
                         return depth;
@@ -97,9 +97,9 @@ namespace csharpBaseline.CompanyModel
             {
                 if (!c1.Employees.Contains(employee)) return false;
             }
-            foreach (var subUnit in SubUnits)
+            foreach (var subUnit in SubDepartments)
             {
-                if (c1.SubUnits.Contains(subUnit)) return false;
+                if (c1.SubDepartments.Contains(subUnit)) return false;
             }
             return ((c1.Name == Name) && (c1.Manager.Equals(Manager)));
         }
@@ -111,7 +111,7 @@ namespace csharpBaseline.CompanyModel
                 int result = (Name != null ? Name.GetHashCode() : 0);
                 result = (result*397) ^ (Manager != null ? Manager.GetHashCode() : 0);
                 result = (result*397) ^ (Employees != null ? Employees.GetHashCode() : 0);
-                result = (result*397) ^ (SubUnits != null ? SubUnits.GetHashCode() : 0);
+                result = (result*397) ^ (SubDepartments != null ? SubDepartments.GetHashCode() : 0);
                 return result;
             }
         }

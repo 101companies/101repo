@@ -24,11 +24,11 @@ namespace csharpBaseline
 
             c.Departments.Add(new Department("Development", new Employee(new Person("Ray") { Address = "Redmond" }) { Salary = 234567 })
             {
-                SubUnits = new List<Department>
+                SubDepartments = new List<Department>
                                {
                                    new Department("Dev1", new Employee(new Person("Klaus") { Address = "Boston" }) { Salary = 23456 })
                                        {
-                                           SubUnits = new List<Department>
+                                           SubDepartments = new List<Department>
                                                           {
                                                              new Department("Dev 1.1", new Employee(new Person("Karl"){Address = "Riga"}){Salary = 2345})
                                                                  {
