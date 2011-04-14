@@ -49,7 +49,7 @@ The server maintains an index (see class Index.java) between shallow and proper 
 That is, departments and employees are identifiable by their ids (say, names).
  
 The communication between client and server is modeled by the ''Service'' interface. See the client package.
-There is also the asynchronous version of it: ''ServiceAsync.java''.
+There is also the asynchronous version of it: ''ServiceAsync.java''. 
 These services allow the client to load and save data and perform scenarios [[101feature:Total]] and [[101feature:Cut]]. 
 
 == Usage ==
