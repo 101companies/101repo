@@ -1,0 +1,17 @@
+== Usage ==
+	
+=== Requirements ===
+	
+	        Any web server based on Servlet technology, such as Tomcat
+	        
+=== Build === 
+
+	        (a) run "mvn clean package" in the root directory of the Struts 2 implementation of 101companies
+	        (b) copy target/struts2app.war to the webs app of your web server
+
+=== Accessing the system ===
+	
+	        (a) start the web server
+	        
+	        (b) start a web browser and inform the URL http://localhost:8080/struts2app, if the web server is configured to accept requests on the 8080 port   
+	    
