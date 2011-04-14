@@ -17,7 +17,11 @@ a relational database model for [[Technology:SQL Server]]
 
 == Motivation ==
 
-[[Language:SQL]] is used to create relational representation of 101comanies model. The model can be used in [[Technology:O/R Mapping]] scenarious.
+[[Language:SQL]] is used to create relational representation of 101comanies model. Bacis SQL primitives are used: 
+*Tables -- to represent an entiry; 
+*Primary/Foreing keys -- to represent different types of relationships;
+*Triggers -- to represent constrains/cardinality.
+This model is used in [[Technology:O/R Mapping]] scenarious for [[Technology:.NET]]-based technologies.
 
 == Architecture ==
 The following artifacts are used to create relational model for 101companies:
