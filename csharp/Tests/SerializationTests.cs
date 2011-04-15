@@ -31,6 +31,8 @@ namespace csharpBaseline.Tests
         {
             var c = Company;
             var xmlizedString = SerializationHelper.SerializeObject(c, typeof(Company));
+            
+            //example of saving serialized object into a file
             using (var fs = new FileStream("company.xml", FileMode.CreateNew))
             {
                 using (var tw = new XmlTextWriter(fs, Encoding.UTF8))
