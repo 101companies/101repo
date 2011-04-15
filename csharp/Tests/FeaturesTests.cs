@@ -42,7 +42,7 @@ namespace csharpBaseline.Tests
         {
             var c = Company;
             var devDept = c.Departments.Where(d => d.Name == "Development").First();
-            Assert.AreEqual(2, devDept.Depth);
+            Assert.AreEqual(3, devDept.Depth);
         }
     }
 }

@@ -71,15 +71,19 @@ namespace csharpBaseline.CompanyModel
         {
             get
             {
-                var depth = 0;
+                var depth = 1;
                 if (SubDepartments.Count > 0)
                 {
-                    depth += 1;
+                    var subDepth = 0;
                     foreach (var subUnit in SubDepartments)
                     {
-                        depth += subUnit.Depth;
-                        return depth;
+                        if (subUnit.Depth > subDepth)
+                        {
+                            subDepth += subUnit.Depth;  
+                        }
                     }
+
+                    depth += subDepth;
                 }
 
                 return depth;

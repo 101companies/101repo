@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace csharpBaseline.CompanyModel
 {
@@ -23,13 +24,21 @@ namespace csharpBaseline.CompanyModel
         {
             get
             {
-                decimal total = 0;
-                foreach (var dept in Departments)
+                return Departments.Sum(dept => dept.Total);
+            }
+        }
+
+        public int Depth
+        {
+            get
+            {
+                var depth = 0;
+                foreach (var department in Departments.Where(department => department.Depth > depth))
                 {
-                    total += dept.Total;
+                    depth = department.Depth;
                 }
 
-                return total;
+                return depth;
             }
         }
 

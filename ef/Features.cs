@@ -26,7 +26,7 @@ namespace csharpEntityFramework
 
         public static int Depth(this Department department)
         {
-                var depth = 0;
+                var depth = 1;
                 if (department.SubUnits.Count > 0)
                 {
                     depth += 1;
