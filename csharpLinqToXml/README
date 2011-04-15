@@ -1,6 +1,6 @@
 ﻿== Intent ==
 
-[[Technology::.NET]] Language Integrated Query usage for [[Language::XML]] processing 
+[[Technology:.NET]] Language Integrated Query usage for [[Language:XML]] processing 
 
 == Languages ==
 
@@ -31,7 +31,7 @@ TODO
 
 
 == Architecture ==
-C# object-oriented representation of 101companies model iimlemented in [[101implementation:CSharp]] is used. It contains classes with required properties and methods(features implementations).
+C# object-oriented representation of 101companies model iimlemented in [[101implementation:csharp]] is used. It contains classes with required properties and methods(features implementations).
 TODO
 1. manual reconsctruction of object model from xml
 2. transformations for pure xml model representation without using OO-model
