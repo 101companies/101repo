@@ -23,27 +23,29 @@ a simple implementation in [[Language:Java]]
 == Motivation ==
 
 Basic style of [[OO programming]] is applied. A simple [[object model]]
-for companies is provided. [[Object composition]] is put to work to 
-compose companies, and nested departments. See [[101implementation:java2]] 
-for a variation on the present implementation which uses [[class inheritance]] 
-instead of [[object composition]]. Methods implement a [[query]] 
-for totaling salaries and a [[:Category:transformation]] for cutting salaries/
-Since [[class inheritance]] is not used, and, in fact, no [[subtype polymorphism]] 
-is used whatsoever, no [[virtual method]]s are needed for the query and
-the transformation. Instead, a collection of static methods an be used.
-Basic [[serialization]] in the sense of [[Technology:Object Streams]] is 
-enabled by means of the [[Marker interface pattern|marker interface]] 
-''Serializable'', which is applied to the [[:Category:class]]es of the 
-object model for companies.
+is provided for feature [[101feature:Company]]. The object model leverages 
+[[object composition]] to compose companies from (nested) departments
+and employees. Refer to [[101implementation:java2]] for a variation on the
+present implementation which uses [[class inheritance]] instead of
+[[object composition]]. The operations for features [[101feature:Total]] and
+[[101feature:Cut]] are implemented as methods. Collections of 
+[[static method]]s are used as opposed to [[virtual method]]s. This
+is possible because the chosen object model for companies does not 
+exercise [[class inheritance]], and, in fact, no [[subtype polymorphism]] 
+is used whatsoever. Feature [[101feature:Serialization]] is implemented
+with the help of [[Technology:Object Streams]]. To this end, the 
+[[Marker interface pattern|marker interface]] ''Serializable'' is applied 
+to the classes of the object model for companies. This form of serialization
+counts as [[closed serialization]] because the serialization format is
+definitely Java-specific.
 
 == Architecture ==
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
-Package ''org.softlang.operations'' hosts designated classes with static methods for
-the operations [[101feature:Total]] and [[101feature:Cut]]. Some boilerplate code for 
-[[101feature:Serialization]] is implemented in the class ''org.softlang.company.Company'' 
-(see methods ''readObject'' and ''writeObject''). Package ''org.softlang.tests'' 
-hosts JUnit tests; see below.
+Package ''org.softlang.features'' hosts designated classes with static methods for
+the operations [[101feature:Total]] and [[101feature:Cut]] as well some helpers
+for [[101feature:Serialization]]. Package ''org.softlang.tests'' hosts JUnit tests;
+see below.
 
 == Usage ==
 
