@@ -1,6 +1,6 @@
 == Intent ==
 
-a relational database model for [[Technology:SQL Server]]
+an implementation in a relational database using [[Technology:SQL Server]]
 
 == Languages ==
 
@@ -8,32 +8,55 @@ a relational database model for [[Technology:SQL Server]]
 
 == Technologies ==
 
-* [[Technology:SQL Server]]: SQL Server 2008 used as a data storage. (Free Express edition is enough)
+* [[Technology:SQL Server]] (Version 2008)
+* [[Technology:Visual Studio]] (Version 2010)
+
+The free Express edition of SQL Server 2008 is sufficient.
 
 == Features ==
 
-* [[101feature:Company]] 
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Depth]]
+* [[101feature:Persistence]]
 
 == Motivation ==
 
-[[Language:SQL]] is used to create relational representation of 101comanies model. Bacis SQL primitives are used: 
-* Tables -- to represent an entiry; 
-* Primary/Foreing keys -- to represent different types of relationships;
-* Triggers -- to represent constrains/cardinality.
-This model is used in [[Category:O/R Mapping]] scenarious for [[Technology:.NET]]-based technologies.
+Please note: ''This implementation is prerequisite for
+[[101implementation:ef]].'' A simple relational schema is used to
+model the data part of the [[101companies:System]]. In particular,
+there are tables for companies, departments, employees (and
+persons). Further, there are primary and foreign keys that represent
+different types of relationships. For instance, departments associate
+themselves with a company by a foreign key. The SQL-based
+implementation also includes triggers--to represent
+constrains/cardinality. Finally, there are SQL scripts covering the
+operations for totaling and cutting salaries.  An implementation of
+the query for the depth of departmental nesting is available as well,
+but it is strikingly complex because of SQL's known issues with
+recursion.
 
 == Architecture ==
-The following artifacts are used to create relational model for 101companies:
+
+The following artifacts are used to create relational model for
+101companies:
+
 * Tables (TableName.table.sql)
 * Primary keys (Name.pkey.sql)
 * Foreign keys (Name.fkey.sql)
 * Triggers (Name.trigger.sql)
 
-Scripts/Post-Deployment folder contais script file executed after the database schema was created to fill in the database with actual 101companies data.
+The scripts/Post-Deployment folder contains script file executed after
+the database schema was created to fill in the database with actual
+101companies data.
 
 == Usage ==
-[[Technology:Visual Studio]] 2010 should be used to open a project file. Deploy option should be used to create the database.
-Target connection (in project properties) should be adjusted for your local database server.
+
+[[Technology:Visual Studio]] 2010 should be used to open a project
+file. The deploy option should be used to create the database. The
+target connection (in project properties) should be adjusted for the
+local database server.
 
 == Contributors ==
 
