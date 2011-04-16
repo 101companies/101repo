@@ -4,7 +4,7 @@ a simple implementation in [[Language:Java]]
 
 == Languages ==
 
-* [[Language:Java]]
+* [[Language:Java]] (Version 5)
 
 == Technologies ==
 
@@ -29,7 +29,7 @@ and employees. Refer to [[101implementation:java2]] for a variation on the
 present implementation which uses [[class inheritance]] instead of
 [[object composition]]. The operations for features [[101feature:Total]] and
 [[101feature:Cut]] are implemented as methods. Collections of 
-[[static method]]s are used as opposed to [[virtual method]]s. This
+[[:Category:static method]]s are used as opposed to [[virtual method]]s. This
 is possible because the chosen object model for companies does not 
 exercise [[class inheritance]], and, in fact, no [[subtype polymorphism]] 
 is used whatsoever. Feature [[101feature:Serialization]] is implemented
@@ -43,7 +43,7 @@ definitely Java-specific.
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
 Package ''org.softlang.features'' hosts designated classes with static methods for
-the operations [[101feature:Total]] and [[101feature:Cut]] as well some helpers
+the operations [[101feature:Total]] and [[101feature:Cut]] as well as some helpers
 for [[101feature:Serialization]]. Package ''org.softlang.tests'' hosts JUnit tests;
 see below.
 
@@ -51,7 +51,7 @@ see below.
 
 * The implementation is provided as an Eclipse project.
 * Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available as the package ''org.softlang.tests''.
+* There are JUnit tests available in the package ''org.softlang.tests''.
 ** Run class ''Basics'' with JUnit to exercise basic features.
 ** Run class ''Serialization'' with JUnit to exercise serialization.
 
