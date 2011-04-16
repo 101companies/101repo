@@ -13,51 +13,9 @@ public class Company implements Serializable {
 
 	private static final long serialVersionUID = -200889592677165250L;
 	private String name;
-	private List<Department> depts;
+	private List<Department> depts = new LinkedList<Department>();
 
-	public Company() {
-		depts = new LinkedList<Department>();
-	}
-
-	/**
-	 * Read (say, deserialize) a company
-	 */
-	public static Company readObject(String filename) {
-
-		Object o = null;
-
-		try {
-			FileInputStream fis = new FileInputStream(filename);
-			ObjectInputStream in = new ObjectInputStream(fis);
-			o = in.readObject();
-			in.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return (Company) o;
-	}
-
-	/**
-	 * Write (say, serialize) an object.
-	 */
-	public boolean writeObject(String filename) {
-
-		FileOutputStream fos = null;
-		ObjectOutputStream out = null;
-
-		try {
-			fos = new FileOutputStream(filename);
-			out = new ObjectOutputStream(fos);
-			out.writeObject(this);
-			out.close();
-			return true;
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			return false;
-		}
-	}
+	public Company() { }
 
 	public String getName() {
 		return name;
