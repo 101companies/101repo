@@ -43,7 +43,7 @@ definitely Java-specific.
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
 Package ''org.softlang.features'' hosts designated classes with static methods for
-the operations [[101feature:Total]] and [[101feature:Cut]] as well as some helpers
+the operations [[101feature:Total]] and [[101feature:Cut]] as well as some helpers  
 for [[101feature:Serialization]]. Package ''org.softlang.tests'' hosts JUnit tests;
 see below.
 
