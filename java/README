@@ -49,7 +49,7 @@ see below.
 
 == Usage ==
 
-* The implementation is provided as an Eclipse project.
+* The implementation is provided as an Eclipse project. 
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available in the package ''org.softlang.tests''.
 ** Run class ''Basics'' with JUnit to exercise basic features.
