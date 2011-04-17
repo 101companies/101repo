@@ -37,7 +37,7 @@ with the help of [[Technology:Object Streams]]. To this end, the
 [[Marker interface pattern|marker interface]] ''Serializable'' is applied 
 to the classes of the object model for companies. This form of serialization
 counts as [[closed serialization]] because the serialization format is
-definitely Java-specific.
+definitely Java-specific. 
 
 == Architecture ==
 
