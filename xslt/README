@@ -23,7 +23,7 @@ Two processors were tested and their usage was scripted in a Makefile.
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Depth]]
-* [[101feature:Data exchange]]
+* [[101feature:Serialization]]
 
 The data model for companies is provided as an XML schema.
 
