@@ -1,17 +1,31 @@
+== Intent ==
+
+define a concrete textual syntax for companies using [[Technology:ANTLR]]
+
+== Motivation ==
+
+We define a concrete syntax for companies.
+We use ANTLR to execute that syntax in an acceptor-like manner.
+
 == Features ==
 
 * [[101feature:Company]] 
 * [[101feature:Parsing]] 
 
-== Discussion ==
+== Languages ==
 
-We define a concrete syntax for companies.
-We use ANTLR to execute that syntax in an acceptor-like manner.
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:ANTLR]]
+
+== Usage ==
 
 See the Tests class for test cases.
 
-An appropriate ANTLR runtime etc. is imported from project "library".
-There are Makefiles at the top of the project and within the org.softlang.antlr package.
+The Antlr tool (including parser generator and runtime) is included into the project.
+There is a Makefile at the top of the project and within the org.softlang.antlr package.
 Run "make" at either of these locations to re-generate the parser.
 Refresh the project in Eclipse if you re-generated outside Eclipse.
 In this manner, the parser is compiled.
@@ -42,8 +56,3 @@ Function symbols:
 == Contributors ==
 
 * {{101contributor|Ralf Lämmel|developer}}
- 
-== Issues ==
-Parsing error does not make JUnit test case fail.
-* Reported: Ralf
-* Assigned: TODO 

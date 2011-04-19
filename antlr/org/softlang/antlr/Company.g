@@ -3,8 +3,17 @@ grammar Company;
 @header {
 package org.softlang.antlr;
 }
+
 @lexer::header {
 package org.softlang.antlr;
+}
+
+// Error handling: throw upon first disfavored token
+@lexer::members {
+  @Override
+  public void reportError(RecognitionException e) {
+    throw new IllegalArgumentException(e);
+  }
 }
 
 company :
