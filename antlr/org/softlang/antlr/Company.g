@@ -8,16 +8,21 @@ package org.softlang.antlr;
 package org.softlang.antlr;
 }
 
-// Error handling: throw upon first disfavored token
-@lexer::members {
-  @Override
-  public void reportError(RecognitionException e) {
-    throw new IllegalArgumentException(e);
-  }
+@members {
+
+// Throw if any error was emitted
+public boolean error = false;
+
+@Override
+public void emitErrorMessage(String msg) 
+{
+  error = true;
+  super.emitErrorMessage(msg);
+}
 }
 
 company :
-  'company' STRING '{' dept* '}';
+  'company' STRING '{' dept* '}' EOF;
   
 dept :
   'department' STRING '{' 

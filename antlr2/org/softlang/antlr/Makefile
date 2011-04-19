@@ -1,4 +1,4 @@
-CLASSPATH = -classpath ".:../../../../library/antlr/antlr-3.2.jar"
+CLASSPATH = -classpath ".:../../../antlr-3.2.jar"
 
 generate:
 	java ${CLASSPATH} org.antlr.Tool Company.g

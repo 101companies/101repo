@@ -1,6 +1,6 @@
 == Intent ==
 
-define a concrete textual syntax for companies using [[Technology:ANTLR]]
+concrete syntax for companies with [[Technology:ANTLR]]
 
 == Motivation ==
 
@@ -22,7 +22,7 @@ We use ANTLR to execute that syntax in an acceptor-like manner.
 
 == Usage ==
 
-See the Tests class for test cases.
+See the the package ''org.softlang.tests'' for JUnit tests.
 
 The Antlr tool (including parser generator and runtime) is included into the project.
 There is a Makefile at the top of the project and within the org.softlang.antlr package.
@@ -32,26 +32,6 @@ In this manner, the parser is compiled.
 
 You may also use an ANTLR IDE.
 http://antlrv3ide.sourceforge.net/
-
-Just for fun, here is the signature corresponding to the grammar.
-
-Introduced sorts
- Company,
- Dept,
- Employee
- 
-Assumed sorts
- Float,
- String,
- List(_)
- 
-Function symbols:
- company  : List(Dept) -> Company
- dept     : String x Employee x List(Employee) x List(Dept) -> Dept
- employee : String x String x Float -> Employee
- 
- Notes:
- - We allow ourselves lists.
 
 == Contributors ==
 

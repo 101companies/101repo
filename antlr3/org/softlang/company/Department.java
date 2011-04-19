@@ -1,15 +1,13 @@
 package org.softlang.company;
 
-import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * A department has a name, a manager, employees, and subdepartments.
  */
-public class Department implements Serializable {
+public class Department {
 
-	private static final long serialVersionUID = -2008895922177165250L;
 	private String name;
 	private Employee manager;
 	private List<Department> subdepts;

@@ -3,53 +3,68 @@ grammar Company;
 @header {
 package org.softlang.antlr;
 import org.softlang.company.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 }
+
 @lexer::header {
 package org.softlang.antlr;
 }
 
+@members {
+public static Company parse(String s) throws IOException, RecognitionException {
+    FileInputStream stream = new FileInputStream("inputs" + File.separatorChar + s);
+    ANTLRInputStream antlr = new ANTLRInputStream(stream);
+    CompanyLexer lexer = new CompanyLexer(antlr);
+    CommonTokenStream tokens = new CommonTokenStream(lexer);
+    CompanyParser parser = new CompanyParser(tokens);
+    Company c = parser.company();
+    if (parser.error) throw new RecognitionException();
+    return c;
+}
+
+// Throw if any error was emitted
+public boolean error = false;
+
+@Override
+public void emitErrorMessage(String msg) 
+{
+  error = true;
+  super.emitErrorMessage(msg);
+}
+}
+
 company returns [Company c]:
   { $c = new Company(); }
-  'company' '{' 
+  'company' STRING
+  { $c.setName($STRING.text); }
+  '{' 
   ( topdept=dept
     { $c.getDepts().add($topdept.d); }
   )* 
   '}'
   ;
   
-dept returns [Dept d]:
-  { $d = new Dept(); }
+dept returns [Department d]:
+  { $d = new Department(); }
   'department' name=STRING '{'
     { $d.setName($STRING.text); } 
-    manager
+    'manager' manager=employee
     { $d.setManager($manager.e); }
-    ( personunit
+    ( 'employee' nonmanager=employee
       {
-        Subunit pu = new Subunit();
-        pu.setPu($personunit.e);
-        $d.getSubunits().add(pu); 
+        $d.getEmployees().add($nonmanager.e); 
       }
     )*
     ( subdept=dept
       {
-        Subunit du = new Subunit();
-        du.setDu($subdept.d);
-        $d.getSubunits().add(du); 
+        $d.getSubdepts().add($subdept.d); 
       }
     )*
   '}'
   ;
-  
-manager returns [Employee e]:
-  'manager' employee
-  { $e = $employee.e; }
-  ;
-  
-personunit returns [Employee e]:
-  'employee' employee
-  { $e = $employee.e; }
-  ; 
-  
+    
 employee returns [Employee e]:
   n=STRING '{'
     'address' a=STRING
@@ -57,10 +72,8 @@ employee returns [Employee e]:
   '}'
   {
     $e = new Employee();
-    Person p = new Person();
-    p.setName($n.text);
-    p.setAddress($a.text);
-    $e.setPerson(p);
+    e.setName($n.text);
+    e.setAddress($a.text);
     $e.setSalary(Double.parseDouble($s.text));
   }
   ;

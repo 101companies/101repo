@@ -1,4 +1,4 @@
-package org.softlang.antlr;
+package org.softlang.tests;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,37 +8,44 @@ import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.Tree;
 import org.junit.Test;
 // import static org.junit.Assert.*;
+import org.softlang.antlr.CompanyLexer;
+import org.softlang.antlr.CompanyParser;
 import org.softlang.antlr.CompanyParser.company_return;
 
-public class Tests {
-		
-	private static String sampleCompany =
-		  ".." + File.separator
-		+ "antlr" + File.separator
-		+ "sample.Company";
+public class Parsing {
 
-	@Test
-	public void testParse() throws IOException, RecognitionException {
-		FileInputStream stream = new FileInputStream(sampleCompany);
+	private static void parseCompany(String s) throws IOException, RecognitionException {
+		FileInputStream stream = new FileInputStream("inputs" + File.separatorChar + s);
         ANTLRInputStream antlr = new ANTLRInputStream(stream);
         CompanyLexer lexer = new CompanyLexer(antlr);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         CompanyParser parser = new CompanyParser(tokens);
         
         company_return r = parser.company();
+        if (parser.error) throw new RecognitionException();
 
         // Write out as string
-        if ( r.tree!=null ) {
-            System.out.println(((Tree)r.tree).toStringTree());
-            ((CommonTree)r.tree).sanityCheckParentAndChildIndexes();
+        if ( r.getTree()!=null ) {
+            System.out.println(((Tree)r.getTree()).toStringTree());
+            ((CommonTree)r.getTree()).sanityCheckParentAndChildIndexes();
         }
         
         // Tree walk-based and indentation-aware output
         CommonTree tree = (CommonTree)r.getTree();
         printTree(tree, 0);
+	}	
+	
+	@Test
+	public void testPositive() throws IOException, RecognitionException {
+		parseCompany("sample.Company");
     }       
-        	
-	private void printTree(CommonTree t, int indent) {
+
+	@Test(expected=RecognitionException.class)
+	public void testNegative() throws IOException, RecognitionException {
+		parseCompany("nonSample.Company");
+    }       
+
+	private static void printTree(CommonTree t, int indent) {
 		if ( t != null ) {
 			StringBuffer sb = new StringBuffer(indent);
 			for ( int i = 0; i < indent; i++ )

@@ -1,11 +1,29 @@
+== Intent ==
+
+concrete syntax for companies with [[Technology:ANTLR]]
+
+== Motivation ==
+
 We define both concrete and abstract syntax for companies.
-We use ANTLR to execute that syntax in a parser-like manner.
+To this end, we use an ANTLR-based parser description.
+The ANTLR-based specification constructs trees according to ANTLR's generic tree format.
 
-See the Tests class for test cases.
-The test case(s) simply prints the AST.
-We use ANTLR's generic tree format to represent ASTs.
+== Features ==
 
-See project "antlr" for general instructions on ANTLR usage.
+* [[101feature:Company]] 
+* [[101feature:Parsing]] 
+
+== Languages ==
+
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:ANTLR]]
+
+== Usage ==
+
+See [[101implementation:antlr]] for general instructions on the usage of ANTLR-based implementations.
 
 == Contributors ==
 

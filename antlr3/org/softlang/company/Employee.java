@@ -1,13 +1,9 @@
 package org.softlang.company;
 
-import java.io.Serializable;
-
 /**
- * An employee has a name, an address, and a salary. 
+ * An employee has a name, an address, and a salary.
  */
-public class Employee implements Serializable {
-
-	private static final long serialVersionUID = -210889592677165250L;
+public class Employee {
 
 	private String name;
 	private String address;

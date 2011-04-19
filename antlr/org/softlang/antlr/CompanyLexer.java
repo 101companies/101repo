@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-19 21:15:04
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-20 00:13:56
 
 package org.softlang.antlr;
 
@@ -22,12 +22,6 @@ public class CompanyLexer extends Lexer {
     public static final int T__7=7;
     public static final int STRING=4;
 
-      @Override
-      public void reportError(RecognitionException e) {
-        throw new IllegalArgumentException(e);
-      }
-
-
     // delegates
     // delegators
 
@@ -46,8 +40,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__7;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:13:6: ( 'company' )
-            // Company.g:13:8: 'company'
+            // Company.g:7:6: ( 'company' )
+            // Company.g:7:8: 'company'
             {
             match("company"); 
 
@@ -67,8 +61,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__8;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:14:6: ( '{' )
-            // Company.g:14:8: '{'
+            // Company.g:8:6: ( '{' )
+            // Company.g:8:8: '{'
             {
             match('{'); 
 
@@ -87,8 +81,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__9;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:15:6: ( '}' )
-            // Company.g:15:8: '}'
+            // Company.g:9:6: ( '}' )
+            // Company.g:9:8: '}'
             {
             match('}'); 
 
@@ -107,8 +101,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__10;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:16:7: ( 'department' )
-            // Company.g:16:9: 'department'
+            // Company.g:10:7: ( 'department' )
+            // Company.g:10:9: 'department'
             {
             match("department"); 
 
@@ -128,8 +122,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__11;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:17:7: ( 'manager' )
-            // Company.g:17:9: 'manager'
+            // Company.g:11:7: ( 'manager' )
+            // Company.g:11:9: 'manager'
             {
             match("manager"); 
 
@@ -149,8 +143,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:18:7: ( 'employee' )
-            // Company.g:18:9: 'employee'
+            // Company.g:12:7: ( 'employee' )
+            // Company.g:12:9: 'employee'
             {
             match("employee"); 
 
@@ -170,8 +164,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:19:7: ( 'address' )
-            // Company.g:19:9: 'address'
+            // Company.g:13:7: ( 'address' )
+            // Company.g:13:9: 'address'
             {
             match("address"); 
 
@@ -191,8 +185,8 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:20:7: ( 'salary' )
-            // Company.g:20:9: 'salary'
+            // Company.g:14:7: ( 'salary' )
+            // Company.g:14:9: 'salary'
             {
             match("salary"); 
 
@@ -212,10 +206,10 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:38:9: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
-            // Company.g:38:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:40:9: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
+            // Company.g:40:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             {
-            // Company.g:38:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:40:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             int cnt2=0;
             loop2:
             do {
@@ -242,16 +236,16 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // Company.g:38:14: ' '
+            	    // Company.g:40:14: ' '
             	    {
             	    match(' '); 
 
             	    }
             	    break;
             	case 2 :
-            	    // Company.g:38:18: ( '\\r' )? '\\n'
+            	    // Company.g:40:18: ( '\\r' )? '\\n'
             	    {
-            	    // Company.g:38:18: ( '\\r' )?
+            	    // Company.g:40:18: ( '\\r' )?
             	    int alt1=2;
             	    int LA1_0 = input.LA(1);
 
@@ -260,7 +254,7 @@ public class CompanyLexer extends Lexer {
             	    }
             	    switch (alt1) {
             	        case 1 :
-            	            // Company.g:38:18: '\\r'
+            	            // Company.g:40:18: '\\r'
             	            {
             	            match('\r'); 
 
@@ -274,7 +268,7 @@ public class CompanyLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Company.g:38:29: '\\t'
+            	    // Company.g:40:29: '\\t'
             	    {
             	    match('\t'); 
 
@@ -307,11 +301,11 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:39:9: ( '\"' (~ '\"' )* '\"' )
-            // Company.g:39:13: '\"' (~ '\"' )* '\"'
+            // Company.g:41:9: ( '\"' (~ '\"' )* '\"' )
+            // Company.g:41:13: '\"' (~ '\"' )* '\"'
             {
             match('\"'); 
-            // Company.g:39:17: (~ '\"' )*
+            // Company.g:41:17: (~ '\"' )*
             loop3:
             do {
                 int alt3=2;
@@ -324,7 +318,7 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // Company.g:39:18: ~ '\"'
+            	    // Company.g:41:18: ~ '\"'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -361,10 +355,10 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:40:9: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
-            // Company.g:40:13: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+            // Company.g:42:9: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+            // Company.g:42:13: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
             {
-            // Company.g:40:13: ( '0' .. '9' )+
+            // Company.g:42:13: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -378,7 +372,7 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // Company.g:40:14: '0' .. '9'
+            	    // Company.g:42:14: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -394,7 +388,7 @@ public class CompanyLexer extends Lexer {
                 cnt4++;
             } while (true);
 
-            // Company.g:40:25: ( '.' ( '0' .. '9' )+ )?
+            // Company.g:42:25: ( '.' ( '0' .. '9' )+ )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -403,10 +397,10 @@ public class CompanyLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // Company.g:40:26: '.' ( '0' .. '9' )+
+                    // Company.g:42:26: '.' ( '0' .. '9' )+
                     {
                     match('.'); 
-                    // Company.g:40:30: ( '0' .. '9' )+
+                    // Company.g:42:30: ( '0' .. '9' )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -420,7 +414,7 @@ public class CompanyLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // Company.g:40:31: '0' .. '9'
+                    	    // Company.g:42:31: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
