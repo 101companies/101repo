@@ -4,7 +4,7 @@ import org.softlang.company.*;
 
 public class SampleCompany {
 
-	public static Company getSampleCompany() {
+	public static Company createSampleCompany() {
 		
 		// Create company
 		Company company = new Company();

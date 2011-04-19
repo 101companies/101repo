@@ -11,7 +11,7 @@ public class Tests {
 
 	@Before
 	public void setup() {
-		sampleCompany = SampleCompany.getSampleCompany();
+		sampleCompany = SampleCompany.createSampleCompany();
 	}
 
 	@Test
