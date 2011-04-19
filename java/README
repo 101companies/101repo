@@ -22,7 +22,7 @@ a simple implementation in [[Language:Java]]
 
 == Motivation ==
 
-Test.Basic style of [[OO programming]] is applied. A simple [[object model]]
+Basic style of [[OO programming]] is applied. A simple [[object model]]
 is provided for feature [[101feature:Company]]. The object model leverages 
 [[object composition]] to compose companies from (nested) departments
 and employees. Refer to [[101implementation:java2]] for a variation on the
