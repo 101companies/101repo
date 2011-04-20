@@ -48,19 +48,16 @@ company returns [Company c]:
   
 dept returns [Department d]:
   { $d = new Department(); }
-  'department' name=STRING '{'
-    { $d.setName($STRING.text); } 
-    'manager' manager=employee
-    { $d.setManager($manager.e); }
-    ( 'employee' nonmanager=employee
-      {
-        $d.getEmployees().add($nonmanager.e); 
-      }
+  'department' name=STRING
+  { $d.setName($STRING.text); } 
+  '{'
+    'manager' m=employee
+    { $d.setManager($m.e); }
+    ( 'employee' e=employee
+      { $d.getEmployees().add($e.e); }
     )*
-    ( subdept=dept
-      {
-        $d.getSubdepts().add($subdept.d); 
-      }
+    ( sub=dept
+      { $d.getSubdepts().add($sub.d); }
     )*
   '}'
   ;
