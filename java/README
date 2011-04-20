@@ -1,6 +1,6 @@
 == Intent ==
 
-a simple implementation in [[Language:Java]]
+basic OO programming in [[Language:Java]]
 
 == Languages ==
 
@@ -25,27 +25,58 @@ a simple implementation in [[Language:Java]]
 Basic style of [[OO programming]] is applied. A simple [[object model]]
 is provided for feature [[101feature:Company]]. The object model leverages 
 [[object composition]] to compose companies from (nested) departments
-and employees. Refer to [[101implementation:java2]] for a variation on the
-present implementation which uses [[class inheritance]] instead of
-[[object composition]]. The operations for features [[101feature:Total]] and
-[[101feature:Cut]] are implemented as methods. Collections of 
-[[:Category:static method]]s are used as opposed to [[virtual method]]s. This
-is possible because the chosen object model for companies does not 
-exercise [[class inheritance]], and, in fact, no [[subtype polymorphism]] 
-is used whatsoever. Feature [[101feature:Serialization]] is implemented
-with the help of [[Technology:Object Streams]]. To this end, the 
+and employees. (No [[class inheritance]] is exercised, but see 
+[[101implementation:java2]] for a variation that leverages class
+inheritance.) The operations for features [[101feature:Total]] and
+[[101feature:Cut]] are implemented as [[:Category:instance method]]s on
+the classes for companies, departments, and employees. In different
+terms, the present implementation leverages [[POJO]]s. Feature 
+[[101feature:Serialization]] is implemented with the help of 
+[[Technology:Object Streams]]. To this end, the 
 [[Marker interface pattern|marker interface]] ''Serializable'' is applied 
 to the classes of the object model for companies. This form of serialization
 counts as [[closed serialization]] because the serialization format is
 definitely Java-specific. 
 
+== Illustration ==
+
+It follows a sketch of the class for companies with fields 
+and properties for company name and its list of departments,
+and with methods for totaling salaries and cutting them in
+half; the classes for departments and employees are omitted
+here:
+
+<syntaxhighlight lang="java">
+public class Company implements Serializable {
+  private static final long serialVersionUID = ...;
+  private String name;
+  private List<Department> depts;
+  public String getName() { ... }
+  public void setName(String name) { ... }
+  public List<Department> getDepts() { ... }
+  public Double total() { ... }
+  public void cut() { ... }
+}
+</syntaxhighlight>
+
+Here is the implementation of ''total''; basically, the
+total for a company is computed by aggregating subtotals
+per department by a recursive invocation:
+
+<syntaxhighlight lang="java">
+public void cut() {
+  for (Department d : getDepts())
+    d.cut();
+}	
+</syntaxhighlight>
+
 == Architecture ==
 
-Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
-Package ''org.softlang.features'' hosts designated classes with static methods for
-the operations [[101feature:Total]] and [[101feature:Cut]] as well as some helpers  
-for [[101feature:Serialization]]. Package ''org.softlang.tests'' hosts JUnit tests;
-see below.
+Package ''org.softlang.company'' hosts the object model for [[101feature:Company]]
+with the methods for [[101feature:Total]] and [[101feature:Cut]]. Some boilerplate
+code for [[101feature:Serialization]] and testing its correct implementation is to 
+be found in package ''org.softlang.serialization''. Package ''org.softlang.tests'' 
+hosts JUnit tests; see below.
 
 == Usage ==
 

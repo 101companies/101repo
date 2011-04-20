@@ -1,6 +1,6 @@
 == Intent ==
 
-concrete syntax for companies with [[Technology:ANTLR]]
+parsing textual syntax with [[Technology:ANTLR]]
 
 == Motivation ==
 

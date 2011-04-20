@@ -13,8 +13,6 @@ public class Company implements Serializable {
 	private String name;
 	private List<Department> depts = new LinkedList<Department>();
 
-	public Company() { }
-
 	public String getName() {
 		return name;
 	}
@@ -26,4 +24,16 @@ public class Company implements Serializable {
 	public List<Department> getDepts() {
 		return depts;
 	}
+	
+	public Double total() {
+		double total = 0;
+		for (Department d : getDepts())
+			total += d.total();
+		return total;
+	}	
+	
+	public void cut() {
+		for (Department d : getDepts())
+			d.cut();
+	}	
 }

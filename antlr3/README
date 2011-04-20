@@ -1,6 +1,6 @@
 == Intent ==
 
-concrete syntax for companies with [[Technology:ANTLR]]
+parsing textual syntax with [[Technology:ANTLR]]
 
 == Motivation ==
 
@@ -21,6 +21,12 @@ The mapping is described by the semantic actions within the ANTLR-based parser s
 == Technologies ==
 
 * [[Technology:ANTLR]]
+
+== Architecture ==
+
+See [[101implementation:antlr]] for general instructions on the architecture of ANTLR-based implementations.
+(Serialization capabilities are not included though.)
+The object model for companies with methods for the basic operations is adopted from [[101implementation:java]].
 
 == Usage ==
 
