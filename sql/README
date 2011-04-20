@@ -1,12 +1,25 @@
+== Intent ==
+
+SQL and relational database-based implementation
+
+== Technologies ==
+
+* [[Technology:XAMPP]] (Version 1.7.3)
+* [[Technology:MySQL Workbench]] (Version 5.2.33)
+
+== Usage ==
+
 We use SQL for data processing.
 We exercise some company scenarios.
 This project is entirely SQL/scripting-based.
 
 We need a local database Server.
 In the following we explain the steps for XAMPP.  
-
-XAMPP download location: 
 http://www.apachefriends.org/en/xampp.html
+
+We also need some SQL tool.
+In the following we explain the steps for MySQL Workbench.
+http://dev.mysql.com/downloads/workbench/
 
  - Download and install XAMPP. 
  - Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
@@ -15,8 +28,8 @@ http://www.apachefriends.org/en/xampp.html
  	> Port : 3306
  	> Username : "root"
  	> Password : "" (no password)
- - Start admin in browser.
- - Create database company. 
+ - Connect to database in workbench.
+ - Select "test" database or create one.
  - Create tables (run SQL script Company.sql)
  - Populate tables (run SQL script sampleCompany.sql)
  - Execute scenario total (run SQL script Total.sql)
