@@ -3,6 +3,7 @@ package org.softlang.dom;
 import org.w3c.dom.Document; // DOM trees
 import org.w3c.dom.Element; // DOM subtrees
 import org.w3c.dom.NodeList; // Lists of DOM subtrees
+import static java.lang.Double.*;
 
 /**
  * Cut all salaries of a company by half
@@ -21,9 +22,8 @@ public class Cut {
             Element elem = (Element)nodelist.item(i);
             
             // Transform content of element
-            double before = Double.parseDouble(elem.getTextContent());
-            double after = before / 2;            
-            elem.setTextContent(Double.toString(after));
+            double value = parseDouble(elem.getTextContent());
+            elem.setTextContent(Double.toString(value / 2));
             
         }
     }

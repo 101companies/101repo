@@ -1,11 +1,14 @@
-package org.softlang.dom;
+package org.softlang.tests;
 
+import org.softlang.dom.Cut;
+import org.softlang.dom.DOMUtilities;
+import org.softlang.dom.Total;
 import org.w3c.dom.Document;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class Tests {
+public class Operations {
 		
 	private static String sampleCompany = "sampleCompany.xml";
 	
