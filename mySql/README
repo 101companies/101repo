@@ -1,11 +1,17 @@
 == Intent ==
 
-SQL and relational database-based implementation
+Database and SQL-based approach with [[Technology:MySQL]]
+
+== Languages ==
+
+* [[Language:SQL]]
+
 
 == Technologies ==
 
-* [[Technology:XAMPP]] (Version 1.7.3)
-* [[Technology:MySQL Workbench]] (Version 5.2.33)
+* [[Technology:MySQL]]
+* [[Technology:XAMPP]]: provide of MySQL (Version 1.7.3)
+* [[Technology:MySQL Workbench]]: query browser (Version 5.2.33)
 
 == Usage ==
 
@@ -21,22 +27,22 @@ We also need some SQL tool.
 In the following we explain the steps for MySQL Workbench.
 http://dev.mysql.com/downloads/workbench/
 
- - Download and install XAMPP. 
- - Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
- - A local MySQL Server is now running.
- 	> Server Host : "localhost"
- 	> Port : 3306
- 	> Username : "root"
- 	> Password : "" (no password)
- - Connect to database in workbench.
- - Select "test" database or create one.
- - Create tables (run SQL script Company.sql)
- - Populate tables (run SQL script sampleCompany.sql)
- - Execute scenario total (run SQL script Total.sql)
- - Execute scenario cut (run SQL script Cut.sql)
- - Execute scenario total, again (run SQL script Total.sql)
+* Download and install XAMPP. 
+* Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
+* A local MySQL Server is now running.
+ * Server Host : "localhost"
+ * Port : 3306
+ * Username : "root"
+ * Password : "" (no password)
+* Connect to database in MySQL Workbench.
+* Select "test" database or create one.
+* Create tables (run SQL script Company.sql)
+* Populate tables (run SQL script sampleCompany.sql)
+* Execute scenario total (run SQL script Total.sql)
+* Execute scenario cut (run SQL script Cut.sql)
+* Execute scenario total, again (run SQL script Total.sql)
  
  == Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}
-* {{101contributor|Ralf Lämmel|reviewer}}
+* {{101contributor|Ralf Lämmel|developer}}
