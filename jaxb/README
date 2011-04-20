@@ -22,6 +22,7 @@
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Serialization]]
 
 == Terms ==
 
@@ -34,7 +35,7 @@ Java classes are derived by means of the schema compiler [[Technology:xjc]] whic
 is part of [[Technology:JAXB]]. The resulting object model essentially models
 departmental nesting by means of [[object composition]]. (The object model happens
 to be very similar to the one that was natively developed for the introductory
-Java-based implementation [[101implementation:java2]].) The 101companies features
+Java-based implementation [[101implementation:java]].) The 101companies features
 are not implemented by [[:Category:instance method]]s since this would imply modification
 of schema-derived classes (unless advanced modularization mechanisms were 
 leveraged). Hence, the features are implemented by static methods outside the
