@@ -34,6 +34,21 @@ Also, the representation is generic, whereby it is easy to navigate data generic
 DOM trees are also mutable, whereby it is easy to transform data.
 The basic features of 101companies are easily implemented hence.
 
+== Illustration ==
+
+<syntaxhighlight lang="java">
+public class Cut {
+   public static void cut(Document doc) {
+      NodeList nodelist = doc.getElementsByTagName("salary");
+      for (int i=0; i<nodelist.getLength(); i++) {
+         Element elem = (Element)nodelist.item(i);
+         double value = parseDouble(elem.getTextContent());
+         elem.setTextContent(Double.toString(value / 2));
+      }
+   }
+}
+</syntaxhighlight>
+
 == Usage ==
 
 * The implementation is provided as an Eclipse project.

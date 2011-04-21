@@ -2,13 +2,6 @@
 
 parsing textual syntax with [[Technology:ANTLR]]
 
-== Motivation ==
-
-A parser for a concrete syntax of companies is provided.
-The parser translates text into company objects.
-To this end, a straightforward object model for companies is used.
-The mapping is described by the semantic actions within the ANTLR-based parser specification.
-
 == Features ==
 
 * [[101feature:Company]] 
@@ -21,6 +14,42 @@ The mapping is described by the semantic actions within the ANTLR-based parser s
 == Technologies ==
 
 * [[Technology:ANTLR]]
+
+== Motivation ==
+
+A parser for a concrete syntax of companies is provided.
+The parser translates text into company objects.
+To this end, a straightforward object model for companies is used.
+The mapping is described by the semantic actions within the ANTLR-based parser specification.
+
+== Illustration ==
+
+<syntaxhighlight lang="antlr">
+dept :
+  'department' STRING '{' 
+    ('manager' employee)
+    ('employee' employee)* 
+    dept*
+  '}';
+</syntaxhighlight>
+
+<syntaxhighlight lang="antlr">
+dept returns [Department d]:
+  { $d = new Department(); }
+  'department' name=STRING
+  { $d.setName($STRING.text); } 
+  '{'
+    'manager' m=employee
+    { $d.setManager($m.e); }
+    ( 'employee' e=employee
+      { $d.getEmployees().add($e.e); }
+    )*
+    ( sub=dept
+      { $d.getSubdepts().add($sub.d); }
+    )*
+  '}'
+  ;
+</syntaxhighlight>
 
 == Architecture ==
 

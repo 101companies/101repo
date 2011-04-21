@@ -24,6 +24,50 @@ parallel company processing with [[Technology:Hadoop]]
 
 == Motivation ==
 
+TBD
+
+== Illustration ==
+
+<syntaxhighlight lang="java">
+class Employee
+   implements WritableComparable<Employee> {
+
+   // fields, getters, setters as usual
+    
+   public void readFields(DataInput in)
+         throws IOException {
+      name = new Text();
+      name.readFields(in);
+      address = new Text();
+      address.readFields(in);
+      company = new Text();
+      company.readFields(in);
+      salary = new DoubleWritable();
+      salary.readFields(in);
+   }
+}
+</syntaxhighlight>
+
+<syntaxhighlight lang="java">
+protected void map(
+   Text key, Employee value, Context context)
+   throws ... {
+      context.write(
+         value.getCompany(),
+         value.getSalary());
+}
+</syntaxhighlight>
+
+<syntaxhighlight lang="java">
+protected void reduce(
+   Text key, Iterable<...> values, Context context)
+   throws ... {
+      double total = 0;
+      for(DoubleWritable value: values)
+         total += value.get();
+      context.write(key, new DoubleWritable(total));
+}       
+</syntaxhighlight>
 
 == Architecture ==
 

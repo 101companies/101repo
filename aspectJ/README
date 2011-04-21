@@ -113,7 +113,7 @@ package ''org.softlang.aspectj.tests'' hosts JUnit tests; see below.
 * AJDT must be installed in Eclipse if Eclipse is to be used.
 * Open the project with Eclipse; this will also build the project.
 * There are JUnit tests available as the package ''org.softlang.java.tests''.
-** Run class Tests with JUnit to exercise all features.
+* Run class Tests with JUnit to exercise all features.
 
 == Contributors ==
 
