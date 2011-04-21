@@ -10,12 +10,12 @@ public aspect Cut {
 	}
 
 	public void Department.cut() {
-		for (Subunit s : getSubunits())
-			s.cut();
 		getManager().cut();
+		for (Department s : getSubdepts())
+			s.cut();
+		for (Employee e : getEmployees())
+			e.cut();
 	}
-
-	public abstract void Subunit.cut();
 
 	public void Employee.cut() {
 		setSalary(getSalary() / 2);

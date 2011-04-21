@@ -59,9 +59,10 @@ public class Company implements Serializable {
 }
 </syntaxhighlight>
 
-Here is the implementation of ''total''; basically, the
-total for a company is computed by aggregating subtotals
-per department by a recursive invocation:
+Here is the implementation of ''cut''; basically, the
+operation is delegated to the individual departments,
+and the operation is implemented in an [[impure computation]],
+i.e., as a void method:
 
 <syntaxhighlight lang="java">
 public void cut() {

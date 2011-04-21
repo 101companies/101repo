@@ -4,7 +4,7 @@ package org.softlang.company;
  * An employee has a salary and some person information
  * 
  */
-public class Employee extends Subunit {
+public class Employee {
 
 	private String name;
 	private String address;

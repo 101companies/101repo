@@ -25,17 +25,77 @@ advanced modularization with [[Language:AspectJ]]
 == Motivation ==
 
 Some concepts of [[aspect-oriented programming]] are put to work. The starting 
-point is a simple [[object model]] for companies without any interesting methods,
-but only [[getter]]s, [[setter]]s, and [[constructor method]]s. Some computations
-on companies are provided by means of [[inter-type declaration]]s. Here it should
-be noted that the object model uses an abstract base class of subunits which 
-implies that operations on the object model should be implemented in terms of 
-[[virtual method]]s. Inter-type declarations allow us here to implement those
-virtual methods "after the fact" in an extra module. (If we were not using 
-[[subtype polymorphism]], then we can use static methods instead of instance 
-methods--in which case computations can be modularized without inter-type 
-declarations; see [[101implementation:java2]].) Besides, logging is 
-supported by [[around advice]] attached to any call for cutting salaries. 
+point is a simple [[object model]] for companies with only [[getter]]s, [[setter]]s, 
+and [[constructor method]]s. Basic operations on companies are provided by means 
+of [[inter-type declaration]]s. That is, inter-type declarations allow us here to 
+implement those methods "after the fact" in an extra module. Compare this
+with the use [[101implementation:java]] where the methods are readily implemented
+with the classes. Further, logging is supported by [[around advice]] attached to 
+any call for cutting salaries. 
+
+== Illustration ==
+
+The following [[Language:AspectJ]] aspect declares instance methods for
+cutting salaries on the classes of the object model for companies; the
+actual method bodies, which are elided, do not differ in any way from a 
+straightforward OO implementation:
+
+<syntaxhighlight lang="aspectj">
+public aspect Cut {
+   public void Company.cut() { ... }
+   public void Department.cut() { ... }
+   public void Employee.cut() { ... }
+}
+</syntaxhighlight>
+
+The next goal is to log applications of cut so that the total of an 
+object is logged before and after applying ''cut''. Thus:
+
+<pre>
+...
+> BEGIN Cut org.softlang.company.Department "Dev1.1". Total: 4689.0
+> BEGIN Cut org.softlang.company.Employee "Karl". Total: 2345.0
+> END Cut org.softlang.company.Employee "Karl". Total: 1172.5
+> BEGIN Cut org.softlang.company.Employee "Joe". Total: 2344.0
+> END Cut org.softlang.company.Employee "Joe". Total: 1172.0
+> END Cut org.softlang.company.Department "Dev1.1". Total: 2344.5
+...
+</pre>
+
+To this end, the ''cut'' methods of company, department, and employee
+objects must be intercepted. In an effort to improve the design of
+the object model so that the pointcut can be expressed more polymorphically,
+we introduce an interface for all common operations and implement it "after 
+the fact" for all the types of the object model for companies:
+
+<syntaxhighlight lang="aspectj">
+public interface Operations {
+   String getName();
+   double total();
+   void cut();
+}
+
+public aspect Polymorphism {
+   declare parents: Company implements Operations;
+   declare parents: Department implements Operations;
+   declare parents: Employee implements Operations;
+}
+</syntaxhighlight>
+
+It remains to declare a pointcut for all calls of
+''cut'' and to advice each intercepted methods call with logging
+actions before and after (say, around) it.
+
+<syntaxhighlight lang="aspectj">
+pointcut cut(Operations o):
+   target(o) && call(void Operations.cut());
+        
+void around(Operations o): cut(o) {
+   ... // Log "before" state
+   proceed(o);
+   ... // Log "after" state
+}
+</syntaxhighlight>
 
 == Architecture ==
 

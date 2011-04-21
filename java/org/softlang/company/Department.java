@@ -12,13 +12,8 @@ public class Department implements Serializable {
 	private static final long serialVersionUID = -2008895922177165250L;
 	private String name;
 	private Employee manager;
-	private List<Department> subdepts;
-	private List<Employee> employees;
-
-	public Department() {
-		subdepts = new LinkedList<Department>();
-		employees = new LinkedList<Employee>();
-	}
+	private List<Department> subdepts = new LinkedList<Department>();
+	private List<Employee> employees = new LinkedList<Employee>();
 
 	public String getName() {
 		return name;

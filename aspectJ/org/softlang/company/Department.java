@@ -7,15 +7,12 @@ import java.util.List;
  * A department has a name, a manager and a list of subunits
  * 
  */
-public class Department extends Subunit {
+public class Department {
 
 	private String name;
 	private Employee manager;
-	private List<Subunit> subunits;
-
-	public Department() {
-		subunits = new LinkedList<Subunit>();
-	}
+	private List<Department> subdepts = new LinkedList<Department>();
+	private List<Employee> employees = new LinkedList<Employee>();
 
 	public String getName() {
 		return name;
@@ -33,7 +30,11 @@ public class Department extends Subunit {
 		this.manager = manager;
 	}
 
-	public List<Subunit> getSubunits() {
-		return subunits;
+	public List<Department> getSubdepts() {
+		return subdepts;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
 	}
 }

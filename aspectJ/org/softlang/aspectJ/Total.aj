@@ -11,14 +11,14 @@ public aspect Total {
 		return total;
 	}
 
-	public abstract double Subunit.total();
-
 	public double Department.total() {
 		double total = 0;
-		total += getManager().total();
-		for (Subunit s : getSubunits())
+		total += getManager().getSalary();
+		for (Department s : getSubdepts())
 			total += s.total();
-		return total;
+		for (Employee e : getEmployees())
+			total += e.getSalary();
+		return total;		
 	}
 
 	public double Employee.total() {

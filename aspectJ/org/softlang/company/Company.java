@@ -10,12 +10,8 @@ import java.util.List;
 public class Company {
 
 	private String name;
-	private List<Department> depts;
+	private List<Department> depts = new LinkedList<Department>();
 	
-	public Company() {
-		depts = new LinkedList<Department>();
-	}
-
 	public String getName() {
 		return name;
 	}
