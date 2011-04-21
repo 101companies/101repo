@@ -9,7 +9,7 @@ advanced modularization with [[Language:AspectJ]]
 == Technologies ==
 
 * [[Technology:AJDT]]: compilation and IDE support for AspectJ
-* [[Technology:AspectJ compiler]]: compilation (provided by AJDT)
+* [[Technology:ajc]]: compilation (provided by AJDT)
 * [[Technology:JSE]]: execution platform (Version 1.6)
 * [[Technology:JUnit]]: automated testing support (Version 4)
 * [[Technology:Eclipse]]: optional IDE (Version 3.6)
