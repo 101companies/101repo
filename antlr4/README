@@ -1,0 +1,29 @@
+== Intent ==
+
+tokenizing textual syntax with [[Technology:ANTLR]]
+
+== Motivation ==
+
+We define a lexer for companies.
+
+We use ANTLR to execute the lexer so that a list of toxens is outputted.
+
+== Features ==
+
+None
+
+== Languages ==
+
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:ANTLR]]
+
+== Usage ==
+
+See [[101implementation:antlr]] for general instructions on the usage of ANTLR-based implementations.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
