@@ -1,4 +1,4 @@
-package org.softland.tests;
+package org.softlang.tests;
 
 import java.io.File;
 import java.io.FileInputStream;
