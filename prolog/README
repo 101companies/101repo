@@ -1,3 +1,9 @@
+== Intent ==
+
+Logic programming-based implementation
+
+== Motivation ==
+
 We implement some "company" scenarios in Prolog.
 There is a predicate total/2 to total all salaries in a company.
 There is a predicate cut/2 to cut all salaries in half.
