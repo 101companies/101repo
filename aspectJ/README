@@ -53,12 +53,12 @@ object is logged before and after applying ''cut''. Thus:
 
 <pre>
 ...
-> BEGIN Cut org.softlang.company.Department "Dev1.1". Total: 4689.0
-> BEGIN Cut org.softlang.company.Employee "Karl". Total: 2345.0
-> END Cut org.softlang.company.Employee "Karl". Total: 1172.5
-> BEGIN Cut org.softlang.company.Employee "Joe". Total: 2344.0
-> END Cut org.softlang.company.Employee "Joe". Total: 1172.0
-> END Cut org.softlang.company.Department "Dev1.1". Total: 2344.5
+> BEGIN Cut Department "Dev1.1". Total: 4689.0
+> BEGIN Cut Employee "Karl". Total: 2345.0
+> END Cut Employee "Karl". Total: 1172.5
+> BEGIN Employee "Joe". Total: 2344.0
+> END Employee "Joe". Total: 1172.0
+> END Department "Dev1.1". Total: 2344.5
 ...
 </pre>
 

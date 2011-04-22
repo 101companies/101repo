@@ -10,7 +10,7 @@ public aspect Logging {
 					"> "
 				+ 	prefix 
 				+ 	" Cut " 
-				+ 	o.getClass().getName() 
+				+ 	o.getClass().getSimpleName()
 				+ 	" \"" 
 				+ 	o.getName()
 				+ 	"\". Total: " 

@@ -82,7 +82,7 @@ hosts JUnit tests; see below.
 
 * The implementation is provided as an Eclipse project.
 * Hence, open the project with Eclipse; this will also build the project.
-* The default settings runs [[Hadoop]] on your local machine. For distributed setup see below.
+* The default settings runs Hadoop on your local machine. For distributed setup see below.
 * There are JUnit tests available as the package ''org.softlang.tests''.
 ** Run class ''Serialization'' with JUnit to create and serialize an example Company.
 ** Run class ''Basics'' with JUnit to exercise basic features.

@@ -20,9 +20,11 @@ parsing textual syntax with [[Technology:ANTLR]]
 A parser for a concrete syntax of companies is provided.
 The parser translates text into company objects.
 To this end, a straightforward object model for companies is used.
-The mapping is described by the semantic actions within the ANTLR-based parser specification.
+The mapping is described by the semantic actions within the ANTLR-based parser description.
 
 == Illustration ==
+
+
 
 <syntaxhighlight lang="antlr">
 dept :
