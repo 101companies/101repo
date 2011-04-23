@@ -36,6 +36,11 @@ An [[object model]] for companies is provided, as well as classes to total and c
 This is, we apply a basic style of [[OO programming]]. Instances of the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
 technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files both for departments and employees. 
 
+== Illustration ==
+
+<syntaxhighlight lang="xml">
+</syntaxhighlight>
+
 == Architecture ==
 
 Package ''org.softlang.om'' holds the java object model for [[101feature:Company]] and the xml-mapping files.
@@ -106,4 +111,4 @@ Hence the line should be commented out.
 
 == Issues == 
 
-* How to deal with acknowledgements? (See COPYRIGHT in svn)  
+* How to deal with acknowledgements? (See COPYRIGHT in svn)
