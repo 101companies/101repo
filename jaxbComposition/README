@@ -52,8 +52,10 @@ The following XML schema fragment shows the element declaration for departments:
    <xs:sequence>
     <xs:element ref="name"/>
     <xs:element name="manager" type="employee"/>
-    <xs:element maxOccurs="unbounded" minOccurs="0" ref="department"/>
-    <xs:element maxOccurs="unbounded" minOccurs="0" name="employee" type="employee"/>
+    <xs:element ref="department"
+                maxOccurs="unbounded" minOccurs="0"/>
+    <xs:element name="employee" type="employee"
+                maxOccurs="unbounded" minOccurs="0"/>
    </xs:sequence>
   </xs:complexType>
  </xs:element>	
