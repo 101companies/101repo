@@ -54,34 +54,30 @@ public class Demo {
 		joeE.setSalary(2344);
 
 		Dept research = new Dept();
-		Subunit researchS1 = new Subunit();
-		Subunit researchS2 = new Subunit();
+		
 
 		research.setManager(CraigE);
 		research.setName("Research");
-		researchS1.setPu(erikE);
-		researchS2.setPu(ralfE);
-		research.getSubunits().add(researchS1);
-		research.getSubunits().add(researchS2);
+		research.getSubunits().add(erikE);
+		research.getSubunits().add(ralfE);
 
 		Dept development = new Dept();
 		development.setManager(rayE);
 		development.setName("Development");
-		Subunit developmentS1 = new Subunit();
-		development.getSubunits().add(developmentS1);
+		
 		Dept dev1 = new Dept();
 		dev1.setName("Dev1");
 		dev1.setManager(klausE);
-		developmentS1.setDu(dev1);
-		Subunit dev1S1 = new Subunit();
-		dev1.getSubunits().add(dev1S1);
+		
 		Dept dev11 = new Dept();
 		dev11.setName("Dev1.1");
 		dev11.setManager(karlE);
-		dev1S1.setDu(dev11);
-		Subunit dev11S1 = new Subunit();
-		dev11S1.setPu(joeE);
-		dev11.getSubunits().add(dev11S1);
+		
+		development.getSubunits().add(dev1);
+		
+		dev1.getSubunits().add(dev11);
+	
+		dev11.getSubunits().add(joeE);
 
 		company.getDepts().add(research);
 		company.getDepts().add(development);

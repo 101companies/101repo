@@ -11,4 +11,8 @@ public interface Operation {
 	public void updateDept(String deptName, Dept upDept);
 
 	public void updateEmployee(String empName, Employee upEmpl);
+	
+	public void cutDepartmentSalaries(String deptName);
+
+	void cutEmployeeSalary(String empName);
 }

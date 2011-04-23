@@ -30,5 +30,9 @@
 <h1><s:text name="Total" /></h1>
 <p><strong><s:property value="%{company.total()}"/> $</strong></p>
 
+<s:form action="cutCompanySalaries" method="post">
+ <s:submit value="Cut salaries" />
+</s:form>
+
 </body>
 </html>

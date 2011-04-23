@@ -8,7 +8,7 @@ import java.util.List;
  * A department has a name, a manager and a list of subunits
  * 
  */
-public class Dept implements Serializable {
+public class Dept extends Subunit implements Serializable {
 
 	private static final long serialVersionUID = -2008895922177165250L;
 	private String name;
@@ -44,6 +44,7 @@ public class Dept implements Serializable {
 		return subunits;
 	}
 
+	@Override
 	public double total() {
 		double total = 0;
 		total += getManager().total();
@@ -52,9 +53,15 @@ public class Dept implements Serializable {
 		return total;		
 	}	
 	
+	@Override
 	public void cut() {
 		getManager().cut();
 		for (Subunit s : getSubunits())
 			s.cut();
+	}
+
+	@Override
+	public boolean isDepartment() {
+		return true;
 	}	
 }

@@ -13,13 +13,21 @@
 		</action>
 		
 		<action name="DEP" class="org.softlang.action.CompanyAction" method="input">
-			<result name="success" type="redirect-action">index</result>
+			<result name="success" type="redirectAction">index</result>
 			<result name="input">/WEB-INF/jsp/department.jsp</result>
 		</action>
 		
 		<action name="EMP" class="org.softlang.action.CompanyAction" method="input">
-			<result name="success" type="redirect-action">index</result>
+			<result name="success" type="redirectAction">index</result>
 			<result name="input">/WEB-INF/jsp/employee.jsp</result>
+		</action>
+		
+		<action name="cutSalaries" class="org.softlang.action.CompanyAction" method="cutSalaries">
+			<result name="success" type="redirectAction">index</result>
+		</action>
+		
+		<action name="cutCompanySalaries" class="org.softlang.action.CompanyAction" method="cutCompanySalaries">
+			<result name="success" type="redirectAction">index</result>
 		</action>
 
 	</package>

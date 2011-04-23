@@ -16,6 +16,7 @@
     <s:textfield name="employee.salary" value="%{employee.salary}" label="Salary" size="15"/>
    	<s:hidden value="%{employee.person.name}" name="empName"/>
     <s:submit value="Submit and back to root" />
+    <s:submit value="Cut salaries and back to root" action="cutSalaries"/>
     <s:submit value="Cancel" name="redirect-action:index" />
 </s:form>
 <a href="javascript:history.go(-1)" >Go to previous page</a>

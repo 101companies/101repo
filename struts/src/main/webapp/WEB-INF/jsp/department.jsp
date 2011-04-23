@@ -19,6 +19,7 @@
 	<s:hidden name="empName" value="%{department.manager.person.name}" />
 	<s:hidden name="deptName" value="%{department.name}" />
 	<s:submit value="Submit and back to root" />
+	<s:submit value="Cut salaries and back to root" action="cutSalaries"/>
 	<s:submit value="Cancel" name="redirect-action:index" />
 </s:form>
 <a href="javascript:history.go(-1)" >Go to previous page</a>
@@ -34,11 +35,11 @@
 	</tr>
 	<s:iterator value="department.subunits" status="status">
 	<tr>
-		<s:if test="du!=null">
-			<td class="nowrap"><s:property value="du.name" /></td>
+		<s:if test="department">
+			<td class="nowrap"><s:property value="name" /></td>
 			<td class="nowrap">
 				<s:url action="DEP!input" id="link">
-					<s:param name="department.name" value="du.name" />
+					<s:param name="department.name" value="name" />
 				</s:url> 
 				<a href="<s:property value="#link"/>">Edit</a>
 			</td>
@@ -55,11 +56,11 @@
 	</tr>
 	<s:iterator value="department.subunits" status="status">
 	<tr>
-		<s:if test="pu!=null">
-			<td class="nowrap"><s:property value="pu.person.name" /></td>
+		<s:if test="!department">
+			<td class="nowrap"><s:property value="person.name" /></td>
 			<td class="nowrap">
 				<s:url action="EMP!input" id="link">
-					<s:param name="employee.person.name" value="pu.person.name" />
+					<s:param name="employee.person.name" value="person.name" />
 				</s:url> 
 				<a href="<s:property value="#link"/>">Edit</a>
 			</td>

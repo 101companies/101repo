@@ -30,8 +30,8 @@ public class Controller implements org.softlang.controller.Operation {
 			setDepartment(d);
 		} else {
 			for (Subunit sub : d.getSubunits()) {
-				if (sub.getDu() != null) {
-					searchDept(sub.getDu(), name);
+				if (sub.isDepartment()) {
+					searchDept((Dept)sub, name);
 				}
 			}
 		}
@@ -53,12 +53,13 @@ public class Controller implements org.softlang.controller.Operation {
 			setEmployee(d.getManager());
 		} else {
 			for (Subunit sub : d.getSubunits()) {
-				if (sub.getPu() != null) {
-					if (sub.getPu().getPerson().getName().equals(name)) {
-						setEmployee(sub.getPu()); break;
+				if (! sub.isDepartment()) {
+					Employee emp = (Employee)sub; 
+					if (emp.getPerson().getName().equals(name)) {
+						setEmployee(emp); break;
 					}
 				} else {
-					searchEmployee(sub.getDu(), name);
+					searchEmployee((Dept)sub, name);
 				}
 			}
 		}
@@ -79,13 +80,14 @@ public class Controller implements org.softlang.controller.Operation {
 
 	public void updateDept(Dept curr, String deptName, Dept upDept) {
 		for (Subunit sub : curr.getSubunits()) {
-			if (sub.getDu() != null) {
-				if (sub.getDu().getName().equals(deptName)) {
-					upDept.setSubunits(sub.getDu().getSubunits());
-					sub.setDu(upDept);
+			if (sub.isDepartment()) {
+				Dept dept = (Dept)sub;
+				if (dept.getName().equals(deptName)) {
+					upDept.setSubunits(dept.getSubunits());
+					dept = upDept;
 					break;
 				} else {
-					updateDept(sub.getDu(), deptName, upDept);
+					updateDept(dept, deptName, upDept);
 				}
 			}
 		}
@@ -107,12 +109,13 @@ public class Controller implements org.softlang.controller.Operation {
 			curr.setManager(upEmpl);
 		} else {
 			for (Subunit sub : curr.getSubunits()) {
-				if (sub.getPu() != null) {
-					if (sub.getPu().getPerson().getName().equals(empName)) {
-						sub.setPu(upEmpl); break;
+				if (! sub.isDepartment()) {
+					Employee emp = (Employee)sub;
+					if (emp.getPerson().getName().equals(empName)) {
+						 emp = upEmpl; break;
 					}
 				} else {
-					updateEmployee(sub.getDu(), empName, upEmpl);
+					updateEmployee((Dept)sub, empName, upEmpl);
 				}
 			}
 		}
@@ -140,6 +143,20 @@ public class Controller implements org.softlang.controller.Operation {
 
 	public Employee getEmployee() {
 		return employee;
+	}
+
+	@Override
+	public void cutDepartmentSalaries(String deptName) {
+		Dept d = searchDept(deptName);
+		setDepartment(d);
+		department.cut();
+	}
+
+	@Override
+	public void cutEmployeeSalary(String empName) {
+		Employee e = searchEmployee(empName);
+		setEmployee(e);
+		employee.cut();
 	}
 
 }

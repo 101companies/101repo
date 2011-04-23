@@ -56,6 +56,27 @@ public class CompanyAction extends ActionSupport implements Preparable,
 		
 		return SUCCESS;
 	}
+	
+	public String cutCompanySalaries() {
+		setCompany(service.getController().getCompany());
+		System.out.println("company total: " + company.total());
+		company.cut();
+		System.out.println("company total: " + company.total());
+		return SUCCESS;
+	}
+	/**
+	 * An action for cutting salaries. It is the same method 
+	 * used for cutting department and employee salaries. 
+	 */
+	public String cutSalaries() {
+		if(department != null && deptName != null) {
+			service.cutDepartmentSalaries(deptName);
+		}
+		else if(employee != null && empName != null) {
+			service.cutEmployeeSalary(empName);
+		}
+		return SUCCESS;
+	}
 
 	public void setCompany(Company company) {
 		this.company = company;

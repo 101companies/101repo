@@ -32,6 +32,17 @@ public class Service implements org.softlang.controller.Operation {
 		getController().updateEmployee(empName, e);
 	}
 
+	@Override
+	public void cutDepartmentSalaries(String deptName) {
+		getController().cutDepartmentSalaries(deptName);
+	}
+	
+	
+	@Override
+	public void cutEmployeeSalary(String empName) {
+		getController().cutEmployeeSalary(empName);
+	}
+	
 	public void setController(Controller controller) {
 		this.controller = controller;
 	}
