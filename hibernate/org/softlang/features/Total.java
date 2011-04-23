@@ -1,6 +1,6 @@
-package org.softlang.hibernate;
+package org.softlang.features;
 
-import org.softlang.om.*;
+import org.softlang.company.*;
 
 /**
  * Total all salaries
@@ -11,18 +11,18 @@ public class Total {
 	public static double total(Company company) {
 		double total = 0;
 		// total all salaries in all top departments
-		for (Dept dept : company.getDepts())
+		for (Department dept : company.getDepts())
 			total += total(dept);
 		return total;
 	}
 
-	public static double total(Dept dept) {
+	public static double total(Department dept) {
 		double total = 0;
 		// total all department's employees' salaries
 		for (Employee employee : dept.getEmployees())
 			total += total(employee);
 		// total all salaries in all sub departments
-		for (Dept subDepartment : dept.getSubDepartments())
+		for (Department subDepartment : dept.getSubdepts())
 			total += total(subDepartment);
 		return total;
 	}

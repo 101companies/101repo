@@ -52,38 +52,66 @@ Hibernate configuration files (see below) can be found in the project's root fol
 
 == Usage ==
 
-'''Steps of a typical demo:'''
-* Make sure you start from an initial distribution.
-* Build the project with Eclipse.
-(The following steps are explained in detail below.)
-* Start the HSQL database server.
-* Run ''org/softlang/hibernate/Init.java'' to create tables.
-* Run the database monitor and populate the tables with scripts/PopulateTables.
-* Patch hibernate.cfg.xml to disable "drop and re-recreate".
-* Run ''org/softlang/hibernate/Tests.java''.
+Please follow these steps carefully.
 
+=== Start from a clean setup ===
 
-'''How to start the database server:'''
-* Start it from the command line.
+Upon checking out the implementation, you are clean.
+
+The "make clean" target in the root dir should bring you back to a clean setup.
+
+=== Build the project ===
+
+This is an Eclipse project.
+
+Everything is included.
+
+The project should build within Eclipse without additional efforts.
+
+=== Start the HSQL database server ===
+
 * Go to the data dir of the distribution.
-* Run the following command:
+* Run the following command in the command line:
 ** > java -classpath ../lib/hsqldb.jar org.hsqldb.Server 
 ** You can also send it to the background if you like.
-You can also go to the root dir and run a "make start-db".
+** You can also go to the root dir and run "make start-db" instead.
 
+=== Start the database monitor ===
 
-'''How to create new tables:'''
-* Run ''Init.java'' in ''org.softlang.hibernate''.
+* Go to the root dir of the distribution.
+* Run the following command in the command line:
+** > java -classpath lib/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
+** You can also send it to the background if you like.
+** You can also go to the root dir and run "make start-gui" instead.
+* When the GUI pops up, make sure to select '''"HSQL Database Engine Server"'''.
+
+=== Create tables ===
+
+The tables are automatically created by trying to query them.
+
+There is JUnit test ''Load'' in package ''org.softlang.tests'' which just does that.
+
+Do ''refresh'' in the database monitor.
+
+All tables should be now listed in left panel.
 
 
 '''How and why to start the database monitor:'''
 
-* Start it from the command line.
-* Run the following command:
-** > java -classpath lib/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing
-** You can also send it to the background if you like.
-You can also go to the root dir and run a "make start-gui".
-* When the GUI pops up, make sure to select "HSQL Database Engine Server".
+
+
+* Build the project with Eclipse.
+* Summary of remaining steps:
+** Start the HSQL database server.
+** Run ''org/softlang/hibernate/Init.java'' to create tables.
+** Run the database monitor and populate the tables with scripts/PopulateTables.
+** Patch hibernate.cfg.xml to disable "drop and re-recreate".
+** Run ''org/softlang/hibernate/Tests.java''.
+
+All steps are explained in more detail below.
+
+
+
 * If you had performed Main already, you see the tables of the app.
 * Populate these tables:
 ** Open scripts/PopulateTables (File -> Open Script)
@@ -107,8 +135,9 @@ Hence the line should be commented out.
 == Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}
-* {{101contributor|Ralf Lämmel|reviewer}}
+* {{101contributor|Ralf Lämmel|developer}}
 
 == Issues == 
 
-* How to deal with acknowledgements? (See COPYRIGHT in svn)
+* Efficiency/incrementality of saving changes
+* How to deal with acknowledgements? (See COPYRIGHT file in svn)  

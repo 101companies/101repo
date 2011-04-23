@@ -39,19 +39,13 @@
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
 
-		<!-- ************************************************************ -->
-		<!-- ************************************************************ -->
-		<!-- ************************************************************ -->
-		<!-- Drop and re-create the database schema on startup.			  -->
-		<!-- THIS LINE SHOULD BE COMMENTED OUT ONCE THE DB IS INITALIZED. -->
-		<property name="hbm2ddl.auto">create</property>			  			  
-		<!-- ************************************************************ -->
-		<!-- ************************************************************ -->
-		<!-- ************************************************************ -->
+		<!-- Create the database schema, if needed; update otherwise -->
+		<property name="hbm2ddl.auto">update</property>			  			  
 
 		<!-- This part lists all the mapping files present in the project -->
-		<mapping resource="org/softlang/om/Dept.hbm.xml" />
-		<mapping resource="org/softlang/om/Employee.hbm.xml" />
+		<mapping resource="org/softlang/company/Company.hbm.xml" />
+		<mapping resource="org/softlang/company/Department.hbm.xml" />
+		<mapping resource="org/softlang/company/Employee.hbm.xml" />
 
 	</session-factory>
 

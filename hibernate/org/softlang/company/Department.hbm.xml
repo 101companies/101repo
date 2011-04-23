@@ -5,24 +5,22 @@
 
 <hibernate-mapping>
 
-	<class name="org.softlang.om.Dept" table="DEPT">
-		<id name="id" column="DEPT_ID">
+	<class name="org.softlang.company.Department" table="DEPARTMENT">
+	
+		<id name="id" column="ID">
 			<generator class="native" />
 		</id>
 
 		<property name="name" />
 
-		<many-to-one name="manager" column="MANAGER_ID"
-			class="org.softlang.om.Employee" />
-
 		<set name="employees" cascade="all">
 			<key column="DEPT_ID" />
-			<one-to-many class="org.softlang.om.Employee" />
+			<one-to-many class="org.softlang.company.Employee" />
 		</set>
 
-		<set name="subDepartments" cascade="all">
-			<key column="UPPER_DEPT_ID" />
-			<one-to-many class="org.softlang.om.Dept" />
+		<set name="subdepts" cascade="all">
+			<key column="DEPT_ID" />
+			<one-to-many class="org.softlang.company.Department" />
 		</set>
 
 	</class>

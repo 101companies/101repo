@@ -1,6 +1,6 @@
-package org.softlang.hibernate;
+package org.softlang.features;
 
-import org.softlang.om.*;
+import org.softlang.company.*;
 
 /**
  * Cut all salaries by half
@@ -10,16 +10,16 @@ public class Cut {
 
 	public static void cut(Company company) {
 		// cut all salaries in all top departments
-		for (Dept dept : company.getDepts())
+		for (Department dept : company.getDepts())
 			cut(dept);
 	}
 
-	public static void cut(Dept dept) {
+	public static void cut(Department dept) {
 		// cut all employees' salaries
 		for (Employee employee : dept.getEmployees())
 			cut(employee);
 		// cut all salaries in all sub departments
-		for (Dept subDepartment : dept.getSubDepartments())
+		for (Department subDepartment : dept.getSubdepts())
 			cut(subDepartment);
 	}
 

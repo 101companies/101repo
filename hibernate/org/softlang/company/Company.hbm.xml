@@ -5,16 +5,18 @@
 
 <hibernate-mapping>
 
-	<class name="org.softlang.om.Employee" table="EMPLOYEE">
-		<id name="id" column="EMPLOYEE_ID">
+	<class name="org.softlang.company.Company" table="COMPANY">
+	
+		<id name="id" column="ID">
 			<generator class="native" />
 		</id>
 
 		<property name="name" />
 
-		<property name="address" />
-
-		<property name="salary" />
+		<set name="depts" cascade="all">
+			<key column="COMP_ID" />
+			<one-to-many class="org.softlang.company.Department" />
+		</set>
 
 	</class>
 

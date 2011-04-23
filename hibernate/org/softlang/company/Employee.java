@@ -1,16 +1,24 @@
-package org.softlang.om;
+package org.softlang.company;
 
 /**
- * An Employee has a salary and some person information
- * 
+ * An employee has a name, an address, and a salary.  
  */
 public class Employee {
 
 	private long id;
-
 	private String name;
 	private String address;
 	private double salary;
+	private boolean manager;
+
+	public long getId() {
+		return id;
+	}
+
+	@SuppressWarnings("unused")
+	private void setId(long id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -28,15 +36,6 @@ public class Employee {
 		this.address = address;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	@SuppressWarnings("unused")
-	private void setId(long id) {
-		this.id = id;
-	}
-
 	public double getSalary() {
 		return salary;
 	}
@@ -45,4 +44,11 @@ public class Employee {
 		this.salary = salary;
 	}
 
+	public boolean getManager() {
+		return manager;
+	}
+
+	public void setManager(boolean manager) {
+		this.manager = manager;
+	}
 }
