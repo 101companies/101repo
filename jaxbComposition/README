@@ -111,7 +111,7 @@ public class Cut {
 }
 </syntaxhighlight>
 
-It is important to note that [[instance method]]s are not applicable for any JAXB 
+It is important to note that [[:Category:instance method]]s are not applicable for any JAXB 
 scenario---unless generated code is modified or advanced modularization mechanisms
 are leveraged.
 
