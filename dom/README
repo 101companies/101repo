@@ -28,13 +28,16 @@
 
 == Motivation ==
 
-DOM represents XML in memory and provides rich axes on the representation.
-For instance, one can even navigate upwads from children to ancestors.
-Also, the representation is generic, whereby it is easy to navigate data generically as well.
-DOM trees are also mutable, whereby it is easy to transform data.
-The basic features of 101companies are easily implemented hence.
+Companies are represented in [[Language:XML]] and the object model of DOM is used to
+represent and process XML documents in memory. In particular, operations on companies
+are implemented in Java on top of the (generic) DOM API. DOM trees are easily queried 
+so that operations such as [[101feature:Total]] can be implemented with ease on in-memory
+XML trees. DOM trees are also mutable so that operations such as [[101feature:Cut]] can
+be implemented as [[impure computations]] on in-memory XML trees.
 
 == Illustration ==
+
+Consider the following DOM-based implementation of ''cut'':
 
 <syntaxhighlight lang="java">
 public class Cut {
@@ -48,6 +51,11 @@ public class Cut {
    }
 }
 </syntaxhighlight>
+
+That is, the method receives an in-memory XML document which it queries with the
+descendant axis (see ''getElementsBy'') so that all salary elements are collected
+in a ''NodeList'' which is processed by a regular loop such that the text content
+of the salary elements is modified to reflect a cut in half.
 
 == Usage ==
 

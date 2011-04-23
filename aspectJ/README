@@ -24,14 +24,14 @@ advanced modularization with [[Language:AspectJ]]
 
 == Motivation ==
 
-Some concepts of [[aspect-oriented programming]] are put to work. The starting 
-point is a simple [[object model]] for companies with only [[getter]]s, [[setter]]s, 
-and [[constructor method]]s. Basic operations on companies are provided by means 
-of [[inter-type declaration]]s. That is, inter-type declarations allow us here to 
-implement those methods "after the fact" in an extra module. Compare this
-with the use [[101implementation:java]] where the methods are readily implemented
-with the classes. Further, logging is supported by [[around advice]] attached to 
-any call for cutting salaries. 
+Concepts of [[aspect-oriented programming]] (say, advanced modularization) are put
+to work. The starting point is a simple [[object model]] for companies with only
+[[getter]]s, [[setter]]s, and [[constructor method]]s. The basic operations are 
+implemented by adding the corresponding methods through [[inter-type declaration]]s
+"after the fact"---in an extra module. Such a modular development should be compared
+with the simple approach of [[101implementation:javaComposition]] where
+all methods are readily implemented within the classes. Further, logging is supported 
+by [[around advice]] on any call for cutting salaries. 
 
 == Illustration ==
 
@@ -49,7 +49,8 @@ public aspect Cut {
 </syntaxhighlight>
 
 The next goal is to log applications of cut so that the total of an 
-object is logged before and after applying ''cut''. Thus:
+object is logged before and after applying ''cut''. The following fragment
+of a log illustrates the idea:
 
 <pre>
 ...
@@ -62,11 +63,12 @@ object is logged before and after applying ''cut''. Thus:
 ...
 </pre>
 
-To this end, the ''cut'' methods of company, department, and employee
-objects must be intercepted. In an effort to improve the design of
-the object model so that the pointcut can be expressed more polymorphically,
-we introduce an interface for all common operations and implement it "after 
-the fact" for all the types of the object model for companies:
+Hence, the ''cut'' methods of company, department, and employee
+objects should be intercepted. As a preparatory step, the design of
+the object model is improved so that the pointcut can be expressed 
+more compactly with the help of [[interface polymorphism]]. That is,
+an interface for all common operations is introduced and implemented
+"after the fact" for all the types of the object model for companies:
 
 <syntaxhighlight lang="aspectj">
 public interface Operations {
@@ -83,7 +85,7 @@ public aspect Polymorphism {
 </syntaxhighlight>
 
 It remains to declare a pointcut for all calls of
-''cut'' and to advice each intercepted methods call with logging
+''cut'' and to advice each intercepted method call with logging
 actions before and after (say, around) it.
 
 <syntaxhighlight lang="aspectj">

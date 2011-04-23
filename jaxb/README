@@ -30,32 +30,108 @@
 
 == Motivation ==
 
-The primary data model for the present implementation is an XML schema from which 
-Java classes are derived by means of the schema compiler [[Technology:xjc]] which 
-is part of [[Technology:JAXB]]. The resulting object model essentially models
-departmental nesting by means of [[object composition]]. (The object model happens
-to be very similar to the one that was natively developed for the introductory
-Java-based implementation [[101implementation:java]].) The 101companies features
-are not implemented by [[:Category:instance method]]s since this would imply modification
-of schema-derived classes (unless advanced modularization mechanisms were 
-leveraged). Hence, the features are implemented by static methods outside the
-schema-derived classes. Overall, this implementation is helpful in analyzing 
-differences between native object models and schema-derived ones.
+The primary data model for companies is an XML schema. The schema compiler
+[[Technology:xjc]] of [[Technology:JAXB]] is used to generate Java classes
+from the schema. In this manner, operations on companies can be implemented
+in regular OO fashion while an XML representation is also served. It is insightful
+to compare XML schema and schema-derived classes. The XML
+schema is defined in a manner that the resulting object model systematically
+leverages [[object composition]] and no [[class inheritance]]. In fact, the
+schema-derived classes are very similar to a regular OO design; see 
+[[101implementation:javaComposition]]. It is important to note that 
+the operations on companies are not implemented by [[:Category:instance method]]s
+since this would imply modification of schema-derived classes---unless advanced 
+modularization mechanisms were leveraged. Instead, the operations are implemented
+by [[:Category:static method]]s in non-schema-derived classes.
+
+== Illustration ==
+
+The following XML schema fragment shows the element declaration for departments:
+
+<syntaxhighlight lang="xml">
+ <xs:element name="department">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref="name"/>
+    <xs:element name="manager" type="employee"/>
+    <xs:element maxOccurs="unbounded" minOccurs="0" ref="department"/>
+    <xs:element maxOccurs="unbounded" minOccurs="0" name="employee" type="employee"/>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>	
+</syntaxhighlight>
+
+That is, department elements line up children elements for name, manager, sub-departments,
+and employees. There is an XSD type ''employee'' which is used two local element
+declarations: one for managers; another one for regular employees. The corresponding,
+schema-derived class looks as follows:
+
+<syntaxhighlight lang="java">
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "name",
+    "manager",
+    "department",
+    "employee"
+})
+@XmlRootElement(name = "department")
+public class Department {
+    @XmlElement(required = true)
+    protected String name;
+    @XmlElement(required = true)
+    protected Employee manager;
+    protected List<Department> department;
+    protected List<Employee> employee;
+    // Getters and setters omitted
+}
+</syntaxhighlight>
+
+This class essentially models [[POJO]]s for department in a way that is very close to
+regular OO programming. However, the schema compiler injects a number of annotations 
+into the schema-derived classes so that sufficient information is tracked for serialization,
+and, in fact, validation. For instance, the fields for name and manager are annotated with 
+''required=true'', thereby expressing that a valid department object must specify a name
+and manager. On top of the schema-derived classes, the operation ''cut'' is implemented
+through [[:Category:static method]]s: 
+
+<syntaxhighlight lang="java">
+public class Cut {
+  public static void cut(Company c) {
+    for (Department d : c.getDepartment())
+      cut(d);
+  }
+  public static void cut(Department d) {
+    cut(d.getManager());
+    for (Department s : d.getDepartment())
+      cut(s);
+    for (Employee e : d.getEmployee())
+      cut(e);
+  }
+  public static void cut(Employee e) {
+    e.setSalary(e.getSalary() / 2);
+  }		
+}
+</syntaxhighlight>
+
+It is important to note that [[instance method]]s are not applicable for any JAXB 
+scenario---unless generated code is modified or advanced modularization mechanisms
+are leveraged.
 
 == Architecture ==
 
 ''Company.xsd'' is the schema for [[schema-first mapping]].
 ''Makefile'' shows how to (trivially) invoke the schema compiler [[Technology:xjc]] 
 of [[Technology:JAXB]]. Package ''org.softlang.company'' hosts all schema-derived
-classes and interfaces. Package ''org.softlang.jaxb'' hosts feature
+classes and interfaces. Package ''org.softlang.features'' hosts 
 implementations for [[101feature:Total]] and [[101feature:Cut]] as well as
-class ''Tests'' with JUnit tests.
+some boilerplate code for [[101feature:Serialization]]. Package ''org.softlang.tests''
+hosts JUnit tests; see below.
 
 == Usage ==
 
 * The implementation is provided as an Eclipse project.
 * Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available though class ''org.softlang.jaxb.Tests''.
+* There are JUnit tests available in package ''org.softlang.tests''.
 * If you want to regenerate classes from the scheme, see the ''Makefile''.
 
 Hint: if you need to add schema files to a project so that XML files are 
