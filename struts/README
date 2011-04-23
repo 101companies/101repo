@@ -16,10 +16,10 @@ TBD
 
 == Usage ==
 
-Make sure, that your struts library is located in /struts/WebContent/WEB-INF/lib/
-Copy or drag your project to your servlet container (e.g. Tomcat V7.0, see http://tomcat.apache.org/download-70.cgi) and startup the servlet container.
-In a web browser go to: http://localhost:8080/struts/
-You should see a web page with a list of departments.
+(a) run mvn clean package
+(b) copy the target/struts.war file to the webapps direcoty of your Tomcat distribution
+(c) start your Tomcat distribution
+(d) point your browser to http://localhost:8080/struts (replacing the port if necessary) 
 
 == Issues == 
 
