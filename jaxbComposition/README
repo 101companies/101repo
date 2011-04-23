@@ -24,25 +24,23 @@
 * [[101feature:Cut]]
 * [[101feature:Serialization]]
 
-== Terms ==
-
-* [[:Category:XML processing]]
-
 == Motivation ==
 
 The primary data model for companies is an XML schema. The schema compiler
 [[Technology:xjc]] of [[Technology:JAXB]] is used to generate Java classes
 from the schema. In this manner, operations on companies can be implemented
-in regular OO fashion while an XML representation is also served. It is insightful
+in near-to-regular OO fashion while an XML representation is also served. 
+In different terms, one can carry out [[:Category:XML processing]] while
+essentially staying in the technical space of [[objectware]]. It is insightful
 to compare XML schema and schema-derived classes. The XML
 schema is defined in a manner that the resulting object model systematically
 leverages [[object composition]] and no [[class inheritance]]. In fact, the
 schema-derived classes are very similar to a regular OO design; see 
 [[101implementation:javaComposition]]. It is important to note that 
-the operations on companies are not implemented by [[:Category:instance method]]s
+the operations on companies are not implemented as [[:Category:instance method]]s
 since this would imply modification of schema-derived classes---unless advanced 
 modularization mechanisms were leveraged. Instead, the operations are implemented
-by [[:Category:static method]]s in non-schema-derived classes.
+as [[:Category:static method]]s in non-schema-derived classes.
 
 == Illustration ==
 

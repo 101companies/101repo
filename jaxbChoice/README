@@ -24,14 +24,10 @@
 * [[101feature:Cut]]
 * [[101feature:Serialization]]
 
-== Terms ==
-
-* [[:Category:XML processing]]
-
 == Motivation ==
 
-See [[101implementation:jaxb]] for the overall motivation of exercising 
-[[Technology:JAXB]] and for arguably a simple baseline of a schema and 
+See [[101implementation:jaxbComposition]] for the overall motivation of exercising 
+[[Technology:JAXB]] and arguably a simple baseline for a schema and the 
 corresponding schema-derived classes. The present implementation exercises
 an XSD choice for different kinds of subunits. The schema-derived class
 Subunit encodes the choice in an arguably sub-optimal manner (as a result
@@ -42,11 +38,11 @@ this may be understandable).
 
 == Architecture ==
 
-See [[101implementation:jaxb]].
+See [[101implementation:jaxbComposition]].
 
 == Usage ==
 
-See [[101implementation:jaxb]].
+See [[101implementation:jaxbComposition]].
 
 == Contributors ==
 

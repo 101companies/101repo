@@ -24,13 +24,9 @@
 * [[101feature:Cut]]
 * [[101feature:Serialization]]
 
-== Terms ==
-
-* [[:Category:XML processing]]
-
 == Motivation ==
 
-See [[101implementation:jaxb]] for the overall motivation of exercising 
+See [[101implementation:jaxbComposition]] for the overall motivation of exercising 
 [[Technology:JAXB]] and for arguably a simple baseline of a schema and 
 corresponding schema-derived classes. The present implementation 
 represents an attempt to model different kinds of subunits of department 
@@ -40,11 +36,11 @@ extension mechanism. The result is rather complex at both ends.
 
 == Architecture ==
 
-See [[101implementation:jaxb]].
+See [[101implementation:jaxbComposition]].
 
 == Usage ==
 
-See [[101implementation:jaxb]].
+See [[101implementation:jaxbComposition]].
 
 == Contributors ==
 
