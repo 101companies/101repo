@@ -122,20 +122,20 @@ Finally, consider the Hibernate configuration:
 
 <syntaxhighlight lang="xml">
 <hibernate-configuration>
-	<session-factory>
-		<!-- Database connection settings. -->
-		<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-		<property name="connection.url">jdbc:hsqldb:hsql://localhost</property>
-		<property name="connection.username">sa</property>
-		<property name="connection.password"></property>
-		<!-- Create the database schema, if needed; update otherwise -->
-		<property name="hbm2ddl.auto">update</property>			  			  
-		<!-- This part lists all the mapping files present in the project -->
-		<mapping resource="org/softlang/company/Company.hbm.xml" />
-		<mapping resource="org/softlang/company/Department.hbm.xml" />
-		<mapping resource="org/softlang/company/Employee.hbm.xml" />
-		...
-	</session-factory>
+ <session-factory>
+  <!-- Database connection settings. -->
+  <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+  <property name="connection.url">jdbc:hsqldb:hsql://localhost</property>
+  <property name="connection.username">sa</property>
+  <property name="connection.password"></property>
+  <!-- Create the database schema, if needed; update otherwise -->
+  <property name="hbm2ddl.auto">update</property>			  			  
+  <!-- This part lists all the mapping files present in the project -->
+  <mapping resource="org/softlang/company/Company.hbm.xml" />
+  <mapping resource="org/softlang/company/Department.hbm.xml" />
+  <mapping resource="org/softlang/company/Employee.hbm.xml" />
+  ...
+ </session-factory>
 </hibernate-configuration>
 </syntaxhighlight>
 
