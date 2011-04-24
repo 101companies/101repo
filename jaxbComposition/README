@@ -26,6 +26,7 @@
 
 == Motivation ==
 
+O/X mapping within the Java platform is exercised.
 The primary data model for companies is an XML schema. The schema compiler
 [[Technology:xjc]] of [[Technology:JAXB]] is used to generate Java classes
 from the schema. In this manner, operations on companies can be implemented
