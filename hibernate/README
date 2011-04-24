@@ -73,20 +73,20 @@ Consider the mapping file of class ''Department'' to table ''DEPARTMENT'':
 
 <syntaxhighlight lang="xml">
 <hibernate-mapping>
-	<class name="org.softlang.company.Department" table="DEPARTMENT">
-		<id name="id" column="ID">
-			<generator class="native" />
-		</id>
-		<property name="name" />
-		<set name="employees" cascade="all">
-			<key column="DEPT_ID" />
-			<one-to-many class="org.softlang.company.Employee" />
-		</set>
-		<set name="subdepts" cascade="all">
-			<key column="DEPT_ID" />
-			<one-to-many class="org.softlang.company.Department" />
-		</set>
-	</class>
+ <class name="org.softlang.company.Department" table="DEPARTMENT">
+  <id name="id" column="ID">
+    <generator class="native" />
+  </id>
+  <property name="name" />
+  <set name="employees" cascade="all">
+   <key column="DEPT_ID" />
+   <one-to-many class="org.softlang.company.Employee" />
+  </set>
+  <set name="subdepts" cascade="all">
+   <key column="DEPT_ID" />
+   <one-to-many class="org.softlang.company.Department" />
+  </set>
+ </class>
 </hibernate-mapping>
 </syntaxhighlight>
 
