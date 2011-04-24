@@ -103,13 +103,13 @@ Persistent objects are brought back to memory as follows:
 
 <syntaxhighlight lang="java">
 public Company loadCompany(String name) {
-	this.session = getSessionFactory().getCurrentSession();
-	this.session.beginTransaction();
-	List<?> result = this.session.createQuery(
-			"from Company where name = '" + name + "'").list();
-	for (Object o : result)
-		return (Company)o;
-	return null;
+  this.session = getSessionFactory().getCurrentSession();
+  this.session.beginTransaction();
+  List<?> result = this.session.createQuery(
+    "from Company where name = '" + name + "'").list();
+  for (Object o : result)
+    return (Company)o;
+  return null;
 }
 </syntaxhighlight>
 
@@ -124,11 +124,11 @@ Finally, consider the Hibernate configuration:
 <hibernate-configuration>
  <session-factory>
   <!-- Database connection settings. -->
-  <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-  <property name="connection.url">jdbc:hsqldb:hsql://localhost</property>
-  <property name="connection.username">sa</property>
-  <property name="connection.password"></property>
-  <!-- Create the database schema, if needed; update otherwise -->
+  <property name="connection.driver_class">org.hsqldb....
+  <property name="connection.url">...
+  <property name="connection.username">...
+  <property name="connection.password">...
+   <!-- Create the database schema, if needed; update otherwise -->
   <property name="hbm2ddl.auto">update</property>			  			  
   <!-- This part lists all the mapping files present in the project -->
   <mapping resource="org/softlang/company/Company.hbm.xml" />
