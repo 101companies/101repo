@@ -8,22 +8,17 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 Package company <http://www.company.com>
 
   Class Company
-    Reference depts : Dept<<0..*>>
+    Reference depts : Department<<0..*>>
+    Attribute name : EString<<1..1>>
 
-  Class Dept
+  Class Department
     Attribute name : EString<<1..1>>
     Reference manager : Employee<<1..1>>
-    Reference subunits : Subunit<<0..*>>
+    Reference subdepts : Department<<0..*>>
+    Reference employees : Employee<<0..*>>
 
   Class Employee
-    Reference person : Person<<1..1>>
-    Attribute salary : EDouble
+    Attribute salary : EDouble<<1..1>>
     Reference mentor : Employee
-
-  Class Person
     Attribute name : EString<<1..1>>
     Attribute address : EString<<1..1>>
-
-  Class Subunit
-    Reference pu : Employee
-    Reference du : Dept

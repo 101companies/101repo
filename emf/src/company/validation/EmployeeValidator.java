@@ -7,7 +7,6 @@
 package company.validation;
 
 import company.Employee;
-import company.Person;
 
 /**
  * A sample validator interface for {@link company.Employee}.
@@ -18,7 +17,8 @@ import company.Person;
 public interface EmployeeValidator {
 	boolean validate();
 
-	boolean validatePerson(Person value);
 	boolean validateSalary(double value);
 	boolean validateMentor(Employee value);
+	boolean validateName(String value);
+	boolean validateAddress(String value);
 }

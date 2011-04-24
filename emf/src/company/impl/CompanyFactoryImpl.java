@@ -61,10 +61,8 @@ public class CompanyFactoryImpl extends EFactoryImpl implements CompanyFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CompanyPackage.COMPANY: return createCompany();
-			case CompanyPackage.DEPT: return createDept();
+			case CompanyPackage.DEPARTMENT: return createDepartment();
 			case CompanyPackage.EMPLOYEE: return createEmployee();
-			case CompanyPackage.PERSON: return createPerson();
-			case CompanyPackage.SUBUNIT: return createSubunit();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,9 +83,9 @@ public class CompanyFactoryImpl extends EFactoryImpl implements CompanyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Dept createDept() {
-		DeptImpl dept = new DeptImpl();
-		return dept;
+	public Department createDepartment() {
+		DepartmentImpl department = new DepartmentImpl();
+		return department;
 	}
 
 	/**
@@ -98,26 +96,6 @@ public class CompanyFactoryImpl extends EFactoryImpl implements CompanyFactory {
 	public Employee createEmployee() {
 		EmployeeImpl employee = new EmployeeImpl();
 		return employee;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Person createPerson() {
-		PersonImpl person = new PersonImpl();
-		return person;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Subunit createSubunit() {
-		SubunitImpl subunit = new SubunitImpl();
-		return subunit;
 	}
 
 	/**

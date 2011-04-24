@@ -5,32 +5,27 @@
     nsURI="http://www.company.com" nsPrefix="com">
   <eClassifiers xsi:type="ecore:EClass" name="Company">
     <eStructuralFeatures xsi:type="ecore:EReference" name="depts" ordered="false"
-        upperBound="-1" eType="#//Dept" containment="true"/>
+        upperBound="-1" eType="#//Department" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dept">
+  <eClassifiers xsi:type="ecore:EClass" name="Department">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="manager" ordered="false"
         lowerBound="1" eType="#//Employee" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subunits" ordered="false"
-        upperBound="-1" eType="#//Subunit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subdepts" ordered="false"
+        upperBound="-1" eType="#//Department" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" ordered="false"
+        upperBound="-1" eType="#//Employee" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Employee">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="person" ordered="false"
-        lowerBound="1" eType="#//Person" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mentor" eType="#//Employee"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Subunit">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pu" ordered="false" eType="#//Employee"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="du" ordered="false" eType="#//Dept"
-        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

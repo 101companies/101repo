@@ -8,10 +8,11 @@ package company.impl;
 
 import company.Company;
 import company.CompanyPackage;
-import company.Dept;
+import company.Department;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -32,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link company.impl.CompanyImpl#getDepts <em>Depts</em>}</li>
+ *   <li>{@link company.impl.CompanyImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,7 +49,27 @@ public class CompanyImpl extends EObjectImpl implements Company {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Dept> depts;
+	protected EList<Department> depts;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,11 +95,32 @@ public class CompanyImpl extends EObjectImpl implements Company {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Dept> getDepts() {
+	public EList<Department> getDepts() {
 		if (depts == null) {
-			depts = new EObjectContainmentEList<Dept>(Dept.class, this, CompanyPackage.COMPANY__DEPTS);
+			depts = new EObjectContainmentEList<Department>(Department.class, this, CompanyPackage.COMPANY__DEPTS);
 		}
 		return depts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.COMPANY__NAME, oldName, name));
 	}
 
 	/**
@@ -103,6 +147,8 @@ public class CompanyImpl extends EObjectImpl implements Company {
 		switch (featureID) {
 			case CompanyPackage.COMPANY__DEPTS:
 				return getDepts();
+			case CompanyPackage.COMPANY__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,7 +164,10 @@ public class CompanyImpl extends EObjectImpl implements Company {
 		switch (featureID) {
 			case CompanyPackage.COMPANY__DEPTS:
 				getDepts().clear();
-				getDepts().addAll((Collection<? extends Dept>)newValue);
+				getDepts().addAll((Collection<? extends Department>)newValue);
+				return;
+			case CompanyPackage.COMPANY__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -135,6 +184,9 @@ public class CompanyImpl extends EObjectImpl implements Company {
 			case CompanyPackage.COMPANY__DEPTS:
 				getDepts().clear();
 				return;
+			case CompanyPackage.COMPANY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -149,8 +201,26 @@ public class CompanyImpl extends EObjectImpl implements Company {
 		switch (featureID) {
 			case CompanyPackage.COMPANY__DEPTS:
 				return depts != null && !depts.isEmpty();
+			case CompanyPackage.COMPANY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CompanyImpl

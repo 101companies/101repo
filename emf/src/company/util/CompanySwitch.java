@@ -93,27 +93,15 @@ public class CompanySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CompanyPackage.DEPT: {
-				Dept dept = (Dept)theEObject;
-				T result = caseDept(dept);
+			case CompanyPackage.DEPARTMENT: {
+				Department department = (Department)theEObject;
+				T result = caseDepartment(department);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CompanyPackage.EMPLOYEE: {
 				Employee employee = (Employee)theEObject;
 				T result = caseEmployee(employee);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CompanyPackage.PERSON: {
-				Person person = (Person)theEObject;
-				T result = casePerson(person);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CompanyPackage.SUBUNIT: {
-				Subunit subunit = (Subunit)theEObject;
-				T result = caseSubunit(subunit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,17 +125,17 @@ public class CompanySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dept</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Department</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dept</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Department</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDept(Dept object) {
+	public T caseDepartment(Department object) {
 		return null;
 	}
 
@@ -163,36 +151,6 @@ public class CompanySwitch<T> {
 	 * @generated
 	 */
 	public T caseEmployee(Employee object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Person</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Person</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePerson(Person object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Subunit</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Subunit</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSubunit(Subunit object) {
 		return null;
 	}
 

@@ -9,10 +9,8 @@ package company.impl;
 import company.Company;
 import company.CompanyFactory;
 import company.CompanyPackage;
-import company.Dept;
+import company.Department;
 import company.Employee;
-import company.Person;
-import company.Subunit;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -40,7 +38,7 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass deptEClass = null;
+	private EClass departmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -48,20 +46,6 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * @generated
 	 */
 	private EClass employeeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass personEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass subunitEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -147,8 +131,8 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDept() {
-		return deptEClass;
+	public EAttribute getCompany_Name() {
+		return (EAttribute)companyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -156,8 +140,8 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDept_Name() {
-		return (EAttribute)deptEClass.getEStructuralFeatures().get(0);
+	public EClass getDepartment() {
+		return departmentEClass;
 	}
 
 	/**
@@ -165,8 +149,8 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDept_Manager() {
-		return (EReference)deptEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDepartment_Name() {
+		return (EAttribute)departmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -174,8 +158,26 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDept_Subunits() {
-		return (EReference)deptEClass.getEStructuralFeatures().get(2);
+	public EReference getDepartment_Manager() {
+		return (EReference)departmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDepartment_Subdepts() {
+		return (EReference)departmentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDepartment_Employees() {
+		return (EReference)departmentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -192,17 +194,8 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEmployee_Person() {
-		return (EReference)employeeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getEmployee_Salary() {
-		return (EAttribute)employeeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)employeeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -211,7 +204,7 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * @generated
 	 */
 	public EReference getEmployee_Mentor() {
-		return (EReference)employeeEClass.getEStructuralFeatures().get(2);
+		return (EReference)employeeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -219,8 +212,8 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPerson() {
-		return personEClass;
+	public EAttribute getEmployee_Name() {
+		return (EAttribute)employeeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -228,44 +221,8 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPerson_Name() {
-		return (EAttribute)personEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPerson_Address() {
-		return (EAttribute)personEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSubunit() {
-		return subunitEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSubunit_Pu() {
-		return (EReference)subunitEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSubunit_Du() {
-		return (EReference)subunitEClass.getEStructuralFeatures().get(1);
+	public EAttribute getEmployee_Address() {
+		return (EAttribute)employeeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -298,24 +255,19 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 		// Create classes and their features
 		companyEClass = createEClass(COMPANY);
 		createEReference(companyEClass, COMPANY__DEPTS);
+		createEAttribute(companyEClass, COMPANY__NAME);
 
-		deptEClass = createEClass(DEPT);
-		createEAttribute(deptEClass, DEPT__NAME);
-		createEReference(deptEClass, DEPT__MANAGER);
-		createEReference(deptEClass, DEPT__SUBUNITS);
+		departmentEClass = createEClass(DEPARTMENT);
+		createEAttribute(departmentEClass, DEPARTMENT__NAME);
+		createEReference(departmentEClass, DEPARTMENT__MANAGER);
+		createEReference(departmentEClass, DEPARTMENT__SUBDEPTS);
+		createEReference(departmentEClass, DEPARTMENT__EMPLOYEES);
 
 		employeeEClass = createEClass(EMPLOYEE);
-		createEReference(employeeEClass, EMPLOYEE__PERSON);
 		createEAttribute(employeeEClass, EMPLOYEE__SALARY);
 		createEReference(employeeEClass, EMPLOYEE__MENTOR);
-
-		personEClass = createEClass(PERSON);
-		createEAttribute(personEClass, PERSON__NAME);
-		createEAttribute(personEClass, PERSON__ADDRESS);
-
-		subunitEClass = createEClass(SUBUNIT);
-		createEReference(subunitEClass, SUBUNIT__PU);
-		createEReference(subunitEClass, SUBUNIT__DU);
+		createEAttribute(employeeEClass, EMPLOYEE__NAME);
+		createEAttribute(employeeEClass, EMPLOYEE__ADDRESS);
 	}
 
 	/**
@@ -349,25 +301,20 @@ public class CompanyPackageImpl extends EPackageImpl implements CompanyPackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(companyEClass, Company.class, "Company", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompany_Depts(), this.getDept(), null, "depts", null, 0, -1, Company.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCompany_Depts(), this.getDepartment(), null, "depts", null, 0, -1, Company.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCompany_Name(), ecorePackage.getEString(), "name", null, 1, 1, Company.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(deptEClass, Dept.class, "Dept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDept_Name(), ecorePackage.getEString(), "name", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDept_Manager(), this.getEmployee(), null, "manager", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDept_Subunits(), this.getSubunit(), null, "subunits", null, 0, -1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(departmentEClass, Department.class, "Department", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDepartment_Name(), ecorePackage.getEString(), "name", null, 1, 1, Department.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDepartment_Manager(), this.getEmployee(), null, "manager", null, 1, 1, Department.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDepartment_Subdepts(), this.getDepartment(), null, "subdepts", null, 0, -1, Department.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDepartment_Employees(), this.getEmployee(), null, "employees", null, 0, -1, Department.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(employeeEClass, Employee.class, "Employee", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEmployee_Person(), this.getPerson(), null, "person", null, 1, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getEmployee_Salary(), ecorePackage.getEDouble(), "salary", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmployee_Salary(), ecorePackage.getEDouble(), "salary", null, 1, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEmployee_Mentor(), this.getEmployee(), null, "mentor", null, 0, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPerson_Name(), ecorePackage.getEString(), "name", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getPerson_Address(), ecorePackage.getEString(), "address", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(subunitEClass, Subunit.class, "Subunit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSubunit_Pu(), this.getEmployee(), null, "pu", null, 0, 1, Subunit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSubunit_Du(), this.getDept(), null, "du", null, 0, 1, Subunit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEmployee_Name(), ecorePackage.getEString(), "name", null, 1, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEmployee_Address(), ecorePackage.getEString(), "address", null, 1, 1, Employee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -6,7 +6,7 @@
  */
 package company.validation;
 
-import company.Dept;
+import company.Department;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -19,5 +19,6 @@ import org.eclipse.emf.common.util.EList;
 public interface CompanyValidator {
 	boolean validate();
 
-	boolean validateDepts(EList<Dept> value);
+	boolean validateDepts(EList<Department> value);
+	boolean validateName(String value);
 }

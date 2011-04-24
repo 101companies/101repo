@@ -8,10 +8,8 @@ package company.impl;
 
 import company.CompanyPackage;
 import company.Employee;
-import company.Person;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -26,25 +24,16 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link company.impl.EmployeeImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link company.impl.EmployeeImpl#getSalary <em>Salary</em>}</li>
  *   <li>{@link company.impl.EmployeeImpl#getMentor <em>Mentor</em>}</li>
+ *   <li>{@link company.impl.EmployeeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link company.impl.EmployeeImpl#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class EmployeeImpl extends EObjectImpl implements Employee {
-	/**
-	 * The cached value of the '{@link #getPerson() <em>Person</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPerson()
-	 * @generated
-	 * @ordered
-	 */
-	protected Person person;
-
 	/**
 	 * The default value of the '{@link #getSalary() <em>Salary</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,6 +65,46 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	protected Employee mentor;
 
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ADDRESS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected String address = ADDRESS_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -92,49 +121,6 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	protected EClass eStaticClass() {
 		return CompanyPackage.Literals.EMPLOYEE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Person getPerson() {
-		return person;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPerson(Person newPerson, NotificationChain msgs) {
-		Person oldPerson = person;
-		person = newPerson;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CompanyPackage.EMPLOYEE__PERSON, oldPerson, newPerson);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPerson(Person newPerson) {
-		if (newPerson != person) {
-			NotificationChain msgs = null;
-			if (person != null)
-				msgs = ((InternalEObject)person).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CompanyPackage.EMPLOYEE__PERSON, null, msgs);
-			if (newPerson != null)
-				msgs = ((InternalEObject)newPerson).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CompanyPackage.EMPLOYEE__PERSON, null, msgs);
-			msgs = basicSetPerson(newPerson, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.EMPLOYEE__PERSON, newPerson, newPerson));
 	}
 
 	/**
@@ -201,13 +187,41 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CompanyPackage.EMPLOYEE__PERSON:
-				return basicSetPerson(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.EMPLOYEE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAddress(String newAddress) {
+		String oldAddress = address;
+		address = newAddress;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.EMPLOYEE__ADDRESS, oldAddress, address));
 	}
 
 	/**
@@ -218,13 +232,15 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CompanyPackage.EMPLOYEE__PERSON:
-				return getPerson();
 			case CompanyPackage.EMPLOYEE__SALARY:
 				return getSalary();
 			case CompanyPackage.EMPLOYEE__MENTOR:
 				if (resolve) return getMentor();
 				return basicGetMentor();
+			case CompanyPackage.EMPLOYEE__NAME:
+				return getName();
+			case CompanyPackage.EMPLOYEE__ADDRESS:
+				return getAddress();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,14 +253,17 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CompanyPackage.EMPLOYEE__PERSON:
-				setPerson((Person)newValue);
-				return;
 			case CompanyPackage.EMPLOYEE__SALARY:
 				setSalary((Double)newValue);
 				return;
 			case CompanyPackage.EMPLOYEE__MENTOR:
 				setMentor((Employee)newValue);
+				return;
+			case CompanyPackage.EMPLOYEE__NAME:
+				setName((String)newValue);
+				return;
+			case CompanyPackage.EMPLOYEE__ADDRESS:
+				setAddress((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -258,14 +277,17 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CompanyPackage.EMPLOYEE__PERSON:
-				setPerson((Person)null);
-				return;
 			case CompanyPackage.EMPLOYEE__SALARY:
 				setSalary(SALARY_EDEFAULT);
 				return;
 			case CompanyPackage.EMPLOYEE__MENTOR:
 				setMentor((Employee)null);
+				return;
+			case CompanyPackage.EMPLOYEE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case CompanyPackage.EMPLOYEE__ADDRESS:
+				setAddress(ADDRESS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -279,12 +301,14 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CompanyPackage.EMPLOYEE__PERSON:
-				return person != null;
 			case CompanyPackage.EMPLOYEE__SALARY:
 				return salary != SALARY_EDEFAULT;
 			case CompanyPackage.EMPLOYEE__MENTOR:
 				return mentor != null;
+			case CompanyPackage.EMPLOYEE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CompanyPackage.EMPLOYEE__ADDRESS:
+				return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -301,6 +325,10 @@ public class EmployeeImpl extends EObjectImpl implements Employee {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (salary: ");
 		result.append(salary);
+		result.append(", name: ");
+		result.append(name);
+		result.append(", address: ");
+		result.append(address);
 		result.append(')');
 		return result.toString();
 	}

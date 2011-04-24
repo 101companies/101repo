@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link company.Company#getDepts <em>Depts</em>}</li>
+ *   <li>{@link company.Company#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Company extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Depts</b></em>' containment reference list.
-	 * The list contents are of type {@link company.Dept}.
+	 * The list contents are of type {@link company.Department}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Depts</em>' containment reference list isn't clear,
@@ -41,6 +42,32 @@ public interface Company extends EObject {
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Dept> getDepts();
+	EList<Department> getDepts();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see company.CompanyPackage#getCompany_Name()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link company.Company#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Company

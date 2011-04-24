@@ -12,23 +12,24 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Dept</b></em>'.
+ * A representation of the model object '<em><b>Department</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link company.Dept#getName <em>Name</em>}</li>
- *   <li>{@link company.Dept#getManager <em>Manager</em>}</li>
- *   <li>{@link company.Dept#getSubunits <em>Subunits</em>}</li>
+ *   <li>{@link company.Department#getName <em>Name</em>}</li>
+ *   <li>{@link company.Department#getManager <em>Manager</em>}</li>
+ *   <li>{@link company.Department#getSubdepts <em>Subdepts</em>}</li>
+ *   <li>{@link company.Department#getEmployees <em>Employees</em>}</li>
  * </ul>
  * </p>
  *
- * @see company.CompanyPackage#getDept()
+ * @see company.CompanyPackage#getDepartment()
  * @model
  * @generated
  */
-public interface Dept extends EObject {
+public interface Department extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -39,14 +40,14 @@ public interface Dept extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see company.CompanyPackage#getDept_Name()
+	 * @see company.CompanyPackage#getDepartment_Name()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link company.Dept#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link company.Department#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -65,14 +66,14 @@ public interface Dept extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Manager</em>' containment reference.
 	 * @see #setManager(Employee)
-	 * @see company.CompanyPackage#getDept_Manager()
+	 * @see company.CompanyPackage#getDepartment_Manager()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	Employee getManager();
 
 	/**
-	 * Sets the value of the '{@link company.Dept#getManager <em>Manager</em>}' containment reference.
+	 * Sets the value of the '{@link company.Department#getManager <em>Manager</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Manager</em>' containment reference.
@@ -82,19 +83,35 @@ public interface Dept extends EObject {
 	void setManager(Employee value);
 
 	/**
-	 * Returns the value of the '<em><b>Subunits</b></em>' containment reference list.
-	 * The list contents are of type {@link company.Subunit}.
+	 * Returns the value of the '<em><b>Subdepts</b></em>' containment reference list.
+	 * The list contents are of type {@link company.Department}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Subunits</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Subdepts</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subunits</em>' containment reference list.
-	 * @see company.CompanyPackage#getDept_Subunits()
+	 * @return the value of the '<em>Subdepts</em>' containment reference list.
+	 * @see company.CompanyPackage#getDepartment_Subdepts()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Subunit> getSubunits();
+	EList<Department> getSubdepts();
 
-} // Dept
+	/**
+	 * Returns the value of the '<em><b>Employees</b></em>' containment reference list.
+	 * The list contents are of type {@link company.Employee}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Employees</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Employees</em>' containment reference list.
+	 * @see company.CompanyPackage#getDepartment_Employees()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<Employee> getEmployees();
+
+} // Department

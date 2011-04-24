@@ -7,9 +7,8 @@
 package company.impl;
 
 import company.CompanyPackage;
-import company.Dept;
+import company.Department;
 import company.Employee;
-import company.Subunit;
 
 import java.util.Collection;
 
@@ -29,20 +28,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dept</b></em>'.
+ * An implementation of the model object '<em><b>Department</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link company.impl.DeptImpl#getName <em>Name</em>}</li>
- *   <li>{@link company.impl.DeptImpl#getManager <em>Manager</em>}</li>
- *   <li>{@link company.impl.DeptImpl#getSubunits <em>Subunits</em>}</li>
+ *   <li>{@link company.impl.DepartmentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link company.impl.DepartmentImpl#getManager <em>Manager</em>}</li>
+ *   <li>{@link company.impl.DepartmentImpl#getSubdepts <em>Subdepts</em>}</li>
+ *   <li>{@link company.impl.DepartmentImpl#getEmployees <em>Employees</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DeptImpl extends EObjectImpl implements Dept {
+public class DepartmentImpl extends EObjectImpl implements Department {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,21 +74,31 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	protected Employee manager;
 
 	/**
-	 * The cached value of the '{@link #getSubunits() <em>Subunits</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubdepts() <em>Subdepts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubunits()
+	 * @see #getSubdepts()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Subunit> subunits;
+	protected EList<Department> subdepts;
+
+	/**
+	 * The cached value of the '{@link #getEmployees() <em>Employees</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmployees()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Employee> employees;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DeptImpl() {
+	protected DepartmentImpl() {
 		super();
 	}
 
@@ -99,7 +109,7 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CompanyPackage.Literals.DEPT;
+		return CompanyPackage.Literals.DEPARTMENT;
 	}
 
 	/**
@@ -120,7 +130,7 @@ public class DeptImpl extends EObjectImpl implements Dept {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.DEPT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.DEPARTMENT__NAME, oldName, name));
 	}
 
 	/**
@@ -141,7 +151,7 @@ public class DeptImpl extends EObjectImpl implements Dept {
 		Employee oldManager = manager;
 		manager = newManager;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CompanyPackage.DEPT__MANAGER, oldManager, newManager);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CompanyPackage.DEPARTMENT__MANAGER, oldManager, newManager);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -156,14 +166,14 @@ public class DeptImpl extends EObjectImpl implements Dept {
 		if (newManager != manager) {
 			NotificationChain msgs = null;
 			if (manager != null)
-				msgs = ((InternalEObject)manager).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CompanyPackage.DEPT__MANAGER, null, msgs);
+				msgs = ((InternalEObject)manager).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CompanyPackage.DEPARTMENT__MANAGER, null, msgs);
 			if (newManager != null)
-				msgs = ((InternalEObject)newManager).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CompanyPackage.DEPT__MANAGER, null, msgs);
+				msgs = ((InternalEObject)newManager).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CompanyPackage.DEPARTMENT__MANAGER, null, msgs);
 			msgs = basicSetManager(newManager, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.DEPT__MANAGER, newManager, newManager));
+			eNotify(new ENotificationImpl(this, Notification.SET, CompanyPackage.DEPARTMENT__MANAGER, newManager, newManager));
 	}
 
 	/**
@@ -171,11 +181,23 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Subunit> getSubunits() {
-		if (subunits == null) {
-			subunits = new EObjectContainmentEList<Subunit>(Subunit.class, this, CompanyPackage.DEPT__SUBUNITS);
+	public EList<Department> getSubdepts() {
+		if (subdepts == null) {
+			subdepts = new EObjectContainmentEList<Department>(Department.class, this, CompanyPackage.DEPARTMENT__SUBDEPTS);
 		}
-		return subunits;
+		return subdepts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Employee> getEmployees() {
+		if (employees == null) {
+			employees = new EObjectContainmentEList<Employee>(Employee.class, this, CompanyPackage.DEPARTMENT__EMPLOYEES);
+		}
+		return employees;
 	}
 
 	/**
@@ -186,10 +208,12 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CompanyPackage.DEPT__MANAGER:
+			case CompanyPackage.DEPARTMENT__MANAGER:
 				return basicSetManager(null, msgs);
-			case CompanyPackage.DEPT__SUBUNITS:
-				return ((InternalEList<?>)getSubunits()).basicRemove(otherEnd, msgs);
+			case CompanyPackage.DEPARTMENT__SUBDEPTS:
+				return ((InternalEList<?>)getSubdepts()).basicRemove(otherEnd, msgs);
+			case CompanyPackage.DEPARTMENT__EMPLOYEES:
+				return ((InternalEList<?>)getEmployees()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,12 +226,14 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CompanyPackage.DEPT__NAME:
+			case CompanyPackage.DEPARTMENT__NAME:
 				return getName();
-			case CompanyPackage.DEPT__MANAGER:
+			case CompanyPackage.DEPARTMENT__MANAGER:
 				return getManager();
-			case CompanyPackage.DEPT__SUBUNITS:
-				return getSubunits();
+			case CompanyPackage.DEPARTMENT__SUBDEPTS:
+				return getSubdepts();
+			case CompanyPackage.DEPARTMENT__EMPLOYEES:
+				return getEmployees();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -221,15 +247,19 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CompanyPackage.DEPT__NAME:
+			case CompanyPackage.DEPARTMENT__NAME:
 				setName((String)newValue);
 				return;
-			case CompanyPackage.DEPT__MANAGER:
+			case CompanyPackage.DEPARTMENT__MANAGER:
 				setManager((Employee)newValue);
 				return;
-			case CompanyPackage.DEPT__SUBUNITS:
-				getSubunits().clear();
-				getSubunits().addAll((Collection<? extends Subunit>)newValue);
+			case CompanyPackage.DEPARTMENT__SUBDEPTS:
+				getSubdepts().clear();
+				getSubdepts().addAll((Collection<? extends Department>)newValue);
+				return;
+			case CompanyPackage.DEPARTMENT__EMPLOYEES:
+				getEmployees().clear();
+				getEmployees().addAll((Collection<? extends Employee>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -243,14 +273,17 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CompanyPackage.DEPT__NAME:
+			case CompanyPackage.DEPARTMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CompanyPackage.DEPT__MANAGER:
+			case CompanyPackage.DEPARTMENT__MANAGER:
 				setManager((Employee)null);
 				return;
-			case CompanyPackage.DEPT__SUBUNITS:
-				getSubunits().clear();
+			case CompanyPackage.DEPARTMENT__SUBDEPTS:
+				getSubdepts().clear();
+				return;
+			case CompanyPackage.DEPARTMENT__EMPLOYEES:
+				getEmployees().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -264,12 +297,14 @@ public class DeptImpl extends EObjectImpl implements Dept {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CompanyPackage.DEPT__NAME:
+			case CompanyPackage.DEPARTMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CompanyPackage.DEPT__MANAGER:
+			case CompanyPackage.DEPARTMENT__MANAGER:
 				return manager != null;
-			case CompanyPackage.DEPT__SUBUNITS:
-				return subunits != null && !subunits.isEmpty();
+			case CompanyPackage.DEPARTMENT__SUBDEPTS:
+				return subdepts != null && !subdepts.isEmpty();
+			case CompanyPackage.DEPARTMENT__EMPLOYEES:
+				return employees != null && !employees.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -290,4 +325,4 @@ public class DeptImpl extends EObjectImpl implements Dept {
 		return result.toString();
 	}
 
-} //DeptImpl
+} //DepartmentImpl

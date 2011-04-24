@@ -76,20 +76,12 @@ public class CompanyAdapterFactory extends AdapterFactoryImpl {
 				return createCompanyAdapter();
 			}
 			@Override
-			public Adapter caseDept(Dept object) {
-				return createDeptAdapter();
+			public Adapter caseDepartment(Department object) {
+				return createDepartmentAdapter();
 			}
 			@Override
 			public Adapter caseEmployee(Employee object) {
 				return createEmployeeAdapter();
-			}
-			@Override
-			public Adapter casePerson(Person object) {
-				return createPersonAdapter();
-			}
-			@Override
-			public Adapter caseSubunit(Subunit object) {
-				return createSubunitAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -126,16 +118,16 @@ public class CompanyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link company.Dept <em>Dept</em>}'.
+	 * Creates a new adapter for an object of class '{@link company.Department <em>Department</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see company.Dept
+	 * @see company.Department
 	 * @generated
 	 */
-	public Adapter createDeptAdapter() {
+	public Adapter createDepartmentAdapter() {
 		return null;
 	}
 
@@ -150,34 +142,6 @@ public class CompanyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEmployeeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link company.Person <em>Person</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see company.Person
-	 * @generated
-	 */
-	public Adapter createPersonAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link company.Subunit <em>Subunit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see company.Subunit
-	 * @generated
-	 */
-	public Adapter createSubunitAdapter() {
 		return null;
 	}
 

@@ -8,24 +8,19 @@
   <genPackages prefix="Company" disposableProviderFactory="true" ecorePackage="Company.ecore#/">
     <genClasses ecoreClass="Company.ecore#//Company">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Company/depts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Company/name"/>
     </genClasses>
-    <genClasses ecoreClass="Company.ecore#//Dept">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Dept/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Dept/manager"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Dept/subunits"/>
+    <genClasses ecoreClass="Company.ecore#//Department">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Department/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Department/manager"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Department/subdepts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Department/employees"/>
     </genClasses>
     <genClasses ecoreClass="Company.ecore#//Employee">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Employee/person"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Employee/salary"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Company.ecore#//Employee/mentor"/>
-    </genClasses>
-    <genClasses ecoreClass="Company.ecore#//Person">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Person/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Person/address"/>
-    </genClasses>
-    <genClasses ecoreClass="Company.ecore#//Subunit">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Subunit/pu"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Company.ecore#//Subunit/du"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Employee/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Company.ecore#//Employee/address"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

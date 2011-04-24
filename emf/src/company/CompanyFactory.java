@@ -35,13 +35,13 @@ public interface CompanyFactory extends EFactory {
 	Company createCompany();
 
 	/**
-	 * Returns a new object of class '<em>Dept</em>'.
+	 * Returns a new object of class '<em>Department</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dept</em>'.
+	 * @return a new object of class '<em>Department</em>'.
 	 * @generated
 	 */
-	Dept createDept();
+	Department createDepartment();
 
 	/**
 	 * Returns a new object of class '<em>Employee</em>'.
@@ -51,24 +51,6 @@ public interface CompanyFactory extends EFactory {
 	 * @generated
 	 */
 	Employee createEmployee();
-
-	/**
-	 * Returns a new object of class '<em>Person</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Person</em>'.
-	 * @generated
-	 */
-	Person createPerson();
-
-	/**
-	 * Returns a new object of class '<em>Subunit</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Subunit</em>'.
-	 * @generated
-	 */
-	Subunit createSubunit();
 
 	/**
 	 * Returns the package supported by this factory.
