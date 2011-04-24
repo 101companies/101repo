@@ -113,7 +113,7 @@ public Company loadCompany(String name) {
 }
 </syntaxhighlight>
 
-That is, an [[Language:HSQL]] query is executed to retrieve a company 
+That is, an [[Language:HQL]] query is executed to retrieve a company 
 that is identified by name; the Hibernate framework takes care of populating
 the company object and all its sub-objects. If the requested company cannot be found,
 then ''null'' is returned.
