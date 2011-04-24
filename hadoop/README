@@ -1,6 +1,6 @@
 == Intent ==
 
-parallel company processing with [[Technology:Hadoop]]
+parallel processing with [[Technology:Hadoop]]
 
 == Languages ==
 
@@ -24,15 +24,27 @@ parallel company processing with [[Technology:Hadoop]]
 
 == Motivation ==
 
-TBD
+Companies are processed in parallel manner with [[Technology:Hadoop]]. To this end, 
+companies, departments, and  employees are represented as [[record]]s of [[file]]s 
+that are stored in a [[:Category:distributed file system]]. Computations on these 
+files are then to be described according to the [[MapReduce]] programming model.
 
 == Illustration ==
+
+Data is primarily stored in files, but records from such files can be presented
+to the MapReduce functionality as objects. For instance, an object type for
+employees is designed as follows:
 
 <syntaxhighlight lang="java">
 class Employee
    implements WritableComparable<Employee> {
 
-   // fields, getters, setters as usual
+	private Text name;
+	private Text address;
+	private DoubleWritable salary;
+	private Text company;
+
+   // getters, setters and omitted
     
    public void readFields(DataInput in)
          throws IOException {
@@ -40,13 +52,20 @@ class Employee
       name.readFields(in);
       address = new Text();
       address.readFields(in);
-      company = new Text();
-      company.readFields(in);
-      salary = new DoubleWritable();
-      salary.readFields(in);
+      ...
    }
 }
 </syntaxhighlight>
+
+That is, there are properties for name, address, and salary---as usual. In
+addition, there is a property for the the company so that the company of each
+employee is immediately known without any traversal or state-based effort. 
+Objects are populated from records on file through a ''readFields'' method
+that is required for any type used on file.
+
+A MapReduce computation consists of a mapper and a reducer. The essence
+of these ingredients are shown below, i.e., the corresponding methods 
+''map'' (extraction) and ''reduce'' (aggregation):
 
 <syntaxhighlight lang="java">
 protected void map(
@@ -68,6 +87,15 @@ protected void reduce(
       context.write(key, new DoubleWritable(total));
 }       
 </syntaxhighlight>
+
+That is, the ''map'' method constructs an intermediate key-value
+pair from each employee such that it pairs up the salary of the
+employee with its company (say, its name) as the key. This choice
+of key implies that the MapReduce framework will correctly group
+together all salaries per company. Hence, the ''reduce'' method
+simply iterates over all salaries and sums the up by a trivial 
+aggregation loop; the company key together with the total of 
+salaries is written to the output file.
 
 == Architecture ==
 

@@ -17,9 +17,8 @@ public class Employee implements WritableComparable<Employee> {
 
 	private Text name;
 	private Text address;
-	//private Company company;
-	private Text company;
 	private DoubleWritable salary;
+	private Text company;
 
 	public Text getName() {
 		return name;
