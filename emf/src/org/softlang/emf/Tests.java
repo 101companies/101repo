@@ -20,11 +20,9 @@ import company.CompanyPackage;
 
 public class Tests {
 
-	public String XMIYEAR2008 = "samples" + File.separatorChar
-			+ "sampleCompany2008.xmi";
+	public String XMIYEAR2008 = "sampleCompany.xmi";
 
-	public String XMLYEAR2009 = "samples" + File.separatorChar
-			+ "sampleCompany2009.xml";
+	public String XMLYEAR2009 = "sampleCompanyCut.xml";
 
 	public ResourceSet resourceSet = new ResourceSetImpl();
 
