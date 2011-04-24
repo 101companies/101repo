@@ -48,19 +48,19 @@ Consider the following sketch of the class for departments:
 
 <syntaxhighlight lang="java">
 public class Department {
-	private Long id;
-	private String name;
-	private Set<Employee> employees;
-	private Set<Department> subdepts;
+  private Long id;
+  private String name;
+  private Set<Employee> employees;
+  private Set<Department> subdepts;
 
-	public Long getId() { ... }
-	private void setId(Long id) { ... }
-	public String getName() { ... }
-	public void setName(String name) { ... }
-	public Set<Employee> getEmployees() { ... }
-	private void setEmployees(Set<Employee> employees) { ... }
-	public Set<Department> getSubdepts() { ... }
-	private void setSubdepts(Set<Department> subdepts) { ... }
+  public Long getId() { ... }
+  private void setId(Long id) { ... }
+  public String getName() { ... }
+  public void setName(String name) { ... }
+  public Set<Employee> getEmployees() { ... }
+  private void setEmployees(Set<Employee> employees) { ... }
+  public Set<Department> getSubdepts() { ... }
+  private void setSubdepts(Set<Department> subdepts) { ... }
 }
 </syntaxhighlight>
 
@@ -68,7 +68,9 @@ Each persistent class must provide a property (i.e., a getter and a setter) for
 an ''id'' that can serve as primary key in the database. Relationships with cardinality 
 one-to-many should be implemented as ''sets'' as opposed to ''lists''.
 Other than that, a persistent class is not much different from a regular
-[[POJO]]-like class. 
+[[POJO]]-like class. (Hibernate uses setters for object population---as opposed
+to direct field access. Hence, there are private setters that would be missing
+from a native object model.)
 
 Consider the mapping file of class ''Department'' to table ''DEPARTMENT'':
 
