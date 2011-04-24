@@ -2,27 +2,22 @@ package org.softlang.emf;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import company.Company;
-import company.CompanyPackage;
+import company.*;
 
 public class Tests {
 
-	public String XMIYEAR2008 = "sampleCompany.xmi";
-
-	public String XMLYEAR2009 = "sampleCompanyCut.xml";
+	public String cutCompany = "sampleCompanyCut.xml";
 
 	public ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -30,21 +25,8 @@ public class Tests {
 
 	@Before
 	public void setUp() throws IOException {
-		resourceSet.getPackageRegistry().put(CompanyPackage.eNS_URI,
-				CompanyPackage.eINSTANCE);
-
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put("xmi", new XMIResourceFactoryImpl());
-
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put("xml", new XMLResourceFactoryImpl());
-
-		// deserialize
-		Resource input = resourceSet.createResource(URI
-				.createFileURI(XMIYEAR2008));
-		input.load(null);
-		company = (Company) input.getContents().get(0);
-
+		company = SampleCompany.getSampleCompany();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 	}
 
 	@Test
@@ -66,7 +48,8 @@ public class Tests {
 	public void serilize() throws IOException {
 		// serialize
 		Resource resource = resourceSet.createResource(URI
-				.createFileURI(XMLYEAR2009));
+				.createFileURI(cutCompany));
+		System.out.println(resource);
 		resource.getContents().add(company);
 		resource.save(null);
 	}

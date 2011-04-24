@@ -9,21 +9,17 @@ import company.*;
 public class Cut {
 
 	public static void cutCompany(Company company) {
-		for (Dept dept : company.getDepts())
+
+		for (Department dept : company.getDepts())
 			cut(dept);
 	}
 
-	private static void cut(Dept dept) {
+	private static void cut(Department dept) {
 		cut(dept.getManager());
-		for (Subunit subunit : dept.getSubunits())
-			cut(subunit);
-	}
-
-	private static void cut(Subunit subunit) {
-		if (subunit.getPu() != null)
-			cut(subunit.getPu());
-		else
-			cut(subunit.getDu());
+		for (Department subdept : dept.getSubdepts())
+			cut(subdept);
+		for (Employee employee : dept.getEmployees())
+			cut(employee);
 	}
 
 	private static void cut(Employee employee) {
