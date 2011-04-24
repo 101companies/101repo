@@ -20,11 +20,12 @@ parsing textual syntax with [[Technology:ANTLR]] in [[Language:Java]]
 A parser for a concrete syntax of companies is provided.
 The parser translates text into company objects.
 To this end, a straightforward object model for companies is used.
+(In fact, the object model is very similar to the one of [[101implementation:javaComposition]].
 The mapping is described by the semantic actions within the ANTLR-based parser description.
 
 == Illustration ==
 
-
+Consider the following grammar fragment in ANTLR notation:
 
 <syntaxhighlight lang="antlr">
 dept :
@@ -34,6 +35,14 @@ dept :
     dept*
   '}';
 </syntaxhighlight>
+
+That is, the concrete syntax of a department is defined to
+start off with the keyword "department", followed by a ''STRING'' for
+the department's name, followed by a manager, which is an employee
+prefixed by the keyword "manager", followed by a sequence of 
+employees, finally, followed by a sequence of sub-departments. The shown
+production needs to evolve once objects should be constructed from the
+parsed input:
 
 <syntaxhighlight lang="antlr">
 dept returns [Department d]:
@@ -52,6 +61,11 @@ dept returns [Department d]:
   '}'
   ;
 </syntaxhighlight>
+
+If all sections encloded in braces were removed from the shown ANTLR fragment, the
+above-mentioned purely context-free grammar would be re-obtained. The first semantic
+action constructs a department object while all subsequent actions affect the new 
+object.
 
 == Architecture ==
 
