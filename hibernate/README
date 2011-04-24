@@ -2,16 +2,11 @@
 
 [[O/R mapping]] with [[Technology:Hibernate]]
 
-== Implementations ==
-
-There is another Hibernate implementation available: [[101implementation:hibernate2]]. The variation is concerned with object model and relational schema details. 
-That is, this project's object model is mapped to a relational schema, which uses backward references, while [[101implementation:hibernate2|hibernate2]]'s schema represents the company structure in a compositional way 
-
 == Languages ==
 
-* [[Language:XML]]
 * [[Language:Java]]
 * [[Language:SQL]]
+* [[Language:XML]]
 
 == Technologies ==
 
@@ -30,7 +25,7 @@ That is, this project's object model is mapped to a relational schema, which use
 * [[101feature:Cut]]
 * [[101feature:Persistence]]
 
-== Motivation == 
+== Motivation ==
 
 An [[object model]] for companies is provided, as well as classes to total and cut salaries.
 This is, we apply a basic style of [[OO programming]]. Instances of the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
@@ -43,12 +38,11 @@ technology. To that end the [[O/R mapping]] is realized by making use of [[Langu
 
 == Architecture ==
 
-Package ''org.softlang.om'' holds the java object model for [[101feature:Company]] and the xml-mapping files.
-''org.softlang.hibernate'' provides functionality to [[101feature:Total]] and [[101feature:Cut]] salaries. 
-This package also hosts ''Init.java'' which tells hibernate to create tables; also test cases (see below) and
-and ''HibernateConnectivity.java'' to easily load and save company objects. This class uses the ''SessionFactory'' provided by ''HibernateUtil.java'' in ''org.softlang.util''.
-The folder ''scripts'' contains sql-scripts to create tables (extracted from the hibernate log), populate data and to drop tables.
-Hibernate configuration files (see below) can be found in the project's root folder.
+Package ''org.softlang.company'' hosts the java object model for [[101feature:Company]] and the O/R-mapping files.
+''org.softlang.features'' provides functionality for [[101feature:Total]] and [[101feature:Cut]] as well as 
+boilerplate code for [[101feature:Persistence]]. The folder ''scripts'' contains SQL-scripts to create tables 
+(extracted from the hibernate log; there is no need to execute these statements), populate the tables (needed
+in the workflow described below). The Hibernate configuration file is located in the root dir.
 
 == Usage ==
 
@@ -60,13 +54,15 @@ Upon checking out the implementation, you are clean.
 
 The "make clean" target in the root dir should bring you back to a clean setup.
 
+However, make sure the HSQL database server is shutdown as you go clean.
+
 === Build the project ===
 
 This is an Eclipse project.
 
 Everything is included.
 
-The project should build within Eclipse without additional efforts.
+The project should built fine within Eclipse without additional efforts.
 
 === Start the HSQL database server ===
 
@@ -91,46 +87,35 @@ The tables are automatically created by trying to query them.
 
 There is JUnit test ''Load'' in package ''org.softlang.tests'' which just does that.
 
-Do ''refresh'' in the database monitor.
+Do ''refresh'' in the database monitor to see all tables in the left panel.
 
-All tables should be now listed in left panel.
+=== Populate tables ===
 
+Suitable INSERT statements for population are to be found in scripts/PopulateTables.sql
 
-'''How and why to start the database monitor:'''
+Open the file and copy and paste its content over to the database monitor, and execute the statements.
 
+You may want to double-check that the tables were populated.
 
+To this end, enter a SQL statement such as "select * from EMPLOYEE;".
 
-* Build the project with Eclipse.
-* Summary of remaining steps:
-** Start the HSQL database server.
-** Run ''org/softlang/hibernate/Init.java'' to create tables.
-** Run the database monitor and populate the tables with scripts/PopulateTables.
-** Patch hibernate.cfg.xml to disable "drop and re-recreate".
-** Run ''org/softlang/hibernate/Tests.java''.
+=== More testing ===
 
-All steps are explained in more detail below.
+Run the JUnit test ''Operations'' in package ''org.softlang.tests''.
 
+The modified state is '''not''' committed; hence, the test can be executed time and again.
 
+Run the JUnit test ''Save'' in package ''org.softlang.tests''.
 
-* If you had performed Main already, you see the tables of the app.
-* Populate these tables:
-** Open scripts/PopulateTables (File -> Open Script)
-** Press "Execute SQL"
+The modified state is committed; the test will only succeed once.
 
+=== Finish off ===
 
-'''How and why to patch ''hibernate.cfg.xml?'' '''
+Go to the database monitor and enter and execute "shutdown;".
 
-You can edit that XML file in Eclipse.
-It is the configuration that is used for Hibernate for persistency.
-Upon the first use the EventManager the database must be initialized.
-Hence it says:
-: <property name="hbm2ddl.auto">create</property>
-Subsequently, we want to keep all data.
-Hence the line should be commented out.
+Quite the database monitor.
 
-'''How to test:'''
-
-* Run ''Tests.java'' in ''org.softlang.hibernate''.
+You may also want to run "make clean" in the root dir to be clean for next time.
 
 == Contributors ==
 
@@ -140,4 +125,4 @@ Hence the line should be commented out.
 == Issues == 
 
 * Efficiency/incrementality of saving changes
-* How to deal with acknowledgements? (See COPYRIGHT file in svn)  
+* How to deal with acknowledgments? (See COPYRIGHT file in svn)  
