@@ -91,7 +91,7 @@ Consider the mapping file of class ''Department'' to table ''DEPARTMENT'':
 </syntaxhighlight>
 
 All properties of the class are associated with the relational schema.
-That is, the ''id' property is directly mapped to a primary key column
+That is, the ''id'' property is directly mapped to a primary key column
 ''ID'' of the ''DEPARTMENT'' table. Also, the ''name'' property is mapped
 to a column of just that name---applying default mapping rules between
 SQL types and Java types. Further, the ''employees'' property is 
