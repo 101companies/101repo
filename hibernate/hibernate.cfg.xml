@@ -11,14 +11,9 @@
 	-->
 <hibernate-configuration>
 
-	<!-- We configure the SessionFactory used in HibernateUtil.java here -->
 	<session-factory>
 
-		<!--
-			Database connection settings. We use HSQLDB on the local machine
-			here, and instead of SQL use an SQL dialect called hsql to talk to
-			it.
-		-->
+		<!-- Database connection settings. -->
 		<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
 		<property name="connection.url">jdbc:hsqldb:hsql://localhost</property>
 		<property name="connection.username">sa</property>

@@ -6,6 +6,8 @@
 
 * [[Language:Java]]
 * [[Language:SQL]]
+* [[Language:HSQLDialect]]
+* [[Language:HSQL]]
 * [[Language:XML]]
 
 == Technologies ==
@@ -27,22 +29,131 @@
 
 == Motivation ==
 
-An [[object model]] for companies is provided, as well as classes to total and cut salaries.
-This is, we apply a basic style of [[OO programming]]. Instances of the company model are [[Persistence|persisted]] by making use of the [[Technology:Hibernate]]
-technology. To that end the [[O/R mapping]] is realized by making use of [[Language:XML]]-mapping files both for departments and employees. 
+[[O/R mapping]] or [[persistence]] within the Java platform are exercised by means 
+of [[Technology:Hibernate]]. The primary data model for companies is a straightforward
+object model for [[POJO]]s. There is a [[Language:XML]]-based mapping file for each class
+to derive a relational schema. To this end, properties and relationships are specified by
+the mapping. It is insightful to compare object model and the mapping-implied relational
+schema. It is also insightful to compare the latter schema with one that was ''natively'' 
+designed from a relational database point of view; see [[101implementation:mySql]]. In 
+particular, the object model and the implied relational schema are essentially "optimized" 
+for downwards traversal of the company structure whereas a native relational schema would
+rather provide foreign keys for upwards navigation (such as navigating from an employee to
+its department or company).
 
 == Illustration ==
 
-<syntaxhighlight lang="xml">
+Consider the following sketch of the class for departments:
+
+<syntaxhighlight lang="java">
+public class Department {
+	private Long id;
+	private String name;
+	private Set<Employee> employees;
+	private Set<Department> subdepts;
+
+	public Long getId() { ... }
+	private void setId(Long id) { ... }
+	public String getName() { ... }
+	public void setName(String name) { ... }
+	public Set<Employee> getEmployees() { ... }
+	private void setEmployees(Set<Employee> employees) { ... }
+	public Set<Department> getSubdepts() { ... }
+	private void setSubdepts(Set<Department> subdepts) { ... }
+}
 </syntaxhighlight>
+
+Each persistent class must provide a property (i.e., a getter and a setter) for
+an ''id'' that can serve as primary key in the database. Relationships with cardinality 
+one-to-many should be implemented as ''sets'' as opposed to ''lists''.
+Other than that, a persistent class is not much different from a regular
+[[POJO]]-like class. 
+
+Consider the mapping file of class ''Department'' to table ''DEPARTMENT'':
+
+<syntaxhighlight lang="xml">
+<hibernate-mapping>
+	<class name="org.softlang.company.Department" table="DEPARTMENT">
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<set name="employees" cascade="all">
+			<key column="DEPT_ID" />
+			<one-to-many class="org.softlang.company.Employee" />
+		</set>
+		<set name="subdepts" cascade="all">
+			<key column="DEPT_ID" />
+			<one-to-many class="org.softlang.company.Department" />
+		</set>
+	</class>
+</hibernate-mapping>
+</syntaxhighlight>
+
+All properties of the class are associated with the relational schema.
+That is, the ''id' property is directly mapped to a primary key column
+''ID'' of the ''DEPARTMENT'' table. Also, the ''name'' property is mapped
+to a column of just that name---applying default mapping rules between
+SQL types and Java types. Further, the ''employees'' property is 
+non-trivially associated with a foreign key ''DEPT_ID'' of the 
+''EMPLOYEE'' table (which is only indirectly identified through the 
+mentioning of the ''Employee'' class; likewise for sub-departments.
+
+Persistent objects are brought back to memory as follows:
+
+<syntaxhighlight lang="java">
+public Company loadCompany(String name) {
+	this.session = getSessionFactory().getCurrentSession();
+	this.session.beginTransaction();
+	List<?> result = this.session.createQuery(
+			"from Company where name = '" + name + "'").list();
+	for (Object o : result)
+		return (Company)o;
+	return null;
+}
+</syntaxhighlight>
+
+That is, an [[Language:HSQL]] query is executed to retrieve a company 
+that is identified by name; the Hibernate framework takes care of populating
+the company object and all its sub-objects. If the requested company cannot be found,
+then ''null'' is returned.
+
+Finally, consider the Hibernate configuration:
+
+<syntaxhighlight lang="xml">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings. -->
+		<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+		<property name="connection.url">jdbc:hsqldb:hsql://localhost</property>
+		<property name="connection.username">sa</property>
+		<property name="connection.password"></property>
+		<!-- Create the database schema, if needed; update otherwise -->
+		<property name="hbm2ddl.auto">update</property>			  			  
+		<!-- This part lists all the mapping files present in the project -->
+		<mapping resource="org/softlang/company/Company.hbm.xml" />
+		<mapping resource="org/softlang/company/Department.hbm.xml" />
+		<mapping resource="org/softlang/company/Employee.hbm.xml" />
+		...
+	</session-factory>
+</hibernate-configuration>
+</syntaxhighlight>
+
+This configuration helps the runtime to connect to the right database, to find
+all mapping files of interest, and to define some essential settings. For instance,
+Hibernate is informed here that the database catalog is to be updated automatically
+(see ''hbm2ddl.auto'' ... ''update'') upon setting a Hibernate session. If the mapping-implied
+tables are not yet defined by the database at hand, then they will be automatically created.
 
 == Architecture ==
 
-Package ''org.softlang.company'' hosts the java object model for [[101feature:Company]] and the O/R-mapping files.
-''org.softlang.features'' provides functionality for [[101feature:Total]] and [[101feature:Cut]] as well as 
-boilerplate code for [[101feature:Persistence]]. The folder ''scripts'' contains SQL-scripts to create tables 
-(extracted from the hibernate log; there is no need to execute these statements), populate the tables (needed
-in the workflow described below). The Hibernate configuration file is located in the root dir.
+Package ''org.softlang.company'' hosts the java object model for [[101feature:Company]]
+and the O/R-mapping files. Package ''org.softlang.features'' provides functionality for 
+[[101feature:Total]] and [[101feature:Cut]] as well as boilerplate code for 
+[[101feature:Persistence]]. The folder ''scripts'' contains SQL-scripts to create tables
+(extracted from the hibernate log; there is no need to execute these statements), and to 
+populate the tables (needed in the workflow described below). The Hibernate configuration 
+file is located in the root dir. The HSQLDB database files are located in the data dir.
 
 == Usage ==
 
@@ -117,13 +228,21 @@ Quite the database monitor.
 
 You may also want to run "make clean" in the root dir to be clean for next time.
 
+== Issues == 
+
+* Efficiency/incrementality of loading objects and saving changes
+
 == Contributors ==
 
+* {{101contributor|Jürgen Starek|assistant}}
 * {{101contributor|Thomas Schmorleiz|developer}}
 * {{101contributor|Ralf Lämmel|developer}}
 * {{101contributor|Andrei Varanovich|reviewer}}
 
-== Issues == 
+== Acknowledgments ==
 
-* Efficiency/incrementality of saving changes
-* How to deal with acknowledgments? (See COPYRIGHT file in svn)  
+This implementation has consulted and adopted material from several sources.
+
+* https://sourceforge.net/projects/developers/
+* The Hibernate Tutorial by Red Hat Middleware LLC: http://www.hibernate.org/hib_docs/v3/reference/en/html/tutorial.html
+* Christian Bauer, Gavin King: Java Persistence with Hibernate. Manning Publications, 2006

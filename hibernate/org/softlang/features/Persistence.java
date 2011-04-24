@@ -13,7 +13,10 @@ public class Persistence {
     static {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
-            sessionFactory = new Configuration().configure().buildSessionFactory();
+            sessionFactory = 
+            	new Configuration().
+            	configure().
+            	buildSessionFactory();
         } catch (Throwable ex) {
             // Make sure you log the exception, as it might be swallowed
             System.err.println("Initial SessionFactory creation failed." + ex);
@@ -40,19 +43,13 @@ public class Persistence {
 	 * Create a fresh company object otherwise.
 	 */
 	public Company loadCompany(String name) {
-		this.session =
-			new Configuration().
-			configure().
-			buildSessionFactory().
-			getCurrentSession();
+		this.session = getSessionFactory().getCurrentSession();
 		this.session.beginTransaction();
 		List<?> result = this.session.createQuery(
 				"from Company where name = '" + name + "'").list();
 		for (Object o : result)
 			return (Company)o;
-		Company c = new Company();
-		c.setName(name);
-		return c;
+		return null;
 	}
 
 	public void saveCompany(Company company) {
