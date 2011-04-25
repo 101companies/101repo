@@ -16,6 +16,8 @@ If you use ''Eclipse Modeling Tools'', then you have everything you need.
 
 If you use a different Eclipse Download, you may need to add the EMF plugin.
 
+Update-Site: http://download.eclipse.org/modeling/emf/updates/releases/
+
 == Features ==
 
 * [[101feature:Company]]
@@ -157,23 +159,10 @@ This will generate several files and folders:
 
 == Usage ==
 
-We make use of the EMF Plugin.
-Update-Site: http://download.eclipse.org/modeling/emf/updates/releases/
-
-* Create a EMF Generator Model
-** Right-click on the Company.ecore file.
-** Select "New -> Other -> Eclipse Modeling Framework -> EMF Generator Model". Click "Next". Click "Next".
-** Click "Browse Workspace ..." and select the Company.ecore file in emf/model. Click "Next".
-** Click "Finish".
-
-* Generate the model code.
-** Open the new Company.genmodel file.
-** Right-click on "Company" and choose "Generate Model Code"
-
-* Run Tests.java in ''org.softlang.emf''
-  
-Make sure to add package "org.eclipse.emf.ecore.xmi.impl" to the plugin dependencies 
-if you want to save or use the XMLResourceFactoryImpl or XMIResourceFactoryImpl or other types from the package.
+* The implementation is provided as an Eclipse project.
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available in package ''org.softlang.tests''.
+* If you change the Ecore or generator models, you may need to rerun some EMF tools; see the transcript above.
 
 == Issues ==
 
