@@ -10,12 +10,10 @@
 
 == Technologies ==
 
-* [[Technology:JAXB]]: XML data binding technology
-* [[Technology:xjc]]: XML Schema-to-class compilation (part of JAXB)
-* [[Technology:JDK]]: provider of javac, xjc, et al.
-* [[Technology:JSE]]: execution platform (Version 1.6)
-* [[Technology:JUnit]]: automated testing support (Version 4)
-* [[Technology:Eclipse]]: optional IDE (Version 3.6)
+* [[Technology:JAXB]]
+* [[Technology:xjc]] (part of JAXB)
+* [[Technology:make]] (optional)
+* [[Javaclipse]]
 
 == Features ==
 
