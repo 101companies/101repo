@@ -1,3 +1,22 @@
+== Intent ==
+
+Database programming with [[Technology:JDBC]]
+
+== Status ==
+
+[[101status:Broken]]: the underlying database has grossly changed.
+
+== Languages ==
+
+* [[Language:SQL]]
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:JDBC]]
+* [[Technology:MySQL]]
+* [[101profile:Simple Java]]
+
 This is a sophistication of project "jdbc".
 Please make sure you understand "jdbc" first.
 Both projects also rely on project "sql"; see README in project "jdbc".
@@ -29,4 +48,4 @@ Prerequisites (very much like in project "jdbc"):
 == Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}
-* {{101contributor|Ralf Lämmel|reviewer}}  
+* {{101contributor|Ralf Lämmel|reviewer}}
