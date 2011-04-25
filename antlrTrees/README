@@ -19,13 +19,13 @@ The ANTLR-based specification constructs trees according to ANTLR's generic tree
 
 == Technologies ==
 
-* [[Javaclipse]]
 * [[Technology:ANTLR]]
+* [[Javaclipse]]
 * [[Technology:make]]
 
 == Usage ==
 
-See [[101implementation:antlr]] for general instructions on the usage of ANTLR-based implementations.
+See [[101implementation:antlrAcceptor]] for general instructions on the usage of ANTLR-based implementations.
 
 == Contributors ==
 
