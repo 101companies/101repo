@@ -89,6 +89,26 @@ Company c = (Company)xmiResource.getContents().get(0);
 
 == Architecture ==
 
+=== Transcript ===
+
+Creation and evolution of an EMF project with support for serialization is not straightfoward.
+
+The following transcript is document the essential steps and constraints.
+
+==== Create EMF project ====
+
+-> New -> Empty EMF project ...
+
+==== Create Ecore model ====
+
+-> New -> Ecore model 
+
+Choose the "model" folder of the EMF project.
+
+Adjust name of model (default My.ecore) if needed.
+
+
+
 ''company.*'' contains the generated model code for companies. In ''org.softlang.util'' we define functionality to 
 [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. This package also hosts ''Tests.java'' for testing purposes as well as 
 ''SampleCompany.java'', which provides a sample company.
@@ -114,6 +134,10 @@ Update-Site: http://download.eclipse.org/modeling/emf/updates/releases/
   
 Make sure to add package "org.eclipse.emf.ecore.xmi.impl" to the plugin dependencies 
 if you want to save or use the XMLResourceFactoryImpl or XMIResourceFactoryImpl or other types from the package.
+
+== Issues ==
+
+* Use case for EMF somewhat trivial; one should make use of richer API (design patterns).
 
 == Contributors ==
 
