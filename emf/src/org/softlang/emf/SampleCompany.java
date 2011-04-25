@@ -19,10 +19,12 @@ public class SampleCompany {
 		erik.setName("Erik");
 		erik.setAddress("Utrecht");
 		erik.setSalary(12345);
+		erik.setMentor(craig);
 		Employee ralf = factory.createEmployee();
 		ralf.setName("Ralf");
 		ralf.setAddress("Koblenz");
 		ralf.setSalary(1234);
+		ralf.setMentor(erik);
 		Employee ray = factory.createEmployee();
 		ray.setName("Ray");
 		ray.setAddress("Redmond");
@@ -31,14 +33,17 @@ public class SampleCompany {
 		klaus.setName("Klaus");
 		klaus.setAddress("Boston");
 		klaus.setSalary(23456);
+		klaus.setMentor(ray);
 		Employee karl = factory.createEmployee();
 		karl.setName("Karl");
 		karl.setAddress("Riga");
 		karl.setSalary(2345);
+		karl.setMentor(klaus);
 		Employee joe = factory.createEmployee();
 		joe.setName("Joe");
 		joe.setAddress("Wifi City");
 		joe.setSalary(2344);
+		joe.setMentor(klaus);
 
 		Department research = factory.createDepartment();
 		
