@@ -9,11 +9,8 @@ exercise [[in-memory XML processing]] with [[Technology:JDOM]] in [[Language:Jav
 
 == Technologies ==
 
-* [[Technology:JDOM]]: variation on [[Technology:DOM]] API
-* [[Technology:JDK]]: provider of javac et al.
-* [[Technology:JSE]]: execution platform (Version 1.6)
-* [[Technology:JUnit]]: automated testing support (Version 4)
-* [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
+* [[Technology:JDOM]]
+* [[Javaclipse]]
 
 == Features ==
 
@@ -31,7 +28,7 @@ Validity is not checked or otherwise implied.
 
 == Motivation ==
 
-See [[implementation101:dom]] for a general motivation for exercising
+See [[101implementation:dom]] for a general motivation for exercising
 [[in-memory XML processing]]. The present implementation simply exercises
 yet another DOM-like API.
 
