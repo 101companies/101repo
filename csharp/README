@@ -24,8 +24,8 @@ a simple implementation in [[Language:CSharp|C#]] for the [[Technology:.NET]] Fr
 == Motivation == 
 
 Basic style of [[OO programming]] is exercised. The C# type system is
-used to create an in-memory representation, in fact, an [[object
-model]] for companies, departments, and employees. There is also an
+used to create an in-memory representation, in fact, an [[object model]] 
+for companies, departments, and employees. There is also an
 extra base class for persons from which employees are derived, thereby
 illustrating [[class inheritance]]. Operations on companies are
 implemented as [[Category:instance method]]s. XML-based
