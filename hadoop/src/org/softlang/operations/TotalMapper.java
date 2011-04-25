@@ -53,20 +53,24 @@ public class TotalMapper {
 	}
 	
 	/**
-	 * Mapper that reads Company objects and writes all Employee's salary for the queried Company.
+	 * Mapper that reads Company objects and writes all Employee's salary for the
+	 * queried Company.
 	 */
-	public static class CompanyMapper extends Mapper<Text, Employee, Text, DoubleWritable>{
+	public static class CompanyMapper extends
+			Mapper<Text, Employee, Text, DoubleWritable> {
 		private static String name;
 		private static boolean allValues;
-		
-		protected void setup(Context context) throws IOException, InterruptedException {
+
+		protected void setup(Context context) throws IOException,
+				InterruptedException {
 			name = context.getConfiguration().get(Total.QUERIED_NAME);
-			if(name.equals(Total.ALL))
+			if (name.equals(Total.ALL))
 				allValues = true;
 		}
-		
-		protected void map(Text key, Employee value, Context context) throws IOException, InterruptedException {
-			if(allValues || value.getCompany().toString().equals(name))
+
+		protected void map(Text key, Employee value, Context context)
+				throws IOException, InterruptedException {
+			if (allValues || value.getCompany().toString().equals(name))
 				context.write(value.getCompany(), value.getSalary());
 		}
 	}

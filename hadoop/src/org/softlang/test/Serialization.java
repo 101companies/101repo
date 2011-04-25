@@ -14,20 +14,19 @@ import org.softlang.company.Department;
 import org.softlang.company.Employee;
 
 /**
- * We do a round-trip test for de-/serialization.
- * That is, first, we create an object in memory.
- * Then, we write (say, serialize) the object.
- * Then, we read (say, de-serialize) the object.
- * Finally, we compare original and read object for structural equality.
+ * We do a round-trip test for de-/serialization. That is, first, we create an
+ * object in memory. Then, we write (say, serialize) the object. Then, we read
+ * (say, de-serialize) the object. Finally, we compare original and read object
+ * for structural equality.
  */
 public class Serialization {
 
 	public static Company createCompany() {
-		
+
 		// Create company
 		Company company = new Company();
 		company.setName("meganalysis");
-		
+
 		// Create all employees
 		Employee craig = new Employee();
 		craig.setName("Craig");
@@ -42,7 +41,7 @@ public class Serialization {
 		Employee ralf = new Employee();
 		ralf.setName("Ralf");
 		ralf.setAddress("Koblenz");
-		ralf.setSalary(1234);		
+		ralf.setSalary(1234);
 		ralf.setCompany(company.getName());
 		Employee ray = new Employee();
 		ray.setName("Ray");
@@ -62,7 +61,7 @@ public class Serialization {
 		Employee joe = new Employee();
 		joe.setName("Joe");
 		joe.setAddress("Wifi City");
-		joe.setSalary(2344);	
+		joe.setSalary(2344);
 		joe.setCompany(company.getName());
 
 		// Create research department
@@ -95,17 +94,14 @@ public class Serialization {
 		return company;
 	}
 
-
 	@Test
 	public void testLoadAndCreate() {
-		Company sampleCompany = createCompany(); 
+		Company sampleCompany = createCompany();
 		sampleCompany.writeObject("sampleCompany");
 		Company loadedCompany = Company.readObject("sampleCompany");
 		assertTrue(structurallyEqual(sampleCompany, loadedCompany));
 	}
-	
-	
-	
+
 	public static boolean structurallyEqual(Object o1, Object o2) {
 
 		try {
@@ -122,8 +118,7 @@ public class Serialization {
 						f2[i].setAccessible(true);
 
 						// check if fields are primitive types and compare
-						if ((f1[i].getType().isPrimitive() && f2[i].getType()
-								.isPrimitive())) {
+						if ((f1[i].getType().isPrimitive() && f2[i].getType().isPrimitive())) {
 							if (!(f1[i].getName().equals(f2[i].getName())))
 								return false;
 							else {
@@ -136,19 +131,13 @@ public class Serialization {
 							// to be equal, both can not be null
 							if (f1[i].get(o1) != null && f2[i].get(o2) != null) {
 								// check, if they are of the same class
-								if (f1[i]
-										.get(o1)
-										.getClass()
-										.getName()
-										.equals(f2[i].get(o2).getClass()
-												.getName())) {
+								if (f1[i].get(o1).getClass().getName()
+										.equals(f2[i].get(o2).getClass().getName())) {
 									// check if the class is Double,Integer or
 									// String
-									if (check(f1[i].get(o1).getClass()
-											.getName())) {
+									if (check(f1[i].get(o1).getClass().getName())) {
 										// compare values
-										if (!(f1[i].get(o1).equals(f2[i]
-												.get(o2)))) {
+										if (!(f1[i].get(o1).equals(f2[i].get(o2)))) {
 											return false;
 										}
 									} else {
@@ -157,22 +146,21 @@ public class Serialization {
 										// list
 										if (f1[i].get(o1).getClass().getName()
 												.equals("java.util.LinkedList")) {
-											if (!(handleLinkedList(f1[i],
-													o1, f2[i], o2))) {
+											if (!(handleLinkedList(f1[i], o1, f2[i], o2))) {
 												return false;
 											}
 										} else {
 											List<Class> interfaces = new ArrayList();
 											interfaces.add(f1[i].get(o1).getClass());
 											interfaces = getSuperInterfaces(interfaces);
-											if(interfaces.contains(Comparable.class)){
-												//make use of WritableComparable's compare-method
-												return ((Comparable)f1[i].get(o1)).compareTo((Comparable)f2[i].get(o2)) == 0;
-											}else{
+											if (interfaces.contains(Comparable.class)) {
+												// make use of WritableComparable's compare-method
+												return ((Comparable) f1[i].get(o1))
+														.compareTo((Comparable) f2[i].get(o2)) == 0;
+											} else {
 												// otherwise, compare the objects
-												structurallyEqual(f1[i].get(o1),
-													f2[i].get(o2));
-											}	
+												structurallyEqual(f1[i].get(o1), f2[i].get(o2));
+											}
 										}
 									}
 								} else {
@@ -182,12 +170,10 @@ public class Serialization {
 								// if one of them is null, the objects can not
 								// be
 								// equal
-								if (f1[i].get(o1) == null
-										&& f2[i].get(o2) != null) {
+								if (f1[i].get(o1) == null && f2[i].get(o2) != null) {
 									return false;
 								}
-								if (f1[i].get(o1) != null
-										&& f2[i].get(o2) == null) {
+								if (f1[i].get(o1) != null && f2[i].get(o2) == null) {
 									return false;
 								}
 							}
@@ -212,7 +198,8 @@ public class Serialization {
 
 	}
 
-	private static boolean handleLinkedList(Field f1, Object o1, Field f2, Object o2) {
+	private static boolean handleLinkedList(Field f1, Object o1, Field f2,
+			Object o2) {
 		try {
 			LinkedList<?> l1 = (LinkedList<?>) f1.get(o1);
 			LinkedList<?> l2 = (LinkedList<?>) f2.get(o2);
@@ -228,18 +215,18 @@ public class Serialization {
 			e.printStackTrace();
 		}
 		return true;
-	}	
-	
-	 public static List<Class> getSuperInterfaces(List<Class> childInterfaces) {
+	}
 
-	        List<Class> allInterfaces = new ArrayList<Class>();
+	public static List<Class> getSuperInterfaces(List<Class> childInterfaces) {
 
-	        for (int i = 0; i < childInterfaces.size(); i++) {
-	            allInterfaces.add(childInterfaces.get(i));
-	            allInterfaces.addAll(
-	                    getSuperInterfaces(Arrays.asList(childInterfaces.get(i).getInterfaces())));
-	        }
+		List<Class> allInterfaces = new ArrayList<Class>();
 
-	        return allInterfaces;
-	  }
+		for (int i = 0; i < childInterfaces.size(); i++) {
+			allInterfaces.add(childInterfaces.get(i));
+			allInterfaces.addAll(getSuperInterfaces(Arrays.asList(childInterfaces
+					.get(i).getInterfaces())));
+		}
+
+		return allInterfaces;
+	}
 }

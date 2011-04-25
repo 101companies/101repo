@@ -17,59 +17,79 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
+import org.softlang.company.Company;
 import org.softlang.company.Department;
 import org.softlang.company.Employee;
 import org.softlang.operations.Total.TotalReducer;
 
-public class Cut extends Configured {
+public class SimplerCut extends Configured {
 
-	public static final Log LOG = LogFactory.getLog(Cut.class);
+	public static final Log LOG = LogFactory.getLog(SimplerCut.class);
 
-	private static Class<? extends WritableComparable<?>> getOutputFormat(
-			Class<? extends Mapper> mapperClass) {
-		if (mapperClass.equals(CutMapper.DepartmentMapper.class)) {
-			return Department.class;
-		} else {
-			return Employee.class;
+	/**
+	 * Cuts the salary for each {@link Employee} in a {@link Department}.
+	 * Recursively called for each sub-department.
+	 * 
+	 * @param dept
+	 */
+	private static void cutDept(Department dept) {
+		cutEmpl(dept.getManager());
+		for (Employee e : dept.getEmployees()) {
+			cutEmpl(e);
+		}
+		for (Department subDept : dept.getSubdepts()) {
+			cutDept(subDept);
 		}
 	}
 
-	public static Job createJob(Class<? extends Mapper> mapperClass, String name,
-			String in, String out) throws IOException {
-		Configuration conf = new Configuration();
-		conf.set(Total.QUERIED_NAME, name);
-		Job job = Job.getInstance(new Cluster(conf), conf);
-		job.setJarByClass(Cut.class);
+	/**
+	 * Cuts the salary of this {@link Employee}.
+	 * 
+	 * @param e
+	 */
+	private static void cutEmpl(Employee e) {
+		e.setSalary(e.getSalary().get() / 2);
+	}
 
-		Class<? extends WritableComparable<?>> outputFormat = getOutputFormat(mapperClass);
+	/**
+	 * Mapper that reads Company objects and writes all Employee's salary for the
+	 * queried Company.
+	 */
+	public static class CutMapper extends Mapper<Text, Company, Text, Company> {
+		protected void map(Text key, Company value, Context context)
+				throws IOException, InterruptedException {
+			for (Department d : value.getDepts()) {
+				cutDept(d);
+			}
+			context.write(key, value);
+		}
+	}
+
+	public static Job createJob(String in, String out) throws IOException {
+		Configuration conf = new Configuration();
+		Job job = Job.getInstance(new Cluster(conf), conf);
+		job.setJarByClass(SimplerCut.class);
 
 		// in
-		if (!in.endsWith("/"))
-			in = in.concat("/");
-		if (mapperClass.equals(Department.class))
-			in = in.concat("departments");
-		else
-			in = in.concat("employees");
 		SequenceFileInputFormat.addInputPath(job, new Path(in));
 		job.setInputFormatClass(SequenceFileInputFormat.class);
 
 		// map
-		job.setMapperClass(mapperClass);
+		job.setMapperClass(CutMapper.class);
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(outputFormat);
+		job.setMapOutputValueClass(Company.class);
 
 		// out
 		SequenceFileOutputFormat.setOutputPath(job, new Path(out + "/tmp"));
 		job.setOutputFormatClass(SequenceFileOutputFormat.class);
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(outputFormat);
+		job.setOutputValueClass(Company.class);
 
 		return job;
 	}
 
-	public void cut(Class<? extends Mapper> mapperClass, String name, String in,
-			String out) throws Exception {
-		Job job = createJob(mapperClass, name, in, out);
+	public void cut(String in, String out) throws Exception {
+		Job job = createJob(in, out);
 		job.setNumReduceTasks(0);
 		boolean success = job.waitForCompletion(true);
 
@@ -86,9 +106,7 @@ public class Cut extends Configured {
 	}
 
 	public static void printUsage() {
-		System.out.println("Usage: Cut <in> [employee <name>]");
-		System.out.println("Usage: Cut <in> [department <name>]");
-		System.out.println("Usage: Cut <in> [company <name>]");
+		System.out.println("Usage: Cut <in>");
 		return;
 	}
 
@@ -99,21 +117,13 @@ public class Cut extends Configured {
 		}
 		String in = args[0];
 		String out = args[0];
-		Cut c = new Cut();
+		SimplerCut c = new SimplerCut();
 
 		String name = Total.ALL;
 		if (args.length > 3)
 			name = args[3];
 
-		if (args[2].equals("employee")) {
-			c.cut(CutMapper.EmployeeMapper.class, name, in, out);
-		} else if (args[2].equals("department")) {
-			c.cut(CutMapper.DepartmentMapper.class, name, in, out);
-		} else if (args[2].equals("company")) {
-			c.cut(CutMapper.CompanyMapper.class, name, in, out);
-		} else {
-			printUsage();
-		}
+		c.cut(in, out);
 
 	}
 
