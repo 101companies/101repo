@@ -27,7 +27,7 @@ or ''plain'' Java based on the schema-derived API.
 * [[Technology:JGraLab]]: Java-based support for the TGraph technical space
 * [[Technology:GReTL]]: the implementation of [[Language:GReTL]]
 * [[Technology:GraphViz]]
-* [[101profile:More Java]]
+* [[101profile:Java CLI]]
 
 == Features ==
 
