@@ -19,12 +19,11 @@ None
 == Technologies ==
 
 * [[Technology:ANTLR]]
-* [[Javaclipse]]
-* [[Technology:make]]
+* [[101profile:Simple Java]]
 
 == Usage ==
 
-See [[101implementation:antlr]] for general instructions on the usage of ANTLR-based implementations.
+See [[101implementation:antlrAcceptor]] for general instructions on the usage of ANTLR-based implementations.
 
 == Contributors ==
 
