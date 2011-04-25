@@ -19,7 +19,7 @@ We use ANTLR to execute that syntax in an acceptor-like manner.
 == Technologies ==
 
 * [[Technology:ANTLR]]
-* [[101profile:More Java]]
+* [[101profile:Java CLI]]
 
 == Usage ==
 
