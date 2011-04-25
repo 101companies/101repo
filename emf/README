@@ -89,31 +89,67 @@ Company c = (Company)xmiResource.getContents().get(0);
 
 == Architecture ==
 
+=== Summary ===
+
+File ''model/Company.ecore'' is the Ecode model of companies. File ''model/Company.genmodel'' is the EMF generator model which has been derived from the Ecore model; see below. Files ''model/Company*.xsd'' are XML schemas for XML instances of the Ecore model; they were derived with the Export functionality from the generator model; see below. Package ''company'' and subpackages contain the model code for companies. Most of this code has been generated from the generator model (see below) but the generated code has been enriched with instance methods for [[101feature:Total]] and [[101feature:Cut]]. (We leverage the EMF convention that all generated members are marked by @generated whereas the manually injected members do not carry such markers. In this manner the model code can be regenerated without overriding manually injected members.) Package ''org.softlang.features.Serialization'' contains boilerplate code for serialization. Package ''org.softlang.tests'' contains JUnit tests for operations on companies and serialization.
+
 === Transcript ===
 
 Creation and evolution of an EMF project with support for serialization is not straightfoward.
 
-The following transcript is document the essential steps and constraints.
+The following transcript documents the essential steps and constraints.
 
-==== Create EMF project ====
+==== Create EMF Project ====
 
--> New -> Empty EMF project ...
+* -> New -> Empty EMF Project ...
 
-==== Create Ecore model ====
+==== Create Ecore Model ====
 
--> New -> Ecore model 
+* -> New -> Ecore Model 
+* Choose the "model" folder of the EMF project.
+* Adjust name of model (default My.ecore) if needed.
+* Now it is time to work out the Ecore model.
+* One needs to define name of the package, namespace URI, and prefix.
 
-Choose the "model" folder of the EMF project.
+A minimal example follows:
 
-Adjust name of model (default My.ecore) if needed.
+<syntaxhighlight lang="xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="foo"
+    nsURI="www.foo.com" nsPrefix="bar">
+  <eClassifiers xsi:type="ecore:EClass" name="xyz"/>
+</ecore:EPackage>
+</syntaxhighlight>
 
+==== Create EMF Generator Model ====
 
+* Select the Ecore model in the package explorer.
+* -> New -> Generator model 
+* Choose the "model" folder of the EMF project.
+* When asked for a Model Importer, choose Ecore Model.
+* When asked for Model URIs, '''you must Browse Workspace, and select the Ecore file'''.
 
-''company.*'' contains the generated model code for companies. In ''org.softlang.util'' we define functionality to 
-[[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. This package also hosts ''Tests.java'' for testing purposes as well as 
-''SampleCompany.java'', which provides a sample company.
-The ''model'' folder contains the actual ecore model for companies.
-With the ''ecore-xmi-2.2.3'' jar we get an XMLResourceFactory to serilize companies to xml.
+==== Generate Model Code ====
+
+* Open the generator model.
+* Right click on it in the opened view.
+* -> Generate Model Code
+
+This will generate several files and folders:
+* build.properties
+* plugin.properties
+* plugin.xml
+* src/<your-ecore-name>
+* src/<your-ecore-name/impl>
+* src/<your-ecore-name/util>
+
+==== Enable XMI/XML resources ====
+
+* Open ''plugin.xml'' with ''plug-in manifest editor''.
+* Select ''Dependencies'' tab.
+* Add ''org.eclipse.emf.ecore.xmi.impl'' to ''imported packages''.
 
 == Usage ==
 
