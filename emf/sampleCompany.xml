@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<com:Company xmlns:com="http://www.company.com" name="meganalysis">
+  <depts name="Research">
+    <manager name="Craig" address="Redmond" salary="123456.0"/>
+    <employees name="Erik" address="Utrecht" salary="12345.0" mentor="//@depts.0/@manager"/>
+    <employees name="Ralf" address="Koblenz" salary="1234.0" mentor="//@depts.0/@employees.0"/>
+  </depts>
+  <depts name="Development">
+    <manager name="Ray" address="Redmond" salary="234567.0"/>
+    <subdepts name="Dev1">
+      <manager name="Klaus" address="Boston" salary="23456.0" mentor="//@depts.1/@manager"/>
+      <subdepts name="Dev1.1">
+        <manager name="Karl" address="Riga" salary="2345.0" mentor="//@depts.1/@subdepts.0/@manager"/>
+      </subdepts>
+      <employees name="Joe" address="Wifi City" salary="2344.0" mentor="//@depts.1/@subdepts.0/@manager"/>
+    </subdepts>
+  </depts>
+</com:Company>

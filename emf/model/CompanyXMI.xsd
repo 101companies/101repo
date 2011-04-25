@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:com="http://www.company.com" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.company.com">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="Company">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="depts" type="com:Department"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="Company" type="com:Company"/>
+  <xsd:complexType name="Department">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="manager" type="com:Employee"/>
+      <xsd:element name="subdepts" type="com:Department"/>
+      <xsd:element name="employees" type="com:Employee"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="Department" type="com:Department"/>
+  <xsd:complexType name="Employee">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="mentor" type="com:Employee"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="address" type="xsd:string" use="required"/>
+    <xsd:attribute name="salary" type="xsd:double" use="required"/>
+    <xsd:attribute name="mentor" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Employee" type="com:Employee"/>
+</xsd:schema>

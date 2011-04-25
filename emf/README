@@ -1,0 +1,105 @@
+== Intent ==
+
+[[M/O mapping]] with [[Technology:EMF]]
+
+== Languages ==
+
+* [[Language:Ecore]]
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:EMF]]
+* [[Technology:Eclipse]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Mentoring]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+M/O mapping within the Java platform is exercised. The primary data model
+for companies is an Ecore model from which an object model for "Model Code"
+in EMF's sense is derived. The classes of the Ecore-derived object model are
+somewhat richer than [[POJO]], but their core properties and relationships
+are similar to a regular OO design; see [[101implementation:javaComposition]].
+Also, typical operations on companies can be implemented
+in a straightforward manner. EMF provides a capability for adapting 
+generated classes without losing changes upon re-generation. This 
+capability is not leveraged, but instead the operations are implemented
+by static methods. The Ecore model is interesting in so far that it
+clearly demonstrates the difference between [[Containment relationship|containment]]
+vs. [[reference relationship]]s. In particular, the association of mentees and mentores
+requires a reference.
+
+== Illustration ==
+
+<syntaxhighlight lang="xml">
+<eClassifiers xsi:type="ecore:EClass" name="Company">
+  <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"
+    ordered="false" lowerBound="1"
+    eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eStructuralFeatures xsi:type="ecore:EReference" name="depts"
+    ordered="false" upperBound="-1" 
+    eType="#//Department" containment="true"/>
+</eClassifiers>
+</syntaxhighlight>
+
+<syntaxhighlight lang="java">
+EPackage.
+  Registry.
+  INSTANCE.
+  put(CompanyPackage.eNS_URI, CompanyPackage.eINSTANCE);
+</syntaxhighlight>
+
+<syntaxhighlight lang="java">
+ResourceSet resourceSet = new ResourceSetImpl();
+resourceSet.
+  getResourceFactoryRegistry().
+  getExtensionToFactoryMap().
+  put("xmi", new XMIResourceFactoryImpl());
+Resource xmiResource = 
+  resourceSet.
+  createResource(URI.createFileURI("sampleCompany.xmi"));
+xmiResource.load(null);
+Company c = (Company)xmiResource.getContents().get(0);
+</syntaxhighlight>
+
+== Architecture ==
+
+''company.*'' contains the generated model code for companies. In ''org.softlang.util'' we define functionality to 
+[[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. This package also hosts ''Tests.java'' for testing purposes as well as 
+''SampleCompany.java'', which provides a sample company.
+The ''model'' folder contains the actual ecore model for companies.
+With the ''ecore-xmi-2.2.3'' jar we get an XMLResourceFactory to serilize companies to xml.
+
+== Usage ==
+
+We make use of the EMF Plugin.
+Update-Site: http://download.eclipse.org/modeling/emf/updates/releases/
+
+* Create a EMF Generator Model
+** Right-click on the Company.ecore file.
+** Select "New -> Other -> Eclipse Modeling Framework -> EMF Generator Model". Click "Next". Click "Next".
+** Click "Browse Workspace ..." and select the Company.ecore file in emf/model. Click "Next".
+** Click "Finish".
+
+* Generate the model code.
+** Open the new Company.genmodel file.
+** Right-click on "Company" and choose "Generate Model Code"
+
+* Run Tests.java in ''org.softlang.emf''
+  
+  
+Make sure to add package "org.eclipse.emf.ecore.xmi.impl" to the plugin dependencies 
+if you want to save or use the XMLResourceFactoryImpl or XMIResourceFactoryImpl or other types from the package.
+
+  
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|reviewer}}
