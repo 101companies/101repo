@@ -49,7 +49,6 @@ public class Tests {
 		// serialize
 		Resource resource = resourceSet.createResource(URI
 				.createFileURI(cutCompany));
-		System.out.println(resource);
 		resource.getContents().add(company);
 		resource.save(null);
 	}
