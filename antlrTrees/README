@@ -20,7 +20,7 @@ The ANTLR-based specification constructs trees according to ANTLR's generic tree
 == Technologies ==
 
 * [[Technology:ANTLR]]
-* [[101profile:More Java]]
+* [[101profile:Java CLI]]
 
 == Usage ==
 
