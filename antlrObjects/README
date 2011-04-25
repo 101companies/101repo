@@ -14,8 +14,7 @@ parsing textual syntax with [[Technology:ANTLR]] in [[Language:Java]]
 == Technologies ==
 
 * [[Technology:ANTLR]]
-* [[Javaclipse]]
-* [[Technology:make]]
+* [[101profile:Simple Java]]
 
 == Motivation ==
 
