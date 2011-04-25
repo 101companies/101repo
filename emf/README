@@ -33,7 +33,7 @@ I (Ralf) will continue here.
 [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries. This package also hosts ''Tests.java'' for testing purposes as well as 
 ''SampleCompany.java'', which provides a sample company.
 The ''model'' folder contains the actual ecore model for companies.
-With the ''ecore-xmi-2.2.3'' jar we get an XMLResourceFactory serilize companies to xml.
+With the ''ecore-xmi-2.2.3'' jar we get an XMLResourceFactory to serilize companies to xml.
 
 == Usage ==
 
