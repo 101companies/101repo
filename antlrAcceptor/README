@@ -18,7 +18,9 @@ We use ANTLR to execute that syntax in an acceptor-like manner.
 
 == Technologies ==
 
+* [[Javaclipse]]
 * [[Technology:ANTLR]]
+* [[Technology:make]]
 
 == Usage ==
 
