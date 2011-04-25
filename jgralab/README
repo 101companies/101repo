@@ -26,11 +26,9 @@ or ''plain'' Java based on the schema-derived API.
 
 * [[Technology:JGraLab]]: Java-based support for the TGraph technical space
 * [[Technology:GReTL]]: the implementation of [[Language:GReTL]]
-* [[Technology:JDK]]: provider of javac et al.
-* [[Technology:JSE]]: execution platform (Version 1.6)
-* [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
 * [[Technology:Ant]]: for building
 * [[Technology:GraphViz]]: graph visualization
+* [[Javaclipse]]
 
 == Features ==
 
