@@ -28,9 +28,9 @@ in EMF's sense is derived. The classes of the Ecore-derived object model are
 somewhat richer than [[POJO]], but their core properties and relationships
 are similar to a regular OO design (such as the one of
 [[101implementation:javaComposition]]), and typical operations on companies are 
-implemented as [[:Category:instance methods]] on the Ecore-derived classes.
-These instance methods will not be lost if the classes have
-to re-generated because EMF is capable of distinguishing generated versus
+implemented as [[:Category:instance method]]s on the Ecore-derived classes.
+It should be noted that these instance methods will ''not'' be lost when the classes are
+re-generated because EMF is capable of distinguishing generated versus
 authored class members. The Ecore model is interesting in so far that it
 clearly demonstrates the difference between [[Containment relationship|containment]]
 vs. [[reference relationship]]s. In particular, the association of mentees and mentores
