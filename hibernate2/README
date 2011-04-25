@@ -17,13 +17,9 @@ That is, this project's object model is mapped to a relational schema, which rep
 
 == Technologies ==
 
-* [[Technology:Hibernate]]: Hibernate Framework
-* [[Technology:HSQLDB]]: Hibernate [:Category:Database management system|DBMS]
-* [[Technology:javac]]: Java compiler (Version 1.6)
-* [[Technology:JDK]]: provider of javac et al.
-* [[Technology:JSE]]: execution platform (Version 1.6)
-* [[Technology:JUnit]]: automated testing support (Version 4)
-* [[Technology:Eclipse]]: optional IDE (Version 3.4.1)
+* [[Technology:Hibernate]]
+* [[Technology:HSQLDB]]
+* [[Javaclipse]]
 
 == Features ==
 
@@ -108,4 +104,4 @@ Hence the line should be commented out.
 
 == Issues == 
 
-* How to deal with acknowledgements? (See COPYRIGHT in svn)  
+* How to deal with acknowledgements? (See COPYRIGHT in svn)
