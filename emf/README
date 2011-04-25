@@ -38,7 +38,7 @@ requires a reference.
 
 == Illustration ==
 
-Ecore supports modeling of structure and Ecore models can be viewed as XML documents.
+Ecore supports modeling of structure. Ecore models are represented as XML documents.
 The following excerpt shows specification of the "classifier" for companies; 
 elements in the Ecore-specific namespace are used to break down companies into a name and 
 a list of departments:
@@ -71,7 +71,7 @@ EPackage.
 </syntaxhighlight>
 
 Further, a specific serialization format has to be chosen. To this end,
-a number of idiosyncratic objects have been to constructed and configured so
+a number of idiosyncratic objects have to be constructed and configured so
 that a preferred file extension is mapped to the intended serialization
 behavior. For instance, the process of loading a company from an ".xmi"
 file is organized as follows:
