@@ -2,6 +2,17 @@
 
 provide interaction on companies by means of [[Technology:Swing]]
 
+== Languages ==
+
+* [[Language:Java]]
+
+
+== Technologies ==
+
+* [[Technology:Swing]]
+* [[Technology:AWT]]
+* [[Javaclipse]]
+
 == Features == 
 
 * [[101feature:Company]]
@@ -19,7 +30,7 @@ Specifically, the GUI provides the following gestures:
 == Architecture ==
 
 The implementation uses a poorman's MVC architecture.
-It is based on the object model of [[101implementation:java]].
+It is based on the object model of [[101implementation:javaComposition]].
 We do not assume any change-notification services on the model.
 There are two views: one for departments (and companies) and another for employees.
 The controller provides services that push effect of gestures into the model.
