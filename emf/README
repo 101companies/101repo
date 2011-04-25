@@ -9,8 +9,12 @@
 
 == Technologies ==
 
-* [[Technology:EMF]]
-* [[Technology:Eclipse]]
+* [[Technology:EMF]] (Version 2.6.1)
+* [[Technology:Eclipse]] (Version 3.6)
+
+If you use ''Eclipse Modeling Tools'', then you have everything you need.
+
+If you use a different Eclipse Download, you may need to add the EMF plugin.
 
 == Features ==
 
