@@ -1,6 +1,6 @@
 == Intent == 
 
-A simple C/S [[Web Application|WebApp]] for companies
+[[web programming]] with [[Technology:GWT]]
 
 == Languages ==
 
@@ -12,11 +12,8 @@ A simple C/S [[Web Application|WebApp]] for companies
 
 == Technologies ==
 
-* [[Technology:GWT]]: Google Web Toolkit SDK
-* [[Technology:javac]]: Java compiler (Version 1.6)
-* [[Technology:JDK]]: provider of javac et al.
-* [[Technology:JSE]]: execution platform (Version 1.6)
-* [[Technology:Eclipse]]: optional IDE (Version 3.6.2)
+* [[Technology:GWT]] (Version 2.2)
+* [[Javaclipse]] (Eclipse Version 3.6)
 
 == Features ==
 
