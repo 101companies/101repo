@@ -26,8 +26,8 @@ or ''plain'' Java based on the schema-derived API.
 
 * [[Technology:JGraLab]]: Java-based support for the TGraph technical space
 * [[Technology:GReTL]]: the implementation of [[Language:GReTL]]
+* [[Technology:GraphViz]]
 * [[Technology:Ant]]: for building
-* [[Technology:GraphViz]]: graph visualization
 * [[Javaclipse]]
 
 == Features ==
