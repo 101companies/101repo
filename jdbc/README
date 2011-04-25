@@ -1,3 +1,24 @@
+== Intent ==
+
+Database programming with [[Technology:JDBC]]
+
+== Status ==
+
+[[101status:Broken]]
+
+== Languages ==
+
+* [[Language:SQL]]
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:JDBC]]
+* [[Technology:MySQL]]
+* [[101profile:Simple Java]]
+
+== Description ==
+
 We use JDBC/SQL for data processing.
 We exercise some company scenarios.
 That is, we use embedded SQL in Java.
