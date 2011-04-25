@@ -10,7 +10,7 @@ advanced modularization with [[Language:AspectJ]]
 
 * [[Technology:AJDT]]: compilation and IDE support for AspectJ
 * [[Technology:ajc]]: compilation (provided by AJDT)
-* [[Javaclipse]]
+* [[101profile:Simple Java]]
 
 == Features ==
 
