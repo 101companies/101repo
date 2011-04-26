@@ -5,7 +5,7 @@ import static org.softlang.features.Serialization.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class Operations {
+public class Basics {
 	
 	@Test
 	public void testTotal() {

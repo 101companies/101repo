@@ -11,13 +11,10 @@ import java.util.List;
 public class Department extends Subunit implements Serializable {
 
 	private static final long serialVersionUID = -2008895922177165250L;
+
 	private String name;
 	private Employee manager;
-	private List<Subunit> subunits;
-
-	public Department() {
-		subunits = new LinkedList<Subunit>();
-	}
+	private List<Subunit> subunits = new LinkedList<Subunit>();
 
 	public String getName() {
 		return name;

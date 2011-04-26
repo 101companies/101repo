@@ -7,23 +7,13 @@ import java.util.List;
 /**
  * A department has a name, a manager, employees, and subdepartments.
  */
-public class Department implements Serializable {
+public class Department extends Subunit implements Serializable {
 
 	private static final long serialVersionUID = -2008895922177165250L;
+
 	private String name;
 	private Employee manager;
-	private List<Department> subdepts = new LinkedList<Department>();
-	private List<Employee> employees = new LinkedList<Employee>();
-
-	/**
-	 * Accept a void visitor
-	 */
-	public void accept(VoidVisitor v) { v.visit(this); }
-	
-	/**
-	 * Accept a returning visitor
-	 */
-	public <R> R accept(ReturningVisitor<R> v) { return v.visit(this); }
+	private List<Subunit> subunits = new LinkedList<Subunit>();
 
 	public String getName() {
 		return name;
@@ -41,11 +31,17 @@ public class Department implements Serializable {
 		this.manager = manager;
 	}
 
-	public List<Department> getSubdepts() {
-		return subdepts;
+	public List<Subunit> getSubunits() {
+		return subunits;
 	}
 
-	public List<Employee> getEmployees() {
-		return employees;
-	}
+	/**
+	 * Accept a void visitor
+	 */
+	public void accept(VoidVisitor v) { v.visit(this); }
+	
+	/**
+	 * Accept a returning visitor
+	 */
+	public <R> R accept(ReturningVisitor<R> v) { return v.visit(this); }
 }

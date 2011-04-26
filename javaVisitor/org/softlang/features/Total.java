@@ -14,10 +14,8 @@ public class Total implements ReturningVisitor<Double> {
 	public Double visit(Department o) {
 		double total = 0;
 		total += o.getManager().accept(this);
-		for (Department s : o.getSubdepts())
+		for (Subunit s : o.getSubunits())
 			total += s.accept(this);
-		for (Employee e : o.getEmployees())
-			total += e.accept(this);
 		return total;				
 	}
 

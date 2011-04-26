@@ -10,19 +10,10 @@ import java.util.List;
 public class Company implements Serializable {
 
 	private static final long serialVersionUID = -200889592677165250L;
+
 	private String name;
 	private List<Department> depts = new LinkedList<Department>();
 
-	/**
-	 * Accept a void visitor
-	 */
-	public void accept(VoidVisitor v) { v.visit(this); }
-	
-	/**
-	 * Accept a returning visitor
-	 */
-	public <R> R accept(ReturningVisitor<R> v) { return v.visit(this); }
-	
 	public String getName() {
 		return name;
 	}
@@ -34,4 +25,14 @@ public class Company implements Serializable {
 	public List<Department> getDepts() {
 		return depts;
 	}
+
+	/**
+	 * Accept a void visitor
+	 */
+	public void accept(VoidVisitor v) { v.visit(this); }
+	
+	/**
+	 * Accept a returning visitor
+	 */
+	public <R> R accept(ReturningVisitor<R> v) { return v.visit(this); }
 }
