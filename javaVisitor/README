@@ -1,6 +1,6 @@
 == Intent ==
 
-basic OO programming in [[Language:Java]]
+visitor programming in [[Language:Java]]
 
 == Languages ==
 
@@ -19,61 +19,79 @@ basic OO programming in [[Language:Java]]
 
 == Motivation ==
 
-Basic style of [[OO programming]] is applied. A simple [[object model]]
-is provided for [[101feature:Company]]. The object model leverages 
-[[object composition]] to compose companies from (nested) departments
-and employees. (No [[class inheritance]] is exercised, but see 
-[[101implementation:javaInheritance]] for a variation that indeed leverages class
-inheritance.) The operations for [[101feature:Total]] and
-[[101feature:Cut]] are implemented as [[:Category:instance method]]s on
-the classes for companies, departments, and employees. Further, 
-[[101feature:Serialization]] is implemented with the help of 
-[[Technology:Object Streams]]. To this end, the 
-[[Marker interface pattern|marker interface]] ''Serializable'' is applied 
-to the classes of the object model for companies. This form of serialization
-counts as [[closed serialization]] because the serialization format is
-definitely Java-specific. 
+The present  implementation can be viewed as a variation on [[101implementation:javaComposition]]. 
+The [[Visitor pattern]] is applied to implement operations modularly. 
+To this end, two visitor interfaces are defined: one for ''void'' visitors (that
+do not return any values), another one for ''returning'' visitors (where a
+type parameter models the result type). Indeed, [[101feature:Total]] calls
+for a returning visitor whereas [[101feature:Cut]] can be expressed as
+a void visitor---if an [[impure computation]] is assumed. 
 
 == Illustration ==
 
-It follows a sketch of the class for companies with fields 
-and properties for company name and its list of departments
-as well as methods for totaling salaries and cutting them in
-half. The classes for departments and employees are omitted
-here; they all model straightforward [[POJO]]s.
+The interface for void visitors looks as follows:
 
 <syntaxhighlight lang="java">
-public class Company implements Serializable {
-  private static final long serialVersionUID = ...;
-  private String name;
-  private List<Department> depts;
-  public String getName() { ... }
-  public void setName(String name) { ... }
-  public List<Department> getDepts() { ... }
-  public Double total() { ... }
-  public void cut() { ... }
+public interface VoidVisitor {
+	void visit(Company o);
+	void visit(Department o);
+	void visit(Employee o);		
 }
 </syntaxhighlight>
 
-Here is the implementation of ''cut''; basically, the
-operation is delegated to the individual departments,
-and the operation is implemented as an [[impure computation]],
-i.e., as a void method:
+For comparison, here is the interface for returning visitors:
 
 <syntaxhighlight lang="java">
-public void cut() {
-  for (Department d : getDepts())
-    d.cut();
-}	
+public interface ReturningVisitor<R> {
+	R visit(Company o);
+	R visit(Department o);
+	R visit(Employee o);
+}
+</syntaxhighlight>
+
+The classes of the object model for companies do not implement
+any operations of the [[101companies:System]], but instead they
+are able to apply a given visitor to an object. For example:
+
+<syntaxhighlight lang="java">
+public class Department implements Serializable {
+
+	// fields, getters, and setters omited
+
+	public void accept(VoidVisitor v) { v.visit(this); }
+	public <R> R accept(ReturningVisitor<R> v) { return v.visit(this); }
+}
+</syntaxhighlight>
+
+Here is the implementation of ''cut'' as a void visitor:
+
+<syntaxhighlight lang="java">
+public class Cut implements VoidVisitor {
+
+	public void visit(Company o) {
+		for (Department d : o.getDepts())
+			d.accept(this);
+	}	
+	public void visit(Department o) {
+		o.getManager().accept(this);
+		for (Department s : o.getSubdepts())
+			s.accept(this);
+		for (Employee e : o.getEmployees())
+			e.accept(this);
+	}
+	public void visit(Employee o) {
+		o.setSalary(o.getSalary() / 2.0d);		
+	}	
+}
 </syntaxhighlight>
 
 == Architecture ==
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]]
-with the methods for [[101feature:Total]] and [[101feature:Cut]]. Some boilerplate
-code for [[101feature:Serialization]] and testing its correct implementation is to 
-be found in package ''org.softlang.serialization''. Package ''org.softlang.tests'' 
-hosts JUnit tests; see below.
+and the general interfaces for void and returning visitors on companies, departments,
+and employees. Package ''org.softlang.features'' hosts implementations of the basic 
+operations [[101feature:Total]] and [[101feature:Cut]] as well as some boilerplate
+code for [[101feature:Serialization]]. Package ''org.softlang.tests'' hosts JUnit tests; see below.
 
 == Usage ==
 
@@ -81,9 +99,11 @@ hosts JUnit tests; see below.
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available in the package ''org.softlang.tests''.
 ** Run class ''Basics'' with JUnit to exercise basic features.
-** Run class ''Serialization'' with JUnit to exercise serialization.
+
+The sample data is retrieved from the file ''sampleCompany.ser''.
+
+The latter file was saved with [[101implementation:javaComposition]].
 
 == Contributors ==
 
-* {{101contributor|Thomas Schmorleiz|developer}}
 * {{101contributor|Ralf Lämmel|developer}}
