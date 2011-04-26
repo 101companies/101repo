@@ -39,22 +39,4 @@ public class Department implements Serializable {
 	public List<Employee> getEmployees() {
 		return employees;
 	}
-	
-	public double total() {
-		double total = 0;
-		total += getManager().getSalary();
-		for (Department s : getSubdepts())
-			total += s.total();
-		for (Employee e : getEmployees())
-			total += e.getSalary();
-		return total;		
-	}	
-	
-	public void cut() {
-		getManager().cut();
-		for (Department s : getSubdepts())
-			s.cut();
-		for (Employee e : getEmployees())
-			e.cut();
-	}	
 }
