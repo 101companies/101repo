@@ -3,7 +3,8 @@ package org.softlang.tests;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
 
-import org.softlang.basics.*;
+import org.softlang.company.*;
+import static org.softlang.features.Serialization.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -86,8 +87,8 @@ public class Serialization {
 	@Test
 	public void testLoadAndCreate() {
 		Company sampleCompany = createCompany(); 
-		sampleCompany.writeObject("sampleCompany.ser");
-		Company loadedCompany = Company.readObject("sampleCompany.ser");
+		writeObject(sampleCompany, "sampleCompany.ser");
+		Company loadedCompany = readObject("sampleCompany.ser");
 		assertTrue(structurallyEqual(sampleCompany, loadedCompany));
 	}
 	
