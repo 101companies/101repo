@@ -22,20 +22,20 @@ a simple implementation in [[Language:Java]]
 Basic style of [[OO programming]] is applied. A simple [[object model]]
 for companies is provided with [[method]]s to implement a [[query]] for
 totaling salaries and a [[:Category:transformation]] for cutting salaries.
-In fact, [[class inheritance]] is leveraged, but see [[101implementation:java]] 
+In fact, [[class inheritance]] is leveraged, but see [[101implementation:javaComposition]] 
 for a variation that uses [[object composition]]. Because of the use of class
-inheritance, the aforementioned methods are actual [[Virtual method|virtual]].
-Basic [[serialization]] in the sense of [[Technology:Object Streams]] 
+inheritance, the aforementioned methods are actually [[virtual method]]s.
+Basic [[:Category:serialization]] in the sense of [[Technology:Object Streams]] 
 is enabled by means of the [[Marker interface pattern|marker interface]]
 ''Serializable'', which is applied to the [[:Category:class]]es of the object model 
 for companies.
 
 == Architecture ==
 
-Package ''org.softlang.basics'' hosts the object model for [[101feature:Company]] 
-with the virtual methods for [[101feature:Total]] and [[101feature:Cut]]. Some 
+Package ''org.softlang.company'' hosts the object model for companies
+with virtual methods for [[101feature:Total]] and [[101feature:Cut]]. Some 
 boilerplate code for [[101feature:Serialization]] is implemented in the class 
-''org.softlang.basics.Company'' (see methods ''readObject'' and ''writeObject'').
+''org.softlang.features.Serialization'' (see methods ''readObject'' and ''writeObject'').
 Package ''org.softlang.tests'' hosts JUnit tests; see below.
 
 == Usage ==
