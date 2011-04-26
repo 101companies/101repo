@@ -1,7 +1,7 @@
 grammar Company;
 
 options {
-  k = 1;
+  k = 0;
 }
 
 @header {

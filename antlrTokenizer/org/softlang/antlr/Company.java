@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-26 14:35:30
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-26 14:42:05
 
 package org.softlang.antlr;
 
@@ -478,7 +478,81 @@ public class Company extends Lexer {
     public void mTokens() throws RecognitionException {
         // Company.g:1:8: ( COMPANY | DEPARTMENT | EMPLOYEE | MANAGER | ADDRESS | SALARY | OPEN | CLOSE | WS | STRING | FLOAT )
         int alt7=11;
-        alt7 = dfa7.predict(input);
+        switch ( input.LA(1) ) {
+        case 'c':
+            {
+            alt7=1;
+            }
+            break;
+        case 'd':
+            {
+            alt7=2;
+            }
+            break;
+        case 'e':
+            {
+            alt7=3;
+            }
+            break;
+        case 'm':
+            {
+            alt7=4;
+            }
+            break;
+        case 'a':
+            {
+            alt7=5;
+            }
+            break;
+        case 's':
+            {
+            alt7=6;
+            }
+            break;
+        case '{':
+            {
+            alt7=7;
+            }
+            break;
+        case '}':
+            {
+            alt7=8;
+            }
+            break;
+        case '\t':
+        case '\n':
+        case '\r':
+        case ' ':
+            {
+            alt7=9;
+            }
+            break;
+        case '\"':
+            {
+            alt7=10;
+            }
+            break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            {
+            alt7=11;
+            }
+            break;
+        default:
+            NoViableAltException nvae =
+                new NoViableAltException("", 7, 0, input);
+
+            throw nvae;
+        }
+
         switch (alt7) {
             case 1 :
                 // Company.g:1:10: COMPANY
@@ -563,69 +637,6 @@ public class Company extends Lexer {
     }
 
 
-    protected DFA7 dfa7 = new DFA7(this);
-    static final String DFA7_eotS =
-        "\14\uffff";
-    static final String DFA7_eofS =
-        "\14\uffff";
-    static final String DFA7_minS =
-        "\1\11\13\uffff";
-    static final String DFA7_maxS =
-        "\1\175\13\uffff";
-    static final String DFA7_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13";
-    static final String DFA7_specialS =
-        "\14\uffff}>";
-    static final String[] DFA7_transitionS = {
-            "\2\11\2\uffff\1\11\22\uffff\1\11\1\uffff\1\12\15\uffff\12\13"+
-            "\47\uffff\1\5\1\uffff\1\1\1\2\1\3\7\uffff\1\4\5\uffff\1\6\7"+
-            "\uffff\1\7\1\uffff\1\10",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
-    static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
-    static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
-    static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
-    static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
-    static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
-    static final short[][] DFA7_transition;
-
-    static {
-        int numStates = DFA7_transitionS.length;
-        DFA7_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
-        }
-    }
-
-    class DFA7 extends DFA {
-
-        public DFA7(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 7;
-            this.eot = DFA7_eot;
-            this.eof = DFA7_eof;
-            this.min = DFA7_min;
-            this.max = DFA7_max;
-            this.accept = DFA7_accept;
-            this.special = DFA7_special;
-            this.transition = DFA7_transition;
-        }
-        public String getDescription() {
-            return "1:1: Tokens : ( COMPANY | DEPARTMENT | EMPLOYEE | MANAGER | ADDRESS | SALARY | OPEN | CLOSE | WS | STRING | FLOAT );";
-        }
-    }
  
 
 }

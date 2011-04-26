@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-26 14:33:36
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-26 14:42:28
 
 package org.softlang.antlr;
 
@@ -319,7 +319,7 @@ public class CompanyParser extends Parser {
 
 
             // AST REWRITE
-            // elements: dept, personunit, manager, name
+            // elements: manager, name, dept, personunit
             // token labels: name
             // rule labels: retval
             // token list labels: 
@@ -603,7 +603,7 @@ public class CompanyParser extends Parser {
 
 
             // AST REWRITE
-            // elements: n, a, s
+            // elements: a, s, n
             // token labels: s, a, n
             // rule labels: retval
             // token list labels: 
