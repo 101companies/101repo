@@ -47,7 +47,7 @@ public class Operations {
 		writeCompany(tmp, c);		
 		c = readCompany(tmp);		
 	    Double total = Total.total(c);
-	    assertEquals(199873.5, total, 0);
+	    assertEquals(399747 / 2.0d, total, 0);
 	    tmp.delete();
 	}
 }

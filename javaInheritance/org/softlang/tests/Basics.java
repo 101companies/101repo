@@ -18,6 +18,6 @@ public class Basics {
 		Company c = Company.readObject("sampleCompany.ser");
 		c.cut();
 	    double total = c.total();		
-	    assertEquals(199873.5, total, 0);
+	    assertEquals(399747 / 2.0d, total, 0);
 	}
 }
