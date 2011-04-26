@@ -4,8 +4,10 @@ parsing textual syntax with [[Technology:ANTLR]]
 
 == Motivation ==
 
-We define a concrete syntax for companies.
-We use ANTLR to execute that syntax in an acceptor-like manner.
+A concrete syntax for companies is defined 
+using the grammar notation of ANTLR 
+so that a parser--in fact, an acceptor, can be generated.
+The defined grammar is of class LL(1).
 
 == Features ==
 
