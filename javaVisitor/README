@@ -22,10 +22,10 @@ visitor programming in [[Language:Java]]
 The present  implementation can be viewed as a variation on [[101implementation:javaComposition]]. 
 The [[Visitor pattern]] is applied to implement operations modularly. 
 To this end, two visitor interfaces are defined: one for ''void'' visitors (that
-do not return any values), another one for ''returning'' visitors (where a
-type parameter models the result type). Indeed, [[101feature:Total]] calls
+do not return any values), another one for ''returning'' visitors (with a designated
+type parameter for the result type). Indeed, [[101feature:Total]] calls
 for a returning visitor whereas [[101feature:Cut]] can be expressed as
-a void visitor---if an [[impure computation]] is assumed. 
+a void visitor---if an [[impure computation]] is assumed.
 
 == Illustration ==
 
