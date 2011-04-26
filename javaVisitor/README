@@ -19,7 +19,7 @@ visitor programming in [[Language:Java]]
 
 == Motivation ==
 
-The present  implementation can be viewed as a variation on [[101implementation:javaComposition]]. 
+The present  implementation can be viewed as a variation on [[101implementation:javaInheritance]]. 
 The [[Visitor pattern]] is applied to implement operations modularly. 
 To this end, two visitor interfaces are defined: one for ''void'' visitors (that
 do not return any values), another one for ''returning'' visitors (with a designated
@@ -102,7 +102,7 @@ code for [[101feature:Serialization]]. Package ''org.softlang.tests'' hosts JUni
 
 The sample data is retrieved from the file ''sampleCompany.ser''.
 
-The latter file was saved with [[101implementation:javaComposition]].
+The latter file was saved with [[101implementation:javaInheritance]].
 
 == Contributors ==
 
