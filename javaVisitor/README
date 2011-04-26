@@ -74,10 +74,8 @@ public class Cut implements VoidVisitor {
 	}	
 	public void visit(Department o) {
 		o.getManager().accept(this);
-		for (Department s : o.getSubdepts())
+		for (Subunit s : o.getSubunits())
 			s.accept(this);
-		for (Employee e : o.getEmployees())
-			e.accept(this);
 	}
 	public void visit(Employee o) {
 		o.setSalary(o.getSalary() / 2.0d);		
