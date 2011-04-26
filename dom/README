@@ -26,7 +26,7 @@ represent and process XML documents in memory. In particular, operations on comp
 are implemented in Java on top of the (generic) DOM API. DOM trees are easily queried 
 so that operations such as [[101feature:Total]] can be implemented with ease on in-memory
 XML trees. DOM trees are also mutable so that operations such as [[101feature:Cut]] can
-be implemented as [[impure computations]] on in-memory XML trees.
+be implemented as [[impure computation]]s on in-memory XML trees.
 
 == Illustration ==
 
