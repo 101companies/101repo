@@ -18,11 +18,12 @@ parsing textual syntax with [[Technology:ANTLR]] in [[Language:Java]]
 
 == Motivation ==
 
-A parser for a concrete syntax of companies is provided.
+An ANTLR-based parser for a concrete syntax of companies is provided.
 The parser translates text into company objects.
 To this end, a straightforward object model for companies is used.
 (In fact, the object model is very similar to the one of [[101implementation:javaComposition]].
 The mapping is described by the semantic actions within the ANTLR-based parser description.
+The underlying grammar is in the LL(0) class.
 
 == Illustration ==
 
