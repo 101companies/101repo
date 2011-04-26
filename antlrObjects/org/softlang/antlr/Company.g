@@ -1,5 +1,9 @@
 grammar Company;
 
+options {
+  k = 1;
+}
+
 @header {
 package org.softlang.antlr;
 import org.softlang.company.*;

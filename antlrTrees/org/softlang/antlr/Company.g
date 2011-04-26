@@ -1,6 +1,9 @@
 grammar Company;
 
-options { output=AST; }
+options { 
+  output = AST;
+  k = 1;
+}
 
 tokens { COMPANY; DEPT; MANAGER; PU; EMPLOYEE; }
 

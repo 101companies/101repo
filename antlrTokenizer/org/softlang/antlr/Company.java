@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-22 04:28:44
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-26 14:35:30
 
 package org.softlang.antlr;
 
@@ -47,8 +47,8 @@ public class Company extends Lexer {
         try {
             int _type = COMPANY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:14:13: ( 'company' )
-            // Company.g:14:15: 'company'
+            // Company.g:18:13: ( 'company' )
+            // Company.g:18:15: 'company'
             {
             match("company"); 
 
@@ -68,8 +68,8 @@ public class Company extends Lexer {
         try {
             int _type = DEPARTMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:15:13: ( 'department' )
-            // Company.g:15:15: 'department'
+            // Company.g:19:13: ( 'department' )
+            // Company.g:19:15: 'department'
             {
             match("department"); 
 
@@ -89,8 +89,8 @@ public class Company extends Lexer {
         try {
             int _type = EMPLOYEE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:16:13: ( 'employee' )
-            // Company.g:16:15: 'employee'
+            // Company.g:20:13: ( 'employee' )
+            // Company.g:20:15: 'employee'
             {
             match("employee"); 
 
@@ -110,8 +110,8 @@ public class Company extends Lexer {
         try {
             int _type = MANAGER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:17:13: ( 'manager' )
-            // Company.g:17:15: 'manager'
+            // Company.g:21:13: ( 'manager' )
+            // Company.g:21:15: 'manager'
             {
             match("manager"); 
 
@@ -131,8 +131,8 @@ public class Company extends Lexer {
         try {
             int _type = ADDRESS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:18:13: ( 'address' )
-            // Company.g:18:15: 'address'
+            // Company.g:22:13: ( 'address' )
+            // Company.g:22:15: 'address'
             {
             match("address"); 
 
@@ -152,8 +152,8 @@ public class Company extends Lexer {
         try {
             int _type = SALARY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:19:13: ( 'salary' )
-            // Company.g:19:15: 'salary'
+            // Company.g:23:13: ( 'salary' )
+            // Company.g:23:15: 'salary'
             {
             match("salary"); 
 
@@ -173,8 +173,8 @@ public class Company extends Lexer {
         try {
             int _type = OPEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:20:13: ( '{' )
-            // Company.g:20:15: '{'
+            // Company.g:24:13: ( '{' )
+            // Company.g:24:15: '{'
             {
             match('{'); 
 
@@ -193,8 +193,8 @@ public class Company extends Lexer {
         try {
             int _type = CLOSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:21:13: ( '}' )
-            // Company.g:21:15: '}'
+            // Company.g:25:13: ( '}' )
+            // Company.g:25:15: '}'
             {
             match('}'); 
 
@@ -213,10 +213,10 @@ public class Company extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:22:13: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
-            // Company.g:22:17: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:26:13: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
+            // Company.g:26:17: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             {
-            // Company.g:22:17: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:26:17: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             int cnt2=0;
             loop2:
             do {
@@ -243,16 +243,16 @@ public class Company extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // Company.g:22:18: ' '
+            	    // Company.g:26:18: ' '
             	    {
             	    match(' '); 
 
             	    }
             	    break;
             	case 2 :
-            	    // Company.g:22:22: ( '\\r' )? '\\n'
+            	    // Company.g:26:22: ( '\\r' )? '\\n'
             	    {
-            	    // Company.g:22:22: ( '\\r' )?
+            	    // Company.g:26:22: ( '\\r' )?
             	    int alt1=2;
             	    int LA1_0 = input.LA(1);
 
@@ -261,7 +261,7 @@ public class Company extends Lexer {
             	    }
             	    switch (alt1) {
             	        case 1 :
-            	            // Company.g:22:22: '\\r'
+            	            // Company.g:26:22: '\\r'
             	            {
             	            match('\r'); 
 
@@ -275,7 +275,7 @@ public class Company extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Company.g:22:33: '\\t'
+            	    // Company.g:26:33: '\\t'
             	    {
             	    match('\t'); 
 
@@ -307,11 +307,11 @@ public class Company extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:23:13: ( '\"' (~ '\"' )* '\"' )
-            // Company.g:23:17: '\"' (~ '\"' )* '\"'
+            // Company.g:27:13: ( '\"' (~ '\"' )* '\"' )
+            // Company.g:27:17: '\"' (~ '\"' )* '\"'
             {
             match('\"'); 
-            // Company.g:23:21: (~ '\"' )*
+            // Company.g:27:21: (~ '\"' )*
             loop3:
             do {
                 int alt3=2;
@@ -324,7 +324,7 @@ public class Company extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // Company.g:23:22: ~ '\"'
+            	    // Company.g:27:22: ~ '\"'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -361,10 +361,10 @@ public class Company extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:24:13: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? )
-            // Company.g:24:15: ( DIGIT )+ ( '.' ( DIGIT )+ )?
+            // Company.g:28:13: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? )
+            // Company.g:28:15: ( DIGIT )+ ( '.' ( DIGIT )+ )?
             {
-            // Company.g:24:15: ( DIGIT )+
+            // Company.g:28:15: ( DIGIT )+
             int cnt4=0;
             loop4:
             do {
@@ -378,7 +378,7 @@ public class Company extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // Company.g:24:15: DIGIT
+            	    // Company.g:28:15: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -394,7 +394,7 @@ public class Company extends Lexer {
                 cnt4++;
             } while (true);
 
-            // Company.g:24:22: ( '.' ( DIGIT )+ )?
+            // Company.g:28:22: ( '.' ( DIGIT )+ )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -403,10 +403,10 @@ public class Company extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // Company.g:24:23: '.' ( DIGIT )+
+                    // Company.g:28:23: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // Company.g:24:27: ( DIGIT )+
+                    // Company.g:28:27: ( DIGIT )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -420,7 +420,7 @@ public class Company extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // Company.g:24:27: DIGIT
+                    	    // Company.g:28:27: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -456,11 +456,11 @@ public class Company extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // Company.g:26:16: ( ( '0' .. '9' ) )
-            // Company.g:26:18: ( '0' .. '9' )
+            // Company.g:30:16: ( ( '0' .. '9' ) )
+            // Company.g:30:18: ( '0' .. '9' )
             {
-            // Company.g:26:18: ( '0' .. '9' )
-            // Company.g:26:19: '0' .. '9'
+            // Company.g:30:18: ( '0' .. '9' )
+            // Company.g:30:19: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -478,81 +478,7 @@ public class Company extends Lexer {
     public void mTokens() throws RecognitionException {
         // Company.g:1:8: ( COMPANY | DEPARTMENT | EMPLOYEE | MANAGER | ADDRESS | SALARY | OPEN | CLOSE | WS | STRING | FLOAT )
         int alt7=11;
-        switch ( input.LA(1) ) {
-        case 'c':
-            {
-            alt7=1;
-            }
-            break;
-        case 'd':
-            {
-            alt7=2;
-            }
-            break;
-        case 'e':
-            {
-            alt7=3;
-            }
-            break;
-        case 'm':
-            {
-            alt7=4;
-            }
-            break;
-        case 'a':
-            {
-            alt7=5;
-            }
-            break;
-        case 's':
-            {
-            alt7=6;
-            }
-            break;
-        case '{':
-            {
-            alt7=7;
-            }
-            break;
-        case '}':
-            {
-            alt7=8;
-            }
-            break;
-        case '\t':
-        case '\n':
-        case '\r':
-        case ' ':
-            {
-            alt7=9;
-            }
-            break;
-        case '\"':
-            {
-            alt7=10;
-            }
-            break;
-        case '0':
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-            {
-            alt7=11;
-            }
-            break;
-        default:
-            NoViableAltException nvae =
-                new NoViableAltException("", 7, 0, input);
-
-            throw nvae;
-        }
-
+        alt7 = dfa7.predict(input);
         switch (alt7) {
             case 1 :
                 // Company.g:1:10: COMPANY
@@ -637,6 +563,69 @@ public class Company extends Lexer {
     }
 
 
+    protected DFA7 dfa7 = new DFA7(this);
+    static final String DFA7_eotS =
+        "\14\uffff";
+    static final String DFA7_eofS =
+        "\14\uffff";
+    static final String DFA7_minS =
+        "\1\11\13\uffff";
+    static final String DFA7_maxS =
+        "\1\175\13\uffff";
+    static final String DFA7_acceptS =
+        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13";
+    static final String DFA7_specialS =
+        "\14\uffff}>";
+    static final String[] DFA7_transitionS = {
+            "\2\11\2\uffff\1\11\22\uffff\1\11\1\uffff\1\12\15\uffff\12\13"+
+            "\47\uffff\1\5\1\uffff\1\1\1\2\1\3\7\uffff\1\4\5\uffff\1\6\7"+
+            "\uffff\1\7\1\uffff\1\10",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
+    static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
+    static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
+    static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
+    static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
+    static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
+    static final short[][] DFA7_transition;
+
+    static {
+        int numStates = DFA7_transitionS.length;
+        DFA7_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
+        }
+    }
+
+    class DFA7 extends DFA {
+
+        public DFA7(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 7;
+            this.eot = DFA7_eot;
+            this.eof = DFA7_eof;
+            this.min = DFA7_min;
+            this.max = DFA7_max;
+            this.accept = DFA7_accept;
+            this.special = DFA7_special;
+            this.transition = DFA7_transition;
+        }
+        public String getDescription() {
+            return "1:1: Tokens : ( COMPANY | DEPARTMENT | EMPLOYEE | MANAGER | ADDRESS | SALARY | OPEN | CLOSE | WS | STRING | FLOAT );";
+        }
+    }
  
 
 }

@@ -1,5 +1,9 @@
 lexer grammar Company;
 
+options {
+  k = 1;
+}
+
 @header {
 package org.softlang.antlr;
 }
