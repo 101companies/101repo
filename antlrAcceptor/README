@@ -7,7 +7,7 @@ parsing textual syntax with [[Technology:ANTLR]]
 A concrete syntax for companies is defined 
 using the grammar notation of ANTLR 
 so that a parser--in fact, an acceptor, can be generated.
-The defined grammar is of class LL(1).
+The underlying grammar is in the LL(0) class.
 
 == Features ==
 
