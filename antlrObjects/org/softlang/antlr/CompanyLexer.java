@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-26 14:41:38
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-28 12:15:28
 
 package org.softlang.antlr;
 
@@ -206,10 +206,10 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:82:9: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
-            // Company.g:82:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:83:9: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
+            // Company.g:83:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             {
-            // Company.g:82:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:83:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             int cnt2=0;
             loop2:
             do {
@@ -236,16 +236,16 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // Company.g:82:14: ' '
+            	    // Company.g:83:14: ' '
             	    {
             	    match(' '); 
 
             	    }
             	    break;
             	case 2 :
-            	    // Company.g:82:18: ( '\\r' )? '\\n'
+            	    // Company.g:83:18: ( '\\r' )? '\\n'
             	    {
-            	    // Company.g:82:18: ( '\\r' )?
+            	    // Company.g:83:18: ( '\\r' )?
             	    int alt1=2;
             	    int LA1_0 = input.LA(1);
 
@@ -254,7 +254,7 @@ public class CompanyLexer extends Lexer {
             	    }
             	    switch (alt1) {
             	        case 1 :
-            	            // Company.g:82:18: '\\r'
+            	            // Company.g:83:18: '\\r'
             	            {
             	            match('\r'); 
 
@@ -268,7 +268,7 @@ public class CompanyLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Company.g:82:29: '\\t'
+            	    // Company.g:83:29: '\\t'
             	    {
             	    match('\t'); 
 
@@ -301,11 +301,11 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:83:9: ( '\"' (~ '\"' )* '\"' )
-            // Company.g:83:13: '\"' (~ '\"' )* '\"'
+            // Company.g:84:9: ( '\"' (~ '\"' )* '\"' )
+            // Company.g:84:13: '\"' (~ '\"' )* '\"'
             {
             match('\"'); 
-            // Company.g:83:17: (~ '\"' )*
+            // Company.g:84:17: (~ '\"' )*
             loop3:
             do {
                 int alt3=2;
@@ -318,7 +318,7 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // Company.g:83:18: ~ '\"'
+            	    // Company.g:84:18: ~ '\"'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -355,10 +355,10 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:84:9: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
-            // Company.g:84:13: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+            // Company.g:85:9: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+            // Company.g:85:13: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
             {
-            // Company.g:84:13: ( '0' .. '9' )+
+            // Company.g:85:13: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -372,7 +372,7 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // Company.g:84:14: '0' .. '9'
+            	    // Company.g:85:14: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -388,7 +388,7 @@ public class CompanyLexer extends Lexer {
                 cnt4++;
             } while (true);
 
-            // Company.g:84:25: ( '.' ( '0' .. '9' )+ )?
+            // Company.g:85:25: ( '.' ( '0' .. '9' )+ )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -397,10 +397,10 @@ public class CompanyLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // Company.g:84:26: '.' ( '0' .. '9' )+
+                    // Company.g:85:26: '.' ( '0' .. '9' )+
                     {
                     match('.'); 
-                    // Company.g:84:30: ( '0' .. '9' )+
+                    // Company.g:85:30: ( '0' .. '9' )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -414,7 +414,7 @@ public class CompanyLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // Company.g:84:31: '0' .. '9'
+                    	    // Company.g:85:31: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 

@@ -2,7 +2,8 @@ grammar Company;
 
 options { 
   output = AST;
-  k = 0;
+  backtrack = false;
+  k = 1;
 }
 
 tokens { COMPANY; DEPT; MANAGER; PU; EMPLOYEE; }

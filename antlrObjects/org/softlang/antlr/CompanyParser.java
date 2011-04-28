@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-26 14:41:38
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-28 12:15:28
 
 package org.softlang.antlr;
 import org.softlang.company.*;
@@ -70,7 +70,7 @@ public class CompanyParser extends Parser {
 
 
     // $ANTLR start "company"
-    // Company.g:42:1: company returns [Company c] : 'company' STRING '{' (topdept= dept )* '}' ;
+    // Company.g:43:1: company returns [Company c] : 'company' STRING '{' (topdept= dept )* '}' ;
     public final Company company() throws RecognitionException {
         Company c = null;
 
@@ -79,15 +79,15 @@ public class CompanyParser extends Parser {
 
 
         try {
-            // Company.g:42:28: ( 'company' STRING '{' (topdept= dept )* '}' )
-            // Company.g:43:3: 'company' STRING '{' (topdept= dept )* '}'
+            // Company.g:43:28: ( 'company' STRING '{' (topdept= dept )* '}' )
+            // Company.g:44:3: 'company' STRING '{' (topdept= dept )* '}'
             {
              c = new Company(); 
-            match(input,7,FOLLOW_7_in_company54); 
-            STRING1=(Token)match(input,STRING,FOLLOW_STRING_in_company56); 
+            match(input,7,FOLLOW_7_in_company63); 
+            STRING1=(Token)match(input,STRING,FOLLOW_STRING_in_company65); 
              c.setName((STRING1!=null?STRING1.getText():null)); 
-            match(input,8,FOLLOW_8_in_company64); 
-            // Company.g:47:3: (topdept= dept )*
+            match(input,8,FOLLOW_8_in_company73); 
+            // Company.g:48:3: (topdept= dept )*
             loop1:
             do {
                 int alt1=2;
@@ -100,9 +100,9 @@ public class CompanyParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // Company.g:47:5: topdept= dept
+            	    // Company.g:48:5: topdept= dept
             	    {
-            	    pushFollow(FOLLOW_dept_in_company73);
+            	    pushFollow(FOLLOW_dept_in_company82);
             	    topdept=dept();
 
             	    state._fsp--;
@@ -117,7 +117,7 @@ public class CompanyParser extends Parser {
                 }
             } while (true);
 
-            match(input,9,FOLLOW_9_in_company89); 
+            match(input,9,FOLLOW_9_in_company98); 
 
             }
 
@@ -134,7 +134,7 @@ public class CompanyParser extends Parser {
 
 
     // $ANTLR start "dept"
-    // Company.g:53:1: dept returns [Department d] : 'department' name= STRING '{' 'manager' m= employee ( 'employee' e= employee )* (sub= dept )* '}' ;
+    // Company.g:54:1: dept returns [Department d] : 'department' name= STRING '{' 'manager' m= employee ( 'employee' e= employee )* (sub= dept )* '}' ;
     public final Department dept() throws RecognitionException {
         Department d = null;
 
@@ -147,22 +147,22 @@ public class CompanyParser extends Parser {
 
 
         try {
-            // Company.g:53:28: ( 'department' name= STRING '{' 'manager' m= employee ( 'employee' e= employee )* (sub= dept )* '}' )
-            // Company.g:54:3: 'department' name= STRING '{' 'manager' m= employee ( 'employee' e= employee )* (sub= dept )* '}'
+            // Company.g:54:28: ( 'department' name= STRING '{' 'manager' m= employee ( 'employee' e= employee )* (sub= dept )* '}' )
+            // Company.g:55:3: 'department' name= STRING '{' 'manager' m= employee ( 'employee' e= employee )* (sub= dept )* '}'
             {
              d = new Department(); 
-            match(input,10,FOLLOW_10_in_dept111); 
-            name=(Token)match(input,STRING,FOLLOW_STRING_in_dept115); 
+            match(input,10,FOLLOW_10_in_dept120); 
+            name=(Token)match(input,STRING,FOLLOW_STRING_in_dept124); 
              d.setName((name!=null?name.getText():null)); 
-            match(input,8,FOLLOW_8_in_dept124); 
-            match(input,11,FOLLOW_11_in_dept130); 
-            pushFollow(FOLLOW_employee_in_dept134);
+            match(input,8,FOLLOW_8_in_dept133); 
+            match(input,11,FOLLOW_11_in_dept139); 
+            pushFollow(FOLLOW_employee_in_dept143);
             m=employee();
 
             state._fsp--;
 
              d.setManager(m); 
-            // Company.g:60:5: ( 'employee' e= employee )*
+            // Company.g:61:5: ( 'employee' e= employee )*
             loop2:
             do {
                 int alt2=2;
@@ -175,10 +175,10 @@ public class CompanyParser extends Parser {
 
                 switch (alt2) {
             	case 1 :
-            	    // Company.g:60:7: 'employee' e= employee
+            	    // Company.g:61:7: 'employee' e= employee
             	    {
-            	    match(input,12,FOLLOW_12_in_dept148); 
-            	    pushFollow(FOLLOW_employee_in_dept152);
+            	    match(input,12,FOLLOW_12_in_dept157); 
+            	    pushFollow(FOLLOW_employee_in_dept161);
             	    e=employee();
 
             	    state._fsp--;
@@ -193,7 +193,7 @@ public class CompanyParser extends Parser {
                 }
             } while (true);
 
-            // Company.g:63:5: (sub= dept )*
+            // Company.g:64:5: (sub= dept )*
             loop3:
             do {
                 int alt3=2;
@@ -206,9 +206,9 @@ public class CompanyParser extends Parser {
 
                 switch (alt3) {
             	case 1 :
-            	    // Company.g:63:7: sub= dept
+            	    // Company.g:64:7: sub= dept
             	    {
-            	    pushFollow(FOLLOW_dept_in_dept177);
+            	    pushFollow(FOLLOW_dept_in_dept186);
             	    sub=dept();
 
             	    state._fsp--;
@@ -223,7 +223,7 @@ public class CompanyParser extends Parser {
                 }
             } while (true);
 
-            match(input,9,FOLLOW_9_in_dept196); 
+            match(input,9,FOLLOW_9_in_dept205); 
 
             }
 
@@ -240,7 +240,7 @@ public class CompanyParser extends Parser {
 
 
     // $ANTLR start "employee"
-    // Company.g:69:1: employee returns [Employee e] : n= STRING '{' 'address' a= STRING 'salary' s= FLOAT '}' ;
+    // Company.g:70:1: employee returns [Employee e] : n= STRING '{' 'address' a= STRING 'salary' s= FLOAT '}' ;
     public final Employee employee() throws RecognitionException {
         Employee e = null;
 
@@ -249,16 +249,16 @@ public class CompanyParser extends Parser {
         Token s=null;
 
         try {
-            // Company.g:69:30: (n= STRING '{' 'address' a= STRING 'salary' s= FLOAT '}' )
-            // Company.g:70:3: n= STRING '{' 'address' a= STRING 'salary' s= FLOAT '}'
+            // Company.g:70:30: (n= STRING '{' 'address' a= STRING 'salary' s= FLOAT '}' )
+            // Company.g:71:3: n= STRING '{' 'address' a= STRING 'salary' s= FLOAT '}'
             {
-            n=(Token)match(input,STRING,FOLLOW_STRING_in_employee218); 
-            match(input,8,FOLLOW_8_in_employee220); 
-            match(input,13,FOLLOW_13_in_employee226); 
-            a=(Token)match(input,STRING,FOLLOW_STRING_in_employee230); 
-            match(input,14,FOLLOW_14_in_employee236); 
-            s=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_employee240); 
-            match(input,9,FOLLOW_9_in_employee244); 
+            n=(Token)match(input,STRING,FOLLOW_STRING_in_employee227); 
+            match(input,8,FOLLOW_8_in_employee229); 
+            match(input,13,FOLLOW_13_in_employee235); 
+            a=(Token)match(input,STRING,FOLLOW_STRING_in_employee239); 
+            match(input,14,FOLLOW_14_in_employee245); 
+            s=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_employee249); 
+            match(input,9,FOLLOW_9_in_employee253); 
 
                 e = new Employee();
                 e.setName((n!=null?n.getText():null));
@@ -284,26 +284,26 @@ public class CompanyParser extends Parser {
 
  
 
-    public static final BitSet FOLLOW_7_in_company54 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_STRING_in_company56 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_company64 = new BitSet(new long[]{0x0000000000000600L});
-    public static final BitSet FOLLOW_dept_in_company73 = new BitSet(new long[]{0x0000000000000600L});
-    public static final BitSet FOLLOW_9_in_company89 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_10_in_dept111 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_STRING_in_dept115 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_dept124 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_dept130 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_employee_in_dept134 = new BitSet(new long[]{0x0000000000001600L});
-    public static final BitSet FOLLOW_12_in_dept148 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_employee_in_dept152 = new BitSet(new long[]{0x0000000000001600L});
-    public static final BitSet FOLLOW_dept_in_dept177 = new BitSet(new long[]{0x0000000000000600L});
-    public static final BitSet FOLLOW_9_in_dept196 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_employee218 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_employee220 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_employee226 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_STRING_in_employee230 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_employee236 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_FLOAT_in_employee240 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_employee244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_7_in_company63 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_STRING_in_company65 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8_in_company73 = new BitSet(new long[]{0x0000000000000600L});
+    public static final BitSet FOLLOW_dept_in_company82 = new BitSet(new long[]{0x0000000000000600L});
+    public static final BitSet FOLLOW_9_in_company98 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_10_in_dept120 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_STRING_in_dept124 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8_in_dept133 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_dept139 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_employee_in_dept143 = new BitSet(new long[]{0x0000000000001600L});
+    public static final BitSet FOLLOW_12_in_dept157 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_employee_in_dept161 = new BitSet(new long[]{0x0000000000001600L});
+    public static final BitSet FOLLOW_dept_in_dept186 = new BitSet(new long[]{0x0000000000000600L});
+    public static final BitSet FOLLOW_9_in_dept205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_employee227 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8_in_employee229 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_employee235 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_STRING_in_employee239 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_employee245 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_FLOAT_in_employee249 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_employee253 = new BitSet(new long[]{0x0000000000000002L});
 
 }

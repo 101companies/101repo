@@ -1,7 +1,8 @@
 grammar Company;
 
 options {
-  k = 0;
+  backtrack = false;
+  k = 1;
 }
 
 @header {
