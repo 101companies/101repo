@@ -14,64 +14,58 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.softlang.operations.Cut;
-import org.softlang.operations.CutMapper;
 import org.softlang.operations.Total;
-import org.softlang.operations.TotalMapper;
 
 public class Basics {
 	private FileSystem fs;
+	private String companyPath;
 	private Path totalOut;
-	private Path cutOut;
 	private Configuration conf;
 	private final double SAMPLE_SALARY_SUM = 399747;
-	
+
 	@Before
-	public void setUp() throws IOException{
+	public void setUp() throws IOException {
 		conf = new Configuration();
-		totalOut = new Path("sampleCompany/out");
-		cutOut = new Path("sampleCompany");
-		
-		fs = cutOut.getFileSystem(conf);
-		
+		companyPath = "sampleCompany";
+		totalOut = new Path(companyPath + "/out");
+
+		fs = totalOut.getFileSystem(conf);
+
 	}
-	
+
 	@Test
 	public void testTotal() throws Exception {
-		Total t = new Total();
-		
-		t.total(TotalMapper.CompanyMapper.class, "meganalysis", "sampleCompany", totalOut.toString());
-		
+		Total.total("meganalysis", companyPath, totalOut.toString());
+
 		assertEquals(SAMPLE_SALARY_SUM, fetchOutputFromDisk().get(), 0);
 	}
-	
+
 	@Test
 	public void testCut() throws Exception {
-		
-		Cut c = new Cut();
-		c.cut(CutMapper.CompanyMapper.class, "meganalysis", "sampleCompany", cutOut.toString());
-		
-		Total t = new Total();
-		t.total(TotalMapper.CompanyMapper.class, "meganalysis", "sampleCompany", totalOut.toString());
-		
-		assertEquals(SAMPLE_SALARY_SUM/2, fetchOutputFromDisk().get(), 0);
-		
+
+		Cut.cut("meganalysis", companyPath);
+
+		Total.total("meganalysis", companyPath, totalOut.toString());
+
+		assertEquals(SAMPLE_SALARY_SUM / 2, fetchOutputFromDisk().get(), 0);
+
 	}
-	
-	private DoubleWritable fetchOutputFromDisk(){
+
+	private DoubleWritable fetchOutputFromDisk() {
 		DoubleWritable totalVal = new DoubleWritable();
 		try {
 			SequenceFile.Reader companyReader = new SequenceFile.Reader(fs, new Path(
 					totalOut.toString() + "/part-r-00000"), conf);
 			companyReader.next(new Text(), totalVal);
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return totalVal;
 	}
-	
+
 	@After
-	public void deleteOutput() throws IOException{
+	public void deleteOutput() throws IOException {
 		fs.delete(totalOut, true);
 	}
 }

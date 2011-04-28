@@ -9,7 +9,6 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.mapreduce.Cluster;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -17,64 +16,70 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
-import org.softlang.company.Department;
 import org.softlang.company.Employee;
-import org.softlang.operations.Total.TotalReducer;
 
 public class Cut extends Configured {
 
 	public static final Log LOG = LogFactory.getLog(Cut.class);
 
-	private static Class<? extends WritableComparable<?>> getOutputFormat(
-			Class<? extends Mapper> mapperClass) {
-		if (mapperClass.equals(CutMapper.DepartmentMapper.class)) {
-			return Department.class;
-		} else {
-			return Employee.class;
+	/**
+	 * Mapper that reads Employee objects and cuts and writes all Employee's
+	 * salary for the queried Company.
+	 */
+	public static class CutMapper extends Mapper<Text, Employee, Text, Employee> {
+		private static String name;
+
+		protected void setup(Context context) throws IOException,
+				InterruptedException {
+			name = context.getConfiguration().get(Total.QUERIED_NAME);
+		}
+
+		protected void map(Text key, Employee value, Context context)
+				throws IOException, InterruptedException {
+			if (value.getCompany().toString().equals(name))
+				value.setSalary(value.getSalary().get() / 2);
+			// copy all Employees
+			context.write(key, value);
 		}
 	}
 
-	public static Job createJob(Class<? extends Mapper> mapperClass, String name,
-			String in, String out) throws IOException {
+	public static Job createJob(String name, String base) throws IOException {
 		Configuration conf = new Configuration();
 		conf.set(Total.QUERIED_NAME, name);
 		Job job = Job.getInstance(new Cluster(conf), conf);
 		job.setJarByClass(Cut.class);
 
-		Class<? extends WritableComparable<?>> outputFormat = getOutputFormat(mapperClass);
-
 		// in
-		if (!in.endsWith("/"))
+		String in = base;
+		if (!base.endsWith("/"))
 			in = in.concat("/");
-		if (mapperClass.equals(Department.class))
-			in = in.concat("departments");
-		else
-			in = in.concat("employees");
+		in = in.concat("employees");
 		SequenceFileInputFormat.addInputPath(job, new Path(in));
 		job.setInputFormatClass(SequenceFileInputFormat.class);
 
 		// map
-		job.setMapperClass(mapperClass);
+		job.setMapperClass(CutMapper.class);
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(outputFormat);
+		job.setMapOutputValueClass(Employee.class);
 
 		// out
-		SequenceFileOutputFormat.setOutputPath(job, new Path(out + "/tmp"));
+		SequenceFileOutputFormat.setOutputPath(job, new Path(base + "/tmp"));
 		job.setOutputFormatClass(SequenceFileOutputFormat.class);
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(outputFormat);
+		job.setOutputValueClass(Employee.class);
 
 		return job;
 	}
 
-	public void cut(Class<? extends Mapper> mapperClass, String name, String in,
-			String out) throws Exception {
-		Job job = createJob(mapperClass, name, in, out);
+	public static void cut(String name, String in) throws Exception {
+		Job job = createJob(name, in);
 		job.setNumReduceTasks(0);
 		boolean success = job.waitForCompletion(true);
 
 		if (success) {
-			// replace input with output
+			// MapReduce reads an input and writes the result to an new location.
+			// Hence it can not modify data in place, and we have to replace the input
+			// with the output
 			Path output = FileOutputFormat.getOutputPath(job);
 			FileSystem fs = output.getFileSystem(job.getConfiguration());
 			Path[] inputs = FileInputFormat.getInputPaths(job);
@@ -86,9 +91,7 @@ public class Cut extends Configured {
 	}
 
 	public static void printUsage() {
-		System.out.println("Usage: Cut <in> [employee <name>]");
-		System.out.println("Usage: Cut <in> [department <name>]");
-		System.out.println("Usage: Cut <in> [company <name>]");
+		System.out.println("Usage: Cut <in> [<company name>]");
 		return;
 	}
 
@@ -97,23 +100,7 @@ public class Cut extends Configured {
 			printUsage();
 			System.exit(1);
 		}
-		String in = args[0];
-		String out = args[0];
-		Cut c = new Cut();
-
-		String name = Total.ALL;
-		if (args.length > 3)
-			name = args[3];
-
-		if (args[2].equals("employee")) {
-			c.cut(CutMapper.EmployeeMapper.class, name, in, out);
-		} else if (args[2].equals("department")) {
-			c.cut(CutMapper.DepartmentMapper.class, name, in, out);
-		} else if (args[2].equals("company")) {
-			c.cut(CutMapper.CompanyMapper.class, name, in, out);
-		} else {
-			printUsage();
-		}
+		cut(args[0], args[1]);
 
 	}
 

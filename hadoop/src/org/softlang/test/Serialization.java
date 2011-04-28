@@ -2,26 +2,32 @@ package org.softlang.test;
 
 import static org.junit.Assert.assertTrue;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.IOException;
+import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Set;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.SequenceFile;
+import org.apache.hadoop.io.Text;
 import org.junit.Test;
 import org.softlang.company.Company;
 import org.softlang.company.Department;
 import org.softlang.company.Employee;
 
 /**
- * We do a round-trip test for de-/serialization. That is, first, we create an
- * object in memory. Then, we write (say, serialize) the object. Then, we read
- * (say, de-serialize) the object. Finally, we compare original and read object
- * for structural equality.
+ * We create a sample {@link Company} along with some {@link Deptartments} and
+ * some {@link Employees}. These are serialized to disk using Hadoop's
+ * {@link SequenceFile}.
  */
 public class Serialization {
 
-	public static Company createCompany() {
+	public static boolean createAndWriteCompany(String filename) {
+
+		LinkedList<Department> depts = new LinkedList<Department>();
+		LinkedList<Employee> empl = new LinkedList<Employee>();
 
 		// Create company
 		Company company = new Company();
@@ -33,200 +39,138 @@ public class Serialization {
 		craig.setAddress("Redmond");
 		craig.setSalary(123456);
 		craig.setCompany(company.getName());
+		empl.add(craig);
+
 		Employee erik = new Employee();
 		erik.setName("Erik");
 		erik.setAddress("Utrecht");
 		erik.setSalary(12345);
 		erik.setCompany(company.getName());
+		empl.add(erik);
+
 		Employee ralf = new Employee();
 		ralf.setName("Ralf");
 		ralf.setAddress("Koblenz");
 		ralf.setSalary(1234);
 		ralf.setCompany(company.getName());
+		empl.add(ralf);
+
 		Employee ray = new Employee();
 		ray.setName("Ray");
 		ray.setAddress("Redmond");
 		ray.setSalary(234567);
 		ray.setCompany(company.getName());
+		empl.add(ray);
+
 		Employee klaus = new Employee();
 		klaus.setName("Klaus");
 		klaus.setAddress("Boston");
 		klaus.setSalary(23456);
 		klaus.setCompany(company.getName());
+		empl.add(klaus);
+
 		Employee karl = new Employee();
 		karl.setName("Karl");
 		karl.setAddress("Riga");
 		karl.setSalary(2345);
 		karl.setCompany(company.getName());
+		empl.add(karl);
+
 		Employee joe = new Employee();
 		joe.setName("Joe");
 		joe.setAddress("Wifi City");
 		joe.setSalary(2344);
 		joe.setCompany(company.getName());
+		empl.add(joe);
 
 		// Create research department
 		Department research = new Department();
-		research.setManager(craig);
 		research.setName("Research");
-		research.getEmployees().add(erik);
-		research.getEmployees().add(ralf);
-		company.getDepts().add(research);
+		research.setCompany(company.getName());
+		depts.add(research);
+
+		craig.setDepartment(research.getName());
+		craig.setManager(true);
+		erik.setDepartment(research.getName());
+		ralf.setDepartment(research.getName());
 
 		// Create development department
 		Department development = new Department();
-		development.setManager(ray);
 		development.setName("Development");
-		company.getDepts().add(development);
+		development.setCompany(company.getName());
+		depts.add(development);
+
+		ray.setDepartment(development.getName());
+		ray.setManager(true);
 
 		// Create sub-department dev1
 		Department dev1 = new Department();
-		development.getSubdepts().add(dev1);
 		dev1.setName("Dev1");
-		dev1.setManager(klaus);
+		dev1.setCompany(company.getName());
+		dev1.setSuperDept(development.getName());
+		depts.add(dev1);
+
+		klaus.setDepartment(dev1.getName());
+		klaus.setManager(true);
 
 		// Create sub-department dev11
 		Department dev11 = new Department();
-		dev1.getSubdepts().add(dev11);
 		dev11.setName("Dev1.1");
-		dev11.setManager(karl);
-		dev11.getEmployees().add(joe);
+		dev11.setCompany(company.getName());
+		dev11.setSuperDept(dev1.getName());
+		depts.add(dev11);
 
-		return company;
+		karl.setDepartment(dev11.getName());
+		karl.setManager(true);
+		joe.setDepartment(dev11.getName());
+
+		// write
+		Configuration conf = new Configuration();
+		FileSystem fs;
+
+		Path companyFile = new Path(filename + "/companies");
+		Path departmentFile = new Path(filename + "/departments");
+		Path employeeFile = new Path(filename + "/employees");
+		try {
+			// write company
+			fs = companyFile.getFileSystem(conf);
+			SequenceFile.Writer companyWriter = SequenceFile.createWriter(fs, conf,
+					companyFile, Text.class, Company.class);
+			companyWriter.append(company.getName(), company);
+			companyWriter.close();
+
+			// write departments
+			SequenceFile.Writer departmentWriter = SequenceFile.createWriter(fs,
+					conf, departmentFile, Text.class, Department.class);
+			Set<Employee> employeeSet = new HashSet<Employee>();
+			for (Department d : depts) {
+				departmentWriter.append(d.getName(), d);
+			}
+			departmentWriter.close();
+
+			// write employees
+			SequenceFile.Writer employeeWriter = SequenceFile.createWriter(fs, conf,
+					employeeFile, Text.class, Employee.class);
+			for (Employee e : empl) {
+				employeeWriter.append(e.getName(), e);
+			}
+			employeeWriter.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
+
 	}
 
 	@Test
-	public void testLoadAndCreate() {
-		Company sampleCompany = createCompany();
-		sampleCompany.writeObject("sampleCompany");
-		Company loadedCompany = Company.readObject("sampleCompany");
-		assertTrue(structurallyEqual(sampleCompany, loadedCompany));
+	public void testSerialization() {
+		boolean success = createAndWriteCompany("sampleCompany");
+		assertTrue(success);
+		if (!success)
+			System.err.println("Company could not be serialized successfully");
 	}
 
-	public static boolean structurallyEqual(Object o1, Object o2) {
-
-		try {
-			if (o1.getClass().getName().equals(o2.getClass().getName())) {
-				for (Class<?> obj = o1.getClass(); !obj.equals(Object.class); obj = obj
-						.getSuperclass()) {
-
-					Field[] f1 = obj.getDeclaredFields();
-					Field[] f2 = obj.getDeclaredFields();
-
-					for (int i = 0; i < f1.length; i++) {
-
-						f1[i].setAccessible(true);
-						f2[i].setAccessible(true);
-
-						// check if fields are primitive types and compare
-						if ((f1[i].getType().isPrimitive() && f2[i].getType().isPrimitive())) {
-							if (!(f1[i].getName().equals(f2[i].getName())))
-								return false;
-							else {
-								if (!(f1[i].get(o1).equals(f2[i].get(o2)))) {
-									return false;
-								}
-							}
-							// otherwise, they must be objects
-						} else {
-							// to be equal, both can not be null
-							if (f1[i].get(o1) != null && f2[i].get(o2) != null) {
-								// check, if they are of the same class
-								if (f1[i].get(o1).getClass().getName()
-										.equals(f2[i].get(o2).getClass().getName())) {
-									// check if the class is Double,Integer or
-									// String
-									if (check(f1[i].get(o1).getClass().getName())) {
-										// compare values
-										if (!(f1[i].get(o1).equals(f2[i].get(o2)))) {
-											return false;
-										}
-									} else {
-										// special case, if the object is an
-										// linked
-										// list
-										if (f1[i].get(o1).getClass().getName()
-												.equals("java.util.LinkedList")) {
-											if (!(handleLinkedList(f1[i], o1, f2[i], o2))) {
-												return false;
-											}
-										} else {
-											List<Class> interfaces = new ArrayList();
-											interfaces.add(f1[i].get(o1).getClass());
-											interfaces = getSuperInterfaces(interfaces);
-											if (interfaces.contains(Comparable.class)) {
-												// make use of WritableComparable's compare-method
-												return ((Comparable) f1[i].get(o1))
-														.compareTo((Comparable) f2[i].get(o2)) == 0;
-											} else {
-												// otherwise, compare the objects
-												structurallyEqual(f1[i].get(o1), f2[i].get(o2));
-											}
-										}
-									}
-								} else {
-									return false;
-								}
-							} else {
-								// if one of them is null, the objects can not
-								// be
-								// equal
-								if (f1[i].get(o1) == null && f2[i].get(o2) != null) {
-									return false;
-								}
-								if (f1[i].get(o1) != null && f2[i].get(o2) == null) {
-									return false;
-								}
-							}
-
-						}
-					}
-				}
-			} else {
-				return false;
-			}
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		return true;
-	}
-
-	private static boolean check(String s) {
-		return (s.equals("java.lang.String") || s.equals("java.lang.Integer")
-				|| s.equals("java.lang.Double") || s.equals("java.lang.Float"));
-
-	}
-
-	private static boolean handleLinkedList(Field f1, Object o1, Field f2,
-			Object o2) {
-		try {
-			LinkedList<?> l1 = (LinkedList<?>) f1.get(o1);
-			LinkedList<?> l2 = (LinkedList<?>) f2.get(o2);
-			int length = l1.size();
-			for (int i = 0; i < length; i++) {
-				if (!(structurallyEqual(l1.get(i), l2.get(i)))) {
-					return false;
-				}
-			}
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		return true;
-	}
-
-	public static List<Class> getSuperInterfaces(List<Class> childInterfaces) {
-
-		List<Class> allInterfaces = new ArrayList<Class>();
-
-		for (int i = 0; i < childInterfaces.size(); i++) {
-			allInterfaces.add(childInterfaces.get(i));
-			allInterfaces.addAll(getSuperInterfaces(Arrays.asList(childInterfaces
-					.get(i).getInterfaces())));
-		}
-
-		return allInterfaces;
-	}
 }

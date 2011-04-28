@@ -2,8 +2,6 @@ package org.softlang.operations;
 
 import java.io.IOException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -15,12 +13,31 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
-import org.softlang.company.Department;
 import org.softlang.company.Employee;
 
 public class Total extends Configured {
-	public static final String ALL = "uniko.all.values";
 	public static final String QUERIED_NAME = "uniko.queried.name";
+
+	/**
+	 * Mapper that reads Employee objects and writes all Employee's salary for the
+	 * queried Company.
+	 */
+	public static class TotalMapper extends
+			Mapper<Text, Employee, Text, DoubleWritable> {
+		private static String name;
+		private static boolean allValues;
+
+		protected void setup(Context context) throws IOException,
+				InterruptedException {
+			name = context.getConfiguration().get(Total.QUERIED_NAME);
+		}
+
+		protected void map(Text key, Employee value, Context context)
+				throws IOException, InterruptedException {
+			if (value.getCompany().toString().equals(name))
+				context.write(value.getCompany(), value.getSalary());
+		}
+	}
 
 	/**
 	 * Reducer that sums up all values for a given key.
@@ -38,8 +55,8 @@ public class Total extends Configured {
 		}
 	}
 
-	public static Job createJob(Class<? extends Mapper> mapperClass, String name,
-			String in, String out) throws IOException {
+	public static void total(String name, String in, String out)
+			throws IOException, InterruptedException, ClassNotFoundException {
 		Configuration conf = new Configuration();
 		conf.set(QUERIED_NAME, name);
 		Job job = Job.getInstance(new Cluster(conf), conf);
@@ -48,15 +65,12 @@ public class Total extends Configured {
 		// in
 		if (!in.endsWith("/"))
 			in = in.concat("/");
-		if (mapperClass.equals(Department.class))
-			in = in.concat("departments");
-		else
-			in = in.concat("employees");
+		in = in.concat("employees");
 		SequenceFileInputFormat.addInputPath(job, new Path(in));
 		job.setInputFormatClass(SequenceFileInputFormat.class);
 
 		// map
-		job.setMapperClass(mapperClass);
+		job.setMapperClass(TotalMapper.class);
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(DoubleWritable.class);
 
@@ -70,19 +84,11 @@ public class Total extends Configured {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(DoubleWritable.class);
 
-		return job;
-	}
-
-	public void total(Class<? extends Mapper> mapperClass, String name,
-			String in, String out) throws Exception {
-		Job job = createJob(mapperClass, name, in, out);
 		job.waitForCompletion(true);
 	}
 
 	public static void printUsage() {
-		System.out.println("Usage: Total <in> <out> [employee <name>]");
-		System.out.println("Usage: Total <in> <out> [department <name>]");
-		System.out.println("Usage: Total <in> <out> [company <name>]");
+		System.out.println("Usage: Total <in> <out> <company name>");
 		return;
 	}
 
@@ -93,21 +99,9 @@ public class Total extends Configured {
 		}
 		String in = args[0];
 		String out = args[1];
-		Total t = new Total();
+		String name = args[3];
 
-		String name = Total.ALL;
-		if (args.length > 3)
-			name = args[3];
-
-		if (args[2].equals("employee")) {
-			t.total(TotalMapper.EmployeeMapper.class, name, in, out);
-		} else if (args[2].equals("department")) {
-			t.total(TotalMapper.DepartmentMapper.class, name, in, out);
-		} else if (args[2].equals("company")) {
-			t.total(TotalMapper.CompanyMapper.class, name, in, out);
-		} else {
-			printUsage();
-		}
+		total(name, in, out);
 
 	}
 
