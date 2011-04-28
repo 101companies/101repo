@@ -2,7 +2,6 @@ grammar Company;
 
 options { 
   output = AST;
-  backtrack = false;
   k = 1;
 }
 

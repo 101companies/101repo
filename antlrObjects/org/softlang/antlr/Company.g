@@ -1,7 +1,6 @@
 grammar Company;
 
 options {
-  backtrack = false;
   k = 1;
 }
 
