@@ -62,8 +62,8 @@ The following XML schema fragment shows the element declaration for departments:
 
 That is, department elements line up children elements for name, manager, sub-departments,
 and employees. There is an XSD type ''employee'' which is used in two local element
-declarations: one for managers; another one for regular employees. The corresponding,
-schema-derived class looks as follows:
+declarations: one for managers; another one for regular employees. The
+schema-derived class for departments looks as follows:
 
 <syntaxhighlight lang="java">
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -86,9 +86,9 @@ public class Department {
 </syntaxhighlight>
 
 This class essentially models [[POJO]]s for departments in a way similar to
-regular OO programming. However, the schema compiler injects a number of annotations 
+regular OO programming. However, the schema compiler injects a number of [[:Category:annotation]]s 
 into the schema-derived classes so that sufficient information is tracked for serialization,
-and, in fact, validation. For instance, the fields for name and manager are annotated with 
+and, in fact, [[validation]]. For instance, the fields for name and manager are annotated with 
 ''required=true'', thereby expressing that a valid department object must specify a name
 and manager. On top of the schema-derived classes, the operation ''cut'' is implemented
 with [[:Category:static method]]s: 
