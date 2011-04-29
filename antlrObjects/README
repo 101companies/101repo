@@ -23,7 +23,7 @@ The parser translates text into company objects.
 To this end, a straightforward object model for companies is used.
 (In fact, the object model is very similar to the one of [[101implementation:javaComposition]].
 The mapping is described by the semantic actions within the ANTLR-based parser description.
-The underlying grammar is in the LL(0) class.
+The underlying grammar is LL(1).
 
 == Illustration ==
 
