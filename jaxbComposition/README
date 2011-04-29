@@ -26,8 +26,9 @@
 O/X mapping within the Java platform is exercised.
 The primary data model for companies is an XML schema. The schema compiler
 [[Technology:xjc]] of [[Technology:JAXB]] is used to generate Java classes
-from the schema. In this manner, operations on companies can be implemented
-in near-to-regular OO fashion while an XML representation is also served. 
+from the schema. In this manner, operations on an XML representation of
+companies can be implemented in near-to-regular OO fashion while
+using a problem-specific object model. 
 In different terms, one can carry out [[:Category:XML processing]] while
 essentially staying in the technical space of [[objectware]]. It is insightful
 to compare XML schema and schema-derived classes. The XML
@@ -60,7 +61,7 @@ The following XML schema fragment shows the element declaration for departments:
 </syntaxhighlight>
 
 That is, department elements line up children elements for name, manager, sub-departments,
-and employees. There is an XSD type ''employee'' which is used two local element
+and employees. There is an XSD type ''employee'' which is used in two local element
 declarations: one for managers; another one for regular employees. The corresponding,
 schema-derived class looks as follows:
 
@@ -84,13 +85,13 @@ public class Department {
 }
 </syntaxhighlight>
 
-This class essentially models [[POJO]]s for department in a way that is very close to
+This class essentially models [[POJO]]s for departments in a way similar to
 regular OO programming. However, the schema compiler injects a number of annotations 
 into the schema-derived classes so that sufficient information is tracked for serialization,
 and, in fact, validation. For instance, the fields for name and manager are annotated with 
 ''required=true'', thereby expressing that a valid department object must specify a name
 and manager. On top of the schema-derived classes, the operation ''cut'' is implemented
-through [[:Category:static method]]s: 
+with [[:Category:static method]]s: 
 
 <syntaxhighlight lang="java">
 public class Cut {
@@ -110,10 +111,6 @@ public class Cut {
   }		
 }
 </syntaxhighlight>
-
-It is important to note that [[:Category:instance method]]s are not applicable for any JAXB 
-scenario---unless generated code is modified or advanced modularization mechanisms
-are leveraged.
 
 == Architecture ==
 
