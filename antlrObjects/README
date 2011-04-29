@@ -27,7 +27,7 @@ The underlying grammar is LL(1).
 
 == Illustration ==
 
-Consider the following grammar fragment in ANTLR notation:
+The following ANTLR production shows the syntax of departments---yet without semantic actions:
 
 <syntaxhighlight lang="antlr">
 dept :
@@ -38,13 +38,11 @@ dept :
   '}';
 </syntaxhighlight>
 
-That is, the concrete syntax of a department is defined to
-start off with the keyword "department", followed by a ''STRING'' for
-the department's name, followed by a manager, which is an employee
+That is, a department begins with the keyword "department", followed by a 
+''STRING'' for the department's name, followed by a manager, which is an employee
 prefixed by the keyword "manager", followed by a sequence of 
-employees, finally, followed by a sequence of sub-departments. The shown
-production needs to evolve once objects should be constructed from the
-parsed input:
+employees, finally, followed by a sequence of sub-departments. 
+The same production, with semantic actions for object synthesis included, looks as follows:
 
 <syntaxhighlight lang="antlr">
 dept returns [Department d]:
@@ -64,10 +62,7 @@ dept returns [Department d]:
   ;
 </syntaxhighlight>
 
-If all sections encloded in braces were removed from the shown ANTLR fragment, the
-above-mentioned purely context-free grammar would be re-obtained. The first semantic
-action constructs a department object while all subsequent actions affect the new 
-object.
+The first semantic action constructs a department object; all subsequent actions populate the object.
 
 == Architecture ==
 
