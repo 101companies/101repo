@@ -9,7 +9,7 @@ parallel processing with [[Technology:Hadoop]]
 == Technologies ==
 
 * [[Technology:Hadoop]]
-* [[Javaclipse]]
+* [[101profile:Simple Java]]
 
 == Features ==
 
@@ -21,15 +21,14 @@ parallel processing with [[Technology:Hadoop]]
 
 == Motivation ==
 
-Companies are processed in parallel manner with [[Technology:Hadoop]]. To this end, 
-companies, departments, and  employees are represented as [[record]]s of [[file]]s 
-that are stored in a [[:Category:distributed file system]]. Computations on these 
-files are then to be described according to the [[MapReduce]] programming model.
+Companies are processed in parallel manner according to the [[MapReduce]] programming 
+model. To this end, primitive data of companies, departments, and employees can be stored
+in [[file]]s of fixed-size [[record]]s in a [[:Category:distributed file system]].
 
 == Illustration ==
 
-Data is primarily stored in files, but records from such files can be presented
-to the MapReduce functionality as objects. For instance, an object type for
+While data is stored in files, the records can be de-serialized into objects
+to be presented to MapReduce functionality. For instance, an object type for
 employees is designed as follows:
 
 <syntaxhighlight lang="java">
@@ -58,11 +57,11 @@ That is, there are properties for name, address, and salary---as usual. In
 addition, there is a property for the the company so that the company of each
 employee is immediately known without any traversal or state-based effort. 
 Objects are populated from records on file through a ''readFields'' method
-that is required for any type used on file.
+that is required for any deserializable type.
 
-A MapReduce computation consists of a mapper and a reducer. The essence
-of these ingredients are shown below, i.e., the corresponding methods 
-''map'' (extraction) and ''reduce'' (aggregation):
+A MapReduce computation consists of a mapper and a reducer. The 
+essential methods of these components, i.e., methods ''map'' (extraction)
+and ''reduce'' (aggregation) are shown below:
 
 <syntaxhighlight lang="java">
 protected void map(
@@ -90,9 +89,9 @@ pair from each employee such that it pairs up the salary of the
 employee with its company (say, its name) as the key. This choice
 of key implies that the MapReduce framework will correctly group
 together all salaries per company. Hence, the ''reduce'' method
-simply iterates over all salaries and sums the up by a trivial 
-aggregation loop; the company key together with the total of 
-salaries is written to the output file.
+simply iterates over all salaries, grouped by key, and sums them 
+up by a trivial aggregation loop; the company key together with 
+the total of salaries is written to the output file.
 
 == Architecture ==
 
