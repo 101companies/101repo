@@ -23,10 +23,9 @@
 
 Companies are represented in [[Language:XML]] and the object model of DOM is used to
 represent and process XML documents in memory. In particular, operations on companies
-are implemented in Java on top of the (generic) DOM API. DOM trees are easily queried 
-so that operations such as [[101feature:Total]] can be implemented with ease on in-memory
-XML trees. DOM trees are also mutable so that operations such as [[101feature:Cut]] can
-be implemented as [[impure computation]]s on in-memory XML trees.
+are implemented in Java on top of DOM objects. Such objects are easily queried---as 
+needed for [[101feature:Total]]. DOM objects are also mutable---as needed for 
+an [[Impure computation|impure]] implementation of [[101feature:Cut]].
 
 == Illustration ==
 
@@ -46,7 +45,7 @@ public class Cut {
 </syntaxhighlight>
 
 That is, the method receives an in-memory XML document which it queries with the
-descendant axis (see ''getElementsBy'') so that all salary elements are collected
+descendant axis (see ''getElementsByTagName'') so that all salary elements are collected
 in a ''NodeList'' which is processed by a regular loop such that the text content
 of the salary elements is modified to reflect a cut in half.
 
