@@ -28,7 +28,7 @@ in [[file]]s of fixed-size [[record]]s in a [[:Category:distributed file system]
 == Illustration ==
 
 While data is stored in files, the records can be de-serialized into objects
-to be presented to MapReduce functionality. For instance, an object type for
+for the convenience of MapReduce functionality. For instance, an object type for
 employees is designed as follows:
 
 <syntaxhighlight lang="java">
@@ -85,13 +85,13 @@ protected void reduce(
 </syntaxhighlight>
 
 That is, the ''map'' method constructs an intermediate key-value
-pair from each employee such that it pairs up the salary of the
-employee with its company (say, its name) as the key. This choice
-of key implies that the MapReduce framework will correctly group
+pair from each employee such that the company of an employee 
+(say, the company name) serves as key and the employee's salary
+serves as value. In this manner, the MapReduce framework will correctly group
 together all salaries per company. Hence, the ''reduce'' method
 simply iterates over all salaries, grouped by key, and sums them 
-up by a trivial aggregation loop; the company key together with 
-the total of salaries is written to the output file.
+up by a trivial aggregation loop so that a pair of the company key 
+with the total of salaries is written to the output file.
 
 == Architecture ==
 
