@@ -23,8 +23,8 @@ advanced modularization with [[Language:AspectJ]]
 == Motivation ==
 
 Concepts of [[aspect-oriented programming]] (say, advanced modularization) are put
-to work. The starting point is a simple [[object model]] for companies with only
-[[getter]]s, [[setter]]s, and [[constructor method]]s. The basic operations are 
+to work. The starting point is an [[object model]] for companies with properties
+but no other instance methods. The basic operations are 
 implemented by adding the corresponding methods through [[inter-type declaration]]s
 "after the fact"---in an extra module. Such a modular development should be compared
 with the simple approach of [[101implementation:javaComposition]] where
