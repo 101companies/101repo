@@ -28,7 +28,7 @@ Update-Site: http://download.eclipse.org/modeling/emf/updates/releases/
 
 == Motivation ==
 
-M/O mapping within the Java platform is exercised. The primary data model
+[[M/O mapping]] within the Java platform is exercised. The primary data model
 for companies is an Ecore model from which an object model for "Model Code"
 in EMF's sense is derived. The classes of the Ecore-derived object model are
 somewhat richer than [[POJO]], but their core properties and relationships
@@ -37,7 +37,7 @@ are similar to a regular OO design (such as the one of
 be implemented as [[:Category:instance method]]s on the Ecore-derived classes.
 It should be noted that instance methods on generated classes survive 
 re-generation because EMF is capable of distinguishing generated versus
-authored class members. The Ecore model is interesting in so far that it
+programmer-inserted class members. The Ecore model is interesting in so far that it
 clearly demonstrates the difference between [[Containment relationship|containment]]
 vs. [[reference relationship]]s. In particular, the association of mentees and mentores
 requires a reference.
