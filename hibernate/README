@@ -25,11 +25,11 @@
 
 == Motivation ==
 
-[[O/R mapping]] or [[persistence]] within the Java platform is exercised by means 
-of [[Technology:Hibernate]]. The primary data model for companies is a straightforward
+[[O/R mapping]] or [[persistence]] on the Java platform is exercised using 
+[[Technology:Hibernate]]. The primary data model for companies is a straightforward
 object model for [[POJO]]s. A mapping is defined to associate a relational schema
 with the classes. The mapping is specified in an [[Language:XML]] language and organized
-in a per-class manner. For each class, properties and relationships are specified by
+in a per-class manner. For each class, properties and [[:Category:relationship]]s are specified by
 the mapping. It is insightful to compare the object model and the mapping-implied relational
 schema. It is also insightful to compare the latter schema with one that was ''natively'' 
 designed from a relational database point of view; see [[101implementation:mySql]]. In 
@@ -141,7 +141,7 @@ This configuration helps the runtime to connect to the right database, to find
 all mapping files of interest, and to define some essential settings. For instance,
 Hibernate is informed here that the database catalog is to be updated automatically
 (see ''hbm2ddl.auto'' ... ''update'') upon starting a Hibernate session. In particular,
-if the mapping-implied tables are not yet defined by the database, then they will
+if the mapping-implied tables are not yet declared in the database, then they will
 be created automatically.
 
 == Architecture ==
