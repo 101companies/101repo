@@ -25,7 +25,7 @@
 
 == Motivation ==
 
-[[O/R mapping]] or [[persistence]] within the Java platform are exercised by means 
+[[O/R mapping]] or [[persistence]] within the Java platform is exercised by means 
 of [[Technology:Hibernate]]. The primary data model for companies is a straightforward
 object model for [[POJO]]s. A mapping is defined to associate a relational schema
 with the classes. The mapping is specified in an [[Language:XML]] language and organized
@@ -61,12 +61,11 @@ public class Department {
 </syntaxhighlight>
 
 Each persistent class must provide a property (i.e., a getter and a setter) for
-an ''id'' that can serve as primary key in the database. Relationships with cardinality 
-one-to-many should be implemented as ''sets'' as opposed to ''lists''.
+an ''id'' that can serve as primary key in the database. Properties of 
+collection types (in fact, set types) proxy for one-to-many relationships.
 Other than that, a persistent class is not much different from a regular
-[[POJO]]-like class. (Hibernate uses setters for object population---as opposed
-to direct field access. Hence, there are private setters that would be missing
-from a native object model.)
+[[POJO]]-like class. (There are some private setters that would be missing
+from a native object model. These setters are needed for object population.)
 
 Consider the mapping file of class ''Department'' to table ''DEPARTMENT'':
 
@@ -89,16 +88,16 @@ Consider the mapping file of class ''Department'' to table ''DEPARTMENT'':
 </hibernate-mapping>
 </syntaxhighlight>
 
-All properties of the class are associated with the relational schema.
+All properties of the class are associated with the table.
 That is, the ''id'' property is directly mapped to a primary key column
 ''ID'' of the ''DEPARTMENT'' table. Also, the ''name'' property is mapped
 to a column of just that name---applying default mapping rules between
 SQL types and Java types. Further, the ''employees'' property is 
 non-trivially associated with a foreign key ''DEPT_ID'' of the 
-''EMPLOYEE'' table (which is only indirectly identified through the 
+''EMPLOYEE'' table---which is only indirectly identified through the 
 mentioning of the ''Employee'' class; likewise for sub-departments.
 
-Persistent objects are brought back to memory as follows:
+Persistent objects are brought back to life as follows:
 
 <syntaxhighlight lang="java">
 public Company loadCompany(String name) {
@@ -141,8 +140,9 @@ Finally, consider the Hibernate configuration:
 This configuration helps the runtime to connect to the right database, to find
 all mapping files of interest, and to define some essential settings. For instance,
 Hibernate is informed here that the database catalog is to be updated automatically
-(see ''hbm2ddl.auto'' ... ''update'') upon setting a Hibernate session. If the mapping-implied
-tables are not yet defined by the database at hand, then they will be automatically created.
+(see ''hbm2ddl.auto'' ... ''update'') upon starting a Hibernate session. In particular,
+if the mapping-implied tables are not yet defined by the database, then they will
+be created automatically.
 
 == Architecture ==
 
