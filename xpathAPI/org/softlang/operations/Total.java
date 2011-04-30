@@ -1,4 +1,4 @@
-package org.softlang.xpath;
+package org.softlang.operations;
 
 import org.apache.xpath.XPathAPI;
 import org.w3c.dom.Document; // DOM trees
@@ -10,7 +10,7 @@ import org.w3c.dom.NodeList; // Lists of DOM subtrees
  */
 public class Total {
 
-    public static double aggregate(Document doc) 
+    public static double total(Document doc) 
     	throws Exception {
 	    
 	    // The aggregation variable 

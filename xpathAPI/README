@@ -30,13 +30,18 @@ impure transformations.
 
 == Architecture ==
 
-Xalan-Java is included into the code distribution of this implementation.
+See [[101implementation:dom]] for a very similar implementation.
+The main difference to the [[Technology:DOM]]-based implementation
+is really that an XPath query is used in the place of a DOM query axis. 
+Xalan-Java is included into the code distribution of this implementation;
+it implements an XPath processor.
 
 == Usage ==
 
-* The implementation is provided as an Eclipse project.
+* The implementation is provided as an Eclipse project. 
 * Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available though class ''org.softlang.xpath.Tests''.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Operations'' with JUnit to exercise basic operations.
 
 == Contributors ==
 
