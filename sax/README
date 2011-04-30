@@ -12,7 +12,7 @@ exercise [[push-based XML parsing]] with [[Technology:SAX]] in [[Language:Java]]
 
 * [[Technology:SAX]]
 * [[Technology:XMLStreamWriter]]
-* [[Technology:JAXP]]: implementation of SAX
+* [[Technology:JAXP]]: implementation of SAX and other XML functionality
 * [[101profile:Simple Java]]
 
 == Features ==
