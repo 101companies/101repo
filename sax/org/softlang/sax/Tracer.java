@@ -6,7 +6,7 @@ import org.xml.sax.helpers.DefaultHandler;
 /**
  * A parser that merely prints a trace for the XML input.
  */
-public class Trace extends DefaultHandler
+public class Tracer extends DefaultHandler
 {	
 	/**
 	 * Handle "start document"
@@ -85,6 +85,6 @@ public class Trace extends DefaultHandler
     }
     
 	public static void main (String args[]) throws Exception {
-		SAXUtilities.parse(new Trace(), "Year2008.xml");
+		SAXUtilities.parse(new Tracer(), "Year2008.xml");
 	}    
 }

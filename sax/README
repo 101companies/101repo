@@ -11,6 +11,7 @@ exercise [[push-based XML parsing]] with [[Technology:SAX]] in [[Language:Java]]
 == Technologies ==
 
 * [[Technology:SAX]]
+* [[Technology:XMLStreamWriter]]
 * [[Technology:JAXP]]: implementation of SAX
 * [[101profile:Simple Java]]
 
@@ -20,35 +21,29 @@ exercise [[push-based XML parsing]] with [[Technology:SAX]] in [[Language:Java]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
-== Terms ==
+== Motivation ==
 
-* [[:Category:XML processing]]
+[[:Category:XML processing]]
 
 == Architecture ==
 
-[[101feature:Company]] is implemented by an XML Schema in Company.xsd.
-
-The tests also demonstrate validation with regard to the schema.
-
-All Java modules are hosted by package ''org.softlang.sax''.
-
-[[101feature:Total]] and [[101feature:Cut]] are implemented as SAX handlers.
-
-The implementation of [[101feature:Cut]] also requires ''javax.xml.stream.XMLStreamWriter''.
-
-There are also bonus modules ''Trace'' and ''Validator'' for tracing and validation.
+Package ''org.softlang.operations'' hosts implementations of the operations
+[[101feature:Total]] and [[101feature:Cut]]. These operations are implemented
+by SAX handlers; output XML is written with XMLStreamWriter. [[101feature:Company]] 
+is implemented by the XML schema Company.xsd. The schema is not needed for the 
+basic operations, but one can perform XML validation with regard to the schema; 
+see the JUnit tests. Package ''org.softlang.sax'' hosts some boilerplate code
+for SAX: it covers basic functionality for parsing, tracing, and validation.
+Package ''org.softlang.tests'' hosts various JUnit tests; see below.
 
 == Usage ==
 
-* The implementation is provided as an Eclipse project.
+* The implementation is provided as an Eclipse project. 
 * Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available though class ''org.softlang.sax.Tests''.
-
-Hint: if you need to add schema files to a project so that XML files are 
-automatically validated on the grounds of their namespace, as it is useful for
-the schema Company.xsd, which is part of the present implementation, then follow
-this advice: http://weblogs.java.net/blog/2009/07/21/add-xsd-file-eclipse-and-eliminate-those-pesky-xml-warnings
-Add the .xsd file to XML catalog.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Operations'' with JUnit to exercise basic operations.
+** Run class ''Trace'' with JUnit to see the trace of parsing a file with SAX.
+** Run class ''Validate'' with JUnit to validate all XML files against the schema for companies.
 
 == Contributors ==
 
