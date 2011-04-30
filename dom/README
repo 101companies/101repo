@@ -51,9 +51,10 @@ of each salary element is modified to reflect a cut in half.
 
 == Usage ==
 
-* The implementation is provided as an Eclipse project.
+* The implementation is provided as an Eclipse project. 
 * Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available in package ''org.softlang.tests''.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Operations'' with JUnit to exercise basic operations.
 
 == Issues ==
 

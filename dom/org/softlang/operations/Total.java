@@ -1,4 +1,4 @@
-package org.softlang.dom;
+package org.softlang.operations;
 
 import org.w3c.dom.Document; // DOM trees
 import org.w3c.dom.Element; // DOM subtrees
