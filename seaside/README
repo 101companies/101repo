@@ -1,0 +1,7 @@
+== Usage ==
+
+1. Download Seaside for Pharo.
+2. Open Seaside.
+3. Open "world" context menu within seaside (right click). Tools->File Browser.
+4. Select 101companies.st and click "install" on a toolbar.
+5. Select 101companies-Tests and click "install" on a toolbar.
