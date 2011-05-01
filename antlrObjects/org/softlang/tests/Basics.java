@@ -3,7 +3,8 @@ package org.softlang.tests;
 import java.io.IOException;
 
 import org.softlang.company.Company;
-import static org.softlang.antlr.CompanyParser.*;
+
+import static org.softlang.parser.CompanyParser.*;
 
 import org.antlr.runtime.RecognitionException;
 import org.junit.Test;

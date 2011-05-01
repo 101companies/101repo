@@ -5,7 +5,7 @@ options {
 }
 
 @header {
-package org.softlang.antlr;
+package org.softlang.parser;
 import org.softlang.company.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +13,7 @@ import java.io.IOException;
 }
 
 @lexer::header {
-package org.softlang.antlr;
+package org.softlang.parser;
 }
 
 @members {

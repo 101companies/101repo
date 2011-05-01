@@ -5,11 +5,11 @@ options {
 }
 
 @header {
-package org.softlang.antlr;
+package org.softlang.parser;
 }
 
 @lexer::header {
-package org.softlang.antlr;
+package org.softlang.parser;
 }
 
 @members {

@@ -1,5 +1,7 @@
 package org.softlang.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,9 +10,9 @@ import org.junit.Test;
 import org.softlang.parser.CompanyLexer;
 import org.softlang.parser.CompanyParser;
 
-public class Parsing {
+public class Total {
 		
-	private static void parseCompany(String s) throws IOException, RecognitionException {
+	private static double total(String s) throws IOException, RecognitionException {
 		FileInputStream stream = new FileInputStream("inputs" + File.separatorChar + s);
         ANTLRInputStream antlr = new ANTLRInputStream(stream);
         CompanyLexer lexer = new CompanyLexer(antlr);
@@ -18,15 +20,17 @@ public class Parsing {
         CompanyParser parser = new CompanyParser(tokens);
         parser.company();
         if (parser.error) throw new RecognitionException();
+        return parser.total;
 	}
 	
 	@Test
 	public void testPositive() throws IOException, RecognitionException {
-		parseCompany("sample.Company");
+		double total = total("sample.Company");
+	    assertEquals(399747, total, 0);
 	}
 	
 	@Test(expected=RecognitionException.class)
 	public void tesNegative() throws IOException, RecognitionException {
-		parseCompany("nonSample.Company");
+		total("nonSample.Company");
 	}	
 }

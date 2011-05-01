@@ -1,6 +1,6 @@
 package org.softlang.tests;
 
-import static org.softlang.antlr.CompanyParser.*;
+import static org.softlang.parser.CompanyParser.*;
 
 import java.io.IOException;
 import org.antlr.runtime.*;
