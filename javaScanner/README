@@ -37,7 +37,7 @@ modifying salaries and performing some ad-hoc pretty printing.
 Because of the combination of lexer and pretty printing, 
 it is fair to say that the implementation covers [[101feature:Serialization]].
 
-'''Note:''' because of the issue identified below, this is essentially a 
+'''Note:''' Because of the issue identified below, this is essentially a 
 suboptimal implementation. See [[101implementation:javaLexer]] for a more
 robust lexer-based implementation in Java.
 
