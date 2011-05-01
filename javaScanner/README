@@ -1,0 +1,50 @@
+== Intent ==
+
+[[lexer]]-based text processing in [[Language:Java]]
+
+== Languages ==
+
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[Technology:java.util.Scanner]]
+* [[101profile:Simple Java]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+A simple lexer is used to process a text-based representation of companies.
+The lexer is derived from Java's basic Scanner API. [[101feature:Total]] is 
+implemented by means of finding token sequences consisting of keyword "salary"
+following by a number. [[101feature:Cut]] copies lexemes to an output stream
+while it also performs some ad-hoc pretty printing because indentation and
+line breaks are not preserved by the lexer.
+
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project. 
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Operations'' with JUnit to exercise basic operations.
+
+== Issues ==
+
+Given java.util.Scanner's approach to scanning with its reliance 
+on delimiters, it is not straightforward to support proper string literals because we need
+to use spaces as delimiters, but this implies that string literals with spaces are broken up.
+For a given scanner, one can toggle the used delimiter dynamically, but this feature 
+does not help in any obvious manner. Hence, the present implementation simply does not
+allow spaces in string literals.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
+* {{101contributor|Michael Kusenbach|developer}}
