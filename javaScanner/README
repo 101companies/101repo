@@ -50,7 +50,7 @@ robust lexer-based implementation in Java.
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available in the package ''org.softlang.tests''.
 ** Run class ''Operations'' with JUnit to exercise basic operations.
-** Run class ''Noop'' with JUnit to exercise positive and negative test cases for lexer.
+** Run class ''Noop'' with JUnit to exercise positive and negative test cases for the lexer.
 
 == Issues ==
 

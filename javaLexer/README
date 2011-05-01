@@ -24,8 +24,11 @@ The lexer uses a lookahead of 1 for decision making.
 The lexer reports all tokens including whitespace.
 [[101feature:Total]] is implemented by means of finding token sequences 
 consisting of keyword "salary" followed by a number while ignoring whitespace
-in between. [[101feature:Cut]] copies lexemes to an output stream while
-modifying salaries. The the lexemes for whitespace token transport layout from 
+in between. (Just looking for a number would be sufficient for the situation at hand
+because numbers are used for salaries only, but the extra test makes the
+point that ad hoc tests may be needed when lexers are used for data processing.)
+[[101feature:Cut]] copies lexemes to an output stream while
+modifying salaries. The lexemes for whitespace token transport layout from 
 input to ouput. Because of the combination of lexer and pretty printing, 
 it is fair to say that the implementation covers [[101feature:Serialization]].
 
@@ -35,6 +38,7 @@ it is fair to say that the implementation covers [[101feature:Serialization]].
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available in the package ''org.softlang.tests''.
 ** Run class ''Operations'' with JUnit to exercise basic operations.
+** Run class ''Noop'' with JUnit to exercise positive and negative test cases for the lexer.
 
 == Contributors ==
 

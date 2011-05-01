@@ -40,7 +40,14 @@ public class Lexer implements Iterable<Token> {
 						new FileReader(
 							new File(s)));
 	}
-		
+
+	// Lex until end-of-file
+	public void lexall() {
+		for (Token t : this) { 
+			System.out.println(t + " : " + getLexeme());
+		}	
+	}	
+	
 	// Extract lexeme from buffer
 	public String getLexeme() {
 		return new String(buffer,0,index);
@@ -76,12 +83,6 @@ public class Lexer implements Iterable<Token> {
 	public void lex() throws IOException {
 		reset();
 
-		if (lookahead==-1) {
-			eof = true;
-			token = EOF;
-			return;
-		}
-		
 		// Recognize whitespace
 		if (Character.isWhitespace(lookahead)) {
 			do {
@@ -91,6 +92,13 @@ public class Lexer implements Iterable<Token> {
 			return;
 		}
 
+		// Recognize end of file
+		if (lookahead==-1) {
+			eof = true;
+			token = EOF;
+			return;
+		}
+				
 		// Recognize {
 		if (lookahead=='{') {
 			token = OPEN;
@@ -116,7 +124,7 @@ public class Lexer implements Iterable<Token> {
 				return;
 			}
 			else
-				throw new IOException("Unknown identifier " + lexeme);
+				throw new RecognitionException("Unknown identifier " + lexeme);
 		}
 			
 		// Recognize number
@@ -144,7 +152,7 @@ public class Lexer implements Iterable<Token> {
 			return;			
 		}
 		
-		throw new IOException("Lexer giving up at " + lookahead);
+		throw new RecognitionException("Lexer giving up at " + lookahead);
 		
 	}
 
@@ -161,7 +169,7 @@ public class Lexer implements Iterable<Token> {
 				try {
 					lex();
 				} catch (IOException e) {
-					throw new RuntimeException(e);
+					throw new RecognitionException(e);
 				}
 				return true;
 			}
