@@ -10,44 +10,60 @@ import java.io.IOException;
 
 public class Cut {
 
-	private static void indent(Writer w, int d) throws IOException {
-		w.write("\n");
-		for(int i=0; i<d; i++) 
-			w.write(" ");
-	}	
+	private Lexer lexer;
+	private Writer writer;
+	int indent = 0;
 	
-	public Cut(String in, String out) throws IOException {
-		Lexer lexer = new Lexer(in);
-		Writer writer = new OutputStreamWriter(new FileOutputStream(out));
+	// Local write that swallows checked exception, too
+	private void write(String s) {
+		try {
+			writer.write(s);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}		
+	}
+
+	// Convenient macros for pretty printing
+	private void space() { write(" "); }
+	private void nl() { write("\n"); }
+	private void right() { indent += 3; }
+	private void left() { indent -= 3; }
+	private void indent() { for(int i=0; i<indent; i++) space(); }		
+		
+	public Cut() { };
+	
+	public void cut(String in, String out) throws IOException {
+		lexer = new Lexer(in);
+		writer = new OutputStreamWriter(new FileOutputStream(out));
 		Token previous = null; // test on NUMBER to follow SALARY
 		String lexeme = null;
-		int indent = 0;
 		for (Token current : lexer) {
 			
 			lexeme = lexer.getLexeme();
 
 			// Cut salary in half
-			if (current == NUMBER && previous == SALARY)
+			if (current==NUMBER && previous==SALARY)
 				lexeme = Double.toString(
 							(Double.parseDouble(lexer.getLexeme())
 								/ 2.0d));
 
 			// Adjust indentation
-			if (current==OPEN) indent += 3;
-			if (current==CLOSE) indent -= 3;
+			if (current==OPEN) right();
+			if (current==CLOSE) left();
 
-			// Line break at times
-			if (	current==CLOSE
-				||	current==SALARY
-				||	(current!=CLOSE && previous==CLOSE))
-				indent(writer,indent);				
-
+			// Add linebreaks
+			if (current==DEPARTMENT
+			||  current==MANAGER
+			||  current==EMPLOYEE
+			||  current==ADDRESS
+			||  current==SALARY
+			||  current==CLOSE) {
+				nl();
+				indent();
+			}
+			
 			// Copy possibly modified lexeme
-			writer.write(lexeme + " ");
-
-			// Line break after {
-			if (current==OPEN)
-				indent(writer,indent);
+			write(lexeme + " ");
 
 			previous = current;
 		}

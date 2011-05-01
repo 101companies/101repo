@@ -34,6 +34,13 @@ public class Lexer implements Iterable<Token> {
 		scanner = new Scanner(new File(s));
 	}
 
+	// Lex until end-of-file
+	public void lexall() {
+		for (Token t : this) { 
+			System.out.println(t + " : " + lexeme);
+		}	
+	}
+
 	public Iterator<Token> iterator() {
 		return new Iterator<Token>() {
 			public boolean hasNext() {
@@ -49,9 +56,7 @@ public class Lexer implements Iterable<Token> {
 				else if (lexeme.matches("\\d*(\\.\\d*)?"))
 					return NUMBER;
 				else 
-					throw new RuntimeException(
-							new IOException(
-								"Lexer failed at " + lexeme));					
+					throw new RecognitionException("Lexer failed at " + lexeme);					
 			}
 
 			public void remove() {

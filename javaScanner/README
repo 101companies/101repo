@@ -25,15 +25,18 @@
 == Motivation ==
 
 A simple custom-made lexer is used to process a text-based representation of companies.
-The lexer is derived from Java's basic Scanner API.
+The lexer leverages Java's basic Scanner API.
 Hence, it uses a delimiter pattern to chop the input into candidate tokens;
 it then uses regular expressions to recognize specific tokens. 
 The default delimiter pattern is used: whitespace.
 This also means that whitespace itself is not reported as a token.
 [[101feature:Total]] is implemented by means of finding token sequences 
 consisting of keyword "salary" followed by a number.
+(Just looking for a number would be sufficient for the situation at hand
+because numbers are used for salaries only, but the extra test makes the
+point that ad hoc tests may be needed when lexers are used for data processing.)
 [[101feature:Cut]] copies lexemes to an output stream while
-modifying salaries and performing some ad-hoc pretty printing.
+modifying salaries and performing some ad hoc pretty printing.
 Because of the combination of lexer and pretty printing, 
 it is fair to say that the implementation covers [[101feature:Serialization]].
 
@@ -47,15 +50,16 @@ robust lexer-based implementation in Java.
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available in the package ''org.softlang.tests''.
 ** Run class ''Operations'' with JUnit to exercise basic operations.
+** Run class ''Noop'' with JUnit to exercise positive and negative test cases for lexer.
 
 == Issues ==
 
 Given java.util.Scanner's approach to scanning with its reliance 
-on delimiters, it is not straightforward to support proper string literals because we need
-to use spaces as delimiters, but this implies that string literals with spaces are broken up.
-For a given scanner, one can toggle the used delimiter dynamically, but this feature 
-does not help in any obvious manner. Hence, the present implementation simply does not
-allow spaces in string literals.
+on delimiters, it is not straightforward to support proper string literals. The problem
+is that the straightforward token delimiter, whitespace, can also occur inside
+(proper) strings. No other definition of delimiter, not even a dynamically changing
+definition seem to be applicable here. Hence, the present implementation simply 
+does not allow spaces in string literals---which is clearly a major limitation.
 
 == Contributors ==
 

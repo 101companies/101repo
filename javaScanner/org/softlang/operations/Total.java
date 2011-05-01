@@ -6,21 +6,16 @@ import org.softlang.lexer.Lexer;
 import java.io.FileNotFoundException;
 
 public class Total {
-
-	private double total = 0;
 	
-	public double getTotal() {
-		return total;
-	}
-	
-	public Total(String s) throws FileNotFoundException {
+	public static double total(String s) throws FileNotFoundException {
+		double total = 0;
 		Lexer lexer = new Lexer(s);
 		Token previous = null;
 		for (Token current : lexer) {
-			if (current == NUMBER && previous == SALARY) 
+			if (current==NUMBER && previous==SALARY) 
 				total += Double.parseDouble(lexer.getLexeme());
 			previous = current;
 		}
-	}
-	
+		return total;
+	}	
 }
