@@ -30,8 +30,8 @@ public class Lexer implements Iterable<Token> {
 	private Scanner scanner;
 	private String lexeme;
 	
-	public Lexer(File f) throws FileNotFoundException {
-		scanner = new Scanner(f);
+	public Lexer(String s) throws FileNotFoundException {
+		scanner = new Scanner(new File(s));
 	}
 
 	public Iterator<Token> iterator() {

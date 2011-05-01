@@ -19,7 +19,8 @@ public class Total {
 		for (Token current : lexer) {
 			if (current == NUMBER && previous == SALARY) 
 				total += Double.parseDouble(lexer.getLexeme());
-			previous = current;
+			if (current!=WS)
+				previous = current;
 		}
 	}
 	

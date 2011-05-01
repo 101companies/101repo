@@ -1,0 +1,41 @@
+== Intent ==
+
+[[lexer]]-based text processing in [[Language:Java]]
+
+== Languages ==
+
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[101profile:Simple Java]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+A simple custom-made lexer is used to process a text-based representation of companies.
+The lexer uses a lookahead of 1 for decision making.
+The lexer reports all tokens including whitespace.
+[[101feature:Total]] is implemented by means of finding token sequences 
+consisting of keyword "salary" followed by a number while ignoring whitespace
+in between. [[101feature:Cut]] copies lexemes to an output stream while
+modifying salaries. The the lexemes for whitespace token transport layout from 
+input to ouput. Because of the combination of lexer and pretty printing, 
+it is fair to say that the implementation covers [[101feature:Serialization]].
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project. 
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Operations'' with JUnit to exercise basic operations.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}

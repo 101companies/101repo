@@ -2,6 +2,10 @@
 
 [[:Category:lexer]]-based text processing in [[Language:Java]]
 
+== Status ==
+
+[[101status:Suboptimal]]
+
 == Languages ==
 
 * [[Language:Java]]
@@ -20,14 +24,22 @@
 
 == Motivation ==
 
-A simple lexer is used to process a text-based representation of companies.
-The lexer is derived from Java's basic Scanner API. [[101feature:Total]] is 
-implemented by means of finding token sequences consisting of keyword "salary"
-following by a number. [[101feature:Cut]] copies lexemes to an output stream
-while it also performs some ad-hoc pretty printing because indentation and
-line breaks are not preserved by the lexer. Because of the combination of 
-lexer and pretty printing, it is fair to say that the implementation covers
-[[101feature:Serialization]].
+A simple custom-made lexer is used to process a text-based representation of companies.
+The lexer is derived from Java's basic Scanner API.
+Hence, it uses a delimiter pattern to chop the input into candidate tokens;
+it then uses regular expressions to recognize specific tokens. 
+The default delimiter pattern is used: whitespace.
+This also means that whitespace itself is not reported as a token.
+[[101feature:Total]] is implemented by means of finding token sequences 
+consisting of keyword "salary" followed by a number.
+[[101feature:Cut]] copies lexemes to an output stream while
+modifying salaries and performing some ad-hoc pretty printing.
+Because of the combination of lexer and pretty printing, 
+it is fair to say that the implementation covers [[101feature:Serialization]].
+
+'''Note:''' because of the issue identified below, this is essentially a 
+suboptimal implementation. See [[101implementation:javaLexer]] for a more
+robust lexer-based implementation in Java.
 
 == Usage ==
 

@@ -1,6 +1,7 @@
 package org.softlang.lexer;
 
 public enum Token {
+	WS,
 	COMPANY, 
 	DEPARTMENT, 
 	MANAGER, 
@@ -12,4 +13,5 @@ public enum Token {
 	CLOSE, 
 	STRING, 
 	NUMBER,
+	EOF
 }
