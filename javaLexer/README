@@ -20,7 +20,7 @@
 == Motivation ==
 
 A simple custom-made lexer is used to process a text-based representation of companies.
-The lexer uses a lookahead of 1 for decision making.
+The lexer uses a lookahead of 1.
 The lexer reports all tokens including whitespace.
 [[101feature:Total]] is implemented by means of finding token sequences 
 consisting of keyword "salary" followed by a number while ignoring whitespace

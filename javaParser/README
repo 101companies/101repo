@@ -1,0 +1,50 @@
+== Intent ==
+
+recursive-descent parsing in [[Language:Java]]
+
+== Languages ==
+
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[101profile:Simple Java]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+Recursive-descent parsing is used to process a text-based representation of companies.
+The underlying lexer is custom-made, too.
+Both lexer and parser use a lookahead of 1.
+The lexer reports all tokens excluding whitespace.
+The parser relies on protected handler methods to allow for injection of semantic actions.
+For instance, [[101feature:Total]] is implemented by defining the handler for employees to aggregate salaries.
+The implementation of [[101feature:Cut]] requires ad hoc pretty printing.
+Because of the combination of parsing and pretty printing, 
+it is fair to say that the implementation covers [[101feature:Serialization]].
+
+== Architecture ==
+
+Package ''org.softlang.parser'' hosts all components for parsing: a lexer, an enum type for tokens,
+and a parser that can be customized with semantic actions by class inheritance. (The lexer is essentially c
+opied from [[101implementation:javaLexer]] except that whitespace is skipped.) Package 
+''org.softlang.operations'' hosts implementations of [[101feature:Total]] and [[101feature:Cut]].
+Package ''org.softlang.tests'' hosts JUnit tests; see below.
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project. 
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Operations'' with JUnit to exercise basic operations.
+** Run class ''Noop'' with JUnit to exercise positive and negative test cases for the parser.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
