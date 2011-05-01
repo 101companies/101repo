@@ -29,7 +29,7 @@ public class Parser {
 			return lexer.getLexeme();
 		}
 		else
-			throw new IllegalStateException("Expected: " + token + "; Found: " + lookahead);
+			throw new RecognitionException("Expected: " + token + "; Found: " + lookahead);
 	}
 
 	// Test actual token

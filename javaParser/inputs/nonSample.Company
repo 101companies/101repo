@@ -1,1 +1,4 @@
-This is not a company.
+company "foobar" {
+	department "barfoo" {
+	}
+}
