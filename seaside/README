@@ -1,7 +1,14 @@
+== Motivation ==
+
+A web-based implementation in [[Language:Smalltalk]]
+
 == Usage ==
 
 1. Download Seaside for Pharo.
-2. Open Seaside.
+2. Open Seaside environment.
 3. Open "world" context menu within seaside (right click). Tools->File Browser.
 4. Select 101companies.st and click "install" on a toolbar.
 5. Select 101companies-Tests and click "install" on a toolbar.
+At this point you should be able to see 101comanies and 101companiesTests in the components browser.
+
+Next you have to start a web-server. For this go to the "Seasise Control Panel", select [8080]WAComancheAdaptor and click "Start" button.
