@@ -1,8 +1,7 @@
 package org.softlang.tests;
 
 import org.junit.Test;
-import org.softlang.parser.Parser;
-import org.softlang.parser.RecognitionException;
+import org.softlang.parser.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -16,16 +15,28 @@ public class Noop {
 		"inputs" + File.separator + "sample.Company";
 	private static String negSample =
 		"inputs" + File.separator + "nonSample.Company";
-	
+
 	@Test
-	public void testPos() throws FileNotFoundException {
-		Parser parser = new Parser();
-		parser.parse(posSample);
+	public void testAcceptPos() throws FileNotFoundException {
+		Acceptor a = new Acceptor();
+		a.accept(posSample);
 	}
 
 	@Test(expected=RecognitionException.class)
-	public void testNeg() throws FileNotFoundException {
-		Parser parser = new Parser();
-		parser.parse(negSample);
+	public void testAcceptNeg() throws FileNotFoundException {
+		Acceptor a = new Acceptor();
+		a.accept(negSample);
+	}
+		
+	@Test
+	public void testParsePos() throws FileNotFoundException {
+		Parser p = new Parser();
+		p.parse(posSample);
+	}
+
+	@Test(expected=RecognitionException.class)
+	public void testParseNeg() throws FileNotFoundException {
+		Parser p = new Parser();
+		p.parse(negSample);
 	}
 }
