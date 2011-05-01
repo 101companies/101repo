@@ -26,15 +26,13 @@ public class Lexer implements Iterable<Token> {
 	
 	static {
 		keywords = new HashMap <String,Token>();
-		keywords.put("company", 	COMPANY);
-		keywords.put("department", 	DEPARTMENT);
-		keywords.put("manager", 	MANAGER);		
-		keywords.put("employee", 	EMPLOYEE);
-		keywords.put("name", 	    NAME);
-		keywords.put("address", 	ADDRESS);
-		keywords.put("salary", 		SALARY);
-		keywords.put("{", 			OPEN);
-		keywords.put("}", 			CLOSE);		
+		keywords.put("company",     COMPANY);
+		keywords.put("department",  DEPARTMENT);
+		keywords.put("manager",     MANAGER);		
+		keywords.put("employee",    EMPLOYEE);
+		keywords.put("name",        NAME);
+		keywords.put("address",     ADDRESS);
+		keywords.put("salary",      SALARY);
 	}
 	
 	public Lexer(String s) throws FileNotFoundException {
