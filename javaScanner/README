@@ -1,6 +1,6 @@
 == Intent ==
 
-[[lexer]]-based text processing in [[Language:Java]]
+[[:Category:lexer]]-based text processing in [[Language:Java]]
 
 == Languages ==
 
@@ -25,8 +25,9 @@ The lexer is derived from Java's basic Scanner API. [[101feature:Total]] is
 implemented by means of finding token sequences consisting of keyword "salary"
 following by a number. [[101feature:Cut]] copies lexemes to an output stream
 while it also performs some ad-hoc pretty printing because indentation and
-line breaks are not preserved by the lexer.
-
+line breaks are not preserved by the lexer. Because of the combination of 
+lexer and pretty printing, it is fair to say that the implementation covers
+[[101feature:Serialization]].
 
 == Usage ==
 
