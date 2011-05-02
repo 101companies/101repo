@@ -2,6 +2,10 @@
 
 use [[Language:TGraphs]] with [[Technology:JGraLab]] in [[Language:Java]]
 
+== Status ==
+
+101status:Featured
+
 == Motivation ==
 
 TGraphs are typed, attributed, ordered, and directed graphs.
@@ -59,26 +63,20 @@ contain schema-derived interfaces and classes for companies.
 == Usage ==
 
 * The implementation is provided as an Eclipse project.
-* If the TGraphs schema ''101companies-schema.xmi'' is ever changed, then code-generation must be re-executed. To this end, run ''ant'' on the included ''build.xml'' file from the command line or from within Eclipse. This process would re-generate all types in the packages ''...schema'' and ''...schema.impl.std''. These packages provide the API for ''CompanyServices''.
-* There are JUnit tests in package ''...tests''. Run these tests to exercise all implemented operations and capabilities. GReQL queries and GReTL transformations are evaluated in due the process. One of the tests (namely the one for the visualization) is a main method.
+* Run ''build.xml'' with ant to generate schema-derived classes and interfaces. 
+* There are tests in package ''...tests''.
+** Run JUnit test ''Serialization'' to exercise the serialization capability.
+** Run JUnit test ''Operations'' to exercise the basic operations.
+** Run main method of ''Visualization'' to exercise the visualization capability.
 
-== Discussion ==
-
-Here are some minor issues that could be normalized/improved:
-* Managers are employees definitely.
-** Fixed.
-* Person not really needed (inheritance illustrated with NamedElement).
-** Fixed.
-* Use float or double instead of ints for salaries.
-** Fixed. Now we use doubles.
-* Mentors and mentees should be both employees.
-** Fixed.
-* Enforce cardinality constraints for mentors:
-** See [[101feature:Mentoring]].
-** See prepared test testAddMentorNotOk.
-** Fixed that way.
+Please note: Upon initial checkout and whenever the TGraphs schema ''101companies-schema.xmi''
+is changed, then code generation must be re-executed. To this end, run ''ant'' on the included 
+''build.xml'' file from the command line or from within Eclipse. This process re-generates 
+all types in the packages ''...schema'' and ''...schema.impl.std''.  These packages provide
+the API for ''CompanyServices''.
 
 == Contributors ==
 
 * {{101contributor|Tassilo Horn|developer}}
 * {{101contributor|Mahdi Derakhshanmanesh|developer}}
+* {{101contributor|Ralf Lämmel|reviewer}}
