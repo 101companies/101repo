@@ -25,13 +25,12 @@ import de.uni_koblenz.oneoonecompanies.schema.CompaniesGraph;
 import de.uni_koblenz.oneoonecompanies.schema.Company;
 import de.uni_koblenz.oneoonecompanies.schema.Employee;
 import de.uni_koblenz.oneoonecompanies.schema.OneOOneSchema;
-import de.uni_koblenz.oneoonecompanies.schema.Person;
 
 /**
  * Provide many 101companies features through a single service object
  */
 public class CompanyServices {
-	
+
 	// Turn off logging
 	static {
 		JGraLab.setLogLevel(Level.OFF);
@@ -39,10 +38,10 @@ public class CompanyServices {
 
 	// The singleton for the service object
 	private static CompanyServices instance;
-	
+
 	// The graph on which to serve
 	private CompaniesGraph graph;
-	
+
 	// A GReQL evaluator
 	private GreqlEvaluator eval;
 
@@ -65,16 +64,15 @@ public class CompanyServices {
 		File gf = new File(s);
 		if (gf.exists()) {
 			try {
-				graph = OneOOneSchema.
-							instance().
-							loadCompaniesGraph(gf.getPath());
+				graph = OneOOneSchema.instance().loadCompaniesGraph(
+						gf.getPath());
 			} catch (GraphIOException e) {
 				e.printStackTrace();
 			}
 		}
 		eval = new GreqlEvaluator((String) null, graph, null);
 	}
-	
+
 	/**
 	 * Look up company by name
 	 */
@@ -86,14 +84,14 @@ public class CompanyServices {
 		}
 		return null;
 	}
-	
+
 	/**
-	 *  Total all salaries for employees of a company
+	 * Total all salaries for employees of a company
 	 */
-	public long totalSalaries(Company c) {
-		return Math.round(greqlEval(
-				"sum(from p: V{Person} with getVertex(" + c.getId()
-						+ ") <>--* p" + " reportSet p.salary end)").toDouble());
+	public double totalSalaries(Company c) {
+		return greqlEval(
+				"sum(from p: V{Employee} with getVertex(" + c.getId()
+						+ ") <>--* p" + " reportSet p.salary end)").toDouble();
 	}
 
 	/**
@@ -101,8 +99,9 @@ public class CompanyServices {
 	 */
 	public void cutSalaries(Company c) {
 		// Use GReQL for iterating many hops in java
-		for (Person p : c.reachableVertices("<>--* & {Person}", Person.class)) {
-			p.set_salary(Math.round(p.get_salary() / 2.0f));
+		for (Employee p : c.reachableVertices("<>--* & {Employee}",
+				Employee.class)) {
+			p.set_salary(p.get_salary() / 2.0d);
 		}
 	}
 
@@ -111,9 +110,9 @@ public class CompanyServices {
 	 */
 	public void cutSalariesWithGReTL(Company c) {
 		Context context = new Context(graph);
-		new MatchReplace(context, "('$[0]' | salary = 'round($[0].salary / "
-				+ 2.0f + ")')", "getVertex(" + c.getId()
-				+ ") <>--* & {Person}").execute();
+		new MatchReplace(context, "('$[0]' | salary = '$[0].salary / " + 2.0d
+				+ "')", "getVertex(" + c.getId() + ") <>--* & {Employee}")
+				.execute();
 	}
 
 	/**
@@ -130,26 +129,32 @@ public class CompanyServices {
 	 * Add a mentoring relationship
 	 */
 	public void addMentor(Company c, String mentorName, String menteeName) {
-		Person mentor = (Person) greqlEval(
-				"theElement(from p: V{Person} with p.name = '" + mentorName
+		Employee mentor = (Employee) greqlEval(
+				"theElement(from p: V{Employee} with p.name = '" + mentorName
 						+ "' and getVertex(" + c.getId()
 						+ ") <>--* p reportSet p end)").toVertex();
 		Employee mentee = (Employee) greqlEval(
 				"theElement(from p: V{Employee} with p.name = '" + menteeName
 						+ "' and getVertex(" + c.getId()
 						+ ") <>--* p reportSet p end)").toVertex();
+
+		// Check that mentee doesn't have a mentor already
+		if (mentee.get_mentor() != null) {
+			throw new RuntimeException(menteeName + " (" + mentee
+					+ ") already has a mentor!");
+		}
+
 		mentee.add_mentor(mentor);
-	}	
-	
+	}
+
 	/**
-	 *  Visualize company graph
+	 * Visualize company graph
 	 */
 	public void visualizeGraph(String s) {
 		try {
 			final File png = new File(s);
 			png.deleteOnExit();
-			Tg2Dot.convertGraph(graph,
-					png.getCanonicalPath(),
+			Tg2Dot.convertGraph(graph, png.getCanonicalPath(),
 					GraphVizOutputFormat.PNG);
 			final Image i = ImageIO.read(png);
 			JPanel panel = new JPanel() {
@@ -179,5 +184,5 @@ public class CompanyServices {
 		eval.setQuery(query);
 		eval.startEvaluation();
 		return eval.getEvaluationResult();
-	}	
+	}
 }
