@@ -5,7 +5,10 @@ parsing textual syntax with [[Technology:ANTLR]] in [[Language:Java]]
 == Features ==
 
 * [[101feature:Company]] 
+* [[101feature:Total]]
+* [[101feature:Cut]]  
 * [[101feature:Parsing]] 
+* [[101feature:Serialization]] 
 
 == Languages ==
 
@@ -24,6 +27,9 @@ To this end, a straightforward object model for companies is used.
 (In fact, the object model is very similar to the one of [[101implementation:javaComposition]].
 The mapping is described by the semantic actions within the ANTLR-based parser description.
 The underlying grammar is LL(1).
+Basic operations are implemented on top of the object model in basic OO programming style.
+Pretty printing for the concrete syntax is also supported.
+Hence, text-based serialization is fully enabled.
 
 == Illustration ==
 
@@ -68,8 +74,7 @@ of alternatives. The first semantic action constructs a department object; all s
 == Architecture ==
 
 See [[101implementation:antlrAcceptor]] for general instructions on the architecture of ANTLR-based implementations.
-The object model for companies with methods for the basic operations is adopted from [[101implementation:java]].
-(Serialization capabilities are not included though.)
+The object model for companies with methods for the basic operations is adopted from [[101implementation:javaComposition]].
 
 == Usage ==
 

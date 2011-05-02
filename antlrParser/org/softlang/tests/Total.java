@@ -11,9 +11,14 @@ import org.softlang.parser.CompanyLexer;
 import org.softlang.parser.CompanyParser;
 
 public class Total {
-		
+
+	private static String posSample =
+		"inputs" + File.separator + "sample.Company";
+	private static String negSample =
+		"inputs" + File.separator + "nonSample.Company";
+	
 	private static double total(String s) throws IOException, RecognitionException {
-		FileInputStream stream = new FileInputStream("inputs" + File.separatorChar + s);
+		FileInputStream stream = new FileInputStream(s);
         ANTLRInputStream antlr = new ANTLRInputStream(stream);
         CompanyLexer lexer = new CompanyLexer(antlr);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -25,12 +30,12 @@ public class Total {
 	
 	@Test
 	public void testPositive() throws IOException, RecognitionException {
-		double total = total("sample.Company");
+		double total = total(posSample);
 	    assertEquals(399747, total, 0);
 	}
 	
 	@Test(expected=RecognitionException.class)
 	public void tesNegative() throws IOException, RecognitionException {
-		total("nonSample.Company");
+		total(negSample);
 	}	
 }

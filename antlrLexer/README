@@ -4,13 +4,15 @@ tokenizing textual syntax with [[Technology:ANTLR]]
 
 == Motivation ==
 
-We define a lexer for companies.
-
-We use ANTLR to execute the lexer so that a list of toxens is outputted.
+A lexer for companies is defined.
+The lexer is, of course, oblivious to the precise structure of companies.
+Simple queries are expressible nevertheless.
+That is, [[101feature:Total]] can be implemented by searching for number tokens.
 
 == Features ==
 
-None
+* [[101feature:Company]]
+* [[101feature:Totol]]
 
 == Languages ==
 

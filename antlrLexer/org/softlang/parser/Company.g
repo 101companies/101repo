@@ -1,7 +1,7 @@
 lexer grammar Company;
 
 @header {
-package org.softlang.antlr;
+package org.softlang.parser;
 }
 
 @members {

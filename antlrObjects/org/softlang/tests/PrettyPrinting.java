@@ -1,32 +1,31 @@
 package org.softlang.tests;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.softlang.company.Company;
-
-import static org.softlang.parser.CompanyParser.*;
-
-import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class Basics {
+import org.softlang.company.Company;
+import static org.softlang.parser.CompanyParser.*;
+import org.softlang.pp.PpCompany;
+import java.io.File;
+import java.io.IOException;
+
+import org.antlr.runtime.RecognitionException;
+
+public class PrettyPrinting {
 
 	private static String sampleCompany =
 		"inputs" + File.separator + "sample.Company";	
 	
-	@Test
-	public void testTotal() throws IOException, RecognitionException {
-		Company c = parse(sampleCompany);
-	    double total = c.total();		
-	    assertEquals(399747, total, 0);
-	}
+	private static String output =
+		"output.txt";
 	
 	@Test
-	public void testCut() throws IOException, RecognitionException {
+	public void testPp() throws IOException, RecognitionException {
 		Company c = parse(sampleCompany);
 		c.cut();
+		PpCompany p = new PpCompany();
+		p.ppCompany(c,output);
+		c = parse(output);
 	    double total = c.total();		
 	    assertEquals(399747 / 2.0d, total, 0);
 	}

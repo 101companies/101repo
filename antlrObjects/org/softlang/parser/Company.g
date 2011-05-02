@@ -18,7 +18,7 @@ package org.softlang.parser;
 
 @members {
 public static Company parse(String s) throws IOException, RecognitionException {
-    FileInputStream stream = new FileInputStream("inputs" + File.separatorChar + s);
+    FileInputStream stream = new FileInputStream(s);
     ANTLRInputStream antlr = new ANTLRInputStream(stream);
     CompanyLexer lexer = new CompanyLexer(antlr);
     CommonTokenStream tokens = new CommonTokenStream(lexer);

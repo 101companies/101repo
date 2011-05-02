@@ -1,3 +1,3 @@
 all:
-	cd org/softlang/antlr; make generate
+	cd org/softlang/parser; make generate
 

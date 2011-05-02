@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-05-02 00:49:23
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-05-02 01:18:19
 
 package org.softlang.parser;
 import org.softlang.company.*;
@@ -47,7 +47,7 @@ public class CompanyParser extends Parser {
 
 
     public static Company parse(String s) throws IOException, RecognitionException {
-        FileInputStream stream = new FileInputStream("inputs" + File.separatorChar + s);
+        FileInputStream stream = new FileInputStream(s);
         ANTLRInputStream antlr = new ANTLRInputStream(stream);
         CompanyLexer lexer = new CompanyLexer(antlr);
         CommonTokenStream tokens = new CommonTokenStream(lexer);

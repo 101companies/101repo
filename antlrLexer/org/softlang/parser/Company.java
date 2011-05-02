@@ -1,6 +1,6 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-04-28 12:17:56
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-05-02 01:22:47
 
-package org.softlang.antlr;
+package org.softlang.parser;
 
 
 import org.antlr.runtime.*;
@@ -8,45 +8,47 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-public class CompanyLexer extends Lexer {
-    public static final int MANAGER=6;
-    public static final int FLOAT=10;
-    public static final int EOF=-1;
+public class Company extends Lexer {
+    public static final int OPEN=10;
     public static final int COMPANY=4;
-    public static final int T__19=19;
-    public static final int T__16=16;
-    public static final int WS=11;
-    public static final int T__15=15;
-    public static final int T__18=18;
-    public static final int T__17=17;
-    public static final int T__12=12;
-    public static final int T__14=14;
-    public static final int T__13=13;
-    public static final int DEPT=5;
-    public static final int PU=7;
-    public static final int EMPLOYEE=8;
-    public static final int STRING=9;
+    public static final int WS=12;
+    public static final int CLOSE=11;
+    public static final int ADDRESS=8;
+    public static final int SALARY=9;
+    public static final int EMPLOYEE=6;
+    public static final int MANAGER=7;
+    public static final int FLOAT=15;
+    public static final int DIGIT=14;
+    public static final int EOF=-1;
+    public static final int DEPARTMENT=5;
+    public static final int STRING=13;
+
+      @Override
+      public void reportError(RecognitionException e) {
+        throw new IllegalArgumentException(e);
+      }
+
 
     // delegates
     // delegators
 
-    public CompanyLexer() {;} 
-    public CompanyLexer(CharStream input) {
+    public Company() {;} 
+    public Company(CharStream input) {
         this(input, new RecognizerSharedState());
     }
-    public CompanyLexer(CharStream input, RecognizerSharedState state) {
+    public Company(CharStream input, RecognizerSharedState state) {
         super(input,state);
 
     }
     public String getGrammarFileName() { return "Company.g"; }
 
-    // $ANTLR start "T__12"
-    public final void mT__12() throws RecognitionException {
+    // $ANTLR start "COMPANY"
+    public final void mCOMPANY() throws RecognitionException {
         try {
-            int _type = T__12;
+            int _type = COMPANY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:7:7: ( 'company' )
-            // Company.g:7:9: 'company'
+            // Company.g:14:13: ( 'company' )
+            // Company.g:14:15: 'company'
             {
             match("company"); 
 
@@ -59,55 +61,15 @@ public class CompanyLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__12"
+    // $ANTLR end "COMPANY"
 
-    // $ANTLR start "T__13"
-    public final void mT__13() throws RecognitionException {
+    // $ANTLR start "DEPARTMENT"
+    public final void mDEPARTMENT() throws RecognitionException {
         try {
-            int _type = T__13;
+            int _type = DEPARTMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:8:7: ( '{' )
-            // Company.g:8:9: '{'
-            {
-            match('{'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__13"
-
-    // $ANTLR start "T__14"
-    public final void mT__14() throws RecognitionException {
-        try {
-            int _type = T__14;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:9:7: ( '}' )
-            // Company.g:9:9: '}'
-            {
-            match('}'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__14"
-
-    // $ANTLR start "T__15"
-    public final void mT__15() throws RecognitionException {
-        try {
-            int _type = T__15;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:10:7: ( 'department' )
-            // Company.g:10:9: 'department'
+            // Company.g:15:13: ( 'department' )
+            // Company.g:15:15: 'department'
             {
             match("department"); 
 
@@ -120,36 +82,15 @@ public class CompanyLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__15"
+    // $ANTLR end "DEPARTMENT"
 
-    // $ANTLR start "T__16"
-    public final void mT__16() throws RecognitionException {
+    // $ANTLR start "EMPLOYEE"
+    public final void mEMPLOYEE() throws RecognitionException {
         try {
-            int _type = T__16;
+            int _type = EMPLOYEE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:11:7: ( 'manager' )
-            // Company.g:11:9: 'manager'
-            {
-            match("manager"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__16"
-
-    // $ANTLR start "T__17"
-    public final void mT__17() throws RecognitionException {
-        try {
-            int _type = T__17;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:12:7: ( 'employee' )
-            // Company.g:12:9: 'employee'
+            // Company.g:16:13: ( 'employee' )
+            // Company.g:16:15: 'employee'
             {
             match("employee"); 
 
@@ -162,15 +103,36 @@ public class CompanyLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__17"
+    // $ANTLR end "EMPLOYEE"
 
-    // $ANTLR start "T__18"
-    public final void mT__18() throws RecognitionException {
+    // $ANTLR start "MANAGER"
+    public final void mMANAGER() throws RecognitionException {
         try {
-            int _type = T__18;
+            int _type = MANAGER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:13:7: ( 'address' )
-            // Company.g:13:9: 'address'
+            // Company.g:17:13: ( 'manager' )
+            // Company.g:17:15: 'manager'
+            {
+            match("manager"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "MANAGER"
+
+    // $ANTLR start "ADDRESS"
+    public final void mADDRESS() throws RecognitionException {
+        try {
+            int _type = ADDRESS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Company.g:18:13: ( 'address' )
+            // Company.g:18:15: 'address'
             {
             match("address"); 
 
@@ -183,15 +145,15 @@ public class CompanyLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__18"
+    // $ANTLR end "ADDRESS"
 
-    // $ANTLR start "T__19"
-    public final void mT__19() throws RecognitionException {
+    // $ANTLR start "SALARY"
+    public final void mSALARY() throws RecognitionException {
         try {
-            int _type = T__19;
+            int _type = SALARY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:14:7: ( 'salary' )
-            // Company.g:14:9: 'salary'
+            // Company.g:19:13: ( 'salary' )
+            // Company.g:19:15: 'salary'
             {
             match("salary"); 
 
@@ -204,17 +166,57 @@ public class CompanyLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__19"
+    // $ANTLR end "SALARY"
+
+    // $ANTLR start "OPEN"
+    public final void mOPEN() throws RecognitionException {
+        try {
+            int _type = OPEN;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Company.g:20:13: ( '{' )
+            // Company.g:20:15: '{'
+            {
+            match('{'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "OPEN"
+
+    // $ANTLR start "CLOSE"
+    public final void mCLOSE() throws RecognitionException {
+        try {
+            int _type = CLOSE;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Company.g:21:13: ( '}' )
+            // Company.g:21:15: '}'
+            {
+            match('}'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "CLOSE"
 
     // $ANTLR start "WS"
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:64:9: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
-            // Company.g:64:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:22:13: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
+            // Company.g:22:17: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             {
-            // Company.g:64:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            // Company.g:22:17: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
             int cnt2=0;
             loop2:
             do {
@@ -241,16 +243,16 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // Company.g:64:14: ' '
+            	    // Company.g:22:18: ' '
             	    {
             	    match(' '); 
 
             	    }
             	    break;
             	case 2 :
-            	    // Company.g:64:18: ( '\\r' )? '\\n'
+            	    // Company.g:22:22: ( '\\r' )? '\\n'
             	    {
-            	    // Company.g:64:18: ( '\\r' )?
+            	    // Company.g:22:22: ( '\\r' )?
             	    int alt1=2;
             	    int LA1_0 = input.LA(1);
 
@@ -259,7 +261,7 @@ public class CompanyLexer extends Lexer {
             	    }
             	    switch (alt1) {
             	        case 1 :
-            	            // Company.g:64:18: '\\r'
+            	            // Company.g:22:22: '\\r'
             	            {
             	            match('\r'); 
 
@@ -273,7 +275,7 @@ public class CompanyLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Company.g:64:29: '\\t'
+            	    // Company.g:22:33: '\\t'
             	    {
             	    match('\t'); 
 
@@ -289,7 +291,6 @@ public class CompanyLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            skip();
 
             }
 
@@ -306,11 +307,11 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:65:9: ( '\"' (~ '\"' )* '\"' )
-            // Company.g:65:13: '\"' (~ '\"' )* '\"'
+            // Company.g:23:13: ( '\"' (~ '\"' )* '\"' )
+            // Company.g:23:17: '\"' (~ '\"' )* '\"'
             {
             match('\"'); 
-            // Company.g:65:17: (~ '\"' )*
+            // Company.g:23:21: (~ '\"' )*
             loop3:
             do {
                 int alt3=2;
@@ -323,7 +324,7 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // Company.g:65:18: ~ '\"'
+            	    // Company.g:23:22: ~ '\"'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -360,10 +361,10 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:66:9: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
-            // Company.g:66:13: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+            // Company.g:24:13: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? )
+            // Company.g:24:15: ( DIGIT )+ ( '.' ( DIGIT )+ )?
             {
-            // Company.g:66:13: ( '0' .. '9' )+
+            // Company.g:24:15: ( DIGIT )+
             int cnt4=0;
             loop4:
             do {
@@ -377,9 +378,9 @@ public class CompanyLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // Company.g:66:14: '0' .. '9'
+            	    // Company.g:24:15: DIGIT
             	    {
-            	    matchRange('0','9'); 
+            	    mDIGIT(); 
 
             	    }
             	    break;
@@ -393,7 +394,7 @@ public class CompanyLexer extends Lexer {
                 cnt4++;
             } while (true);
 
-            // Company.g:66:25: ( '.' ( '0' .. '9' )+ )?
+            // Company.g:24:22: ( '.' ( DIGIT )+ )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -402,10 +403,10 @@ public class CompanyLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // Company.g:66:26: '.' ( '0' .. '9' )+
+                    // Company.g:24:23: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // Company.g:66:30: ( '0' .. '9' )+
+                    // Company.g:24:27: ( DIGIT )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -419,9 +420,9 @@ public class CompanyLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // Company.g:66:31: '0' .. '9'
+                    	    // Company.g:24:27: DIGIT
                     	    {
-                    	    matchRange('0','9'); 
+                    	    mDIGIT(); 
 
                     	    }
                     	    break;
@@ -452,8 +453,30 @@ public class CompanyLexer extends Lexer {
     }
     // $ANTLR end "FLOAT"
 
+    // $ANTLR start "DIGIT"
+    public final void mDIGIT() throws RecognitionException {
+        try {
+            // Company.g:26:16: ( ( '0' .. '9' ) )
+            // Company.g:26:18: ( '0' .. '9' )
+            {
+            // Company.g:26:18: ( '0' .. '9' )
+            // Company.g:26:19: '0' .. '9'
+            {
+            matchRange('0','9'); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "DIGIT"
+
     public void mTokens() throws RecognitionException {
-        // Company.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | WS | STRING | FLOAT )
+        // Company.g:1:8: ( COMPANY | DEPARTMENT | EMPLOYEE | MANAGER | ADDRESS | SALARY | OPEN | CLOSE | WS | STRING | FLOAT )
         int alt7=11;
         switch ( input.LA(1) ) {
         case 'c':
@@ -461,37 +484,37 @@ public class CompanyLexer extends Lexer {
             alt7=1;
             }
             break;
-        case '{':
+        case 'd':
             {
             alt7=2;
             }
             break;
-        case '}':
+        case 'e':
             {
             alt7=3;
             }
             break;
-        case 'd':
+        case 'm':
             {
             alt7=4;
             }
             break;
-        case 'm':
+        case 'a':
             {
             alt7=5;
             }
             break;
-        case 'e':
+        case 's':
             {
             alt7=6;
             }
             break;
-        case 'a':
+        case '{':
             {
             alt7=7;
             }
             break;
-        case 's':
+        case '}':
             {
             alt7=8;
             }
@@ -532,77 +555,77 @@ public class CompanyLexer extends Lexer {
 
         switch (alt7) {
             case 1 :
-                // Company.g:1:10: T__12
+                // Company.g:1:10: COMPANY
                 {
-                mT__12(); 
+                mCOMPANY(); 
 
                 }
                 break;
             case 2 :
-                // Company.g:1:16: T__13
+                // Company.g:1:18: DEPARTMENT
                 {
-                mT__13(); 
+                mDEPARTMENT(); 
 
                 }
                 break;
             case 3 :
-                // Company.g:1:22: T__14
+                // Company.g:1:29: EMPLOYEE
                 {
-                mT__14(); 
+                mEMPLOYEE(); 
 
                 }
                 break;
             case 4 :
-                // Company.g:1:28: T__15
+                // Company.g:1:38: MANAGER
                 {
-                mT__15(); 
+                mMANAGER(); 
 
                 }
                 break;
             case 5 :
-                // Company.g:1:34: T__16
+                // Company.g:1:46: ADDRESS
                 {
-                mT__16(); 
+                mADDRESS(); 
 
                 }
                 break;
             case 6 :
-                // Company.g:1:40: T__17
+                // Company.g:1:54: SALARY
                 {
-                mT__17(); 
+                mSALARY(); 
 
                 }
                 break;
             case 7 :
-                // Company.g:1:46: T__18
+                // Company.g:1:61: OPEN
                 {
-                mT__18(); 
+                mOPEN(); 
 
                 }
                 break;
             case 8 :
-                // Company.g:1:52: T__19
+                // Company.g:1:66: CLOSE
                 {
-                mT__19(); 
+                mCLOSE(); 
 
                 }
                 break;
             case 9 :
-                // Company.g:1:58: WS
+                // Company.g:1:72: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 10 :
-                // Company.g:1:61: STRING
+                // Company.g:1:75: STRING
                 {
                 mSTRING(); 
 
                 }
                 break;
             case 11 :
-                // Company.g:1:68: FLOAT
+                // Company.g:1:82: FLOAT
                 {
                 mFLOAT(); 
 
