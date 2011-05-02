@@ -20,7 +20,7 @@ The underlying grammar is LL(1).
 
 == Technologies ==
 
-* [[Technology:ANTLR]]
+* [[Technology:ANTLR]] (Version 3.2)
 * [[101profile:Java CLI]]
 
 == Usage ==

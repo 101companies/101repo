@@ -4,14 +4,16 @@ parsing textual syntax with [[Technology:ANTLR]]
 
 == Motivation ==
 
-We define both concrete and abstract syntax for companies.
+Both concrete and abstract syntax is defined for companies.
 To this end, we use an ANTLR-based parser description.
-The ANTLR-based specification constructs trees according to ANTLR's generic tree format.
+The abstract syntax is based on ANTLR's homogeneous tree format.
+The resulting tree is walked with an ANTLR tree grammar to total all salaries or to cut salaries in half.
 
 == Features ==
 
 * [[101feature:Company]] 
 * [[101feature:Parsing]] 
+* [[101feature:Total]] 
 
 == Languages ==
 
@@ -19,7 +21,7 @@ The ANTLR-based specification constructs trees according to ANTLR's generic tree
 
 == Technologies ==
 
-* [[Technology:ANTLR]]
+* [[Technology:ANTLR]] (Version 3.2)
 * [[101profile:Java CLI]]
 
 == Usage ==

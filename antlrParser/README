@@ -19,7 +19,7 @@ semantic actions that aggregate the total in state of the parser object.
 
 == Technologies ==
 
-* [[Technology:ANTLR]]
+* [[Technology:ANTLR]] (Version 3.2)
 * [[101profile:Java CLI]]
 
 == Architecture ==

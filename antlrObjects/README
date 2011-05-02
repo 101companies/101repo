@@ -16,7 +16,7 @@ parsing textual syntax with [[Technology:ANTLR]] in [[Language:Java]]
 
 == Technologies ==
 
-* [[Technology:ANTLR]]
+* [[Technology:ANTLR]] (Version 3.2)
 * [[101profile:Java CLI]]
 
 == Motivation ==

@@ -20,7 +20,7 @@ That is, [[101feature:Total]] can be implemented by searching for number tokens.
 
 == Technologies ==
 
-* [[Technology:ANTLR]]
+* [[Technology:ANTLR]] (Version 3.2)
 * [[101profile:Java CLI]]
 
 == Usage ==
