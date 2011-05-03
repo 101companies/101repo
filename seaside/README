@@ -23,6 +23,15 @@ a web-based implementation in [[Language:Smalltalk]]
 
 == Architecture ==
 
+Cut for the Departmnent
+
+<pre>
+cut
+	super cut.
+	manager cut.
+	employees do:[:each | each cut]
+</pre>
+
 == Usage ==
 
 * 1. Download Seaside for Pharo (http://www.seaside.st/download/pharo).
