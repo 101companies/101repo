@@ -23,9 +23,18 @@ a web-based implementation in [[Language:Smalltalk]]
 
 == Architecture ==
 
+There is a basic OO implemenetation.
+
+Cut for the Employee
 <syntaxhighlight lang="smalltalk">
 cut
 	salary := salary / 2
+</syntaxhighlight>
+
+Total for the Employee
+<syntaxhighlight>
+total
+	^salary
 </syntaxhighlight>
 
 Cut for the Departmnent
@@ -43,6 +52,9 @@ Total for the Department
 total
 	^self employees inject:((manager total) + (super total)) into:[:total :current | total + current total]
 </syntaxhighlight>
+
+
+The second part contains a web-implementation.
 
 == Usage ==
 
