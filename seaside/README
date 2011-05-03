@@ -23,6 +23,8 @@ a web-based implementation in [[Language:Smalltalk]]
 
 == Architecture ==
 
+== Illustration ==
+
 There is a basic OO implemenetation.
 
 Cut for the Employee
@@ -54,7 +56,7 @@ total
 </syntaxhighlight>
 
 
-The second part contains a web-implementation.
+The second part contains a layer of web-specific components.
 
 == Usage ==
 
