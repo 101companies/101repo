@@ -23,14 +23,26 @@ a web-based implementation in [[Language:Smalltalk]]
 
 == Architecture ==
 
+<syntaxhighlight lang="smalltalk">
+cut
+	salary := salary / 2
+</syntaxhighlight>
+
 Cut for the Departmnent
 
-<pre>
+<syntaxhighlight lang="smalltalk">
 cut
 	super cut.
 	manager cut.
 	employees do:[:each | each cut]
-</pre>
+</syntaxhighlight>
+
+Total for the Department
+
+<syntaxhighlight lang="smalltalk">
+total
+	^self employees inject:((manager total) + (super total)) into:[:total :current | total + current total]
+</syntaxhighlight>
 
 == Usage ==
 
