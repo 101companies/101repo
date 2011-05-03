@@ -1,0 +1,1 @@
+TestCase subclass: #AbstractComponentTest	instanceVariableNames: ''	classVariableNames: ''	poolDictionaries: ''	category: '101companies-Tests'!

@@ -1,0 +1,5 @@
+Please do not commit changes from this directory as it contais binaries (essentially a Smalltalk image).
+
+Image from this directory is not intended to be used as an example; rather you should refer to the README in the seaside folder and follow the instructions of importing source code in Pharo environment. Please download a fresh Seaside for Pharo and import sources.
+
+If you still want to open the whole image -- please do not commit any changes you make.
