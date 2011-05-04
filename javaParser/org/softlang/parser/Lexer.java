@@ -14,10 +14,10 @@ import java.util.Map;
 
 public class Lexer implements Iterable<Token> {
 
+	Token token = null; // last token recognized
+    boolean eof = false; // reached end of file
 	private Reader reader = null; // input stream
 	private int lookahead = 0; // lookahead, if any
-	private boolean eof = false; // reached end of file
-	private Token token = null; // last token recognized
 	private int[] buffer = new int[128]; // lexeme buffer
 	private int index = 0; // length of lexeme
 	
@@ -40,13 +40,6 @@ public class Lexer implements Iterable<Token> {
 						new FileReader(
 							new File(s)));
 	}
-
-	// Lex until end-of-file
-	public void lexall() {
-		for (Token t : this) { 
-			System.out.println(t + " : " + getLexeme());
-		}	
-	}	
 	
 	// Extract lexeme from buffer
 	public String getLexeme() {
@@ -83,11 +76,11 @@ public class Lexer implements Iterable<Token> {
 	public void lex() throws IOException {
 		reset();
 
-		// Recognize whitespace
+		// Skip whitespace
 		while (Character.isWhitespace(lookahead))
 			read();
 		reset();
-
+	
 		// Recognize end of file
 		if (lookahead==-1) {
 			eof = true;
@@ -130,9 +123,8 @@ public class Lexer implements Iterable<Token> {
 			} while (Character.isDigit(lookahead));
 			if (lookahead=='.') {
 				read();
-				do {
+				while (Character.isDigit(lookahead))
 					read();
-				} while (Character.isDigit(lookahead));
 			}
 			token = NUMBER;
 			return;
@@ -156,31 +148,13 @@ public class Lexer implements Iterable<Token> {
 	 * Access token stream with iterator
 	 */
 	public Iterator<Token> iterator() {
-		return new Iterator<Token>() {
-			public boolean hasNext() {
-				if (token!=null)
-					return true;
-				if (eof)
-					return false;
-				try {
-					lex();
-				} catch (IOException e) {
-					throw new RecognitionException(e);
-				}
-				return true;
-			}
-			public Token next() {
-				if (hasNext()) {
-					Token result = token;
-					token = null;
-					return result;
-				}
-				else
-					throw new IllegalStateException();
-			}
-			public void remove() {
-				throw new UnsupportedOperationException();
-			}
-		};
+		return new TokenStream(this);
 	}
+	
+	// Stress test: lex until end-of-file
+	public void lexall() {
+		for (Token t : this) { 
+			System.out.println(t + " : " + getLexeme());
+		}	
+	}	
 }

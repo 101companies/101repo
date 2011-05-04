@@ -43,17 +43,17 @@ public static company_return parse(String s) throws IOException, RecognitionExce
 }
 
 company :
-  'company' STRING '{' dept* '}'
-  -> ^(COMPANY STRING dept*)
+  'company' STRING '{' department* '}'
+  -> ^(COMPANY STRING department*)
   ;
   
-dept :
+department :
   'department' name=STRING '{' 
     manager
     ('employee' employee)*
-    dept*
+    department*
   '}'
-  -> ^(DEPT $name manager employee* dept*)
+  -> ^(DEPT $name manager employee* department*)
   ;
     
 manager : 

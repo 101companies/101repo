@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-05-02 04:29:58
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-05-04 01:09:35
 
 package org.softlang.company;
 
@@ -89,7 +89,7 @@ public class CompanyParser extends Parser {
     };
 
     // $ANTLR start "company"
-    // Company.g:45:1: company : 'company' STRING '{' ( dept )* '}' -> ^( COMPANY STRING ( dept )* ) ;
+    // Company.g:45:1: company : 'company' STRING '{' ( department )* '}' -> ^( COMPANY STRING ( department )* ) ;
     public final CompanyParser.company_return company() throws RecognitionException {
         CompanyParser.company_return retval = new CompanyParser.company_return();
         retval.start = input.LT(1);
@@ -100,7 +100,7 @@ public class CompanyParser extends Parser {
         Token STRING2=null;
         Token char_literal3=null;
         Token char_literal5=null;
-        CompanyParser.dept_return dept4 = null;
+        CompanyParser.department_return department4 = null;
 
 
         Object string_literal1_tree=null;
@@ -111,10 +111,10 @@ public class CompanyParser extends Parser {
         RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
         RewriteRuleTokenStream stream_11=new RewriteRuleTokenStream(adaptor,"token 11");
         RewriteRuleTokenStream stream_12=new RewriteRuleTokenStream(adaptor,"token 12");
-        RewriteRuleSubtreeStream stream_dept=new RewriteRuleSubtreeStream(adaptor,"rule dept");
+        RewriteRuleSubtreeStream stream_department=new RewriteRuleSubtreeStream(adaptor,"rule department");
         try {
-            // Company.g:45:9: ( 'company' STRING '{' ( dept )* '}' -> ^( COMPANY STRING ( dept )* ) )
-            // Company.g:46:3: 'company' STRING '{' ( dept )* '}'
+            // Company.g:45:9: ( 'company' STRING '{' ( department )* '}' -> ^( COMPANY STRING ( department )* ) )
+            // Company.g:46:3: 'company' STRING '{' ( department )* '}'
             {
             string_literal1=(Token)match(input,11,FOLLOW_11_in_company74);  
             stream_11.add(string_literal1);
@@ -125,7 +125,7 @@ public class CompanyParser extends Parser {
             char_literal3=(Token)match(input,12,FOLLOW_12_in_company78);  
             stream_12.add(char_literal3);
 
-            // Company.g:46:24: ( dept )*
+            // Company.g:46:24: ( department )*
             loop1:
             do {
                 int alt1=2;
@@ -138,14 +138,14 @@ public class CompanyParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // Company.g:46:24: dept
+            	    // Company.g:46:24: department
             	    {
-            	    pushFollow(FOLLOW_dept_in_company80);
-            	    dept4=dept();
+            	    pushFollow(FOLLOW_department_in_company80);
+            	    department4=department();
 
             	    state._fsp--;
 
-            	    stream_dept.add(dept4.getTree());
+            	    stream_department.add(department4.getTree());
 
             	    }
             	    break;
@@ -161,7 +161,7 @@ public class CompanyParser extends Parser {
 
 
             // AST REWRITE
-            // elements: dept, STRING
+            // elements: STRING, department
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -171,20 +171,20 @@ public class CompanyParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 47:3: -> ^( COMPANY STRING ( dept )* )
+            // 47:3: -> ^( COMPANY STRING ( department )* )
             {
-                // Company.g:47:6: ^( COMPANY STRING ( dept )* )
+                // Company.g:47:6: ^( COMPANY STRING ( department )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(COMPANY, "COMPANY"), root_1);
 
                 adaptor.addChild(root_1, stream_STRING.nextNode());
-                // Company.g:47:23: ( dept )*
-                while ( stream_dept.hasNext() ) {
-                    adaptor.addChild(root_1, stream_dept.nextTree());
+                // Company.g:47:23: ( department )*
+                while ( stream_department.hasNext() ) {
+                    adaptor.addChild(root_1, stream_department.nextTree());
 
                 }
-                stream_dept.reset();
+                stream_department.reset();
 
                 adaptor.addChild(root_0, root_1);
                 }
@@ -212,15 +212,15 @@ public class CompanyParser extends Parser {
     }
     // $ANTLR end "company"
 
-    public static class dept_return extends ParserRuleReturnScope {
+    public static class department_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "dept"
-    // Company.g:50:1: dept : 'department' name= STRING '{' manager ( 'employee' employee )* ( dept )* '}' -> ^( DEPT $name manager ( employee )* ( dept )* ) ;
-    public final CompanyParser.dept_return dept() throws RecognitionException {
-        CompanyParser.dept_return retval = new CompanyParser.dept_return();
+    // $ANTLR start "department"
+    // Company.g:50:1: department : 'department' name= STRING '{' manager ( 'employee' employee )* ( department )* '}' -> ^( DEPT $name manager ( employee )* ( department )* ) ;
+    public final CompanyParser.department_return department() throws RecognitionException {
+        CompanyParser.department_return retval = new CompanyParser.department_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -234,7 +234,7 @@ public class CompanyParser extends Parser {
 
         CompanyParser.employee_return employee10 = null;
 
-        CompanyParser.dept_return dept11 = null;
+        CompanyParser.department_return department11 = null;
 
 
         Object name_tree=null;
@@ -248,22 +248,22 @@ public class CompanyParser extends Parser {
         RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
         RewriteRuleTokenStream stream_12=new RewriteRuleTokenStream(adaptor,"token 12");
         RewriteRuleSubtreeStream stream_manager=new RewriteRuleSubtreeStream(adaptor,"rule manager");
-        RewriteRuleSubtreeStream stream_dept=new RewriteRuleSubtreeStream(adaptor,"rule dept");
+        RewriteRuleSubtreeStream stream_department=new RewriteRuleSubtreeStream(adaptor,"rule department");
         RewriteRuleSubtreeStream stream_employee=new RewriteRuleSubtreeStream(adaptor,"rule employee");
         try {
-            // Company.g:50:6: ( 'department' name= STRING '{' manager ( 'employee' employee )* ( dept )* '}' -> ^( DEPT $name manager ( employee )* ( dept )* ) )
-            // Company.g:51:3: 'department' name= STRING '{' manager ( 'employee' employee )* ( dept )* '}'
+            // Company.g:50:12: ( 'department' name= STRING '{' manager ( 'employee' employee )* ( department )* '}' -> ^( DEPT $name manager ( employee )* ( department )* ) )
+            // Company.g:51:3: 'department' name= STRING '{' manager ( 'employee' employee )* ( department )* '}'
             {
-            string_literal6=(Token)match(input,14,FOLLOW_14_in_dept111);  
+            string_literal6=(Token)match(input,14,FOLLOW_14_in_department111);  
             stream_14.add(string_literal6);
 
-            name=(Token)match(input,STRING,FOLLOW_STRING_in_dept115);  
+            name=(Token)match(input,STRING,FOLLOW_STRING_in_department115);  
             stream_STRING.add(name);
 
-            char_literal7=(Token)match(input,12,FOLLOW_12_in_dept117);  
+            char_literal7=(Token)match(input,12,FOLLOW_12_in_department117);  
             stream_12.add(char_literal7);
 
-            pushFollow(FOLLOW_manager_in_dept124);
+            pushFollow(FOLLOW_manager_in_department124);
             manager8=manager();
 
             state._fsp--;
@@ -284,10 +284,10 @@ public class CompanyParser extends Parser {
             	case 1 :
             	    // Company.g:53:6: 'employee' employee
             	    {
-            	    string_literal9=(Token)match(input,15,FOLLOW_15_in_dept131);  
+            	    string_literal9=(Token)match(input,15,FOLLOW_15_in_department131);  
             	    stream_15.add(string_literal9);
 
-            	    pushFollow(FOLLOW_employee_in_dept133);
+            	    pushFollow(FOLLOW_employee_in_department133);
             	    employee10=employee();
 
             	    state._fsp--;
@@ -302,7 +302,7 @@ public class CompanyParser extends Parser {
                 }
             } while (true);
 
-            // Company.g:54:5: ( dept )*
+            // Company.g:54:5: ( department )*
             loop3:
             do {
                 int alt3=2;
@@ -315,14 +315,14 @@ public class CompanyParser extends Parser {
 
                 switch (alt3) {
             	case 1 :
-            	    // Company.g:54:5: dept
+            	    // Company.g:54:5: department
             	    {
-            	    pushFollow(FOLLOW_dept_in_dept141);
-            	    dept11=dept();
+            	    pushFollow(FOLLOW_department_in_department141);
+            	    department11=department();
 
             	    state._fsp--;
 
-            	    stream_dept.add(dept11.getTree());
+            	    stream_department.add(department11.getTree());
 
             	    }
             	    break;
@@ -332,13 +332,13 @@ public class CompanyParser extends Parser {
                 }
             } while (true);
 
-            char_literal12=(Token)match(input,13,FOLLOW_13_in_dept146);  
+            char_literal12=(Token)match(input,13,FOLLOW_13_in_department146);  
             stream_13.add(char_literal12);
 
 
 
             // AST REWRITE
-            // elements: manager, dept, employee, name
+            // elements: employee, manager, name, department
             // token labels: name
             // rule labels: retval
             // token list labels: 
@@ -349,9 +349,9 @@ public class CompanyParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 56:3: -> ^( DEPT $name manager ( employee )* ( dept )* )
+            // 56:3: -> ^( DEPT $name manager ( employee )* ( department )* )
             {
-                // Company.g:56:6: ^( DEPT $name manager ( employee )* ( dept )* )
+                // Company.g:56:6: ^( DEPT $name manager ( employee )* ( department )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(DEPT, "DEPT"), root_1);
@@ -364,12 +364,12 @@ public class CompanyParser extends Parser {
 
                 }
                 stream_employee.reset();
-                // Company.g:56:37: ( dept )*
-                while ( stream_dept.hasNext() ) {
-                    adaptor.addChild(root_1, stream_dept.nextTree());
+                // Company.g:56:37: ( department )*
+                while ( stream_department.hasNext() ) {
+                    adaptor.addChild(root_1, stream_department.nextTree());
 
                 }
-                stream_dept.reset();
+                stream_department.reset();
 
                 adaptor.addChild(root_0, root_1);
                 }
@@ -395,7 +395,7 @@ public class CompanyParser extends Parser {
         }
         return retval;
     }
-    // $ANTLR end "dept"
+    // $ANTLR end "department"
 
     public static class manager_return extends ParserRuleReturnScope {
         Object tree;
@@ -541,7 +541,7 @@ public class CompanyParser extends Parser {
 
 
             // AST REWRITE
-            // elements: a, s, n
+            // elements: n, a, s
             // token labels: s, a, n
             // rule labels: retval
             // token list labels: 
@@ -599,16 +599,16 @@ public class CompanyParser extends Parser {
     public static final BitSet FOLLOW_11_in_company74 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_STRING_in_company76 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_company78 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_dept_in_company80 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_department_in_company80 = new BitSet(new long[]{0x0000000000006000L});
     public static final BitSet FOLLOW_13_in_company83 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_dept111 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_STRING_in_dept115 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_dept117 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_manager_in_dept124 = new BitSet(new long[]{0x000000000000E000L});
-    public static final BitSet FOLLOW_15_in_dept131 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_employee_in_dept133 = new BitSet(new long[]{0x000000000000E000L});
-    public static final BitSet FOLLOW_dept_in_dept141 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_13_in_dept146 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_department111 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_STRING_in_department115 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_department117 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_manager_in_department124 = new BitSet(new long[]{0x000000000000E000L});
+    public static final BitSet FOLLOW_15_in_department131 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_employee_in_department133 = new BitSet(new long[]{0x000000000000E000L});
+    public static final BitSet FOLLOW_department_in_department141 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_13_in_department146 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_16_in_manager183 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_employee_in_manager185 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STRING_in_employee218 = new BitSet(new long[]{0x0000000000001000L});

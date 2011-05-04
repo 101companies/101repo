@@ -15,7 +15,7 @@ public class Parsing {
 	private static String negSample =
 		"inputs" + File.separator + "nonSample.Company";
 		
-	private static void parseCompany(String s) throws IOException, RecognitionException {
+	private static void acceptCompany(String s) throws IOException, RecognitionException {
 		FileInputStream stream = new FileInputStream(s);
         ANTLRInputStream antlr = new ANTLRInputStream(stream);
         CompanyLexer lexer = new CompanyLexer(antlr);
@@ -27,11 +27,11 @@ public class Parsing {
 	
 	@Test
 	public void testPositive() throws IOException, RecognitionException {
-		parseCompany(posSample);
+		acceptCompany(posSample);
 	}
 	
 	@Test(expected=RecognitionException.class)
 	public void tesNegative() throws IOException, RecognitionException {
-		parseCompany(negSample);
+		acceptCompany(negSample);
 	}	
 }

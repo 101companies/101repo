@@ -44,13 +44,13 @@ company returns [Company c]:
   'company' STRING
   { $c.setName($STRING.text); }
   '{' 
-  ( topdept=dept
+  ( topdept=department
     { $c.getDepts().add($topdept.d); }
   )* 
   '}'
   ;
   
-dept returns [Department d]:
+department returns [Department d]:
   { $d = new Department(); }
   'department' name=STRING
   { $d.setName($STRING.text); } 
@@ -60,7 +60,7 @@ dept returns [Department d]:
     ( 'employee' e=employee
       { $d.getEmployees().add($e.e); }
     )*
-    ( sub=dept
+    ( sub=department
       { $d.getSubdepts().add($sub.d); }
     )*
   '}'

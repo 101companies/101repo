@@ -28,13 +28,13 @@ public void emitErrorMessage(String msg)
 }
 
 company :
-  'company' STRING '{' dept* '}' EOF;
+  'company' STRING '{' department* '}' EOF;
   
-dept :
+department :
   'department' STRING '{' 
     ('manager' employee)
     ('employee' employee)* 
-    dept*
+    department*
   '}';
 
 employee :
