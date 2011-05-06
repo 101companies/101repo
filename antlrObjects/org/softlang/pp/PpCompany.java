@@ -1,8 +1,6 @@
 package org.softlang.pp;
 
 import org.softlang.company.*;
-
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -28,9 +26,7 @@ public class PpCompany {
 	private void right() { indent += 3; }
 	private void left() { indent -= 3; }
 	private void indent() { for(int i=0; i<indent; i++) space(); }		
-		
-	public PpCompany() { };
-	
+			
 	public void ppCompany(Company c, String s) throws IOException {
 		writer = new OutputStreamWriter(new FileOutputStream(s));
 		write("company");
