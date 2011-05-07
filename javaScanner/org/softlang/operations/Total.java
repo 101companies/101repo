@@ -11,11 +11,11 @@ public class Total {
 	
 	public static double total(String s) throws FileNotFoundException {
 		double total = 0;
-		Tokenizer lexer = new Tokenizer(s);
+		Tokenizer tokenizer = new Tokenizer(s);
 		Token previous = null;
-		for (Token current : lexer) {
+		for (Token current : tokenizer) {
 			if (current==NUMBER && previous==SALARY) 
-				total += Double.parseDouble(lexer.getLexeme());
+				total += Double.parseDouble(tokenizer.getLexeme());
 			previous = current;
 		}
 		return total;

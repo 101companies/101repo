@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Cut {
 
-	private Tokenizer lexer;
+	private Tokenizer tokenizer;
 	private Writer writer;
 	int indent = 0;
 	
@@ -35,18 +35,18 @@ public class Cut {
 	public Cut() { };
 	
 	public void cut(String in, String out) throws IOException {
-		lexer = new Tokenizer(in);
+		tokenizer = new Tokenizer(in);
 		writer = new OutputStreamWriter(new FileOutputStream(out));
 		Token previous = null; // test on NUMBER to follow SALARY
 		String lexeme = null;
-		for (Token current : lexer) {
+		for (Token current : tokenizer) {
 			
-			lexeme = lexer.getLexeme();
+			lexeme = tokenizer.getLexeme();
 
 			// Cut salary in half
 			if (current==NUMBER && previous==SALARY)
 				lexeme = Double.toString(
-							(Double.parseDouble(lexer.getLexeme())
+							(Double.parseDouble(tokenizer.getLexeme())
 								/ 2.0d));
 
 			// Adjust indentation
