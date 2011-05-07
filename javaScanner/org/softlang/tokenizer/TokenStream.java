@@ -1,16 +1,16 @@
-package org.softlang.lexer;
+package org.softlang.tokenizer;
 
-import static org.softlang.lexer.Token.ADDRESS;
-import static org.softlang.lexer.Token.CLOSE;
-import static org.softlang.lexer.Token.COMPANY;
-import static org.softlang.lexer.Token.DEPARTMENT;
-import static org.softlang.lexer.Token.EMPLOYEE;
-import static org.softlang.lexer.Token.MANAGER;
-import static org.softlang.lexer.Token.NAME;
-import static org.softlang.lexer.Token.NUMBER;
-import static org.softlang.lexer.Token.OPEN;
-import static org.softlang.lexer.Token.SALARY;
-import static org.softlang.lexer.Token.STRING;
+import static org.softlang.tokenizer.Token.ADDRESS;
+import static org.softlang.tokenizer.Token.CLOSE;
+import static org.softlang.tokenizer.Token.COMPANY;
+import static org.softlang.tokenizer.Token.DEPARTMENT;
+import static org.softlang.tokenizer.Token.EMPLOYEE;
+import static org.softlang.tokenizer.Token.MANAGER;
+import static org.softlang.tokenizer.Token.NAME;
+import static org.softlang.tokenizer.Token.NUMBER;
+import static org.softlang.tokenizer.Token.OPEN;
+import static org.softlang.tokenizer.Token.SALARY;
+import static org.softlang.tokenizer.Token.STRING;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,9 +36,9 @@ class TokenStream implements Iterator<Token> {
 		keywords.put("}", 			CLOSE);		
 	}
 	
-	private Lexer lexer;
+	private Tokenizer lexer;
 	
-	TokenStream(Lexer lexer) {
+	TokenStream(Tokenizer lexer) {
 		this.lexer = lexer;
 	}
 	
@@ -52,7 +52,7 @@ class TokenStream implements Iterator<Token> {
 			return keywords.get(lexer.lexeme);
 		else if (lexer.lexeme.matches("\"[^\"]*\""))
 			return STRING;
-		else if (lexer.lexeme.matches("\\d*(\\.\\d*)?"))
+		else if (lexer.lexeme.matches("\\d+(\\.\\d*)?"))
 			return NUMBER;
 		else 
 			throw new RecognitionException("Lexer failed at " + lexer.lexeme);					

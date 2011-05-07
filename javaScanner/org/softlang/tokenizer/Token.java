@@ -1,4 +1,4 @@
-package org.softlang.lexer;
+package org.softlang.tokenizer;
 
 public enum Token {
 	COMPANY, 

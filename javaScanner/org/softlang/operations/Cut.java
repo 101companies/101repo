@@ -1,8 +1,10 @@
 package org.softlang.operations;
 
-import org.softlang.lexer.Token;
-import static org.softlang.lexer.Token.*;
-import org.softlang.lexer.Lexer;
+import static org.softlang.tokenizer.Token.*;
+
+import org.softlang.tokenizer.Token;
+import org.softlang.tokenizer.Tokenizer;
+
 import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.io.FileOutputStream;
@@ -10,7 +12,7 @@ import java.io.IOException;
 
 public class Cut {
 
-	private Lexer lexer;
+	private Tokenizer lexer;
 	private Writer writer;
 	int indent = 0;
 	
@@ -33,7 +35,7 @@ public class Cut {
 	public Cut() { };
 	
 	public void cut(String in, String out) throws IOException {
-		lexer = new Lexer(in);
+		lexer = new Tokenizer(in);
 		writer = new OutputStreamWriter(new FileOutputStream(out));
 		Token previous = null; // test on NUMBER to follow SALARY
 		String lexeme = null;

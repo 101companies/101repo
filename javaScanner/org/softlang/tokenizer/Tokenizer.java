@@ -1,16 +1,16 @@
-package org.softlang.lexer;
+package org.softlang.tokenizer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Lexer implements Iterable<Token> {
+public class Tokenizer implements Iterable<Token> {
 	
 	Scanner scanner;
 	String lexeme;
 	
-	public Lexer(String s) throws FileNotFoundException {
+	public Tokenizer(String s) throws FileNotFoundException {
 		scanner = new Scanner(new File(s));
 	}
 
