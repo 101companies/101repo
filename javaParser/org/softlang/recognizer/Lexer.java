@@ -1,6 +1,6 @@
-package org.softlang.parser;
+package org.softlang.recognizer;
 
-import static org.softlang.parser.Token.*;
+import static org.softlang.recognizer.Token.*;
 
 import java.io.File;
 import java.io.BufferedReader;

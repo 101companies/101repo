@@ -1,7 +1,8 @@
 package org.softlang.tests;
 
 import org.junit.Test;
-import org.softlang.parser.*;
+import org.softlang.recognizer.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 

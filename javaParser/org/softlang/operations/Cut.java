@@ -1,6 +1,7 @@
 package org.softlang.operations;
 
-import org.softlang.parser.Parser;
+import org.softlang.recognizer.Parser;
+
 import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.io.FileOutputStream;

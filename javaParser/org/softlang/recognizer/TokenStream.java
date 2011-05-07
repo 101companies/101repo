@@ -1,4 +1,4 @@
-package org.softlang.parser;
+package org.softlang.recognizer;
 
 import java.util.Iterator;
 import java.io.IOException;

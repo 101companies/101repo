@@ -1,6 +1,6 @@
 package org.softlang.operations;
 
-import org.softlang.parser.Parser;
+import org.softlang.recognizer.Parser;
 
 public class Total extends Parser {
 

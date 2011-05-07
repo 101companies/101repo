@@ -1,4 +1,4 @@
-package org.softlang.parser;
+package org.softlang.recognizer;
 
 public enum Token {
 	COMPANY, 
