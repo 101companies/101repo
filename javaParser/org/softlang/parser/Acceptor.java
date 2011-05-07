@@ -76,7 +76,7 @@ public class Acceptor {
 		match(ADDRESS);
 		match(STRING); 
 		match(SALARY);
-		match(NUMBER); 
+		match(FLOAT); 
 		match(CLOSE);
 	}
 }

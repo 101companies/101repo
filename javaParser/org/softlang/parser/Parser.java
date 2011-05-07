@@ -76,7 +76,7 @@ public class Parser {
 		match(ADDRESS);
 		String address = match(STRING); 
 		match(SALARY);
-		Double salary = Double.parseDouble(match(NUMBER)); 
+		Double salary = Double.parseDouble(match(FLOAT)); 
 		match(CLOSE);
 		handleEmployee(isManager,name,address,salary);
 	}

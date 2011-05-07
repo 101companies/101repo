@@ -11,6 +11,6 @@ public enum Token {
 	OPEN, 
 	CLOSE, 
 	STRING, 
-	NUMBER,
+	FLOAT,
 	EOF
 }

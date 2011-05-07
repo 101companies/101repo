@@ -126,7 +126,7 @@ public class Lexer implements Iterable<Token> {
 				while (Character.isDigit(lookahead))
 					read();
 			}
-			token = NUMBER;
+			token = FLOAT;
 			return;
 		}
 			

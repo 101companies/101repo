@@ -5,9 +5,9 @@ import java.io.IOException;
 
 public class TokenStream implements Iterator<Token> {
 
-	private Lexer lexer;
+	private Recognizer lexer;
 	
-	public TokenStream(Lexer lexer) {
+	public TokenStream(Recognizer lexer) {
 		this.lexer = lexer;
 	}
 	

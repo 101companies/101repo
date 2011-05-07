@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Lexer implements Iterable<Token> {
+public class Recognizer implements Iterable<Token> {
 
 	Token token = null; // last token recognized
     boolean eof = false; // reached end of file
@@ -35,7 +35,7 @@ public class Lexer implements Iterable<Token> {
 		keywords.put("salary",      SALARY);
 	}
 	
-	public Lexer(String s) throws FileNotFoundException {
+	public Recognizer(String s) throws FileNotFoundException {
 		this.reader = new BufferedReader(
 						new FileReader(
 							new File(s)));
@@ -130,7 +130,7 @@ public class Lexer implements Iterable<Token> {
 				while (Character.isDigit(lookahead))
 					read();
 			}
-			token = NUMBER;
+			token = FLOAT;
 			return;
 		}
 			
