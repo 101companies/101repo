@@ -1,8 +1,10 @@
 package org.softlang.operations;
 
-import org.softlang.lexer.Token;
-import static org.softlang.lexer.Token.*;
-import org.softlang.lexer.Lexer;
+import static org.softlang.recognizer.Token.*;
+
+import org.softlang.recognizer.Lexer;
+import org.softlang.recognizer.Token;
+
 import java.io.FileNotFoundException;
 
 public class Total {

@@ -1,8 +1,9 @@
 package org.softlang.tests;
 
 import org.junit.Test;
-import org.softlang.lexer.Lexer;
-import org.softlang.lexer.RecognitionException;
+import org.softlang.recognizer.Lexer;
+import org.softlang.recognizer.RecognitionException;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 

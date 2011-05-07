@@ -1,4 +1,4 @@
-package org.softlang.lexer;
+package org.softlang.recognizer;
 
 public enum Token {
 	WS,

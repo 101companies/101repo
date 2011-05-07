@@ -1,6 +1,6 @@
-package org.softlang.lexer;
+package org.softlang.recognizer;
 
-import static org.softlang.lexer.Token.*;
+import static org.softlang.recognizer.Token.*;
 
 import java.io.File;
 import java.io.BufferedReader;
