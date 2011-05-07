@@ -1,8 +1,8 @@
 package org.softlang.tests;
 
 import org.junit.Test;
-import org.softlang.tokenizer.RecognitionException;
-import org.softlang.tokenizer.Tokenizer;
+import org.softlang.recognizer.RecognitionException;
+import org.softlang.recognizer.Recognizer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,13 +20,13 @@ public class Noop {
 	
 	@Test
 	public void testPos() throws FileNotFoundException {
-		Tokenizer lexer = new Tokenizer(posSample);
+		Recognizer lexer = new Recognizer(posSample);
 		lexer.lexall();
 	}
 
 	@Test(expected=RecognitionException.class)
 	public void testNeg() throws FileNotFoundException {
-		Tokenizer lexer = new Tokenizer(negSample);
+		Recognizer lexer = new Recognizer(negSample);
 		lexer.lexall();
 	}
 }

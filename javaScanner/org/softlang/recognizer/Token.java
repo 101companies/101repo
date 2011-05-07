@@ -1,4 +1,4 @@
-package org.softlang.tokenizer;
+package org.softlang.recognizer;
 
 public enum Token {
 	COMPANY, 
@@ -11,5 +11,5 @@ public enum Token {
 	OPEN, 
 	CLOSE, 
 	STRING, 
-	NUMBER,
+	FLOAT,
 }

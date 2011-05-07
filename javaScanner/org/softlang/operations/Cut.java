@@ -1,9 +1,9 @@
 package org.softlang.operations;
 
-import static org.softlang.tokenizer.Token.*;
+import static org.softlang.recognizer.Token.*;
 
-import org.softlang.tokenizer.Token;
-import org.softlang.tokenizer.Tokenizer;
+import org.softlang.recognizer.Token;
+import org.softlang.recognizer.Recognizer;
 
 import java.io.Writer;
 import java.io.OutputStreamWriter;
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Cut {
 
-	private Tokenizer tokenizer;
+	private Recognizer tokenizer;
 	private Writer writer;
 	int indent = 0;
 	
@@ -35,7 +35,7 @@ public class Cut {
 	public Cut() { };
 	
 	public void cut(String in, String out) throws IOException {
-		tokenizer = new Tokenizer(in);
+		tokenizer = new Recognizer(in);
 		writer = new OutputStreamWriter(new FileOutputStream(out));
 		Token previous = null; // test on NUMBER to follow SALARY
 		String lexeme = null;
@@ -44,7 +44,7 @@ public class Cut {
 			lexeme = tokenizer.getLexeme();
 
 			// Cut salary in half
-			if (current==NUMBER && previous==SALARY)
+			if (current==FLOAT && previous==SALARY)
 				lexeme = Double.toString(
 							(Double.parseDouble(tokenizer.getLexeme())
 								/ 2.0d));
