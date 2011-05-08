@@ -12,13 +12,11 @@ import java.util.Iterator;
 public class Acceptor {
 
 	private Lexer lexer;
-	private Iterator<Token> stream;
 	private Token lookahead;
 	
 	// Parse a file
 	public void accept(String s)	throws FileNotFoundException {
 		lexer = new Lexer(s);
-		stream = lexer.iterator();
 		company();
 		match(EOF);
 	}
@@ -40,7 +38,7 @@ public class Acceptor {
 	// Test actual token
 	private boolean test(Token token) {
 		if (lookahead==null)
-			lookahead = stream.next();
+			lookahead = lexer.next();
 		return (lookahead==token);
 	}
 	

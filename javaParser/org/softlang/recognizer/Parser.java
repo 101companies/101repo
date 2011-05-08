@@ -8,13 +8,11 @@ import java.util.Iterator;
 public class Parser {
 
 	private Lexer lexer;
-	private Iterator<Token> stream;
 	private Token lookahead;
 	
 	// Parse a file
 	public void parse(String s)	throws FileNotFoundException {
 		lexer = new Lexer(s);
-		stream = lexer.iterator();
 		company();
 		match(EOF);
 	}
@@ -36,7 +34,7 @@ public class Parser {
 	// Test actual token
 	private boolean test(Token token) {
 		if (lookahead==null)
-			lookahead = stream.next();
+			lookahead = lexer.next();
 		return (lookahead==token);
 	}
 	

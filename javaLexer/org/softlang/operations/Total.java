@@ -1,7 +1,6 @@
 package org.softlang.operations;
 
 import static org.softlang.recognizer.Token.*;
-
 import org.softlang.recognizer.Recognizer;
 import org.softlang.recognizer.Token;
 
@@ -16,11 +15,13 @@ public class Total {
 	}
 	
 	public Total(String s) throws FileNotFoundException {
-		Recognizer lexer = new Recognizer(s);
+		Recognizer recognizer = new Recognizer(s);
+		Token current = null;
 		Token previous = null;
-		for (Token current : lexer) {
+		while (recognizer.hasNext()) {
+			current = recognizer.next();
 			if (current == FLOAT && previous == SALARY) 
-				total += Double.parseDouble(lexer.getLexeme());
+				total += Double.parseDouble(recognizer.getLexeme());
 			if (current!=WS)
 				previous = current;
 		}

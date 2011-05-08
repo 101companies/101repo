@@ -13,18 +13,20 @@ import java.io.IOException;
 public class Cut {
 	
 	public Cut(String in, String out) throws IOException {
-		Recognizer lexer = new Recognizer(in);
+		Recognizer recognizer = new Recognizer(in);
 		Writer writer = new OutputStreamWriter(new FileOutputStream(out));
-		Token previous = null; // test on NUMBER to follow SALARY
+		Token current = null;
+		Token previous = null;
 		String lexeme = null;
-		for (Token current : lexer) {
+		while (recognizer.hasNext()) {
 			
-			lexeme = lexer.getLexeme();
+			current = recognizer.next();
+			lexeme = recognizer.getLexeme();
 
 			// Cut salary in half
 			if (current == FLOAT && previous == SALARY)
 				lexeme = Double.toString(
-							(Double.parseDouble(lexer.getLexeme())
+							(Double.parseDouble(recognizer.getLexeme())
 								/ 2.0d));
 
 			// Copy possibly modified lexeme

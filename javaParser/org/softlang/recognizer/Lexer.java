@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Lexer implements Iterable<Token> {
+public class Lexer implements Iterator<Token> {
 
 	Token token = null; // last token recognized
     boolean eof = false; // reached end of file
@@ -116,7 +116,7 @@ public class Lexer implements Iterable<Token> {
 				throw new RecognitionException("Unknown identifier " + lexeme);
 		}
 			
-		// Recognize number
+		// Recognize float
 		if (Character.isDigit(lookahead)) {
 			do {
 				read();
@@ -141,20 +141,40 @@ public class Lexer implements Iterable<Token> {
 		}
 		
 		throw new RecognitionException("Lexer giving up at " + lookahead);
-		
 	}
 
-	/**
-	 * Access token stream with iterator
-	 */
-	public Iterator<Token> iterator() {
-		return new TokenStream(this);
+	public boolean hasNext() {
+		if (token!=null)
+			return true;
+		if (eof)
+			return false;
+		try {
+			lex();
+		} catch (IOException e) {
+			throw new RecognitionException(e);
+		}
+		return true;
+	}
+	
+	public Token next() {
+		if (hasNext()) {
+			Token result = token;
+			token = null;
+			return result;
+		}
+		else
+			throw new IllegalStateException();
+	}
+	
+	public void remove() {
+		throw new UnsupportedOperationException();
 	}
 	
 	// Stress test: lex until end-of-file
 	public void lexall() {
-		for (Token t : this) { 
+		while (hasNext()) {
+			Token t = next();
 			System.out.println(t + " : " + getLexeme());
 		}	
-	}	
+	}
 }

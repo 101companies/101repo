@@ -14,11 +14,13 @@ public class Copy {
 	
 	@SuppressWarnings("unused")
 	public Copy(String in, String out) throws IOException {
-		Recognizer lexer = new Recognizer(in);
+		Recognizer recognizer = new Recognizer(in);
 		Writer writer = new OutputStreamWriter(new FileOutputStream(out));
 		String lexeme = null;
-		for (Token current : lexer) {
-			lexeme = lexer.getLexeme();
+		Token current = null;
+		while (recognizer.hasNext()) {
+			current = recognizer.next();
+			lexeme = recognizer.getLexeme();
 			writer.write(lexeme);
 		}
 		writer.close();
