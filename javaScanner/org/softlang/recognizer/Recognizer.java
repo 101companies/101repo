@@ -36,7 +36,7 @@ public class Recognizer implements Iterator<Token> {
 		return lexeme;
 	}
 
-	public Token classify(String s) {
+	public static Token classify(String s) {
 		if (keywords.containsKey(s))
 			return keywords.get(s);
 		else if (s.matches("\"[^\"]*\""))

@@ -14,8 +14,8 @@ import java.util.Map;
 
 public class Recognizer implements Iterator<Token> {
 
-	Token token = null; // last token recognized
-    boolean eof = false; // reached end of file
+	private Token token = null; // last token recognized
+    private boolean eof = false; // reached end of file
 	private Reader reader = null; // input stream
 	private int lookahead = 0; // lookahead, if any
 	private int[] buffer = new int[128]; // lexeme buffer

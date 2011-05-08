@@ -1,9 +1,7 @@
 package org.softlang.recognizer;
 
 import static org.softlang.recognizer.Token.*;
-
 import java.io.FileNotFoundException;
-import java.util.Iterator;
 
 public class Parser {
 
