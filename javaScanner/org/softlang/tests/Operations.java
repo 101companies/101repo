@@ -2,7 +2,7 @@ package org.softlang.tests;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import org.softlang.operations.Total;
+import static org.softlang.operations.Total.*;
 import org.softlang.operations.Cut;
 
 import java.io.File;
@@ -16,7 +16,7 @@ public class Operations {
 	
 	@Test
 	public void testTotal() throws FileNotFoundException {
-		double total = Total.total(sampleCompany);
+		double total = total(sampleCompany);
     	assertEquals(399747, total, 0);
 	}
 	
@@ -24,7 +24,7 @@ public class Operations {
 	public void testCut() throws IOException {
 		Cut cut = new Cut();
 		cut.cut(sampleCompany,"output.txt");
-		double total = Total.total("output.txt");
+		double total = total("output.txt");
     	assertEquals(399747 / 2.0d, total, 0);
 	}	
 }
