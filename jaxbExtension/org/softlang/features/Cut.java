@@ -1,6 +1,6 @@
 // A variation that involves subtyping
 
-package org.softlang.jaxb;
+package org.softlang.features;
 
 import org.softlang.company.*;
 
