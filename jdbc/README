@@ -34,8 +34,8 @@ Prerequisites:
   Corollary: tests will succeed at most once.
 
 - A suitable JDBC Driver for MySQL:
-  An appropriate driver is available through the project "library".
-  See the corresponding JAR in the build path of the present project. 
+  An appropriate driver is available here: http://dev.mysql.com/downloads/connector/j/
+  Add the JAR that comes with the download to the build path of this project.  
   
 == Contributors ==
 
