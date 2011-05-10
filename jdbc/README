@@ -34,10 +34,3 @@ See the Tests class for test cases.
 
 * {{101contributor|Thomas Schmorleiz|developer}}
 * {{101contributor|Ralf Lämmel|reviewer}}
-
-
-== Issues ==
-
-Load and save needs to become lazier.
-* Reported: Ralf
-* Assigned: Thomas
