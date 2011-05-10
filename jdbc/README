@@ -2,10 +2,6 @@
 
 Database programming with [[Technology:JDBC]]
 
-== Status ==
-
-[[101status:Broken]]: the underlying database has grossly changed.
-
 == Languages ==
 
 * [[Language:SQL]]
@@ -19,24 +15,21 @@ Database programming with [[Technology:JDBC]]
 
 == Description ==
 
-We use JDBC/SQL for data processing.
-We exercise some company scenarios.
+We use JDBC/SQL for data processing. We exercise [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] salaries as well as computing the [[101feature:Depth|depth]] of a company. 
 That is, we use embedded SQL in Java.
-
 See the Tests class for test cases.
-
-Prerequisites:
-
-- A suitable company database.
-  Please use project "sql" to set up the company database.
-  That is, we assume that you have an initial database image.
-  Tests will only succeed for an *initial* database image.
-  Corollary: tests will succeed at most once.
-
-- A suitable JDBC Driver for MySQL:
-  An appropriate driver is available here: http://dev.mysql.com/downloads/connector/j/
-  Add the JAR that comes with the download to the build path of this project.  
   
+== Usage ==
+
+* You will need a suitable JDBC Driver for MySQL
+**  An appropriate driver is available here: http://dev.mysql.com/downloads/connector/j/
+**  Add the JAR that comes with the download to the build path of this project.
+* Set up a company database.
+** Follow the steps described here [[101implementation:mySql]] to set up the company database. That is, stop after populating the tables. 
+* There are JUnit tests available as the package ''org.softlang.tests''.
+** Run class ''Basics'' with JUnit to exercise basic features.
+  
+
 == Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}

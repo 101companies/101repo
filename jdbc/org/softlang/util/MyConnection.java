@@ -1,4 +1,4 @@
-package org.softlang.jdbc;
+package org.softlang.util;
 
 import java.sql.Connection;
 import java.sql.SQLException;
