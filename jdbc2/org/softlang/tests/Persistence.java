@@ -17,21 +17,21 @@ public class Persistence {
 	private MyConnection myConnection;
 	private ObjectFactory factory;
 	private PersistenceTool persistenceTool;
-	private Company company;
+
 
 	@Before
 	public void init() {
 		myConnection = new MyConnection("localhost", "test", 3306, "root", "");
 		factory = new ObjectFactory(myConnection);
 		persistenceTool = new PersistenceTool(myConnection);
-		company = new Company("meganalysis");
-		company.setObjectFactory(factory);
-		company.load();
 	}
 
 	@Test
 	public void testPersistencyManipulate() {
-
+		Company company = new Company("meganalysis");
+		company.setObjectFactory(factory);
+		company.load();
+		
 		// add a new small testing department
 		Department testing = new Department();
 		testing.setName("Testing");
@@ -57,10 +57,12 @@ public class Persistence {
 
 		testing.getSubDepartments().add(testing1);
 		company.getDepts().add(testing);
+		company.getDepts().remove(1);
+		company.setName("ubermeganalysis");
 
 		// persist, reload, and compare
 		persistenceTool.persistCompany(company);
-		Company loadedCompany = factory.loadCompany(new Company("meganalysis"));
+		Company loadedCompany = factory.loadCompany(new Company("ubermeganalysis"));
 		assertTrue(company.equals(loadedCompany));
 	}
 
