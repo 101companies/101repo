@@ -29,11 +29,11 @@ http://dev.mysql.com/downloads/workbench/
 
 * Download and install XAMPP. 
 * Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
-* A local MySQL Server is now running.
-  Server Host : "localhost"
-  Port : 3306
-  Username : "root"
-  Password : "" (no password)
+* A local MySQL Server is now running:
+ Server Host : "localhost"
+ Port : 3306
+ Username : "root"
+ Password : "" (no password)
 * Connect to database in MySQL Workbench.
 * Select "test" schema or create one.
 * Create tables (run SQL script Company.sql)
@@ -42,7 +42,7 @@ http://dev.mysql.com/downloads/workbench/
 * Execute scenario cut (run SQL script Cut.sql)
 * Execute scenario total, again (run SQL script Total.sql)
  
- == Contributors ==
+== Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}
 * {{101contributor|Ralf Lämmel|developer}}
