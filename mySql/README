@@ -35,7 +35,7 @@ http://dev.mysql.com/downloads/workbench/
  * Username : "root"
  * Password : "" (no password)
 * Connect to database in MySQL Workbench.
-* Select "test" database or create one.
+* Select "test" schema or create one.
 * Create tables (run SQL script Company.sql)
 * Populate tables (run SQL script sampleCompany.sql)
 * Execute scenario total (run SQL script Total.sql)
