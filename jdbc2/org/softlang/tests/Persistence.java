@@ -62,7 +62,9 @@ public class Persistence {
 
 		// persist, reload, and compare
 		persistenceTool.persistCompany(company);
-		Company loadedCompany = factory.loadCompany(new Company("ubermeganalysis"));
+		Company loadedCompany = new Company("ubermeganalysis");
+		loadedCompany.setObjectFactory(factory);
+		loadedCompany.load();
 		assertTrue(company.equals(loadedCompany));
 	}
 
@@ -101,7 +103,9 @@ public class Persistence {
 
 		// persist, reload, and compare
 		persistenceTool.persistCompany(dunder);
-		Company loadedDunder = factory.loadCompany(new Company("Dunder Mifflin"));
+		Company loadedDunder = new Company("Dunder Mifflin");
+		loadedDunder.setObjectFactory(factory);
+		loadedDunder.load();
 		assertTrue(dunder.equals(loadedDunder));
 
 	}
