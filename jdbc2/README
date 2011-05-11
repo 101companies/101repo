@@ -28,7 +28,7 @@ The tests package ''org.softlang.tests'' contains test cases.
 
 Prerequisites (very much like in project "jdbc"):
 
-= Usage ==
+== Usage ==
 
 * You will need a suitable JDBC Driver for MySQL
 **  An appropriate driver is available here: http://dev.mysql.com/downloads/connector/j/
