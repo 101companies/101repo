@@ -1,4 +1,4 @@
-package org.softlang.jdbc;
+package org.softlang.features;
 
 import org.softlang.company.*;
 
@@ -10,16 +10,17 @@ public class Cut {
 
 	public static void cutCompany(Company company) {
 		// cut all salaries in all top departments
-		for (Dept dept : company.getDepts())
+		for (Department dept : company.getDepts())
 			cutDept(dept);
 	}
 
-	public static void cutDept(Dept dept) {
+	public static void cutDept(Department dept) {
+		cutEmployee(dept.getManager());
 		// cut all employees' salaries
 		for (Employee employee : dept.getEmployees())
 			cutEmployee(employee);
 		// cut all salaries in all sub departments
-		for (Dept subDepartment : dept.getSubDepartments())
+		for (Department subDepartment : dept.getSubDepartments())
 			cutDept(subDepartment);
 	}
 

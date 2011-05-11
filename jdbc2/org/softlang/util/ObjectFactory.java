@@ -1,6 +1,9 @@
-package org.softlang.company;
+package org.softlang.util;
 
-import org.softlang.util.MyConnection;
+import org.softlang.company.Company;
+import org.softlang.company.Department;
+import org.softlang.company.Employee;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,24 +23,33 @@ public class ObjectFactory {
 
 	}
 
-	public Company createCompany() {
-		Company company = new Company();
+	public Company loadCompany(Company company) {
 		try {
+			// get company id
+			String sqlId = "SELECT id FROM company WHERE name = ?";
+			PreparedStatement pstmtId = myConnection.getConn()
+			.prepareStatement(sqlId);
+			pstmtId.setString(1, company.getName());
+			ResultSet cIdR = pstmtId.executeQuery();
+			cIdR.next();
+			company.setCompanyid(cIdR.getInt("id"));
 			// get all "top departments" (departments with no upper department)
-			String sqlDepts = "SELECT deptId FROM dept WHERE upperDeptId IS NULL";
+			String sqlDepts = "SELECT id FROM department WHERE did IS NULL " +
+					"AND cid = (SELECT id FROM company WHERE name = ?);";
 			PreparedStatement pstmtDepts = myConnection.getConn()
 					.prepareStatement(sqlDepts);
+			pstmtDepts.setString(1, company.getName());
 			ResultSet deptIdsR = pstmtDepts.executeQuery();
 			// create each department from it's database primary key and add it
 			// the company's department list
 			while (deptIdsR.next()) {
-				Dept dept = new Dept(deptIdsR.getInt("deptId"));
+				Department dept = new Department(deptIdsR.getInt("id"));
 				dept.setObjectFactory(this);
 				dept.setLoaded(false);
 				company.getDepts().add(dept);
 			}
 			// reset flags
-			company.setUnchanged();
+			company.setChanged(false);
 			company.getDepts().setUnchanged();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -45,48 +57,54 @@ public class ObjectFactory {
 		return company;
 	}
 
-	public Dept loadDept(Dept dept) {
+	public Department loadDept(Department dept) {
 		try {
 			int deptId = dept.getDeptid();
 			// get department entry from database
-			String sqlDept = "SELECT * FROM dept WHERE deptId = ?";
+			String sqlDept = "SELECT * FROM department WHERE id = ?";
 			PreparedStatement pstmtDept = myConnection.getConn()
 					.prepareStatement(sqlDept);
 			pstmtDept.setInt(1, deptId);
 			ResultSet deptR = pstmtDept.executeQuery();
 			deptR.next();
 			dept.setName(deptR.getString("name"));
-			Employee manager = new Employee(deptR.getInt("managerId"));
+			String sqlManager = "SELECT id FROM employee WHERE did = ? AND manager";
+			PreparedStatement pstmtManager = myConnection.getConn()
+			.prepareStatement(sqlManager);
+			pstmtManager.setInt(1, deptId);
+			ResultSet deptManager = pstmtManager.executeQuery();
+			deptManager.next();
+			Employee manager = new Employee(deptManager.getInt("id"));
 			manager.setObjectFactory(this);
 			manager.setLoaded(false);
 			dept.setManager(manager);
 			// get all department's employees
-			String sqlEmployees = "SELECT employeeId FROM employee WHERE deptId = ?";
+			String sqlEmployees = "SELECT id FROM employee WHERE did = ? AND NOT manager";
 			PreparedStatement pstmtEmployees = myConnection.getConn()
 					.prepareStatement(sqlEmployees);
 			pstmtEmployees.setInt(1, deptId);
 			ResultSet employeesR = pstmtEmployees.executeQuery();
 			while (employeesR.next()) {
 				Employee employee = new Employee(employeesR
-						.getInt("employeeId"));
+						.getInt("id"));
 				employee.setObjectFactory(this);
 				employee.setLoaded(false);
 				dept.getEmployees().add(employee);
 			}
 			// get all sub departments
-			String sqlSubDepts = "SELECT deptId FROM dept WHERE upperDeptId = ?";
+			String sqlSubDepts = "SELECT id FROM department WHERE did = ?";
 			PreparedStatement pstmtSubDepts = myConnection.getConn()
 					.prepareStatement(sqlSubDepts);
 			pstmtSubDepts.setInt(1, deptId);
 			ResultSet subDeptsR = pstmtSubDepts.executeQuery();
 			while (subDeptsR.next()) {
-				Dept subDept = new Dept(subDeptsR.getInt("deptId"));
+				Department subDept = new Department(subDeptsR.getInt("id"));
 				subDept.setObjectFactory(this);
 				subDept.setLoaded(false);
 				dept.getSubDepartments().add(subDept);
 			}
 			// reset flags
-			dept.setUnchanged();
+			dept.setChanged(false);
 			dept.getSubDepartments().setUnchanged();
 			dept.getEmployees().setUnchanged();
 
@@ -100,7 +118,7 @@ public class ObjectFactory {
 		try {
 			int employeeId = employee.getEmployeeid();
 			// get employee entry from database
-			String sqlEmployee = "SELECT * FROM employee WHERE employeeId = ?";
+			String sqlEmployee = "SELECT * FROM employee WHERE id = ?";
 			PreparedStatement pstmtEmployee = myConnection.getConn()
 					.prepareStatement(sqlEmployee);
 			pstmtEmployee.setInt(1, employeeId);
@@ -111,7 +129,7 @@ public class ObjectFactory {
 			employee.setName(employeeR.getString("name"));
 			employee.setAddress(employeeR.getString("address"));
 			// reset flag
-			employee.setUnchanged();
+			employee.setChanged(false);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

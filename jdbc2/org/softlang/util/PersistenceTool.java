@@ -1,6 +1,9 @@
-package org.softlang.company;
+package org.softlang.util;
 
-import org.softlang.util.MyConnection;
+import org.softlang.company.Company;
+import org.softlang.company.Department;
+import org.softlang.company.Employee;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,20 +38,20 @@ public class PersistenceTool {
 
 	// Clearing the database of department and person entries that are no
 	// longer part of the company (not in the appropriate integer set)
-	private void clear(Set<Integer> ids, String tablename) {
+	private void clear(Set<Integer> ids, String tablename, Integer companyId) {
 		try {
-			String idName = tablename + "Id";
-			String sqlSelect = "SELECT " + idName + " FROM " + tablename;
+			String sqlSelect = "SELECT id FROM " + tablename + " WHERE cid = ?";
 			PreparedStatement pstmtSelect = myConnection.getConn()
 					.prepareStatement(sqlSelect);
+			pstmtSelect.setInt(1, companyId);
 			ResultSet result = pstmtSelect.executeQuery();
 			while (result.next()) {
-				if (!ids.contains(result.getInt(idName))) {
-					String sqlDelete = "DELETE FROM " + tablename + " WHERE "
-							+ idName + " = ?";
+				if (!ids.contains(result.getInt("id"))) {
+					String sqlDelete = "DELETE FROM " + tablename
+							+ " WHERE id = ?";
 					PreparedStatement pstmtDelete = myConnection.getConn()
 							.prepareStatement(sqlDelete);
-					pstmtDelete.setInt(1, result.getInt(idName));
+					pstmtDelete.setInt(1, result.getInt("id"));
 					pstmtDelete.execute();
 				}
 			}
@@ -58,93 +61,108 @@ public class PersistenceTool {
 	}
 
 	public void persistCompany(Company company) {
+		deptIds = new HashSet<Integer>();
+		employeeIds = new HashSet<Integer>();
 		if (company.isChanged()) {
-			deptIds = new HashSet<Integer>();
-			employeeIds = new HashSet<Integer>();
-			// save all top departments
-			for (Dept dept : company.getDepts()) {
-				persistDept(dept, null);
-			}
-			// clear the database
-			clear(deptIds, "dept");
-			clear(employeeIds, "employee");
-			// reset flags
-			company.setUnchanged();
-			company.getDepts().setUnchanged();
-		}
-
-	}
-
-	private void persistDept(Dept dept, Integer upperDeptId) {
-		if (dept.isChanged()) {
 			try {
-				if (dept.getDeptid() == 0) {
-					// insert new department entry
-					String sqlInsert = "INSERT dept(name, upperDeptId) VALUES (?,?)";
+				if (company.getCompanyid() == 0) {
+					String sqlInsert = "INSERT company(name) VALUES (?)";
 					PreparedStatement pstmtInsert = myConnection.getConn()
 							.prepareStatement(sqlInsert);
-					pstmtInsert.setString(1, dept.getName());
-					if (upperDeptId != null)
-						pstmtInsert.setInt(2, upperDeptId);
-					else
-						pstmtInsert.setNull(2, Types.INTEGER);
+					// insert new department entry
+					pstmtInsert.setString(1, company.getName());
 					pstmtInsert.execute();
 					// get the auto-generated id and store it in the
 					// department's field
-					String sqlSelectId = "SELECT deptId FROM dept ORDER BY deptid DESC LIMIT 0,1";
+					String sqlSelectId = "SELECT max(id) AS maxid FROM company";
 					PreparedStatement pstmtSelectId = myConnection.getConn()
 							.prepareStatement(sqlSelectId);
 					ResultSet idR = pstmtSelectId.executeQuery();
 					idR.next();
-					dept.setDeptid(idR.getInt("deptId"));
-					// save manager
-					persistEmployee(dept.getManager(), dept.getDeptid());
-					// now that the manager got an id we can store it the
-					// department table
-					String sqlUpdateManager = "UPDATE dept SET managerId = ? WHERE deptId = ?";
-					PreparedStatement pstmtUpdateManager = myConnection
-							.getConn().prepareStatement(sqlUpdateManager);
-					pstmtUpdateManager.setInt(1, dept.getManager()
-							.getEmployeeid());
-					pstmtUpdateManager.setInt(2, dept.getDeptid());
-					pstmtUpdateManager.executeUpdate();
+					company.setCompanyid(idR.getInt("maxid"));
+				}
+
+				// save name
+				String sqlUpdate = "UPDATE company SET name = ? WHERE id = ?";
+				PreparedStatement pstmtUpdate = myConnection.getConn()
+						.prepareStatement(sqlUpdate);
+				pstmtUpdate.setString(1, company.getName());
+				pstmtUpdate.setInt(2, company.getCompanyid());
+				pstmtUpdate.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			// save all top departments
+			for (Department dept : company.getDepts()) {
+				persistDept(dept, company.getCompanyid(), null);
+			}
+			// clear the database
+			clear(deptIds, "department", company.getCompanyid());
+			clear(employeeIds, "employee", company.getCompanyid());
+			// reset flags
+			company.setChanged(false);
+			company.getDepts().setUnchanged();
+		}
+		company.setChanged(false);
+
+	}
+
+	private void persistDept(Department dept, Integer companyId,
+			Integer upperDeptId) {
+		if (dept.isChanged()) {
+			try {
+				if (dept.getDeptid() == 0) {
+					// insert new department entry
+					String sqlInsert = "INSERT department(name, cid, did) VALUES (?,?,?)";
+					PreparedStatement pstmtInsert = myConnection.getConn()
+							.prepareStatement(sqlInsert);
+					pstmtInsert.setString(1, dept.getName());
+					pstmtInsert.setInt(2, companyId);
+					if (upperDeptId != null)
+						pstmtInsert.setInt(3, upperDeptId);
+					else
+						pstmtInsert.setNull(3, Types.INTEGER);
+					pstmtInsert.execute();
+					// get the auto-generated id and store it in the
+					// department's field
+					String sqlSelectId = "SELECT max(id) AS maxid FROM department";
+					PreparedStatement pstmtSelectId = myConnection.getConn()
+							.prepareStatement(sqlSelectId);
+					ResultSet idR = pstmtSelectId.executeQuery();
+					idR.next();
+					dept.setDeptid(idR.getInt("maxid"));
 				} else {
 					// update department entry
-					String sqlUpdate = "UPDATE dept SET name = ?, upperDeptId = ? WHERE deptId = ?";
+					String sqlUpdate = "UPDATE department SET name = ?, cid = ?, did = ? WHERE id = ?";
 					PreparedStatement pstmtUpdate = myConnection.getConn()
 							.prepareStatement(sqlUpdate);
 					pstmtUpdate.setString(1, dept.getName());
+					pstmtUpdate.setInt(2, companyId);
 					if (upperDeptId != null)
-						pstmtUpdate.setInt(2, upperDeptId);
+						pstmtUpdate.setInt(3, upperDeptId);
 					else
-						pstmtUpdate.setNull(2, Types.INTEGER);
-					pstmtUpdate.setInt(3, dept.getDeptid());
+						pstmtUpdate.setNull(3, Types.INTEGER);
+					pstmtUpdate.setInt(4, dept.getDeptid());
 					pstmtUpdate.executeUpdate();
-					persistEmployee(dept.getManager(), dept.getDeptid());
-					// now that the manager got an id we can store it the
-					// department table
-					String sqlUpdateManager = "UPDATE dept SET managerId = ? WHERE deptId = ?";
-					PreparedStatement pstmtUpdateManager = myConnection
-							.getConn().prepareStatement(sqlUpdateManager);
-					pstmtUpdateManager.setInt(1, dept.getManager()
-							.getEmployeeid());
-					pstmtUpdateManager.setInt(2, dept.getDeptid());
-					pstmtUpdateManager.executeUpdate();
+					persistEmployee(dept.getManager(), companyId,
+							dept.getDeptid(), true);
 
 				}
 				// reset flag
-				dept.setUnchanged();
+				dept.setChanged(false);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
+		// save manager
+		persistEmployee(dept.getManager(), companyId, dept.getDeptid(), true);
 		// persist all employees
 		for (Employee employee : dept.getEmployees())
-			persistEmployee(employee, dept.getDeptid());
+			persistEmployee(employee, companyId, dept.getDeptid(), false);
 		dept.getEmployees().setUnchanged();
 		// persist all sub departments
-		for (Dept subDept : dept.getSubDepartments())
-			persistDept(subDept, dept.getDeptid());
+		for (Department subDept : dept.getSubDepartments())
+			persistDept(subDept, companyId, dept.getDeptid());
 		dept.getSubDepartments().setUnchanged();
 
 		// register department in the integer set
@@ -152,42 +170,48 @@ public class PersistenceTool {
 
 	}
 
-	private void persistEmployee(Employee employee, Integer deptId) {
+	private void persistEmployee(Employee employee, Integer companyId,
+			Integer deptId, boolean isManager) {
 		if (employee.isChanged()) {
 			try {
 				if (employee.getEmployeeid() == 0) {
 					// save person
-					String sqlInsert = "INSERT employee (name, address, salary, deptId) VALUES (?,?,?,?)";
+					String sqlInsert = "INSERT employee (name, address, salary, manager, cid, did) VALUES (?,?,?,?,?,?)";
 					PreparedStatement pstmtInsert = myConnection.getConn()
 							.prepareStatement(sqlInsert);
 					pstmtInsert.setString(1, employee.getName());
 					pstmtInsert.setString(2, employee.getAddress());
 					pstmtInsert.setDouble(3, employee.getSalary());
-					pstmtInsert.setInt(4, deptId);
+					pstmtInsert.setBoolean(4, isManager);
+					pstmtInsert.setInt(5, companyId);
+					pstmtInsert.setInt(6, deptId);
 					pstmtInsert.execute();
 
 					// get the auto-generated id and store it in the employee's
 					// field
-					String sqlSelectId = "SELECT employeeId FROM employee ORDER BY employeeId DESC LIMIT 0,1";
+					String sqlSelectId = "SELECT max(id) AS maxid FROM employee";
 					PreparedStatement pstmtSelectId = myConnection.getConn()
 							.prepareStatement(sqlSelectId);
 					ResultSet id = pstmtSelectId.executeQuery();
 					id.next();
-					employee.setEmploeeid(id.getInt("employeeId"));
+					employee.setEmploeeid(id.getInt("maxid"));
 				} else {
 					// update employee entry
-					String sqlUpdate = "UPDATE employee SET name = ?, address = ?, salary = ?, deptId = ? WHERE employeeId = ?";
+					String sqlUpdate = "UPDATE employee SET name = ?, address = ?, salary = ?, manager =  ?, "
+							+ "cid = ?, did = ? WHERE id = ?";
 					PreparedStatement pstmtUpdate = myConnection.getConn()
 							.prepareStatement(sqlUpdate);
 					pstmtUpdate.setString(1, employee.getName());
 					pstmtUpdate.setString(2, employee.getAddress());
 					pstmtUpdate.setDouble(3, employee.getSalary());
-					pstmtUpdate.setInt(4, deptId);
-					pstmtUpdate.setInt(5, employee.getEmployeeid());
+					pstmtUpdate.setBoolean(4, isManager);
+					pstmtUpdate.setInt(5, companyId);
+					pstmtUpdate.setInt(6, deptId);
+					pstmtUpdate.setInt(7, employee.getEmployeeid());
 					pstmtUpdate.executeUpdate();
 				}
 				// reset flag
-				employee.setUnchanged();
+				employee.setChanged(false);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

@@ -1,10 +1,12 @@
 package org.softlang.company;
 
+import org.softlang.util.ObjectFactory;
+
 /**
  * An Employee has a salary and some person information
  * 
  */
-public class Employee implements Loadable {
+public class Employee implements Persistable {
 
 	private int employeeid;
 	private String name;
@@ -78,8 +80,8 @@ public class Employee implements Loadable {
 		changed = true;
 	}
 
-	public void setUnchanged() {
-		changed = false;
+	public void setChanged(boolean changed) {
+		this.changed = true;
 	}
 
 	public boolean isChanged() {

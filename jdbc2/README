@@ -2,10 +2,6 @@
 
 Database programming with [[Technology:JDBC]]
 
-== Status ==
-
-[[101status:Broken]]: the underlying database has grossly changed.
-
 == Languages ==
 
 * [[Language:SQL]]
@@ -17,33 +13,31 @@ Database programming with [[Technology:JDBC]]
 * [[Technology:MySQL]]
 * [[101profile:Simple Java]]
 
-This is a sophistication of project "jdbc".
-Please make sure you understand "jdbc" first.
-Both projects also rely on project "sql"; see README in project "jdbc".
+== Description ==
 
-We experiment with a naive O/R mapping for companies.
-We exercise some company scenarios with the resulting object model.
-In the implementation of the O/R mapping, we use JDBC.
+This is a sophistication of [[101implementation:jdbc]]. We experiment with a naive O/R mapping for companies.
+We exercise some company scenarios with the resulting object model. In the implementation of the O/R mapping, we use JDBC.
 
-The package org.softlang.company contains the object model.
-The ObjectFactory is used to retrieve objects from the database.
+== Architecture ==
+
+The package ''org.softlang.company'' contains the object model.
+The ''ObjectFactory'' in ''org.softlang.util'' is used to retrieve objects from the database.
 The PersistenceTool writes objects back to the database.
 Some minimal effort is made to only commit *changes* to the database.
-
-See the tests package for test cases.
+The tests package ''org.softlang.tests'' contains test cases.
 
 Prerequisites (very much like in project "jdbc"):
 
-- A suitable company database.
-  Please use project "sql" to set up the company database.
-  That is, we assume that you have an initial database image.
-  Scenario tests will only succeed for an *initial* database image.
-  Corollary: tests will succeed at most once.
-  The test class Persistence should succeed for any database image.
+= Usage ==
 
-- A suitable JDBC Driver for MySQL:
-  An appropriate driver is available through the project "library".
-  See the corresponding JAR in the build path of the present project. 
+* You will need a suitable JDBC Driver for MySQL
+**  An appropriate driver is available here: http://dev.mysql.com/downloads/connector/j/
+**  Add the JAR that comes with the download to the build path of this project.
+* Set up a company database.
+** Follow the steps described here [[101implementation:mySql]] to set up the company database. That is, stop after populating the tables. 
+* There are JUnit tests available as the package ''org.softlang.tests''.
+** Run class ''Basics'' with JUnit to exercise basic features.
+** Run class ''Persistence'' with JUnit to exercise O/R mapping / persistence.
   
 == Contributors ==
 

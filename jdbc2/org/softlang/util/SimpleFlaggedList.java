@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.softlang.company.Loadable;
+import org.softlang.company.Persistable;
 
-public class SimpleFlaggedList<T extends Loadable> implements Iterable<T> {
+public class SimpleFlaggedList<T extends Persistable> implements Iterable<T> {
 
 	/**
 	 * Simple list with a flag for changes
@@ -39,6 +39,7 @@ public class SimpleFlaggedList<T extends Loadable> implements Iterable<T> {
 
 	public boolean add(T t) {
 		changed = true;
+		t.setChanged(true);
 		return inner.add(t);
 	}
 
@@ -73,7 +74,7 @@ public class SimpleFlaggedList<T extends Loadable> implements Iterable<T> {
 		};
 	}
 
-	public boolean wasChanged() {
+	public boolean isChanged() {
 		return changed;
 	}
 

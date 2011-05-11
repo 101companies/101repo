@@ -1,33 +1,34 @@
 package org.softlang.company;
 
 import org.softlang.util.SimpleFlaggedList;
+import org.softlang.util.ObjectFactory;
 
 /**
  * A department has a name, a manager and a list of subunits
  * 
  */
-public class Dept implements Loadable {
+public class Department implements Persistable {
 
 	private int deptid;
 	private String name;
 	private Employee manager;
-	private SimpleFlaggedList<Dept> subDepartments;
+	private SimpleFlaggedList<Department> subDepartments;
 	private SimpleFlaggedList<Employee> employees;
 	private boolean changed;
 	private boolean loaded;
 	private ObjectFactory objectFactory;
 
-	public Dept() {
+	public Department() {
 		deptid = 0;
-		subDepartments = new SimpleFlaggedList<Dept>();
+		subDepartments = new SimpleFlaggedList<Department>();
 		employees = new SimpleFlaggedList<Employee>();
 		changed = true;
 		loaded = true;
 	}
 
-	public Dept(int deptid) {
+	public Department(int deptid) {
 		this.deptid = deptid;
-		subDepartments = new SimpleFlaggedList<Dept>();
+		subDepartments = new SimpleFlaggedList<Department>();
 		employees = new SimpleFlaggedList<Employee>();
 		loaded = false;
 	}
@@ -75,58 +76,57 @@ public class Dept implements Loadable {
 	}
 
 	public void setManager(Employee manager) {
+		if (this.manager != null)
+			this.manager.setChanged(true);
 		this.manager = manager;
 		changed = true;
+		manager.setChanged(true);
 	}
 
-	public SimpleFlaggedList<Dept> getSubDepartments() {
+	public SimpleFlaggedList<Department> getSubDepartments() {
 		return subDepartments;
-	}
-
-	public void setSubDepartments(SimpleFlaggedList<Dept> subDepartments) {
-		this.subDepartments = subDepartments;
-		changed = true;
 	}
 
 	public SimpleFlaggedList<Employee> getEmployees() {
 		return employees;
 	}
 
-	public void setEmployees(SimpleFlaggedList<Employee> employees) {
-		this.employees = employees;
-		changed = true;
-	}
-
-	public void setUnchanged() {
-		changed = false;
+	public void setChanged(boolean changed) {
+		this.changed = true;
 	}
 
 	public boolean isChanged() {
-		boolean employeesChanged = employees.wasChanged();
+		if (this.changed)
+			return true;
+		if (employees.isChanged() || subDepartments.isChanged())
+			return true;
 		for (Employee employee : employees)
-			employeesChanged |= employee.isChanged();
-		boolean subDeptsChanged = subDepartments.wasChanged();
-		for (Dept dept : subDepartments)
-			subDeptsChanged |= dept.isChanged();
-		return manager.isChanged() || employeesChanged || subDeptsChanged
-				|| this.changed;
+			if (employee.isChanged())
+				return true;
+		for (Department dept : subDepartments)
+			if (dept.isChanged())
+				return true;
+		return false;
 	}
 
 	@Override
 	public boolean equals(Object o) {
-		boolean isEqual = true;
-		Dept otherDept = (Dept) o;
-		isEqual &= this.getSubDepartments().size() == otherDept
-				.getSubDepartments().size();
-		isEqual &= this.getEmployees().size() == otherDept.getEmployees()
-				.size();
-		for (int i = 0; i < this.getSubDepartments().size() && isEqual; i++)
-			isEqual &= this.getSubDepartments().get(i).equals(
-					otherDept.getSubDepartments().get(i));
-		for (int i = 0; i < this.getEmployees().size() && isEqual; i++)
-			isEqual &= this.getEmployees().get(i).equals(
-					otherDept.getEmployees().get(i));
-		isEqual &= this.getManager().equals(otherDept.getManager());
-		return isEqual;
+		Department otherDept = (Department) o;
+		if (!this.getName().equals(otherDept.getName())
+				|| !this.getManager().equals(otherDept.getManager())
+				|| this.getSubDepartments().size() != otherDept
+						.getSubDepartments().size()
+				|| this.getEmployees().size() != otherDept.getEmployees()
+						.size())
+			return false;
+		for (int i = 0; i < this.getSubDepartments().size(); i++)
+			if (!this.getSubDepartments().get(i)
+					.equals(otherDept.getSubDepartments().get(i)))
+				return false;
+		for (int i = 0; i < this.getEmployees().size(); i++)
+			if (!this.getEmployees().get(i)
+					.equals(otherDept.getEmployees().get(i)))
+				return false;
+		return true;
 	}
 }
