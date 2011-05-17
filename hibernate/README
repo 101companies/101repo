@@ -223,7 +223,7 @@ The modified state is committed; the test will only succeed once.
 
 Go to the database monitor and enter and execute "shutdown;".
 
-Quite the database monitor.
+Quit the database monitor.
 
 You may also want to run "make clean" in the root dir to be clean for next time.
 
