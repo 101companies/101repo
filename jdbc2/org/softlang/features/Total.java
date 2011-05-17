@@ -9,23 +9,20 @@ import org.softlang.company.*;
 public class Total {
 
 	public static double total(Company company) {
-		double ttl = 0;
-		// total all salaries in all top departments
+		double total = 0;
 		for (Department dept : company.getDepts())
-			ttl += total(dept);
-		return ttl;
+			total += total(dept);
+		return total;
 	}
 
 	public static double total(Department dept) {
-		double ttl = 0;
-		ttl += dept.getManager().getSalary();
-		// total all department's employees' salaries
+		double total = 0;
+		total += dept.getManager().getSalary();
 		for (Employee employee : dept.getEmployees())
-			ttl += total(employee);
-		// total all salaries in all sub departments
-		for (Department subDepartment : dept.getSubDepartments())
-			ttl += total(subDepartment);
-		return ttl;
+			total += total(employee);
+		for (Department subDept : dept.getSubDepts())
+			total += total(subDept);
+		return total;
 	}
 
 	public static double total(Employee employee) {

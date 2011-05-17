@@ -101,11 +101,11 @@ public class ObjectFactory {
 				Department subDept = new Department(subDeptsR.getInt("id"));
 				subDept.setObjectFactory(this);
 				subDept.setLoaded(false);
-				dept.getSubDepartments().add(subDept);
+				dept.getSubDepts().add(subDept);
 			}
 			// reset flags
 			dept.setChanged(false);
-			dept.getSubDepartments().setUnchanged();
+			dept.getSubDepts().setUnchanged();
 			dept.getEmployees().setUnchanged();
 
 		} catch (SQLException e) {

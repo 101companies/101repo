@@ -20,7 +20,7 @@ public class Cut {
 		for (Employee employee : dept.getEmployees())
 			cutEmployee(employee);
 		// cut all salaries in all sub departments
-		for (Department subDepartment : dept.getSubDepartments())
+		for (Department subDepartment : dept.getSubDepts())
 			cutDept(subDepartment);
 	}
 

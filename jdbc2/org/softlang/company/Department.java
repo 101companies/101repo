@@ -83,7 +83,7 @@ public class Department implements Persistable {
 		manager.setChanged(true);
 	}
 
-	public PersistableList<Department> getSubDepartments() {
+	public PersistableList<Department> getSubDepts() {
 		return subDepartments;
 	}
 
@@ -115,14 +115,14 @@ public class Department implements Persistable {
 		Department otherDept = (Department) o;
 		if (!this.getName().equals(otherDept.getName())
 				|| !this.getManager().equals(otherDept.getManager())
-				|| this.getSubDepartments().size() != otherDept
-						.getSubDepartments().size()
+				|| this.getSubDepts().size() != otherDept
+						.getSubDepts().size()
 				|| this.getEmployees().size() != otherDept.getEmployees()
 						.size())
 			return false;
-		for (int i = 0; i < this.getSubDepartments().size(); i++)
-			if (!this.getSubDepartments().get(i)
-					.equals(otherDept.getSubDepartments().get(i)))
+		for (int i = 0; i < this.getSubDepts().size(); i++)
+			if (!this.getSubDepts().get(i)
+					.equals(otherDept.getSubDepts().get(i)))
 				return false;
 		for (int i = 0; i < this.getEmployees().size(); i++)
 			if (!this.getEmployees().get(i)

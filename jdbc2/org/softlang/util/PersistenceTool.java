@@ -162,9 +162,9 @@ public class PersistenceTool {
 			persistEmployee(employee, companyId, dept.getDeptid(), false);
 		dept.getEmployees().setUnchanged();
 		// persist all sub departments
-		for (Department subDept : dept.getSubDepartments())
+		for (Department subDept : dept.getSubDepts())
 			persistDept(subDept, companyId, dept.getDeptid());
-		dept.getSubDepartments().setUnchanged();
+		dept.getSubDepts().setUnchanged();
 
 		// register department in the integer set
 		deptIds.add(dept.getDeptid());

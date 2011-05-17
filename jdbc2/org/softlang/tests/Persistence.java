@@ -55,7 +55,7 @@ public class Persistence {
 		bob.setSalary(4566.0);
 		testing1.getEmployees().add(bob);
 
-		testing.getSubDepartments().add(testing1);
+		testing.getSubDepts().add(testing1);
 		company.getDepts().add(testing);
 		company.getDepts().remove(1);
 		company.setName("ubermeganalysis");
@@ -97,7 +97,7 @@ public class Persistence {
 
 		accounting.getEmployees().add(kevin);
 
-		scranton.getSubDepartments().add(accounting);
+		scranton.getSubDepts().add(accounting);
 		dunder.getDepts().add(scranton);
 		
 

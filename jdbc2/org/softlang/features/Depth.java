@@ -17,7 +17,7 @@ public class Depth {
 
 	public static int depth(Department dept) {
 		int maxDepth = 0;
-		for (Department subDepartment : dept.getSubDepartments())
+		for (Department subDepartment : dept.getSubDepts())
 			maxDepth = 1 + Math.max(maxDepth, depth(subDepartment));
 		return maxDepth;
 	}
