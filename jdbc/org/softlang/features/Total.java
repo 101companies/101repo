@@ -13,8 +13,13 @@ public class Total {
 	public static double total(Connection connection, String name){
 		double total = 0;
 		try {
-			String query = "SELECT salary FROM employee "
-					+ "WHERE cid = (SELECT id FROM company WHERE name = ?);";
+			//
+			// We could be using the SUM aggregator of SQL.
+			// However, we use this example to illustrate iteration over result sets.
+			//
+			String query = 
+				"SELECT salary FROM employee "
+			  + "WHERE cid = (SELECT id FROM company WHERE name = ?);";
 			PreparedStatement stm = connection.prepareStatement(query);
 			stm.setString(1, name);
 			ResultSet salaries = stm.executeQuery();
