@@ -39,6 +39,12 @@ Prerequisites (very much like in project "jdbc"):
 ** Run class ''Basics'' with JUnit to exercise basic features.
 ** Run class ''Persistence'' with JUnit to exercise O/R mapping / persistence.
   
+== Issues == 
+
+* The id after insertion should be determined in a more robust manner.
+* Lazy load is triggered upon testing collection items for changes.
+* Perhaps ObjectFactory and PersistenceTool could be merged into one class.
+
 == Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}

@@ -100,6 +100,7 @@ public class Department implements Persistable {
 			return true;
 		if (employees.isChanged() || subDepartments.isChanged())
 			return true;
+		// TODO: this test causes shallow loading
 		for (Employee employee : employees)
 			if (employee.isChanged())
 				return true;

@@ -130,6 +130,7 @@ public class PersistenceTool {
 							.prepareStatement(sqlSelectId);
 					ResultSet idR = pstmtSelectId.executeQuery();
 					idR.next();
+					// TODO: this is not a reliable method of determining the id
 					dept.setDeptid(idR.getInt("maxid"));
 				} else {
 					// update department entry
