@@ -27,23 +27,23 @@ public class ObjectFactory {
 		try {
 			// get company id
 			String sqlId = "SELECT id FROM company WHERE name = ?";
-			PreparedStatement pstmtId = myConnection.getConn()
+			PreparedStatement stmId = myConnection.getConn()
 			.prepareStatement(sqlId);
-			pstmtId.setString(1, company.getName());
-			ResultSet cIdR = pstmtId.executeQuery();
-			cIdR.next();
-			company.setCompanyid(cIdR.getInt("id"));
+			stmId.setString(1, company.getName());
+			ResultSet idR = stmId.executeQuery();
+			idR.next();
+			company.setCompanyid(idR.getInt("id"));
 			// get all "top departments" (departments with no upper department)
 			String sqlDepts = "SELECT id FROM department WHERE did IS NULL " +
 					"AND cid = (SELECT id FROM company WHERE name = ?);";
-			PreparedStatement pstmtDepts = myConnection.getConn()
+			PreparedStatement stmDepts = myConnection.getConn()
 					.prepareStatement(sqlDepts);
-			pstmtDepts.setString(1, company.getName());
-			ResultSet deptIdsR = pstmtDepts.executeQuery();
+			stmDepts.setString(1, company.getName());
+			ResultSet deptsR = stmDepts.executeQuery();
 			// create each department from it's database primary key and add it
 			// the company's department list
-			while (deptIdsR.next()) {
-				Department dept = new Department(deptIdsR.getInt("id"));
+			while (deptsR.next()) {
+				Department dept = new Department(deptsR.getInt("id"));
 				dept.setObjectFactory(this);
 				dept.setLoaded(false);
 				company.getDepts().add(dept);
@@ -116,18 +116,18 @@ public class ObjectFactory {
 
 	public Employee loadEmployee(Employee employee) {
 		try {
-			int employeeId = employee.getEmployeeid();
+			int employeeId = employee.getId();
 			// get employee entry from database
-			String sqlEmployee = "SELECT * FROM employee WHERE id = ?";
-			PreparedStatement pstmtEmployee = myConnection.getConn()
-					.prepareStatement(sqlEmployee);
-			pstmtEmployee.setInt(1, employeeId);
-			ResultSet employeeR = pstmtEmployee.executeQuery();
-			employeeR.next();
+			String sql = "SELECT * FROM employee WHERE id = ?";
+			PreparedStatement stm = myConnection.getConn()
+					.prepareStatement(sql);
+			stm.setInt(1, employeeId);
+			ResultSet result = stm.executeQuery();
+			result.next();
 			// set salary and person information
-			employee.setSalary(employeeR.getDouble("salary"));
-			employee.setName(employeeR.getString("name"));
-			employee.setAddress(employeeR.getString("address"));
+			employee.setSalary(result.getDouble("salary"));
+			employee.setName(result.getString("name"));
+			employee.setAddress(result.getString("address"));
 			// reset flag
 			employee.setChanged(false);
 		} catch (SQLException e) {

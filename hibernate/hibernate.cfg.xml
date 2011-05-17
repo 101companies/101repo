@@ -37,7 +37,7 @@
 		<!-- Create the database schema, if needed; update otherwise -->
 		<property name="hbm2ddl.auto">update</property>			  			  
 
-		<!-- This part lists all the mapping files present in the project -->
+	    <!-- Mapping files in the project -->
 		<mapping resource="org/softlang/company/Company.hbm.xml" />
 		<mapping resource="org/softlang/company/Department.hbm.xml" />
 		<mapping resource="org/softlang/company/Employee.hbm.xml" />

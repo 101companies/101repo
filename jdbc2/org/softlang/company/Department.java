@@ -1,6 +1,6 @@
 package org.softlang.company;
 
-import org.softlang.util.SimpleFlaggedList;
+import org.softlang.util.PersistableList;
 import org.softlang.util.ObjectFactory;
 
 /**
@@ -12,24 +12,24 @@ public class Department implements Persistable {
 	private int deptid;
 	private String name;
 	private Employee manager;
-	private SimpleFlaggedList<Department> subDepartments;
-	private SimpleFlaggedList<Employee> employees;
+	private PersistableList<Department> subDepartments;
+	private PersistableList<Employee> employees;
 	private boolean changed;
 	private boolean loaded;
 	private ObjectFactory objectFactory;
 
 	public Department() {
 		deptid = 0;
-		subDepartments = new SimpleFlaggedList<Department>();
-		employees = new SimpleFlaggedList<Employee>();
+		subDepartments = new PersistableList<Department>();
+		employees = new PersistableList<Employee>();
 		changed = true;
 		loaded = true;
 	}
 
 	public Department(int deptid) {
 		this.deptid = deptid;
-		subDepartments = new SimpleFlaggedList<Department>();
-		employees = new SimpleFlaggedList<Employee>();
+		subDepartments = new PersistableList<Department>();
+		employees = new PersistableList<Employee>();
 		loaded = false;
 	}
 
@@ -83,11 +83,11 @@ public class Department implements Persistable {
 		manager.setChanged(true);
 	}
 
-	public SimpleFlaggedList<Department> getSubDepartments() {
+	public PersistableList<Department> getSubDepartments() {
 		return subDepartments;
 	}
 
-	public SimpleFlaggedList<Employee> getEmployees() {
+	public PersistableList<Employee> getEmployees() {
 		return employees;
 	}
 

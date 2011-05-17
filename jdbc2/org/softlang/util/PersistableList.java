@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.softlang.company.Persistable;
 
-public class SimpleFlaggedList<T extends Persistable> implements Iterable<T> {
+public class PersistableList<T extends Persistable> implements Iterable<T> {
 
 	/**
 	 * Simple list with a flag for changes
@@ -17,7 +17,7 @@ public class SimpleFlaggedList<T extends Persistable> implements Iterable<T> {
 
 	private boolean changed;
 
-	public SimpleFlaggedList() {
+	public PersistableList() {
 		inner = new LinkedList<T>();
 		changed = true;
 	}

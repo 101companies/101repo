@@ -8,7 +8,7 @@ import org.softlang.util.ObjectFactory;
  */
 public class Employee implements Persistable {
 
-	private int employeeid;
+	private int id;
 	private String name;
 	private String address;
 	private double salary;
@@ -17,12 +17,12 @@ public class Employee implements Persistable {
 	private ObjectFactory objectFactory;
 
 	public Employee() {
-		employeeid = 0;
+		id = 0;
 		changed = true;
 	}
 
 	public Employee(int employeeid) {
-		this.employeeid = employeeid;
+		this.id = employeeid;
 	}
 
 	public ObjectFactory getObjectFactory() {
@@ -44,13 +44,13 @@ public class Employee implements Persistable {
 		}
 	}
 
-	public int getEmployeeid() {
-		return employeeid;
+	public int getId() {
+		return id;
 	}
 
-	public void setEmploeeid(int employeeid) {
-		if (this.employeeid == 0)
-			this.employeeid = employeeid;
+	public void setId(int id) {
+		if (this.id == 0)
+			this.id = id;
 	}
 
 	public String getName() {

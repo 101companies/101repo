@@ -1,7 +1,7 @@
 package org.softlang.company;
 
 import org.softlang.util.ObjectFactory;
-import org.softlang.util.SimpleFlaggedList;
+import org.softlang.util.PersistableList;
 
 /**
  * A company is a list of departments
@@ -11,14 +11,14 @@ public class Company implements Persistable {
 
 	private int companyid;
 	private String name;
-	private SimpleFlaggedList<Department> depts;
+	private PersistableList<Department> depts;
 	private boolean changed;
 	private boolean loaded;
 	private ObjectFactory objectFactory;
 
 	public Company(String name) {
 		this.name = name;
-		depts = new SimpleFlaggedList<Department>();
+		depts = new PersistableList<Department>();
 		changed = true;
 	}
 
@@ -59,7 +59,7 @@ public class Company implements Persistable {
 		changed = true;
 	}
 
-	public SimpleFlaggedList<Department> getDepts() {
+	public PersistableList<Department> getDepts() {
 		return depts;
 	}
 

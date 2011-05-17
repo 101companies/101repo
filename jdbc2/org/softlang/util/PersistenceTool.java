@@ -174,7 +174,7 @@ public class PersistenceTool {
 			Integer deptId, boolean isManager) {
 		if (employee.isChanged()) {
 			try {
-				if (employee.getEmployeeid() == 0) {
+				if (employee.getId() == 0) {
 					// save person
 					String sqlInsert = "INSERT employee (name, address, salary, manager, cid, did) VALUES (?,?,?,?,?,?)";
 					PreparedStatement pstmtInsert = myConnection.getConn()
@@ -194,7 +194,7 @@ public class PersistenceTool {
 							.prepareStatement(sqlSelectId);
 					ResultSet id = pstmtSelectId.executeQuery();
 					id.next();
-					employee.setEmploeeid(id.getInt("maxid"));
+					employee.setId(id.getInt("maxid"));
 				} else {
 					// update employee entry
 					String sqlUpdate = "UPDATE employee SET name = ?, address = ?, salary = ?, manager =  ?, "
@@ -207,7 +207,7 @@ public class PersistenceTool {
 					pstmtUpdate.setBoolean(4, isManager);
 					pstmtUpdate.setInt(5, companyId);
 					pstmtUpdate.setInt(6, deptId);
-					pstmtUpdate.setInt(7, employee.getEmployeeid());
+					pstmtUpdate.setInt(7, employee.getId());
 					pstmtUpdate.executeUpdate();
 				}
 				// reset flag
@@ -217,7 +217,7 @@ public class PersistenceTool {
 			}
 		}
 		// register employee in the integer set
-		employeeIds.add(employee.getEmployeeid());
+		employeeIds.add(employee.getId());
 
 	}
 }
