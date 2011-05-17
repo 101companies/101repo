@@ -7,45 +7,48 @@ import java.sql.SQLException;
 
 public class Depth {
 
-	public static int depth(Connection connection, String companyName) {
+	/**
+	 * Compute the depth of a given company.
+	 */
+	public static int depth(Connection connection, String name) {
 		int maxDepth = 0;
 		try {
 			// get top departments
-			String sqlDepts = "SELECT id FROM department WHERE did IS NULL AND "
-					+ "cid = (SELECT id FROM company WHERE name = ?);";
-			PreparedStatement pstmt = connection.prepareStatement(
-					sqlDepts);
-			pstmt.setString(1, companyName);
-			ResultSet deptIds = pstmt.executeQuery();
+			String sql 	= "SELECT id FROM department WHERE did IS NULL AND "
+						+ "cid = (SELECT id FROM company WHERE name = ?);";
+			PreparedStatement stm = connection.prepareStatement(sql);
+			stm.setString(1, name);
+			ResultSet ids = stm.executeQuery();
 			// get depth of the "deepest" department
-			while (deptIds.next()) {
-				maxDepth = 1 + Math.max(maxDepth,
-						depth(connection, deptIds.getInt("id")));
-			}
+			while (ids.next())
+				maxDepth = 1 + Math.max(
+									maxDepth, 
+									depth(connection, ids.getInt("id")));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return maxDepth;
 	}
 
-	private static int depth(Connection connection, int deptId) {
+	/**
+	 * Compute the depth of a given department.
+	 */
+	private static int depth(Connection connection, int id) {
 		int maxDepth = 0;
 		try {
-			// get all sub department by id
-			String sqlSubDeptIds = "SELECT id FROM department WHERE did = ?";
-			PreparedStatement pstmt = connection.prepareStatement(
-					sqlSubDeptIds);
-			pstmt.setInt(1, deptId);
-			ResultSet subunitIds = pstmt.executeQuery();
+			// get all sub-departments by id
+			String sql = "SELECT id FROM department WHERE did = ?";
+			PreparedStatement stm = connection.prepareStatement(sql);
+			stm.setInt(1, id);
+			ResultSet ids = stm.executeQuery();
 			// get deepest path
-			while (subunitIds.next()) {
-				maxDepth = 1 + Math.max(maxDepth,
-						depth(connection, subunitIds.getInt("id")));
-			}
+			while (ids.next())
+				maxDepth = 1 + Math.max(
+									maxDepth,
+									depth(connection, ids.getInt("id")));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return maxDepth;
 	}
-
 }

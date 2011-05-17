@@ -4,9 +4,9 @@ import java.sql.SQLException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.softlang.features.Cut;
-import org.softlang.features.Depth;
-import org.softlang.features.Total;
+import static org.softlang.features.Total.*;
+import static org.softlang.features.Cut.*;
+import static org.softlang.features.Depth.*;
 
 import java.sql.Connection;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
@@ -37,23 +37,20 @@ public class Basics {
 
 	@Test
 	public void testTotal() {
-
-		double total = Total.total(connection, "meganalysis");
+		double total = total(connection, "meganalysis");
 		assertEquals(399747, total, 0.0);
 	}
 
 	@Test
 	public void testCut() {
-
-		Cut.cut(connection, "meganalysis");
-		double total = Total.total(connection, "meganalysis");
+		cut(connection, "meganalysis");
+		double total = total(connection, "meganalysis");
 		assertEquals(399747 / 2.0d, total, 0.0);
 	}
 
 	@Test
 	public void testDepth() {
-
-		int depth = Depth.depth(connection, "meganalysis");
+		int depth = depth(connection, "meganalysis");
 		assertEquals(3, depth);
 	}
 

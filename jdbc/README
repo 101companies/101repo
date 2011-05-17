@@ -15,9 +15,7 @@ Database programming with [[Technology:JDBC]]
 
 == Description ==
 
-We use JDBC/SQL for data processing. We exercise [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] salaries as well as computing the [[101feature:Depth|depth]] of a company. 
-That is, we use embedded SQL in Java.
-See the Tests class for test cases.
+We use JDBC/SQL for data processing. That is, we use embedded SQL in Java. See the Tests class for test cases.
   
 == Usage ==
 

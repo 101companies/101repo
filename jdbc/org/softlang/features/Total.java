@@ -7,16 +7,19 @@ import java.sql.SQLException;
 
 public class Total {
 
-	public static double total(Connection connection, String companyName){
+	/**
+	 * Total all salaries of a given company.
+	 */
+	public static double total(Connection connection, String name){
 		double total = 0;
 		try {
-		String query = "SELECT salary FROM employee "
-				+ "WHERE cid = (SELECT id FROM company WHERE name = ?);";
-		PreparedStatement pstmtEmployees = connection.prepareStatement(query);
-		pstmtEmployees.setString(1, companyName);
-		ResultSet salaries = pstmtEmployees.executeQuery();
-		while (salaries.next())
-			total += salaries.getDouble("salary");
+			String query = "SELECT salary FROM employee "
+					+ "WHERE cid = (SELECT id FROM company WHERE name = ?);";
+			PreparedStatement stm = connection.prepareStatement(query);
+			stm.setString(1, name);
+			ResultSet salaries = stm.executeQuery();
+			while (salaries.next())
+				total += salaries.getDouble("salary");
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
