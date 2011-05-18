@@ -2,6 +2,10 @@
 
 Database programming with [[Technology:JDBC]]
 
+== Status ==
+
+[[101status:Suboptimal]]
+
 == Languages ==
 
 * [[Language:SQL]]
@@ -41,9 +45,18 @@ Prerequisites (very much like in project "jdbc"):
   
 == Issues == 
 
+* Overall, the idea of loading employees one by one may be ill-conceived.
+* Lazy load is triggered upon testing collection items for changes; see Department.isChanged.
+* The load method should not be in the iterator for collections but in the getters (and some of the setters) for items in the collection.
+* Persist methods seem to drill down to leafs even beyond what had been loaded (and could be changed).
+* Clear methods should use information about what has been *added* or *removed*.
 * The id after insertion should be determined in a more robust manner.
-* Lazy load is triggered upon testing collection items for changes.
-* Perhaps ObjectFactory and PersistenceTool could be merged into one class.
+
+Cosmetics:
+* Rename ObjectFactory to Loader?
+* Rename PersistenceTool to Saver?
+* Use shorter names pstmt -> stm for example.
+* Use overloading rather than long names such as persistDepartment.
 
 == Contributors ==
 
