@@ -19,20 +19,15 @@ This is a simple implementation of the basic 101companies-features in html5.
 == Motivation ==
 
 
-== Illustration ==
+== Demo ==
 
+# Check out the index.html
+# Deploy the index.html to a webserver
+# Start your web-browser
+# Call the index.html over http or https
 
-== Architecture ==
-
-
-== Usage ==
-
-
-== Issues == 
-
+ATTENTION: This HTML5-program does not work over file-protocol.
 
 == Contributors ==
 
 * {{101contributor|Tobias Zimmer|developer}}
-
-== Acknowledgments ==
