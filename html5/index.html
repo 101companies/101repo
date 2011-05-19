@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!-- This is the code for the 101companies application written in HTML 5 -->
+<html>
+<body>
+
+<center>
+
+<h1>101companies HTML 5 WebApp</h1>
+
+<script type="text/javascript">
+
+// ----------------------------------------- Creating the classes for 101companies
+// A company has a name and departments
+function Company (name) {
+	this.name = name;
+	this.departments = new Array();
+}
+
+function Department (name) {
+	this.name = name;
+	this.employees = new Array();
+}
+
+function Employee (name, address, salary) {
+	this.name = name;
+	this.address = address;
+	this.salary = salary;
+}
+
+if (sessionStorage.company == null) {
+	var company = new Company("Meganalysis");
+
+	var research = new Department("Research");
+	var development = new Department("Development");
+
+	company.departments.push(research);
+	company.departments.push(development);
+
+	var craig = new Employee("Craig", "Redmond", 5000, true);
+	var eric = new Employee("Eric", "Utrecht", 3000, false);
+	var ralf = new Employee("Ralf", "Koblenz", 6000, false);
+
+	research.employees.push(craig);
+	research.employees.push(eric);
+	research.employees.push(ralf);
+
+	sessionStorage.setItem('company', JSON.stringify(company));
+}
+
+var savedCompany = JSON.parse(sessionStorage.getItem('company'));
+
+document.write("<h3>" + savedCompany.name + "</h3><br><br>");
+
+var total = 0;
+
+if (sessionStorage.departmentSelected == null || sessionStorage.departmentSelected < 0) {
+	for (var i = 0; i < savedCompany.departments.length; i++) {
+		document.write("<input type = \"button\" value = \"" + savedCompany.departments[i].name + "\" onClick=\" selectDepartment(" + i + ")\"><br>");
+		var employeesTemp = savedCompany.departments[i].employees;
+		for (var j = 0; j < employeesTemp.length; j++) {
+			total = total + employeesTemp[j].salary;
+		}
+	}
+	
+	document.write("<br><br>Total = " + total + " ");
+	document.write("<input type=\"button\" value=\"cut\" onclick=\"cut()\" >");
+} else {
+	if (sessionStorage.employeeSelected == null || sessionStorage.employeeSelected < 0) {
+		var employeesTemp = savedCompany.departments[sessionStorage.departmentSelected].employees;
+		for (var i = 0; i < employeesTemp.length; i++) {
+			document.write("<input type = \"button\" value = \"" + employeesTemp[i].name + "\" onClick=\" selectEmployee(" + i + ")\"><br>");
+		}
+		document.write("<br><input type = \"button\" value = \"back\" onClick=\"backFromDepartment()\">");
+	} else {
+		var employeesTemp = savedCompany.departments[sessionStorage.departmentSelected].employees;
+		var currentEmployee = employeesTemp[sessionStorage.employeeSelected];
+		document.write("Name: " + currentEmployee.name + "<br>");
+		document.write("Address: " + currentEmployee.address + "<br>");
+		document.write("Salary: " + currentEmployee.salary + "<br>");
+		document.write("<br><input type = \"button\" value = \"cut\" onClick=\"cutEmployee()\">");
+		document.write("<br><input type = \"button\" value = \"back\" onClick=\"backFromEmployee()\">");
+	}
+}
+
+function selectDepartment(i) {
+	sessionStorage.departmentSelected = i;
+	location.reload();
+}
+
+function backFromDepartment() {
+	sessionStorage.departmentSelected = -1;
+	location.reload();
+}
+
+function selectEmployee(i) {
+	sessionStorage.employeeSelected = i;
+	location.reload();
+}
+
+function backFromEmployee() {
+	sessionStorage.employeeSelected = -1;
+	location.reload();
+}
+
+function cutEmployee() {
+	var i = sessionStorage.departmentSelected;
+	var j = sessionStorage.employeeSelected;
+	var currentEmployee = savedCompany.departments[i].employees[j];
+	currentEmployee.salary = currentEmployee.salary / 2;
+	savedCompany.departments[i].employees.splice(j, 1, currentEmployee);
+	sessionStorage.setItem('company', JSON.stringify(savedCompany));
+	location.reload();
+}
+
+function cut() {
+	var companyTemp = JSON.parse(sessionStorage.getItem('company'));
+
+	for (var i = 0; i < companyTemp.departments.length; i++) {
+		for (var j = 0; j < companyTemp.departments[i].employees.length; j++) {
+			companyTemp.departments[i].employees[j].salary = companyTemp.departments[i].employees[j].salary / 2;
+		}
+	}
+	
+	sessionStorage.setItem('company', JSON.stringify(companyTemp));
+	location.reload();
+}
+
+if (sessionStorage.pagecount)
+  {
+  sessionStorage.pagecount=Number(sessionStorage.pagecount) + 1;
+  }
+else
+  {
+  sessionStorage.pagecount = 1;
+  }
+document.write("<br><br>Visits: " + sessionStorage.pagecount);
+</script> 
+
+</center>
+
+</body>
+</html> 
