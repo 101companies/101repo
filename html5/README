@@ -26,7 +26,7 @@ This is a simple implementation of the basic 101companies-features in html5.
 # Start your web-browser
 # Call the index.html over http or https
 
-ATTENTION: This HTML5-program does not work over file-protocol.
+ATTENTION: This HTML5-program does not work with the file-protocol!
 
 == Contributors ==
 
