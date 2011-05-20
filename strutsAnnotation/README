@@ -1,8 +1,12 @@
+== Intent ==
+
+implement a web application with Struts
+
 == Usage ==
 	
 === Requirements ===
 	
-	        Any web server based on Servlet technology, such as Tomcat
+	        Any web server based on Servlet technology, such as Tomcat.
 	        
 === Build === 
 
@@ -14,4 +18,8 @@
 	        (a) start the web server
 	        
 	        (b) start a web browser and inform the URL http://localhost:8080/struts2app, if the web server is configured to accept requests on the 8080 port   
-	    
+
+== Contributors ==
+	   
+* {{101contributor|Rodrigo Bonifacio|developer}}
+ 
