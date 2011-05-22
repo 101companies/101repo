@@ -21,12 +21,14 @@ This is a simple implementation of the basic 101companies-features in html5.
 
 == Demo ==
 
-# Check out the index.html
-# Deploy the index.html to a webserver
-# Start your web-browser
-# Call the index.html over http or https
+This HTML5-program does not work over file-protocol. To gain access over http, you can use XAMPP to create a webserver.
 
-ATTENTION: This HTML5-program does not work with the file-protocol!
+# Download XAMPP from http://www.apachefriends.org/en/xampp.html
+# Install XAMPP
+# Deploy the index.html to your htdocs-directory (for example: E:\xampp\htdocs\101implementation-html5\)
+# Start the XAMPP-Control Panel and activate Apache
+# Start your web-browser
+# Call http://localhost/101implementation-html5/index.html
 
 == Contributors ==
 
