@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
-<!-- This is the code for the 101companies application written in HTML 5 -->
+<!-- This is the code for the 101companies application written in HTML 5 & JavaScript -->
+
+<!-- CLIENT-SIDE, SESSION-STORAGE -->
 <html>
 <body>
 
@@ -9,69 +11,161 @@
 
 <script type="text/javascript">
 
-// ----------------------------------------- Creating the classes for 101companies
-// A company has a name and departments
+// ------------------------------------------------------------------------ Creating the classes for 101companies
+
+/*
+ * Class: Company 
+ *
+ * A company has a name and contains several departments.
+ */ 
 function Company (name) {
 	this.name = name;
 	this.departments = new Array();
 }
 
-function Department (name) {
+/*
+ * Class: Department 
+ *
+ * A department has a name and contains several employees. It is part of a company.
+ */ 
+function Department (name, employee, parent) {
 	this.name = name;
+	this.manager = employee;
+	this.parent = parent;
 	this.employees = new Array();
+	this.subdepartments = new Array();
 }
 
+/*
+ * Class: Employee
+ *
+ * An Employee has a name, address and salary. He is part of a department.
+ */
 function Employee (name, address, salary) {
 	this.name = name;
 	this.address = address;
 	this.salary = salary;
 }
 
+// ------------------------------------------------------------------------ Creating some objects for 101companies
+
+// If the company does not exist, it must be created locally.
 if (sessionStorage.company == null) {
+	// create company ...
 	var company = new Company("Meganalysis");
 
+	// create departments ...
 	var research = new Department("Research");
 	var development = new Department("Development");
 
+	// insert departments ...
 	company.departments.push(research);
 	company.departments.push(development);
 
-	var craig = new Employee("Craig", "Redmond", 5000, true);
-	var eric = new Employee("Eric", "Utrecht", 3000, false);
-	var ralf = new Employee("Ralf", "Koblenz", 6000, false);
+	// create employees ...
+	var craig = new Employee("Craig", "Redmond", 123456.0);
+	var eric = new Employee("Eric", "Utrecht", 12345.0);
+	var ralf = new Employee("Ralf", "Koblenz", 1234.0);
+	var ray = new Employee("Ray", "Redmond", 234567.0);
 
-	research.employees.push(craig);
+	// insert employees ...
+	research.manager = craig;
+	research.employees.push(research.manager);
 	research.employees.push(eric);
 	research.employees.push(ralf);
+	
+	development.manager = ray;
+	development.employees.push(development.manager);
 
+	// save company
 	sessionStorage.setItem('company', JSON.stringify(company));
 }
 
+// ------------------------------------------------------------------------ Variables
+
+// load company
 var savedCompany = JSON.parse(sessionStorage.getItem('company'));
 
-document.write("<h3>" + savedCompany.name + "</h3><br><br>");
-
+// the "total" variable is used for the determination of the total salary of the current company or department
 var total = 0;
 
+// ------------------------------------------------------------------------ Page-Generation
+
+// print name of the company as headline
+document.write("<h2> Company: " + savedCompany.name + "</h2>");
+
+// if no department is selected ...
 if (sessionStorage.departmentSelected == null || sessionStorage.departmentSelected < 0) {
+	document.write("<br><br>Departments:");
+
+	// ... create the listbox for departments
+	document.write("<form action=\"select1.htm\">");
+	document.write("<p>");
+	document.write("<select name=\"Departments\" size=\"5\">");
+	
 	for (var i = 0; i < savedCompany.departments.length; i++) {
-		document.write("<input type = \"button\" value = \"" + savedCompany.departments[i].name + "\" onClick=\" selectDepartment(" + i + ")\"><br>");
+		if(i == 0) {
+			document.write("<option value=\"" + i + "\" selected>");
+		} else {
+			document.write("<option value=\"" + i + "\">");
+		}
+		document.write(savedCompany.departments[i].name + "</option>");
 		var employeesTemp = savedCompany.departments[i].employees;
 		for (var j = 0; j < employeesTemp.length; j++) {
 			total = total + employeesTemp[j].salary;
 		}
 	}
+	document.write("</select>");
+	document.write("</p>");
+	
+	document.write("<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >");
+	document.write("</form>");
 	
 	document.write("<br><br>Total = " + total + " ");
 	document.write("<input type=\"button\" value=\"cut\" onclick=\"cut()\" >");
+	
+// if a department is selected ...
 } else {
+
+	// ... and if no employee is selected ...
 	if (sessionStorage.employeeSelected == null || sessionStorage.employeeSelected < 0) {
+	
+		document.write("<br><h3> Department: " + savedCompany.departments[sessionStorage.departmentSelected].name + "</h3>");
+		document.write("<br>Manager: "  + savedCompany.departments[sessionStorage.departmentSelected].manager.name);
+	
+		document.write("<br>Employees:");
+		// ... create the listbox for department-specific employees
+		document.write("<form action=\"select2.htm\">");
+		document.write("<p>");
+		document.write("<select name=\"Employees\" size=\"5\">");
+		
 		var employeesTemp = savedCompany.departments[sessionStorage.departmentSelected].employees;
 		for (var i = 0; i < employeesTemp.length; i++) {
-			document.write("<input type = \"button\" value = \"" + employeesTemp[i].name + "\" onClick=\" selectEmployee(" + i + ")\"><br>");
+			if(i == 0) {
+				document.write("<option value=\"" + i + "\" selected>");
+			} else {
+				document.write("<option value=\"" + i + "\">");
+			}
+		
+			document.write(employeesTemp[i].name + "</option>");
+			total = total + employeesTemp[i].salary;
 		}
+		
+		document.write("</select>");
+		document.write("</p>");
+	
+		document.write("<input type=\"button\" value=\"select\" onclick=\"selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\" >");
+		document.write("</form>");
+		
 		document.write("<br><input type = \"button\" value = \"back\" onClick=\"backFromDepartment()\">");
+		
+		document.write("<br><br>Total = " + total + " ");
+		document.write("<input type=\"button\" value=\"cut\" onclick=\"cutDepartment()\" >");
+		
+	// ... and if an employee is selected ...
 	} else {
+	
+		// create the page for this employee
 		var employeesTemp = savedCompany.departments[sessionStorage.departmentSelected].employees;
 		var currentEmployee = employeesTemp[sessionStorage.employeeSelected];
 		document.write("Name: " + currentEmployee.name + "<br>");
@@ -82,26 +176,33 @@ if (sessionStorage.departmentSelected == null || sessionStorage.departmentSelect
 	}
 }
 
+// ------------------------------------------------------------------------ Useful Functions
+
+// This function selects a department.
 function selectDepartment(i) {
 	sessionStorage.departmentSelected = i;
 	location.reload();
 }
 
+// This function returns from a selected department.
 function backFromDepartment() {
 	sessionStorage.departmentSelected = -1;
 	location.reload();
 }
 
+// This function selects an employee out of the department.
 function selectEmployee(i) {
 	sessionStorage.employeeSelected = i;
 	location.reload();
 }
 
+// This function returns to the selected department from the current employee.
 function backFromEmployee() {
 	sessionStorage.employeeSelected = -1;
 	location.reload();
 }
 
+// This function cuts the salary of the currently selected employee.
 function cutEmployee() {
 	var i = sessionStorage.departmentSelected;
 	var j = sessionStorage.employeeSelected;
@@ -112,6 +213,17 @@ function cutEmployee() {
 	location.reload();
 }
 
+// This function cuts the salaries of all employees within the department.
+function cutDepartment() {
+	var i = sessionStorage.departmentSelected;
+	for (var j = 0; j < savedCompany.departments[i].employees.length; j++) {
+		savedCompany.departments[i].employees[j].salary = savedCompany.departments[i].employees[j].salary / 2;
+	}
+	sessionStorage.setItem('company', JSON.stringify(savedCompany));
+	location.reload();
+}
+
+// This function cuts all wages.
 function cut() {
 	var companyTemp = JSON.parse(sessionStorage.getItem('company'));
 
@@ -124,16 +236,6 @@ function cut() {
 	sessionStorage.setItem('company', JSON.stringify(companyTemp));
 	location.reload();
 }
-
-if (sessionStorage.pagecount)
-  {
-  sessionStorage.pagecount=Number(sessionStorage.pagecount) + 1;
-  }
-else
-  {
-  sessionStorage.pagecount = 1;
-  }
-document.write("<br><br>Visits: " + sessionStorage.pagecount);
 </script> 
 
 </center>
