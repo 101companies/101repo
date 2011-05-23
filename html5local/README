@@ -1,6 +1,6 @@
 == Summary == 
 
-This is a simple implementation of the basic 101companies-features in html5.
+This is a simple implementation of the basic 101companies-features in html5. It provides client-side storage of the data without deleting it after closing the session. Apart from that, it is mostly identical to [[101implementation:html5session]].
 
 == Languages ==
 
@@ -15,9 +15,6 @@ This is a simple implementation of the basic 101companies-features in html5.
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
-
-== Motivation ==
-
 
 == Demo ==
 
