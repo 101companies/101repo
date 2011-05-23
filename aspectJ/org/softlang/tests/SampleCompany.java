@@ -1,4 +1,4 @@
-package org.softlang.aspectJ.tests;
+package org.softlang.tests;
 
 import org.softlang.company.*;
 

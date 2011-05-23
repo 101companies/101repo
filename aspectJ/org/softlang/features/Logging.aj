@@ -1,4 +1,4 @@
-package org.softlang.aspectJ;
+package org.softlang.features;
 
 /**
  * Logging for cut

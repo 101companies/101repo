@@ -1,4 +1,4 @@
-package org.softlang.aspectJ;
+package org.softlang.features;
 
 /**
  * In fact, all classes of the object model end up implementing 
