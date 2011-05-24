@@ -1,5 +1,7 @@
 package org.softlang.company
 
+import org.softlang.company.Employee
+
 /**
  * Created by Sebastian Jackel for 101Companies by Ralf Lämmel
  * Idiomatic Scala implementation of the 101Companies basics
@@ -13,7 +15,6 @@ case class Dept(name: String, manager: Employee, subUnits: List[SubUnit]) extend
 
 case class Employee(name: String, salary: Double) extends SubUnit
 
-
 object Company {
   def total(company: Company) = {
     def subTotal(s: SubUnit): Double = s match {
@@ -24,30 +25,16 @@ object Company {
     company.depts.map(subTotal).reduceLeft(_ + _)
   }
 
-  def cut(company: Company): Company = {
-    trait CutFactory[T] {
-      def apply(t: T): T
-    }
+  def cut(c: Company): Company = Company(c.name, c.depts.map(Company.cut(_)))
 
+  def cut(e: Employee): Employee = Employee(e.name, e.salary/2.0)
 
-    implicit object SubUnitCutFactory extends CutFactory[SubUnit] {
-      override def apply(s: SubUnit) = s match {
-        case d: Dept => DeptCutFactory(d)
-        case e: Employee => EmployeeCutFactory(e)
-      }
-    }
+  def cut(s: SubUnit): SubUnit = s match {
+    case d: Dept => Company.cut(d)
+    case e: Employee => Company.cut(e)
+  }
 
-    implicit object EmployeeCutFactory extends CutFactory[Employee] {
-      override def apply(e: Employee) = Employee(e.name, e.salary / 2.0)
-    }
-    implicit object DeptCutFactory extends CutFactory[Dept] {
-      override def apply(d: Dept) = Dept(d.name, subCut(d.manager), d.subUnits.map(subCut(_)))
-    }
-
-
-    def subCut[T <: SubUnit](s: T)(implicit factory: CutFactory[T]): T = factory(s)
-
-    Company(company.name, company.depts.map(subCut(_)))
-
+  def cut(d: Dept): Dept = {
+    Dept(d.name, d.manager, d.subUnits.map(Company.cut(_)))
   }
 }

@@ -9,8 +9,9 @@
 import sbt._
 
 class Project(info: ProjectInfo) extends DefaultProject(info) {
-  val scalatest = "org.scalatest" % "scalatest" % "1.3"
-  val dispatch_json = "net.databinder" % "dispatch-json_2.8.1"  % "0.7.8"
-  val sjson = "net.debasishg" % "sjson_2.8.1" % "0.10"
-  val casbah = "com.mongodb.casbah" % "casbah_2.8.1" % "2.1.0"
+  val scalatest = "org.scalatest" %% "scalatest" % "1.4.1"
+  val dispatch_json = "net.databinder" %% "dispatch-json"  % "0.8.1"
+  val sjson = "net.debasishg" %% "sjson" % "0.12"
+  //val squeryl = "org.squeryl" % "squeryl_2.8.1" % "0.9.4-RC6"
+  val slf4s = "com.weiglewilczek.slf4s" %% "slf4s" % "1.0.6"
 }
