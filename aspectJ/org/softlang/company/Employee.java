@@ -1,10 +1,13 @@
 package org.softlang.company;
 
+import java.io.Serializable;
+
 /**
- * An employee has a salary and some person information
- * 
+ * An employee has a name, an address, and a salary. 
  */
-public class Employee {
+public class Employee implements Serializable {
+
+	private static final long serialVersionUID = -210889592677165250L;
 
 	private String name;
 	private String address;
@@ -32,5 +35,5 @@ public class Employee {
 
 	public void setSalary(double salary) {
 		this.salary = salary;
-	}	
+	}
 }

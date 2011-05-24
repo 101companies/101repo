@@ -4,16 +4,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.softlang.company.Company;
 import static org.junit.Assert.*;
+import static org.softlang.features.Serialization.readCompany;
 
-public class Tests {
+public class Operations {
 
 	Company sampleCompany;
-
+	
 	@Before
-	public void setup() {
-		sampleCompany = SampleCompany.createSampleCompany();
+	public void loadSampleCompany() {
+		sampleCompany = readCompany("sampleCompany.ser");		
 	}
-
+	
 	@Test
 	public void testTotal() {
 		double total = sampleCompany.total();
