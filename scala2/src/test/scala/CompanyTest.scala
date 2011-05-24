@@ -72,7 +72,8 @@ class CompanyTest extends WordSpec with ShouldMatchers {
     }
 
     "reduce company total pay by half in case of a 50% pay modifySalary" in {
-      val cutCompany = Company.modifySalary(company, x => x / 2.0)
+      val cutCompany = Company.cut(company)
+      println(cutCompany)
       Company.total(cutCompany) should equal(Company.total(company)/2.0)
     }
   }

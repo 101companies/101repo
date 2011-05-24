@@ -1,7 +1,5 @@
 package org.softlang.company
 
-import org.softlang.company.Employee
-
 /**
  * Created by Sebastian Jackel for 101Companies by Ralf Lämmel
  * Idiomatic Scala implementation of the 101Companies basics
@@ -21,7 +19,6 @@ object Company {
       case d: Dept => (for (su <- d.subUnits) yield subTotal(su)).reduceLeft(_ + _) + subTotal(d.manager)
       case e: Employee => e.salary
     }
-
     company.depts.map(subTotal).reduceLeft(_ + _)
   }
 
@@ -35,6 +32,6 @@ object Company {
   }
 
   def cut(d: Dept): Dept = {
-    Dept(d.name, d.manager, d.subUnits.map(Company.cut(_)))
+    Dept(d.name, Company.cut(d.manager), d.subUnits.map(Company.cut(_)))
   }
 }
