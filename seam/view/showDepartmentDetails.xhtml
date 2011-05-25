@@ -16,9 +16,21 @@
             <f:facet name="header">Department details</f:facet>
 
             <div class="dialog">
-                <h2>Name: #{department.name}</h2> <br/>
-                <h2>Manager: #{department.manager.name} (Salary: #{department.manager.salary})</h2><br/>
-                <h2>Total salaries: #{department.total()}</h2><br/>
+            	 <rich:panel>
+            		<f:facet name="header">
+            		</f:facet>
+            		<h:panelGrid columns="2"> 
+                		<h:outputText value="Name:" />
+                		<h:inputText value="#{department.name}" id="name" />
+                		<h:outputText value="Manager:" />
+                		<h:inputText value="#{department.manager.name}" />
+                		<h:outputText value="Manager salary:" />
+                		<h:inputText value="#{department.manager.salary}" />
+                		<h:outputText value="Total salaries:"/>
+                		<h:inputText value="#{department.total()}" readonly="true" />
+                	</h:panelGrid>
+                	<h:commandButton value="Update" action="#{companyAction.updateDepartment()}" />	
+                </rich:panel>
                 <rich:dataTable value="#{department.departments}" var="d" width="300px" rendered="#{department.hasSubDepartments()}">
         		     <f:facet name="header">Departments</f:facet>
             		<rich:column>
@@ -58,8 +70,11 @@
         		    <h:outputText value="#{e.salary}" />
 			    </rich:column>
 			    <rich:column>
+	        		    <h:commandButton value="Detail" action="#{companyAction.showEmployeeDetails(e)}" />
+				</rich:column>
+			    <rich:column>
 	        		    <h:commandButton value="Cut salaries" action="#{companyAction.cutSalariesFromEmployee(e)}" />
-				    </rich:column>
+				</rich:column>
        		</rich:dataTable>
             </div>
         </rich:panel>

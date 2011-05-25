@@ -33,6 +33,14 @@
     		</rule>
     	</navigation>
     </page>
+    
+    <page view-id="/showDepartmentDetails.xhtml" >
+    	<navigation>
+    		<rule if-outcome="showEmployeeDetails">
+    			<redirect view-id="/showEmployeeDetails.xhtml" />
+    		</rule>
+    	</navigation>
+    </page>
 
     <exception class="org.jboss.seam.framework.EntityNotFoundException">
         <redirect view-id="/error.xhtml">

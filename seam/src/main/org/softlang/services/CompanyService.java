@@ -34,6 +34,10 @@ public class CompanyService {
 	public Department findDepartment(Integer id) {
 		return entityManager.find(Department.class, id);
 	}
+	
+	public Employee findEmployee(Integer id) {
+		return entityManager.find(Employee.class, id);
+	}
 
 	@Restrict("#{s:hasRole('admin')}") 
 	public void cutSalaries(Company company) {
@@ -50,6 +54,16 @@ public class CompanyService {
 	@Restrict("#{s:hasRole('admin')}") 
 	public void cutSalaries(Employee employee) {
 		employee.cut();
+		entityManager.merge(employee);
+	}
+
+	@Restrict("#{s:hasRole('admin')}") 
+	public void updateDepartment(Department department) {
+		entityManager.merge(department);
+	}
+	
+	@Restrict("#{s:hasRole('admin')}") 
+	public void updateEmployee(Employee employee) {
 		entityManager.merge(employee);
 	}
 	

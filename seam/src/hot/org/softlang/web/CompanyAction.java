@@ -31,6 +31,9 @@ public class CompanyAction {
 	
 	@Out(required=false) 
 	Department department;
+	
+	@Out(required=false)
+	Employee employee;
 
 	@DataModel //just a simple annotation for handling tables
 	private List<Company> allCompanies;
@@ -61,6 +64,23 @@ public class CompanyAction {
 		return null;
 	}
 
+	public String updateDepartment() {
+		companyService.updateDepartment(department);
+		
+		facesMessages.add(FacesMessage.SEVERITY_INFO, "Department data was successfully updated");
+		
+		return null;
+	}
+	
+	public String updateEmployee() {
+		companyService.updateEmployee(employee);
+		
+		facesMessages.add(FacesMessage.SEVERITY_INFO, "Employee data was successfully updated");
+		
+		return null;
+	}
+	
+	
 	public String cutSalariesFromDepartment(Department department) {
 		try {
 			companyService.cutSalaries(department);
@@ -94,6 +114,11 @@ public class CompanyAction {
 		department = companyService.findDepartment(d.getId());	
 		return "showDepartmentDetails";
 	}
-	
+
+	public String showEmployeeDetails(Employee e) {
+		employee = companyService.findEmployee(e.getId());
+		
+		return "showEmployeeDetails";
+	}
 	
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:form id="employeeForm">
+
+        <rich:panel>
+            <f:facet name="header">Employee details</f:facet>
+
+            <div class="dialog">
+            	 <rich:panel>
+            		<f:facet name="header">
+            		</f:facet>
+            		<h:panelGrid columns="2"> 
+                		<h:outputText value="Name:" />
+                		<h:inputText value="#{employee.name}" id="name" />
+                		<h:outputText value="Address:" />
+                		<h:inputText value="#{employee.address}" />
+                		<h:outputText value="Salary:" />
+                		<h:inputText value="#{employee.salary}" />
+                	</h:panelGrid>
+                	<h:commandButton value="Update" action="#{companyAction.updateEmployee()}" />	
+                </rich:panel>
+            </div>
+        </rich:panel>
+    </h:form>
+ </ui:define>
+</ui:composition>
