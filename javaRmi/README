@@ -1,0 +1,50 @@
+== Intent ==
+
+Distribute company objects with RMI in Java
+
+== Languages ==
+
+* [[Language:Java]] (Version 5)
+
+== Technologies ==
+
+* [[101profile:Simple Java]]
+* [[101profile:Java RMI]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Distribution]]
+
+== Motivation ==
+
+We can think of the server as a centralized information system that maintains a number of companies.
+We can also think of the server as the information system for a given company.
+In both cases, the client remote accesses the company objects.
+For instance, the calculation of the salary total is to be done by the server.
+
+== Architecture ==
+
+Package ''org.softlang.shared.company'' defines interfaces for the company object model.
+The members of these interfaces have a throws declaration for remote exceptions.
+Also, the interfaces derive from the Remote interface.
+Package ''org.softlang.server.company'' implements the aforementioned interfaces as POJOs with methods for total and cut.
+There is also Factory class in that package for convenience.
+The class ''Server'' in the package ''org.softlang.server'' implements an (RMI) server.
+To this end, a sample company is bound in the registry.
+The server keeps on running until terminated explicitly.
+The class ''Client'' in the package ''org.softlang.client'' implements an (RMI) client.
+To this end, the sample company is looked up from the server.
+Methods for totaling and cutting salaries are executed on the resulting proxy object.
+
+== Usage ==
+
+The client is a main program that uses local host, by default -- if no
+command-line argument is provided, and it uses the argument as the 
+server otherwise -- assuming the format of an IP address or a machine name.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
