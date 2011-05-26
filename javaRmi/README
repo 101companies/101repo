@@ -8,8 +8,8 @@ Distribute company objects with RMI in Java
 
 == Technologies ==
 
-* [[101profile:Simple Java]]
-* [[101profile:Java RMI]]
+* [[101profile:Java CLI]]
+* [[Technology:Java RMI]]
 
 == Features ==
 
@@ -41,9 +41,55 @@ Methods for totaling and cutting salaries are executed on the resulting proxy ob
 
 == Usage ==
 
-The client is a main program that uses local host, by default -- if no
-command-line argument is provided, and it uses the argument as the 
-server otherwise -- assuming the format of an IP address or a machine name.
+* The implementation is provided as an Eclipse project. 
+* Hence, open the project with Eclipse; this will also build the project.
+* The simple scenario of running server and client on the same machine is exercised as follows:
+** Start the server from the command line; see the Makefile.
+** Start the client from within Eclipse; class ''org.softlang.client.Client''.
+** Both server and client produce some standard output.
+** The client terminates automatically, and can be restarted any number of times.
+** The server must be terminated explicitly at the command line.
+
+=== General tips and tricks on RMI ===
+
+a) Running the applications
+
+Even if you are not using make, look at the Makefiles for illustration.
+
+b) Running both server and client on the local machine.
+
+The following advice may be helpful in running both the client and the
+server parts of an RMI application on a single machine. When you use
+RMI, and you want to connect in the client to the server, you need to
+know the IP address (hostname) of the server. For testing purposes, it
+is indeed common to run both client and server on the same
+machine. One typically refers to the given machine by localhost or
+127.0.0.1, but depending on network setup, the actual IP address
+or the DNS-resolvable machine name may (need to) be used.
+
+c) Ports and firewall exceptions
+
+RMI requires some ports to be accessible.
+
+Also RMI may require special firewall settings.
+
+RMI uses port 1099 by default.
+See: "LocateRegistry.createRegistry(Registry.REGISTRY_PORT);"
+All ports from 1024 may be used.
+
+In Windows, the following firewall exceptions may be needed:
+ C:\WINDOWS\system32\java.exe
+ C:\Programme\Java\jdk1.6.0_06\bin\rmiregistry.exe
+ C:\Programme\Java\jdk1.6.0_06\bin\java.exe
+
+d) Security policy
+ 
+The server of the application is started with a security manager.
+See org.softlang.server.Server.java.
+Hence we *must* grant some RMI-related rights; see file security.policy.
+Also, the policy file must be passed to the server.
+See Makefile.
+The policy is very permissive; see the wildcard.
 
 == Contributors ==
 

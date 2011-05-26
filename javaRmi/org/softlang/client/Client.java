@@ -33,18 +33,18 @@ public class Client {
 
 	/**
 	 * Executes some demo code on the remote object.
-	 * Beware: this code will only succeed once per server session.
 	 */
 	private void demo() throws Exception {
 
-		// Test total
+		// Test total and cut
 		double before = sampleCompany.total();		
-	    assertEquals(399747, before, 0);
-
-	    // Test cut
+	    System.out.println("Total before cut = " + before);
 		sampleCompany.cut();
 	    double after = sampleCompany.total();		
+	    System.out.println("Total after cut = " + after);
 	    assertEquals(before / 2.0d, after, 0);
+	    
+	    System.out.println("Testing done.");
 
 	}
 	
