@@ -35,7 +35,7 @@ The client presents the provided functionality and retrieved data via predefined
 '''Client''': 
 Client classes are to be found in the client package. See ''org.softlang.client''.
 There is the GUI and a special [[101feature:Company]] object model for the client with classes that support [[101feature:Serialization]]. See ''org.softlang.client.company'' for the latter.
-This object model holds "shallow" data for the widgets. The entry point for the client is the [this!!src/org/softlang/client/Gwt.java ''Gwt.java''] class.
+This object model holds "shallow" data for the widgets. The entry point for the client is the [this!!src/org/softlang/client/Gwt.java Gwt.java] class.
 Here we describe the app's client side appearance and functionality.
 
 '''Server''': 
@@ -52,8 +52,8 @@ These services allow the client to load and save data and perform scenarios [[10
 == Usage ==
 
 * To run a demo:
-** compile ''org.softlang.client.Gwt'' (click the red GWT icon).
-** run ''org.softlang.server.ServiceImpl''.
+** compile [this!!src/org/softlang/client/Gwt.java org.softlang.client.Gwt] (click the red GWT icon).
+** run [this!!src/org/softlang/server/ServiceImpl.java org.softlang.server.ServiceImpl].
 ** open http://localhost:8888 in your browser.
 * The server runs until is terminated explicitly in the eclipse console.
 
