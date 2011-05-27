@@ -42,11 +42,11 @@ Here we describe the app's client side appearance and functionality.
 Server classes are to be found in the server package. See ''org.softlang.server''. 
 We use an object model for [[101feature:Company]] very much like in project [[101implementation:java]]
 (We use a cloned object model for the sake of a simple build for this GWT project.)
-The server maintains an index (see class Index.java) between shallow and proper objects.
+The server maintains an index (see class [this!!src/org/softlang/server/Index.java Index.java]) between shallow and proper objects.
 That is, departments and employees are identifiable by their ids (say, names).
  
-The communication between client and server is modeled by the ''Service'' interface. See the client package.
-There is also the asynchronous version of it: ''ServiceAsync.java''. 
+The communication between client and server is modeled by the [this!!src/org/softlang/client/Service.java Service] interface. See the client package.
+There is also the asynchronous version of it: [this!!src/org/softlang/client/ServiceAsync.java ServiceAsync.java]. 
 These services allow the client to load and save data and perform scenarios [[101feature:Total]] and [[101feature:Cut]]. 
 
 == Usage ==
