@@ -29,7 +29,7 @@ This concept also helps us to read departments/employees from a given position w
 == Architecture ==
 
 We make use of the [[101feature:Cut|cutting]] and [[101feature:Total|totaling]] functionality provided by [[101implementation:haskell]], but use a slightly modified algebraic datatype for [[101feature:Company|companies]].
-There is also a simple API ([this!!API.hs]) to companies providing reading and writing (see [[#Motivation|Motivation]]) and getters and setters.
+There is also a simple API ([mySql!!API.hs]) to companies providing reading and writing (see [[#Motivation|Motivation]]) and getters and setters.
 
 == Usage ==
 
