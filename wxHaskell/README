@@ -33,7 +33,7 @@ There is also a simple API ([this!!API.hs]) to companies providing reading and w
 
 == Usage ==
 
-There is a ''Makefile'' with a target ''test'' to start the GUI.
+There is a [this!!Makefile] with a target ''test'' to start the GUI.
 
 == Contributors ==
 
