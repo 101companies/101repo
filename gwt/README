@@ -35,7 +35,7 @@ The client presents the provided functionality and retrieved data via predefined
 '''Client''': 
 Client classes are to be found in the client package. See ''org.softlang.client''.
 There is the GUI and a special [[101feature:Company]] object model for the client with classes that support [[101feature:Serialization]]. See ''org.softlang.client.company'' for the latter.
-This object model holds "shallow" data for the widgets. The entry point for the client is the ''Gwt.java'' class.
+This object model holds "shallow" data for the widgets. The entry point for the client is the [this!!src/org/softlang/client/Gwt.java ''Gwt.java''] class.
 Here we describe the app's client side appearance and functionality.
 
 '''Server''': 
