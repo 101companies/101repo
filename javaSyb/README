@@ -1,0 +1,39 @@
+== Intent ==
+
+exercise SYB-style generic programming with reflection in Java
+
+== Languages ==
+
+* [[Language:Java]]
+
+== Technologies ==
+
+* [[101profile:Simple Java]]
+
+== Features == 
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+Reflection, in fact, introspection is known to be sufficient for object traversal. 
+The operations [[101feature:Total]] and [[101feature:Cut]] essentially need to perform object traversal to find all employees and their salaries. 
+We provide a simple SYB-style library for object traversals. 
+
+== Architecture ==
+
+TBD
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project. 
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Basics'' with JUnit to exercise basic features.
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
