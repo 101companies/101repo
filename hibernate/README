@@ -247,6 +247,5 @@ You may also want to run "make clean" in the root dir to be clean for next time.
 
 This implementation has consulted and adopted material from several sources.
 
-* https://sourceforge.net/projects/developers/
 * The Hibernate Tutorial by Red Hat Middleware LLC: http://www.hibernate.org/hib_docs/v3/reference/en/html/tutorial.html
 * Christian Bauer, Gavin King: Java Persistence with Hibernate. Manning Publications, 2006
