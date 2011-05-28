@@ -30,6 +30,7 @@ This concept also helps us to read departments/employees from a given position w
 
 We make use of the [[101feature:Cut|cutting]] and [[101feature:Total|totaling]] functionality provided by [[101implementation:haskell]], but use a slightly modified algebraic datatype for [[101feature:Company|companies]].
 There is also a simple API ([this!!API.hs]) to companies providing reading and writing (see [[#Motivation|Motivation]]) and getters and setters.
+[this!!Main.hs] contains functions describing the GUI's appearence and behaviour.
 
 == Usage ==
 
