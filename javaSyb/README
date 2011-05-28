@@ -1,6 +1,6 @@
 == Intent ==
 
-exercise SYB-style generic programming with reflection in Java
+exercise [[SYB]]-style generic programming with reflection in Java
 
 == Languages ==
 
@@ -19,13 +19,40 @@ exercise SYB-style generic programming with reflection in Java
 
 == Motivation ==
 
-Reflection, in fact, introspection is known to be sufficient for object traversal. 
-The operations [[101feature:Total]] and [[101feature:Cut]] essentially need to perform object traversal to find all employees and their salaries. 
-We provide a simple SYB-style library for object traversals. 
+When implementing operations for totaling or cutting salaries in a regular object-oriented fashion (such as in the case of [[101implementation:javaComposition]]), it occurs that the implementations are unnecessarily concerned with the detailed object model. In contrast, some XML-based implementations (such as in the case of [[101implementation:javaDom]]) are much more concise because they can leverage extra query facilities, in fact, axes, such as the descendants axis of XPath. The [[SYB]] style of generic programming also provides such conciseness on the grounds of functional programming idioms. In particular, queries and transformations are supported by customizable traversal schemes.  Conceptually, these are higher-order functions that are to be parametrized by essential, problem-specific first-order functions. The present implementation applies SYB to Java. The implementation includes a simple [[SYB]]-style library for object traversals. The library relies on reflection, in fact, introspection--as provided by Java's reflection approach.
+
+== Illustration ==
+
+Here is the complete implementation of [[101feature:Cut]].
+
+<syntaxhighlight lang="java">
+public class Cut {
+
+	public static void cut(Company c) {
+		everywhere(orIdentity(updateSalary())).apply(c);
+	}	
+	
+	public static Action<Employee> updateSalary() {
+		return new Action<Employee>() {
+			public void apply(Employee x) {
+				x.setSalary(x.getSalary() / 2);
+			}
+		};
+	}
+}
+</syntaxhighlight>
+
+That is, we leverage the ''everywhere'' scheme of transformation which attempts to apply an argument transformation to each and every (sub-) object. The argument transformation is essentially a void method, but it is rendered here as an instance of a designated ''Action'' type.
 
 == Architecture ==
 
-TBD
+* Package ''javaf.prelude'' defines some basic function / action types that are needed for 101companies example.
+* Package ''javaf.syb'' defines the query and transformation schemes needed. This is the cool code!
+* Package ''org.softlang.company'' hosts an object model for companies; adopted from [[101implementation:javaComposition]].
+* Operations are not defined as instance methods on the object model.
+* Package ''org.softlang.features'' totals and cuts salaries in SYB style.
+* File ''sampleCompany.ser'' is a serialized sample company; adopted from [[101implementation:javaComposition]].
+* Package ''org.softlang.tests'' contains JUnit tests; see below.
 
 == Usage ==
 
@@ -33,6 +60,10 @@ TBD
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available in the package ''org.softlang.tests''.
 ** Run class ''Basics'' with JUnit to exercise basic features.
+
+== Issues ==
+
+Naturally, any approach that uses reflection so heavily for data access
 
 == Contributors ==
 
