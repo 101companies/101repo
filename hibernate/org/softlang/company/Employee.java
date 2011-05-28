@@ -10,6 +10,7 @@ public class Employee {
 	private String address;
 	private double salary;
 	private boolean manager;
+	private Employee mentor;
 
 	public long getId() {
 		return id;
@@ -50,5 +51,13 @@ public class Employee {
 
 	public void setManager(boolean manager) {
 		this.manager = manager;
+	}
+	
+	public Employee getMentor() {
+		return mentor;
+	}
+	
+	public void setMentor(Employee mentor) {
+		this.mentor = mentor;
 	}
 }

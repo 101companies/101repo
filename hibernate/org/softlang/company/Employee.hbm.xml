@@ -16,6 +16,7 @@
 		<property name="salary" />		
 		<property name="manager" />
 
+		<many-to-one name="mentor" column="MENTOR"/>
 	</class>
 
 </hibernate-mapping>

@@ -21,6 +21,7 @@
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Mentoring]]
 * [[101feature:Persistence]]
 
 == Motivation ==
@@ -214,6 +215,10 @@ To this end, enter a SQL statement such as "select * from EMPLOYEE;".
 Run the JUnit test ''Operations'' in package ''org.softlang.tests''.
 
 The modified state is '''not''' committed; hence, the test can be executed time and again.
+
+Run the JUnit test ''Constraints'' in package ''org.softlang.tests''.
+
+There is no state changes.
 
 Run the JUnit test ''Save'' in package ''org.softlang.tests''.
 

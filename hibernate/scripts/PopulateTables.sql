@@ -13,3 +13,7 @@ insert into EMPLOYEE (NAME, DEPT_ID, ADDRESS, SALARY, MANAGER) values ('Ray', 2,
 insert into EMPLOYEE (NAME, DEPT_ID, ADDRESS, SALARY, MANAGER) values ('Klaus', 3, 'Boston', 23456, true);
 insert into EMPLOYEE (NAME, DEPT_ID, ADDRESS, SALARY, MANAGER) values ('Karl', 4, 'Riga', 2345, true);
 insert into EMPLOYEE (NAME, DEPT_ID, ADDRESS, SALARY, MANAGER) values ('Joe', 4, 'Wifi City', 2344, false);
+
+update EMPLOYEE 
+ set MENTOR = 2
+ where ID = 3;
