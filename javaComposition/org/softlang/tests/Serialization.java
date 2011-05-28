@@ -17,8 +17,8 @@ public class Serialization {
 	public static Company createCompany() {
 		
 		// Create company
-		Company company = new Company();
-		company.setName("meganalysis");
+		Company sampleCompany = new Company();
+		sampleCompany.setName("meganalysis");
 		
 		// Create all employees
 		Employee craig = new Employee();
@@ -56,13 +56,13 @@ public class Serialization {
 		research.setName("Research");
 		research.getEmployees().add(erik);
 		research.getEmployees().add(ralf);
-		company.getDepts().add(research);
+		sampleCompany.getDepts().add(research);
 
 		// Create development department
 		Department development = new Department();
 		development.setManager(ray);
 		development.setName("Development");
-		company.getDepts().add(development);
+		sampleCompany.getDepts().add(development);
 
 		// Create sub-department dev1
 		Department dev1 = new Department();
@@ -77,7 +77,7 @@ public class Serialization {
 		dev11.setManager(karl);
 		dev11.getEmployees().add(joe);
 
-		return company;
+		return sampleCompany;
 	}
 
 	@Test
