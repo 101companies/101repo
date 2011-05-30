@@ -1,0 +1,40 @@
+== Intent ==
+
+database programming with [[Technology:HDBC]]
+
+== Languages ==
+
+* [[Language:Haskell 98]]
+* [[Language:SQL]]
+
+== Technologies ==
+
+* [[Technology:HDBC]]
+* [[Technology:Sqlite3]]
+* [[Technology:GHCi]]      
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+We use [[Technology:HDBC]] for data processing. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
+and [[101feature:cut]] [[101feature:Company|company]] salaries. 
+
+== Architecture ==
+
+We provide scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements.
+
+== Usage ==
+
+* Download the sqlite3 CLI tool from the [http://www.sqlite.org/download.html sqlite3 website]
+* Place the CLI tool in the implementation folder
+* Set up a file based database using the ''create'' target in the [this!!Makefile]
+* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test''' for test automation.
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
