@@ -1,0 +1,35 @@
+== Summary == 
+
+This is a simple implementation of the basic 101companies-features in html5. It provides client-side storage for the data, which are deleted after closing the session. Apart from that, it is mostly identical to [[101implementation:html5local]].
+
+== Languages ==
+
+* [[Language:HTML5]]
+* [[Language:JavaScript]]
+
+== Technologies ==
+
+* An HTML5-compliant browser
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Usage ==
+
+This HTML5-program does not work over file-protocol of the browser. 
+
+To gain access over http, you can use, for example, XAMPP to create a webserver.
+
+# Download XAMPP from http://www.apachefriends.org/en/xampp.html
+# Install XAMPP
+# Deploy the index.html to your htdocs-directory (for example: E:\xampp\htdocs\101implementation-html5\)
+# Start the XAMPP-Control Panel and activate Apache
+# Start your web-browser
+# Call http://localhost/101implementation-html5/index.html
+
+== Contributors ==
+
+* {{101contributor|Tobias Zimmer|developer}}
