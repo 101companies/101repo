@@ -22,7 +22,7 @@ database programming with [[Technology:HDBC]]
 == Motivation ==
 
 We use [[Technology:HDBC]] for data processing. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:cut]] [[101feature:Company|company]] salaries. 
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries. 
 
 == Architecture ==
 
@@ -33,7 +33,7 @@ We provide scripts to create (see [this!!Company.sql]) company tables and popula
 * Download the sqlite3 CLI tool from the [http://www.sqlite.org/download.html sqlite3 website]
 * Place the CLI tool in the implementation folder
 * Set up a file based database using the ''create'' target in the [this!!Makefile]
-* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test''' for test automation.
+* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test'' for test automation.
 
 == Contributors ==
 
