@@ -25,7 +25,6 @@ public class Total extends Configured {
 	public static class TotalMapper extends
 			Mapper<Text, Employee, Text, DoubleWritable> {
 		private static String name;
-		private static boolean allValues;
 
 		protected void setup(Context context) throws IOException,
 				InterruptedException {
