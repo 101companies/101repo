@@ -68,10 +68,63 @@ function createData() {
 
 // -------------------------------------------------------------------------------------------------------------- Create SELECTIONS
 
-function selectDepartments(id, name) {
+function selectEmployee(id, name) {
+	
+}
+
+function selectDepartment(id, name) {
+	db.transaction(function (tx) {
+		tx.executeSql('SELECT * FROM Department WHERE did = ' + id, [], function (tx, results) {
+			var code = "<h3>" + name + "</h3>";
+		
+			var len = results.rows.length, i;
+			var departments = "Departments: <br>";
+			for (var i = 0; i < len; i++) {
+				departments += "<input type=\"button\" name=\""
+					+ results.rows.item(i).name 
+					+ "\" value=\"" 
+					+ results.rows.item(i).name 
+					+ "\" onclick=\"selectDepartment('" 
+					+ results.rows.item(i).id 
+					+ "', '" 
+					+ results.rows.item(i).name
+					+ "')\"><br>";
+				
+			}
+			code += departments;
+			
+			document.querySelector('#departments').innerHTML = code;
+			
+		}, null);
+		
+		tx.executeSql('SELECT * FROM Employee WHERE did = ' + id, [], function (tx, results) {
+			var len = results.rows.length, i;
+			var employees = "Employees: <br>";
+			for (var i = 0; i < len; i++) {
+				employees += "<input type=\"button\" name=\""
+					+ results.rows.item(i).name 
+					+ "\" value=\"" 
+					+ results.rows.item(i).name 
+					+ "\" onclick=\"selectEmployee('" 
+					+ results.rows.item(i).id 
+					+ "', '" 
+					+ results.rows.item(i).name
+					+ "')\"><br>";
+				
+			}
+			document.display.display.value = employees;
+			document.querySelector('#employees').innerHTML = employees;
+			
+		}, null);
+		
+	});
+	//
+}
+
+function selectDepartmentsForCompany(id, name) {
 	db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Department WHERE cid = ' + id, [], function (tx, results) {
-			var code = "<h3>" + name + "</h3>";
+			document.querySelector('#headline').innerHTML = "<h2> Company: " + name + "</h2>";
 		
 			var len = results.rows.length, i;
 			var departments = "Departments: <br>";
@@ -80,14 +133,17 @@ function selectDepartments(id, name) {
 					+ results.rows.item(i).name 
 					+ "\" value=\"" 
 					+ results.rows.item(i).name 
-					+ "\"><br>";
+					+ "\" onclick=\"selectDepartment('" 
+					+ results.rows.item(i).id 
+					+ "', '" 
+					+ results.rows.item(i).name
+					+ "')\"><br>";
 				
 			}
-			code += departments;
 			
-			code += "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"selectCompanies()\">";
-			document.querySelector('#headline').innerHTML = code;
-			document.display.display.value = departments;
+			document.querySelector('#departments').innerHTML = departments;
+			
+			document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"selectCompanies()\">";
 		}, null);
 	});	
 }
@@ -96,21 +152,27 @@ function selectCompanies() {
 	db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Company', [], function (tx, results) {
 			var len = results.rows.length, i;
-			var companies = "Companies: <br>";
+			var companies = "";
 			for (var i = 0; i < len; i++) {
 				companies += "<input type=\"button\" name=\"" 
 					+ results.rows.item(i).name 
 					+ "\" value=\"" 
 					+ results.rows.item(i).name 
-					+ "\" onclick=\"selectDepartments('" 
+					+ "\" onclick=\"selectDepartmentsForCompany('" 
 					+ results.rows.item(i).id 
 					+ "', '" 
 					+ results.rows.item(i).name 
-					+ "')\">";
+					+ "')\"><br>";
 				
 			}
-			document.querySelector('#headline').innerHTML = companies;
-			document.display.display.value = companies;
+			
+			document.querySelector('#headline').innerHTML = "<h1>Companies</h1>";
+			
+			document.querySelector('#departments').innerHTML = companies;
+			
+			document.querySelector('#employees').innerHTML = "";
+			document.querySelector('#back').innerHTML = "";
+			
 		}, null);
 	});
 }
@@ -139,7 +201,10 @@ selectCompanies();
 // Companies
 </script>
 
-<div id="headline" name="headline"></div>
+<div id="headline" name="headline"></div><br>
+<div id="departments" name="departments"></div><br>
+<div id="employees" name="employees"></div><br>
+<div id="back" name="back"></div>
 
 </center>
 
