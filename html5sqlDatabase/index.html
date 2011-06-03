@@ -68,8 +68,23 @@ function createData() {
 
 // -------------------------------------------------------------------------------------------------------------- Create SELECTIONS
 
-function selectEmployee(id, name) {
-	
+function selectEmployee(id) {
+	db.transaction(function (tx) {
+		tx.executeSql('SELECT * FROM Employee WHERE id = ' + id, [], function (tx, results) {
+			var name = results.rows.item(0).name;
+			var address = results.rows.item(0).address;
+			var salary = results.rows.item(0).salary;
+			var manager = results.rows.item(0).manager;
+		
+			var employee = "Name:<br><input name=\"name\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + name + "\"><br>";
+			employee += "Address:<br><input name=\"address\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + address + "\"><br>";
+			employee += "Salary:<br><input name=\"salary\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + salary + "\"><br>";
+			
+			document.querySelector('#departments').innerHTML = "";
+			document.querySelector('#employees').innerHTML = employee;
+			
+		}, null);
+	});
 }
 
 function selectDepartment(id, name) {
@@ -100,25 +115,29 @@ function selectDepartment(id, name) {
 		tx.executeSql('SELECT * FROM Employee WHERE did = ' + id, [], function (tx, results) {
 			var len = results.rows.length, i;
 			var employees = "Employees: <br>";
+			var manager = "Manager: <br>";
+			var employeeTemp = "";
 			for (var i = 0; i < len; i++) {
-				employees += "<input type=\"button\" name=\""
-					+ results.rows.item(i).name 
-					+ "\" value=\"" 
-					+ results.rows.item(i).name 
-					+ "\" onclick=\"selectEmployee('" 
-					+ results.rows.item(i).id 
-					+ "', '" 
-					+ results.rows.item(i).name
-					+ "')\"><br>";
+				employeeTemp = "<input type=\"button\" name=\""
+						+ results.rows.item(i).name 
+						+ "\" value=\"" 
+						+ results.rows.item(i).name 
+						+ "\" onclick=\"selectEmployee('" 
+						+ results.rows.item(i).id
+						+ "')\"><br>";
 				
+				if (results.rows.item(i).manager == 1) {
+					manager += employeeTemp + "<br>";
+				} else {
+					employees += employeeTemp;
+				}
+
 			}
-			document.display.display.value = employees;
-			document.querySelector('#employees').innerHTML = employees;
+			document.querySelector('#employees').innerHTML = manager + employees;
 			
 		}, null);
 		
 	});
-	//
 }
 
 function selectDepartmentsForCompany(id, name) {
@@ -187,20 +206,14 @@ function selectCompanies() {
 
 <h1>101companies HTML 5 WebApp</h1>
 
-<form name="display">
-<textarea name="display"></textarea>
-</form>  
-
 <script>
 // -------------------------------------------------------------------------------------------------------------- INIT
 createTables();
 createData();
 selectCompanies();
-
-// -------------------------------------------------------------------------------------------------------------- Create PAGE
-// Companies
 </script>
 
+<!-- Page Structure -->
 <div id="headline" name="headline"></div><br>
 <div id="departments" name="departments"></div><br>
 <div id="employees" name="employees"></div><br>
