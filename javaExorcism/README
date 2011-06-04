@@ -1,0 +1,151 @@
+== Intent ==
+
+excessive illustration of design patterns in Java
+
+== Languages ==
+
+* [[Language:Java]] (Version 5)
+
+== Technologies ==
+
+* [[101profile:Simple Java]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Logging]]
+* [[101feature:Access control]]
+
+== Motivation ==
+
+Consider [[101implementation:javaVisitor]] and [[101implementation:javaTemplate]] for simpler 
+implementations that also put to work some design patterns for illustrative purposes. The present
+implementation is somewhat extreme in that it aims to illustrate a larger number of design patterns
+possibly for the argument's sake, without strong practical incentive. So please be careful about consuming
+this implementation. Please also observe the name of this implementation, ''...Excorsim'', which is clear
+hint at the common danger of over-engineering a design. One way of going over the top is to prematurely
+weave an additional design pattern into a system without understanding the pros and cons of doing so, 
+without actually establishing the strength of any incentive to deploy the pattern. Nevertheless, the 
+present implementation stands out with its design density in terms of the number of patterns and their
+interactions as they are provoked, encountered, and addressed.
+
+== Architecture ==
+
+Package ''org.softlang.company'' and subpackages hosts two object models for [[101feature:Company]].
+Package ''org.softlang.features'' hosts feature implementations.
+Package ''org.softlang.tests'' hosts JUnit tests; see below.
+Package ''org.softlang.util'' hosts library-like extensions (thereby extending ''java.util'').
+All the remaining packages host pattern infrastructure and pattern instances.
+
+=== Adapter pattern ===
+
+A class adapter is used when deriving the ''DepartmentImpl'' class of package ''org.softlang.company.impl.bean''
+from the ''ContainerImpl'' class of the same package such that it implements the ''Department'' class of package ''org.softlang.company''.
+An object adapter is used when down-grading the ''List'' interface of package ''java.util'' the interface ''SimpleList'' of
+package ''org.softlang.util'' such that much less methods are exposed for the rest of this projects. For instance, 
+the class ''ObservableSimpleList'' of package ''org.softlang.util'' only implements the narrow interface.
+
+=== Command pattern === 
+
+The cut operation is implemented twice: once in package ''org.softlang.features'' and once in package
+''org.softlang.command''. The later implementation uses command objects to defer the execution of the cut operation. To this
+end, each employee is encapsulated in an command object of class ''CutEmployee'' and the batch of the derived command objects for
+employees is maintained by a command object of class ''CutCompany''. All command objects provide ''execute'' and ''undo'' actions.
+In particular, command objects for individual employees back up the salary before they cut.
+
+=== Composite pattern ===
+
+A company is a composite structure that breaks down into departments, employees, and their properties.
+There is a rooting interface ''Component'' that provides the setter and getter for a name that is equally available on 
+companies, departments, and employees. In the case of the package ''org.softlang.company.impl.bean'', there are even additional
+shared methods because of the rooting class ''java.util.Observable''. In this case, overriding is also leveraged so that 
+addition and removal of observers is pushed into sub-components in the case of composite-like as opposed to leaf-like
+components.
+
+=== Decorator pattern ===
+
+The ''ObservableSimpleList'' class of package ''org.softlang.util'' effectively decorates a given (simple)
+list with observability (in the sense of the ''Observable'' class of package ''java.util''). That is, an observable (simple) list
+combines the interfaces of (simple) lists and ''Observable''. The ''ObservableSimpleList'' class wraps the underlying (simple) 
+list and it also incorporates additional state because it derives from the ''Observable'' class which manages observers (listeners).
+Observable (simple) lists are used in the non-POJO implementation of the company object model. That is, the list of subunits 
+for companies and departments is set up to be observable.
+
+=== Abstract Factory pattern ===
+
+Package ''org.softlang.company'' defines the company object model in an interface-oriented manner.
+There are two alternative implementations of these interfaces. That is, package ''org.softlang.company.impl.pojo'' provide a
+simple, POJO-like implementation, whereas ''org.softlang.company.impl.bean'' implements objects with observability (in the sense 
+of the ''Observable'' class of package ''java.util'') and a parent axis. Client code can be parametric in the implementation on 
+the grounds of factories of package ''org.softlang.company.factory''. For instance, the code for constructing a sample company 
+uses a factory parameter; see the ''Basics'' class of package ''org.softlang.tests''. Some client code only works for one of the
+two implementations. For instance, the logging feature of package ''org.softlang.features'' relies on objects with observability 
+specifically.
+
+=== Template pattern ===
+
+The cut operation can be understood as a "walk" over the company structure with a mutation to be applied
+to any employee encountered. Likewise, the total operation can be understood as a "reduction" or a "query" over the company
+structure where salaries are extracted from any employee encountered and those salaries are combined systematically. Package
+''org.softlang.template'' captures the general notions of walkers and reducers as template methods. The primitive operations
+of these templates are to be defined by visit methods of an appropriate visitor. The template methods essentially compose
+the client visitors with traversal behavior. See the implementations of cut and total in package ''org.softlang.features''.
+
+=== Observer pattern ===
+
+There is clearly value in making company object structure observable (in the sense of the ''Observable'' 
+class of package ''java.util''). For instance, if we were providing a GUI, observability would help with implementing an 
+MVC architecture. In this implementation, observability is leveraged for [[101feature:Logging]] and [[101feature:Precedence]];
+see the corresponding classes of package ''org.softlang.features''. Objects of the company object model are made observable 
+in a way that gives credit to the part-whole structure. That is, registration of an observer with a company object is 
+propagated down into all components. To this end, an observable (simple) list type is also used; see the ''ObserableSimpleList'' 
+of package ''org.softlang.util''.
+
+=== Proxy pattern === 
+
+[[101feature:Access control]] is implemented in a way that access to employee salaries is regulated. Proxy objects are used to 
+to enforce the access control policy. By default, read and write access is enabled, but it can be configured even once the proxies
+have been deployed. All concrete classes of the object model for companies are proxied. That is, employees are proxied because
+their get/set salary members must be directly controlled, while departments and companies are proxied so that any added
+subunit will be transparently proxied. To summarize, company objects are initially and continuously enhanced to provide proxies
+for every component so that all salary access must go through access control.
+
+=== Singleton pattern ===
+
+We use functor objects for the sake of parameterizing traversal functionality in monoids; see classes 
+''Monoid'' and ''AddDoubles'' of package ''org.softlang.util''. Those functor objects are good candidates for singletons;
+see the implementation of ''AddDoubles''. There is a static member ''getInstance'' to retrieve the singleton, which is constructed
+upon request, if needed, or fetched from a static field otherwise. The use of a singleton helps here to emphasize the fact that
+no state is associated with monoids.
+
+=== Visitor pattern ===
+
+Nearly all operations including those for totaling and cutting salaries are implemented as visitors; see package
+''org.softlang.visitor'' for the visitor framework. There are two kinds of visitors: void visitors, i.e., visitors with
+void visit methods as well as returning visitors, i.e., visitors with visit methods with some uniform result type. 
+The use of visitors is deeply integrated into the rest of this implementation. In particular, the template methods of
+package ''org.softlang.template'' also leverage visitors. Arguably, visitors are needed for the chosen object model because
+there is polymorphism propperly involved due to the abstract ''Subunit'' class with the concrete subclasses 
+''Employee'' and ''Department''.
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project. 
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** For instance, run class ''Basics'' with JUnit to exercise basic features.
+** See the documentation of the other test cases.
+
+== Issues ==
+
+Additional patterns should be considered:
+* State pattern
+* Memento pattern
+* Strategy pattern
+* ...
+
+== Contributors ==
+
+* {{101contributor|Ralf Lämmel|developer}}
