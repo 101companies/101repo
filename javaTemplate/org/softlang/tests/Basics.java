@@ -49,7 +49,7 @@ public class Basics {
 		Total total = new Total();
 		Cut cut = new Cut();
 		double before = total.reduce(sampleCompany);
-		cut.transform(sampleCompany);
+		cut.walk(sampleCompany);
 		double after = total.reduce(sampleCompany);
 		assertEquals(before / 2.0d, after, 0);
 	}

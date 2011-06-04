@@ -66,16 +66,16 @@ public class Serialization {
 
 		// Create sub-department dev1
 		Department dev1 = new Department();
-		development.getSubdepts().add(dev1);
 		dev1.setName("Dev1");
 		dev1.setManager(klaus);
+		development.getSubdepts().add(dev1);
 
 		// Create sub-department dev11
 		Department dev11 = new Department();
-		dev1.getSubdepts().add(dev11);
 		dev11.setName("Dev1.1");
 		dev11.setManager(karl);
 		dev11.getEmployees().add(joe);
+		dev1.getSubdepts().add(dev11);
 
 		return sampleCompany;
 	}
