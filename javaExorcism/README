@@ -24,7 +24,7 @@ Consider [[101implementation:javaVisitor]] and [[101implementation:javaTemplate]
 implementations that also put to work some design patterns for illustrative purposes. The present
 implementation is somewhat extreme in that it aims to illustrate a larger number of design patterns
 possibly for the argument's sake, without strong practical incentive. So please be careful about consuming
-this implementation. Please also observe the name of this implementation, ''...Excorsim'', which is clear
+this implementation. Please also observe the name of this implementation, "...Excorsim", which is supposed to be a clear
 hint at the common danger of over-engineering a design. One way of going over the top is to prematurely
 weave an additional design pattern into a system without understanding the pros and cons of doing so, 
 without actually establishing the strength of any incentive to deploy the pattern. Nevertheless, the 
