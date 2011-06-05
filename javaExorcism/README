@@ -24,12 +24,12 @@ Consider [[101implementation:javaVisitor]] and [[101implementation:javaTemplate]
 implementations that also put to work some design patterns for illustrative purposes. The present
 implementation is somewhat extreme in that it aims to illustrate a larger number of design patterns
 possibly for the argument's sake, without strong practical incentive. So please be careful about consuming
-this implementation. Please also observe the name of this implementation, "...Excorsim", which is supposed to be a clear
+this implementation. Please also observe the name of this implementation, "...Exorcism", which is supposed to be a clear
 hint at the common danger of over-engineering a design. One way of going over the top is to prematurely
 weave an additional design pattern into a system without understanding the pros and cons of doing so, 
-without actually establishing the strength of any incentive to deploy the pattern. Nevertheless, the 
+without actually establishing the proper incentive of deploying the pattern. To summarize, the 
 present implementation stands out with its design density in terms of the number of patterns and their
-interactions as they are provoked, encountered, and addressed.
+pattern interactions as they are provoked, encountered, and addressed.
 
 == Architecture ==
 
@@ -38,6 +38,17 @@ Package ''org.softlang.features'' hosts feature implementations.
 Package ''org.softlang.tests'' hosts JUnit tests; see below.
 Package ''org.softlang.util'' hosts library-like extensions (thereby extending ''java.util'').
 All the remaining packages host pattern infrastructure and pattern instances.
+
+=== Abstract Factory pattern ===
+
+Package ''org.softlang.company'' defines the company object model in an interface-oriented manner.
+There are two alternative implementations of these interfaces. That is, package ''org.softlang.company.impl.pojo'' provide a
+simple, POJO-like implementation, whereas ''org.softlang.company.impl.bean'' implements objects with observability (in the sense 
+of the ''Observable'' class of package ''java.util'') and a parent axis. Client code can be parametric in the implementation on 
+the grounds of factories of package ''org.softlang.company.factory''. For instance, the code for constructing a sample company 
+uses a factory parameter; see the ''Basics'' class of package ''org.softlang.tests''. Some client code only works for one of the
+two implementations. For instance, the logging feature of package ''org.softlang.features'' relies on objects with observability 
+specifically.
 
 === Adapter pattern ===
 
@@ -73,26 +84,6 @@ list and it also incorporates additional state because it derives from the ''Obs
 Observable (simple) lists are used in the non-POJO implementation of the company object model. That is, the list of subunits 
 for companies and departments is set up to be observable.
 
-=== Abstract Factory pattern ===
-
-Package ''org.softlang.company'' defines the company object model in an interface-oriented manner.
-There are two alternative implementations of these interfaces. That is, package ''org.softlang.company.impl.pojo'' provide a
-simple, POJO-like implementation, whereas ''org.softlang.company.impl.bean'' implements objects with observability (in the sense 
-of the ''Observable'' class of package ''java.util'') and a parent axis. Client code can be parametric in the implementation on 
-the grounds of factories of package ''org.softlang.company.factory''. For instance, the code for constructing a sample company 
-uses a factory parameter; see the ''Basics'' class of package ''org.softlang.tests''. Some client code only works for one of the
-two implementations. For instance, the logging feature of package ''org.softlang.features'' relies on objects with observability 
-specifically.
-
-=== Template pattern ===
-
-The cut operation can be understood as a "walk" over the company structure with a mutation to be applied
-to any employee encountered. Likewise, the total operation can be understood as a "reduction" or a "query" over the company
-structure where salaries are extracted from any employee encountered and those salaries are combined systematically. Package
-''org.softlang.template'' captures the general notions of walkers and reducers as template methods. The primitive operations
-of these templates are to be defined by visit methods of an appropriate visitor. The template methods essentially compose
-the client visitors with traversal behavior. See the implementations of cut and total in package ''org.softlang.features''.
-
 === Observer pattern ===
 
 There is clearly value in making company object structure observable (in the sense of the ''Observable'' 
@@ -119,6 +110,15 @@ We use functor objects for the sake of parameterizing traversal functionality in
 see the implementation of ''AddDoubles''. There is a static member ''getInstance'' to retrieve the singleton, which is constructed
 upon request, if needed, or fetched from a static field otherwise. The use of a singleton helps here to emphasize the fact that
 no state is associated with monoids.
+
+=== Template pattern ===
+
+The cut operation can be understood as a "walk" over the company structure with a mutation to be applied
+to any employee encountered. Likewise, the total operation can be understood as a "reduction" or a "query" over the company
+structure where salaries are extracted from any employee encountered and those salaries are combined systematically. Package
+''org.softlang.template'' captures the general notions of walkers and reducers as template methods. The primitive operations
+of these templates are to be defined by visit methods of an appropriate visitor. The template methods essentially compose
+the client visitors with traversal behavior. See the implementations of cut and total in package ''org.softlang.features''.
 
 === Visitor pattern ===
 
