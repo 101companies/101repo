@@ -1,0 +1,38 @@
+== Intent ==
+
+task parallel programming in haskell
+
+== Languages ==
+
+* [[Language:Haskell 98]]
+
+== Technologies ==
+
+* [[Technology:GHCi]]      
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Parallelism]]
+
+== Motivation ==
+
+We make use of [[Language:Haskell]]'s [[Concurrency]] support. That is we are using variables (MVar), which are shared among different threads. 
+Each thread [[101feature:Total|totals]] resp. [[101feature:Cut|cuts] only the salaries in a specifed department, subdepartments are handled by new threads.
+The result of the computations (floats resp. new company entities) are stored in a MVar and then collected and aggregated with other results by the "upper" thread. 
+We also demonstrate the use of tryTakeMVar by implementating an aggregation function that collects all mvars values in a list of mvars, but does not block on every element.    
+
+== Architecture ==
+
+[this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries in a concurrent way. 
+[this!!Util.hs] contains a useful function to collect all mvar values in a mvar list.
+
+== Usage ==
+
+* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test''' for test automation.
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
