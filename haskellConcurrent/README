@@ -27,7 +27,7 @@ We also demonstrate the use of tryTakeMVar by implementating an aggregation func
 == Architecture ==
 
 [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries in a concurrent way. 
-[this!!Util.hs] contains a useful function to collect all mvar values in a mvar list.
+[this!!Utils.hs] contains a useful function to collect all mvar values in a mvar list.
 
 == Usage ==
 
