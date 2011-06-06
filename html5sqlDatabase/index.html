@@ -13,9 +13,9 @@ var db = openDatabase('101companies', '1.0', 'companies database', 2 * 1024 * 10
 function createTables() {
 	// create tables for:
 	db.transaction(function (tx) {
-		tx.executeSql('DROP TABLE Company');
-		tx.executeSql('DROP TABLE Department');
-		tx.executeSql('DROP TABLE Employee');
+		tx.executeSql('DROP TABLE IF EXISTS Company');
+		tx.executeSql('DROP TABLE IF EXISTS Department');
+		tx.executeSql('DROP TABLE IF EXISTS Employee');
 	
 		// company
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Company (id UNIQUE, name)');
