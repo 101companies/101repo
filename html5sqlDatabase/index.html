@@ -49,13 +49,13 @@ function createDepartments() {
 function createEmployees() {
 	// create data for employees
 	db.transaction(function (tx) {
-		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (0, "Craig", "Redmond", 123456.0, 1, 1, 1)');
-		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (1, "Ray", "Redmond", 234567.0, 1, 1, 2)');
-		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (2, "Klaus", "Boston", 23456.0, 1, 1, 3)');
-		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (3, "Karl", "Riga", 2345.0, 1, 1, 4)');
-		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (4, "Erik", "Utrecht", 12345.0, 0, 1, 1)');
-		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (5, "Ralf", "Koblenz", 1234.0, 0, 1, 1)');
-		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (6, "Joe", "Wifi City", 2344.0, 0, 1, 4)');
+		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (0, "Craig", "Redmond", 123456.0, 1, 1, 0)');
+		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (1, "Ray", "Redmond", 234567.0, 1, 1, 1)');
+		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (2, "Klaus", "Boston", 23456.0, 1, 1, 2)');
+		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (3, "Karl", "Riga", 2345.0, 1, 1, 3)');
+		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (4, "Erik", "Utrecht", 12345.0, 0, 1, 0)');
+		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (5, "Ralf", "Koblenz", 1234.0, 0, 1, 0)');
+		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (6, "Joe", "Wifi City", 2344.0, 0, 1, 3)');
 	});
 }
 
@@ -110,16 +110,23 @@ function selectDepartment(id) {
 		
 			var len = results.rows.length, i;
 			var departments = "Departments: <br>";
+			departments += "<form action=\"select1.htm\">";
+			departments += "<p>";
+			departments += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
+			
 			for (var i = 0; i < len; i++) {
-				departments += "<input type=\"button\" name=\""
-					+ results.rows.item(i).name 
-					+ "\" value=\"" 
-					+ results.rows.item(i).name 
-					+ "\" onclick=\"selectDepartment('" 
-					+ results.rows.item(i).id
-					+ "')\"><br>";
-				
+				if(i == 0) {
+					departments += "<option value=\"" + results.rows.item(i).id + "\" selected>";
+				} else {
+					departments += "<option value=\"" + results.rows.item(i).id + "\">";
+				}
+				departments += results.rows.item(i).name + "</option>";
 			}
+			departments += "</select>";
+			departments += "</p>";
+			
+			departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+			departments += "</form>";
 			
 			document.querySelector('#departments').innerHTML = departments;
 			
@@ -130,22 +137,37 @@ function selectDepartment(id) {
 			var employees = "Employees: <br>";
 			var manager = "Manager: <br>";
 			var employeeTemp = "";
+			
+			employees += "<form action=\"select1.htm\">";
+			employees += "<p>";
+			employees += "<select name=\"Employees\" size=\"5\" STYLE=\"width:100px;\">";
+			
+			var elementSelected = false;
 			for (var i = 0; i < len; i++) {
-				employeeTemp = "<input type=\"button\" name=\""
+				if (results.rows.item(i).manager == 0) {
+					if(elementSelected == false) {
+						employees += "<option value=\"" + results.rows.item(i).id + "\" selected>";
+						elementSelected = true;
+					} else {
+						employees += "<option value=\"" + results.rows.item(i).id + "\">";
+					}
+					employees += results.rows.item(i).name + "</option>";
+				} else {
+					manager += "<input type=\"button\" name=\""
 						+ results.rows.item(i).name
 						+ "\" value=\"" 
 						+ results.rows.item(i).name
 						+ "\" onclick=\"selectEmployee('" 
 						+ results.rows.item(i).id
 						+ "')\"><br>";
-				
-				if (results.rows.item(i).manager == 1) {
-					manager += employeeTemp;
-				} else {
-					employees += employeeTemp;
 				}
-
 			}
+			employees += "</select>";
+			employees += "</p>";
+			
+			employees += "<input type=\"button\" value=\"select\" onclick=\"selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\" >";
+			employees += "</form>";
+
 			document.querySelector('#employees').innerHTML = manager + employees;
 			
 			
@@ -159,19 +181,26 @@ function selectDepartmentsForCompany(id, name) {
 		tx.executeSql('SELECT * FROM Department WHERE cid = ' + id, [], function (tx, results) {
 			document.querySelector('#headline').innerHTML = "<h2> Company: " + name + "</h2>";
 			document.querySelector('#subheadline').innerHTML = "";
-		
+			
 			var len = results.rows.length, i;
 			var departments = "Departments: <br>";
+			departments += "<form action=\"select1.htm\">";
+			departments += "<p>";
+			departments += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
+			
 			for (var i = 0; i < len; i++) {
-				departments += "<input type=\"button\" name=\"" 
-					+ results.rows.item(i).name 
-					+ "\" value=\"" 
-					+ results.rows.item(i).name 
-					+ "\" onclick=\"selectDepartment('" 
-					+ results.rows.item(i).id
-					+ "')\"><br>";
-				
+				if(i == 0) {
+					departments += "<option value=\"" + results.rows.item(i).id + "\" selected>";
+				} else {
+					departments += "<option value=\"" + results.rows.item(i).id + "\">";
+				}
+				departments += results.rows.item(i).name + "</option>";
 			}
+			departments += "</select>";
+			departments += "</p>";
+			
+			departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+			departments += "</form>";
 			
 			document.querySelector('#departments').innerHTML = departments;
 			document.querySelector('#employees').innerHTML = "";
@@ -226,10 +255,13 @@ selectDepartmentsForCompany(0, "Meganalysis");
 
 <!-- Page Structure -->
 <div id="headline" name="headline"></div><br>
+<hr/>
 <div id="subheadline" name="subheadline"></div><br>
-<div id="departments" name="departments"></div><br>
 <div id="employees" name="employees"></div><br>
+<div id="departments" name="departments"></div><br>
+<hr/>
 <div id="total" name="total"></div><br>
+<hr/>
 <div id="back" name="back"></div>
 
 </center>
