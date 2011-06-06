@@ -68,6 +68,27 @@ function createData() {
 
 // -------------------------------------------------------------------------------------------------------------- Create SELECTIONS
 
+function setName(id, name) {
+	db.transaction(function (tx) {
+		tx.executeSql('UPDATE Employee SET name = "' + name + '" WHERE id = ' + id, [], function (tx, results) {
+		}, null);
+	});
+}
+
+function setAddress(id, address) {
+	db.transaction(function (tx) {
+		tx.executeSql('UPDATE Employee SET address = "' + address + '" WHERE id = ' + id, [], function (tx, results) {
+		}, null);
+	});
+}
+
+function setSalary(id, salary) {
+	db.transaction(function (tx) {
+		tx.executeSql('UPDATE Employee SET salary = ' + salary + ' WHERE id = ' + id, [], function (tx, results) {
+		}, null);
+	});
+}
+
 function selectEmployee(id) {
 	db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Employee WHERE id = ' + id, [], function (tx, results) {
@@ -77,14 +98,14 @@ function selectEmployee(id) {
 			var manager = results.rows.item(0).manager;
 			var departmentId = results.rows.item(0).did;
 		
-			var employee = "Name:<br><input name=\"name\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + name + "\"><br>";
-			employee += "Address:<br><input name=\"address\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + address + "\"><br>";
-			employee += "Salary:<br><input name=\"salary\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + salary + "\"><br>";
+			var employee = "Name:<br><input name=\"name\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + name + "\" onchange=\"setName(" + id + ", this.value)\"><br>";
+			employee += "Address:<br><input name=\"address\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + address + "\" onchange=\"setAddress(" + id + ", this.value)\"><br>";
+			employee += "Salary:<br><input name=\"salary\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + salary + "\" onchange=\"setSalary(" + id + ", this.value)\"><br>";
 			
 			document.querySelector('#subheadline').innerHTML = "<h3> Employee: " + name + "</h3>";
 			document.querySelector('#departments').innerHTML = "";
 			document.querySelector('#employees').innerHTML = employee;
-			
+			document.querySelector('#total').innerHTML = "";
 			document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"selectDepartment(" + departmentId + ")\">";
 			
 		}, null);
@@ -169,11 +190,13 @@ function selectDepartment(id) {
 			employees += "</form>";
 
 			document.querySelector('#employees').innerHTML = manager + employees;
-			
-			
 		}, null);
 		
 	});
+	
+	document.querySelector('#total').innerHTML = "";
+
+	
 }
 
 function selectDepartmentsForCompany(id, name) {
