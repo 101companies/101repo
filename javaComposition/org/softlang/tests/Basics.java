@@ -2,7 +2,6 @@ package org.softlang.tests;
 
 import org.softlang.company.Company;
 import static org.softlang.features.Serialization.*;
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 

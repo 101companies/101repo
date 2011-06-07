@@ -63,7 +63,10 @@ That is, we leverage the ''everywhere'' scheme of transformation which attempts 
 
 == Issues ==
 
-Naturally, any approach that uses reflection so heavily for data access
+Naturally, any approach which uses reflection so heavily for data access 
+has inferior performance compared to approaches with more direct data access.
+There are generative approaches that provide similar programming convenience
+while avoiding indeed reflection.  
 
 == Contributors ==
 

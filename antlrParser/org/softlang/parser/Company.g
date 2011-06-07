@@ -44,6 +44,6 @@ employee :
     { total += Double.parseDouble($s.text); }
   '}';
 
-WS      :   (' '|'\r'? '\n'|'\t')+ {skip();};
 STRING  :   '"' (~'"')* '"';
 FLOAT   :   ('0'..'9')+ ('.' ('0'..'9')+)?;
+WS      :   (' '|'\r'? '\n'|'\t')+ {skip();};
