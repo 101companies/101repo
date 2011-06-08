@@ -48,14 +48,12 @@ public class EmployeeView {
 		salaryField.setText(Double.toString(employee.getSalary()));
 		for (ActionListener al : cutButton.getActionListeners())
 			cutButton.removeActionListener(al);
-		cutButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				controller.cutEmployeeClicked();
-
-			}
-		});
+		cutButton.addActionListener(
+			new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					controller.cutEmployeeClicked();
+				}
+			});
 		frame.setVisible(true);
 	}
 
