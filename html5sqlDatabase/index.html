@@ -194,9 +194,7 @@ function selectDepartment(id) {
 		
 	});
 	
-	document.querySelector('#total').innerHTML = "";
-
-	
+	totalForDepartment(id);
 }
 
 function selectDepartmentsForCompany(id, name) {
@@ -233,6 +231,30 @@ function selectDepartmentsForCompany(id, name) {
 	});
 	
 	totalAll();
+}
+
+function totalForDepartment(id) {
+	db.transaction(function (tx) {
+		tx.executeSql('SELECT * FROM Employee WHERE did = ' + id, [], function (tx, results) {
+			var total = 0;
+			var len = results.rows.length, i;
+			for (var i = 0; i < len; i++) {
+				total += results.rows.item(i).salary;
+			}
+			
+			document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutDepartment(" + id + ")\">";
+		}, null);
+	});
+}
+
+function cutDepartment(id) {
+	db.transaction(function (tx) {
+		tx.executeSql('UPDATE Employee SET salary = salary / 2 WHERE did = ' + id, [], function (tx, results) {
+					
+		}, null);
+	});
+	
+	totalForDepartment(id);
 }
 
 function totalAll() {
