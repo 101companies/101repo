@@ -7,12 +7,14 @@
 
 <script type="text/javascript">
 // -------------------------------------------------------------------------------------------------------------- create DATABASE
-var db = openDatabase('101companies', '1.0', 'companies database', 2 * 1024 * 1024);
+
+var main = {};
+main.db = openDatabase('101companies', '1.0', 'companies database', 2 * 1024 * 1024);
 
 // -------------------------------------------------------------------------------------------------------------- create TABLES for 101companies
 function createTables() {
 	// create tables for:
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('DROP TABLE IF EXISTS Company');
 		tx.executeSql('DROP TABLE IF EXISTS Department');
 		tx.executeSql('DROP TABLE IF EXISTS Employee');
@@ -31,14 +33,14 @@ function createTables() {
 // -------------------------------------------------------------------------------------------------------------- create DATA for 101companies
 function createCompanies() {
 	// create data for companies
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('INSERT INTO Company (id, name) VALUES (0, "Meganalysis")');
 	});
 }
 
 function createDepartments() {
 	// create data for departments
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('INSERT INTO Department (id, name, cid) VALUES (0, "Research", 0)');
 		tx.executeSql('INSERT INTO Department (id, name, cid) VALUES (1, "Development", 0)');
 		tx.executeSql('INSERT INTO Department (id, name, did) VALUES (2, "Dev1", 1)');
@@ -48,7 +50,7 @@ function createDepartments() {
 
 function createEmployees() {
 	// create data for employees
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (0, "Craig", "Redmond", 123456.0, 1, 1, 0)');
 		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (1, "Ray", "Redmond", 234567.0, 1, 1, 1)');
 		tx.executeSql('INSERT INTO Employee (id, name, address, salary, manager, cid, did) VALUES (2, "Klaus", "Boston", 23456.0, 1, 1, 2)');
@@ -69,28 +71,28 @@ function createData() {
 // -------------------------------------------------------------------------------------------------------------- Create SELECTIONS
 
 function setName(id, name) {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET name = "' + name + '" WHERE id = ' + id, [], function (tx, results) {
 		}, null);
 	});
 }
 
 function setAddress(id, address) {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET address = "' + address + '" WHERE id = ' + id, [], function (tx, results) {
 		}, null);
 	});
 }
 
 function setSalary(id, salary) {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET salary = ' + salary + ' WHERE id = ' + id, [], function (tx, results) {
 		}, null);
 	});
 }
 
 function selectEmployee(id) {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Employee WHERE id = ' + id, [], function (tx, results) {
 			var name = results.rows.item(0).name;
 			var address = results.rows.item(0).address;
@@ -113,7 +115,7 @@ function selectEmployee(id) {
 }
 
 function selectDepartment(id) {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Department WHERE id = ' + id, [], function (tx, results) {
 			var name = results.rows.item(0).name;
 			var parent = results.rows.item(0).did;
@@ -198,7 +200,7 @@ function selectDepartment(id) {
 }
 
 function selectDepartmentsForCompany(id, name) {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Department WHERE cid = ' + id, [], function (tx, results) {
 			document.querySelector('#headline').innerHTML = "<h2> Company: " + name + "</h2>";
 			document.querySelector('#subheadline').innerHTML = "";
@@ -234,21 +236,32 @@ function selectDepartmentsForCompany(id, name) {
 }
 
 function totalForDepartment(id) {
-	db.transaction(function (tx) {
+	main.totalDepartment = 0;
+	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Employee WHERE did = ' + id, [], function (tx, results) {
-			var total = 0;
 			var len = results.rows.length, i;
+			
 			for (var i = 0; i < len; i++) {
-				total += results.rows.item(i).salary;
+				main.totalDepartment += results.rows.item(i).salary;
 			}
 			
-			document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutDepartment(" + id + ")\">";
 		}, null);
 	});
+	document.querySelector('#total').innerHTML = "<br>Total: " + main.totalDepartment + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutDepartment(" + id + ")\">";
+}
+
+function delay(gap){
+	var then,now;
+	then=new Date().getTime();
+	now=then;
+	while((now-then)<gap) {
+		now=new Date().getTime();
+	}
 }
 
 function cutDepartment(id) {
-	db.transaction(function (tx) {
+	//document.querySelector('#total').innerHTML = "<br>Total: " + main.totalDepartment + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutDepartment(" + id + ")\">";
+	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET salary = salary / 2 WHERE did = ' + id, [], function (tx, results) {
 					
 		}, null);
@@ -258,7 +271,7 @@ function cutDepartment(id) {
 }
 
 function totalAll() {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Employee', [], function (tx, results) {
 			var len = results.rows.length, i;
 			var total = 0;
@@ -273,7 +286,7 @@ function totalAll() {
 }
 
 function cutAll() {
-	db.transaction(function (tx) {
+	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET salary = salary / 2', [], function (tx, results) {
 					
 		}, null);
@@ -308,6 +321,7 @@ selectDepartmentsForCompany(0, "Meganalysis");
 <div id="total" name="total"></div><br>
 <hr/>
 <div id="back" name="back"></div>
+<div id="time" name="time"></div>
 
 </center>
 
