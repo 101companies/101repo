@@ -1,6 +1,6 @@
-== Summary == 
+== Intent ==
 
-This is a simple implementation of the basic 101companies-features in html5. It provides client-side storage for the data, which are deleted after closing the session. Apart from that, it is mostly identical to [[101implementation:html5local]].
+[[web programming]] with [[Technology:HTML5]]
 
 == Languages ==
 
@@ -16,6 +16,10 @@ This is a simple implementation of the basic 101companies-features in html5. It 
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+
+== Motivation == 
+
+This is a simple implementation of the basic 101companies-features in html5. It provides client-side storage for the data, which are deleted after closing the session. Apart from that, it is mostly identical to [[101implementation:html5local]].
 
 == Usage ==
 
