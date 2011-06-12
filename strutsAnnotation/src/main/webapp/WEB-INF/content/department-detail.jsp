@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="/struts-tags" prefix="s" %>
+
 <html>
 <head>
 <title>101companies - Department Details</title>
@@ -27,11 +28,15 @@
 
 <body>
 
-<s:push value="department">
- <h2><s:property value="name"/> Department  </h2>
- <h3>Manager: <s:property value="manager.name"/> (salary: <s:property value="manager.salary"/>)</h3>
- <h3>Total salaries: <s:property value="total"/> </h3>
-</s:push>
+<s:form>
+
+<h2>Department details</h2>
+
+<s:textfield label="Name" value="%{department.name}"  /> 
+<s:textfield label="Manager" value="%{department.manager.name}"  /> 
+<s:textfield label="Total salaries" value="%{department.total}" readonly="true"  /> 
+
+<s:submit label="Update" action="department.update" />
 
 <table id="hor-minimalist-a" summary="Subunits">
     <thead>
@@ -52,7 +57,7 @@
   			     <s:param name="name" value="%{name}"/>
  			     <s:param name="parentId" value="%{department.id}" />
 			  </s:url>
- 			  <s:a href="%{detailURL}">Detail</s:a>
+ 			  <s:a href="%{detailURL}">Cut</s:a>
                         </td>
 			<td>
   			 <s:if test="%{isDepartment()}">
@@ -69,7 +74,7 @@
  		    </s:iterator>
     </tbody>	
 </table> 
-
+</s:form>
 
 </body>
 </html>

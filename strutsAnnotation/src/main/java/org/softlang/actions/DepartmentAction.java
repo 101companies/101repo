@@ -30,6 +30,16 @@ public class DepartmentAction {
 		throw new Exception("This action has not been implemented yed!");
 	}
 
+        @Action(value = "department.update", 
+		results = {@Result(name = "detail", location="department-detail.jsp")}
+	) 
+	public String update() {
+	    Department old = CompanyService.instance().findDepartment(department.getId());
+            old.setName(department.getName());
+            old.getManager().setName(department.getManager().getName());
+	    return "detail";
+	}
+
 	public Department getDepartment() {
 		return department;
 	}
