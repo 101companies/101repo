@@ -64,6 +64,8 @@ if (storageObject.company == null) {
 	// insert departments ...
 	company.departments.push(research);
 	company.departments.push(development);
+	development.subdepartments.push(development1);
+	development.subdepartments.push(development11);
 
 	// create employees ...
 	var craig = new Employee("Craig", "Redmond", 123456.0);
@@ -73,7 +75,7 @@ if (storageObject.company == null) {
 	var klaus = new Employee("Klaus", "Boston", 23456.0);
 	var karl = new Employee("Karl", "Riga", 2345.0);
 	var joe = new Employee("Joe", "Wifi City", 2344.0);
-
+	
 	// insert employees ...
 	research.manager = craig;
 	research.employees.push(research.manager);
