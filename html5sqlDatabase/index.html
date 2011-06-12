@@ -247,6 +247,7 @@ function totalForDepartment(id) {
 			
 		}, null);
 	});
+	//delay(1000);
 	document.querySelector('#total').innerHTML = "<br>Total: " + main.totalDepartment + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutDepartment(" + id + ")\">";
 }
 
@@ -260,14 +261,14 @@ function delay(gap){
 }
 
 function cutDepartment(id) {
-	//document.querySelector('#total').innerHTML = "<br>Total: " + main.totalDepartment + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutDepartment(" + id + ")\">";
-	main.db.transaction(function (tx) {
+	document.querySelector('#total').innerHTML = "<br>Total: " + main.totalDepartment + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutDepartment(" + id + ")\">";
+	/*main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET salary = salary / 2 WHERE did = ' + id, [], function (tx, results) {
 					
 		}, null);
-	});
+	});*/
 	
-	totalForDepartment(id);
+	//totalForDepartment(id);
 }
 
 function totalAll() {
