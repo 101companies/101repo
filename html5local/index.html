@@ -3,21 +3,372 @@
 
 <!-- CLIENT-SIDE, SESSION-STORAGE -->
 <html>
+<head>
+<script type="text/javascript">
+// ------------------------------------------------------------------------ Creating some objects for 101companies
+var storageObject = localStorage;
+var currentDepartments;
+var currentEmployees;
+var currentEmployee;
+
+var main = {};
+
+function HistoryElement(company) {
+	this.company = company;
+}
+
+function HistorySubElement(index, departments) {
+	this.index = index;
+	this.departments = departments;
+}
+
+function loadData() {
+	// If the company does not exist, it must be created locally.
+	if (storageObject.company == null) {
+		// create company ...
+		var company = new Company("Meganalysis");
+
+		// create departments ...
+		var research = new Department("Research");
+		var development = new Department("Development");
+		var development1 = new Department("Dev 1");
+		var development11 = new Department("Dev 1.1");
+
+		// insert departments ...
+		company.departments.push(research);
+		company.departments.push(development);
+		development.subdepartments.push(development1);
+		development1.subdepartments.push(development11);
+
+		// create employees ...
+		var craig = new Employee("Craig", "Redmond", 123456.0, true);
+		var eric = new Employee("Eric", "Utrecht", 12345.0, false);
+		var ralf = new Employee("Ralf", "Koblenz", 1234.0, false);
+		var ray = new Employee("Ray", "Redmond", 234567.0, true);
+		var klaus = new Employee("Klaus", "Boston", 23456.0, true);
+		var karl = new Employee("Karl", "Riga", 2345.0, true);
+		var joe = new Employee("Joe", "Wifi City", 2344.0, false);
+		
+		// insert employees ...
+		research.employees.push(craig);
+		research.employees.push(eric);
+		research.employees.push(ralf);
+		
+		development.employees.push(ray);
+		
+		development1.employees.push(klaus);
+		
+		development11.employees.push(karl);
+		development11.employees.push(joe);
+
+		// save company
+		storageObject.setItem('company', JSON.stringify(company));
+	}
+	return JSON.parse(storageObject.getItem('company'));
+}
+
+function back(fromEmployee) {
+	var length = main.history.depList.length;
+	
+	if (fromEmployee == 1) {
+		var historyTemp = main.history.depList.pop();
+		currentDepartments = historyTemp.departments;
+		selectDepartment(historyTemp.index);
+	} else {
+		if (length > 1) {
+			main.history.depList.pop();
+			var historyTemp = main.history.depList.pop();
+			currentDepartments = historyTemp.departments;
+			selectDepartment(historyTemp.index);
+		} else {
+			selectDepartmentsForCompany(main.history.company);
+		}
+	}
+}
+
+function setDatum(newValue, empNumber, valueIndex) {
+	var company = main.history.company;
+	var depList = main.history.depList;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = changeEmployee(company.departments[i], depList, i, newValue, empNumber, valueIndex);
+	}
+	currentEmployee.name = newName;
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));	
+}
+
+function changeEmployee(department, depList, index, newValue, empNumber, valueIndex) {
+	var element = depList[0];
+	if (element.index == index) {
+		nextDepList = depList.slice(1);
+		if (nextDepList.length == 0) {
+			var len = department.employees.length;
+			for (var i = 0; i < len; i++) {
+				if (empNumber == i) {
+					if (valueIndex == 1) {
+						department.employees[i].name = newValue;
+					} else if (valueIndex == 2) {
+						department.employees[i].address = newValue;
+					} else {
+						department.employees[i].salary = parseFloat(newValue);
+					}
+				}
+			}
+		} else {
+			var len = department.subdepartments.length;
+			for (var i = 0; i < len; i++) {
+				department.subdepartments[i] = changeEmployee(department.subdepartments[i], nextDepList, i, newValue, empNumber, valueIndex);
+			}
+		}
+	}
+	return department;
+}
+
+function selectEmployee(empNumber) {
+	var currentEmployee = currentEmployees[empNumber];
+	
+	var employee = "Name:<br><input name=\"name\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.name + "\" onchange=\"setDatum(this.value, " + empNumber + ", 1)\"><br>";
+	employee += "Address:<br><input name=\"address\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.address + "\" onchange=\"setDatum(this.value, " + empNumber + ", 2)\"><br>";
+	employee += "Salary:<br><input name=\"salary\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.salary + "\" onchange=\"setDatum(this.value, " + empNumber + ", 3)\"><br>";
+			
+	document.querySelector('#subheadline').innerHTML = "<h3> Employee: " + currentEmployee.name + "</h3>";
+	document.querySelector('#departments').innerHTML = "";
+	document.querySelector('#employees').innerHTML = employee;
+	document.querySelector('#total').innerHTML = "";
+	document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"back(1)\">";
+}
+
+function selectDepartment(depNumber) {
+	var department = currentDepartments[depNumber];
+	document.querySelector('#subheadline').innerHTML = "<h3> Department: " + department.name + "</h3>";
+	
+	var departments = "Departments: <br>";
+	departments += "<form action=\"select1.htm\">";
+	departments += "<p>";
+	departments += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
+	
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		if(i == 0) {
+			departments += "<option value=\"" + i + "\" selected>";
+		} else {
+			departments += "<option value=\"" + i + "\">";
+		}
+		departments += department.subdepartments[i].name + "</option>";
+		
+	}
+	
+	departments += "</select>";
+	departments += "</p>";
+			
+	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+	departments += "</form>";
+			
+	document.querySelector('#departments').innerHTML = departments;
+	
+	var lenEmp = department.employees.length;
+	var employees = "Employees: <br>";
+	var manager = "Manager: <br>";
+	var employeeTemp = "";
+	
+	employees += "<form action=\"select1.htm\">";
+	employees += "<p>";
+	employees += "<select name=\"Employees\" size=\"5\" STYLE=\"width:100px;\">";
+	
+	var elementSelected = false;
+	
+	for (var i = 0; i < lenEmp; i++) {
+		if (department.employees[i].manager == false) {
+			if(elementSelected == false) {
+				employees += "<option value=\"" + i + "\" selected>";
+				elementSelected = true;
+			} else {
+				employees += "<option value=\"" + i + "\">";
+			}
+			employees += department.employees[i].name + "</option>";
+		} else {
+			manager += "<input type=\"button\" name=\""
+				+ department.employees[i].name
+				+ "\" value=\"" 
+				+ department.employees[i].name
+				+ "\" onclick=\"selectEmployee('" 
+				+ i
+				+ "')\"><br>";
+		}
+	}
+	employees += "</select>";
+	employees += "</p>";
+			
+	employees += "<input type=\"button\" value=\"select\" onclick=\"selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\" >";
+	employees += "</form>";
+
+	document.querySelector('#employees').innerHTML = manager + employees;
+	document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"back(0)\">";
+	
+	if (main.history.depList) {
+		main.history.depList.push(new HistorySubElement(depNumber, currentDepartments));
+	} else {
+		main.history.depList = new Array(new HistorySubElement(depNumber, currentDepartments));
+	}
+	
+	var total = totalDepartment(department);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCurrentDepartment()\">";
+	
+	currentDepartments = department.subdepartments;
+	currentEmployees = department.employees;
+}
+
+function selectDepartmentsForCompany(company) {
+	main.history = new HistoryElement(company);
+	currentCompany = company;
+	
+	document.querySelector('#headline').innerHTML = "<h2> Company: " + company.name + "</h2>";
+	document.querySelector('#subheadline').innerHTML = "";
+	
+	var departments = "Departments: <br>";
+	departments += "<form action=\"select1.htm\">";
+	departments += "<p>";
+	departments += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
+	
+	currentDepartments = company.departments;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		if(i == 0) {
+			departments += "<option value=\"" + i + "\" selected>";
+		} else {
+			departments += "<option value=\"" + i + "\">";
+		}
+		departments += company.departments[i].name + "</option>";
+		
+	}
+	
+	departments += "</select>";
+	departments += "</p>";
+			
+	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+	departments += "</form>";
+
+	document.querySelector('#departments').innerHTML = departments;
+	document.querySelector('#employees').innerHTML = "";
+	document.querySelector('#back').innerHTML = "";
+
+	var total = totalCompany(company);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
+}
+
+function cutCompany() {
+	var company = main.history.company;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = cutDepartment(company.departments[i]);
+	}
+	var total = totalCompany(company);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));
+}
+
+function cutCurrentDepartment() {
+	document.querySelector('#test').innerHTML += "";
+	var company = main.history.company;
+	var depList = main.history.depList;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = moveToDepartment(company.departments[i], depList, i);
+	}
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));
+}
+
+function moveToDepartment(department, depList, index) {
+	var element = depList[0];
+	if (element.index == index) {
+		nextDepList = depList.slice(1);
+		if (nextDepList.length == 0) {
+			department = cutDepartment(department);
+			var total = totalDepartment(department);
+			document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCurrentDepartment()\">";
+		} else {
+			var len = department.subdepartments.length;
+			for (var i = 0; i < len; i++) {
+				department.subdepartments[i] = moveToDepartment(department.subdepartments[i], nextDepList, i);
+			}
+		}
+	}
+	return department;
+}
+
+function cutDepartment(department) {
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		department.subdepartments[i] = cutDepartment(department.subdepartments[i]);
+	}
+	var lenEmp = department.employees.length;
+	for (var i = 0; i < lenEmp; i++) {
+		department.employees[i] = cutEmployee(department.employees[i]);
+	}
+	return department;
+}
+
+function cutEmployee(employee) {
+	employee.salary = employee.salary / 2;
+	return employee;
+}
+
+function totalCompany(company) {
+	var total = 0;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		total += totalDepartment(company.departments[i]);
+	}
+	return total;
+}
+
+function totalDepartment(department) {
+	var total = 0;
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		total += totalDepartment(department.subdepartments[i]);
+	}
+	var lenEmp = department.employees.length;
+	for (var i = 0; i < lenEmp; i++) {
+		total += department.employees[i].salary;
+	}
+	return total;
+}
+
+</script> 
+
+</head>
 <body>
 
 <center>
 
 <h1>101companies HTML 5 WebApp</h1>
 
-<script type="text/javascript">
+<div id="headline" name="headline"></div><br>
+<hr/>
+<div id="subheadline" name="subheadline"></div><br>
+<div id="employees" name="employees"></div><br>
+<div id="departments" name="departments"></div><br>
+<hr/>
+<div id="total" name="total"></div><br>
+<hr/>
+<div id="back" name="back"></div><br><br><br>
+<div id="test" name="test"></div>
 
+<script>
 // ------------------------------------------------------------------------ Creating the classes for 101companies
 
 /*
  * Class: Company 
  *
  * A company has a name and contains several departments.
- */ 
+ */
 function Company (name) {
 	this.name = name;
 	this.departments = new Array();
@@ -28,9 +379,8 @@ function Company (name) {
  *
  * A department has a name and contains several employees. It is part of a company.
  */ 
-function Department (name, parentDepartment) {
+function Department (name) {
 	this.name = name;
-	this.parentDepartment = parentDepartment;
 	this.employees = new Array();
 	this.subdepartments = new Array();
 }
@@ -40,215 +390,18 @@ function Department (name, parentDepartment) {
  *
  * An Employee has a name, address and salary. He is part of a department.
  */
-function Employee (name, address, salary) {
+function Employee (name, address, salary, manager) {
 	this.name = name;
 	this.address = address;
 	this.salary = salary;
+	this.manager = manager;
 }
 
-// ------------------------------------------------------------------------ Creating some objects for 101companies
+// -------------------------------------------------------------------------------------------------------------- INIT
+var savedCompany = loadData();
+var history = new HistoryElement();
+selectDepartmentsForCompany(savedCompany);
 
-var storageObject = localStorage;
-
-// If the company does not exist, it must be created locally.
-if (storageObject.company == null) {
-	// create company ...
-	var company = new Company("Meganalysis");
-
-	// create departments ...
-	var research = new Department("Research");
-	var development = new Department("Development");
-	var development1 = new Department("Development 1", development);
-	var development11 = new Department("Development 1.1", development1);
-
-	// insert departments ...
-	company.departments.push(research);
-	company.departments.push(development);
-	development.subdepartments.push(development1);
-	development.subdepartments.push(development11);
-
-	// create employees ...
-	var craig = new Employee("Craig", "Redmond", 123456.0);
-	var eric = new Employee("Eric", "Utrecht", 12345.0);
-	var ralf = new Employee("Ralf", "Koblenz", 1234.0);
-	var ray = new Employee("Ray", "Redmond", 234567.0);
-	var klaus = new Employee("Klaus", "Boston", 23456.0);
-	var karl = new Employee("Karl", "Riga", 2345.0);
-	var joe = new Employee("Joe", "Wifi City", 2344.0);
-	
-	// insert employees ...
-	research.manager = craig;
-	research.employees.push(research.manager);
-	research.employees.push(eric);
-	research.employees.push(ralf);
-	
-	development.manager = ray;
-	development.employees.push(development.manager);
-	
-	development1.manager = klaus;
-	development1.employees.push(development1.manager);
-	
-	development11.manager = karl;
-	development11.employees.push(development11.manager);
-	development11.employees.push(joe);
-
-	// save company
-	storageObject.setItem('company', JSON.stringify(company));
-}
-
-// load company
-var savedCompany = JSON.parse(storageObject.getItem('company'));
-
-// the "total" variable is used for the determination of the total salary of the current company or department
-var total = 0;
-
-// ------------------------------------------------------------------------ Page-Generation
-
-// print name of the company as headline
-document.write("<h2> Company: " + savedCompany.name + "</h2>");
-
-// if no department is selected ...
-if (storageObject.departmentSelected == null || storageObject.departmentSelected < 0) {
-	document.write("<br><br>Departments:");
-
-	// ... create the listbox for departments
-	document.write("<form action=\"select1.htm\">");
-	document.write("<p>");
-	document.write("<select name=\"Departments\" size=\"5\">");
-	
-	for (var i = 0; i < savedCompany.departments.length; i++) {
-		if(i == 0) {
-			document.write("<option value=\"" + i + "\" selected>");
-		} else {
-			document.write("<option value=\"" + i + "\">");
-		}
-		document.write(savedCompany.departments[i].name + "</option>");
-		var employeesTemp = savedCompany.departments[i].employees;
-		for (var j = 0; j < employeesTemp.length; j++) {
-			total = total + employeesTemp[j].salary;
-		}
-	}
-	document.write("</select>");
-	document.write("</p>");
-	
-	document.write("<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >");
-	document.write("</form>");
-	
-	document.write("<br><br>Total = " + total + " ");
-	document.write("<input type=\"button\" value=\"cut\" onclick=\"cut()\" >");
-	
-// if a department is selected ...
-} else {
-
-	// ... and if no employee is selected ...
-	if (storageObject.employeeSelected == null || storageObject.employeeSelected < 0) {
-	
-		document.write("<br><h3> Department: " + savedCompany.departments[storageObject.departmentSelected].name + "</h3>");
-		document.write("<br>Manager: "  + savedCompany.departments[storageObject.departmentSelected].manager.name);
-	
-		document.write("<br>Employees:");
-		// ... create the listbox for department-specific employees
-		document.write("<form action=\"select2.htm\">");
-		document.write("<p>");
-		document.write("<select name=\"Employees\" size=\"5\">");
-		
-		var employeesTemp = savedCompany.departments[storageObject.departmentSelected].employees;
-		for (var i = 0; i < employeesTemp.length; i++) {
-			if(i == 0) {
-				document.write("<option value=\"" + i + "\" selected>");
-			} else {
-				document.write("<option value=\"" + i + "\">");
-			}
-		
-			document.write(employeesTemp[i].name + "</option>");
-			total = total + employeesTemp[i].salary;
-		}
-		
-		document.write("</select>");
-		document.write("</p>");
-	
-		document.write("<input type=\"button\" value=\"select\" onclick=\"selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\" >");
-		document.write("</form>");
-		
-		document.write("<br><input type = \"button\" value = \"back\" onClick=\"backFromDepartment()\">");
-		
-		document.write("<br><br>Total = " + total + " ");
-		document.write("<input type=\"button\" value=\"cut\" onclick=\"cutDepartment()\" >");
-		
-	// ... and if an employee is selected ...
-	} else {
-	
-		// create the page for this employee
-		var employeesTemp = savedCompany.departments[storageObject.departmentSelected].employees;
-		var currentEmployee = employeesTemp[storageObject.employeeSelected];
-		document.write("Name: " + currentEmployee.name + "<br>");
-		document.write("Address: " + currentEmployee.address + "<br>");
-		document.write("Salary: " + currentEmployee.salary + "<br>");
-		document.write("<br><input type = \"button\" value = \"cut\" onClick=\"cutEmployee()\">");
-		document.write("<br><input type = \"button\" value = \"back\" onClick=\"backFromEmployee()\">");
-	}
-}
-
-// ------------------------------------------------------------------------ Useful Functions
-
-// This function selects a department.
-function selectDepartment(i) {
-	storageObject.departmentSelected = i;
-	location.reload();
-}
-
-// This function returns from a selected department.
-function backFromDepartment() {
-	storageObject.departmentSelected = -1;
-	location.reload();
-}
-
-// This function selects an employee out of the department.
-function selectEmployee(i) {
-	storageObject.employeeSelected = i;
-	location.reload();
-}
-
-// This function returns to the selected department from the current employee.
-function backFromEmployee() {
-	storageObject.employeeSelected = -1;
-	location.reload();
-}
-
-// This function cuts the salary of the currently selected employee.
-function cutEmployee() {
-	var i = storageObject.departmentSelected;
-	var j = storageObject.employeeSelected;
-	var currentEmployee = savedCompany.departments[i].employees[j];
-	currentEmployee.salary = currentEmployee.salary / 2;
-	savedCompany.departments[i].employees.splice(j, 1, currentEmployee);
-	storageObject.setItem('company', JSON.stringify(savedCompany));
-	location.reload();
-}
-
-// This function cuts the salaries of all employees within the department.
-function cutDepartment() {
-	var i = storageObject.departmentSelected;
-	for (var j = 0; j < savedCompany.departments[i].employees.length; j++) {
-		savedCompany.departments[i].employees[j].salary = savedCompany.departments[i].employees[j].salary / 2;
-	}
-	storageObject.setItem('company', JSON.stringify(savedCompany));
-	location.reload();
-}
-
-// This function cuts all wages.
-function cut() {
-	var companyTemp = JSON.parse(storageObject.getItem('company'));
-
-	for (var i = 0; i < companyTemp.departments.length; i++) {
-		for (var j = 0; j < companyTemp.departments[i].employees.length; j++) {
-			companyTemp.departments[i].employees[j].salary = companyTemp.departments[i].employees[j].salary / 2;
-		}
-	}
-	
-	storageObject.setItem('company', JSON.stringify(companyTemp));
-	location.reload();
-}
 </script> 
 
 </center>
