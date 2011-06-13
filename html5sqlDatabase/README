@@ -35,7 +35,13 @@ This command sets the name, the version, a short description and the size of the
  <syntaxhighlight lang="javascript">
  main.db.transaction(function (tx) {
  	// department
- 	tx.executeSql('CREATE TABLE IF NOT EXISTS Department (id UNIQUE, name, cid, did)');		
+ 	tx.executeSql('CREATE TABLE IF NOT EXISTS Department (id UNIQUE, name, cid, did)');
+
+ 	tx.executeSql('INSERT INTO Department (id, name, cid) VALUES (0, "Research", 0)');
+ 	tx.executeSql('INSERT INTO Department (id, name, cid) VALUES (1, "Development", 0)');
+ 	tx.executeSql('INSERT INTO Department (id, name, did) VALUES (2, "Dev1", 1)');
+ 	tx.executeSql('INSERT INTO Department (id, name, did) VALUES (3, "Dev1.1", 2)');
+		
  	});
  }
  </syntaxhighlight>
