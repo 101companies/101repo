@@ -1,0 +1,53 @@
+== Intent ==
+
+[[web programming]] with [[Language:HTML5]]
+
+== Languages ==
+
+* [[Language:HTML5]]
+* [[Language:JavaScript]]
+* [[Language:SQL]]
+
+== Technologies ==
+
+* An HTML5-compliant browser
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+This is a simple implementation of the basic [[101section:Features|101companies-features]] in [[Language:HTML5|HTML5]] with [[Language:SQL|SQL]]. It provides [[client-side storage]] for the data in a client-side web database.
+
+== Illustration ==
+
+The data is stored in a offline sql database.
+
+ <syntaxhighlight lang="javascript">
+ main.db = openDatabase('101companies', '1.0', 'companies database', 2 * 1024 * 1024);
+ </syntaxhighlight>
+
+This command sets the name, the version, a short description and the size of the database (in Byte). After the initialization, the data can be created with sql transactions:
+
+ <syntaxhighlight lang="javascript">
+ main.db.transaction(function (tx) {
+ 	// department
+ 	tx.executeSql('CREATE TABLE IF NOT EXISTS Department (id UNIQUE, name, cid, did)');		
+ 	});
+ }
+ </syntaxhighlight>
+
+== Architecture ==
+
+There is no special architecture for [[Language:HTML5|HTML5]] web database. The functions are all defined in the index.html.
+
+== Usage ==
+
+Just open the index.html with your browser. 
+
+== Contributors ==
+
+* {{101contributor|Tobias Zimmer|developer}}
