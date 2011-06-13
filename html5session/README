@@ -23,7 +23,7 @@ This is a simple implementation of the basic [[101section:Features|101companies-
 
 == Illustration ==
 
-Most of the web application is written in [[Language:JavaScript|JavaScript]]. The data is stored in a storage object (''sessionStorage''). During the session, this object provides string-based persistence. If session-overlapping storage is needed, the sessionStorage-object can be replaced by ''localStorage'' ([[101implementation:html5local]]).
+Most of the web application is written in [[Language:JavaScript|JavaScript]]. The data is stored in a storage-object (''sessionStorage''). During the session, this object provides string-based persistence. If session-overlapping storage is needed, the sessionStorage-object can be replaced by ''localStorage'' ([[101implementation:html5local]]).
 
 <syntaxhighlight lang="javascript">
 var storageObject = sessionStorage;
@@ -44,6 +44,8 @@ function Department (name) {
 	this.subdepartments = new Array();
 }
 </syntaxhighlight>
+
+The data-structure is a tree, which can be traversed to cut salaries of the whole company or individual departments. The tree can be stringified with [[Technology:JSON|JSON]] and stored in the storage-object.
 
 == Architecture ==
 
