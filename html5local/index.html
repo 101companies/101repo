@@ -93,7 +93,6 @@ function setDatum(newValue, empNumber, valueIndex) {
 	for (var i = 0; i < len; i++) {
 		company.departments[i] = changeEmployee(company.departments[i], depList, i, newValue, empNumber, valueIndex);
 	}
-	currentEmployee.name = newName;
 	
 	// save company
 	storageObject.setItem('company', JSON.stringify(company));	
