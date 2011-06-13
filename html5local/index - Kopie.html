@@ -181,14 +181,14 @@ function selectDepartment(depNumber) {
 	document.querySelector('#employees').innerHTML = manager + employees;
 	document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"back(0)\">";
 	
-	var total = totalDepartment(department);
-	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutAll()\">";
-	
 	if (main.history.depList) {
 		main.history.depList.push(new HistorySubElement(depNumber, currentDepartments));
 	} else {
 		main.history.depList = new Array(new HistorySubElement(depNumber, currentDepartments));
 	}
+	
+	var total = totalDepartment(department);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCurrentDepartment()\">";
 	
 	currentDepartments = department.subdepartments;
 	currentEmployees = department.employees;
@@ -229,11 +229,68 @@ function selectDepartmentsForCompany(company) {
 	document.querySelector('#back').innerHTML = "";
 
 	var total = totalCompany(company);
-	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutAll()\">";
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
 }
 
-function cutAll() {
+function cutCompany() {
+	var company = main.history.company;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = cutDepartment(company.departments[i]);
+	}
+	var total = totalCompany(company);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));
+}
 
+function cutCurrentDepartment() {
+	document.querySelector('#test').innerHTML += "";
+	var company = main.history.company;
+	var depList = main.history.depList;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = moveToDepartment(company.departments[i], depList, i);
+	}
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));
+}
+
+function moveToDepartment(department, depList, index) {
+	var element = depList[0];
+	if (element.index == index) {
+		nextDepList = depList.slice(1);
+		if (nextDepList.length == 0) {
+			department = cutDepartment(department);
+			var total = totalDepartment(department);
+			document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCurrentDepartment()\">";
+		} else {
+			var len = department.subdepartments.length;
+			for (var i = 0; i < len; i++) {
+				department.subdepartments[i] = moveToDepartment(department.subdepartments[i], nextDepList, i);
+			}
+		}
+	}
+	return department;
+}
+
+function cutDepartment(department) {
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		department.subdepartments[i] = cutDepartment(department.subdepartments[i]);
+	}
+	var lenEmp = department.employees.length;
+	for (var i = 0; i < lenEmp; i++) {
+		department.employees[i] = cutEmployee(department.employees[i]);
+	}
+	return department;
+}
+
+function cutEmployee(employee) {
+	employee.salary = employee.salary / 2;
+	return employee;
 }
 
 function totalCompany(company) {
