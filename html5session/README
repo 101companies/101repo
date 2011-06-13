@@ -23,7 +23,7 @@ This is a simple implementation of the basic [[101section:Features|101companies-
 
 == Illustration ==
 
-The data is stored in a storage object (''sessionStorage''). During the session, this object provides string-based persistence. If session-overlapping storage is needed, the sessionStorage-object can be replaced by ''localStorage''.
+Most of the web application is written in [[Language:JavaScript|JavaScript]]. The data is stored in a storage object (''sessionStorage''). During the session, this object provides string-based persistence. If session-overlapping storage is needed, the sessionStorage-object can be replaced by ''localStorage''.
 
 <syntaxhighlight lang="javascript">
 var storageObject = sessionStorage;
