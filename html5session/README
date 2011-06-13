@@ -23,7 +23,7 @@ This is a simple implementation of the basic [[101section:Features|101companies-
 
 == Illustration ==
 
-Most of the web application is written in [[Language:JavaScript|JavaScript]]. The data is stored in a storage object (''sessionStorage''). During the session, this object provides string-based persistence. If session-overlapping storage is needed, the sessionStorage-object can be replaced by ''localStorage''.
+Most of the web application is written in [[Language:JavaScript|JavaScript]]. The data is stored in a storage object (''sessionStorage''). During the session, this object provides string-based persistence. If session-overlapping storage is needed, the sessionStorage-object can be replaced by ''localStorage'' ([[101implementation:html5local]]).
 
 <syntaxhighlight lang="javascript">
 var storageObject = sessionStorage;
@@ -33,6 +33,16 @@ or
 
 <syntaxhighlight lang="javascript">
 var storageObject = localStorage;
+</syntaxhighlight>
+
+The data-structure is defined with classes. The company contains departments and departments contain subdepartments and employees.
+
+<syntaxhighlight lang="javascript">
+function Department (name) {
+	this.name = name;
+	this.employees = new Array();
+	this.subdepartments = new Array();
+}
 </syntaxhighlight>
 
 == Architecture ==
