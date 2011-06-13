@@ -9,6 +9,7 @@
 
 == Technologies ==
 
+* [[JSON]]
 * An HTML5-compliant browser
 
 == Features ==
@@ -25,51 +26,45 @@ This is a simple implementation of the basic [[101section:Features|101companies-
 
 Most of the web application is written in [[Language:JavaScript|JavaScript]]. The data is stored in a storage-object (''sessionStorage''). During the session, this object provides string-based persistence. If session-overlapping storage is needed, the sessionStorage-object can be replaced by ''localStorage'' ([[101implementation:html5local]]).
 
-<syntaxhighlight lang="javascript">
-var storageObject = sessionStorage;
-</syntaxhighlight>
-
-or
-
-<syntaxhighlight lang="javascript">
-var storageObject = localStorage;
-</syntaxhighlight>
+ <syntaxhighlight lang="javascript">
+ var storageObject = sessionStorage;
+ </syntaxhighlight>
 
 The data-structure is defined with classes. The company contains departments and departments contain subdepartments and employees.
 
-<syntaxhighlight lang="javascript">
-function Department (name) {
-	this.name = name;
-	this.employees = new Array();
-	this.subdepartments = new Array();
-}
-</syntaxhighlight>
+ <syntaxhighlight lang="javascript">
+ function Department (name) {
+ 	this.name = name;
+ 	this.employees = new Array();
+ 	this.subdepartments = new Array();
+ }
+ </syntaxhighlight>
 
 The data-structure is a tree, which can be traversed to [[101feature:Cut|cut]] salaries or determine the [[101feature:Total|total]] of the whole company or individual departments. The tree can be stringified with [[Technology:JSON|JSON]] and stored in the storage-object. The example shows the [[101feature:Total|total]] feature for the company:
 
-<syntaxhighlight lang="javascript">
-function totalCompany(company) {
-	var total = 0;
-	var len = company.departments.length;
-	for (var i = 0; i < len; i++) {
-		total += totalDepartment(company.departments[i]);
-	}
-	return total;
-}
+ <syntaxhighlight lang="javascript">
+ function totalCompany(company) {
+ 	var total = 0;
+ 	var len = company.departments.length;
+ 	for (var i = 0; i < len; i++) {
+ 		total += totalDepartment(company.departments[i]);
+ 	}
+ 	return total;
+ }
 
-function totalDepartment(department) {
-	var total = 0;
-	var len = department.subdepartments.length;
-	for (var i = 0; i < len; i++) {
-		total += totalDepartment(department.subdepartments[i]);
-	}
-	var lenEmp = department.employees.length;
-	for (var i = 0; i < lenEmp; i++) {
-		total += department.employees[i].salary;
-	}
-	return total;
-}
-</syntaxhighlight>
+ function totalDepartment(department) {
+ 	var total = 0;
+ 	var len = department.subdepartments.length;
+ 	for (var i = 0; i < len; i++) {
+ 		total += totalDepartment(department.subdepartments[i]);
+ 	}
+ 	var lenEmp = department.employees.length;
+ 	for (var i = 0; i < lenEmp; i++) {
+ 		total += department.employees[i].salary;
+ 	}
+ 	return total;
+ }
+ </syntaxhighlight>
 
 Because of the "stringification" the objects do NOT have backward links, otherwise there would be infinite loops. Thats why some operations are more complicate and there is a need for a history-stack. This history-stack stores the index of the last visited department and the departments on the same level.
 
