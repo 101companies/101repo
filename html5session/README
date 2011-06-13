@@ -45,7 +45,7 @@ function Department (name) {
 }
 </syntaxhighlight>
 
-The data-structure is a tree, which can be traversed to cut salaries of the whole company or individual departments. The tree can be stringified with [[Technology:JSON|JSON]] and stored in the storage-object.
+The data-structure is a tree, which can be traversed to [[101feature:Cut|cut]] salaries or determine the [[101feature:Total|total]] of the whole company or individual departments. The tree can be stringified with [[Technology:JSON|JSON]] and stored in the storage-object.
 
 == Architecture ==
 
