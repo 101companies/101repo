@@ -34,7 +34,7 @@ This command sets the name, the version, a short description and the size of the
 
  <syntaxhighlight lang="javascript">
  main.db.transaction(function (tx) {
- 	// department
+ 	// departments
  	tx.executeSql('CREATE TABLE IF NOT EXISTS Department (id UNIQUE, name, cid, did)');
 
  	tx.executeSql('INSERT INTO Department (id, name, cid) VALUES (0, "Research", 0)');
@@ -44,6 +44,20 @@ This command sets the name, the version, a short description and the size of the
 		
  	});
  }
+ </syntaxhighlight>
+
+The data access is managed with simple sql queries. The example determines the [[101feature:Total|total]] for the company:
+
+ <syntaxhighlight lang="javascript">
+ main.db.transaction(function (tx) {
+ 	tx.executeSql('SELECT * FROM Employee', [], function (tx, results) {
+ 		var len = results.rows.length, i;
+ 		var total = 0;
+ 		for (var i = 0; i < len; i++) {
+ 			total += results.rows.item(i).salary;
+ 		}			
+ 	}, null);
+ });
  </syntaxhighlight>
 
 == Architecture ==
