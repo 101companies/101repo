@@ -45,7 +45,33 @@ function Department (name) {
 }
 </syntaxhighlight>
 
-The data-structure is a tree, which can be traversed to [[101feature:Cut|cut]] salaries or determine the [[101feature:Total|total]] of the whole company or individual departments. The tree can be stringified with [[Technology:JSON|JSON]] and stored in the storage-object.
+The data-structure is a tree, which can be traversed to [[101feature:Cut|cut]] salaries or determine the [[101feature:Total|total]] of the whole company or individual departments. The tree can be stringified with [[Technology:JSON|JSON]] and stored in the storage-object. The example shows the [[101feature:Total|total]] feature for the company:
+
+<syntaxhighlight lang="javascript">
+function totalCompany(company) {
+	var total = 0;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		total += totalDepartment(company.departments[i]);
+	}
+	return total;
+}
+
+function totalDepartment(department) {
+	var total = 0;
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		total += totalDepartment(department.subdepartments[i]);
+	}
+	var lenEmp = department.employees.length;
+	for (var i = 0; i < lenEmp; i++) {
+		total += department.employees[i].salary;
+	}
+	return total;
+}
+</syntaxhighlight>
+
+Because of the "stringification" the objects do NOT have backward links, otherwise there would be infinite loops. Thats why some operations are more complicate.
 
 == Architecture ==
 
