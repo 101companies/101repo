@@ -71,9 +71,11 @@ function totalDepartment(department) {
 }
 </syntaxhighlight>
 
-Because of the "stringification" the objects do NOT have backward links, otherwise there would be infinite loops. Thats why some operations are more complicate.
+Because of the "stringification" the objects do NOT have backward links, otherwise there would be infinite loops. Thats why some operations are more complicate and there is a need for a history-stack. This history-stack stores the index of the last visited department and the departments on the same level.
 
 == Architecture ==
+
+There is no special architecture for [[Language:HTML5|HTML5]] [[session storage]]. The classes and functions are all defined in the index.html.
 
 == Usage ==
 
