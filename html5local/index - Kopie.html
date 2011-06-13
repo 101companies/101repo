@@ -17,6 +17,11 @@ function HistoryElement(company) {
 	this.company = company;
 }
 
+function HistorySubElement(index, departments) {
+	this.index = index;
+	this.departments = departments;
+}
+
 function loadData() {
 	// If the company does not exist, it must be created locally.
 	if (storageObject.company == null) {
@@ -66,36 +71,41 @@ function back(fromEmployee) {
 	var length = main.history.depList.length;
 	
 	if (fromEmployee == 1) {
-		selectDepartment(main.history.depList.pop());
+		var historyTemp = main.history.depList.pop();
+		currentDepartments = historyTemp.departments;
+		selectDepartment(historyTemp.index);
 	} else {
 		if (length > 1) {
 			main.history.depList.pop();
-			selectDepartment(main.history.depList.pop());
+			var historyTemp = main.history.depList.pop();
+			currentDepartments = historyTemp.departments;
+			selectDepartment(historyTemp.index);
 		} else {
 			selectDepartmentsForCompany(main.history.company);
 		}
 	}
 }
 
-function setName(newName) {
-	alert(newName);
+function setName(newName, empNumber) {
+	var company = main.history.company;
+	
 	currentEmployee.name = newName;
 }
 
-function setAddress(newAddress) {
+function setAddress(newAddress, empNumber) {
 	currentEmployee.address = newAddress;
 }
 
-function setSalary(newSalary) {
+function setSalary(newSalary, empNumber) {
 	currentEmployee.salary = newSalary;
 }
 
 function selectEmployee(empNumber) {
 	var currentEmployee = currentEmployees[empNumber];
 	
-	var employee = "Name:<br><input name=\"name\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.name + "\" onchange=\"setName(this.value)\"><br>";
-	employee += "Address:<br><input name=\"address\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.address + "\" onchange=\"setAddress(this.value)\"><br>";
-	employee += "Salary:<br><input name=\"salary\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.salary + "\" onchange=\"setSalary(this.value)\"><br>";
+	var employee = "Name:<br><input name=\"name\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.name + "\" onchange=\"setName(this.value, " + empNumber + ")\"><br>";
+	employee += "Address:<br><input name=\"address\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.address + "\" onchange=\"setAddress(this.value, " + empNumber + ")\"><br>";
+	employee += "Salary:<br><input name=\"salary\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.salary + "\" onchange=\"setSalary(this.value, " + empNumber + ")\"><br>";
 			
 	document.querySelector('#subheadline').innerHTML = "<h3> Employee: " + currentEmployee.name + "</h3>";
 	document.querySelector('#departments').innerHTML = "";
@@ -104,16 +114,9 @@ function selectEmployee(empNumber) {
 	document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"back(1)\">";
 }
 
-function selectDepartmentWithNumber(depNumber) {
+function selectDepartment(depNumber) {
 	var department = currentDepartments[depNumber];
-	selectDepartment(department);
-}
-
-function selectDepartment(department) {
 	document.querySelector('#subheadline').innerHTML = "<h3> Department: " + department.name + "</h3>";
-	
-	currentDepartments = department.subdepartments;
-	currentEmployees = department.employees;
 	
 	var departments = "Departments: <br>";
 	departments += "<form action=\"select1.htm\">";
@@ -134,7 +137,7 @@ function selectDepartment(department) {
 	departments += "</select>";
 	departments += "</p>";
 			
-	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartmentWithNumber(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
 	departments += "</form>";
 			
 	document.querySelector('#departments').innerHTML = departments;
@@ -182,14 +185,18 @@ function selectDepartment(department) {
 	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutAll()\">";
 	
 	if (main.history.depList) {
-		main.history.depList.push(department);
+		main.history.depList.push(new HistorySubElement(depNumber, currentDepartments));
 	} else {
-		main.history.depList = new Array(department);
+		main.history.depList = new Array(new HistorySubElement(depNumber, currentDepartments));
 	}
+	
+	currentDepartments = department.subdepartments;
+	currentEmployees = department.employees;
 }
 
 function selectDepartmentsForCompany(company) {
 	main.history = new HistoryElement(company);
+	currentCompany = company;
 	
 	document.querySelector('#headline').innerHTML = "<h2> Company: " + company.name + "</h2>";
 	document.querySelector('#subheadline').innerHTML = "";
@@ -214,7 +221,7 @@ function selectDepartmentsForCompany(company) {
 	departments += "</select>";
 	departments += "</p>";
 			
-	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartmentWithNumber(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
 	departments += "</form>";
 
 	document.querySelector('#departments').innerHTML = departments;
@@ -223,6 +230,10 @@ function selectDepartmentsForCompany(company) {
 
 	var total = totalCompany(company);
 	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutAll()\">";
+}
+
+function cutAll() {
+
 }
 
 function totalCompany(company) {
