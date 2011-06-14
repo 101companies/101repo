@@ -13,15 +13,19 @@ var currentEmployee;
 
 var main = {};
 
+// ------------------------------------------------------------------------ History
+// This is the main history element
 function HistoryElement(company) {
 	this.company = company;
 }
 
+// a sub-element saves the index of the current visited department and its neighbours
 function HistorySubElement(index, departments) {
 	this.index = index;
 	this.departments = departments;
 }
 
+// ------------------------------------------------------------------------ Data loading
 function loadData() {
 	// If the company does not exist, it must be created locally.
 	if (storageObject.company == null) {
@@ -67,6 +71,8 @@ function loadData() {
 	return JSON.parse(storageObject.getItem('company'));
 }
 
+// ------------------------------------------------------------------------ back
+// This function is called on the back button ("fromEmployee" = 1, if the last visited page is the data of an employee)
 function back(fromEmployee) {
 	var length = main.history.depList.length;
 	
@@ -86,6 +92,11 @@ function back(fromEmployee) {
 	}
 }
 
+// ------------------------------------------------------------------------ Change data from an employee
+// changes a value of a given employee.
+// newValue: new value
+// empNumber: index of the employee
+// valueIndex: 1 = name, 2 = address, 3 = salary
 function setDatum(newValue, empNumber, valueIndex) {
 	var company = main.history.company;
 	var depList = main.history.depList;
@@ -98,6 +109,7 @@ function setDatum(newValue, empNumber, valueIndex) {
 	storageObject.setItem('company', JSON.stringify(company));	
 }
 
+// searches the employee, which has to be changed.
 function changeEmployee(department, depList, index, newValue, empNumber, valueIndex) {
 	var element = depList[0];
 	if (element.index == index) {
@@ -125,6 +137,7 @@ function changeEmployee(department, depList, index, newValue, empNumber, valueIn
 	return department;
 }
 
+// ------------------------------------------------------------------------ select employee
 function selectEmployee(empNumber) {
 	var currentEmployee = currentEmployees[empNumber];
 	
@@ -139,6 +152,7 @@ function selectEmployee(empNumber) {
 	document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"back(1)\">";
 }
 
+// ------------------------------------------------------------------------ select department
 function selectDepartment(depNumber) {
 	var department = currentDepartments[depNumber];
 	document.querySelector('#subheadline').innerHTML = "<h3> Department: " + department.name + "</h3>";
@@ -219,6 +233,7 @@ function selectDepartment(depNumber) {
 	currentEmployees = department.employees;
 }
 
+//  ------------------------------------------------------------------------ select top-level departments (called on first visit)
 function selectDepartmentsForCompany(company) {
 	main.history = new HistoryElement(company);
 	currentCompany = company;
@@ -257,6 +272,8 @@ function selectDepartmentsForCompany(company) {
 	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
 }
 
+// ------------------------------------------------------------------------ cut
+// cuts all employees
 function cutCompany() {
 	var company = main.history.company;
 	var len = company.departments.length;
@@ -270,6 +287,7 @@ function cutCompany() {
 	storageObject.setItem('company', JSON.stringify(company));
 }
 
+// cuts current selected department and subdepartments
 function cutCurrentDepartment() {
 	document.querySelector('#test').innerHTML += "";
 	var company = main.history.company;
@@ -283,6 +301,7 @@ function cutCurrentDepartment() {
 	storageObject.setItem('company', JSON.stringify(company));
 }
 
+// searches current department in hierarchy
 function moveToDepartment(department, depList, index) {
 	var element = depList[0];
 	if (element.index == index) {
@@ -301,6 +320,7 @@ function moveToDepartment(department, depList, index) {
 	return department;
 }
 
+// cuts a given department
 function cutDepartment(department) {
 	var len = department.subdepartments.length;
 	for (var i = 0; i < len; i++) {
@@ -313,11 +333,14 @@ function cutDepartment(department) {
 	return department;
 }
 
+// cut single employee
 function cutEmployee(employee) {
 	employee.salary = employee.salary / 2;
 	return employee;
 }
 
+// ------------------------------------------------------------------------ total
+// total for the whole company
 function totalCompany(company) {
 	var total = 0;
 	var len = company.departments.length;
@@ -327,6 +350,7 @@ function totalCompany(company) {
 	return total;
 }
 
+// total for a given department and subdepartments
 function totalDepartment(department) {
 	var total = 0;
 	var len = department.subdepartments.length;
@@ -347,7 +371,7 @@ function totalDepartment(department) {
 
 <center>
 
-<h1>101companies HTML 5 WebApp</h1>
+<h1>101companies HTML 5 WebApp with localStorage</h1>
 
 <div id="headline" name="headline"></div><br>
 <hr/>
