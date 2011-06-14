@@ -68,8 +68,8 @@ function createData() {
 	createEmployees();
 }
 
-// -------------------------------------------------------------------------------------------------------------- Create SELECTIONS
-
+// -------------------------------------------------------------------------------------------------------------- SETTER
+// sets the name for a given employee
 function setName(id, name) {
 	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET name = "' + name + '" WHERE id = ' + id, [], function (tx, results) {
@@ -77,6 +77,7 @@ function setName(id, name) {
 	});
 }
 
+// sets the name for a given employee
 function setAddress(id, address) {
 	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET address = "' + address + '" WHERE id = ' + id, [], function (tx, results) {
@@ -84,6 +85,7 @@ function setAddress(id, address) {
 	});
 }
 
+// sets the name for a given employee
 function setSalary(id, salary) {
 	main.db.transaction(function (tx) {
 		tx.executeSql('UPDATE Employee SET salary = ' + salary + ' WHERE id = ' + id, [], function (tx, results) {
@@ -91,6 +93,8 @@ function setSalary(id, salary) {
 	});
 }
 
+// -------------------------------------------------------------------------------------------------------------- Create SELECTIONS
+// selects an employee
 function selectEmployee(id) {
 	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Employee WHERE id = ' + id, [], function (tx, results) {
@@ -114,6 +118,7 @@ function selectEmployee(id) {
 	});
 }
 
+// selects a department
 function selectDepartment(id) {
 	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Department WHERE id = ' + id, [], function (tx, results) {
@@ -199,6 +204,7 @@ function selectDepartment(id) {
 	totalForDepartment(id);
 }
 
+// initial select for the top-level departments
 function selectDepartmentsForCompany(id, name) {
 	main.db.transaction(function (tx) {
 		tx.executeSql('SELECT * FROM Department WHERE cid = ' + id, [], function (tx, results) {
@@ -235,6 +241,7 @@ function selectDepartmentsForCompany(id, name) {
 	totalAll();
 }
 
+// -------------------------------------------------------------------------------------------------------------- TOTAL & CUT
 function totalForDepartment(id) {
 	main.totalDepartment = 0;
 	main.db.transaction(function (tx) {
