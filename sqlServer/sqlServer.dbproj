@@ -114,6 +114,7 @@
     <Folder Include="Scripts\Schemas\dbo\Views\Indexes" />
     <Folder Include="Scripts\Schemas\dbo\Views\Statistics" />
     <Folder Include="Scripts\Schemas\dbo\Views\Triggers" />
+    <Folder Include="Features" />
   </ItemGroup>
   <ItemGroup>
     <PropertiesFile Include="Properties\Database.sqlsettings">
@@ -211,6 +212,15 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Scripts\ScriptsIgnoredOnImport.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Features\sqlCut.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Features\sqlTotal.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Features\sqlDepth.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
   </ItemGroup>

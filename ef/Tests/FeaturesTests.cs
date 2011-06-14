@@ -31,7 +31,7 @@ namespace csharpEntityFramework.Tests
         {
             var ctx = new CompanyDataContext();
             var devDept = ctx.Departments.Where(d => d.Name == "Development").First();
-            Assert.AreEqual(2, devDept.Depth());
+            Assert.AreEqual(3, devDept.Depth());
         }
     }
 }
