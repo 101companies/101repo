@@ -74,9 +74,10 @@ There is no special architecture for [[Language:HTML5|HTML5]] [[session storage]
 
 == Usage ==
 
-This HTML5-program does not work over file-protocol of the browser. 
+There are two possible ways to run this application:
 
-To gain access over http, you can use, for example, XAMPP to create a webserver.
+* Chrome: Just open the index.html with your web-browser
+* This HTML5-program does not work over file-protocol when using Firefox. In this case, you need access over http. To gain access over http, you can use, for example, XAMPP to create a webserver.
 
 # Download XAMPP from http://www.apachefriends.org/en/xampp.html
 # Install XAMPP
