@@ -30,8 +30,8 @@
         <Grid x:Name="ContentPanel" Margin="15,122,9,39" Grid.RowSpan="2">
             <TextBlock Height="51" HorizontalAlignment="Left" Margin="35,96,0,0" Name="textBlock2" Text="Address :" VerticalAlignment="Top" FontSize="26" />
             <TextBlock Height="43" HorizontalAlignment="Left" Margin="35,169,0,0" Name="textBlock3" Text="Salary :" VerticalAlignment="Top" FontSize="26" />
-            <TextBox Height="72" Margin="172,75,22,0" Name="txtAddress" Text="{Binding Path=Person.Address}" VerticalAlignment="Top" IsEnabled="False" />
-            <TextBox Height="72" Margin="172,153,22,0" Name="txtSalary" Text="{Binding Salary}" VerticalAlignment="Top" IsEnabled="False" />
+            <TextBox Height="72" Margin="172,75,22,0" Name="txtAddress" Text="{Binding Path=Person.Address, Mode=TwoWay}" VerticalAlignment="Top" IsEnabled="False" />
+            <TextBox Height="72" Margin="172,153,22,0" Name="txtSalary" Text="{Binding Salary, Mode=TwoWay}" VerticalAlignment="Top" IsEnabled="False" />
         </Grid>
     </Grid>
  
@@ -40,6 +40,7 @@
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Cut Salary" Click="CutSalaryClick"/>
+                <shell:ApplicationBarMenuItem Text="Edit" Click="EditEmployeeClick" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

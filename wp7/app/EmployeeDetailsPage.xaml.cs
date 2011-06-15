@@ -54,5 +54,10 @@ namespace Wp7
             var empl = (Employee) DataContext;
             empl.Cut();
         }
+
+        private void EditEmployeeClick(object sender, EventArgs e)
+        {
+            txtAddress.IsEnabled = true;
+        }
     }
 }
