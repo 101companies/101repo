@@ -10,7 +10,7 @@ database programming with [[Technology:HDBC]]
 == Technologies ==
 
 * [[Technology:HDBC]]
-* [[Technology:Sqlite3]]
+* [[Technology:Sqlite]]
 * [[Technology:GHCi]]      
 
 == Features ==
@@ -30,7 +30,7 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 
 == Usage ==
 
-* Download the sqlite3 CLI tool from the [http://www.sqlite.org/download.html sqlite3 website]
+* Download the sqlite3 CLI tool from the [http://www.sqlite.org/download.html sqlite website]
 * Place the CLI tool in the implementation folder
 * Set up a file based database using the ''create'' target in the [this!!Makefile]
 * The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test'' for test automation.
