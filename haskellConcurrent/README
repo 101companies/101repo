@@ -31,7 +31,7 @@ We also demonstrate the use of tryTakeMVar by implementating an aggregation func
 
 == Usage ==
 
-* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test''' for test automation.
+* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test'' for test automation.
 
 == Contributors ==
 
