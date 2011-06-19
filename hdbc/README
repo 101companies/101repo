@@ -5,7 +5,7 @@ database programming with [[Technology:HDBC]]
 == Languages ==
 
 * [[Language:Haskell 98]]
-* [[Language:SQL]]
+* [[Language:SQL]] (SQLite dialect)
 
 == Technologies ==
 
@@ -22,11 +22,11 @@ database programming with [[Technology:HDBC]]
 == Motivation ==
 
 We use [[Technology:HDBC]] for data processing. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries. 
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within the database. 
 
 == Architecture ==
 
-We provide scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements.
+We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements.
 
 == Usage ==
 
