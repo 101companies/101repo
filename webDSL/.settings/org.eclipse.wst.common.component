@@ -3,8 +3,6 @@
 	<wb-module deploy-name="webDSL">
 		<wb-resource deploy-path="/" source-path="/WebContent"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/.servletapp/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.servletapp/src-template"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.servletapp/src-generated"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/nativejava"/>
 		<property name="context-root" value="webDSL"/>
 		<property name="java-output-path"/>
