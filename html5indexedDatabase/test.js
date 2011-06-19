@@ -2,7 +2,7 @@ var total;
 
 companies.indexedDB.test = function() {
 	//testTotal(399747.0);
-	testCut();
+	//testCut();
 }
 
 function testTotal(expected) {

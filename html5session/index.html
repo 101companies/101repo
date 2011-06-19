@@ -202,13 +202,12 @@ function selectDepartment(depNumber) {
 			}
 			employees += department.employees[i].name + "</option>";
 		} else {
-			manager += "<input type=\"button\" name=\""
-				+ department.employees[i].name
+			manager += "<a "
 				+ "\" value=\"" 
 				+ department.employees[i].name
 				+ "\" onclick=\"selectEmployee('" 
 				+ i
-				+ "')\"><br>";
+				+ "')\"><u>" + department.employees[i].name + "</u></a><br>";
 		}
 	}
 	employees += "</select>";
