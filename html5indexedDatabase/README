@@ -23,7 +23,7 @@ The indexed database is the current alternative to the [[101implementation:html5
 
 == Illustration ==
 
-This is the [[asynchronous communication|asynchronous]] call of the [[101feature:Cut]]-function. The communication between database and application is handled with transactions. After creating a transaction, the result is delivered by a cursor, which runs through the [[Technology:B-Tree|B-Tree]] and collects the wanted elements.
+This is the [[asynchronous communication|asynchronous]] version of the [[101feature:Cut]]-function. The communication between database and application is handled with transactions. After creating a transaction, the result is delivered by a cursor, which runs through the [[Technology:B-Tree|B-Tree]] and collects the wanted elements.
 
 <syntaxhighlight lang="javascript">
 companies.indexedDB.cut = function() {
@@ -49,7 +49,7 @@ companies.indexedDB.cut = function() {
 		result.value.salary = result.value.salary / 2;
 		// store the employee
 		empStore.put(result.value);
-		// return to top
+		// next employee ...
 		result.continue();
 	};
 	
