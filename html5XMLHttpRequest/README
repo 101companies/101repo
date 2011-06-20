@@ -50,7 +50,7 @@ The implementation can access specific nodes of the xml document through [[Techn
 # Deploy the index.html to your htdocs-directory (for example: E:\xampp\htdocs\101implementation-html5\)
 # Start the XAMPP-Control Panel and activate Apache
 # Start your web-browser
-# Call http://localhost/101implementation-html5/index.html
+# Call http://localhost/101implementation-html5/101companies.html
 
 == Contributors ==
 
