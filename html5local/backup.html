@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<!-- This is the code for the 101companies application written in HTML 5 & JavaScript -->
+
+<!-- CLIENT-SIDE, SESSION-STORAGE -->
+<html>
+<head>
+<script type="text/javascript">
+// ------------------------------------------------------------------------ Creating some objects for 101companies
+var storageObject = localStorage;
+var currentDepartments;
+var currentEmployees;
+var currentEmployee;
+
+var main = {};
+
+// ------------------------------------------------------------------------ History
+// This is the main history element
+function HistoryElement(company) {
+	this.company = company;
+}
+
+// a sub-element saves the index of the current visited department and its neighbours
+function HistorySubElement(index, departments) {
+	this.index = index;
+	this.departments = departments;
+}
+
+// ------------------------------------------------------------------------ Data loading
+function loadData() {
+	// If the company does not exist, it must be created locally.
+	if (storageObject.company == null) {
+		// create company ...
+		var company = new Company("Meganalysis");
+
+		// create departments ...
+		var research = new Department("Research");
+		var development = new Department("Development");
+		var development1 = new Department("Dev 1");
+		var development11 = new Department("Dev 1.1");
+
+		// insert departments ...
+		company.departments.push(research);
+		company.departments.push(development);
+		development.subdepartments.push(development1);
+		development1.subdepartments.push(development11);
+
+		// create employees ...
+		var craig = new Employee("Craig", "Redmond", 123456.0, true);
+		var eric = new Employee("Eric", "Utrecht", 12345.0, false);
+		var ralf = new Employee("Ralf", "Koblenz", 1234.0, false);
+		var ray = new Employee("Ray", "Redmond", 234567.0, true);
+		var klaus = new Employee("Klaus", "Boston", 23456.0, true);
+		var karl = new Employee("Karl", "Riga", 2345.0, true);
+		var joe = new Employee("Joe", "Wifi City", 2344.0, false);
+		
+		// insert employees ...
+		research.employees.push(craig);
+		research.employees.push(eric);
+		research.employees.push(ralf);
+		
+		development.employees.push(ray);
+		
+		development1.employees.push(klaus);
+		
+		development11.employees.push(karl);
+		development11.employees.push(joe);
+
+		// save company
+		storageObject.setItem('company', JSON.stringify(company));
+	}
+	return JSON.parse(storageObject.getItem('company'));
+}
+
+// ------------------------------------------------------------------------ back
+// This function is called on the back button ("fromEmployee" = 1, if the last visited page is the data of an employee)
+function back(fromEmployee) {
+	var length = main.history.depList.length;
+	
+	if (fromEmployee == 1) {
+		var historyTemp = main.history.depList.pop();
+		currentDepartments = historyTemp.departments;
+		selectDepartment(historyTemp.index);
+	} else {
+		if (length > 1) {
+			main.history.depList.pop();
+			var historyTemp = main.history.depList.pop();
+			currentDepartments = historyTemp.departments;
+			selectDepartment(historyTemp.index);
+		} else {
+			selectDepartmentsForCompany(main.history.company);
+		}
+	}
+}
+
+// ------------------------------------------------------------------------ Change data from an employee
+// changes a value of a given employee.
+// newValue: new value
+// empNumber: index of the employee
+// valueIndex: 1 = name, 2 = address, 3 = salary
+function setDatum(newValue, empNumber, valueIndex) {
+	var company = main.history.company;
+	var depList = main.history.depList;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = changeEmployee(company.departments[i], depList, i, newValue, empNumber, valueIndex);
+	}
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));	
+}
+
+// searches the employee, which has to be changed.
+function changeEmployee(department, depList, index, newValue, empNumber, valueIndex) {
+	var element = depList[0];
+	if (element.index == index) {
+		nextDepList = depList.slice(1);
+		if (nextDepList.length == 0) {
+			var len = department.employees.length;
+			for (var i = 0; i < len; i++) {
+				if (empNumber == i) {
+					if (valueIndex == 1) {
+						department.employees[i].name = newValue;
+					} else if (valueIndex == 2) {
+						department.employees[i].address = newValue;
+					} else {
+						department.employees[i].salary = parseFloat(newValue);
+					}
+				}
+			}
+		} else {
+			var len = department.subdepartments.length;
+			for (var i = 0; i < len; i++) {
+				department.subdepartments[i] = changeEmployee(department.subdepartments[i], nextDepList, i, newValue, empNumber, valueIndex);
+			}
+		}
+	}
+	return department;
+}
+
+// ------------------------------------------------------------------------ select employee
+function selectEmployee(empNumber) {
+	var currentEmployee = currentEmployees[empNumber];
+	
+	var employee = "Name:<br><input name=\"name\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.name + "\" onchange=\"setDatum(this.value, " + empNumber + ", 1)\"><br>";
+	employee += "Address:<br><input name=\"address\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.address + "\" onchange=\"setDatum(this.value, " + empNumber + ", 2)\"><br>";
+	employee += "Salary:<br><input name=\"salary\" type=\"text\" size=\"30\" maxlength=\"30\" value=\"" + currentEmployee.salary + "\" onchange=\"setDatum(this.value, " + empNumber + ", 3)\"><br>";
+			
+	document.querySelector('#subheadline').innerHTML = "<h3> Employee: " + currentEmployee.name + "</h3>";
+	document.querySelector('#departments').innerHTML = "";
+	document.querySelector('#employees').innerHTML = employee;
+	document.querySelector('#total').innerHTML = "";
+	document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"back(1)\">";
+}
+
+// ------------------------------------------------------------------------ select department
+function selectDepartment(depNumber) {
+	var department = currentDepartments[depNumber];
+	document.querySelector('#subheadline').innerHTML = "<h3> Department: " + department.name + "</h3>";
+	
+	var departments = "Departments: <br>";
+	departments += "<form action=\"select1.htm\">";
+	departments += "<p>";
+	departments += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
+	
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		if(i == 0) {
+			departments += "<option value=\"" + i + "\" selected>";
+		} else {
+			departments += "<option value=\"" + i + "\">";
+		}
+		departments += department.subdepartments[i].name + "</option>";
+		
+	}
+	
+	departments += "</select>";
+	departments += "</p>";
+			
+	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+	departments += "</form>";
+			
+	document.querySelector('#departments').innerHTML = departments;
+	
+	var lenEmp = department.employees.length;
+	var employees = "Employees: <br>";
+	var manager = "Manager: <br>";
+	var employeeTemp = "";
+	
+	employees += "<form action=\"select1.htm\">";
+	employees += "<p>";
+	employees += "<select name=\"Employees\" size=\"5\" STYLE=\"width:100px;\">";
+	
+	var elementSelected = false;
+	
+	for (var i = 0; i < lenEmp; i++) {
+		if (department.employees[i].manager == false) {
+			if(elementSelected == false) {
+				employees += "<option value=\"" + i + "\" selected>";
+				elementSelected = true;
+			} else {
+				employees += "<option value=\"" + i + "\">";
+			}
+			employees += department.employees[i].name + "</option>";
+		} else {
+			manager += "<a "
+				+ "\" value=\"" 
+				+ department.employees[i].name
+				+ "\" onclick=\"selectEmployee('" 
+				+ i
+				+ "')\"><u>" + department.employees[i].name + "</u></a><br>";
+		}
+	}
+	employees += "</select>";
+	employees += "</p>";
+			
+	employees += "<input type=\"button\" value=\"select\" onclick=\"selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\" >";
+	employees += "</form>";
+
+	document.querySelector('#employees').innerHTML = manager + employees;
+	document.querySelector('#back').innerHTML = "<br><input type=\"button\" name=\"back\" value=\"back\" onclick=\"back(0)\">";
+	
+	if (main.history.depList) {
+		main.history.depList.push(new HistorySubElement(depNumber, currentDepartments));
+	} else {
+		main.history.depList = new Array(new HistorySubElement(depNumber, currentDepartments));
+	}
+	
+	var total = totalDepartment(department);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCurrentDepartment()\">";
+	
+	currentDepartments = department.subdepartments;
+	currentEmployees = department.employees;
+}
+
+//  ------------------------------------------------------------------------ select top-level departments (called on first visit)
+function selectDepartmentsForCompany(company) {
+	main.history = new HistoryElement(company);
+	currentCompany = company;
+	
+	document.querySelector('#headline').innerHTML = "<h2> Company: " + company.name + "</h2>";
+	document.querySelector('#subheadline').innerHTML = "";
+	
+	var departments = "Departments: <br>";
+	departments += "<form action=\"select1.htm\">";
+	departments += "<p>";
+	departments += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
+	
+	currentDepartments = company.departments;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		if(i == 0) {
+			departments += "<option value=\"" + i + "\" selected>";
+		} else {
+			departments += "<option value=\"" + i + "\">";
+		}
+		departments += company.departments[i].name + "</option>";
+		
+	}
+	
+	departments += "</select>";
+	departments += "</p>";
+			
+	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+	departments += "</form>";
+
+	document.querySelector('#departments').innerHTML = departments;
+	document.querySelector('#employees').innerHTML = "";
+	document.querySelector('#back').innerHTML = "";
+
+	var total = totalCompany(company);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
+}
+
+// ------------------------------------------------------------------------ cut
+// cuts all employees
+function cutCompany() {
+	var company = main.history.company;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = cutDepartment(company.departments[i]);
+	}
+	var total = totalCompany(company);
+	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));
+}
+
+// cuts current selected department and subdepartments
+function cutCurrentDepartment() {
+	document.querySelector('#test').innerHTML += "";
+	var company = main.history.company;
+	var depList = main.history.depList;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		company.departments[i] = moveToDepartment(company.departments[i], depList, i);
+	}
+	
+	// save company
+	storageObject.setItem('company', JSON.stringify(company));
+}
+
+// searches current department in hierarchy
+function moveToDepartment(department, depList, index) {
+	var element = depList[0];
+	if (element.index == index) {
+		nextDepList = depList.slice(1);
+		if (nextDepList.length == 0) {
+			department = cutDepartment(department);
+			var total = totalDepartment(department);
+			document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCurrentDepartment()\">";
+		} else {
+			var len = department.subdepartments.length;
+			for (var i = 0; i < len; i++) {
+				department.subdepartments[i] = moveToDepartment(department.subdepartments[i], nextDepList, i);
+			}
+		}
+	}
+	return department;
+}
+
+// cuts a given department
+function cutDepartment(department) {
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		department.subdepartments[i] = cutDepartment(department.subdepartments[i]);
+	}
+	var lenEmp = department.employees.length;
+	for (var i = 0; i < lenEmp; i++) {
+		department.employees[i] = cutEmployee(department.employees[i]);
+	}
+	return department;
+}
+
+// cut single employee
+function cutEmployee(employee) {
+	employee.salary = employee.salary / 2;
+	return employee;
+}
+
+// ------------------------------------------------------------------------ total
+// total for the whole company
+function totalCompany(company) {
+	var total = 0;
+	var len = company.departments.length;
+	for (var i = 0; i < len; i++) {
+		total += totalDepartment(company.departments[i]);
+	}
+	return total;
+}
+
+// total for a given department and subdepartments
+function totalDepartment(department) {
+	var total = 0;
+	var len = department.subdepartments.length;
+	for (var i = 0; i < len; i++) {
+		total += totalDepartment(department.subdepartments[i]);
+	}
+	var lenEmp = department.employees.length;
+	for (var i = 0; i < lenEmp; i++) {
+		total += department.employees[i].salary;
+	}
+	return total;
+}
+
+</script> 
+
+</head>
+<body>
+
+<center>
+
+<h1>101companies HTML 5 WebApp with localStorage</h1>
+
+<div id="headline" name="headline"></div><br>
+<hr/>
+<div id="subheadline" name="subheadline"></div><br>
+<div id="employees" name="employees"></div><br>
+<div id="departments" name="departments"></div><br>
+<hr/>
+<div id="total" name="total"></div><br>
+<hr/>
+<div id="back" name="back"></div><br><br><br>
+<div id="test" name="test"></div>
+
+<script>
+// ------------------------------------------------------------------------ Creating the classes for 101companies
+
+/*
+ * Class: Company 
+ *
+ * A company has a name and contains several departments.
+ */
+function Company (name) {
+	this.name = name;
+	this.departments = new Array();
+}
+
+/*
+ * Class: Department 
+ *
+ * A department has a name and contains several employees. It is part of a company.
+ */ 
+function Department (name) {
+	this.name = name;
+	this.employees = new Array();
+	this.subdepartments = new Array();
+}
+
+/*
+ * Class: Employee
+ *
+ * An Employee has a name, address and salary. He is part of a department.
+ */
+function Employee (name, address, salary, manager) {
+	this.name = name;
+	this.address = address;
+	this.salary = salary;
+	this.manager = manager;
+}
+
+// -------------------------------------------------------------------------------------------------------------- INIT
+var savedCompany = loadData();
+selectDepartmentsForCompany(savedCompany);
+
+</script> 
+
+</center>
+
+</body>
+</html> 
