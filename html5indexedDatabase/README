@@ -23,6 +23,8 @@ The indexed database is the current alternative to the (deprecated) [[101impleme
 
 == Illustration ==
 
+This is the [[asynchronous communication|asynchronous]] call of the [[101feature:Cut]]-function. The communication between database and application is handled with transactions. After creating a transaction, the result is delivered by a cursor, which runs through the [[Technology:B-Tree|B-Tree]] and collects the wanted elements.
+
 <syntaxhighlight lang="javascript">
 companies.indexedDB.cut = function() {
 	// get database
