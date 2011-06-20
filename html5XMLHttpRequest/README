@@ -39,13 +39,12 @@ function total(company) {
 }
 </syntaxhighlight>
 
-The implementation can access specific nodes of the xml document through [[Technology:DOM]] (''getElementsByTagName("...")''). The result is a list of nodes (''salaryNodes''), which consists of all salaries in the [[101feature:Company|company]]. The sum of the ''nodeValue'' is the result for the [[101feature:Total]]-method.
-
+The implementation can access specific nodes of the xml document through [[Technology:DOM]] (''getElementsByTagName("...")''). The result is a list of nodes (''salaryNodes''), which consist of all salaries in the [[101feature:Company|company]]. The sum of the ''nodeValue'' is the result for the [[101feature:Total]]-method.
 
 == Usage ==
 
 * Open the 101companies.html with your web-browser
-* This HTML5-program does not work over file-protocol when using Firefox. In this case, you need access over http. To gain access over http, you can use, for example, XAMPP to create a webserver. 
+* This HTML5-program does not work over file-protocol when using Chrome. In this case, you need access over http. To gain access over http, you can use, for example, XAMPP to create a webserver. 
 
 # Download XAMPP from http://www.apachefriends.org/en/xampp.html
 # Install XAMPP
