@@ -22,10 +22,10 @@ namespace wcfRest
         // TODO: Implement the collection resource that will contain the SampleItem instances
         private Company Company
         {
-            get { return CompanyBuilder.CreateInMemoryModel(); }
+            get { return CompanyRepository.CreateInMemoryModel(); }
         }
 
-        [WebGet(UriTemplate = "")]
+        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
         public Company GetCompany()
         {
             return Company;
