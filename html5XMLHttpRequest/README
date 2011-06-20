@@ -21,13 +21,38 @@
 
 == Motivation ==
 
-While the most [[Language:HTML5|HTML5]] implementations provide [[client-side]] data storage, this implementation attends to [[server-side]] data storage. The [[client]] requests for ''company.xml'' over http-request and loads the data directly from this xml.
+While the most [[Language:HTML5|HTML5]] implementations provide [[client-side]] data storage, this [[Category:101implementation|implementation]] attends to [[server-side]] data storage. The [[client]] requests for ''company.xml'' over http-request and loads the data directly from this xml with [[Technology:DOM]].
 
 == Illustration ==
+
+The [[Technology:DOM]]-based [[101feature:Total]]-implementation in [[Language:JavaScript]] is:
+
+<syntaxhighlight lang="javascript">
+function total(company) {
+	var t = 0;
+	var salaryNodes = company.getElementsByTagName("Salary");
+	for (var i = 0; i < salaryNodes.length; i++) {
+		var element = salaryNodes[i];
+		t += parseFloat(element.childNodes[0].nodeValue);
+	}
+	return t;
+}
+</syntaxhighlight>
+
+The implementation can access specific nodes of the xml document through [[Technology:DOM]] (''getElementsByTagName("...")''). The result is a list of nodes (''salaryNodes''), which consists of all salaries in the [[101feature:Company|company]]. The sum of the ''nodeValue'' is the result for the [[101feature:Total]]-method.
+
 
 == Usage ==
 
 * Open the 101companies.html with your web-browser
+* This HTML5-program does not work over file-protocol when using Firefox. In this case, you need access over http. To gain access over http, you can use, for example, XAMPP to create a webserver. 
+
+# Download XAMPP from http://www.apachefriends.org/en/xampp.html
+# Install XAMPP
+# Deploy the index.html to your htdocs-directory (for example: E:\xampp\htdocs\101implementation-html5\)
+# Start the XAMPP-Control Panel and activate Apache
+# Start your web-browser
+# Call http://localhost/101implementation-html5/index.html
 
 == Contributors ==
 
