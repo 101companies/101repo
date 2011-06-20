@@ -32,7 +32,7 @@
  <h3>Total salaries: <s:property value="total"/> </h3>
 </s:push>
 
-<table id="hor-minimalist-a" summary="Employee Pay Sheet">
+<table id="box-table-a" summary="Employee Pay Sheet">
     <thead>
     	<tr>
             <th scope="col">Name</th>
@@ -45,7 +45,7 @@
 		    <s:iterator value="company.depts">
   	    	    <tr>
 			<td><s:property value="name"/></td>
-    			<td><s:property value="total"/></td>
+    		<td><s:property value="total"/></td>
 			<td>
  			  <s:url id="cutURL" action="company.cutSalariesOfDepartment">
   			   <s:param name="dptId" value="%{id}"/>

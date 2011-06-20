@@ -26,14 +26,16 @@
 
 
 <p>This implementation uses struts2 and struts2-convention-plugin so that its navigation process is 
-based on name conventions, instead of xml file configurations. Please, take a look at:</p>  
+based on name conventions, instead of XML file configurations. Please, take a look at:</p>  
 
 <ul>
+<li>http://struts.apache.org/</li>
 <li>http://struts.apache.org/2.1.6/docs/convention-plugin.html</li>
+<li>http://struts.apache.org/2.2.3/docs/home.html</li>
 </ul>
 
 <s:form action="list-all-companies">
-	<s:submit label="View all companies" />
+	<s:submit value="List all companies" />
 </s:form>
 
 </body>

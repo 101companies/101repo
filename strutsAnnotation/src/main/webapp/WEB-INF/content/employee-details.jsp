@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="/struts-tags" prefix="s" %>
+
 <html>
 <head>
-<title>101companies - all companies</title>
+<title>101companies - Department Details</title>
     <style type="text/css">
        <%@ include file="../../tab-style.css" %>
     </style>
@@ -24,42 +25,30 @@
       }
     </STYLE>
 </head>
+
 <body>
 
-<h2>All companies</h2>
+<h2>Employee details</h2>
 
-<s:form action="company">
-<table id="box-table-a" summary="Employee Pay Sheet">
-    <thead>
-    	<tr>
-            <th scope="col">Name</th>
-            <th scope="col">Total Salary</th>
-	    <th scope="col">Cut salaries</th>
-	    <th scope="col">Show details</th>
-        </tr>
-    </thead>
-    <tbody> 
-    	    
-    	    	    <s:iterator value="allCompanies">
-  	    	    <tr>
-			<td><s:property value="name"/></td>
-    			<td><s:property value="total"/></td>
-			<td>
- 			  <s:url id="cutURL" action="company.cutSalaries">
-  			   <s:param name="id" value="%{id}"/>
- 			  </s:url>
- 			  <s:a href="%{cutURL}">Cut</s:a>
-                        </td>
-			<td>
- 			  <s:url id="detailURL" action="company.details">
-  			   <s:param name="id" value="%{id}"/>
- 			  </s:url>
- 			  <s:a href="%{detailURL}">Detail</s:a>
-                        </td>
-  	    	    </tr>
- 		    </s:iterator>
-    </tbody>	
-</table> 
+
+
+<s:if test="message != null">
+ <h2><s:property value="message"/>  </h2>
+</s:if>
+
+
+<s:form action="employee.update" >
+
+
+
+<s:textfield label="Name" value="%{employee.name}"  name="employee.name" /> 
+<s:textfield label="Salary" value="%{employee.salary}" name="employee.salary" /> 
+<s:textfield label="Address" value="%{employee.address}" name="employee.address" /> 
+
+<s:hidden name="employee.id" value="%{employee.id}"/>
+
+<s:submit label="Update" value="Update" />
 </s:form>
+
 </body>
 </html>

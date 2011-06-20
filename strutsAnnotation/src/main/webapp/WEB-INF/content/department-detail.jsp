@@ -28,53 +28,67 @@
 
 <body>
 
-<s:form>
-
 <h2>Department details</h2>
 
-<s:textfield label="Name" value="%{department.name}"  /> 
-<s:textfield label="Manager" value="%{department.manager.name}"  /> 
+
+
+<s:if test="message != null">
+ <h2><s:property value="message"/>  </h2>
+</s:if>
+
+
+<s:form action="department.update" >
+
+
+
+<s:textfield label="Name" value="%{department.name}"  name="department.name" /> 
+<s:textfield label="Manager" value="%{department.manager.name}" name="department.manager.name" /> 
+<s:textfield label="Manager salary" value="%{department.manager.salary}" name="department.manager.salary" /> 
+<s:textfield label="Manager address" value="%{department.manager.address}" name="department.manager.address" /> 
 <s:textfield label="Total salaries" value="%{department.total}" readonly="true"  /> 
 
-<s:submit label="Update" action="department.update" />
+<s:hidden name="department.id" value="%{department.id}"/>
 
-<table id="hor-minimalist-a" summary="Subunits">
-    <thead>
+<s:submit label="Update" value="Update" />
+<s:submit label="Cut" value="Cut salaries" action="department.cutSalariesOfDepartment"  />
+
+</s:form>
+
+<table id="box-table-a" summary="Subunits">
+        <thead>
     	<tr>
-            <th scope="col">Name</th>
-            <th scope="col">Total Salary</th>
-	    <th scope="col">Cut salaries</th>
-	    <th scope="col">Show details</th>
+        	<th scope="col" class="rounded-company">Unit</th>
+            <th scope="col" class="rounded-q1">Salary</th>
+            <th scope="col" class="rounded-q2">Show details</th>
+
         </tr>
     </thead>
     <tbody> 
-		    <s:iterator value="department.subunits">
+    		<s:iterator value="department.subunits">
   	    	    <tr>
 			<td><s:property value="name"/></td>
-    			<td><s:property value="total"/></td>
-			<td>
- 			  <s:url id="detailURL" action="subunit.cutSalaries">
-  			     <s:param name="name" value="%{name}"/>
- 			     <s:param name="parentId" value="%{department.id}" />
-			  </s:url>
- 			  <s:a href="%{detailURL}">Cut</s:a>
-                        </td>
-			<td>
+    		<td><s:property value="total"/></td>
   			 <s:if test="%{isDepartment()}">
- 			    <s:url id="detailURL" action="department.detail">
-  			     <s:param name="dptId" value="%{id}"/>
- 			    </s:url>
- 			    <s:a href="%{detailURL}">Detail</s:a>
+  			 	<td>
+ 			    	<s:url id="detailURL" action="department.detail">
+  			     	 <s:param name="dptId" value="%{id}"/>
+ 			    	</s:url>
+ 			    	<s:a href="%{detailURL}">Detail</s:a>
+ 			    </td>
 			 </s:if>
 			 <s:else>
-    			  -
+    			<td>
+ 			    	<s:url id="detailEmployeeURL" action="employee.detail">
+  			     	 <s:param name="empId" value="%{id}"/>
+  			     	 <s:param name="dptId" value="%{department.id}" />
+ 			    	</s:url>
+ 			    	<s:a href="%{detailEmployeeURL}">Detail</s:a>
+ 			    </td>
 			 </s:else>
-			</td>
-  	    	    </tr>
- 		    </s:iterator>
+  	    </tr>
+ 		</s:iterator>	
     </tbody>	
 </table> 
-</s:form>
 
 </body>
 </html>
