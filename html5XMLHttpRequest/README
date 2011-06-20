@@ -19,7 +19,9 @@
 * [[101feature:Total]]
 * [[101feature:Cut]]
 
-== Motivation == 
+== Motivation ==
+
+While the most [[Language:HTML5|HTML5]] implementations provide [[client-side]] data storage, this implementation attends to [[server-side]] data storage. The [[client]] requests for ''company.xml'' over http-request and loads the data directly from this xml.
 
 == Illustration ==
 
