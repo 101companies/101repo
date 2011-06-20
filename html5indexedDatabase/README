@@ -23,6 +23,38 @@ The indexed database is the current alternative to the (deprecated) [[101impleme
 
 == Illustration ==
 
+<syntaxhighlight lang="javascript">
+companies.indexedDB.cut = function() {
+	// get database
+	var db = companies.indexedDB.db;
+
+	// create transaction to the indexed database
+	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
+	// retrieve employee store
+	var empStore = transEmp.objectStore("Employee");
+	
+	// Get every single employee in the store
+	var keyRange = IDBKeyRange.lowerBound(0);
+	var cursorRequest = empStore.openCursor(keyRange);
+
+	// cursor runs through the result-set
+	cursorRequest.onsuccess = function(e) {
+		var result = e.target.result;
+		if(!!result == false)
+			return;
+
+		// cut the salary
+		result.value.salary = result.value.salary / 2;
+		// store the employee
+		empStore.put(result.value);
+		// return to top
+		result.continue();
+	};
+	
+	cursorRequest.onerror = companies.indexedDB.onerror;
+}
+</syntaxhighlight>
+
 == Usage ==
 
 * Open the 101companies.html with your web-browser (check [[Language:HTML5|HTML5]] for the HTML5-support of your browser)
