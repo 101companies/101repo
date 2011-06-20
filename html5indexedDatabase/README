@@ -19,7 +19,7 @@
 
 == Motivation ==
 
-The indexed database is the current alternative to the (deprecated) [[101implementation:html5sqlDatabase|web database]] in HTML5. Apart from web storage ([[101implementation:html5local|local storage]] and [[101implementation:html5session|session storage]]), the indexed database feature gains the main support in relation to [[offline storage]].
+The indexed database is the current alternative to the [[101implementation:html5sqlDatabase|web database]] (outdated!) in HTML5. Apart from web storage ([[101implementation:html5local|local storage]] and [[101implementation:html5session|session storage]]), the indexed database feature gains the main support in relation to [[offline storage]].
 
 == Illustration ==
 
