@@ -12,6 +12,10 @@ controller.cutDepartment = function(name) {
 	model.cutDepartment(name);
 }
 
+controller.selectEmployee = function(name) {
+	
+}
+
 controller.updateTotal = function(value) {
 	refreshTotal(value);
 }

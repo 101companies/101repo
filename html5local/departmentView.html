@@ -31,16 +31,15 @@ process();
 document.write("<h1>" + model.getCompanyName() + "</h1>");
 document.write("<h3>" + departmentName + "</h3>");
 
-
-
 </script>
 
 <div id="content" name="content"></div><br>
-<div id="total" name="total"></div>
+<div id="total" name="total"></div><br>
+<div id="test" name="test"></div><br>
 
 <script type="text/javascript">
 
-departmentList = model.getSubDepartments(departmentName);
+var departmentList = model.getSubDepartments(departmentName);
 
 var content = "Departments: <br>";
 content += "<form action=\"select1.htm\">";
@@ -62,6 +61,28 @@ content += "</p>";
 content += "<input type=\"button\" value=\"select\" onclick=\"controller.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
 content += "</form>";
 
+var employeeList = model.getEmployees(departmentName);
+
+content += "<br><br>Employees: <br>";
+content += "<form action=\"select1.htm\">";
+content += "<p>";
+content += "<select name=\"Employees\" size=\"5\" STYLE=\"width:100px;\">";
+
+for (var i = 0; i < employeeList.length; i++) {
+	if(i == 0) {
+		content += "<option value=\"" + employeeList[i] + "\" selected>";
+	} else {
+		content += "<option value=\"" + employeeList[i] + "\">";
+	}
+	content += employeeList[i] + "</option>";
+}
+
+content += "</select>";
+content += "</p>";
+		
+content += "<input type=\"button\" value=\"select\" onclick=\"controller.selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\" >";
+content += "</form>";
+
 document.querySelector('#content').innerHTML = content;
 
 function refreshTotal() {
@@ -69,6 +90,8 @@ function refreshTotal() {
 	document.querySelector('#total').innerHTML = "<br>Total: " + total + " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"controller.cutDepartment('" + departmentName + "')\">";
 }
 refreshTotal();
+
+
 
 </script>
 </center>
