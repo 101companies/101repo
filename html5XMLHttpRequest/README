@@ -10,7 +10,8 @@
 == Technologies ==
 
 * [[Technology:DOM]]
-* An HTML5-compliant browser
+* [[Technology:XMLHttpRequest]]
+* HTML5-compliant [[Technology:Browser|browser]]
 
 == Features ==
 
