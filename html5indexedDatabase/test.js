@@ -1,8 +1,8 @@
 var total;
 
 companies.indexedDB.test = function() {
-	//testTotal(399747.0);
-	//testCut();
+	testTotal(399747.0);
+	testCut();
 }
 
 function testTotal(expected) {
