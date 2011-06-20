@@ -19,7 +19,7 @@ function testCut() {
 
 function result(re) {
 	var b = total == re;
-	document.getElementById("total").innerHTML += b;
+	document.getElementById("total").innerHTML += b + "<br>";
 }
 
 companies.indexedDB.getAllCompanies = function() {
