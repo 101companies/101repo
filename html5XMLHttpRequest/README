@@ -11,7 +11,6 @@
 
 * [[Technology:DOM]]
 * [[Technology:XMLHttpRequest]]
-* HTML5-compliant [[Technology:Browser|browser]]
 
 == Features ==
 
@@ -43,8 +42,8 @@ The implementation can access specific nodes of the xml document through [[Techn
 
 == Usage ==
 
-* Open the 101companies.html with your web-browser
-* This HTML5-program does not work over file-protocol when using Chrome. In this case, you need access over http. To gain access over http, you can use, for example, XAMPP to create a webserver. 
+* Open the 101companies.html with your web-browser (check [[Language:HTML5|HTML5]] for the HTML5-support of your browser)
+* This HTML5-program does not work over file-protocol when using Chrome. In this case, you need access over http. To gain access over http, you can use XAMPP, for example, to create a webserver. 
 
 # Download XAMPP from http://www.apachefriends.org/en/xampp.html
 # Install XAMPP
