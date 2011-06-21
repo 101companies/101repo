@@ -1,21 +1,33 @@
 var gui = {};
 
+// this function updates the complete page
 gui.update = function() {
-	document.querySelector('#headline').innerHTML = "<h1>" + model.headline + "</h1>";
+	gui.generateDepartments();
 	
 	document.querySelector('#reset').innerHTML = "<br><br><br><input type=\"button\" value=\"reset\" onclick=\"model.reset()\">";
-	gui.generateDepartments();
 }
 
+// this function updates the total value
 gui.updateTotal = function() {
-	document.querySelector('#total').innerHTML = "<br>Total: " + model.totalValue + " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"model.cut()\">";
+	document.company.total.value = model.totalValue;
 }
 
+// this function generates the gui for the company-page
 gui.generateDepartments = function() {
-	var content = "Departments: <br>";
-	content += "<form action=\"select1.htm\">";
-	content += "<p>";
-	content += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
+
+	// create a form
+	var content = "<form name=\"company\">";
+	
+	// create a table
+	content += "<table border=0>";
+	
+	// company name
+	content += "<tr><td align=\"right\">Name: </td><td><input type=\"text\" value='" + model.headline + "' onchange=\"model.changeName(this.value)\" STYLE=\"width:100%;\"></td></tr>";
+	
+	// department list
+	content += "<tr ><td valign=\"top\" align=\"right\"><br>Departments: </td>";
+	content += "<td align=\"center\"><p>";
+	content += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100%;\">";
 
 	for (var i = 0; i < model.departments.length; i++) {
 		if(i == 0) {
@@ -28,9 +40,18 @@ gui.generateDepartments = function() {
 
 	content += "</select>";
 	content += "</p>";
-			
-	content += "<input type=\"button\" value=\"select\" onclick=\"model.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
+	
+	// department selection button
+	content += "<input type=\"button\" value=\"select\" onclick=\"model.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\"><br><br></td></tr>";
+
+	// total
+	content += "<tr><td align=\"right\">Total: </td>";
+	content += "<td><input type=\"text\" name=\"total\" readonly=\"readonly\">";
+	content += " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"model.cut()\"></td></tr>";
+	
+	content += "</table>";
 	content += "</form>";
 
+	// move content to form
 	document.querySelector('#content').innerHTML = content;
 }

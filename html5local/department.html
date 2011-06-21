@@ -8,27 +8,17 @@
 </head>
 <body>
 
-<script type="text/javascript">
+<center>
+<h1>101Companies HTML5 implementation with local storage</h1>
 
-</script>
+<h3>Department</h3>
 
 <script type="text/javascript" src="company.js"></script>
-<script type="text/javascript" src="controller.js"></script>
+<script type="text/javascript" src="departmentController.js"></script>
 <script type="text/javascript" src="departmentView.js"></script>
-<script type="text/javascript" src="model.js"></script>
+<script type="text/javascript" src="departmentModel.js"></script>
 
-<center>
 <script type="text/javascript">
-
-function process() {
-    var parameters = location.search.substring(1).split("&");
-
-	var temp = parameters[0].split("=");
-	departmentId = unescape(temp[1]);
-}
-process();
-
-document.write("<h3>" + model.getDepartmentName(departmentId) + "</h3>");
 
 </script>
 
@@ -39,7 +29,7 @@ document.write("<h3>" + model.getDepartmentName(departmentId) + "</h3>");
 <div id="test" name="test"></div><br>
 
 <script type="text/javascript">
-model.getCompanyName();
+model.loadDepartment();
 
 var departmentList = model.getSubDepartments(departmentId);
 
