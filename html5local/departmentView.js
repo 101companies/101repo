@@ -27,7 +27,7 @@ gui.generateFormular = function() {
 	// manager
 	content += "<tr><td align=\"right\">Manager: </td>";
 	content += "<td><input type=\"text\" name=\"manager\" readonly=\"readonly\" value='" + model.manager + "'>";
-	content += " <input type=\"button\" name=\"edit\" value=\"edit\" onclick=\"model.editManager()\"></td></tr>";
+	content += " <input type=\"button\" name=\"edit\" value=\"edit\" onclick=\"model.selectEmployee(this.form.manager.value)\"></td></tr>";
 	
 	// employee list
 	content += "<tr ><td valign=\"top\" align=\"right\"><br>Employees: </td>";
