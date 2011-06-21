@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<!-- employee view -->
+<html>
+<head>
+
+</head>
+<body>
+
+<center>
+<script type="text/javascript" src="head.js"></script>
+
+<script type="text/javascript" src="company.js"></script>
+<script type="text/javascript" src="employeeController.js"></script>
+<script type="text/javascript" src="employeeView.js"></script>
+<script type="text/javascript" src="employeeModel.js"></script>
+
+<script type="text/javascript">
+
+function process() {
+    var parameters = location.search.substring(1).split("&");
+
+	var temp = parameters[0].split("=");
+	employeeId = unescape(temp[1]);
+}
+process();
+
+</script>
+
+<div id="content" name="content"></div>
+
+<script type="text/javascript">
+model.loadEmployee(employeeId);
+</script>
+
+</body>
+</html>
