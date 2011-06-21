@@ -2,7 +2,7 @@ var gui = {};
 
 // this function updates the complete page
 gui.update = function() {
-	gui.generateDepartments();
+	gui.generateFormular();
 	
 	document.querySelector('#reset').innerHTML = "<br><br><br><input type=\"button\" value=\"reset\" onclick=\"model.reset()\">";
 }
@@ -13,7 +13,7 @@ gui.updateTotal = function() {
 }
 
 // this function generates the gui for the company-page
-gui.generateDepartments = function() {
+gui.generateFormular = function() {
 
 	// create a form
 	var content = "<form name=\"company\">";

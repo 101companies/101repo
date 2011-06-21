@@ -20,16 +20,21 @@
 
 <script type="text/javascript">
 
+function process() {
+    var parameters = location.search.substring(1).split("&");
+
+	var temp = parameters[0].split("=");
+	departmentId = unescape(temp[1]);
+}
+process();
+
 </script>
 
-<div id="headline" name="headline"></div><br>
-<div id="subheadline" name="subheadline"></div><br>
 <div id="content" name="content"></div><br>
-<div id="total" name="total"></div><br>
-<div id="test" name="test"></div><br>
 
 <script type="text/javascript">
-model.loadDepartment();
+model.loadDepartment(departmentId);
+/*model.getCompanyName();
 
 var departmentList = model.getSubDepartments(departmentId);
 
@@ -87,7 +92,7 @@ function refreshTotal() {
 	var total = model.totalDepartment(departmentId);
 	document.querySelector('#total').innerHTML = "<br>Total: " + total + " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"controller.cutDepartment(" + departmentId + ")\">";
 }
-refreshTotal();
+refreshTotal();*/
 
 
 
