@@ -1,7 +1,5 @@
 <!DOCTYPE HTML>
-<!-- This is the code for the 101companies application written in HTML 5 & JavaScript -->
-
-<!-- CLIENT-SIDE, SESSION-STORAGE -->
+<!-- Company view -->
 <html>
 <head>
 
@@ -9,9 +7,7 @@
 <body>
 
 <center>
-<h1>101Companies HTML5 implementation with local storage</h1>
-
-<h3>Company</h3>
+<script type="text/javascript" src="head.js"></script>
 
 <script type="text/javascript" src="company.js"></script>
 <script type="text/javascript" src="companyController.js"></script>
@@ -19,10 +15,10 @@
 <script type="text/javascript" src="companyModel.js"></script>
 
 <div id="content" name="content"></div><br>
-<div id="reset" name="reset"></div>
+<div id="reset" name="reset"></div><br>
+<div id="test" name="test"></div><br>
 
 <script type="text/javascript">
-//model.reset();
 model.loadCompany();
 
 </script>
