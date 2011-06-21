@@ -8,21 +8,32 @@
 </head>
 <body>
 
+<center>
+<h1>101Companies HTML5 implementation with local storage</h1>
+
+<h3>Department</h3>
+
+<script type="text/javascript" src="company.js"></script>
+<script type="text/javascript" src="employeeController.js"></script>
+<script type="text/javascript" src="employeeView.js"></script>
+<script type="text/javascript" src="employeeModel.js"></script>
+
 <script type="text/javascript">
+
+function process() {
+    var parameters = location.search.substring(1).split("&");
+
+	var temp = parameters[0].split("=");
+	employeeId = unescape(temp[1]);
+}
+process();
 
 </script>
 
-<script type="text/javascript" src="company.js"></script>
-<script type="text/javascript" src="controller.js"></script>
-<script type="text/javascript" src="model.js"></script>
+<div id="content" name="content"></div>
 
 <script type="text/javascript">
-
-document.write(total());
-cut();
-document.write(total());
-reset();
-
+model.loadEmployee(employeeId);
 </script>
 
 </body>

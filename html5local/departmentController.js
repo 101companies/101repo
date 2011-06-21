@@ -14,3 +14,8 @@ controller.notifyTotal = function() {
 controller.changeToDepartment = function() {
 	location.href = "department.html?departmentId=" + model.nextDepartment;
 }
+
+// change page to employee view
+controller.changeToEmployee = function() {
+	location.href = "employee.html?employeeId=" + model.nextEmployee;
+}

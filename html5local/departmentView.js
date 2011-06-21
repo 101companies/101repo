@@ -47,7 +47,7 @@ gui.generateFormular = function() {
 	content += "</p>";
 	
 	// employee selection button
-	content += "<input type=\"button\" value=\"select\" onclick=\"model.selectEmployees(this.form.Employees.options[this.form.Employees.selectedIndex].value)\"></td></tr>";
+	content += "<input type=\"button\" value=\"select\" onclick=\"model.selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\"></td></tr>";
 
 	// subdepartment list
 	content += "<tr ><td valign=\"top\" align=\"right\"><br>Departments: </td>";

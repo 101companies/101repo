@@ -35,6 +35,17 @@ model.getSubdepartmentList = function(id) {
 
 // load the department with the given id
 model.getDepartment = function(id) {
+	var allDepartments = model.getAllDepartments();
+		
+	for (var i = 0; i < allDepartments.length; i++) {
+		if (allDepartments[i].id == id) {
+			return allDepartments[i];
+		}
+	}
+}
+
+// get all departments of the company
+model.getAllDepartments = function() {
 	var company = loadData(false);
 	var allDepartments = new Array();
 	
@@ -45,12 +56,7 @@ model.getDepartment = function(id) {
 			allDepartments = allDepartments.concat(subdeps);
 		}
 	}
-	
-	for (var i = 0; i < allDepartments.length; i++) {
-		if (allDepartments[i].id == id) {
-			return allDepartments[i];
-		}
-	}
+	return allDepartments;
 }
 
 // load all subdepartments of a given department
@@ -106,20 +112,10 @@ model.totalRecursive = function(id) {
 
 // select department by id
 model.selectDepartment = function(name) {
-	// load company
-	var company = loadData(false);
 	var result;
 	
 	// load all departments
-	var allDepartments = new Array();
-	
-	for (var i = 0; i < company.departments.length; i++) {
-		allDepartments.push(company.departments[i]);
-		subdeps = model.findAllSubDepartments(company.departments[i]);
-		if (subdeps != null) {
-			allDepartments = allDepartments.concat(subdeps);
-		}
-	}
+	var allDepartments = model.getAllDepartments();
 	
 	// find the id by using the given department name
 	for (var i = 0; i < allDepartments.length; i++) {
@@ -132,6 +128,26 @@ model.selectDepartment = function(name) {
 	
 	// notify gui
 	controller.changeToDepartment();
+}
+
+model.selectEmployee = function(name) {
+	var result;
+	
+	// load all departments
+	var allDepartments = model.getAllDepartments();
+	
+	// find the id by using the given department name
+	for (var i = 0; i < allDepartments.length; i++) {
+		for (var j = 0; j < allDepartments[i].employees.length; j++) {
+			if (allDepartments[i].employees[j].name == name) {
+			result = allDepartments[i].employees[j].id;
+		}
+		}
+		
+	}
+	
+	model.nextEmployee = result;
+	controller.changeToEmployee();
 }
 
 // cut the salary of all employees of a department with the given id
