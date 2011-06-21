@@ -1,9 +1,13 @@
+// init the storage object
+var storageObject = localStorage;
+
 /*
  * Class: Company 
  *
  * A company has a name and contains several departments.
  */
-function Company(name) {
+function Company(id, name) {
+	this.id = id;
 	this.name = name;
 	this.departments = new Array();
 }
@@ -13,7 +17,8 @@ function Company(name) {
  *
  * A department has a name and contains several employees. It is part of a company.
  */ 
-function Department(name) {
+function Department(id, name) {
+	this.id = id;
 	this.name = name;
 	this.employees = new Array();
 	this.subdepartments = new Array();
@@ -24,7 +29,8 @@ function Department(name) {
  *
  * An Employee has a name, address and salary. He is part of a department.
  */
-function Employee(name, address, salary, manager) {
+function Employee(id, name, address, salary, manager) {
+	this.id = id;
 	this.name = name;
 	this.address = address;
 	this.salary = salary;
@@ -35,13 +41,13 @@ function loadData(reset) {
 	// If the company does not exist, it must be created locally.
 	if (storageObject.company == null || reset == true) {
 		// create company ...
-		var company = new Company("Meganalysis");
+		var company = new Company(0, "Meganalysis");
 
 		// create departments ...
-		var research = new Department("Research");
-		var development = new Department("Development");
-		var development1 = new Department("Dev 1");
-		var development11 = new Department("Dev 1.1");
+		var research = new Department(0, "Research");
+		var development = new Department(1, "Development");
+		var development1 = new Department(2, "Dev 1");
+		var development11 = new Department(3, "Dev 1.1");
 
 		// insert departments ...
 		company.departments.push(research);
@@ -50,13 +56,13 @@ function loadData(reset) {
 		development1.subdepartments.push(development11);
 
 		// create employees ...
-		var craig = new Employee("Craig", "Redmond", 123456.0, true);
-		var eric = new Employee("Eric", "Utrecht", 12345.0, false);
-		var ralf = new Employee("Ralf", "Koblenz", 1234.0, false);
-		var ray = new Employee("Ray", "Redmond", 234567.0, true);
-		var klaus = new Employee("Klaus", "Boston", 23456.0, true);
-		var karl = new Employee("Karl", "Riga", 2345.0, true);
-		var joe = new Employee("Joe", "Wifi City", 2344.0, false);
+		var craig = new Employee(0, "Craig", "Redmond", 123456.0, true);
+		var eric = new Employee(1, "Eric", "Utrecht", 12345.0, false);
+		var ralf = new Employee(2, "Ralf", "Koblenz", 1234.0, false);
+		var ray = new Employee(3, "Ray", "Redmond", 234567.0, true);
+		var klaus = new Employee(4, "Klaus", "Boston", 23456.0, true);
+		var karl = new Employee(5, "Karl", "Riga", 2345.0, true);
+		var joe = new Employee(6, "Joe", "Wifi City", 2344.0, false);
 		
 		// insert employees ...
 		research.employees.push(craig);

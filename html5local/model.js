@@ -1,8 +1,15 @@
 var model = {};
+
+model.headline;
+model.subheadline;
+model.departments;
+model.total;
+model.changeTo;
+
 // ---------------------- main functions
 model.getCompanyName = function() {
-	var result = loadData(false);
-	return result.name;
+	model.headline = loadData(false).name;
+	controller.notifyView();
 }
 
 model.getDepartmentList = function() {
@@ -15,7 +22,48 @@ model.getDepartmentList = function() {
 			result.push(company.departments[i].name);
 		}
 	}
+	return result;
+}
+
+model.getDepartmentIdForName = function(name) {
+	var company = loadData(false);
+	var result;
+	var allDepartments = new Array();
 	
+	for (var i = 0; i < company.departments.length; i++) {
+		allDepartments.push(company.departments[i]);
+		subdeps = findAllSubDepartments(company.departments[i]);
+		if (subdeps != null) {
+			allDepartments = allDepartments.concat(subdeps);
+		}
+	}
+	
+	for (var i = 0; i < allDepartments.length; i++) {
+		if (allDepartments[i].name == name) {
+			result = allDepartments[i].id;
+		}
+	}
+	controller.changeViewToDepartment(result);
+}
+
+model.getDepartmentName = function(id) {
+	var company = loadData(false);
+	var result;
+	var allDepartments = new Array();
+	
+	for (var i = 0; i < company.departments.length; i++) {
+		allDepartments.push(company.departments[i]);
+		subdeps = findAllSubDepartments(company.departments[i]);
+		if (subdeps != null) {
+			allDepartments = allDepartments.concat(subdeps);
+		}
+	}
+	
+	for (var i = 0; i < allDepartments.length; i++) {
+		if (allDepartments[i].id == id) {
+			result = allDepartments[i].name;
+		}
+	}
 	return result;
 }
 
@@ -41,20 +89,20 @@ model.total = function() {
 	return result;
 }
 
-model.getSubDepartments = function(name) {
+model.getSubDepartments = function(id) {
 	var result = new Array();
-	subDepartmentList = getDepartment(name).subdepartments;
+	subDepartmentList = getDepartment(id).subdepartments;
 	for (var i = 0; i < subDepartmentList.length; i++) {
 		result.push(subDepartmentList[i].name);
 	}
 	return result;
 }
 
-model.totalDepartment = function(name) {
+model.totalDepartment = function(id) {
 	var result = 0;
-	var department = getDepartment(name);
+	var department = getDepartment(id);
 	for (var i = 0; i < department.subdepartments.length; i++) {
-		result += model.totalDepartment(department.subdepartments[i].name);
+		result += model.totalDepartment(department.subdepartments[i].id);
 	}
 	
 	for (var i = 0; i < department.employees.length; i++) {
@@ -63,10 +111,10 @@ model.totalDepartment = function(name) {
 	return result;
 }
 
-model.cutDepartment = function(name) {
+model.cutDepartment = function(id) {
 	var company = loadData();
 	for (var i = 0; i < company.departments.length; i++) {
-		company.departments[i] = cutSubDepartment(company.departments[i], company.departments[i].name == name, name);
+		company.departments[i] = cutSubDepartment(company.departments[i], company.departments[i].id == id, id);
 	}
 	saveData(company);
 	controller.updateTotal();
@@ -90,33 +138,18 @@ model.reset = function() {
 	controller.updateTotal();
 }
 
-// ----------------------------------------
-
-model.getEmployees = function(name) {
+model.getEmployees = function(id, manager) {
 	var result = new Array();
 	var company = loadData();
 	for (var i = 0; i < company.departments.length; i++) {
-		result = result.concat(getInnerEmployees(name, company.departments[i]));
+		result = result.concat(getInnerEmployees(id, company.departments[i], manager));
 	}
-	
 	return result;
 }
 
-function getInnerEmployees(name, department) {
-	var result = new Array();
-	if (department.name == name) {
-		for (var i = 0; i < department.employees.length; i++) {
-			if (department.employees[i].manager == false) {
-				result.push(department.employees[i].name);
-			}
-		}
-	} else {
-		for (var i = 0; i < department.subdepartments.length; i++) {
-			result = result.concat(getInnerEmployees(name, department.subdepartments[i]));
-		}
-	}
-	return result;
-}
+// ----------------------------------------
+
+
 
 
 
@@ -155,7 +188,7 @@ function findAllSubDepartments(department) {
 }
 
 // cuts a given department
-function cutSubDepartment(department, blocker, name) {
+function cutSubDepartment(department, blocker, id) {
 	if (blocker == true) {
 		for (var i = 0; i < department.subdepartments.length; i++) {
 			department.subdepartments[i] = cutSubDepartment(department.subdepartments[i], true);
@@ -165,7 +198,7 @@ function cutSubDepartment(department, blocker, name) {
 		}
 	} else {
 		for (var i = 0; i < department.subdepartments.length; i++) {
-			department.subdepartments[i] = cutSubDepartment(department.subdepartments[i], department.subdepartments[i].name == name, name);
+			department.subdepartments[i] = cutSubDepartment(department.subdepartments[i], department.subdepartments[i].id == id, id);
 		}
 	}
 	return department;
@@ -177,7 +210,7 @@ function cutEmployee(employee) {
 	return employee;
 }
 
-function getDepartment(name) {
+function getDepartment(id) {
 	var company = loadData(false);
 	var allDepartments = new Array();
 	
@@ -190,8 +223,24 @@ function getDepartment(name) {
 	}
 	
 	for (var i = 0; i < allDepartments.length; i++) {
-		if (allDepartments[i].name == name) {
+		if (allDepartments[i].id == id) {
 			return allDepartments[i];
 		}
 	}
+}
+
+function getInnerEmployees(id, department, manager) {
+	var result = new Array();
+	if (department.id == id) {
+		for (var i = 0; i < department.employees.length; i++) {
+			if (department.employees[i].manager == manager) {
+				result.push(department.employees[i].name);
+			}
+		}
+	} else {
+		for (var i = 0; i < department.subdepartments.length; i++) {
+			result = result.concat(getInnerEmployees(id, department.subdepartments[i], manager));
+		}
+	}
+	return result;
 }
