@@ -20,7 +20,9 @@ gui.generateFormular = function() {
 	content += "<table border=0>";
 	
 	// department name
-	content += "<tr><td align=\"right\">Name: </td><td><input type=\"text\" value='" + model.headline + "' onchange=\"model.changeName(" + departmentId + ", this.value)\" STYLE=\"width:100%;\"></td></tr>";
+	content += "<tr><td align=\"right\">Total: </td>";
+	content += "<td><input type=\"text\" name=\"name\" value='" + model.headline + "'>";
+	content += " <input type=\"button\" name=\"save\" value=\"save\" onclick=\"model.changeName(" + departmentId + ", this.form.name.value)\"></td></tr>";
 	
 	// manager
 	content += "<tr><td align=\"right\">Manager: </td>";
