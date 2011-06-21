@@ -31,71 +31,10 @@ process();
 </script>
 
 <div id="content" name="content"></div><br>
+<div id="test" name="test"></div>
 
 <script type="text/javascript">
 model.loadDepartment(departmentId);
-/*model.getCompanyName();
-
-var departmentList = model.getSubDepartments(departmentId);
-
-var content = "Departments: <br>";
-content += "<form action=\"select1.htm\">";
-content += "<p>";
-content += "<select name=\"Departments\" size=\"5\" STYLE=\"width:100px;\">";
-
-for (var i = 0; i < departmentList.length; i++) {
-	if(i == 0) {
-		content += "<option value=\"" + departmentList[i] + "\" selected>";
-	} else {
-		content += "<option value=\"" + departmentList[i] + "\">";
-	}
-	content += departmentList[i] + "</option>";
-}
-
-content += "</select>";
-content += "</p>";
-		
-content += "<input type=\"button\" value=\"select\" onclick=\"controller.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
-content += "</form>";
-
-content += "<br><br>";
-
-var manager = model.getEmployees(departmentId, true);
-
-content += "Manager: " + manager[0];
-
-var employeeList = model.getEmployees(departmentId, false);
-
-content += "<br><br>Employees: <br>";
-content += "<form action=\"select1.htm\">";
-content += "<p>";
-content += "<select name=\"Employees\" size=\"5\" STYLE=\"width:100px;\">";
-
-for (var i = 0; i < employeeList.length; i++) {
-	if(i == 0) {
-		content += "<option value=\"" + employeeList[i] + "\" selected>";
-	} else {
-		content += "<option value=\"" + employeeList[i] + "\">";
-	}
-	content += employeeList[i] + "</option>";
-}
-
-content += "</select>";
-content += "</p>";
-		
-content += "<input type=\"button\" value=\"select\" onclick=\"controller.selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\" >";
-content += "</form>";
-
-document.querySelector('#content').innerHTML = content;
-
-function refreshTotal() {
-	var total = model.totalDepartment(departmentId);
-	document.querySelector('#total').innerHTML = "<br>Total: " + total + " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"controller.cutDepartment(" + departmentId + ")\">";
-}
-refreshTotal();*/
-
-
-
 </script>
 </center>
 

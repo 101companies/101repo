@@ -50,7 +50,7 @@ model.total = function() {
 	
 	for (var i = 0; i < company.departments.length; i++) {
 		allDepartments.push(company.departments[i]);
-		subdeps = findAllSubDepartments(company.departments[i]);
+		subdeps = model.findAllSubDepartments(company.departments[i]);
 		if (subdeps != null) {
 			allDepartments = allDepartments.concat(subdeps);
 		}
@@ -79,7 +79,7 @@ model.cut = function() {
 	// run through all departments and cut all departments
 	var len = company.departments.length;
 	for (var i = 0; i < len; i++) {
-		company.departments[i] = cutSubDepartment(company.departments[i]);
+		company.departments[i] = model.cutSubDepartment(company.departments[i]);
 	}
 		
 	// save company
@@ -91,32 +91,32 @@ model.cut = function() {
 }
 
 // cuts a given department
-function cutSubDepartment(department) {
+model.cutSubDepartment = function(department) {
 	// cut the subdepartments
 	for (var i = 0; i < department.subdepartments.length; i++) {
-		department.subdepartments[i] = cutSubDepartment(department.subdepartments[i]);
+		department.subdepartments[i] = model.cutSubDepartment(department.subdepartments[i]);
 	}
 	// cut the employees of this department
 	for (var i = 0; i < department.employees.length; i++) {
-		department.employees[i] = cutEmployee(department.employees[i]);
+		department.employees[i] = model.cutEmployee(department.employees[i]);
 	}
 	return department;
 }
 
 // cut single employee
-function cutEmployee(employee) {
+model.cutEmployee = function(employee) {
 	employee.salary = employee.salary / 2;
 	return employee;
 }
 
 // return all subdepartments, subsubdepartments, subsubsub ... of a given department
-function findAllSubDepartments(department) {
+model.findAllSubDepartments = function(department) {
 	if (department.subdepartments.length > 0) {
 		var allSubDepartments = new Array();
 		
 		for (var i = 0; i < department.subdepartments.length; i++) {
 			allSubDepartments.push(department.subdepartments[i]);
-			subdeps = findAllSubDepartments(department.subdepartments[i]);
+			subdeps = model.findAllSubDepartments(department.subdepartments[i]);
 			if (subdeps != null) {
 				allSubDepartments = allSubDepartments.concat(subdeps);
 			}
@@ -138,7 +138,7 @@ model.selectDepartment = function(name) {
 	
 	for (var i = 0; i < company.departments.length; i++) {
 		allDepartments.push(company.departments[i]);
-		subdeps = findAllSubDepartments(company.departments[i]);
+		subdeps = model.findAllSubDepartments(company.departments[i]);
 		if (subdeps != null) {
 			allDepartments = allDepartments.concat(subdeps);
 		}

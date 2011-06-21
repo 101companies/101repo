@@ -9,3 +9,8 @@ controller.notifyView = function() {
 controller.notifyTotal = function() {
 	gui.updateTotal();
 }
+
+// change page to department view
+controller.changeToDepartment = function() {
+	location.href = "department.html?departmentId=" + model.nextDepartment;
+}
