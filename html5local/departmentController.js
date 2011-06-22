@@ -5,6 +5,22 @@ controller.notifyView = function() {
 	gui.update();
 }
 
+controller.cut = function(id) {
+	model.cut(id);
+}
+
+controller.changeName = function(id, newName) {
+	model.changeName(id, newName);
+}
+
+controller.selectEmployee = function(name) {
+	model.selectEmployee(name);
+}
+
+controller.selectDepartment = function(name) {
+	model.selectDepartment(name);
+}
+
 // notifies the gui to update the total value
 controller.notifyTotal = function() {
 	gui.updateTotal();
