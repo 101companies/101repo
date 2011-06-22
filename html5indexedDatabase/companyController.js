@@ -3,11 +3,11 @@ var controller = {};
 // init and open connection to database
 controller.loadCompany = function() {
 	gui.update();
-	companies.indexedDB.open();
+	model.loadData();
 }
 
 // load data for gui 
-controller.loadCompanyInner = function() {
+controller.loadInner = function() {
 	model.getCompanyName();
 	model.getDepartments();
 	model.determineTotal();

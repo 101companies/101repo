@@ -59,10 +59,10 @@ companies.indexedDB.open = function(f) {
 				companies.indexedDB.addData();
 				
 				companies.indexedDB.reset = false;
-				controller.loadCompanyInner();
+				controller.loadInner();
 			};
 		} else {
-			controller.loadCompanyInner();
+			controller.loadInner();
 		}
 	};
 
@@ -87,7 +87,7 @@ companies.indexedDB.addData = function() {
 		{"department": "Research", "id": 0, "parent": null},
 		{"department": "Development", "id": 1, "parent": null},
 		{"department": "Dev 1", "id": 2, "parent": 1},
-		{"department": "Dev 1.1", "id": 3, "parent": 1}
+		{"department": "Dev 1.1", "id": 3, "parent": 2}
 	];
  
 	var employeeData = [

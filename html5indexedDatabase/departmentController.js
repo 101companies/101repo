@@ -1,8 +1,29 @@
 var controller = {};
 
-// notifies the gui to update itself
-controller.notifyView = function() {
-	gui.update();
+controller.loadDepartment = function(id) {
+	controller.departmentId = id;
+	gui.generateFormular();
+	model.loadData();
+}
+
+controller.loadInner = function() {
+	model.getDepartmentName(controller.departmentId);
+	model.getEmployees(controller.departmentId);
+	model.getSubdepartments(controller.departmentId);
+	model.total(controller.departmentId);
+}
+
+controller.notifyEmployees = function() {
+	gui.updateManager();
+	gui.updateEmployees();
+}
+
+controller.notifyDepartment = function() {
+	gui.updateDepartment();
+}
+
+controller.notifySubdepartments = function() {
+	gui.updateSubdepartments();
 }
 
 // notifies the gui to update the total value

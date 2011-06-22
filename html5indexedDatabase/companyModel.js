@@ -5,17 +5,21 @@ model.departments;
 model.totalValue;
 model.changeTo;
 
+model.loadData = function() {
+	companies.indexedDB.open();
+}
+
 model.resetData = function() {
 	companies.indexedDB.addData();
 }
 
 model.getCompanyName = function() {
 	var db = companies.indexedDB.db;
-	var transDep = db.transaction(["Company"], IDBTransaction.READ_WRITE, 0);
-	var depStore = transDep.objectStore("Company");
+	var transComp = db.transaction(["Company"], IDBTransaction.READ_WRITE, 0);
+	var compStore = transComp.objectStore("Company");
 	
 	var keyRange = IDBKeyRange.lowerBound(0);
-	var cursorRequest = depStore.openCursor(keyRange);
+	var cursorRequest = compStore.openCursor(keyRange);
 
 	cursorRequest.onsuccess = function(e) {
 		var result = e.target.result;
