@@ -42,15 +42,16 @@ The implementation can access specific nodes of the xml document through [[Techn
 
 == Usage ==
 
-* Open the 101companies.html with your web-browser (check [[Language:HTML5|HTML5]] for the HTML5-support of your browser)
+* check out all files in the repository
+* Open the index.html with your web-browser (check [[Language:HTML5|HTML5]] for the HTML5-support of your browser)
 * This HTML5-program does not work over file-protocol when using Chrome. In this case, you need access over http. To gain access over http, you can use XAMPP, for example, to create a webserver. 
 
 # Download XAMPP from http://www.apachefriends.org/en/xampp.html
 # Install XAMPP
-# Deploy the index.html to your htdocs-directory (for example: E:\xampp\htdocs\101implementation-html5\)
+# Deploy ALL files (except README) to your htdocs-directory (for example: E:\xampp\htdocs\101implementation-html5\)
 # Start the XAMPP-Control Panel and activate Apache
 # Start your web-browser
-# Call http://localhost/101implementation-html5/101companies.html
+# Call http://localhost/101implementation-html5/index.html
 
 == Contributors ==
 
