@@ -29,7 +29,7 @@ gui.updateEmployees = function() {
 	content += "</p>";
 	
 	// employee selection button
-	content += "<input type=\"button\" value=\"select\" onclick=\"model.selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\">";
+	content += "<input type=\"button\" value=\"select\" onclick=\"controller.selectEmployee(this.form.Employees.options[this.form.Employees.selectedIndex].value)\">";
 	
 	document.querySelector('#employees').innerHTML = content;
 }
@@ -50,7 +50,7 @@ gui.updateSubdepartments = function() {
 	content += "</p>";
 	
 // department selection button
-	content += "<input type=\"button\" value=\"select\" onclick=\"model.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\"><br><br>";	
+	content += "<input type=\"button\" value=\"select\" onclick=\"controller.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\"><br><br>";	
 	
 	document.querySelector('#departments').innerHTML = content;
 }
@@ -67,12 +67,12 @@ gui.generateFormular = function() {
 	// department name
 	content += "<tr><td align=\"right\">Name: </td>";
 	content += "<td><input type=\"text\" name=\"name\">";
-	content += " <input type=\"button\" name=\"save\" value=\"save\" onclick=\"model.changeName(" + departmentId + ", this.form.name.value)\"></td></tr>";
+	content += " <input type=\"button\" name=\"save\" value=\"save\" onclick=\"controller.changeName(" + departmentId + ", this.form.name.value)\"></td></tr>";
 	
 	// manager
 	content += "<tr><td align=\"right\">Manager: </td>";
 	content += "<td><input type=\"text\" name=\"manager\" readonly=\"readonly\">";
-	content += " <input type=\"button\" name=\"edit\" value=\"edit\" onclick=\"model.selectEmployee(this.form.manager.value)\"></td></tr>";
+	content += " <input type=\"button\" name=\"edit\" value=\"edit\" onclick=\"controller.selectEmployee(this.form.manager.value)\"></td></tr>";
 	
 	// employee list
 	content += "<tr ><td valign=\"top\" align=\"right\"><br>Employees: </td>";
@@ -87,7 +87,7 @@ gui.generateFormular = function() {
 	// total
 	content += "<tr><td align=\"right\">Total: </td>";
 	content += "<td><input type=\"text\" name=\"total\" readonly=\"readonly\">";
-	content += " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"model.cut(" + departmentId + ")\"></td></tr>";
+	content += " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"controller.cut(" + departmentId + ")\"></td></tr>";
 	
 	content += "</table>";
 	content += "</form>";

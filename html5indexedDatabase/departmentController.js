@@ -13,6 +13,22 @@ controller.loadInner = function() {
 	model.total(controller.departmentId);
 }
 
+controller.cut = function(id) {
+	model.cut(id);
+}
+
+controller.selectEmployee = function(name) {
+	model.selectEmployee(name);
+}
+
+controller.selectDepartment = function(name) {
+	model.selectDepartment(name);
+}
+
+controller.changeName = function(id, newName) {
+	model.changeName(id, newName);
+}
+
 controller.notifyEmployees = function() {
 	gui.updateManager();
 	gui.updateEmployees();
