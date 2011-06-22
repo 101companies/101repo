@@ -1,0 +1,33 @@
+var gui = {};
+
+// this function updates the complete page
+gui.update = function() {
+	gui.generateFormular();
+}
+
+gui.generateFormular = function() {
+	// create a form
+	var content = "<form name=\"company\">";
+	
+	// create a table
+	content += "<table border=0>";
+	
+	// employee name
+	content += "<tr><td align=\"right\">Name: </td>";
+	content += "<td><input type=\"text\" name=\"name\" value='" + model.name + "'>";
+	
+	// employee address
+	content += "<tr><td align=\"right\">Address: </td>";
+	content += "<td><input type=\"text\" name=\"address\" value='" + model.address + "'>";
+	
+	// employee salary
+	content += "<tr><td align=\"right\">Salary: </td>";
+	content += "<td><input type=\"text\" name=\"salary\" value='" + model.salary + "'>";	
+	content += "</table>";
+	
+	content += " <input type=\"button\" name=\"save\" value=\"save\" onclick=\"model.save(" + employeeId + ", this.form.name.value, this.form.address.value, this.form.salary.value)\"></td></tr>";
+	content += "</form>";
+
+	// move content to form
+	document.querySelector('#content').innerHTML = content;
+}
