@@ -19,7 +19,7 @@
 
 == Motivation ==
 
-The indexed database is the current alternative to the [[101implementation:html5sqlDatabase|web database]] (outdated!) in HTML5. Apart from web storage ([[101implementation:html5local|local storage]] and [[101implementation:html5session|session storage]]), the indexed database feature gains the main support in relation to [[offline storage]].
+The indexed database is the current alternative to the [[101implementation:html5sqlDatabase|web database]] (outdated!) in HTML5. Apart from web storage ([[101implementation:html5local|local storage]] and [[101implementation:html5session|session storage]]), the indexed database feature gains the main support in relation to [[offline storage]]. The access to the data is handled pver [[asynchronous communication]].
 
 == Illustration ==
 
@@ -60,7 +60,8 @@ companies.indexedDB.cut = function() {
 
 == Usage ==
 
-* Open the 101companies.html with your web-browser (check [[Language:HTML5|HTML5]] for the HTML5-support of your browser)
+* Check out all files from the repository
+* Open the index.html with your web-browser (check [[Language:HTML5|HTML5]] for the HTML5-support of your browser)
 
 == Contributors ==
 
