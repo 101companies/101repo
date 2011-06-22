@@ -3,89 +3,53 @@ var model = {};
 model.name;
 model.address;
 model.salary;
+model.employeeId;
+
+model.setId = function(id) {
+	model.employeeId = id;
+}
+
+model.loadData = function() {
+	companies.indexedDB.open();
+}
 
 // load data for department
-model.loadEmployee = function(id) {
-	model.getData(id);
+model.getEmployee = function() {
+	var db = companies.indexedDB.db;
+	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
+	var empStore = transEmp.objectStore("Employee");
 	
-	controller.notifyView();
-}
+	var keyRange = IDBKeyRange.only(parseInt(model.employeeId));
+	var cursorRequest = empStore.openCursor(keyRange);
 
-// retrieve data for current employee
-model.getData = function(id) {
-	var allDepartments = model.getAllDepartments();
-	for (var i = 0; i < allDepartments.length; i++) {
-		for (var j = 0; j < allDepartments[i].employees.length; j++) {
-			if (allDepartments[i].employees[j].id == id) {
-				model.name = allDepartments[i].employees[j].name;
-				model.address = allDepartments[i].employees[j].address;
-				model.salary = allDepartments[i].employees[j].salary;
-			}
-		}
-	}
-}
-
-// get all departments of the company
-model.getAllDepartments = function() {
-	var company = loadData(false);
-	var allDepartments = new Array();
-	
-	for (var i = 0; i < company.departments.length; i++) {
-		allDepartments.push(company.departments[i]);
-		subdeps = model.findAllSubDepartments(company.departments[i]);
-		if (subdeps != null) {
-			allDepartments = allDepartments.concat(subdeps);
-		}
-	}
-	return allDepartments;
-}
-
-// load all subdepartments of a given department
-model.findAllSubDepartments = function(department) {
-	if (department.subdepartments.length > 0) {
-		var allSubDepartments = new Array();
+	cursorRequest.onsuccess = function(e) {
+		var result = e.target.result;
 		
-		for (var i = 0; i < department.subdepartments.length; i++) {
-			allSubDepartments.push(department.subdepartments[i]);
-			subdeps = model.findAllSubDepartments(department.subdepartments[i]);
-			if (subdeps != null) {
-				allSubDepartments = allSubDepartments.concat(subdeps);
-			}
-		}
-		return allSubDepartments;
-	} else {
-		return null;
-	}
+		model.name = result.value.employee;
+		model.address = result.value.address;
+		model.salary = result.value.salary;
+		controller.notifyView();
+	};
+	
+	cursorRequest.onerror = companies.indexedDB.onerror;
 }
 
-// save employee
 model.save = function(id, newName, newAddress, newSalary) {
-	var company = loadData(false);
-	for (var i = 0; i < company.departments.length; i++) {
-		company.departments[i] = model.searchAndRename(company.departments[i], id, newName, newAddress, newSalary);
-	}
-	saveData(company);
+	var db = companies.indexedDB.db;
+	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
+	var empStore = transEmp.objectStore("Employee");
+	
+	var keyRange = IDBKeyRange.only(parseInt(model.employeeId));
+	var cursorRequest = empStore.openCursor(keyRange);
+
+	cursorRequest.onsuccess = function(e) {
+		var result = e.target.result;
+		
+		result.value.employee = newName;
+		result.value.address = newAddress;
+		result.value.salary = newSalary;
+		empStore.put(result.value);
+	};
+	
+	cursorRequest.onerror = companies.indexedDB.onerror;
 }
-
-// recursive search for an employee with the given id and rename
-model.searchAndRename = function(department, id, newName, newAddress, newSalary) {
-
-	// rename if found
-	for (var i = 0; i < department.employees.length; i++) {
-		var empl = department.employees[i];
-		if (empl.id == id) {
-			empl.name = newName;
-			empl.address = newAddress;
-			empl.salary = parseFloat(newSalary);
-			department.employees[i] = empl;
-			return department;
-		}
-	}
-
-	// otherwise look at the subdepartments
-	for (var i = 0; i < department.subdepartments.length; i++) {
-		department.subdepartments[i] = model.searchAndRename(department.subdepartments[i], id, newName, newAddress, newSalary);
-	}
-	return department;
-}
-

@@ -1,10 +1,18 @@
 var gui = {};
 
-// this function updates the complete page
-gui.update = function() {
-	gui.generateFormular();
+gui.setName = function(name) {
+	document.company.name.value = name;
 }
 
+gui.setAddress = function(address) {
+	document.company.address.value = address;
+}
+
+gui.setSalary = function(salary) {
+	document.company.salary.value = salary;
+}
+
+// this function generates the complete page
 gui.generateFormular = function() {
 	// create a form
 	var content = "<form name=\"company\">";
@@ -14,18 +22,18 @@ gui.generateFormular = function() {
 	
 	// employee name
 	content += "<tr><td align=\"right\">Name: </td>";
-	content += "<td><input type=\"text\" name=\"name\" value='" + model.name + "'>";
+	content += "<td><input type=\"text\" name=\"name\">";
 	
 	// employee address
 	content += "<tr><td align=\"right\">Address: </td>";
-	content += "<td><input type=\"text\" name=\"address\" value='" + model.address + "'>";
+	content += "<td><input type=\"text\" name=\"address\">";
 	
 	// employee salary
 	content += "<tr><td align=\"right\">Salary: </td>";
-	content += "<td><input type=\"text\" name=\"salary\" value='" + model.salary + "'>";	
+	content += "<td><input type=\"text\" name=\"salary\">";	
 	content += "</table>";
 	
-	content += " <input type=\"button\" name=\"save\" value=\"save\" onclick=\"model.save(" + employeeId + ", this.form.name.value, this.form.address.value, this.form.salary.value)\"></td></tr>";
+	content += " <input type=\"button\" name=\"save\" value=\"save\" onclick=\"controller.save(" + employeeId + ", this.form.name.value, this.form.address.value, this.form.salary.value)\"></td></tr>";
 	content += "</form>";
 
 	// move content to form
