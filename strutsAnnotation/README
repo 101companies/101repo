@@ -24,8 +24,8 @@ It provides server-side storage for the data using serialization.
 
 == Illustration == 
 
-The data is stored in a file with serialized data. To obtain the stored data, we implemented 
-several services within the CompanyService class, which is a singleton.
+The company data is stored in a serialization file. To obtain the stored data, we implemented 
+a few services (methods) in the CompanyService class, which is a singleton.
 
 <syntaxhighlight lang="java">
 public class CompanySerivce { 
@@ -51,6 +51,71 @@ public class CompanySerivce {
 }
 </syntaxhighlight>
 
+Services in this class implement access methods to the company data. 
+
+Based on the struts2 architecture, the controller layer is implemented 
+by Java classes (action classes) with special annotations; whereas the view layer might be implemented using 
+Java Server Pages (JSPs) or other template languages such as Velocity. Here, 
+we use JSPs to implement the view layer. For instance, consider an action class 
+that deals with all requests related to departments (requests such as detailing departments 
+or cutting department salaries)
+
+<syntaxhighlight lang="java">
+public class DepartmentAction {
+
+	private Department department;
+	private String message;
+	
+	
+	@Action(value = "department.detail", 
+			results = {@Result(name = "detail", location="department-detail.jsp")}
+	)
+	public String execute() {
+		//the next assignment exposes the department 
+		//member as a "bean", so that the forwarded view (a JSP) 
+		//component is able to access its value. 
+		department = CompanyService.instance().findDepartment(Long.parseLong(RequestUtil.getRequestParameter("dptId")));
+		return "detail";
+	}
+	
+	@Action(value = "department.cutSalariesOfDepartment", 
+			results = {@Result(name = "detail", location="department-detail.jsp")}
+	)
+	public String cutSalariesOfSubunit() throws Exception {	
+		department = CompanyService.instance().findDepartment(department.getId());
+		department.cut();
+		return "detail";
+	}
+	...
+</syntaxhighlight> 	
+
+Besides methods with the @Action annotation, the Department class looks like 
+a conventional Plain Old Java Object. The @Action annotation is used to expose 
+a class as an Struts Action, which might be later referred to by view components. 
+In addition, each @Action is parameterized according to a value, which 
+might be associated to a request; and a map of possible results, which relates 
+the return value of an action method to the next view whose request 
+will be redirected. Within JSPs, we could refer to actions as well 
+as to properties of an Action class, as we show in 
+the next listing. 
+
+<syntaxhighlight lang="html4strict">
+...
+<s:form action="department.update" >
+...
+<s:textfield label="Name" value="%{department.name}"  name="department.name" /> 
+<s:textfield label="Manager" value="%{department.manager.name}" name="department.manager.name" /> 
+<s:textfield label="Manager salary" value="%{department.manager.salary}" name="department.manager.salary" /> 
+...
+
+<s:submit label="Cut" value="Cut" action="department.cutSalariesOfDepartment"  />
+</s:form>
+</syntaxhighlight>
+
+
+    
+
+  
 == Usage ==
 	
 === Requirements ===
