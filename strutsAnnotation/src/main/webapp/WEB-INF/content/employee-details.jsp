@@ -4,26 +4,7 @@
 
 <html>
 <head>
-<title>101companies - Department Details</title>
-    <style type="text/css">
-       <%@ include file="../../tab-style.css" %>
-    </style>
-    <LINK type="text/css" rel="stylesheet" href="space.css">
-    <LINK type="text/css" rel="stylesheet" href="http://cwiki.apache.org/confluence/download/resources/confluence.ext.code:code/shStyles.css">
-    <STYLE type="text/css">
-      .dp-highlighter {
-        width:95% !important;
-      }
-    </STYLE>
-    <STYLE type="text/css">
-      .footer {
-        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
-        background-repeat:     repeat-x;
-        background-position:   left top;
-        padding-top:           4px;
-        color:                 #666;
-      }
-    </STYLE>
+<title>101companies - Employee Details</title>
 </head>
 
 <body>
@@ -39,15 +20,15 @@
 
 <s:form action="employee.update" >
 
-
-
 <s:textfield label="Name" value="%{employee.name}"  name="employee.name" /> 
 <s:textfield label="Salary" value="%{employee.salary}" name="employee.salary" /> 
 <s:textfield label="Address" value="%{employee.address}" name="employee.address" /> 
 
 <s:hidden name="employee.id" value="%{employee.id}"/>
+<s:hidden name="deptId" value="%{deptId}"/>
 
-<s:submit label="Update" value="Update" />
+<s:submit label="Save" value="Save" />
+
 </s:form>
 
 </body>

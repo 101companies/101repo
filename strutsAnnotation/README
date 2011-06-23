@@ -2,6 +2,55 @@
 
 implement a web application with Struts
 
+== Languages ==
+
+* [[Language:Java]]
+* [[Language:JavaServerPages]]
+
+== Features == 
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation == 
+
+This is a simple web implementation of the basic 101companies-features using  
+Struts2 (annotations) and Serialization as persistence mechanism. 
+It provides server-side storage for the data using serialization.
+
+== Illustration == 
+
+The data is stored in a file with serialized data. To obtain the stored data, we implemented 
+several services within the CompanyService class, which is a singleton.
+
+<syntaxhighlight lang="java">
+public class CompanySerivce { 
+ ...
+ private static CompanyService instance;
+ 
+ public static CompanyService instance() {
+   if(instance == null) {
+     instance = new CompanyService();
+   }
+   return instance;
+ }
+	
+ public List<Company> listAllCompanies() {
+   if(companies == null || companies.size() == 0) {
+     companies = new ArrayList<Company>();
+	 Company company = Company.readObject("sampleCompany.ser");
+	 companies.add(company);
+	}
+	return companies;
+ }
+ ...
+}
+</syntaxhighlight>
+
 == Usage ==
 	
 === Requirements ===

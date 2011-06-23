@@ -4,26 +4,7 @@
 
 <html>
 <head>
-<title>101companies - Department Details</title>
-    <style type="text/css">
-       <%@ include file="../../tab-style.css" %>
-    </style>
-    <LINK type="text/css" rel="stylesheet" href="space.css">
-    <LINK type="text/css" rel="stylesheet" href="http://cwiki.apache.org/confluence/download/resources/confluence.ext.code:code/shStyles.css">
-    <STYLE type="text/css">
-      .dp-highlighter {
-        width:95% !important;
-      }
-    </STYLE>
-    <STYLE type="text/css">
-      .footer {
-        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
-        background-repeat:     repeat-x;
-        background-position:   left top;
-        padding-top:           4px;
-        color:                 #666;
-      }
-    </STYLE>
+<title>101companies - Department Details</title>   
 </head>
 
 <body>
@@ -49,12 +30,13 @@
 
 <s:hidden name="department.id" value="%{department.id}"/>
 
-<s:submit label="Update" value="Update" />
-<s:submit label="Cut" value="Cut salaries" action="department.cutSalariesOfDepartment"  />
+<s:submit label="Save" value="Save" />
+<s:submit label="Cut" value="Cut" action="department.cutSalariesOfDepartment"  />
 
 </s:form>
 
-<table id="box-table-a" summary="Subunits">
+
+<table id="box-table-a" summary="Employee Pay Sheet" border="1px" width="45%">
         <thead>
     	<tr>
         	<th scope="col" class="rounded-company">Unit</th>
@@ -63,7 +45,8 @@
 
         </tr>
     </thead>
-    <tbody> 
+    <tbody>
+    		<s:set name="parentId" value="department.id" /> 
     		<s:iterator value="department.subunits">
   	    	    <tr>
 			<td><s:property value="name"/></td>
@@ -80,7 +63,7 @@
     			<td>
  			    	<s:url id="detailEmployeeURL" action="employee.detail">
   			     	 <s:param name="empId" value="%{id}"/>
-  			     	 <s:param name="dptId" value="%{department.id}" />
+  			     	 <s:param name="parentId" value="#parentId" />
  			    	</s:url>
  			    	<s:a href="%{detailEmployeeURL}">Detail</s:a>
  			    </td>

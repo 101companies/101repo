@@ -4,32 +4,14 @@
 <html>
 <head>
 <title>101companies - all companies</title>
-    <style type="text/css">
-       <%@ include file="../../tab-style.css" %>
-    </style>
-    <LINK type="text/css" rel="stylesheet" href="space.css">
-    <LINK type="text/css" rel="stylesheet" href="http://cwiki.apache.org/confluence/download/resources/confluence.ext.code:code/shStyles.css">
-    <STYLE type="text/css">
-      .dp-highlighter {
-        width:95% !important;
-      }
-    </STYLE>
-    <STYLE type="text/css">
-      .footer {
-        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
-        background-repeat:     repeat-x;
-        background-position:   left top;
-        padding-top:           4px;
-        color:                 #666;
-      }
-    </STYLE>
+   
 </head>
 <body>
 
 <h2>All companies</h2>
 
 <s:form action="company">
-<table id="box-table-a" summary="Employee Pay Sheet">
+<table id="box-table-a" summary="Employee Pay Sheet" border="1px" width="45%">
     <thead>
     	<tr>
             <th scope="col">Name</th>
