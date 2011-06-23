@@ -39,7 +39,7 @@ public class CompanyAction  {
 			results = { @Result(name = "listAllCompanies", type="redirectAction", location="list-all-companies")} 
 	)
 	public String cutSalaries() {
-		company = CompanyService.instance().findCompany(Long.parseLong(RequestUtil.getRequestParameter("id")));
+		company =  CompanyService.instance().findCompany(Long.parseLong(RequestUtil.getRequestParameter("id")));
 		company.cut();
 		return "listAllCompanies"; 
 	}
@@ -60,5 +60,4 @@ public class CompanyAction  {
 	public void setCompany(Company company) {
 		this.company = company;
 	}
-
 }
