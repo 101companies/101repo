@@ -3,7 +3,7 @@
 <s:set name="depInfo" value="%{'Department information'}"/>
 <html>
 <head>
-<link href="<s:url value='/index.css'/>" rel="stylesheet" type="text/css" />
+<!--  link href="<s:url value='/index.css'/>" rel="stylesheet" type="text/css" / -->
 <style> td { white-space: nowrap; } </style>
 <title>Department information</title>
 </head>
@@ -28,7 +28,7 @@
 <p><strong><s:property value="%{department.total()}"/> $</strong></p>
 <br><br>
 <h1><s:text name="Subdepartments" /></h1>
-<table class="outline">
+<table class="outline" border="1" width="75%">
 	<tr>
 		<th><s:text name="Name" /></th>
 		<th>&nbsp;</th>

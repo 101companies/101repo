@@ -2,13 +2,13 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<link href="<s:url value='/index.css'/>" rel="stylesheet" type="text/css" />
+<!--link href="<s:url value='/index.css'/>" rel="stylesheet" type="text/css" / -->
 <title>Company</title>
 </head>
 <body>
 <div class="titleDiv"><s:text name="Company" /></div>
 <br><br>
-<table class="outline">	
+<table class="outline" border="1" width="75%">	
 	<tr>
 		<th><s:text name="Department" /></th>
 		<th>&nbsp;</th>

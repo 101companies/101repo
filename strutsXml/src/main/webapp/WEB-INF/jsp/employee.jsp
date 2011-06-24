@@ -3,7 +3,7 @@
 <s:set name="empInfo" value="%{'Employee information'}"/>
 <html>
 <head>
-<link href="<s:url value='/index.css'/>" rel="stylesheet" type="text/css" />
+<!--   link href="<s:url value='/index.css'/>" rel="stylesheet" type="text/css" / -->
 <title>Employee information</title>
 </head>
 <body>
