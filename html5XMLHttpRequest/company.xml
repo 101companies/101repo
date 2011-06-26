@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
 <Company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>meganalysis</Name>
   <Departments>
@@ -27,7 +26,7 @@
           </Person>
         </Employee>
       </Employees>
-      <SubDepartments />
+      <SubDepartments/>
     </Department>
     <Department>
       <Name>Development</Name>
@@ -38,7 +37,7 @@
           <Address>Redmond</Address>
         </Person>
       </Manager>
-      <Employees />
+      <Employees/>
         <SubDepartments>
         <Department>
           <Name>Dev1</Name>
@@ -49,7 +48,7 @@
               <Address>Boston</Address>
             </Person>
           </Manager>
-          <Employees />
+          <Employees/>
           <SubDepartments>
             <Department>
               <Name>Dev 1.1</Name>
@@ -69,7 +68,7 @@
                   </Person>
                 </Employee>
               </Employees>
-              <SubDepartments />
+              <SubDepartments/>
             </Department>
           </SubDepartments>
         </Department>

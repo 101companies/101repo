@@ -16,7 +16,6 @@ controller.loadInner = function() {
 // reset database
 controller.reset = function() {
 	model.resetData();
-	controller.loadCompany();
 }
 
 // change name of the company

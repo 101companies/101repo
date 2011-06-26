@@ -9,25 +9,22 @@ model.nextDepartment;
 model.nextEmployee;
 
 model.loadData = function() {
-	companies.indexedDB.open();
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'company.xml', true);
+	
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			company.response = xhr.responseXML;
+			controller.loadInner();
+		}
+	};
+
+	xhr.send();
 }
 
 model.getDepartmentName = function(id) {
-	var db = companies.indexedDB.db;
-	var transDep = db.transaction(["Department"], IDBTransaction.READ_WRITE, 0);
-	var depStore = transDep.objectStore("Department");
-	
-	var keyRange = IDBKeyRange.only(parseInt(id));
-	var cursorRequest = depStore.openCursor(keyRange);
-
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-				
-		model.name = result.value.department;
-		controller.notifyDepartment();	
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	model.name = id;
+	controller.notifyDepartment();
 }
 
 model.getEmployees = function(id) {

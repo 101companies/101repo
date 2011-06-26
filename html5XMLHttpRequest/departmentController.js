@@ -8,9 +8,9 @@ controller.loadDepartment = function(id) {
 
 controller.loadInner = function() {
 	model.getDepartmentName(controller.departmentId);
-	model.getEmployees(controller.departmentId);
-	model.getSubdepartments(controller.departmentId);
-	model.total(controller.departmentId);
+	//model.getEmployees(controller.departmentId);
+	//model.getSubdepartments(controller.departmentId);
+	//model.total(controller.departmentId);
 }
 
 controller.cut = function(id) {
