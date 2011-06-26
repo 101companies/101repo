@@ -72,7 +72,7 @@ gui.generateFormular = function() {
 	// manager
 	content += "<tr><td align=\"right\">Manager: </td>";
 	content += "<td><input type=\"text\" name=\"manager\" readonly=\"readonly\">";
-	content += " <input type=\"button\" name=\"edit\" value=\"edit\" onclick=\"controller.selectEmployee(this.form.manager.value)\"></td></tr>";
+	content += " <input type=\"button\" name=\"edit\" value=\"edit\" onclick=\"controller.selectManager(this.form.manager.value)\"></td></tr>";
 	
 	// employee list
 	content += "<tr ><td valign=\"top\" align=\"right\"><br>Employees: </td>";

@@ -23,6 +23,8 @@ function process() {
 
 	var temp = parameters[0].split("=");
 	employeeId = unescape(temp[1]);
+	temp = parameters[1].split("=");
+	isManager = unescape(temp[1]);
 }
 process();
 
@@ -31,7 +33,7 @@ process();
 <div id="content" name="content"></div>
 
 <script type="text/javascript">
-controller.loadEmployee(employeeId);
+controller.loadEmployee(employeeId, isManager);
 </script>
 
 </body>

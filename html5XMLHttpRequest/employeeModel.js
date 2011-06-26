@@ -4,52 +4,53 @@ model.name;
 model.address;
 model.salary;
 model.employeeId;
+model.isManager;
 
 model.setId = function(id) {
 	model.employeeId = id;
 }
 
+model.setManager = function(isManager) {
+	model.isManager = isManager;
+}
+
 model.loadData = function() {
-	companies.indexedDB.open();
+	company.loadData();
 }
 
 // load data for department
 model.getEmployee = function() {
-	var db = companies.indexedDB.db;
-	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
-	var empStore = transEmp.objectStore("Employee");
+	var employeeList;
+	if (model.isManager == "true") {
+		employeeList = company.response.documentElement.getElementsByTagName("Manager");
+	} else {
+		employeeList = company.response.documentElement.getElementsByTagName("Employee");
+	}
 	
-	var keyRange = IDBKeyRange.only(parseInt(model.employeeId));
-	var cursorRequest = empStore.openCursor(keyRange);
-
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		
-		model.name = result.value.employee;
-		model.address = result.value.address;
-		model.salary = result.value.salary;
-		controller.notifyView();
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	for (var i = 0; i < employeeList.length; i++) {
+		if (employeeList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue == model.employeeId) {
+			model.name = employeeList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+			model.address = employeeList[i].getElementsByTagName("Address")[0].childNodes[0].nodeValue;
+			model.salary = employeeList[i].getElementsByTagName("Salary")[0].childNodes[0].nodeValue;
+		}
+	}
+	controller.notifyView();
 }
 
 model.save = function(id, newName, newAddress, newSalary) {
-	var db = companies.indexedDB.db;
-	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
-	var empStore = transEmp.objectStore("Employee");
+	var employeeList;
+	if (model.isManager == "true") {
+		employeeList = company.response.documentElement.getElementsByTagName("Manager");
+	} else {
+		employeeList = company.response.documentElement.getElementsByTagName("Employee");
+	}
 	
-	var keyRange = IDBKeyRange.only(parseInt(model.employeeId));
-	var cursorRequest = empStore.openCursor(keyRange);
-
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		
-		result.value.employee = newName;
-		result.value.address = newAddress;
-		result.value.salary = newSalary;
-		empStore.put(result.value);
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	for (var i = 0; i < employeeList.length; i++) {
+		if (employeeList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue == model.employeeId) {
+			employeeList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue = newName;
+			employeeList[i].getElementsByTagName("Address")[0].childNodes[0].nodeValue = newAddress;
+			employeeList[i].getElementsByTagName("Salary")[0].childNodes[0].nodeValue = parseFloat(newSalary);
+		}
+	}
+	company.saveData(company.response);
 }

@@ -7,6 +7,7 @@ model.employees;
 model.totalValue;
 model.nextDepartment;
 model.nextEmployee;
+model.isManager;
 
 model.id;
 
@@ -118,7 +119,22 @@ model.selectDepartment = function(name) {
 }
 
 model.selectEmployee = function(name) {
+	model.isManager = false;
+
 	var employeeList = company.response.documentElement.getElementsByTagName("Employee");
+	for (var i = 0; i < employeeList.length; i++) {
+		if (employeeList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue == name) {
+			model.nextEmployee = employeeList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+		}
+	}
+	
+	controller.changeToEmployee();
+}
+
+model.selectManager = function(name) {
+	model.isManager = true;
+
+	var employeeList = company.response.documentElement.getElementsByTagName("Manager");
 	for (var i = 0; i < employeeList.length; i++) {
 		if (employeeList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue == name) {
 			model.nextEmployee = employeeList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;

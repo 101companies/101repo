@@ -21,6 +21,10 @@ controller.selectEmployee = function(name) {
 	model.selectEmployee(name);
 }
 
+controller.selectManager = function(name) {
+	model.selectManager(name);
+}
+
 controller.selectDepartment = function(name) {
 	model.selectDepartment(name);
 }
@@ -54,5 +58,5 @@ controller.changeToDepartment = function() {
 
 // change page to employee view
 controller.changeToEmployee = function() {
-	location.href = "employee.html?employeeId=" + model.nextEmployee;
+	location.href = "employee.html?employeeId=" + model.nextEmployee + "&manager=" + model.isManager;
 }
