@@ -5,11 +5,11 @@ import java.lang.reflect.*;
 import java.util.List;
 
 public class Query {
-	
+
 	/**
-	 * Apply a function if possible; return default otherwise.
+	 * Apply a type-specific function if possible; apply generic function otherwise.
 	 */
-	public static <X,Y> Function<Object,Y> orDefault(final Function<X,Y> f, final Y otherwise) {
+	public static <X,Y> Function<Object,Y> or(final Function<X,Y> f, final Function<Object,Y> otherwise) {
 		return new Function<Object,Y>() {
 
 			@SuppressWarnings("unchecked")
@@ -18,11 +18,18 @@ public class Query {
 					return f.apply((X)x);
 				}
 				catch (ClassCastException _) {
-					return otherwise;
+					return otherwise.apply(x);
 				}				
 			}
 		};
 	}
+	
+	/**
+	 * Apply a function if possible; return default otherwise.
+	 */
+	public static <X,Y> Function<Object,Y> orDefault(final Function<X,Y> f, final Y otherwise) {
+		return or(f, new Function<Object,Y>() { public Y apply(Object x) { return otherwise; }});
+	}	
 	
 	/**
 	 * Apply a query to all immediate sub-objects.

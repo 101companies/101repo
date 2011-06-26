@@ -15,6 +15,7 @@ exercise [[SYB]]-style generic programming with reflection in Java
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Depth]]
 * [[101feature:Serialization]]
 
 == Motivation ==
@@ -59,7 +60,7 @@ That is, we leverage the ''everywhere'' scheme of transformation which attempts 
 * The implementation is provided as an Eclipse project. 
 * Hence, open the project with Eclipse; this will also build the project.
 * There are JUnit tests available in the package ''org.softlang.tests''.
-** Run class ''Basics'' with JUnit to exercise basic features.
+** Run class ''Operations'' with JUnit to exercise some operations including basic features.
 
 == Issues ==
 
