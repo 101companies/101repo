@@ -1,10 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+﻿<Company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>meganalysis</Name>
   <Departments>
     <Department>
+	  <id>0</id>
       <Name>Research</Name>
       <Manager>
+	    <id>0</id>
         <Salary>123456</Salary>
         <Person>
           <Name>Craig</Name>
@@ -13,6 +14,7 @@
       </Manager>
       <Employees>
         <Employee>
+		  <id>0</id>
           <Salary>12345</Salary>
           <Person>
             <Name>Erik</Name>
@@ -20,6 +22,7 @@
           </Person>
         </Employee>
         <Employee>
+		  <id>1</id>
           <Salary>1234</Salary>
           <Person>
             <Name>Ralf</Name>
@@ -27,33 +30,39 @@
           </Person>
         </Employee>
       </Employees>
-      <SubDepartments />
+      <SubDepartments/>
     </Department>
     <Department>
+	  <id>1</id>
       <Name>Development</Name>
       <Manager>
+	    <id>1</id>
         <Salary>234567</Salary>
         <Person>
           <Name>Ray</Name>
           <Address>Redmond</Address>
         </Person>
       </Manager>
-      <Employees />
+      <Employees/>
         <SubDepartments>
         <Department>
+		  <id>2</id>
           <Name>Dev1</Name>
           <Manager>
+		    <id>2</id>
             <Salary>23456</Salary>
             <Person>
               <Name>Klaus</Name>
               <Address>Boston</Address>
             </Person>
           </Manager>
-          <Employees />
+          <Employees/>
           <SubDepartments>
             <Department>
+			  <id>3</id>
               <Name>Dev 1.1</Name>
               <Manager>
+			    <id>3</id>
                 <Salary>2345</Salary>
                 <Person>
                   <Name>Karl</Name>
@@ -62,6 +71,7 @@
               </Manager>
               <Employees>
                 <Employee>
+				  <id>2</id>
                   <Salary>2344</Salary>
                   <Person>
                     <Name>Joe</Name>
@@ -69,7 +79,7 @@
                   </Person>
                 </Employee>
               </Employees>
-              <SubDepartments />
+              <SubDepartments/>
             </Department>
           </SubDepartments>
         </Department>

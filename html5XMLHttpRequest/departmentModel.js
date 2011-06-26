@@ -8,241 +8,160 @@ model.totalValue;
 model.nextDepartment;
 model.nextEmployee;
 
-model.loadData = function() {
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'company.xml', true);
-	
-	xhr.onload = function(e) {
-		if (this.status == 200) {
-			company.response = xhr.responseXML;
-			controller.loadInner();
-		}
-	};
+model.id;
 
-	xhr.send();
+model.loadData = function() {
+	company.loadData();
 }
 
 model.getDepartmentName = function(id) {
-	model.name = id;
+	model.id = id;
+	
+	var departmentList = company.response.documentElement.getElementsByTagName("Department");
+	for (var i = 0; i < departmentList.length; i++) {
+		if (departmentList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue == id) {
+			model.name = departmentList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+		}
+	}
+
 	controller.notifyDepartment();
 }
 
 model.getEmployees = function(id) {
 	model.employees = new Array();
-	var db = companies.indexedDB.db;
-	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
-	var empStore = transEmp.objectStore("Employee");
 	
-	var keyRange = IDBKeyRange.lowerBound(0);
-	var cursorRequest = empStore.openCursor(keyRange);
-
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		if(!!result == false) {
-			controller.notifyEmployees();
-			return;
+	var departments = company.response.documentElement.getElementsByTagName("Department");
+	var departmentIds = new Array();
+	for (var i = 0; i < departments.length; i++) {
+		departmentIds.push(departments[i].getElementsByTagName("id")[0]);
+	}
+	var department;
+	
+	for (var i = 0; i < departmentIds.length; i++) {
+		if (departmentIds[i].childNodes[0].nodeValue == id) {
+			department = departmentIds[i].parentNode;
 		}
+	}
+	
+	model.manager = department.getElementsByTagName("Manager")[0].getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+	
+	var employeeList = department.getElementsByTagName("Employees")[0].getElementsByTagName("Name");
+	
+	for (var i = 0; i < employeeList.length; i++) {
+		model.employees.push(employeeList[i].childNodes[0].nodeValue);
+	}
 		
-		if (result.value.departmentId == id) {
-			if (result.value.manager == true) {
-				model.manager = result.value.employee;
-			} else {
-				model.employees.push(result.value.employee);
-			}
-		}
-		result.continue();
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	controller.notifyEmployees();
 }
 
 model.getSubdepartments = function(id) {
 	model.subdepartments = new Array();
-	var db = companies.indexedDB.db;
-	var transDep = db.transaction(["Department"], IDBTransaction.READ_WRITE, 0);
-	var depStore = transDep.objectStore("Department");
-	
-	var keyRange = IDBKeyRange.lowerBound(0);
-	var cursorRequest = depStore.openCursor(keyRange);
 
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		if(!!result == false) {
-			controller.notifySubdepartments();
-			return;
+	var departments = company.response.documentElement.getElementsByTagName("Department");
+	var departmentIds = new Array();
+	for (var i = 0; i < departments.length; i++) {
+		departmentIds.push(departments[i].getElementsByTagName("id")[0]);
+	}
+	var department;
+	
+	for (var i = 0; i < departmentIds.length; i++) {
+		if (departmentIds[i].childNodes[0].nodeValue == id) {
+			department = departmentIds[i].parentNode;
+		}
+	}
+	
+	var departmentList = department.getElementsByTagName("SubDepartments")[0].childNodes;
+	
+	for (var i = 0; i < departmentList.length; i++) {
+		if (departmentList[i].nodeType == 1) {
+			model.subdepartments.push(departmentList[i].childNodes[3].childNodes[0].nodeValue);
 		}
 		
-		if (result.value.parent == id) {
-			model.subdepartments.push(result.value.department);
-		}
-		result.continue();
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	}
+	controller.notifySubdepartments();
 }
 
 model.total = function(id) {
-	model.cutAndTotal(id, false);
-}
-
-model.cutAndTotal = function(id, cut) {
-	var allDeps = new Array();
-	var db = companies.indexedDB.db;
-	var transDep = db.transaction(["Department"], IDBTransaction.READ_WRITE, 0);
-	var depStore = transDep.objectStore("Department");
-	
-	var keyRange = IDBKeyRange.lowerBound(0);
-	var cursorRequest = depStore.openCursor(keyRange);
-
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		if(!!result == false) {
-			model.innerCutAndTotal(id, allDeps, cut);
-			return;
-		}
-
-		allDeps.push(result.value);
-		result.continue();
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
-}
-
-model.innerCutAndTotal = function(id, allDeps, cut) {
 	model.totalValue = 0;
-	var relevantDeps = new Array(model.getFirstDepartment(id, allDeps));
-	var newDeps;
-	
-	do {
-		newDeps = new Array();
-		for (var i = 0; i < allDeps.length; i++) {
-			for (var j = 0; j < relevantDeps.length; j++) {
-				if (allDeps[i].parent == relevantDeps[j].id && !contains(relevantDeps, allDeps[i])) {
-					newDeps.push(allDeps[i]);
-				}
-			}
-		}
-		relevantDeps = relevantDeps.concat(newDeps);
-	} while (newDeps.length > 0);
-	
-	var db = companies.indexedDB.db;
-	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
-	var empStore = transEmp.objectStore("Employee");
-	
-	var keyRange = IDBKeyRange.lowerBound(0);
-	var cursorRequest = empStore.openCursor(keyRange);
 
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		if(!!result == false) {
-			controller.notifyTotal();
-			return;
-		}
-		
-		for (var i = 0; i < relevantDeps.length; i++) {
-			if (result.value.departmentId == relevantDeps[i].id) {
-				if (cut == true) {
-					result.value.salary = result.value.salary / 2;
-					empStore.put(result.value);
-				}
-				model.totalValue += result.value.salary;
-			}
-		}
-		
-		result.continue();
-	};
+	var departments = company.response.documentElement.getElementsByTagName("Department");
+	var departmentIds = new Array();
+	for (var i = 0; i < departments.length; i++) {
+		departmentIds.push(departments[i].getElementsByTagName("id")[0]);
+	}
+	var department;
 	
-	cursorRequest.onerror = companies.indexedDB.onerror;
-}
-
-model.getFirstDepartment = function(id, allDeps) {
-	for (var i = 0; i < allDeps.length; i++) {
-		if (allDeps[i].id == id) {
-			return allDeps[i];
+	for (var i = 0; i < departmentIds.length; i++) {
+		if (departmentIds[i].childNodes[0].nodeValue == id) {
+			department = departmentIds[i].parentNode;
 		}
 	}
-}
-
-model.cut = function(id) {
-	model.cutAndTotal(id, true);
-}
-
-model.selectEmployee = function(name) {
-	var db = companies.indexedDB.db;
-	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
-	var empStore = transEmp.objectStore("Employee");
 	
-	var keyRange = IDBKeyRange.lowerBound(0);
-	var cursorRequest = empStore.openCursor(keyRange);
-
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		if(!!result == false) {
-			return;
-		}
-		
-		if (result.value.employee == name) {
-			model.nextEmployee = result.value.id;
-			controller.changeToEmployee();
-			return;
-		}
-		
-		result.continue();
-	};
+	var salaryList = department.getElementsByTagName("Salary");
 	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	for (var i = 0; i < salaryList.length; i++) {
+		model.totalValue += parseFloat(salaryList[i].childNodes[0].nodeValue);
+	}
+	
+	controller.notifyTotal();
 }
 
 model.selectDepartment = function(name) {
-	model.subdepartments = new Array();
-	var db = companies.indexedDB.db;
-	var transDep = db.transaction(["Department"], IDBTransaction.READ_WRITE, 0);
-	var depStore = transDep.objectStore("Department");
-	
-	var keyRange = IDBKeyRange.lowerBound(0);
-	var cursorRequest = depStore.openCursor(keyRange);
+	var departmentList = company.response.documentElement.getElementsByTagName("Department");
+	for (var i = 0; i < departmentList.length; i++) {
+		if (departmentList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue == name) {
+			model.nextDepartment = departmentList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+		}
+	}
 
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-		if(!!result == false) {
-			return;
-		}
-		
-		if (result.value.department == name) {
-			model.nextDepartment = result.value.id;
-			controller.changeToDepartment();
-			return;
-		}
-		result.continue();
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	controller.changeToDepartment();
 }
 
-model.changeName = function(id, name) {
-	var db = companies.indexedDB.db;
-	var transDep = db.transaction(["Department"], IDBTransaction.READ_WRITE, 0);
-	var depStore = transDep.objectStore("Department");
+model.selectEmployee = function(name) {
+	var employeeList = company.response.documentElement.getElementsByTagName("Employee");
+	for (var i = 0; i < employeeList.length; i++) {
+		if (employeeList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue == name) {
+			model.nextEmployee = employeeList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+		}
+	}
 	
-	var keyRange = IDBKeyRange.only(parseInt(id));
-	var cursorRequest = depStore.openCursor(keyRange);
-
-	cursorRequest.onsuccess = function(e) {
-		var result = e.target.result;
-				
-		result.value.department = name;
-		depStore.put(result.value);
-	};
-	
-	cursorRequest.onerror = companies.indexedDB.onerror;
+	controller.changeToEmployee();
 }
 
-// -------------------------------------------------------------------------- array help functions
-function contains(array, object) {
-  for(var i = 0; i < array.length; i++) {
-    if(array[i] == object) {
-      return true;
-    }
-  }
-  return false;
+model.cut = function() {	
+	var departments = company.response.documentElement.getElementsByTagName("Department");
+	var departmentIds = new Array();
+	for (var i = 0; i < departments.length; i++) {
+		departmentIds.push(departments[i].getElementsByTagName("id")[0]);
+	}
+	var department;
+	
+	model.totalValue = 0;
+	
+	for (var i = 0; i < departmentIds.length; i++) {
+		if (departmentIds[i].childNodes[0].nodeValue == model.id) {
+			department = departmentIds[i].parentNode;
+		}
+	}
+	
+	var salaryList = department.getElementsByTagName("Salary");
+	
+	for (var i = 0; i < salaryList.length; i++) {
+		salaryList[i].childNodes[0].nodeValue = parseFloat(salaryList[i].childNodes[0].nodeValue) / 2;
+		model.totalValue += parseFloat(salaryList[i].childNodes[0].nodeValue);
+	}
+	company.saveData(company.response);
+	
+	controller.notifyTotal();
+}
+
+model.changeName = function(id, newName) {	
+	var departmentList = company.response.documentElement.getElementsByTagName("Department");
+	
+	for (var i = 0; i < departmentList.length; i++) {
+		if (departmentList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue == id) {
+			departmentList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue = newName;
+		}
+	}
+	company.saveData(company.response);
 }

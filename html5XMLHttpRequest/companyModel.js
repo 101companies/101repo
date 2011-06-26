@@ -72,6 +72,25 @@ model.resetData = function() {
 }
 
 model.selectDepartment = function(name) {
-	model.changeTo = name;
+	var departmentList = company.response.documentElement.getElementsByTagName("Department");
+	for (var i = 0; i < departmentList.length; i++) {
+		if (departmentList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue == name) {
+			model.changeTo = departmentList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+		}
+	}
+
 	controller.changePage();
+}
+
+model.changeName = function(newName) {
+	companyChilds = company.response.documentElement.childNodes;
+	
+	for (var i = 0; i < companyChilds.length; i++) {
+		if (companyChilds[i].nodeType == 1) {
+			if ("Name" == companyChilds[i].nodeName) {
+				companyChilds[i].childNodes[0].nodeValue = newName;
+			}
+		}
+	}
+	company.saveData(company.response);
 }

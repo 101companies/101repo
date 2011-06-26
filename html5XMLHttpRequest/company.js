@@ -19,7 +19,6 @@ company.loadData = function() {
 company.saveData = function(data) {
 	var serializer = new XMLSerializer();
 	var xml = serializer.serializeToString(data);
-	console.log(xml);
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'upload.php', true);
