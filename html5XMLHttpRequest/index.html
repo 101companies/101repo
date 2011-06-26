@@ -1,113 +1,18 @@
 <!DOCTYPE HTML>
-<!-- This is the code for the 101companies application written in HTML 5, JavaScript and XMLHttpRequest -->
+<!-- This is the code for the 101companies application written in HTML 5 & JavaScript -->
 
 <!-- CLIENT-SIDE, SESSION-STORAGE -->
 <html>
 <head>
 
-<script type="text/javascript">
-
-var company;
-
-function loadCompany(path) {
-	var xhReq = new XMLHttpRequest();
-	xhReq.open("GET", path, false);
-	xhReq.send();
-	var serverResponse = xhReq.responseXML;
-	return serverResponse;
-}
-
-function loadMainDepartments() {
-	
-	companyChilds = company.childNodes;
-	
-	for (var i = 0; i < companyChilds.length; i++) {
-		if (companyChilds[i].nodeType == 1) {
-			if ("Name" == companyChilds[i].nodeName) {
-				document.getElementById("headline").innerHTML = "<h1>Company: " + companyChilds[i].childNodes[0].nodeValue + "<h1>";
-			} else {
-				loadDepartmentList(companyChilds[i]);
-			}
-		}
-	}
-}
-
-function loadDepartmentList(deps) {
-	departmentList = deps.childNodes;
-	
-	var departments = "Departments: <br>";
-	departments += "<form action=\"select1.htm\">";
-	departments += "<p>";
-	departments += "<select name=\"Departments\" size=\"5\" STYLE=\"width:150px;\">";
-	
-	var selected = false;
-	for (var i = 0; i < departmentList.length; i++) {
-		if (departmentList[i].nodeType == 1) {
-			if (selected == false) {
-				departments += "<option value=\"" + departmentList[i].childNodes[1].childNodes[0].nodeValue + "\" selected>";
-				selected = true;
-			} else {
-				departments += "<option value=\"" + departmentList[i].childNodes[1].childNodes[0].nodeValue + "\">";
-			}			
-			departments += departmentList[i].childNodes[1].childNodes[0].nodeValue + "</option>";
-		}
-	}
-	
-	departments += "</select>";
-	departments += "</p>";
-			
-	departments += "<input type=\"button\" value=\"select\" onclick=\"selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\" >";
-	departments += "</form>";
-	
-	document.getElementById("departments").innerHTML += "<br>" + departments;
-	
-	var total = totalCompany();
-	document.querySelector('#total').innerHTML = "<br>Total: " + total + "<input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"cutCompany()\">";
-}
-
-function selectDepartment(name) {
-	var departmentList = company.getElementsByTagName("Department");
-	var selectedDepartment;
-	
-	for (var i = 0; i < departmentList.length; i++) {
-		if (departmentList[i].nodeType == 1) {
-			
-			document.getElementById("departments").innerHTML += departmentList[i].nodeName;
-		}
-	}	
-}
-
-function totalCompany() {
-	return 0;
-}
-
-</script>
-
 </head>
 <body>
 
-<center>
-<h1>101companies HTML 5 WebApp with XMLHttpRequest</h1>
-
-<div id="headline" name="headline"></div><br>
-<hr/>
-<div id="subheadline" name="subheadline"></div><br>
-<div id="employees" name="employees"></div><br>
-<div id="departments" name="departments"></div><br>
-<hr/>
-<div id="total" name="total"></div><br>
-<hr/>
-<div id="back" name="back"></div><br><br><br>
-</center>
-
 <script type="text/javascript">
 
-company = loadCompany('company.xml').documentElement;
-loadMainDepartments(company);
+location.href = "company.html";
 
 </script>
 
-
-
 </body>
-</html> 
+</html>
