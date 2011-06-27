@@ -25,6 +25,8 @@ While the most [[Language:HTML5|HTML5]] implementations provide [[client-side]] 
 
 == Illustration ==
 
+The data-request is an [[asynchronous communication|asynchronous]] call, which returns the content of the xml-file as [[Technology:DOM]].
+
 The [[Technology:DOM]]-based [[101feature:Total]]-implementation in [[Language:JavaScript]] is:
 
 <syntaxhighlight lang="javascript">
