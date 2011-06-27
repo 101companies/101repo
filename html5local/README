@@ -72,7 +72,9 @@ Because of the "stringification" the objects do NOT have backward links, otherwi
 
 == Architecture ==
 
-There is no special architecture for [[Language:HTML5|HTML5]] [[session storage]]. The classes and functions are all defined in the index.html.
+The application is implemented with [[Architecture:MVC|MVC]]. There are three views for each concern: company, departments and employees. The implementation is very similar to [[101implementation:html5session]], [[101implementation:html5XMLHttpRequest]] and [[101implementation:html5indexedDatabase]], except that the model is implemented in different ways, concerning the data representation of the specific implementation.
+
+For every object in the [[101feature:Company|data model]], there is a unique-id (unique for single company, department or employee) to grant reliable navigation between the different views.
 
 == Usage ==
 
