@@ -9,7 +9,8 @@
 
 == Technologies ==
 
-* [[Technology:B-Tree|B-Tree]]-based indexed database
+* [[Technology:B-Tree|B-Tree]]-based [[Technology:indexed_database|indexed database]]
+* [[Technology:Webbrowser]] (HTML5 compliant)
 
 == Features ==
 
