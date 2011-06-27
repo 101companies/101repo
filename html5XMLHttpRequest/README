@@ -45,6 +45,12 @@ function total(company) {
 
 The implementation can access specific nodes of the xml document through [[Technology:DOM]] (''getElementsByTagName("...")''). The result is a list of nodes (''salaryNodes''), which consist of all salaries in the [[101feature:Company|company]]. The sum of the ''nodeValue'' is the result for the [[101feature:Total]]-method.
 
+== Architecture ==
+
+The application is implemented with [[Architecture:MVC|MVC]]. There are three views for each concern: company, departments and employees. The implementation is very similar to [[101implementation:html5local]], [[101implementation:html5session]] and [[101implementation:html5indexedDatabase]], except that the model is implemented in different ways, concerning the data representation of the specific implementation.
+
+For every object in the [[101feature:Company|data model]], there is a unique-id (unique for single company, department or employee) to grant reliable [[101feature:Interaction|Navigation]] between the different views.
+
 == Usage ==
 
 * check out all files in the repository
