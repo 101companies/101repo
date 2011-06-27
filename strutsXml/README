@@ -67,7 +67,7 @@ The view layer might be implemented using
 Java Server Pages (JSPs) or other template languages such as Velocity. Here, 
 we use JSPs to implement the view layer. The listing bellow shows 
 a code fragment of the department.jsp view component. You should notice 
-some special tags such as <s:form> and <s:iterator>, which are declared 
+some special tags such as <verbatim><s:form></verbatim> and <verbatim><s:iterator></verbatim>, which are declared 
 in the Struts tag library. Using theses tags we are able to refer to 
 properties of the action that redirected to the specific view. 
 
