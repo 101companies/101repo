@@ -1,0 +1,63 @@
+== Intent ==
+
+[[web programming]] with [[Language:HTML5]]
+
+== Languages ==
+
+* [[Language:HTML5]]
+* [[Language:JavaScript]]
+* [[Language:php]]
+* [[Language:XML]]
+
+== Technologies ==
+
+* [[Technology:DOM]]
+* [[Technology:XMLHttpRequest]]
+* [[Technology:Webbrowser]] (HTML5 compliant)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Persistence]]
+* [[101feature:Interaction]]
+
+== Motivation ==
+
+While the most [[Language:HTML5|HTML5]] implementations provide [[client-side]] data storage, this [[Category:101implementation|implementation]] attends to [[server-side]] data storage. The ''company.xml''-file with the company-data is loaded [[asynchronous communication|asynchronously]] by the client over [[Technology:XMLHttpRequest|HTTP-Request]]. The received data can be accessed via [[Technology:DOM]]. If the user wants to change data within the [[server-side]] xml-file, the application sends the whole data to the server as [[Technology:Stream]]. A [[server-side]] [[Language:php|php]]-script receives the data and stores it to the ''company.xml''-file.
+
+== Illustration ==
+
+The [[Technology:DOM]]-based [[101feature:Total]]-implementation in [[Language:JavaScript]] is:
+
+<syntaxhighlight lang="javascript">
+function total(company) {
+	var t = 0;
+	var salaryNodes = company.getElementsByTagName("Salary");
+	for (var i = 0; i < salaryNodes.length; i++) {
+		var element = salaryNodes[i];
+		t += parseFloat(element.childNodes[0].nodeValue);
+	}
+	return t;
+}
+</syntaxhighlight>
+
+The implementation can access specific nodes of the xml document through [[Technology:DOM]] (''getElementsByTagName("...")''). The result is a list of nodes (''salaryNodes''), which consist of all salaries in the [[101feature:Company|company]]. The sum of the ''nodeValue'' is the result for the [[101feature:Total]]-method.
+
+== Usage ==
+
+* check out all files in the repository
+* Open the index.html with your web-browser (check [[Language:HTML5|HTML5]] for the HTML5-support of your browser)
+* This HTML5-program does not work over file-protocol when using Chrome. In this case, you need access over http. To gain access over http, you can use XAMPP, for example, to create a webserver. 
+
+# Download XAMPP from http://www.apachefriends.org/en/xampp.html
+# Install XAMPP
+# Deploy ALL files (except README) to your htdocs-directory (for example: E:\xampp\htdocs\101implementation-html5\)
+# Start the XAMPP-Control Panel and activate Apache
+# Start your web-browser
+# Call http://localhost/101implementation-html5/index.html
+
+== Contributors ==
+
+* {{101contributor|Tobias Zimmer|developer}}
