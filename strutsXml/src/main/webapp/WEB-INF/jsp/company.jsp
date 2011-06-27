@@ -6,12 +6,19 @@
 <title>Company</title>
 </head>
 <body>
-<div class="titleDiv"><s:text name="Company" /></div>
+<h2><s:text name="company.name" /></h2>
+
+<h3>Total salaries: <s:property value="%{company.total()}"/> </h3>
+
+<s:form action="cutCompanySalaries" method="post">
+ <s:submit value="Cut salaries" />
+</s:form>
+
 <br><br>
-<table class="outline" border="1" width="75%">	
+<table class="outline" border="1" width="50%">	
 	<tr>
-		<th><s:text name="Department" /></th>
-		<th>&nbsp;</th>
+		<th>Department</th>
+		<th>Department details</th>
 	</tr>
 	<s:iterator value="depts" status="status">
 		<tr>
@@ -20,19 +27,14 @@
 				<s:url action="DEP" id="link">
 					<s:param name="department.name" value="name" />
 				</s:url> 
-				<a href="<s:property value="#link"/>">Edit</a>
+				<a href="<s:property value="#link"/>">Detail</a>
 			</td>
 		</tr>
 	</s:iterator>
 
 </table>
 <br>
-<h1><s:text name="Total" /></h1>
-<p><strong><s:property value="%{company.total()}"/> $</strong></p>
 
-<s:form action="cutCompanySalaries" method="post">
- <s:submit value="Cut salaries" />
-</s:form>
 
 </body>
 </html>

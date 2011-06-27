@@ -12,6 +12,9 @@ import com.opensymphony.xwork2.Preparable;
 public class CompanyAction extends ActionSupport implements Preparable,
 		org.softlang.action.Operation {
 
+	private static final String DEPARTMENT_SAVE = "department.save";
+	private static final String EMPLOYEE_SAVE = "employee.save";
+	
 	private static final long serialVersionUID = 1L;
 	private Service service = new Service();
 	private List<Dept> depts;
@@ -46,15 +49,18 @@ public class CompanyAction extends ActionSupport implements Preparable,
 
 	@Override
 	public String doSave() {
+		String redirect = SUCCESS;
 		if (department != null && deptName != null) {
 			service.updateDept(deptName, department);
+			redirect = DEPARTMENT_SAVE;
 		}
 		if (employee != null && empName != null) {
 			service.updateEmployee(empName, employee);
+			redirect = EMPLOYEE_SAVE;
 		}
 		setDepts(service.getController().getCompany().getDepts());
 		
-		return SUCCESS;
+		return redirect;
 	}
 	
 	public String cutCompanySalaries() {
@@ -69,13 +75,16 @@ public class CompanyAction extends ActionSupport implements Preparable,
 	 * used for cutting department and employee salaries. 
 	 */
 	public String cutSalaries() {
+		String redirect = SUCCESS;
 		if(department != null && deptName != null) {
 			service.cutDepartmentSalaries(deptName);
+			redirect = DEPARTMENT_SAVE;
 		}
 		else if(employee != null && empName != null) {
 			service.cutEmployeeSalary(empName);
+			redirect = EMPLOYEE_SAVE;
 		}
-		return SUCCESS;
+		return redirect;
 	}
 
 	public void setCompany(Company company) {
