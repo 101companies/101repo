@@ -50,7 +50,7 @@ public static Company readObject(String filename) {
 Based on the struts2 architecture, the controller layer is implemented 
 by Java classes (action classes) that extend the class ActionSupport 
 and implement the Preparable interface. This approach uses the 
-<i>xworks</i> framework and a simple CRUD design, where only one 
+'''xworks''' framework and a simple CRUD design, where only one 
 action is necessary to all operations (edit and cut salaries of a 
 department, edit and cut salaries of an employee, and so on). CompanyAction 
 is the  
@@ -67,7 +67,7 @@ The view layer might be implemented using
 Java Server Pages (JSPs) or other template languages such as Velocity. Here, 
 we use JSPs to implement the view layer. The listing bellow shows 
 a code fragment of the department.jsp view component. You should notice 
-some special tags such as '''<form>''' and '''<s:iterator>''', which are declared 
+some special tags such as '''s:form''' and '''s:iterator''', which are declared 
 in the Struts tag library. Using theses tags we are able to refer to 
 properties of the action that redirected to the specific view. 
 
