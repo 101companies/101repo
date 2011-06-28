@@ -1,6 +1,28 @@
 == Intent ==
 
-illustrate building of web applications with Seam
+illustrate building a web applications with Seam
+
+
+== Languages ==
+
+* [[Language:Java]]
+* [[Language:HQL]]
+* [[Language:XHTML]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Database]]
+* [[101feature:Authentication]]
+
+
+== Motivation == 
+
+This is a simple web implementation of the basic 101companies-features, plus 
+database persistence and authentication/authorization feaures, using  
+the SEAM framework.
 
 == Usage ==
 
