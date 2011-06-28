@@ -1,13 +1,12 @@
 == Intent ==
 
-implement a web application with Struts
+implement a web application with Struts, but the redirections 
+rules are implemented using an XML files.
 
 == Languages ==
 
 * [[Language:Java]]
 * [[Language:JavaServerPages]]
-
-== Features == 
 
 == Features ==
 
