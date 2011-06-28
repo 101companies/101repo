@@ -4,7 +4,7 @@ var gui = {};
 gui.update = function() {
 	gui.generateFormular();
 	
-	document.querySelector('#reset').innerHTML = "<br><br><br><input type=\"button\" value=\"reset\" onclick=\"controller.reset()\">";
+	document.querySelector('#reset').innerHTML = "<br><br><br><input type=\"button\" class=\"button\" value=\"reset\" onclick=\"controller.reset()\">";
 }
 
 // this function updates the total value
@@ -22,9 +22,9 @@ gui.generateFormular = function() {
 	content += "<table border=0>";
 	
 	// company name
-		content += "<tr><td align=\"right\">Total: </td>";
-	content += "<td><input type=\"text\" name=\"name\" value='" + model.headline + "'>";
-	content += " <input type=\"button\" name=\"save\" value=\"save\" onclick=\"controller.changeName(this.form.name.value)\"></td></tr>";
+		content += "<tr><td align=\"right\">Name: </td>";
+	content += "<td><input type=\"text\" class=\"text\" name=\"name\" value='" + model.headline + "'>";
+	content += " <input type=\"button\" name=\"save\" class=\"button\" value=\"save\" onclick=\"controller.changeName(this.form.name.value)\"></td></tr>";
 	
 	// department list
 	content += "<tr ><td valign=\"top\" align=\"right\"><br>Departments: </td>";
@@ -44,12 +44,12 @@ gui.generateFormular = function() {
 	content += "</p>";
 	
 	// department selection button
-	content += "<input type=\"button\" value=\"select\" onclick=\"controller.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\"><br><br></td></tr>";
+	content += "<input type=\"button\" value=\"select\" class=\"button\" onclick=\"controller.selectDepartment(this.form.Departments.options[this.form.Departments.selectedIndex].value)\"><br><br></td></tr>";
 
 	// total
 	content += "<tr><td align=\"right\">Total: </td>";
-	content += "<td><input type=\"text\" name=\"total\" readonly=\"readonly\">";
-	content += " <input type=\"button\" name=\"cut\" value=\"cut\" onclick=\"controller.cut()\"></td></tr>";
+	content += "<td><input type=\"text\" name=\"total\" class=\"text\" readonly=\"readonly\">";
+	content += " <input type=\"button\" name=\"cut\" class=\"button\" value=\"cut\" onclick=\"controller.cut()\"></td></tr>";
 	
 	content += "</table>";
 	content += "</form>";
