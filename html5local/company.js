@@ -1,5 +1,5 @@
 // init the storage object
-var storageObject = sessionStorage;
+var storageObject = localStorage;
 
 /*
  * Class: Company 
