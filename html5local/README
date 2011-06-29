@@ -22,7 +22,7 @@
 
 == Motivation == 
 
-This is a simple implementation of the basic [[101section:Features|101companies-features]] in [[Language:HTML5|HTML5]]. It provides [[client-side storage]] for the data, which are stored for more then one session. Apart from that, it is mostly identical to [[101implementation:html5session]].
+This is a simple implementation of the basic [[101section:Features|101companies-features]] in [[Language:HTML5|HTML5]]. It provides [[client-side storage]] for the data, which are stored for more then one session. If you are interested in [[session storage]], look at [[101implementation:html5session]].
 
 == Illustration ==
 
