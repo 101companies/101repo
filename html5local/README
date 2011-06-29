@@ -72,7 +72,7 @@ Because of the "stringification" the objects do NOT have backward links, otherwi
 
 == Architecture ==
 
-The application is implemented with [[Architecture:MVC|MVC]]. There are three views and models for each concern: company, department and employee. The implementation is very similar to [[101implementation:html5session]], [[101implementation:html5XMLHttpRequest]] and [[101implementation:html5indexedDatabase]], except that the model is implemented in different ways, concerning the data representation of the specific [[Category:101implementation]]. The main data access is managed in the ''company.js'', the specific models hold on to this.
+The application is implemented with [[Architecture:MVC|MVC]]. There are three views and models for each concern: company, department and employee. The implementation is very similar to [[101implementation:html5session]], [[101implementation:html5XMLHttpRequest]] and [[101implementation:html5indexedDatabase]], except that the model is implemented in different ways, concerning the data representation of the specific implementation. The main data access is managed in the ''company.js'', the specific models hold on to this.
 
 For every object in the [[101feature:Company|data model]], there is a unique-id (unique for single company, department or employee) to grant reliable [[101feature:Interaction|Navigation]] between the different views.
 
