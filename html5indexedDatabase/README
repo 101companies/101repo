@@ -63,9 +63,7 @@ companies.indexedDB.cut = function() {
 
 == Architecture ==
 
-The application is implemented with [[Architecture:MVC|MVC]]. There are three views for each concern: company, departments and employees. The implementation is very similar to [[101implementation:html5session]], [[101implementation:html5XMLHttpRequest]] and [[101implementation:html5local]], except that the model is implemented in different ways, concerning the data representation of the specific implementation.
-
-For every object in the [[101feature:Company|data model]], there is a unique-id (unique for single company, department or employee) to grant reliable [[101feature:Interaction|navigation]] between the different views.
+Please visit [[101implementation:html5local]], to get more informations about the architecture.
 
 == Usage ==
 
