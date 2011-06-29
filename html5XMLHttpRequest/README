@@ -25,7 +25,7 @@
 
 == Motivation ==
 
-While the most [[Language:HTML5|HTML5]] implementations provide [[client-side]] data storage, this [[Category:101implementation|implementation]] attends to [[server-side]] data storage. The ''company.xml''-file with the company-data is loaded [[asynchronous communication|asynchronously]] by the client over [[Technology:XMLHttpRequest|HTTP-Request]]. The received data can be accessed via [[Technology:DOM]]. If the user wants to change data within the [[server-side]] xml-file, the application sends the whole data to the server as [[Technology:Stream]]. A [[server-side]] [[Language:php|php]]-script receives the data and stores it to the ''company.xml''-file.
+While the most [[Language:HTML5|HTML5]] implementations provide [[client-side]] data storage, this [[Category:101implementation|implementation]] attends to [[server-side]] data storage. The ''company.xml''-file with the company-data is loaded [[asynchronous communication|asynchronously]] by the client over [[Technology:XMLHttpRequest|HTTP-Request]]. The received data can be accessed via [[Technology:DOM]].
 
 == Illustration ==
 
@@ -47,9 +47,7 @@ The implementation can access specific nodes of the xml document through [[Techn
 
 == Architecture ==
 
-The application is implemented with [[Architecture:MVC|MVC]]. There are three views for each concern: company, departments and employees. The implementation is very similar to [[101implementation:html5local]], [[101implementation:html5session]] and [[101implementation:html5indexedDatabase]], except that the model is implemented in different ways, concerning the data representation of the specific implementation.
-
-For every object in the [[101feature:Company|data model]], there is a unique-id (unique for single company, department or employee) to grant reliable [[101feature:Interaction|Navigation]] between the different views.
+The architecture is mostly identical to [[101implementation:html5local]]. The main difference is, that there is a need for a [[server-side]] application (for example in [[Language:php]]). This [[server-side]] application receives the data to be stored as a stream and save it in the ''company.xml''-file.
 
 == Usage ==
 
