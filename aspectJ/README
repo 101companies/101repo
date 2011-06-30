@@ -104,7 +104,7 @@ The Java classes of this object model do not implement any other features.
 Package ''org.softlang.aspectj'' hosts aspects for [[101feature:Total]], 
 [[101feature:Cut]], [[101feature:Depth]], and [[101feature:Logging]]. There is 
 another aspect ''Polymorphism'' which rehashes existing operations (getName,
-total, cut) as an interface ''Operations'' on the relevant classes. Finally, 
+total, cut) as an interface [this!!org/softlang/features/Operations.java Operations] on the relevant classes. Finally, 
 package ''org.softlang.tests'' hosts JUnit tests; see below.
 
 == Usage ==
