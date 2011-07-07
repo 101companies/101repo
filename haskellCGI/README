@@ -33,6 +33,11 @@ CGI [[HTTPRespose|response]].
 
 == Architecture ==
 
+[this!!Cut.hs] and [this!!Total.hs] provide cut and total functionality. The algebraic datatype for companies can be found in
+[this!!Company.hs]. There is also a simple API ([this!!API.hs]) to companies providing reading and writing (see [[#Motivation|Motivation]]) and getters and setters.
+Requests are processed by [this!!Request.hs], which is using the '''Action''' datatype in [this!!Action.hs].
+Pages are composed in [this!!CompanyHtml.hs].
+
 
 == Usage ==
 
