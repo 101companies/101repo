@@ -1,0 +1,10 @@
+<company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.softlang.org/company.xsd">
+      <name>meganalysis</name><department>
+      <name>n.text</name><manager><name>Craig</name><address>Redmond</address><salary>61728.0</salary></manager><employee><name>Erik</name><address>Utrecht</address><salary>6172.5</salary></employee><employee><name>Ralf</name><address>Koblenz</address><salary>617.0</salary></employee>
+    </department><department>
+      <name>n.text</name><manager><name>Ray</name><address>Redmond</address><salary>117283.5</salary></manager><department>
+      <name>n.text</name><manager><name>Klaus</name><address>Boston</address><salary>11728.0</salary></manager><department>
+      <name>n.text</name><manager><name>Karl</name><address>Riga</address><salary>1172.5</salary></manager><employee><name>Joe</name><address>Wifi City</address><salary>1172.0</salary></employee>
+    </department>
+    </department>
+    </department></company>
