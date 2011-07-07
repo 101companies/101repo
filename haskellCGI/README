@@ -1,0 +1,42 @@
+== Intent ==
+
+web programming with [[Technology:CGI]] in [[Language:Haskell]]
+
+== Languages ==
+
+* [[Language:Haskell 98]]
+* [[Language:XHTML]]
+* [[Language:CSS]]
+
+== Technologies ==
+
+* [[Technology:CGI]]
+* [[Technology:GHC]]      
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Interaction]]
+* [[101feature:Distribution]]
+
+== Motivation ==
+
+We make use of the [[Technology:CGI]] library for Haskell to provide a C/S web application for [[101feature:Company|companies]]. 
+On every CGI page [[HTTP Request|request]] we extract the request parameters. There is an action parameter to either view or cut
+a company/department/employee or to save an edited company/department/employee. 
+With the supplied focus parameter and by using the [[Zipper|zipper]] concept 
+we read the correct company/department/employee to be viewed/cut/saved from the client-sided cookie. 
+We then use [[Language:XHTML]] [[Combinator|combinators]] to compose the new page. This page is returned to the client as the 
+CGI [[HTTPRespose|response]].  
+
+== Architecture ==
+
+
+== Usage ==
+
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
