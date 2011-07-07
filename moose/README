@@ -1,0 +1,11 @@
+This package contains an implementation of 101 Companies written using Pharo Smalltalk and making use of the Moose capabilities.
+
+How to install
+------
+
+1. Download and open Moose:
+http://moosetechnology.org/download
+
+2. Drag and drop load-101companies.st into Moose
+
+3. Choose FileIn
