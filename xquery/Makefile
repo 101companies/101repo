@@ -1,6 +1,6 @@
 input = sampleCompany.xml
-saxon = saxon/saxon9he.jar
-basex = basex/BaseX61.jar
+saxon = ../../technologies/saxon/saxon9he.jar
+basex = ../../technologies/basex/BaseX61.jar
 
 test-all:
 	make test-basex

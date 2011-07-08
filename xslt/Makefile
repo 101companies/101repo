@@ -1,5 +1,5 @@
 input = sampleCompany.xml
-saxon = saxon/saxon9he.jar
+saxon = ../../technologies/saxon/saxon9he.jar
 
 test:
 	make test-xsltproc
