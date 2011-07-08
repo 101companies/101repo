@@ -22,7 +22,7 @@ an implementation of the basic spec in [[Language:Scala]] providing typeclass ba
 
 == Motivation ==
 
-This implementation utilizes an idiomatic, functional style approach. The model is realized using only immutable data structures and the total and cut computation are realized by recursively mapping over the elements of the Department tree.
+This implementation utilizes a more idiomatic, functional style approach than [[implementation:scala]]. The model is realized using only immutable data structures and the total and cut computation are realized by recursively mapping over the elements of the Department tree.
 Because the model is immutable, it is easily serialized. In addition, an example of JSON serialization was implemented using the sjson Library by Debasish Ghosh. Serialization patterns for all types of the Company domain are realized by implementing typeclass for each one.
 
 == Architecture ==
