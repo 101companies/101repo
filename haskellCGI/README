@@ -38,14 +38,12 @@ CGI [[HTTPRespose|response]].
 Requests are processed by [this!!Request.hs], which is using the ''Action'' datatype in [this!!Action.hs].
 Pages are composed in [this!!CompanyHtml.hs].
 
-
 == Usage ==
 
 * First you need to setup a webserver. One might use [http://www.apachefriends.org/en/xampp.html XAMPP].
 * Place this implementation (except [this!!style.css]) in the folder ''cgi-bin'' of your XAMPP installation.
 * Place [this!!style.css] in the folder ''htdocs'' of your XAMPP installation.
 * Open http://localhost/cgi-bin/haskellCGI/company.cgi in a web browser.
-
 
 == Contributors ==
 
