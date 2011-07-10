@@ -1,7 +1,7 @@
 package org.softlang.company
 
 /**
- * Created by Sebastian Jackel for 101Companies by Ralf Lämmel
+ * Created by Sebastian Jackel for the 101Companies project under Prof. Ralf Lämmel
  * Idiomatic Scala implementation of the 101Companies basics
  */
 

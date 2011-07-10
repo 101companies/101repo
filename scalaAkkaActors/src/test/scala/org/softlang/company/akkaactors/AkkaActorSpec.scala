@@ -4,11 +4,7 @@ import org.specs2.mutable._
 import akka.actor.ActorRef
 
 /**
- * Created by IntelliJ IDEA.
- * User: dackel
- * Date: 06.07.11
- * Time: 16:12
- * To change this template use File | Settings | File Templates.
+ * Some tests for the untyped actor spec
  */
 
 class AkkaActorSpec extends Specification {

@@ -6,11 +6,8 @@ import akka.dispatch.Future
 import Actor._
 
 /**
- * Created by IntelliJ IDEA.
- * User: dackel
- * Date: 05.07.11
- * Time: 15:58
- * To change this template use File | Settings | File Templates.
+ * Created by Sebastian Jackel for the 101Companies project under Prof. Ralf Lämmel
+ * Untyped Actor based implementation of company basics
  */
 
 case object Cut

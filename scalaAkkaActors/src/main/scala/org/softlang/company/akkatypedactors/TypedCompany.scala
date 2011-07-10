@@ -1,15 +1,11 @@
 package org.softlang.company.akkatypedactors
 
-import akka.actor.TypedActor
-
 /**
- * Created by IntelliJ IDEA.
- * User: dackel
- * Date: 05.07.11
- * Time: 09:45
- * To change this template use File | Settings | File Templates.
+ * Created by Sebastian Jackel for the 101Companies project under Prof. Ralf Lämmel
+ * TypedActor based implementation of company basics
  */
 
+import akka.actor.TypedActor
 
 trait Company {
   def total: Double
@@ -53,10 +49,10 @@ class DeptImpl(val name: String, val manager: Employee,
 
   def cut() {
     subDepts foreach {
-      _.cut
+      _.cut()
     }
     employees foreach {
-      _.cut
+      _.cut()
     }
     manager.cut()
   }

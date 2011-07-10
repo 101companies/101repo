@@ -3,13 +3,8 @@ package org.softlang.company.akkatypedactors
 import org.specs2.mutable._
 
 /**
- * Created by IntelliJ IDEA.
- * User: dackel
- * Date: 05.07.11
- * Time: 10:53
- * To change this template use File | Settings | File Templates.
+ * Some tests for the TypedActor implementation
  */
-
 class AkkaTypedActorCompanySpec extends Specification {
   def meganalysis = CompanyImpl(
     name = "meganalysis",

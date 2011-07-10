@@ -4,7 +4,7 @@ import sjson.json._
 import sjson.json.CollectionTypes
 
 /**
- * Created by Sebastian Jackel for 101Companies by Ralf Lämmel
+ * Created by Sebastian Jackel for the 101Companies project under Prof. Ralf Lämmel
  * Typeclass based JSON serialization, currently still ugly.
  */
 
