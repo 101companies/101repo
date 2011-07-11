@@ -1,0 +1,17 @@
+﻿<navigation:Page x:Class="silverlight.DepartmentDetailsPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           mc:Ignorable="d"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="DepartmentDetailsPage Page">
+    <Grid x:Name="LayoutRoot">
+        <TextBlock Margin="136,72,398,380" Name="textBlock1" Text="Manager:" FontSize="18" />
+        <TextBlock Margin="228,72,209,380" Name="txtManager" Text="{Binding Path=Manager.Name}" FontSize="18" />
+        <TextBlock Margin="55,102,409,345" Name="textBlock2" Text="Department Total:" FontSize="18" FontWeight="Normal" />
+        <TextBlock Margin="0,106,209,345" Name="txtTotal" Text="{Binding Total}" HorizontalAlignment="Right" Width="203" FontSize="18" />
+        <Button Content="Cut" Height="38" HorizontalAlignment="Left" Margin="240,234,0,0" Name="button1" VerticalAlignment="Top" Width="101" FontSize="18" />
+    </Grid>
+</navigation:Page>

@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="silverlight.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="480" d:DesignWidth="640" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.Resources>
+            <sdk:HierarchicalDataTemplate x:Key="ChildTemplate" >
+                <TextBlock FontStyle="Italic" Text="{Binding Path=Name}" />
+            </sdk:HierarchicalDataTemplate>
+
+            <sdk:HierarchicalDataTemplate x:Key="NameTemplate" 
+                                          ItemsSource="{Binding Path=Dept.Employees}" 
+                                          ItemTemplate="{StaticResource ChildTemplate}">
+                <TextBlock Text="{Binding Path=Dept.Name}" FontWeight="Bold" />
+            </sdk:HierarchicalDataTemplate>
+        </Grid.Resources>
+        <sdk:TreeView Height="480" 
+                      HorizontalAlignment="Left" 
+                      ItemsSource="{Binding}" 
+                      ItemTemplate="{StaticResource NameTemplate}" 
+                      Name="treeCompany" 
+                      VerticalAlignment="Top"
+                      Width="213" SelectedItemChanged="TreeCompanySelectedItemChanged">
+        </sdk:TreeView>
+        <sdk:Frame x:Name="ContentFrame" Source="/Home.xaml" Margin="211,0,0,0">
+
+        </sdk:Frame>
+    </Grid>
+</UserControl>

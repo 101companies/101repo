@@ -1,0 +1,17 @@
+﻿<navigation:Page x:Class="silverlight.Home" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Home Page">
+    <Grid x:Name="LayoutRoot">
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="59,12,0,0" Name="label1" VerticalAlignment="Top" Width="156" Content="101companies" FontWeight="Bold" FontSize="18" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="59,46,0,0" Name="txtCompanyName" Text="{Binding Name}" VerticalAlignment="Top" Width="144" FontSize="18" />
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="59,75,0,0" Name="label2" VerticalAlignment="Top" Width="55" Content="Total:" FontSize="18" />
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="123,75,0,0" Name="txtTotal" Content="{Binding Total}"  VerticalAlignment="Top" Width="92" FontSize="18" />
+    </Grid>
+</navigation:Page>

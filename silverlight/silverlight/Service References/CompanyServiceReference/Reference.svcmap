@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ae5fea95-dfed-48a9-a0e1-365e38d7c78c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1212/CompanyService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CompanyService.xsd" MetadataType="Schema" ID="8755d48f-3ff9-4711-b7f9-7b2fef52b1a7" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CompanyService1.xsd" MetadataType="Schema" ID="b920d3b9-8698-4eeb-ac1e-5c1218afb751" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CompanyService2.xsd" MetadataType="Schema" ID="94801693-7d16-4d9e-b30c-bd7108bf2cf4" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CompanyService.disco" MetadataType="Disco" ID="d47ee892-9bd7-4c36-be08-0b1780d57250" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?disco" />
+    <MetadataFile FileName="CompanyService.wsdl" MetadataType="Wsdl" ID="b2fc87d5-08ae-428c-a432-d9519603183b" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
