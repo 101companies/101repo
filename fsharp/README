@@ -21,8 +21,8 @@ A simple implementation in [[Language:FSharp|F#]] for the [[Technology:.NET]] Fr
 
 == Motivation ==
 
-101comanies model based on F# type system. The model is created in-memory.
-Unit tests are attached.
+Multiparadigm nature of F# is shown;
+both OO and FP features of the languages are illustrated by adjusting a basic [[101implementation:csharp | C#]] implementation.
 
 == Illustration ==
 
