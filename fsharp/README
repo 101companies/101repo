@@ -15,6 +15,10 @@ A simple implementation in [[Language:FSharp|F#]] for the [[Technology:.NET]] Fr
 
 == Features ==
 
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
 == Motivation ==
 
 101comanies model based on F# type system. The model is created in-memory.
