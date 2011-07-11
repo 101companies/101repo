@@ -23,5 +23,8 @@ namespace wcf.Dto
 
         [DataMember]
         public List<EmployeeDto> Employees { get; set; }
+
+        [DataMember]
+        public List<DepartmentDto> SubDepartments { get; set; }
     }
 }

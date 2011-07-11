@@ -19,6 +19,38 @@ namespace wcf
         {
             get { return _company ?? (_company = CompanyRepository.CreateInMemoryModel()); }
         }
+
+        private List<DepartmentDto> FillSubDepartments(Department d)
+        {
+            var res = new List<DepartmentDto>();
+
+            foreach (var subDepartment in d.SubDepartments)
+            {
+                var subDept = new DepartmentDto();
+                subDept.Id = subDepartment.Id;
+                subDept.Manager = new EmployeeDto
+                                      {
+                                          Address = subDepartment.Manager.Person.Address,
+                                          Id = subDepartment.Manager.Id,
+                                          Name = subDepartment.Manager.Person.Name,
+                                          Salary = subDepartment.Manager.Salary
+                                      };
+                subDept.Employees = subDepartment.Employees.Select(e =>
+                        new EmployeeDto
+                            {
+                                Id = e.Id,
+                                Address = e.Person.Address,
+                                Name = e.Person.Name,
+                                Salary = e.Salary
+                            }).ToList();
+
+                subDept.SubDepartments = FillSubDepartments(subDepartment);
+                res.Add(subDept);
+            }
+
+            return res;
+        }
+
         public CompanyDto GetCompany()
         {
             var dto = new CompanyDto
@@ -29,7 +61,21 @@ namespace wcf
                                                                                 {
                                                                                     Id = d.Id,
                                                                                     Name = d.Name,
-                                                                                    Employees = d.Employees.Select(e => new EmployeeDto { Id = e.Id, Address = e.Person.Address, Name = e.Person.Name, Salary = e.Salary }).ToList()
+                                                                                    Employees = d.Employees.Select(e => new EmployeeDto
+                                                                                    {
+                                                                                        Id = e.Id,
+                                                                                        Address = e.Person.Address,
+                                                                                        Name = e.Person.Name,
+                                                                                        Salary = e.Salary
+                                                                                    }).ToList(),
+                                                                                    SubDepartments = FillSubDepartments(d),
+                                                                                    Manager = new EmployeeDto()
+                                                                                                  {
+                                                                                                      Id = d.Manager.Id,
+                                                                                                      Address = d.Manager.Person.Address,
+                                                                                                      Name = d.Manager.Person.Name,
+                                                                                                      Salary = d.Manager.Salary
+                                                                                                  }
                                                                                 }).ToList(),
                               Total = Company.Total
                           };
@@ -52,6 +98,7 @@ namespace wcf
                                                 Salary = dept.Manager.Salary
                                             },
                               Total = dept.Total,
+                              SubDepartments = FillSubDepartments(dept),
                               Employees = dept.Employees.Select(e => new EmployeeDto { Id = e.Id, Address = e.Person.Address, Name = e.Person.Name, Salary = e.Salary }).ToList()
                           };
 
