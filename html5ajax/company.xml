@@ -1,12 +1,12 @@
 <Company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>meganalysis</Name>
+  <Name>meganalysis a</Name>
   <Departments>
     <Department>
 	  <id>0</id>
-      <Name>Research</Name>
+      <Name>Research a</Name>
       <Manager>
 	    <id>0</id>
-        <Salary>123456</Salary>
+        <Salary>1234565</Salary>
         <Person>
           <Name>Craig</Name>
           <Address>Redmond</Address>

@@ -11,6 +11,6 @@
 
 		fclose($fh);
 
-		echo "<h1>success uploaded</h1>.\n";
+		echo "<h1>successfull uploaded</h1>.\n";
 	}
 ?>

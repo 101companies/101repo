@@ -6,91 +6,68 @@ model.totalValue;
 model.changeTo;
 
 model.loadData = function() {
-	company.loadData();
+	model.execute("load");
 }
 
-model.getCompanyName = function() {
-
-	companyChilds = company.response.documentElement.childNodes;
+model.getCompanyName = function() {	
+	model.company = company.response.name;
 	
-	for (var i = 0; i < companyChilds.length; i++) {
-		if (companyChilds[i].nodeType == 1) {
-			if ("Name" == companyChilds[i].nodeName) {
-				model.company = companyChilds[i].childNodes[0].nodeValue;
-			}
-		}
-	}
 	controller.notifyCompany();
 }
 
 model.getDepartments = function() {
-	companyChilds = company.response.documentElement.childNodes;
-	model.departments = new Array();
+	model.departments = company.response.departments;
 	
-	for (var i = 0; i < companyChilds.length; i++) {
-		if (companyChilds[i].nodeType == 1) {
-			if ("Departments" == companyChilds[i].nodeName) {
-				var departmentList = companyChilds[i].childNodes;
-				for (var j = 0; j < departmentList.length; j++) {
-					if (departmentList[j].nodeType == 1) {
-						for (var k = 1; k < departmentList[j].childNodes.length; k++) {
-							if ("Name" == departmentList[j].childNodes[k].nodeName) {
-								model.departments.push(departmentList[j].childNodes[k].childNodes[0].nodeValue);
-							}
-						}
-					}
-				}
-				
-			}
-		}
-	}
 	controller.notifyDepartments();
 }
 
 model.total = function() {
-	var t = 0;
-	var salaryNodes = company.response.documentElement.getElementsByTagName("Salary");
-	for (var i = 0; i < salaryNodes.length; i++) {
-		var element = salaryNodes[i];
-		t += parseFloat(element.childNodes[0].nodeValue);
-	}
-	model.totalValue = t;
+	model.totalValue = company.response.total;
+	
 	controller.notifyTotal();
 }
 
 model.cut = function() {
-	var salaryNodes = company.response.documentElement.getElementsByTagName("Salary");
-	for (var i = 0; i < salaryNodes.length; i++) {
-		salaryNodes[i].childNodes[0].nodeValue = parseFloat(salaryNodes[i].childNodes[0].nodeValue) / 2;
-	}
-	company.saveData(company.response);
-	model.total();
+	model.execute("cut");
 }
 
 model.resetData = function() {
-	company.reset();
+	model.execute("reset");
 }
 
 model.selectDepartment = function(name) {
-	var departmentList = company.response.documentElement.getElementsByTagName("Department");
-	for (var i = 0; i < departmentList.length; i++) {
-		if (departmentList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue == name) {
-			model.changeTo = departmentList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'company.php', true);
+	xhr.setRequestHeader("action", "changePage");
+	xhr.setRequestHeader("table", "company");
+	xhr.setRequestHeader("id", "1");
+	
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			model.changeTo = xhr.responseText;
+			controller.changePage();
 		}
 	}
-
-	controller.changePage();
+	xhr.send(name);
 }
 
 model.changeName = function(newName) {
-	companyChilds = company.response.documentElement.childNodes;
+	model.execute("save", newName);
+}
+
+model.execute = function(action, param) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'company.php', true);
+	xhr.setRequestHeader("action", action);
+	xhr.setRequestHeader("table", "company");
+	xhr.setRequestHeader("id", "1");
 	
-	for (var i = 0; i < companyChilds.length; i++) {
-		if (companyChilds[i].nodeType == 1) {
-			if ("Name" == companyChilds[i].nodeName) {
-				companyChilds[i].childNodes[0].nodeValue = newName;
-			}
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			var temp = xhr.responseText;
+			company.response = JSON.parse(temp);
+			controller.loadInner();
 		}
 	}
-	company.saveData(company.response);
+	xhr.send(param);	
 }

@@ -3,14 +3,14 @@ var controller = {};
 controller.loadDepartment = function(id) {
 	controller.departmentId = id;
 	gui.generateFormular();
-	model.loadData();
+	model.loadData(id);
 }
 
 controller.loadInner = function() {
-	model.getDepartmentName(controller.departmentId);
-	model.getEmployees(controller.departmentId);
-	model.getSubdepartments(controller.departmentId);
-	model.total(controller.departmentId);
+	model.getDepartmentName();
+	model.getEmployees();
+	model.getSubdepartments();
+	//model.total();
 }
 
 controller.cut = function(id) {
