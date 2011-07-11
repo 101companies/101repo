@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace csharpBaseline.CompanyModel
 {
     public class Department
     {
+        public Guid Id { get; set; }
+
         public Department()
         {
             SubDepartments = new List<Department>();
             Employees = new List<Employee>();
+            Id = Guid.NewGuid();
         }
 
         public Department(string name, Employee manager) : this()
@@ -28,21 +33,11 @@ namespace csharpBaseline.CompanyModel
         {
             get
             {
-                var total = Manager.Salary;
-                
                 // calculate total across sub units
-                foreach (var department in SubDepartments)
-                {
-                    total += department.Total;
-                }
 
                 //add current division's employees' salaries to the total
-                foreach (var employee in Employees)
-                {
-                    total += employee.Salary;
-                }
 
-                return total;
+                return Manager.Salary + SubDepartments.Sum(department => department.Total) + Employees.Sum(employee => employee.Salary);
             }
         }
 
@@ -58,9 +53,9 @@ namespace csharpBaseline.CompanyModel
 
             Manager.Salary /= 2;
 
-            foreach (var employee in Employees)
+            foreach (var employee in Employees.Where(employee => employee.Salary != 0))
             {
-                if (employee.Salary != 0) employee.Salary /= 2;
+                employee.Salary /= 2;
             }
         }
 
@@ -75,12 +70,9 @@ namespace csharpBaseline.CompanyModel
                 if (SubDepartments.Count > 0)
                 {
                     var subDepth = 0;
-                    foreach (var subUnit in SubDepartments)
+                    foreach (var subUnit in SubDepartments.Where(subUnit => subUnit.Depth > subDepth))
                     {
-                        if (subUnit.Depth > subDepth)
-                        {
-                            subDepth += subUnit.Depth;  
-                        }
+                        subDepth += subUnit.Depth;
                     }
 
                     depth += subDepth;
@@ -97,13 +89,13 @@ namespace csharpBaseline.CompanyModel
             var c1 = obj as Department;
             if (c1 == null) return false;
 
-            foreach (var employee in Employees)
+            if (Employees.Any(employee => !c1.Employees.Contains(employee)))
             {
-                if (!c1.Employees.Contains(employee)) return false;
+                return false;
             }
-            foreach (var subUnit in SubDepartments)
+            if (SubDepartments.Any(subUnit => c1.SubDepartments.Contains(subUnit)))
             {
-                if (c1.SubDepartments.Contains(subUnit)) return false;
+                return false;
             }
             return ((c1.Name == Name) && (c1.Manager.Equals(Manager)));
         }

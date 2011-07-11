@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace csharpBaseline.CompanyModel
 {
     public class Company
     {
+        public Guid Id { get; set; }
+
         public Company()
         {
             Departments = new List<Department>();
+            Id = Guid.NewGuid();
         }
         public string Name { get; set; }
         public List<Department> Departments { get; set; }

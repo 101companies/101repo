@@ -14,7 +14,7 @@ namespace csharpBaseline.Tests
         {
             get
             {
-                return CompanyBuilder.CreateInMemoryModel();
+                return CompanyRepository.CreateInMemoryModel();
             }
         }
 

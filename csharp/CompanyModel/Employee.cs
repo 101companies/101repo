@@ -1,9 +1,16 @@
-﻿namespace csharpBaseline.CompanyModel
+﻿using System;
+
+namespace csharpBaseline.CompanyModel
 {
     public class Employee
     {
-        public Employee() {}
-        public Employee(Person person)
+        public Guid Id { get; set; }
+
+        public Employee()
+        {
+            Id = Guid.NewGuid();
+        }
+        public Employee(Person person) : this()
         {
             Person = person;
         }
