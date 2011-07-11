@@ -24,6 +24,26 @@ A simple implementation in [[Language:FSharp|F#]] for the [[Technology:.NET]] Fr
 101comanies model based on F# type system. The model is created in-memory.
 Unit tests are attached.
 
+== Illustration ==
+
+<syntaxhighlight lang="fsharp">
+    type Company() = 
+     class
+       let mutable name = ""
+       let mutable departments:List<Department> = new List<Department>()   
+       member this.Name with get() = name and set v = name <- v
+       member this.Departments with get() = departments and set v = departments <- v
+</syntaxhighlight>
+
+
+<syntaxhighlight lang="fsharp">
+
+ member this.TotalSalaries =
+        let x = List.fold (fun (acc) (elem:Department) -> acc + elem.Total) 0M (List.ofSeq departments)
+        x
+
+</syntaxhighlight>
+
 == Architecture ==
 
 == Usage ==
