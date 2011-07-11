@@ -1,5 +1,6 @@
-== Summary ==
-F# based object model for 101companies
+== Intent ==
+
+A simple implementation in [[Language:FSharp|F#]] for the [[Technology:.NET]] Framework
 
 == Description == 
 101comanies model based on F# type system. The model is created in-memory.
@@ -14,8 +15,6 @@ Under <configuration> add:
 and under <runtime> add:
 <loadFromRemoteSources enabled="true" />
 
-
 == Contributors ==
 
 * {{101contributor|Andrei Varanovich|developer}}
-
