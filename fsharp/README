@@ -2,15 +2,36 @@
 
 A simple implementation in [[Language:FSharp|F#]] for the [[Technology:.NET]] Framework
 
-== Description == 
+== Languages ==
+
+* [[Language:FSharp]] (F#): Programming language used for all code (Version 2.0)
+
+== Technologies ==
+
+* [[Technology:fcs.exe]]: F# compiler (Version 2.0)
+* [[Technology:.NET]]: framework used to execute compiled code (Version 4.0)
+* [[Technology:NUnit]]: unit testing framework used for testing (Version 2.5)
+* [[Technology:Visual Studio]]: optional IDE (Version 2010)
+
+== Features ==
+
+== Motivation ==
+
 101comanies model based on F# type system. The model is created in-memory.
 Unit tests are attached.
 
+== Architecture ==
+
+== Usage ==
+
 To make NUnit GUI working with .NET 4.0
 Under <configuration> add:
+<nowiki>
+
 <startup>
   <supportedRuntime version="v4.0.30319" />
 </startup>
+</nowiki>
 
 and under <runtime> add:
 <loadFromRemoteSources enabled="true" />
