@@ -1,8 +1,7 @@
 var controller = {};
 
-controller.loadEmployee = function(id, isManager) {
+controller.loadEmployee = function(id) {
 	model.setId(id);
-	model.setManager(isManager);
 	gui.generateFormular();
 	model.loadData();
 }

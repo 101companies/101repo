@@ -67,7 +67,7 @@ gui.generateFormular = function() {
 	// department name
 	content += "<tr><td align=\"right\">Name: </td>";
 	content += "<td><input type=\"text\" class=\"text\" name=\"name\">";
-	content += " <input type=\"button\" name=\"save\" class=\"button\" value=\"save\" onclick=\"controller.changeName(" + departmentId + ", this.form.name.value)\"></td></tr>";
+	content += " <input type=\"button\" name=\"save\" class=\"button\" value=\"save\" onclick=\"controller.changeName(this.form.name.value)\"></td></tr>";
 	
 	// manager
 	content += "<tr><td align=\"right\">Manager: </td>";

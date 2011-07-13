@@ -28,7 +28,20 @@ model.total = function() {
 }
 
 model.cut = function() {
-	model.execute("cut");
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'company.php', true);
+	xhr.setRequestHeader("action", "cut");
+	xhr.setRequestHeader("table", "company");
+	xhr.setRequestHeader("id", "1");
+	
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			var temp = xhr.responseText;
+			model.totalValue = temp;
+			controller.notifyTotal();
+		}
+	}
+	xhr.send();
 }
 
 model.resetData = function() {
@@ -38,7 +51,7 @@ model.resetData = function() {
 model.selectDepartment = function(name) {
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'company.php', true);
-	xhr.setRequestHeader("action", "changePage");
+	xhr.setRequestHeader("action", "selectDepartment");
 	xhr.setRequestHeader("table", "company");
 	xhr.setRequestHeader("id", "1");
 	
@@ -69,5 +82,5 @@ model.execute = function(action, param) {
 			controller.loadInner();
 		}
 	}
-	xhr.send(param);	
+	xhr.send(param);
 }

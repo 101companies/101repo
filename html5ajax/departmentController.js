@@ -10,7 +10,7 @@ controller.loadInner = function() {
 	model.getDepartmentName();
 	model.getEmployees();
 	model.getSubdepartments();
-	//model.total();
+	model.total();
 }
 
 controller.cut = function(id) {
@@ -29,8 +29,8 @@ controller.selectDepartment = function(name) {
 	model.selectDepartment(name);
 }
 
-controller.changeName = function(id, newName) {
-	model.changeName(id, newName);
+controller.changeName = function(newName) {
+	model.changeName(newName);
 }
 
 controller.notifyEmployees = function() {
@@ -58,5 +58,5 @@ controller.changeToDepartment = function() {
 
 // change page to employee view
 controller.changeToEmployee = function() {
-	location.href = "employee.html?employeeId=" + model.nextEmployee + "&manager=" + model.isManager;
+	location.href = "employee.html?employeeId=" + model.nextEmployee;
 }

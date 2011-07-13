@@ -1,1 +1,1 @@
-document.write("<h1>101Companies HTML5 implementation with XMLHttpRequest</h1><br>");
+document.write("<h1>101Companies HTML5 implementation with Ajax, php server and JSON</h1><br>");

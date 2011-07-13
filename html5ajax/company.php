@@ -11,7 +11,6 @@
 			loadData($table, $id);
 		} else if ($_SERVER['HTTP_ACTION'] == "cut") {
 			cut($table, $id);
-			loadData($table, $id);
 		} else if ($_SERVER['HTTP_ACTION'] == "reset") {
 			resetCompany();
 			loadData($table, $id);
@@ -19,19 +18,23 @@
 			if ($table == "company") {
 				saveCompany($id, $HTTP_RAW_POST_DATA);
 			} else if ($table == "department") {
-			
+				saveDepartment($id, $HTTP_RAW_POST_DATA);
 			} else {
-			
+				saveEmployee($id, $HTTP_RAW_POST_DATA);
 			}
 			loadData($table, $id);
-		} else if ($_SERVER['HTTP_ACTION'] == "changePage") {
-			getIdForName($HTTP_RAW_POST_DATA);
+		} else if ($_SERVER['HTTP_ACTION'] == "selectDepartment") {
+			getIdForName("department", $HTTP_RAW_POST_DATA);
+		} else if ($_SERVER['HTTP_ACTION'] == "selectEmployee") {
+			getIdForName("employee", $HTTP_RAW_POST_DATA);
 		}
 	}
 	
+	closeConnection($con);
+	
 	// get id for department with a given name
-	function getIdForName($name) {
-		$request = "SELECT id FROM department WHERE name = \"$name\"";
+	function getIdForName($table, $name) {
+		$request = "SELECT id FROM $table WHERE name = \"$name\"";
 		$result = mysql_query($request);
 		$row = mysql_fetch_object($result);
 		$id = "$row->id";
@@ -46,11 +49,9 @@
 		} else if ($table == "department") {
 			department($id);
 		} else {
-		
+			employee($id);
 		}
 	}
-	
-	closeConnection($con);
 	
 	// establish connection to database
 	function establishConnection() {
@@ -121,7 +122,7 @@
 		$name = "$row->name";
 		$department = $department . "\"name\": \"" . $name . "\",";
 		
-		// employees
+		// employees and manager
 		$department = $department . "\"employees\":[";
 		$request = "SELECT * FROM employee WHERE did = $id";
 		$result = mysql_query($request);
@@ -139,10 +140,8 @@
 			$department = substr($department, 0, strlen($department) - 1);
 		}
 		
-		
 		$department = $department . "],";
 		$department = $department . "\"manager\": \"" . $manager . "\",";
-		
 		
 		// departments
 		$department = $department . "\"departments\":[";
@@ -150,7 +149,7 @@
 		$request = "SELECT * FROM department WHERE did = $id";
 		$result = mysql_query($request);
 		$count = mysql_num_rows($result);
-		while($row = mysql_fetch_object($result)) {
+		while ($row = mysql_fetch_object($result)) {
 			$subdep = "$row->name";
 			$department = $department . "\"" . $subdep . "\",";
 		}
@@ -158,19 +157,84 @@
 		if ($count > 0) {
 			$department = substr($department, 0, strlen($department) - 1);
 		}
-		$department = $department . "]";
+		$department = $department . "],";
+		
+		// total
+		$total = totalDepartment($id);
+		
+		$department = $department . "\"total\":" . $total;
 		
 		$department = $department . "}";
 		echo $department;
 	}
+		
+	// total of a department and its subdepartments
+	function totalDepartment($id) {
+		$total = 0;
+		$request = "SELECT * FROM department WHERE did = $id";
+		$result = mysql_query($request);
+		while ($row = mysql_fetch_object($result)) {
+			$total += totalDepartment("$row->id");
+		}
+		$request = "SELECT * FROM employee WHERE did = $id";
+		$result = mysql_query($request);
+		while ($row = mysql_fetch_object($result)) {
+			$total += "$row->salary";
+		}
+		return $total;
+	}
+	
+	// cut for a department and its subdepartments
+	function cutDepartment($id) {
+		$request = "SELECT * FROM department WHERE did = $id";
+		$result = mysql_query($request);
+		while ($row = mysql_fetch_object($result)) {
+			cutDepartment("$row->id");
+		}
+		$request = "UPDATE employee SET salary = salary / 2 WHERE did = $id";
+		mysql_query($request);
+	}
 	
 	// load employee
 	function employee($id) {
-	
+		$request = "SELECT * FROM employee WHERE id = $id";
+		$result = mysql_query($request);
+		$row = mysql_fetch_object($result);
+
+		$name = "$row->name";
+		$address = "$row->address";
+		$salary = "$row->salary";
+		
+		$employee = "{ \"name\": \"" . $name . "\", \"address\": \"" . $address . "\", \"salary\": " . $salary . "}";
+		echo $employee;
 	}
 	
+	// save company-name
 	function saveCompany($id, $newName) {
 		$request = "UPDATE company SET name = \"$newName\" WHERE id = $id";
+		mysql_query($request);
+	}
+	
+	// save department-name
+	function saveDepartment($id, $newName) {
+		$request = "UPDATE department SET name = \"$newName\" WHERE id = $id";
+		mysql_query($request);
+	}
+	
+	// save employee-data
+	function saveEmployee($id, $data) {
+		$empl = json_decode($data);
+		$name = $empl->name;
+		$address = $empl->address;
+		$salary = $empl->salary;
+		
+		$request = "UPDATE employee SET name = '$name' WHERE id = $id";
+		mysql_query($request);
+		
+		$request = "UPDATE employee SET address = '$address' WHERE id = $id";
+		mysql_query($request);
+
+		$request = "UPDATE employee SET salary = $salary WHERE id = $id";
 		mysql_query($request);
 	}
 	
@@ -179,8 +243,17 @@
 		if ($table == "company") {
 			$request = "UPDATE employee SET salary = salary / 2 WHERE cid = $id";
 			mysql_query($request);
-		} else if ($table == "department") {
 			
+			$request = "SELECT * FROM employee";
+			$result = mysql_query($request);
+			$total = 0;
+			while($row = mysql_fetch_object($result)) {
+				$total += "$row->salary";
+			}
+			echo $total;
+		} else if ($table == "department") {
+			cutDepartment($id);
+			echo totalDepartment($id);
 		} else {
 			$request = "UPDATE employee SET salary = salary / 2 WHERE id = $id";
 			mysql_query($request);

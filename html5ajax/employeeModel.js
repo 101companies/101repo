@@ -4,53 +4,47 @@ model.name;
 model.address;
 model.salary;
 model.employeeId;
-model.isManager;
 
 model.setId = function(id) {
 	model.employeeId = id;
 }
 
-model.setManager = function(isManager) {
-	model.isManager = isManager;
-}
-
 model.loadData = function() {
-	company.loadData();
+	model.execute("load");
 }
 
-// load data for department
+// load data for employee
 model.getEmployee = function() {
-	var employeeList;
-	if (model.isManager == "true") {
-		employeeList = company.response.documentElement.getElementsByTagName("Manager");
-	} else {
-		employeeList = company.response.documentElement.getElementsByTagName("Employee");
-	}
+	model.name = company.response.name;
+	model.address = company.response.address;
+	model.salary = company.response.salary;
 	
-	for (var i = 0; i < employeeList.length; i++) {
-		if (employeeList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue == model.employeeId) {
-			model.name = employeeList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue;
-			model.address = employeeList[i].getElementsByTagName("Address")[0].childNodes[0].nodeValue;
-			model.salary = employeeList[i].getElementsByTagName("Salary")[0].childNodes[0].nodeValue;
-		}
-	}
 	controller.notifyView();
 }
 
+// save data for employee
 model.save = function(id, newName, newAddress, newSalary) {
-	var employeeList;
-	if (model.isManager == "true") {
-		employeeList = company.response.documentElement.getElementsByTagName("Manager");
-	} else {
-		employeeList = company.response.documentElement.getElementsByTagName("Employee");
-	}
+	var employee = {};
+	employee.name = newName;
+	employee.address = newAddress;
+	employee.salary = newSalary;
+	var newData = JSON.stringify(employee);
+	model.execute("save", newData);
+}
+
+model.execute = function(action, param) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'company.php', true);
+	xhr.setRequestHeader("action", action);
+	xhr.setRequestHeader("table", "employee");
+	xhr.setRequestHeader("id", model.employeeId);
 	
-	for (var i = 0; i < employeeList.length; i++) {
-		if (employeeList[i].getElementsByTagName("id")[0].childNodes[0].nodeValue == model.employeeId) {
-			employeeList[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue = newName;
-			employeeList[i].getElementsByTagName("Address")[0].childNodes[0].nodeValue = newAddress;
-			employeeList[i].getElementsByTagName("Salary")[0].childNodes[0].nodeValue = parseFloat(newSalary);
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			var temp = xhr.responseText;
+			company.response = JSON.parse(temp);
+			controller.loadInner();
 		}
 	}
-	company.saveData(company.response);
+	xhr.send(param);
 }

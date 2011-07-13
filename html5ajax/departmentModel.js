@@ -7,7 +7,6 @@ model.employees;
 model.totalValue;
 model.nextDepartment;
 model.nextEmployee;
-model.isManager;
 
 model.id;
 
@@ -36,35 +35,67 @@ model.getSubdepartments = function() {
 }
 
 model.total = function() {
-	model.total = company.response.total;
+	model.totalValue = company.response.total;
 	
 	controller.notifyTotal();
 }
 
 model.selectDepartment = function(name) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'company.php', true);
+	xhr.setRequestHeader("action", "selectDepartment");
+	xhr.setRequestHeader("table", "company");
+	xhr.setRequestHeader("id", "1");
 	
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			model.nextDepartment = xhr.responseText;
+			controller.changeToDepartment();
+		}
+	}
+	xhr.send(name);
 
-	controller.changeToDepartment();
 }
 
 model.selectEmployee = function(name) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'company.php', true);
+	xhr.setRequestHeader("action", "selectEmployee");
+	xhr.setRequestHeader("table", "company");
+	xhr.setRequestHeader("id", "1");
 	
-	
-	controller.changeToEmployee();
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			model.nextEmployee = xhr.responseText;
+			controller.changeToEmployee();
+		}
+	}
+	xhr.send(name);
 }
 
 model.selectManager = function(name) {
-	
-	
-	controller.changeToEmployee();
+	model.selectEmployee(name);
 }
 
 model.cut = function() {	
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'company.php', true);
+	xhr.setRequestHeader("action", "cut");
+	xhr.setRequestHeader("table", "department");
+	xhr.setRequestHeader("id", model.id);
 	
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			var temp = xhr.responseText;
+			model.totalValue = temp;
+			controller.notifyTotal();
+		}
+	}
+	xhr.send();
 }
 
-model.changeName = function(id, newName) {	
-	
+model.changeName = function(newName) {	
+	model.execute("save", newName);
 }
 
 model.execute = function(action, param) {
@@ -81,5 +112,5 @@ model.execute = function(action, param) {
 			controller.loadInner();
 		}
 	}
-	xhr.send(param);	
+	xhr.send(param);
 }
