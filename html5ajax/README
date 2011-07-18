@@ -7,10 +7,12 @@
 * [[Language:HTML5]]
 * [[Language:JavaScript]]
 * [[Language:php]]
-* [[Language:XML]]
+* [[Language:SQL]]
 
 == Technologies ==
 
+* [[Technology:MySQL]]
+* [[Technology:XAMPP]]
 * [[Technology:XMLHttpRequest]]
 * [[Technology:Webbrowser]] (HTML5 compliant)
 
@@ -19,6 +21,7 @@
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Persistence]]
 * [[101feature:Interaction]]
 
 == Motivation ==
@@ -34,10 +37,10 @@
 
 You need a web- and sql-server to use this application. In this tutorial both will take by XAMPP: http://www.apachefriends.org/en/xampp.html
 
-This tutorial adopts some parts of [[101implementation:mySql]]:
+This tutorial adopts some parts of [[101implementation:mySql]]. We will use the company.sql and sampleCompany.sql from this project below:
 
 * Download and install XAMPP
-* Open the "XAMPP Control Panel" and start "Apache" and "mySql"
+* Open the "XAMPP Control Panel" and start "Apache" and "MySQL"
 * Create a new User "101companies" with Password "101companies" and a new Database "101companies" (use the XAMPP-Tutorial)
 * Create Tables for the 101companies-application (company.sql)
 * Populate Tables (sampleCompany.sql)
