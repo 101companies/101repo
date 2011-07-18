@@ -32,6 +32,21 @@
 
 == Usage ==
 
+You need a web- and sql-server to use this application. In this tutorial both will take by XAMPP: http://www.apachefriends.org/en/xampp.html
+
+This tutorial adopts some parts of [[101implementation:mySql]]:
+
+* Download and install XAMPP
+* Open the "XAMPP Control Panel" and start "Apache" and "mySql"
+* Create a new User "101companies" with Password "101companies" and a new Database "101companies" (use the XAMPP-Tutorial)
+* Create Tables for the 101companies-application (company.sql)
+* Populate Tables (sampleCompany.sql)
+
+After the database is running, follow the next steps:
+
+* To start the application, you need to download all files except the README
+* Put the files into the htdocs-directory of your XAMPP (a new sub-directory in "htdocs" is recommended)
+* Run index.html
 
 == Contributors ==
 
