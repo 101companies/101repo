@@ -16,7 +16,7 @@ public class UseCase {
 		QName qname = new QName("http://service.softlang.org/", "PortalService");
 		
 		Portal service = new PortalService(localWSDL, qname).getPortalPort();
-		System.out.println(service.totalCompany("meganalysis"));
+		System.out.println(service.totalCompany());
 	}
 
 }
