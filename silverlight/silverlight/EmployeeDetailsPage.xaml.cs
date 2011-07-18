@@ -24,19 +24,13 @@ namespace silverlight
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            string employeeId = "";
-            if (NavigationContext.QueryString.TryGetValue("selectedItem", out employeeId))
+            var employeeId = "";
+            if (NavigationContext.QueryString.TryGetValue("id", out employeeId))
             {
                 var client = new CompanyServiceClient();
-                client.GetEmployeeCompleted += client_GetEmployeeCompleted;
+                client.GetEmployeeCompleted += (s, ea) => DataContext = ea.Result;
                 client.GetEmployeeAsync(employeeId);
             }
         }
-
-        void client_GetEmployeeCompleted(object sender, GetEmployeeCompletedEventArgs e)
-        {
-            DataContext = e.Result;
-        }
-
     }
 }

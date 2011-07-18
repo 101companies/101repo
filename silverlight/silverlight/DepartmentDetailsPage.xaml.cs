@@ -24,18 +24,24 @@ namespace silverlight
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            string departmentId = "";
-            if (NavigationContext.QueryString.TryGetValue("selectedItem", out departmentId))
+            var departmentId = "";
+            if (NavigationContext.QueryString.TryGetValue("id", out departmentId))
             {
                 var client = new CompanyServiceClient();
-                client.GetDepartmentCompleted += client_GetDepartmentCompleted;
+                client.GetDepartmentCompleted += (s, ea) => DataContext = ea.Result; ;
                 client.GetDepartmentAsync(departmentId);
             }
         }
 
-        void client_GetDepartmentCompleted(object sender, GetDepartmentCompletedEventArgs e)
+        private void Button1Click(object sender, RoutedEventArgs e)
         {
-            DataContext = e.Result;
+            var dept = DataContext as DepartmentDto;
+            if (dept == null) return;
+            
+            var client = new CompanyServiceClient();
+            client.CutDeptCompleted += (s, ea) => txtTotal.Text = (dept.Total / 2).ToString();
+
+            client.CutDeptAsync(dept);
         }
     }
 }

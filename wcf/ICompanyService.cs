@@ -22,5 +22,14 @@ namespace wcf
 
         [OperationContract]
         EmployeeDto GetEmployee(string id);
+
+        [OperationContract]
+        decimal CutDept(DepartmentDto dept);
+
+        [OperationContract]
+        decimal CutEmpl(EmployeeDto emp);
+
+        [OperationContract]
+        decimal Cut(CompanyDto company);
     }
 }

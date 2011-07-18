@@ -48,7 +48,7 @@
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\technologies\NUnit\2.5.9\nunit.framework.dll</HintPath>
+      <HintPath>..\..\technologies\NUnit\2.5.9\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

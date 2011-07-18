@@ -3,21 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web;
 using csharpBaseline;
 using csharpBaseline.CompanyModel;
 using wcf.Dto;
 
 namespace wcf
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CompanyService" in code, svc and config file together.
+    //TODO: check this issue http://stackoverflow.com/questions/5019798/aspnetcompatibilityrequirements-causes-wcf-web-service-to-block
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class CompanyService : ICompanyService
     {
-        private Company _company;
         private Company Company
         {
-            get { return _company ?? (_company = CompanyRepository.CreateInMemoryModel()); }
+            get
+            {
+                if (HttpContext.Current.Session["company"] == null)
+                {
+                    HttpContext.Current.Session["company"] = CompanyRepository.CreateInMemoryModel();
+                }
+
+                return HttpContext.Current.Session["company"] as Company;
+            }
         }
 
         private List<DepartmentDto> FillSubDepartments(Department d)
@@ -28,6 +39,7 @@ namespace wcf
             {
                 var subDept = new DepartmentDto();
                 subDept.Id = subDepartment.Id;
+                subDept.Name = subDepartment.Name;
                 subDept.Manager = new EmployeeDto
                                       {
                                           Address = subDepartment.Manager.Person.Address,
@@ -35,6 +47,7 @@ namespace wcf
                                           Name = subDepartment.Manager.Person.Name,
                                           Salary = subDepartment.Manager.Salary
                                       };
+
                 subDept.Employees = subDepartment.Employees.Select(e =>
                         new EmployeeDto
                             {
@@ -69,7 +82,7 @@ namespace wcf
                                                                                         Salary = e.Salary
                                                                                     }).ToList(),
                                                                                     SubDepartments = FillSubDepartments(d),
-                                                                                    Manager = new EmployeeDto()
+                                                                                    Manager = new EmployeeDto
                                                                                                   {
                                                                                                       Id = d.Manager.Id,
                                                                                                       Address = d.Manager.Person.Address,
@@ -117,6 +130,25 @@ namespace wcf
                           };
 
             return dto;
+        }
+
+        public decimal CutDept(DepartmentDto dept)
+        {
+            var department = Company.AllDepartments.Where(d => d.Id == dept.Id).First();
+            department.Cut();
+
+            return department.Total;
+        }
+
+        public decimal CutEmpl(EmployeeDto emp)
+        {
+            return new decimal(0.0);
+        }
+
+        public decimal Cut(CompanyDto company)
+        {
+            Company.Cut();
+            return Company.Total;
         }
     }
 }

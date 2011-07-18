@@ -37,7 +37,8 @@ namespace csharpBaseline.CompanyModel
 
                 //add current division's employees' salaries to the total
 
-                return Manager.Salary + SubDepartments.Sum(department => department.Total) + Employees.Sum(employee => employee.Salary);
+                return Manager.Salary + SubDepartments.Sum(department => department.Total) +
+                    Employees.Sum(employee => employee.Salary);
             }
         }
 

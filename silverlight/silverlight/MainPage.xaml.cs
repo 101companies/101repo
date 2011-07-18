@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -22,29 +23,80 @@ namespace silverlight
             this.Loaded += MainPageLoaded;
         }
 
-        void MainPageLoaded(object sender, RoutedEventArgs e)
+        private void MainPageLoaded(object sender, RoutedEventArgs e)
         {
             var client = new CompanyServiceClient();
             client.GetCompanyCompleted += ClientGetCompanyCompleted;
             client.GetCompanyAsync();
         }
 
-        void ClientGetCompanyCompleted(object sender, GetCompanyCompletedEventArgs e)
+        private void ClientGetCompanyCompleted(object sender, GetCompanyCompletedEventArgs e)
         {
             var company = e.Result;
-            treeCompany.ItemsSource = company.Departments.Select(d => new NameBinding { Name = d.Name, Url = new Uri("/DepartmentDetailsPage.xaml?selectedItem=" + d.Id, UriKind.Relative) }).ToList();
-            DataContext = treeCompany.ItemsSource;
+            ShowTree(company);
+        }
+
+        private void ShowTree(CompanyDto company)
+        {
+            var tvCompanyItem = new TreeViewItem
+                                    {
+                                        Header = company.Name
+                                    };
+            this.treeCompany.Items.Add(tvCompanyItem);
+
+            foreach (var dept in company.Departments)
+            {
+                var tv = new TreeViewItem 
+                {
+                    Header = dept.Name, 
+                    Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", dept.Id), UriKind.Relative)
+                };
+                tvCompanyItem.Items.Add(tv);
+                GetSubTree(ref tv, dept);
+            }
+        }
+
+        private void GetSubTree(ref TreeViewItem iSubTree, DepartmentDto department)
+        {
+            var subItem = new TreeViewItem
+                              {
+                                  Header = department.Manager.Name,
+                                  Tag = new Uri(string.Format(@"/EmployeeDetailsPage.xaml?id={0}", department.Manager.Id), UriKind.Relative)
+                              };
+            iSubTree.Items.Add(subItem);
+
+            foreach (var employee in department.Employees)
+            {
+                subItem = new TreeViewItem
+                              {
+                                  Header = employee.Name,
+                                  Tag = new Uri(string.Format(@"/EmployeeDetailsPage.xaml?id={0}", employee.Id), UriKind.Relative)
+                              };
+                iSubTree.Items.Add(subItem);
+            }
+
+            foreach (var subDept in department.SubDepartments)
+            {
+                subItem = new TreeViewItem
+                              {
+                                  Header = subDept.Name,
+                                  Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", subDept.Id), UriKind.Relative)
+                              };
+                iSubTree.Items.Add(subItem);
+                GetSubTree(ref subItem, subDept);
+            }
         }
 
         private void TreeCompanySelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var node = e.NewValue as NameBinding;
-            if (node == null)
+            var uri = ((TreeViewItem)e.NewValue).Tag as Uri;
+
+            if (uri == null)
             {
-                return;
-               // node = e.NewValue as 
+                uri = new Uri(@"/Home.xaml", UriKind.Relative);
             }
-            ContentFrame.Navigate(node.Url);
+
+            ContentFrame.Navigate(uri);
         }
     }
 
@@ -53,4 +105,5 @@ namespace silverlight
         public string Name { get; set; }
         public Uri Url { get; set; }
     }
+
 }

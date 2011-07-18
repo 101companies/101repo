@@ -12,7 +12,8 @@ namespace csharpEntityFramework.Tests
         [Test]
         public void TotalCutTest()
         {
-            /*NOTE: please recreate database before running this test as soon as "Cut" operation modifies the data and total reduced
+            /*NOTE: please recreate database before running this test as soon as "Cut"
+             * operation modifies the data and total reduced
              every time you run the test, so we can't expect the same total */
 
             var company = new CompanyDataContext();

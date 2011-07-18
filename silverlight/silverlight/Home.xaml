@@ -12,6 +12,7 @@
         <sdk:Label Height="28" HorizontalAlignment="Left" Margin="59,12,0,0" Name="label1" VerticalAlignment="Top" Width="156" Content="101companies" FontWeight="Bold" FontSize="18" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="59,46,0,0" Name="txtCompanyName" Text="{Binding Name}" VerticalAlignment="Top" Width="144" FontSize="18" />
         <sdk:Label Height="28" HorizontalAlignment="Left" Margin="59,75,0,0" Name="label2" VerticalAlignment="Top" Width="55" Content="Total:" FontSize="18" />
-        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="123,75,0,0" Name="txtTotal" Content="{Binding Total}"  VerticalAlignment="Top" Width="92" FontSize="18" />
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="123,75,0,0" Name="txtTotal" Content="{Binding Total}"  VerticalAlignment="Top" Width="137" FontSize="18" />
+        <Button Content="Cut" Height="39" HorizontalAlignment="Left" Margin="59,121,0,0" Name="btnCut" VerticalAlignment="Top" Width="93" FontSize="18" Click="btnCut_Click" />
     </Grid>
 </navigation:Page>

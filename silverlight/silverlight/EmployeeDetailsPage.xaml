@@ -7,11 +7,11 @@
                  d:DesignWidth="640" d:DesignHeight="480"
            Title="EmployeeDetailsPage Page">
     <Grid x:Name="LayoutRoot">
-        <TextBlock FontSize="26" Height="51" HorizontalAlignment="Left" Margin="69,125,0,0" Name="textBlock2" Text="Address :" VerticalAlignment="Top" />
-        <TextBlock FontSize="26" Height="43" HorizontalAlignment="Left" Margin="90,212,0,0" Name="textBlock3" Text="Salary :" VerticalAlignment="Top" />
-        <TextBox Height="72" IsEnabled="False" Margin="206,104,56,0" Name="txtAddress" Text="{Binding Path=Address, Mode=TwoWay}" VerticalAlignment="Top" />
-        <TextBox Height="72" IsEnabled="False" Margin="206,198,56,0" Name="txtSalary" Text="{Binding Salary, Mode=TwoWay}" VerticalAlignment="Top" />
+        <TextBlock FontSize="26" Height="51" HorizontalAlignment="Left" Margin="69,100,0,0" Name="textBlock2" Text="Address :" VerticalAlignment="Top" />
+        <TextBlock FontSize="26" Height="43" HorizontalAlignment="Left" Margin="90,173,0,0" Name="textBlock3" Text="Salary :" VerticalAlignment="Top" />
+        <TextBox Height="51" IsEnabled="True" Margin="206,96,56,0" Name="txtAddress" Text="{Binding Path=Address, Mode=TwoWay}" VerticalAlignment="Top" FontSize="26" />
+        <TextBox Height="46" IsEnabled="True" Margin="206,173,56,0" Name="txtSalary" Text="{Binding Salary, Mode=TwoWay}" VerticalAlignment="Top" FontSize="26" />
         <TextBlock FontSize="26" Height="51" HorizontalAlignment="Left" Margin="97,33,0,0" Name="textBlock1" Text="Name :" VerticalAlignment="Top" />
-        <TextBox Height="72" IsEnabled="False" Margin="206,12,56,0" Name="txtName" Text="{Binding Path=Name, Mode=TwoWay}" VerticalAlignment="Top" />
+        <TextBox Height="46" IsEnabled="True" Margin="206,29,56,0" Name="txtName" Text="{Binding Path=Name, Mode=TwoWay}" VerticalAlignment="Top" FontSize="26" />
     </Grid>
 </navigation:Page>

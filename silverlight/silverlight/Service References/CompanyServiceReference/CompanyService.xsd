@@ -22,6 +22,7 @@
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="Manager" nillable="true" type="tns:EmployeeDto" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubDepartments" nillable="true" type="tns:ArrayOfDepartmentDto" />
       <xs:element minOccurs="0" name="Total" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>

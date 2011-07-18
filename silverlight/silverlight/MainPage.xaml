@@ -8,23 +8,20 @@
 
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.Resources>
-            <sdk:HierarchicalDataTemplate x:Key="ChildTemplate" >
-                <TextBlock FontStyle="Italic" Text="{Binding Path=Name}" />
+            <sdk:HierarchicalDataTemplate x:Key="ChildTemplate" ItemsSource="{Binding Path=SubItems}">
+                <TextBlock Text="{Binding Name}" Foreground="{Binding ForegroundColor}" />
             </sdk:HierarchicalDataTemplate>
-
-            <sdk:HierarchicalDataTemplate x:Key="NameTemplate" 
-                                          ItemsSource="{Binding Path=Dept.Employees}" 
-                                          ItemTemplate="{StaticResource ChildTemplate}">
-                <TextBlock Text="{Binding Path=Dept.Name}" FontWeight="Bold" />
+            
+            <sdk:HierarchicalDataTemplate x:Key="FilesDataTemplate" ItemsSource="{Binding Path=SubItems}" ItemTemplate="{StaticResource ChildTemplate}">
+                <TextBlock Text="{Binding Name}" Foreground="{Binding ForegroundColor}" />
             </sdk:HierarchicalDataTemplate>
         </Grid.Resources>
         <sdk:TreeView Height="480" 
                       HorizontalAlignment="Left" 
                       ItemsSource="{Binding}" 
-                      ItemTemplate="{StaticResource NameTemplate}" 
                       Name="treeCompany" 
                       VerticalAlignment="Top"
-                      Width="213" SelectedItemChanged="TreeCompanySelectedItemChanged">
+                      Width="213" SelectedItemChanged="TreeCompanySelectedItemChanged" FontSize="16">
         </sdk:TreeView>
         <sdk:Frame x:Name="ContentFrame" Source="/Home.xaml" Margin="211,0,0,0">
 

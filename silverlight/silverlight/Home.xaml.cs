@@ -34,5 +34,12 @@ namespace silverlight
             DataContext = e.Result;
         }
 
+        private void btnCut_Click(object sender, RoutedEventArgs e)
+        {
+            var client = new CompanyServiceClient();
+            client.CutCompleted += (x, y) => txtTotal.Content = y.Result;
+            client.CutAsync((CompanyDto)DataContext);
+        }
+
     }
 }

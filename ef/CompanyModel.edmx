@@ -295,22 +295,22 @@
     <Diagrams>
       <Diagram Name="CompanyModel">
         <EntityTypeShape EntityType="CompanyModel.Company" Width="1.5" PointX="3.5" PointY="1.375" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="CompanyModel.Department" Width="1.5" PointX="5.75" PointY="1" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="CompanyModel.Department" Width="1.5" PointX="5.75" PointY="1" Height="1.7879850260416665" />
         <EntityTypeShape EntityType="CompanyModel.Employee" Width="1.5" PointX="8" PointY="1" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="CompanyModel.Person" Width="1.5" PointX="8.125" PointY="4" Height="1.7879850260416674" />
         <AssociationConnector Association="CompanyModel.R_11" >
-          <ConnectorPoint PointX="5" PointY="2.172841796875" />
-          <ConnectorPoint PointX="5.75" PointY="2.172841796875" />
+          <ConnectorPoint PointX="5" PointY="2.0814925130208333" />
+          <ConnectorPoint PointX="5.75" PointY="2.0814925130208333" />
         </AssociationConnector>
         <AssociationConnector Association="CompanyModel.FK_Department_Departmnent" >
-          <ConnectorPoint PointX="6.2819230769230767" PointY="3.5571907552083317" />
-          <ConnectorPoint PointX="6.2819230769230767" PointY="3.8071907552083317" />
-          <ConnectorPoint PointX="6.7284615384615378" PointY="3.8071907552083317" />
-          <ConnectorPoint PointX="6.7284615384615378" PointY="3.5571907552083317" />
+          <ConnectorPoint PointX="6.2819230769230767" PointY="2.7879850260416665" />
+          <ConnectorPoint PointX="6.2819230769230767" PointY="3.0379850260416665" />
+          <ConnectorPoint PointX="6.7284615384615378" PointY="3.0379850260416665" />
+          <ConnectorPoint PointX="6.7284615384615378" PointY="2.7879850260416665" />
         </AssociationConnector>
         <AssociationConnector Association="CompanyModel.R_15" >
-          <ConnectorPoint PointX="7.25" PointY="2.1824446614583337" />
-          <ConnectorPoint PointX="8" PointY="2.1824446614583337" />
+          <ConnectorPoint PointX="7.25" PointY="1.8939925130208333" />
+          <ConnectorPoint PointX="8" PointY="1.8939925130208333" />
         </AssociationConnector>
         <AssociationConnector Association="CompanyModel.R_14" >
           <ConnectorPoint PointX="8.8125" PointY="4" />

@@ -167,16 +167,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\wp7\app\Wp7.csproj">
-      <Project>{EA87ED03-C006-495F-99D5-3037F8989322}</Project>
-      <Name>Wp7</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\wp7\silverlightClassLibrary\silverlightClassLibrary.csproj">
-      <Project>{7166BA63-F883-4650-B5FE-7DEB87C6BF6F}</Project>
-      <Name>silverlightClassLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

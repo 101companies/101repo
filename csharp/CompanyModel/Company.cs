@@ -16,6 +16,24 @@ namespace csharpBaseline.CompanyModel
         public string Name { get; set; }
         public List<Department> Departments { get; set; }
 
+        public IEnumerable<Department> AllDepartments
+        {
+            get { return GetAllDepartments(Departments); }
+        }
+
+        private static IEnumerable<Department> GetAllDepartments(IEnumerable<Department> depts)
+        {
+            var allDepts = new List<Department>();
+
+            foreach (var department in depts)
+            {
+                allDepts.Add(department);
+                allDepts.AddRange(GetAllDepartments(department.SubDepartments));
+            }
+
+            return allDepts;
+        }
+
         public void Cut()
         {
             foreach (var dept in Departments)

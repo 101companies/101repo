@@ -43,7 +43,8 @@ open System.Collections.Generic
     type Company() = 
      class
        let mutable name = ""
-       let mutable departments:List<Department> = new List<Department>()   
+       let mutable departments:List<Department> = new List<Department>()  
+        
        member this.Name with get() = name and set v = name <- v
        member this.Departments with get() = departments and set v = departments <- v
        
