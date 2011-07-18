@@ -27,7 +27,7 @@
 
 == Motivation ==
 
-This [[Language:HTML5|HTML5]]-project provides an optimized [[server-side]] data storage. While other projects like [[101implementation:XMLHttpRequest]] transmit the whole company-data from the [[server]] to the [[client]], this application only transmit the necessary data for the current page. This is realized with [[Technology:XMLHttpRequest]] and a [[server-side]] [[Language:php]]-script. The client sends a request to the [[server]] and the [[Language:php]]-script decides, which data should be transmitted. The response is wrapped in a stringified [[Technology:JSON]]-Object. It is evident to use [[Language:SQL]] for data storage in combination with the [[server-side]] [[Language:php]]-script.
+This [[Language:HTML5|HTML5]]-project provides an optimized [[server-side]] data storage. While other projects like [[101implementation:XMLHttpRequest]] transmit the whole company-data from the [[server]] to the [[client]], this application only transmit the necessary data for the current page. This is realized with [[Technology:XMLHttpRequest]] and a [[server-side]] [[Language:php]]-script. The client sends a request to the [[server]] and the [[Language:php]]-script decides, which data should be transmitted. The response is wrapped in a stringified [[Technology:JSON]]-Object, which easily can be decoded by the [[client]]. It is evident to use [[Language:SQL]] for data storage in combination with the [[server-side]] [[Language:php]]-script.
 
 == Illustration ==
 
