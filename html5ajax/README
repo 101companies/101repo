@@ -42,13 +42,13 @@ This tutorial adopts some parts of [[101implementation:mySql]]. We will use the 
 
 * Download and install XAMPP
 * Open the "XAMPP Control Panel" and start "Apache" and "MySQL"
-* Create a new User "101companies" with Password "101companies" and a new Database "101companies" (use the XAMPP-Tutorial). You can connect to the database with phpMyAdmin (delivered with XAMPP)
+* Create a new User "101companies" with Password "101companies" and a new Database "101companies" (use the tutorial: http://www.php-einfach.de/einf_mysql.php)
 * Create Tables for the 101companies-application (company.sql)
 * Populate Tables (sampleCompany.sql)
 
 After the database is running, follow the next steps:
 
-* To start the application, you need to download all files except the README
+* To start the application, you need to download all project-files except the README
 * Put the files into the htdocs-directory of your XAMPP (a new sub-directory in "htdocs" is recommended)
 * Run index.html
 
