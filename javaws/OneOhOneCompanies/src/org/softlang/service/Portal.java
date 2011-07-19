@@ -1,25 +1,27 @@
 package org.softlang.service;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.NoSuchElementException;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import org.softlang.service.company.*;
+import org.softlang.service.dto.*;
 
-@WebService (name="Portal")
+@WebService(name = "Portal")
 public class Portal {
+
+	private static Company theCompany;
+
+	static {
+		init();
+	}
 	
-	
-	private static final Company theCompany;
-	
-	static {		
+	private static void init() {
 		// Create company
-		Company sampleCompany = new Company();
-		sampleCompany.setName("meganalysis");
-		
+		theCompany = new Company();		
+		theCompany.setName("meganalysis");
+
 		// Create all employees
 		Employee craig = new Employee();
 		craig.setName("Craig");
@@ -32,7 +34,7 @@ public class Portal {
 		Employee ralf = new Employee();
 		ralf.setName("Ralf");
 		ralf.setAddress("Koblenz");
-		ralf.setSalary(1234);		
+		ralf.setSalary(1234);
 		Employee ray = new Employee();
 		ray.setName("Ray");
 		ray.setAddress("Redmond");
@@ -48,7 +50,7 @@ public class Portal {
 		Employee joe = new Employee();
 		joe.setName("Joe");
 		joe.setAddress("Wifi City");
-		joe.setSalary(2344);								
+		joe.setSalary(2344);
 
 		// Create research department
 		Department research = new Department();
@@ -56,13 +58,13 @@ public class Portal {
 		research.setName("Research");
 		research.getEmployees().add(erik);
 		research.getEmployees().add(ralf);
-		sampleCompany.getDepts().add(research);
+		theCompany.getDepts().add(research);
 
 		// Create development department
 		Department development = new Department();
 		development.setManager(ray);
 		development.setName("Development");
-		sampleCompany.getDepts().add(development);
+		theCompany.getDepts().add(development);
 
 		// Create sub-department dev1
 		Department dev1 = new Department();
@@ -76,8 +78,11 @@ public class Portal {
 		dev11.setManager(karl);
 		dev11.getEmployees().add(joe);
 		dev1.getSubdepts().add(dev11);
-		
-		theCompany = sampleCompany;
+	}
+
+	@WebMethod 
+	public void reset() {
+		Portal.init();
 	}
 	
 	@WebMethod
@@ -87,46 +92,82 @@ public class Portal {
 
 	@WebMethod
 	public Double totalDepartment(String name) {
-		for(Department dep : theCompany.getDepts()) {
-			if (dep.getName().equals(name)) {
-				return dep.total();
-			}
-		}
-		
-		throw new NoSuchElementException("There is no department with name " + name + " in the company " + theCompany.getName());
-	}	
-	
+		return resolveDepartment(name).total();
+	}
+
 	@WebMethod
 	public void cutCompany() {
 		theCompany.cut();
-	}	
-	
+	}
+
 	@WebMethod
 	public void cutDepartment(String name) {
-		boolean found = false;
-		for(Department dep : theCompany.getDepts()) {
+		resolveDepartment(name).cut();
+	}
+
+	@WebMethod
+	public CompanyDTO getCompany() {
+		return new CompanyDTO(theCompany);
+	}
+
+	@WebMethod
+	public DepartmentDTO getDepartment(String name) {
+		return new DepartmentDTO(resolveDepartment(name));
+	}
+
+	@WebMethod
+	public EmployeeDTO getEmployee(String name) {
+		return new EmployeeDTO(resolveEmployee(name));
+	}
+
+	@WebMethod
+	public void setCompanyName(String newName) {
+		theCompany.setName(newName);
+	}
+
+	@WebMethod
+	public void setDepartmentName(String oldName, String newName) {
+		resolveDepartment(oldName).setName(newName);
+	}
+
+	@WebMethod
+	public void setEmployeeName(String oldName, String newName) {
+		resolveEmployee(oldName).setName(newName);
+	}
+
+	@WebMethod
+	public void setEmployeeAddress(String name, String newAddress) {
+		resolveEmployee(name).setAddress(newAddress);
+	}
+
+	@WebMethod
+	public void setEmployeeSalary(String name, Double newSalary) {
+		resolveEmployee(name).setSalary(newSalary);
+	}
+
+
+	private static Department resolveDepartment(String name) {
+		for (Department dep : theCompany.getDepts()) {
 			if (dep.getName().equals(name)) {
-				dep.cut();
-				found = true;
-				break;
+				return dep;
 			}
 		}
-		
-		if (!found) {
-			throw new NoSuchElementException("There is no department with name " + name + " in the company " + theCompany.getName());
+
+		throw new NoSuchElementException("There is no department with name "
+				+ name + " in the company " + theCompany.getName());
+	}
+
+	private static Employee resolveEmployee(String name) {
+		for (Department dep : theCompany.getDepts()) {
+			for (Employee emp : dep.getEmployees()) {
+				if (emp.getName().equals(name)) {
+					return emp;
+				}
+			}
 		}
-	}	
-	
-	/*
-CompanyDTO getCompany(String name);
-DepartmentDTO getDepartment(String name);
-EmployeeDTO getEmployee(String name);
-void setCompanyName(String oldName, String newName);
-void setDepartmentName(String oldName, String newName);
-void setEmployeeName(String oldName, String newName);
-void setEmployeeAddress(String oldAddress, String newAddress);
-void setEmployeeSalary(Double oldSalary, Double newSalary);
-	 * 
-	 */
-	
+
+		throw new NoSuchElementException("There is no person with name " + name
+				+ " in the company " + theCompany.getName());
+	}
+
 }
