@@ -1,0 +1,35 @@
+== Intent ==
+
+Implementing Web services in [[Language:Java]] (server side)
+
+== Languages ==
+
+* [[Language:Java]] (Version 6)
+
+== Technologies ==
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+
+== Illustration ==
+
+
+== Architecture ==
+
+The object model is re-using basic Java implementation. 
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project. 
+* To run this service locally you need a JBoss v.5.0 installed
+
+== Contributors ==
+
+* {{101contributor|Ekaterina Pek|developer}}
