@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 
-namespace linqToDataSets.Tests
+namespace linqToDataSet.Tests
 {
     [TestFixture]
     public class FeaturesTests

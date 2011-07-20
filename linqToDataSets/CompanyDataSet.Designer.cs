@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace linqToDataSets {
+namespace linqToDataSet {
     
     
     /// <summary>
@@ -2157,7 +2157,7 @@ namespace linqToDataSets {
         }
     }
 }
-namespace linqToDataSets.CompanyDataSetTableAdapters {
+namespace linqToDataSet.CompanyDataSetTableAdapters {
     
     
     /// <summary>
@@ -2314,7 +2314,7 @@ namespace linqToDataSets.CompanyDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::linqToDataSets.Properties.Settings.Default._101companiesConnectionString;
+            this._connection.ConnectionString = global::linqToDataSet.Properties.Settings.Default._101companiesConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2650,7 +2650,7 @@ SELECT Name, department_id, company_id, parent_id FROM Department WHERE (departm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::linqToDataSets.Properties.Settings.Default._101companiesConnectionString;
+            this._connection.ConnectionString = global::linqToDataSet.Properties.Settings.Default._101companiesConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3047,7 +3047,7 @@ SELECT Salary, employee_id, person_id, department_id, IsManager FROM Employee WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::linqToDataSets.Properties.Settings.Default._101companiesConnectionString;
+            this._connection.ConnectionString = global::linqToDataSet.Properties.Settings.Default._101companiesConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3418,7 +3418,7 @@ SELECT Name, Address, person_id FROM Person WHERE (person_id = @person_id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::linqToDataSets.Properties.Settings.Default._101companiesConnectionString;
+            this._connection.ConnectionString = global::linqToDataSet.Properties.Settings.Default._101companiesConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
