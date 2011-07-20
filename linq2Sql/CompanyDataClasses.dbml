@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="101companies" Class="CompanyDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ANDREI-PC\SQLEXPRESS;Initial Catalog=101companies;Integrated Security=True;Pooling=False;MultipleActiveResultSets=True" SettingsObjectName="linq2Sql.Properties.Settings" SettingsPropertyName="_101companiesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Company" Member="Companies">
+    <Type Name="Company">
+      <Column Name="Name" Type="System.String" DbType="NChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="company_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Company_Department" Member="Departments" ThisKey="company_id" OtherKey="company_id" Type="Department" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="Name" Type="System.String" DbType="Char(18)" CanBeNull="true" />
+      <Column Name="department_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="company_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="parent_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="Department_Department" Member="Departments" ThisKey="department_id" OtherKey="parent_id" Type="Department" />
+      <Association Name="Department_Employee" Member="Employees" ThisKey="department_id" OtherKey="department_id" Type="Employee" />
+      <Association Name="Department_Department" Member="Department1" ThisKey="parent_id" OtherKey="department_id" Type="Department" IsForeignKey="true" />
+      <Association Name="Company_Department" Member="Company" ThisKey="company_id" OtherKey="company_id" Type="Company" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Salary" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="employee_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="person_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="department_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsManager" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Department_Employee" Member="Department" ThisKey="department_id" OtherKey="department_id" Type="Department" IsForeignKey="true" />
+      <Association Name="Person_Employee" Member="Person" ThisKey="person_id" OtherKey="person_id" Type="Person" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Person" Member="Persons">
+    <Type Name="Person">
+      <Column Name="Name" Type="System.String" DbType="Char(18)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="Char(18)" CanBeNull="true" />
+      <Column Name="person_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Person_Employee" Member="Employees" ThisKey="person_id" OtherKey="person_id" Type="Employee" />
+    </Type>
+  </Table>
+</Database>
