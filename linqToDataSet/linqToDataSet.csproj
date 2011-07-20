@@ -8,8 +8,8 @@
     <ProjectGuid>{E44FFFF9-A2E5-4645-ACA8-185F77FAD1F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>linqToDataSets</RootNamespace>
-    <AssemblyName>linqToDataSets</AssemblyName>
+    <RootNamespace>linqToDataSet</RootNamespace>
+    <AssemblyName>linqToDataSet</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
