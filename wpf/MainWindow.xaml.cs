@@ -60,7 +60,7 @@ namespace Wpf
                 var tv = new TreeViewItem
                 {
                     Header = dept.Name,
-                    Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", dept.department_id), UriKind.Relative)
+                    Tag = new DepartmentDetailsPage(dept.department_id)
                 };
                 tvCompanyItem.Items.Add(tv);
                 GetSubTree(ref tv, dept);
@@ -76,7 +76,7 @@ namespace Wpf
                 var subItem = new TreeViewItem
                 {
                     Header = employee.PersonRow.Name,
-                    Tag = new Uri(string.Format(@"/EmployeeDetailsPage.xaml?id={0}", employee.employee_id), UriKind.Relative)
+                    Tag = new EmployeeDetailsPage(employee.employee_id)
                 };
                 iSubTree.Items.Add(subItem);
             }
@@ -86,7 +86,7 @@ namespace Wpf
                 var subItem = new TreeViewItem
                 {
                     Header = subDept.Name,
-                    Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", subDept.department_id), UriKind.Relative)
+                    Tag = new DepartmentDetailsPage(subDept.department_id)
                 };
                 iSubTree.Items.Add(subItem);
                 GetSubTree(ref subItem, subDept);
@@ -95,14 +95,14 @@ namespace Wpf
 
         private void TreeCompanySelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var uri = ((TreeViewItem)e.NewValue).Tag as Uri;
-
-            if (uri == null)
+            var page = ((TreeViewItem)e.NewValue).Tag as Page;
+            
+            if (page == null)
             {
-                uri = new Uri(@"/Home.xaml", UriKind.Relative);
+                page = new Home();
             }
-
-            this.ContentFrame.Navigate(uri);
+            
+            this.ContentFrame.NavigationService.Navigate(page);
         }
     }
 }

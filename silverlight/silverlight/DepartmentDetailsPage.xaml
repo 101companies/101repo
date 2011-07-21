@@ -8,10 +8,10 @@
            d:DesignWidth="640" d:DesignHeight="480"
            Title="DepartmentDetailsPage Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
     <Grid x:Name="LayoutRoot">
-        <TextBlock Margin="188,78,346,0" Name="textBlock1" Text="Manager:" VerticalAlignment="Top" FontSize="18" />
-        <TextBlock Margin="280,78,157,0" Name="txtManager" Text="{Binding Path=Manager.Name}" VerticalAlignment="Top" FontSize="18" Height="27" />
-        <TextBlock Margin="280,112,217,0" Name="txtTotal" Text="{Binding Total}" VerticalAlignment="Top" FontSize="18" Height="25" />
-        <Button Content="Cut" Height="38" HorizontalAlignment="Left" Margin="240,234,0,0" Name="button1" VerticalAlignment="Top" Width="101" FontSize="18" Click="Button1Click" />
-        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="221,109,0,0" Name="label1" VerticalAlignment="Top" Width="120" Content="Total:" FontSize="18" />
+        <TextBlock Margin="177,142,357,0" Name="textBlock1" Text="Manager:" VerticalAlignment="Top" FontSize="18" />
+        <TextBlock Margin="269,142,168,0" Name="txtManager" Text="{Binding Name}" VerticalAlignment="Top" FontSize="18" Height="27" />
+        <TextBlock Margin="269,176,228,0" Name="txtTotal" Text="{Binding Total}" VerticalAlignment="Top" FontSize="18" Height="25" />
+        <Button Content="Cut" Height="38" HorizontalAlignment="Left" Margin="269,237,0,0" Name="button1" VerticalAlignment="Top" Width="101" FontSize="18" Click="Button1Click" />
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="210,173,0,0" Name="label1" VerticalAlignment="Top" Width="120" Content="Total:" FontSize="18" />
     </Grid>
 </navigation:Page>

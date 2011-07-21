@@ -1,7 +1,10 @@
 ﻿<Window x:Class="Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="600" Width="800" xmlns:my="clr-namespace:Wpf" Loaded="Window_Loaded" ResizeMode="NoResize">
+        Title="101companies" Height="600" Width="800" xmlns:my="clr-namespace:Wpf" Loaded="Window_Loaded" ResizeMode="CanMinimize" Icon="ApplicationIcon.png">
+	<Window.CacheMode>
+		<BitmapCache/>
+	</Window.CacheMode>
     <Grid>
         <TreeView Height="561" HorizontalAlignment="Left" Name="treeCompany" VerticalAlignment="Top" Width="267" SelectedItemChanged="TreeCompanySelectedItemChanged" >
         </TreeView>
