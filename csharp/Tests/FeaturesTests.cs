@@ -34,7 +34,7 @@ namespace csharpBaseline.Tests
             var total = c.Total;
             c.Cut();
             var totalAfterCut = c.Total;
-            Assert.AreEqual(total, totalAfterCut * 2);
+            Assert.AreEqual(total / 2 , totalAfterCut);
         }
 
         [Test]

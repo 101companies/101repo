@@ -73,10 +73,13 @@ namespace Wpf
             
             foreach (var employee in employees)
             {
+                var ep = new EmployeeDetailsPage(employee.employee_id);
+                ep.OnEmployeeChanged += (s, e) => ((TreeViewItem) treeCompany.SelectedItem).Header = e.Name;
+
                 var subItem = new TreeViewItem
                 {
                     Header = employee.PersonRow.Name,
-                    Tag = new EmployeeDetailsPage(employee.employee_id)
+                    Tag = ep
                 };
                 iSubTree.Items.Add(subItem);
             }

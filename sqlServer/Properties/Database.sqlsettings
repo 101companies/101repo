@@ -21,7 +21,7 @@
     <DatabaseChaining>False</DatabaseChaining>
     <DatabaseState>ONLINE</DatabaseState>
     <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
-    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultCollation>SQL_Latin1_General_CP1255_CI_AS</DefaultCollation>
     <DefaultCursor>LOCAL</DefaultCursor>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <EnableFullTextSearch>True</EnableFullTextSearch>

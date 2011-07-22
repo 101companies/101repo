@@ -19,10 +19,5 @@ namespace Wpf
             get { return (string)GetValue(WindowsTitleProperty); }
             set { SetValue(WindowsTitleProperty, value); }
         }
-
-        protected PageBase()
-        {
-
-        }
     }
 }

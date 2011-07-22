@@ -81,7 +81,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CompanyDataSet.xsc">
       <DependentUpon>CompanyDataSet.xsd</DependentUpon>
     </None>
