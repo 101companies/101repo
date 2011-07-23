@@ -1,35 +1,45 @@
-== Summary ==
-This projects provides a very simple WebDSL WebApp for companies.
+== Intent ==
+this projects provides a very simple WebDSL WebApp for companies
 
-== Description ==
+== Languages ==
+* [[Language:Javascript]]
 
-We define pages (company/department/employee view), the company model and a sample company (meganalysis). 
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Interaction]]
+* [[101feature:Distribution]]
+
+== Motivation ==
+
+We define pages (company/department/employee view) using the [http://webdsl.org WebDSL] DSL. 
+We also provide a metamodel for companies and scenerios to [[101feature:Cut cut] and [[101feature:Total total]] salaries. 
 
 === Architecture of the project ===
 
 "webDSL.app" is the "main file", containing the page definitions.
 "company.app" holds the company model while meganalysis.app contains "meganalysis" as an instance of the model. 
 
-== Requirements ==
+== Usage ==
 
 We make use of the WebDSL Plugin. Update Site: http://webdsl.org/page/Download
 
-== Demo ==
-
-# Build the project by running the Ant Build file
-# Select the project in the package explorer -> right click -> Run As -> Run on Server
-# Select your preferred server (we made use of Apache -> Tomcat v6.0 Server) and click "Next"
-# Click "Download and Install" and follow the menu's steps
-# Click "Finish"
-# The project will be published on the installed server
-# Visit http://localhost:8080/webDSL/ 
+* Build the project by running the Ant Build file
+* Select the project in the package explorer -> right click -> Run As -> Run on Server
+* Select your preferred server (we made use of Apache -> Tomcat v6.0 Server) and click "Next"
+* Click "Download and Install" and follow the menu's steps
+* Click "Finish"
+* The project will be published on the installed server
+* Visit http://localhost:8080/webDSL/ 
 (Eventually you will have to re-build or restart the server)
 
 == Contributors ==
 
 * {{101contributor|Eelco Visser|assistant}}
 * {{101contributor|Thomas Schmorleiz|developer}}
-* {{101contributor|Ralf LÃ¤mmel|user}}
+* {{101contributor|Ralf Lämmel|user}}
 
 == Acknowlegdement ==
 
