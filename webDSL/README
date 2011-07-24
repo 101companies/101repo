@@ -2,7 +2,7 @@
 this projects provides a very simple WebDSL WebApp for companies
 
 == Languages ==
-* [[Language:Javascript]]
+* [[Language:JavaScript]]
 
 == Features ==
 
@@ -15,7 +15,7 @@ this projects provides a very simple WebDSL WebApp for companies
 == Motivation ==
 
 We define pages (company/department/employee view) using the [http://webdsl.org WebDSL] DSL. 
-We also provide a metamodel for companies and scenerios to [[101feature:Cut cut] and [[101feature:Total total]] salaries. 
+We also provide a metamodel for companies and scenerios to [[101feature:Cut|cut]] and [[101feature:Total|total]] salaries. 
 
 === Architecture of the project ===
 
@@ -39,9 +39,8 @@ We make use of the WebDSL Plugin. Update Site: http://webdsl.org/page/Download
 
 * {{101contributor|Eelco Visser|assistant}}
 * {{101contributor|Thomas Schmorleiz|developer}}
-* {{101contributor|Ralf Lämmel|user}}
+* {{101contributor|Ralf LÃ¤mmel|user}}
 
 == Acknowlegdement ==
 
 Eelco Visser provided some basic advice on the usage of WebDSL.
-
