@@ -1,0 +1,22 @@
+﻿<src:PageBase x:Class="Wpf.EmployeeDetailsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:src="clr-namespace:Wpf" mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600" Loaded="PageLoaded" 
+	  Title="{Binding Path=WindowsTitle, ElementName=Window}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="26" Height="51" HorizontalAlignment="Left" Margin="69,100,0,0" Name="textBlock2" Text="Address :" VerticalAlignment="Top" />
+        <TextBlock FontSize="26" Height="43" HorizontalAlignment="Left" Margin="90,173,0,0" Name="textBlock3" Text="Salary :" VerticalAlignment="Top" />
+        <TextBox Height="51" IsEnabled="True" Margin="206,96,56,0" Name="txtAddress" Text="{Binding Path=Person.Address, Mode=TwoWay}" VerticalAlignment="Top" FontSize="26" Grid.ColumnSpan="2" />
+        <TextBox Height="46" IsEnabled="True" Margin="206,173,56,0" Name="txtSalary" Text="{Binding Path=Employee.Salary, Mode=TwoWay}" VerticalAlignment="Top" FontSize="26" Grid.ColumnSpan="2" />
+        <TextBlock FontSize="26" Height="51" HorizontalAlignment="Left" Margin="97,33,0,0" Name="textBlock1" Text="Name :" VerticalAlignment="Top" />
+        <TextBox Height="46" IsEnabled="True" Margin="206,29,56,0" Name="txtName" Text="{Binding Path=Person.Name, Mode=TwoWay}" VerticalAlignment="Top" FontSize="26" Grid.ColumnSpan="2" />
+        <Button Content="Save" Height="60" HorizontalAlignment="Left" Margin="223,271,0,0" Name="btnSave" VerticalAlignment="Top" Width="143" FontSize="18" Click="BtnSaveClick" />
+    </Grid>
+</src:PageBase>

@@ -1,0 +1,16 @@
+﻿<src:PageBase x:Class="Wpf.DepartmentDetailsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:src="clr-namespace:Wpf" mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300" Loaded="PageLoaded"
+	Title="{Binding Path=WindowsTitle, ElementName=Window}">
+
+    <Grid>
+        <TextBlock Margin="58,65.06,145,0" Name="textBlock1" Text="Manager:" VerticalAlignment="Top" FontSize="18" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" />
+        <TextBlock Margin="155,66,55,0" Name="txtManager" Text="{Binding Path=Name}" VerticalAlignment="Top" FontSize="18" Height="27" d:LayoutOverrides="VerticalAlignment" />
+        <TextBlock Margin="155,97,55,0" Name="txtTotal" Text="{Binding Total, ElementName=Window}" VerticalAlignment="Top" FontSize="18" Height="25" d:LayoutOverrides="VerticalAlignment" />
+        <Button Content="Cut" Height="38" HorizontalAlignment="Left" Margin="95,189,0,0" Name="btnCut" VerticalAlignment="Top" Width="101" FontSize="18" Click="BtnCutClick" />
+        <Label Height="37" HorizontalAlignment="Left" Margin="88,89,0,0" Name="label1" VerticalAlignment="Top" Width="67" Content="Total:" FontSize="18" d:LayoutOverrides="VerticalAlignment" />
+    </Grid>
+</src:PageBase>
