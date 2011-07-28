@@ -1,3 +1,0 @@
-var company = {};
-
-company.response;

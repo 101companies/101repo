@@ -1,0 +1,70 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>101companies application - department view</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+        <script type="text/javascript" src="javascript/controller.js"></script>
+        <script type="text/javascript" src="javascript/model/XMLHttpRequest.js"></script>
+
+        <script type="text/javascript" src="javascript/model/departmentModel.js"></script>
+        <script type="text/javascript" src="javascript/view/departmentView.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function process() {
+                var parameters = location.search.substring(1).split("&");
+
+                var temp = parameters[0].split("=");
+                departmentId = unescape(temp[1]);
+            }
+            process();
+
+        </script>
+        
+        <h1>101companies application</h1>
+        <form name="company">
+                       
+            <table>
+                <tr><th colspan="3">Department View</th></tr>
+
+                <tr>
+                    <td><div id="name">Name:</div></td>
+                    <td><input type="text" class="text" name="name"/><div id="namefailure"></div></td>
+                    <td><input type="button" class="button" value="save" 
+                               onClick="controller.changeName(this.form.name.value)"/></td>                      
+                </tr>
+                <tr>
+                    <td>Departments:</td>
+                    <td><div id="departments"><select name="employees" size="5" STYLE="width:100%;"></select></div></td>
+                    <td><input type="button" class="button" value="select" 
+                               onclick="controller.selectDepartment(this.form.departments.options[this.form.departments.selectedIndex].value)"/></td>
+                </tr>
+                <tr>
+                    <td>Employees:</td>
+                    <td><div id="employees"><select name="employees" size="5" STYLE="width:100%;"></select></div></td>
+                    <td><input type="button" class="button" value="select" 
+                               onclick="controller.selectEmployee(this.form.employees.options[this.form.employees.selectedIndex].value)"/></td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td><input type="text" name="total" class="text" readonly="readonly"/></td>
+                    <td><input type="button" class="button" value="cut" 
+                               onClick="controller.cut()"/></td> 
+                </tr>
+
+            </table>
+            
+        </form>
+        
+        <script type="text/javascript">
+            controller.loadData(departmentId);
+        </script>
+    </body>
+</html>

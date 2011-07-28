@@ -1,0 +1,85 @@
+/* 
+    Document   : style
+    Created on : 27.07.2011, 15:21:53
+    Author     : Tobias Zimmer
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+/* headline */
+h1 {
+    text-align: center;
+    font-size: x-large;
+    font-family: fantasy;
+    font-style: normal;
+    font-weight: lighter;
+    font-variant: small-caps;
+}
+
+/* background */
+body {
+    background: #a0b0c0;
+}
+
+/* --------------------------------------------------------- */
+/* table */
+table {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px #000000 solid;
+    border-width: thin;
+    background: #e0e0e0;
+}
+
+/* table row */
+tr {
+    
+}
+
+/* table cell */
+td {
+    vertical-align: top;
+    padding-bottom: 0px;
+}
+
+/* table headline */
+th {
+    text-align: center;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-variant: small-caps;
+}
+
+/* --------------------------------------------------------- */
+/* input: textfield, button */
+input {}
+
+/* textfield */
+.text {
+    width: 300px;
+}
+
+/* button */
+.button {
+    width: 70px;
+    height: 25px;
+}
+
+/* --------------------------------------------------------- */
+/* errormessages */
+error {
+    color: #ee3232;
+}
