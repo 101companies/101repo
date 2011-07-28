@@ -1,68 +1,27 @@
 <?php
     
+    include("databaseConnection/connection.php");
     include("classes/company.php");
     include("classes/statusMessages.php");
 
-    // start server ...
-
-    // if the content-type is json, start loading
-    if ($_SERVER['CONTENT_TYPE'] == "application/json"
-            // BAD mozilla workaround!!!
-            || $_SERVER['CONTENT_TYPE'] == "application/json; charset=UTF-8") {
-        // open connection to database
-        $con = establishConnection();
-        
-        $message = $HTTP_RAW_POST_DATA;
-        $jsonObject = json_decode($message);
-
-        // create JSON-String and return it to the client
-        echo json_encode(perform($jsonObject));
-        
-        // close connection to database
-        closeConnection($con);
-    
-    // else send a warning
-    } else {
-        $error = new Statusmessage();
-        $error->addFailure("Wrong content-type. Content-Type: application/json expected!");
-        echo json_encode($error);
-    }
-    
-    // ... end server
-        
-    // ---------------------------------------- connection management
-    // establish connection to database
-    function establishConnection() {
-        $con = mysql_connect ("localhost", "101companies", "101companies")
-               or die ("Connection failed. Name or password wrong!");
-
-        mysql_select_db("101companies") or die ("Database does not exist.");
-        return $con;
-    }
-
-    // close connection
-    function closeConnection($con) {
-        mysql_close($con);
-    }
+    startServer($HTTP_RAW_POST_DATA);
     
     // ---------------------------------------- perform request
     function perform($jsonObject) {
         $action = $jsonObject->action;
 	
         switch ($action) {
-            // on load do:
             case "load":
                 return loadCompany($jsonObject);
-                break;
+            
             case "save":
                 return saveName($jsonObject);
-                break;
+            
             case "cut":
                 return cut($jsonObject);
-                break;
+            
             case "selectDepartment":
                 return getDepartmentId($jsonObject);
-                break;
         }
     }
     
@@ -100,7 +59,7 @@
         $company->setName($name);
         $company->setTotal($total);
         
-        // return company-object
+        // return company object
         return $company;
     }
     

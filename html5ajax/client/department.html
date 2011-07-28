@@ -29,7 +29,7 @@ and open the template in the editor.
         </script>
         
         <h1>101companies application</h1>
-        <form name="company">
+        <form name="department">
                        
             <table>
                 <tr><th colspan="3">Department View</th></tr>
@@ -38,25 +38,35 @@ and open the template in the editor.
                     <td><div id="name">Name:</div></td>
                     <td><input type="text" class="text" name="name"/><div id="namefailure"></div></td>
                     <td><input type="button" class="button" value="save" 
-                               onClick="controller.changeName(this.form.name.value)"/></td>                      
+                               onClick="controller.changeName(this.form.name.value, departmentId)"/></td>                      
                 </tr>
+                
                 <tr>
-                    <td>Departments:</td>
-                    <td><div id="departments"><select name="employees" size="5" STYLE="width:100%;"></select></div></td>
-                    <td><input type="button" class="button" value="select" 
-                               onclick="controller.selectDepartment(this.form.departments.options[this.form.departments.selectedIndex].value)"/></td>
+                    <td>Manager:</td>
+                    <td><input type="text" class="text" name="manager" readonly="readonly"/></td>
+                    <td><input type="button" class="button" value="edit" 
+                               onClick="controller.selectEmployee(this.form.manager.value)"/></td>                      
                 </tr>
+                
                 <tr>
                     <td>Employees:</td>
                     <td><div id="employees"><select name="employees" size="5" STYLE="width:100%;"></select></div></td>
                     <td><input type="button" class="button" value="select" 
                                onclick="controller.selectEmployee(this.form.employees.options[this.form.employees.selectedIndex].value)"/></td>
                 </tr>
+                
+                <tr>
+                    <td>Departments:</td>
+                    <td><div id="departments"><select name="departments" size="5" STYLE="width:100%;"></select></div></td>
+                    <td><input type="button" class="button" value="select" 
+                               onclick="controller.selectDepartment(this.form.departments.options[this.form.departments.selectedIndex].value)"/></td>
+                </tr>
+                
                 <tr>
                     <td>Total:</td>
                     <td><input type="text" name="total" class="text" readonly="readonly"/></td>
                     <td><input type="button" class="button" value="cut" 
-                               onClick="controller.cut()"/></td> 
+                               onClick="controller.cut(departmentId)"/></td> 
                 </tr>
 
             </table>

@@ -6,18 +6,27 @@ controller.loadData = function(id) {
 }
 
 // -------------------------------------------- save data
-controller.changeName = function(newName) {
-    model.saveData(saveStrategy, newName);
+controller.changeName = function(newName, id) {
+    model.saveData(saveStrategy, newName, id);
+}
+
+controller.saveEmployee = function(newName, newAddress, newSalary, id) {
+    model.saveData(saveStrategy, newName, newAddress, newSalary, id);
 }
 
 // -------------------------------------------- cut
-controller.cut = function() {
-    model.cut(loadStrategy);
+controller.cut = function(id) {
+    model.cut(loadStrategy, id);
 }
 
 // -------------------------------------------- select department
 controller.selectDepartment = function(name) {
     model.selectDepartment(selectStrategy, name);
+}
+
+// -------------------------------------------- select employee
+controller.selectEmployee = function(name) {
+    model.selectEmployee(selectStrategy, name);
 }
 
 // -------------------------------------------- Strategies
@@ -40,6 +49,11 @@ saveStrategy.error = function() {
 // select department
 var selectStrategy = {};
 selectStrategy.update = function() {
-    view.changePage();
+    if (model.response.resp == "department") {
+        location.href = "department.html?departmentId=" + model.response.departmentId;
+    } else if (model.response.resp == "employee") {
+        location.href = "employee.html?employeeId=" + model.response.employeeId;
+    }
+   
 }
 selectStrategy.error = function() { /* stub */ }

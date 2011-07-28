@@ -12,7 +12,8 @@
     }
     
     class DepartmentResponse {
-        public $departmentId;        
+        public $departmentId;
+        public $resp = "department";
         
         public function setDepartmentId($id) {
             $this->departmentId=$id;
@@ -20,7 +21,8 @@
     }
     
     class EmployeeResponse {
-        public $employeeId; 
+        public $employeeId;
+        public $resp = "employee";
         
         public function setEmployeeId($id) {
             $this->employeeId=$id;

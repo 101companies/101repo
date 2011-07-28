@@ -25,4 +25,3 @@ model.sendRequest = function(strategy, params) {
     }
     httpRequest.send(JSON.stringify(params));
 }
-

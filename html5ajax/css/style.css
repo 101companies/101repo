@@ -51,7 +51,9 @@ tr {
 /* table cell */
 td {
     vertical-align: top;
+    text-align: left;
     padding-bottom: 0px;
+    min-width: 90px;
 }
 
 /* table headline */
@@ -74,7 +76,7 @@ input {}
 
 /* button */
 .button {
-    width: 70px;
+    width: 80px;
     height: 25px;
 }
 
