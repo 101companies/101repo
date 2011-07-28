@@ -37,16 +37,21 @@ namespace wcf
 
             foreach (var subDepartment in d.SubDepartments)
             {
-                var subDept = new DepartmentDto();
-                subDept.Id = subDepartment.Id;
-                subDept.Name = subDepartment.Name;
-                subDept.Manager = new EmployeeDto
-                                      {
-                                          Address = subDepartment.Manager.Person.Address,
-                                          Id = subDepartment.Manager.Id,
-                                          Name = subDepartment.Manager.Person.Name,
-                                          Salary = subDepartment.Manager.Salary
-                                      };
+                var subDept = new DepartmentDto
+                                  {
+                                      Details =
+                                          {
+                                              Id = subDepartment.Id,
+                                              Name = subDepartment.Name,
+                                              Manager = new EmployeeDto
+                                                            {
+                                                                Address = subDepartment.Manager.Person.Address,
+                                                                Id = subDepartment.Manager.Id,
+                                                                Name = subDepartment.Manager.Person.Name,
+                                                                Salary = subDepartment.Manager.Salary
+                                                            }
+                                          }
+                                  };
 
                 subDept.Employees = subDepartment.Employees.Select(e =>
                         new EmployeeDto
@@ -72,8 +77,20 @@ namespace wcf
                               Name = Company.Name,
                               Departments = Company.Departments.Select(d => new DepartmentDto
                                                                                 {
-                                                                                    Id = d.Id,
-                                                                                    Name = d.Name,
+                                                                                    Details = new DepartmentDetailsDto
+                                                                                                  {
+                                                                                                       Id = d.Id,
+                                                                                                       Name = d.Name,
+                                                                                                       Manager = new EmployeeDto
+                                                                                                                     {
+                                                                                                                         Address = d.Manager.Person.Address,
+                                                                                                                         Id = d.Manager.Id,
+                                                                                                                         Name = d.Manager.Person.Name,
+                                                                                                                         Salary = d.Manager.Salary
+                                                                                                                     }
+                                                                                                      
+                                                                                                  },
+                                                                                   
                                                                                     Employees = d.Employees.Select(e => new EmployeeDto
                                                                                     {
                                                                                         Id = e.Id,
@@ -82,13 +99,6 @@ namespace wcf
                                                                                         Salary = e.Salary
                                                                                     }).ToList(),
                                                                                     SubDepartments = FillSubDepartments(d),
-                                                                                    Manager = new EmployeeDto
-                                                                                                  {
-                                                                                                      Id = d.Manager.Id,
-                                                                                                      Address = d.Manager.Person.Address,
-                                                                                                      Name = d.Manager.Person.Name,
-                                                                                                      Salary = d.Manager.Salary
-                                                                                                  }
                                                                                 }).ToList(),
                               Total = Company.Total
                           };
@@ -96,10 +106,11 @@ namespace wcf
             return dto;
         }
 
-        public DepartmentDto GetDepartment(string id)
+        public DepartmentDetailsDto GetDepartmentDetails(Guid id)
         {
-            var dept = CompanyRepository.Find<Department>(d => d.Id.ToString() == id).First();
-            var dto = new DepartmentDto
+            var dept = CompanyRepository.Find<Department>(d => d.Id == id).First();
+
+            var dto = new DepartmentDetailsDto()
                           {
                               Id = dept.Id,
                               Name = dept.Name,
@@ -111,16 +122,15 @@ namespace wcf
                                                 Salary = dept.Manager.Salary
                                             },
                               Total = dept.Total,
-                              SubDepartments = FillSubDepartments(dept),
-                              Employees = dept.Employees.Select(e => new EmployeeDto { Id = e.Id, Address = e.Person.Address, Name = e.Person.Name, Salary = e.Salary }).ToList()
+
                           };
 
             return dto;
         }
 
-        public EmployeeDto GetEmployee(string id)
+        public EmployeeDto GetEmployee(Guid id)
         {
-            var empl = CompanyRepository.Find<Employee>(d => d.Id.ToString() == id).First();
+            var empl = CompanyRepository.Find<Employee>(d => d.Id == id).First();
             var dto = new EmployeeDto
                           {
                               Id = empl.Id,
@@ -132,7 +142,7 @@ namespace wcf
             return dto;
         }
 
-        public decimal CutDept(DepartmentDto dept)
+        public decimal CutDept(DepartmentDetailsDto dept)
         {
             var department = Company.AllDepartments.Where(d => d.Id == dept.Id).First();
             department.Cut();

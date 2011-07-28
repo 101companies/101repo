@@ -26,8 +26,8 @@
     <MetadataFile FileName="CompanyService.xsd" MetadataType="Schema" ID="8755d48f-3ff9-4711-b7f9-7b2fef52b1a7" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?xsd=xsd2" />
     <MetadataFile FileName="CompanyService1.xsd" MetadataType="Schema" ID="b920d3b9-8698-4eeb-ac1e-5c1218afb751" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?xsd=xsd1" />
     <MetadataFile FileName="CompanyService2.xsd" MetadataType="Schema" ID="94801693-7d16-4d9e-b30c-bd7108bf2cf4" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?xsd=xsd0" />
-    <MetadataFile FileName="CompanyService.disco" MetadataType="Disco" ID="d47ee892-9bd7-4c36-be08-0b1780d57250" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?disco" />
     <MetadataFile FileName="CompanyService.wsdl" MetadataType="Wsdl" ID="b2fc87d5-08ae-428c-a432-d9519603183b" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?wsdl" />
+    <MetadataFile FileName="CompanyService.disco" MetadataType="Disco" ID="d47ee892-9bd7-4c36-be08-0b1780d57250" SourceId="1" SourceUrl="http://localhost:1212/CompanyService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

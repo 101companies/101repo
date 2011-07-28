@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:1212/CompanyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wcf.Dto" />
+  <xs:import schemaLocation="http://localhost:1212/CompanyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:element name="GetCompany">
     <xs:complexType>
       <xs:sequence />
@@ -13,38 +14,38 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetDepartment">
+  <xs:element name="GetDepartmentDetails">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q2:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetDepartmentResponse">
+  <xs:element name="GetDepartmentDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="GetDepartmentResult" nillable="true" type="q2:DepartmentDto" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="GetDepartmentDetailsResult" nillable="true" type="q3:DepartmentDetailsDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q4:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="GetEmployeeResult" nillable="true" type="q3:EmployeeDto" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="GetEmployeeResult" nillable="true" type="q5:EmployeeDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CutDept">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="dept" nillable="true" type="q4:DepartmentDto" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="dept" nillable="true" type="q6:DepartmentDetailsDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,7 +59,7 @@
   <xs:element name="CutEmpl">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="emp" nillable="true" type="q5:EmployeeDto" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="emp" nillable="true" type="q7:EmployeeDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -72,7 +73,7 @@
   <xs:element name="Cut">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="company" nillable="true" type="q6:CompanyDto" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/wcf.Dto" minOccurs="0" name="company" nillable="true" type="q8:CompanyDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="Dto\CompanyDto.cs" />
     <Compile Include="Dto\DepartmentDto.cs" />
+    <Compile Include="Dto\DepartmentDetailsDto.cs" />
     <Compile Include="Dto\EmployeeDto.cs" />
     <Compile Include="ICompanyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

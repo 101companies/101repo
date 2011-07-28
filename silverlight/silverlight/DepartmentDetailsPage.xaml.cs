@@ -28,14 +28,14 @@ namespace silverlight
             if (NavigationContext.QueryString.TryGetValue("id", out departmentId))
             {
                 var client = new CompanyServiceClient();
-                client.GetDepartmentCompleted += (s, ea) => DataContext = ea.Result; ;
-                client.GetDepartmentAsync(departmentId);
+                client.GetDepartmentDetailsCompleted += (s, ea) => DataContext = ea.Result;
+                client.GetDepartmentDetailsAsync(Guid.Parse(departmentId));
             }
         }
 
         private void Button1Click(object sender, RoutedEventArgs e)
         {
-            var dept = DataContext as DepartmentDto;
+            var dept = DataContext as DepartmentDetailsDto;
             if (dept == null) return;
             
             var client = new CompanyServiceClient();

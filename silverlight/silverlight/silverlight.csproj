@@ -139,7 +139,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <Content Include="ServiceReferences.ClientConfig" />
-    <None Include="Service References\CompanyServiceReference\silverlight.CompanyServiceReference.DepartmentDto.datasource">
+    <None Include="Service References\CompanyServiceReference\silverlight.CompanyServiceReference.DepartmentDetailsDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CompanyServiceReference\silverlight.CompanyServiceReference.EmployeeDto.datasource">

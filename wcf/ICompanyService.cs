@@ -18,13 +18,13 @@ namespace wcf
         CompanyDto GetCompany();
 
         [OperationContract]
-        DepartmentDto GetDepartment(string id);
+        DepartmentDetailsDto GetDepartmentDetails(Guid id);
 
         [OperationContract]
-        EmployeeDto GetEmployee(string id);
+        EmployeeDto GetEmployee(Guid id);
 
         [OperationContract]
-        decimal CutDept(DepartmentDto dept);
+        decimal CutDept(DepartmentDetailsDto dept);
 
         [OperationContract]
         decimal CutEmpl(EmployeeDto emp);

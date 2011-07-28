@@ -95,17 +95,24 @@ namespace silverlight.CompanyServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="DepartmentDto", Namespace="http://schemas.datacontract.org/2004/07/wcf.Dto")]
     public partial class DepartmentDto : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private silverlight.CompanyServiceReference.DepartmentDetailsDto DetailsField;
+        
         private System.Collections.ObjectModel.ObservableCollection<silverlight.CompanyServiceReference.EmployeeDto> EmployeesField;
-        
-        private System.Guid IdField;
-        
-        private silverlight.CompanyServiceReference.EmployeeDto ManagerField;
-        
-        private string NameField;
         
         private System.Collections.ObjectModel.ObservableCollection<silverlight.CompanyServiceReference.DepartmentDto> SubDepartmentsField;
         
-        private decimal TotalField;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public silverlight.CompanyServiceReference.DepartmentDetailsDto Details {
+            get {
+                return this.DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<silverlight.CompanyServiceReference.EmployeeDto> Employees {
@@ -119,6 +126,42 @@ namespace silverlight.CompanyServiceReference {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<silverlight.CompanyServiceReference.DepartmentDto> SubDepartments {
+            get {
+                return this.SubDepartmentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubDepartmentsField, value) != true)) {
+                    this.SubDepartmentsField = value;
+                    this.RaisePropertyChanged("SubDepartments");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DepartmentDetailsDto", Namespace="http://schemas.datacontract.org/2004/07/wcf.Dto")]
+    public partial class DepartmentDetailsDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Guid IdField;
+        
+        private silverlight.CompanyServiceReference.EmployeeDto ManagerField;
+        
+        private string NameField;
+        
+        private decimal TotalField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Guid Id {
@@ -155,19 +198,6 @@ namespace silverlight.CompanyServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<silverlight.CompanyServiceReference.DepartmentDto> SubDepartments {
-            get {
-                return this.SubDepartmentsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SubDepartmentsField, value) != true)) {
-                    this.SubDepartmentsField = value;
-                    this.RaisePropertyChanged("SubDepartments");
                 }
             }
         }
@@ -279,18 +309,18 @@ namespace silverlight.CompanyServiceReference {
         
         silverlight.CompanyServiceReference.CompanyDto EndGetCompany(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ICompanyService/GetDepartment", ReplyAction="http://tempuri.org/ICompanyService/GetDepartmentResponse")]
-        System.IAsyncResult BeginGetDepartment(string id, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ICompanyService/GetDepartmentDetails", ReplyAction="http://tempuri.org/ICompanyService/GetDepartmentDetailsResponse")]
+        System.IAsyncResult BeginGetDepartmentDetails(System.Guid id, System.AsyncCallback callback, object asyncState);
         
-        silverlight.CompanyServiceReference.DepartmentDto EndGetDepartment(System.IAsyncResult result);
+        silverlight.CompanyServiceReference.DepartmentDetailsDto EndGetDepartmentDetails(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ICompanyService/GetEmployee", ReplyAction="http://tempuri.org/ICompanyService/GetEmployeeResponse")]
-        System.IAsyncResult BeginGetEmployee(string id, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetEmployee(System.Guid id, System.AsyncCallback callback, object asyncState);
         
         silverlight.CompanyServiceReference.EmployeeDto EndGetEmployee(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ICompanyService/CutDept", ReplyAction="http://tempuri.org/ICompanyService/CutDeptResponse")]
-        System.IAsyncResult BeginCutDept(silverlight.CompanyServiceReference.DepartmentDto dept, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginCutDept(silverlight.CompanyServiceReference.DepartmentDetailsDto dept, System.AsyncCallback callback, object asyncState);
         
         decimal EndCutDept(System.IAsyncResult result);
         
@@ -330,19 +360,19 @@ namespace silverlight.CompanyServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDepartmentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetDepartmentDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetDepartmentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public GetDepartmentDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
-        public silverlight.CompanyServiceReference.DepartmentDto Result {
+        public silverlight.CompanyServiceReference.DepartmentDetailsDto Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((silverlight.CompanyServiceReference.DepartmentDto)(this.results[0]));
+                return ((silverlight.CompanyServiceReference.DepartmentDetailsDto)(this.results[0]));
             }
         }
     }
@@ -433,11 +463,11 @@ namespace silverlight.CompanyServiceReference {
         
         private System.Threading.SendOrPostCallback onGetCompanyCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetDepartmentDelegate;
+        private BeginOperationDelegate onBeginGetDepartmentDetailsDelegate;
         
-        private EndOperationDelegate onEndGetDepartmentDelegate;
+        private EndOperationDelegate onEndGetDepartmentDetailsDelegate;
         
-        private System.Threading.SendOrPostCallback onGetDepartmentCompletedDelegate;
+        private System.Threading.SendOrPostCallback onGetDepartmentDetailsCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetEmployeeDelegate;
         
@@ -518,7 +548,7 @@ namespace silverlight.CompanyServiceReference {
         
         public event System.EventHandler<GetCompanyCompletedEventArgs> GetCompanyCompleted;
         
-        public event System.EventHandler<GetDepartmentCompletedEventArgs> GetDepartmentCompleted;
+        public event System.EventHandler<GetDepartmentDetailsCompletedEventArgs> GetDepartmentDetailsCompleted;
         
         public event System.EventHandler<GetEmployeeCompletedEventArgs> GetEmployeeCompleted;
         
@@ -577,53 +607,53 @@ namespace silverlight.CompanyServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult silverlight.CompanyServiceReference.ICompanyService.BeginGetDepartment(string id, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetDepartment(id, callback, asyncState);
+        System.IAsyncResult silverlight.CompanyServiceReference.ICompanyService.BeginGetDepartmentDetails(System.Guid id, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetDepartmentDetails(id, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        silverlight.CompanyServiceReference.DepartmentDto silverlight.CompanyServiceReference.ICompanyService.EndGetDepartment(System.IAsyncResult result) {
-            return base.Channel.EndGetDepartment(result);
+        silverlight.CompanyServiceReference.DepartmentDetailsDto silverlight.CompanyServiceReference.ICompanyService.EndGetDepartmentDetails(System.IAsyncResult result) {
+            return base.Channel.EndGetDepartmentDetails(result);
         }
         
-        private System.IAsyncResult OnBeginGetDepartment(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string id = ((string)(inValues[0]));
-            return ((silverlight.CompanyServiceReference.ICompanyService)(this)).BeginGetDepartment(id, callback, asyncState);
+        private System.IAsyncResult OnBeginGetDepartmentDetails(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Guid id = ((System.Guid)(inValues[0]));
+            return ((silverlight.CompanyServiceReference.ICompanyService)(this)).BeginGetDepartmentDetails(id, callback, asyncState);
         }
         
-        private object[] OnEndGetDepartment(System.IAsyncResult result) {
-            silverlight.CompanyServiceReference.DepartmentDto retVal = ((silverlight.CompanyServiceReference.ICompanyService)(this)).EndGetDepartment(result);
+        private object[] OnEndGetDepartmentDetails(System.IAsyncResult result) {
+            silverlight.CompanyServiceReference.DepartmentDetailsDto retVal = ((silverlight.CompanyServiceReference.ICompanyService)(this)).EndGetDepartmentDetails(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetDepartmentCompleted(object state) {
-            if ((this.GetDepartmentCompleted != null)) {
+        private void OnGetDepartmentDetailsCompleted(object state) {
+            if ((this.GetDepartmentDetailsCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetDepartmentCompleted(this, new GetDepartmentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.GetDepartmentDetailsCompleted(this, new GetDepartmentDetailsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetDepartmentAsync(string id) {
-            this.GetDepartmentAsync(id, null);
+        public void GetDepartmentDetailsAsync(System.Guid id) {
+            this.GetDepartmentDetailsAsync(id, null);
         }
         
-        public void GetDepartmentAsync(string id, object userState) {
-            if ((this.onBeginGetDepartmentDelegate == null)) {
-                this.onBeginGetDepartmentDelegate = new BeginOperationDelegate(this.OnBeginGetDepartment);
+        public void GetDepartmentDetailsAsync(System.Guid id, object userState) {
+            if ((this.onBeginGetDepartmentDetailsDelegate == null)) {
+                this.onBeginGetDepartmentDetailsDelegate = new BeginOperationDelegate(this.OnBeginGetDepartmentDetails);
             }
-            if ((this.onEndGetDepartmentDelegate == null)) {
-                this.onEndGetDepartmentDelegate = new EndOperationDelegate(this.OnEndGetDepartment);
+            if ((this.onEndGetDepartmentDetailsDelegate == null)) {
+                this.onEndGetDepartmentDetailsDelegate = new EndOperationDelegate(this.OnEndGetDepartmentDetails);
             }
-            if ((this.onGetDepartmentCompletedDelegate == null)) {
-                this.onGetDepartmentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDepartmentCompleted);
+            if ((this.onGetDepartmentDetailsCompletedDelegate == null)) {
+                this.onGetDepartmentDetailsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDepartmentDetailsCompleted);
             }
-            base.InvokeAsync(this.onBeginGetDepartmentDelegate, new object[] {
-                        id}, this.onEndGetDepartmentDelegate, this.onGetDepartmentCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginGetDepartmentDetailsDelegate, new object[] {
+                        id}, this.onEndGetDepartmentDetailsDelegate, this.onGetDepartmentDetailsCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult silverlight.CompanyServiceReference.ICompanyService.BeginGetEmployee(string id, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult silverlight.CompanyServiceReference.ICompanyService.BeginGetEmployee(System.Guid id, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetEmployee(id, callback, asyncState);
         }
         
@@ -633,7 +663,7 @@ namespace silverlight.CompanyServiceReference {
         }
         
         private System.IAsyncResult OnBeginGetEmployee(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string id = ((string)(inValues[0]));
+            System.Guid id = ((System.Guid)(inValues[0]));
             return ((silverlight.CompanyServiceReference.ICompanyService)(this)).BeginGetEmployee(id, callback, asyncState);
         }
         
@@ -650,11 +680,11 @@ namespace silverlight.CompanyServiceReference {
             }
         }
         
-        public void GetEmployeeAsync(string id) {
+        public void GetEmployeeAsync(System.Guid id) {
             this.GetEmployeeAsync(id, null);
         }
         
-        public void GetEmployeeAsync(string id, object userState) {
+        public void GetEmployeeAsync(System.Guid id, object userState) {
             if ((this.onBeginGetEmployeeDelegate == null)) {
                 this.onBeginGetEmployeeDelegate = new BeginOperationDelegate(this.OnBeginGetEmployee);
             }
@@ -669,7 +699,7 @@ namespace silverlight.CompanyServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult silverlight.CompanyServiceReference.ICompanyService.BeginCutDept(silverlight.CompanyServiceReference.DepartmentDto dept, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult silverlight.CompanyServiceReference.ICompanyService.BeginCutDept(silverlight.CompanyServiceReference.DepartmentDetailsDto dept, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginCutDept(dept, callback, asyncState);
         }
         
@@ -679,7 +709,7 @@ namespace silverlight.CompanyServiceReference {
         }
         
         private System.IAsyncResult OnBeginCutDept(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            silverlight.CompanyServiceReference.DepartmentDto dept = ((silverlight.CompanyServiceReference.DepartmentDto)(inValues[0]));
+            silverlight.CompanyServiceReference.DepartmentDetailsDto dept = ((silverlight.CompanyServiceReference.DepartmentDetailsDto)(inValues[0]));
             return ((silverlight.CompanyServiceReference.ICompanyService)(this)).BeginCutDept(dept, callback, asyncState);
         }
         
@@ -696,11 +726,11 @@ namespace silverlight.CompanyServiceReference {
             }
         }
         
-        public void CutDeptAsync(silverlight.CompanyServiceReference.DepartmentDto dept) {
+        public void CutDeptAsync(silverlight.CompanyServiceReference.DepartmentDetailsDto dept) {
             this.CutDeptAsync(dept, null);
         }
         
-        public void CutDeptAsync(silverlight.CompanyServiceReference.DepartmentDto dept, object userState) {
+        public void CutDeptAsync(silverlight.CompanyServiceReference.DepartmentDetailsDto dept, object userState) {
             if ((this.onBeginCutDeptDelegate == null)) {
                 this.onBeginCutDeptDelegate = new BeginOperationDelegate(this.OnBeginCutDept);
             }
@@ -894,20 +924,20 @@ namespace silverlight.CompanyServiceReference {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetDepartment(string id, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetDepartmentDetails(System.Guid id, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = id;
-                System.IAsyncResult _result = base.BeginInvoke("GetDepartment", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("GetDepartmentDetails", _args, callback, asyncState);
                 return _result;
             }
             
-            public silverlight.CompanyServiceReference.DepartmentDto EndGetDepartment(System.IAsyncResult result) {
+            public silverlight.CompanyServiceReference.DepartmentDetailsDto EndGetDepartmentDetails(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                silverlight.CompanyServiceReference.DepartmentDto _result = ((silverlight.CompanyServiceReference.DepartmentDto)(base.EndInvoke("GetDepartment", _args, result)));
+                silverlight.CompanyServiceReference.DepartmentDetailsDto _result = ((silverlight.CompanyServiceReference.DepartmentDetailsDto)(base.EndInvoke("GetDepartmentDetails", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetEmployee(string id, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetEmployee(System.Guid id, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = id;
                 System.IAsyncResult _result = base.BeginInvoke("GetEmployee", _args, callback, asyncState);
@@ -920,7 +950,7 @@ namespace silverlight.CompanyServiceReference {
                 return _result;
             }
             
-            public System.IAsyncResult BeginCutDept(silverlight.CompanyServiceReference.DepartmentDto dept, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginCutDept(silverlight.CompanyServiceReference.DepartmentDetailsDto dept, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = dept;
                 System.IAsyncResult _result = base.BeginInvoke("CutDept", _args, callback, asyncState);

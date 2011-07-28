@@ -9,17 +9,13 @@ namespace wcf.Dto
     [DataContract]
     public class DepartmentDto
     {
-        [DataMember]
-        public Guid Id { get; set; }
+        public DepartmentDto()
+        {
+            Details = new DepartmentDetailsDto();
+        }
 
         [DataMember]
-        public EmployeeDto Manager { get; set; }
-
-        [DataMember]
-        public string Name { get; set; }
-
-        [DataMember]
-        public decimal Total { get; set; }
+        public DepartmentDetailsDto Details { get; set; }
 
         [DataMember]
         public List<EmployeeDto> Employees { get; set; }

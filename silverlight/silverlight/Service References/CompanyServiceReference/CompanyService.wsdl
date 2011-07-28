@@ -13,11 +13,11 @@
   <wsdl:message name="ICompanyService_GetCompany_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCompanyResponse" />
   </wsdl:message>
-  <wsdl:message name="ICompanyService_GetDepartment_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDepartment" />
+  <wsdl:message name="ICompanyService_GetDepartmentDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentDetails" />
   </wsdl:message>
-  <wsdl:message name="ICompanyService_GetDepartment_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDepartmentResponse" />
+  <wsdl:message name="ICompanyService_GetDepartmentDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentDetailsResponse" />
   </wsdl:message>
   <wsdl:message name="ICompanyService_GetEmployee_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmployee" />
@@ -48,9 +48,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/GetCompany" message="tns:ICompanyService_GetCompany_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/GetCompanyResponse" message="tns:ICompanyService_GetCompany_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDepartment">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/GetDepartment" message="tns:ICompanyService_GetDepartment_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/GetDepartmentResponse" message="tns:ICompanyService_GetDepartment_OutputMessage" />
+    <wsdl:operation name="GetDepartmentDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/GetDepartmentDetails" message="tns:ICompanyService_GetDepartmentDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/GetDepartmentDetailsResponse" message="tns:ICompanyService_GetDepartmentDetails_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/GetEmployee" message="tns:ICompanyService_GetEmployee_InputMessage" />
@@ -80,8 +80,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDepartment">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetDepartment" style="document" />
+    <wsdl:operation name="GetDepartmentDetails">
+      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetDepartmentDetails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

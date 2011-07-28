@@ -29,7 +29,7 @@ namespace silverlight
             {
                 var client = new CompanyServiceClient();
                 client.GetEmployeeCompleted += (s, ea) => DataContext = ea.Result;
-                client.GetEmployeeAsync(employeeId);
+                client.GetEmployeeAsync(Guid.Parse(employeeId));
             }
         }
     }

@@ -18,21 +18,21 @@
   <xs:element name="ArrayOfDepartmentDto" nillable="true" type="tns:ArrayOfDepartmentDto" />
   <xs:complexType name="DepartmentDto">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Details" nillable="true" type="tns:DepartmentDetailsDto" />
       <xs:element minOccurs="0" name="Employees" nillable="true" type="tns:ArrayOfEmployeeDto" />
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
-      <xs:element minOccurs="0" name="Manager" nillable="true" type="tns:EmployeeDto" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SubDepartments" nillable="true" type="tns:ArrayOfDepartmentDto" />
-      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DepartmentDto" nillable="true" type="tns:DepartmentDto" />
-  <xs:complexType name="ArrayOfEmployeeDto">
+  <xs:complexType name="DepartmentDetailsDto">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeDto" nillable="true" type="tns:EmployeeDto" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Manager" nillable="true" type="tns:EmployeeDto" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfEmployeeDto" nillable="true" type="tns:ArrayOfEmployeeDto" />
+  <xs:element name="DepartmentDetailsDto" nillable="true" type="tns:DepartmentDetailsDto" />
   <xs:complexType name="EmployeeDto">
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
@@ -42,4 +42,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EmployeeDto" nillable="true" type="tns:EmployeeDto" />
+  <xs:complexType name="ArrayOfEmployeeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeDto" nillable="true" type="tns:EmployeeDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployeeDto" nillable="true" type="tns:ArrayOfEmployeeDto" />
 </xs:schema>

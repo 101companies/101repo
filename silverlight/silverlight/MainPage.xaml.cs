@@ -48,8 +48,8 @@ namespace silverlight
             {
                 var tv = new TreeViewItem 
                 {
-                    Header = dept.Name, 
-                    Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", dept.Id), UriKind.Relative)
+                    Header = dept.Details.Name, 
+                    Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", dept.Details.Id), UriKind.Relative)
                 };
                 tvCompanyItem.Items.Add(tv);
                 GetSubTree(ref tv, dept);
@@ -60,8 +60,8 @@ namespace silverlight
         {
             var subItem = new TreeViewItem
                               {
-                                  Header = department.Manager.Name,
-                                  Tag = new Uri(string.Format(@"/EmployeeDetailsPage.xaml?id={0}", department.Manager.Id), UriKind.Relative)
+                                  Header = department.Details.Manager.Name,
+                                  Tag = new Uri(string.Format(@"/EmployeeDetailsPage.xaml?id={0}", department.Details.Manager.Id), UriKind.Relative)
                               };
             iSubTree.Items.Add(subItem);
 
@@ -79,8 +79,8 @@ namespace silverlight
             {
                 subItem = new TreeViewItem
                               {
-                                  Header = subDept.Name,
-                                  Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", subDept.Id), UriKind.Relative)
+                                  Header = subDept.Details.Name,
+                                  Tag = new Uri(string.Format(@"/DepartmentDetailsPage.xaml?id={0}", subDept.Details.Id), UriKind.Relative)
                               };
                 iSubTree.Items.Add(subItem);
                 GetSubTree(ref subItem, subDept);
