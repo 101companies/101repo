@@ -8,6 +8,7 @@ model.sendRequest = function(strategy, params) {
     
     httpRequest.onload = function() {
         if (this.status == 200) {
+            alert(httpRequest.responseText);
             var result = JSON.parse(httpRequest.responseText);
 
             // if no error occurs, do something (strategy)

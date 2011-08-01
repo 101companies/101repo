@@ -28,15 +28,15 @@ model.saveData = function(strategy, newName, newAddress, newSalary, id) {
     
     if (newName == '' || newName == null) {
         model.error.error = true;
-        model.error.failures.name = "Enter a valid name, please.";
+        model.error.failures.name = errors.name;
     }
     if (newAddress == '' || newAddress == null) {
         model.error.error = true;
-        model.error.failures.address = "Enter a valid address, please.";
+        model.error.failures.address = errors.address;
     } 
-    if (newSalary == '' || newSalary == null || model.proofSalary(newSalary)) {
+    if (newSalary == '' || newSalary == null) {
         model.error.error = true;
-        model.error.failures.salary = "Enter a valid salary, please.";
+        model.error.failures.salary = errors.salary;
     } 
     
     if (model.error == null || model.error.error == false) {
@@ -48,10 +48,6 @@ model.saveData = function(strategy, newName, newAddress, newSalary, id) {
     } else {
         view.error();
     }
-}
-
-model.proofSalary = function(newSalary) {
-    
 }
 
 // cut company

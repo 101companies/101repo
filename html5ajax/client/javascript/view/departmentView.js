@@ -24,13 +24,13 @@ view.refresh = function() {
     // init department-list
     content = "<select name=\"departments\" size=\"5\" STYLE=\"width:100%;\">";
 
-    for (var i = 0; i < model.response.departments.length; i++) {
-        if(i == 0) {
-            content += "<option value=\"" + model.response.departments[i] + "\" selected>";
+    for (var j = 0; j < model.response.departments.length; j++) {
+        if(j == 0) {
+            content += "<option value=\"" + model.response.departments[j] + "\" selected>";
         } else {
-            content += "<option value=\"" + model.response.departments[i] + "\">";
+            content += "<option value=\"" + model.response.departments[j] + "\">";
         }
-        content += model.response.departments[i] + "</option>";
+        content += model.response.departments[j] + "</option>";
     }
 
     content += "</select>";

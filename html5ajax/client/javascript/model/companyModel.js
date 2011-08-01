@@ -25,7 +25,7 @@ model.saveData = function(strategy, newName) {
         model.error = {};
         model.error.error = true;
         model.error.failures = {};
-        model.error.failures.name = "Enter a valid name, please.";
+        model.error.failures.name = errors.name;
         strategy.error();
     } else {
         model.company.newName = newName;
@@ -48,5 +48,13 @@ model.selectDepartment = function(strategy, departmentName) {
     model.company.action = "selectDepartment";
     model.company.departmentName = departmentName;
     
+    model.sendRequest(strategy, model.company);
+}
+
+// reset company
+model.reset = function(strategy) {
+    model.initCompany();
+    model.company.action = "reset";
+
     model.sendRequest(strategy, model.company);
 }

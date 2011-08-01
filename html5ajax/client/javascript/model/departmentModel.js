@@ -26,7 +26,7 @@ model.saveData = function(strategy, newName, id) {
         model.error = {};
         model.error.error = true;
         model.error.failures = {};
-        model.error.failures.name = "Enter a valid name, please.";
+        model.error.failures.name = errors.name;
         strategy.error();
     } else {
         model.department.newName = newName;

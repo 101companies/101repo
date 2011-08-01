@@ -19,6 +19,11 @@ controller.cut = function(id) {
     model.cut(loadStrategy, id);
 }
 
+// -------------------------------------------- reset
+controller.reset = function() {
+    model.reset(loadStrategy);
+}
+
 // -------------------------------------------- select department
 controller.selectDepartment = function(name) {
     model.selectDepartment(selectStrategy, name);

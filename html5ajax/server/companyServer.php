@@ -20,6 +20,9 @@
             case "cut":
                 return cut($jsonObject);
             
+            case "reset":
+                return resetCompany($jsonObject);
+                
             case "selectDepartment":
                 return getDepartmentId($jsonObject);
         }
@@ -75,7 +78,7 @@
             return loadCompany($jsonObject);
         } else {
             $status = new Errormessage();
-            $status->addFailure("name", "The name '" . $name . "' is in use.");
+            $status->addFailure("name", "The name '" . $name . "' is in use.<br> Enter a valid name, please.");
             return $status;
         }
     }
@@ -85,6 +88,13 @@
         $id = $jsonObject->id;
 	$request = "UPDATE employee SET salary = salary / 2 WHERE cid = $id";
 	mysql_query($request);
+        
+        return loadCompany($jsonObject);
+    }
+    
+    // ---------------------------------------- reset company
+    function resetCompany($jsonObject) {
+        // TODO!!!!
         
         return loadCompany($jsonObject);
     }

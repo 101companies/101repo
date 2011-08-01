@@ -11,7 +11,8 @@ and open the template in the editor.
 
         <script type="text/javascript" src="javascript/controller.js"></script>
         <script type="text/javascript" src="javascript/model/XMLHttpRequest.js"></script>
-
+        <script type="text/javascript" src="javascript/messages/errors.js"></script>
+        
         <script type="text/javascript" src="javascript/model/employeeModel.js"></script>
         <script type="text/javascript" src="javascript/view/employeeView.js"></script>
     </head>
@@ -48,7 +49,7 @@ and open the template in the editor.
                 
                 <tr>
                     <td><div id="salary">Salary:</div></td>
-                    <td><input type="text" class="text" name="salary"/><div id="salaryfailure"></div></td>
+                    <td><input type="text" class="text" name="salary" onkeypress="view.validate(event)"/><div id="salaryfailure"></div></td>
                     <td><input type="button" class="button" value="cut" 
                                onClick="controller.cut(employeeId)"/></td>                      
                 </tr>

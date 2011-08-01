@@ -104,7 +104,7 @@
             return loadDepartment($jsonObject);
         } else {
             $status = new Errormessage();
-            $status->addFailure("name", "The name '" . $name . "' is in use.");
+            $status->addFailure("name", "The name '" . $name . "' is in use.<br> Enter a valid name, please.");
             return $status;
         }
     }
