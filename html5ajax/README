@@ -39,13 +39,11 @@ This [[Language:HTML5|HTML5]]-project provides an optimized [[server-side]] data
 
 You need a web- and sql-server to use this application. In this tutorial both will be taken by XAMPP: http://www.apachefriends.org/en/xampp.html
 
-This tutorial adopts some parts of [[101implementation:mySql]]. We will use the company.sql and sampleCompany.sql from this project below:
+This tutorial adopts some parts of [[101implementation:mySql]]. The company.sql and sampleCompany.sql are modified for this project. They are located in the "sqlScripts" folder.
 
 * Download and install XAMPP
 * Open the "XAMPP Control Panel" and start "Apache" and "MySQL"
-* Create a new User "101companies" with Password "101companies" and a new Database "101companies" (use the tutorial: http://www.php-einfach.de/einf_mysql.php)
-* Create Tables for the 101companies-application (company.sql)
-* Populate Tables (sampleCompany.sql)
+* Use the guideline of [[101implementation:mySql]] up to "Populate tables..." with the modified sql-scripts.
 
 After the database is running, follow the next steps:
 
