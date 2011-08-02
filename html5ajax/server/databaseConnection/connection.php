@@ -27,10 +27,10 @@
     // ---------------------------------------- connection management
     // establish connection to database
     function establishConnection() {
-        $con = mysql_connect ("localhost", "101companies", "101companies")
+        $con = mysql_connect ("localhost", "root", "")
                or die ("Connection failed. Name or password wrong!");
 
-        mysql_select_db("101companies") or die ("Database does not exist.");
+        mysql_select_db("test") or die ("Database does not exist.");
         return $con;
     }
 

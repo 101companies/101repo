@@ -77,7 +77,6 @@
                                      "' WHERE id = " . $id;
         mysql_query($request);
         
-        
         $error = mysql_error();
         if ($error == '' || $error == null) {
             return loadEmployee($jsonObject);
@@ -88,16 +87,28 @@
         }
     }
     
+    // determines the minimum value for the employee salary
     function getMinimumSalaryForEmployee($id) {
-        // department of current employee
-        $request = "SELECT * FROM department WHERE id IN (SELECT did FROM employee WHERE id =" . $id . ")";
+        // current employee
+        $request = "SELECT * FROM employee WHERE id =" . $id;
         $result = mysql_query($request);
         $row = mysql_fetch_object($result);
         
-        $departmentId = $row->id;
+        $manager = $row->manager;
+        $departmentId = $row->did;
         
         // min value = 0, if there is no inferior employee
         $minValue = 0;
+        
+        if ($manager == 1) {
+            $request = "SELECT * FROM employee WHERE did = " . $departmentId;
+            $result = mysql_query($request);
+            while($row = mysql_fetch_object($result)) {
+                if ($row->manager == 0 && $row->salary > $minValue) {
+                    $minValue = $row->salary;
+                }
+            }
+        }
         
         // employees of subdepartments
         $request = "SELECT * FROM employee WHERE did IN (SELECT id FROM department WHERE did =" . $departmentId . ")";
@@ -118,16 +129,29 @@
         $row = mysql_fetch_object($result);
         
         $departmentId = $row->did;
-        
-        // superior department
-        $request = "SELECT * FROM department WHERE id = (SELECT did FROM department WHERE id = " . $departmentId;
-        $result = mysql_query($request);
-        
-         // max value = 2000000, if there is no superior employee
+        $manager = $row->manager;
+
+        // max value = 2000000, if there is no superior employee
         $maxValue = 2000000;
         
-        if ($result != null) {
-            while($row = mysql_fetch_object($result)) {
+        if ($manager == 0) {
+            $request = "SELECT * FROM employee WHERE did = " . $departmentId . " AND manager = 1";
+            $result = mysql_query($request);
+            $row = mysql_fetch_object($result);
+            
+            $maxValue = $row->salary;
+        }
+        
+        // superior department
+        $request = "SELECT * FROM department WHERE id = (SELECT did FROM department WHERE id = " . $departmentId . ")";
+        $result = mysql_query($request);
+        if ($result != null && mysql_num_rows($result) > 0) {
+            $row = mysql_fetch_object($result);
+            $superiorDepId = $row->id;
+            $request2 = "SELECT * FROM employee WHERE did = " . $superiorDepId;
+            $result2 = mysql_query($request2);
+            while($row2 = mysql_fetch_object($result2)) {
+                $salary = $row2->salary;
                 if ($salary < $maxValue) {
                     $maxValue = $salary;
                 }

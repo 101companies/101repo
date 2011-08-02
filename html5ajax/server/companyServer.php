@@ -95,6 +95,10 @@
     // ---------------------------------------- reset company
     function resetCompany($jsonObject) {
         // TODO!!!!
+        $request = "UPDATE company SET name = \"Meganalysis\" WHERE id = 1";
+	mysql_query($request);
+        
+        
         
         return loadCompany($jsonObject);
     }
