@@ -1,6 +1,6 @@
 == Intent ==
 
-parsing textual syntax with [[parsec]] in [[Language:Haskell]]
+parsing textual syntax with [[Parsec]] in [[Language:Haskell]]
 
 == Languages ==
 
@@ -20,7 +20,7 @@ parsing textual syntax with [[parsec]] in [[Language:Haskell]]
 
 == Motivation ==
 
-We make use of [[Haskell]]'s [[Parsec]] parser combinator library to parse concrete syntax of [[101feature:Company|companies]].
+We make use of [[Language:Haskell]]'s [[Parsec]] parser combinator library to parse concrete syntax of [[101feature:Company|companies]].
 We combine smaller parsers, say for salaries, to larger parsers, say for employees, to build a parser for companies. 
 This implementation also demonstrates [[Functor|functors]] and functor combinators, provided by the ''Control.Applicative'' module.
 The modules holding the algebraic datatype to represent companies and the functionality to [[101feature:Total|total]] and [[101feature|Cut:cut]]
