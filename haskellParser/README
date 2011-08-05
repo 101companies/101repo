@@ -1,0 +1,47 @@
+== Intent ==
+
+parsing textual syntax with [[parsec]] in [[Language:Haskell]]
+
+== Languages ==
+
+* [[Language:Haskell 98]]
+
+== Technologies ==
+
+* [[Technology:GHCi]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+* [[101feature:Parsing]]
+
+== Motivation ==
+
+We make use of [[Haskell]]'s [[Parsec]] parser combinator library to parse concrete syntax of [[101feature:Company|companies]].
+We combine smaller parsers, say for salaries, to larger parsers, say for employees, to build a parser for companies. 
+This implementation also demonstrates [[Functor|functors]] and functor combinators, provided by the ''Control.Applicative'' module.
+The modules holding the algebraic datatype to represent companies and the functionality to [[101feature:Total|total]] and [[101feature|Cut:cut]]
+companies are identical to the modules in the basic [[101implementaion:haskell|haskell]] implementation.
+
+== Architecture ==
+
+[this!!Parser.hs] provides the Parsec-based parser.[this!!Company.hs] holds the algebraic datatype for companies, 
+while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [[this!!SampleCompany]] holds a sample company used 
+to be compared to a parsed sample company (in [this!!sample.Company]). The Main module ([this!!Main.hs] collects test scenarios.
+
+== Usage ==
+
+The Haskell module ''Main'' has to be consulted with GHCi, and the
+''main'' function has to be applied so that output for the test
+scenarios is produced. The ''expected'' output is available through
+the file ''baseline''. There is a ''Makefile'' with a target ''test''
+for [[test automation]].
+
+== Contributors ==
+
+* {{101contributor|Martijn van Steenbergen|developer}}
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|developer}}
