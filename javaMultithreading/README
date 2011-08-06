@@ -15,7 +15,6 @@ Multithreading implementation of [[101feature:Total]] and [[101feature:Cut]] in 
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
-* [[101feature:Threading]]
 
 == Motivation ==
 
@@ -43,3 +42,9 @@ to ensure all threads are finished before returning the result;
 ** Run class ''Threads'' with JUnit to exercise threading.
 
 == Contributors ==
+
+* {{101contributor|Christian Schlöffel|developer}}
+* {{101contributor|Johann Tissen|developer}}
+* {{101contributor|Rebecca Bindarra|developer}}
+* {{101contributor|Tobias Schmidt|developer}}
+* {{101contributor|Tobias Zimmer|reviewer}}
