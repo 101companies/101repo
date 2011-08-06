@@ -29,9 +29,9 @@ companies are identical to the modules in the basic [[101implementation:haskell|
 
 == Architecture ==
 
-[this!!Parser.hs] provides the Parsec-based parser.[this!!Company.hs] holds the algebraic datatype for companies, 
-while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [[this!!SampleCompany]] holds a sample company used 
-to be compared to a parsed sample company (in [this!!sample.Company]). The Main module ([this!!Main.hs] collects test scenarios.
+[this!!Parser.hs] provides the Parsec-based parser. [this!!Company.hs] holds the algebraic datatype for companies, 
+while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany] holds a sample company used 
+to be compared to a parsed sample company (in [this!!sample.Company]). The Main module ([this!!Main.hs]) collects test scenarios.
 
 == Usage ==
 
