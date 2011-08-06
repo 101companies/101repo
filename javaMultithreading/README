@@ -1,6 +1,6 @@
 == Intent ==
 
-Multithreading implementation of [[101feature:Total]] and [[101feature:Cut]] in [[Language:Java]].
+Multithreading implementation in [[Language:Java]].
 
 == Languages ==
 
@@ -18,6 +18,8 @@ Multithreading implementation of [[101feature:Total]] and [[101feature:Cut]] in 
 * [[101feature:Cut]]
 
 == Motivation ==
+
+'''This project was created at the PTT-Hackathon 2011'''
 
 == Illustration ==
 
