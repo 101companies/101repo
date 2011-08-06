@@ -1,0 +1,45 @@
+== Intent ==
+
+Multithreading implementation of [[101feature:Total]] and [[101feature:Cut]] in [[Language:Java]].
+
+== Languages ==
+
+* [[Language:Java]] (Version 5)
+
+== Technologies ==
+
+* [[101profile:Multithreading]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Threading]]
+
+== Motivation ==
+
+== Illustration ==
+
+== Architecture ==
+
+Package ''org.softlang.company'' hosts the object model for [[101feature:Company]].
+The methods for [[101feature:Total]] and [[101feature:Cut]] are implemented as classes
+named Actions and hosted in ''org.softlang.action''. They implement the basic Action
+interface ''org.softlang.action.Action''. These can be used with a descendant of the
+interface Context hosted in ''org.softlang.context''. There are two implementations:
+ConcurrentContext and SequentialContext.  The methods should be called with
+CompanyContextManager, which organizes the call on all direct connected departments.
+The class CompanyCreator ensures adequate large companies for testing to (hopefully)
+see the boost of multithreading. There is an internal timeout if we have a TotalAction
+to ensure all threads are finished before returning the result;
+
+== Usage ==
+
+* The implementation is provided as an Eclipse project. 
+* Hence, open the project with Eclipse; this will also build the project.
+* There are JUnit tests available in the package ''org.softlang.tests''.
+** Run class ''Basics'' with JUnit to exercise basic features and ensure working of CompanyCreator.
+** Run class ''Threads'' with JUnit to exercise threading.
+
+== Contributors ==
