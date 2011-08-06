@@ -8,7 +8,8 @@ Multithreading implementation of [[101feature:Total]] and [[101feature:Cut]] in 
 
 == Technologies ==
 
-* [[101profile:Multithreading]]
+* [[Technology:Multithreading]]
+* [[101profile:Simple Java|Simple Java]]
 
 == Features ==
 
