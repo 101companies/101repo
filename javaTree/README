@@ -1,0 +1,39 @@
+== Intent ==
+
+Tree based implementation in [[Language:Java]].
+
+== Languages ==
+
+* [[Language:Java]] (Version 5)
+
+== Technologies ==
+
+* [[Technology:Swing]]
+* [[101profile:Simple Java|Simple Java]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+''This project was created at the PTT-Hackathon 2011.''
+
+== Illustration ==
+
+
+== Architecture ==
+
+
+== Usage ==
+
+
+== Contributors ==
+
+* {{101contributor|Eduard Ditler|developer}}
+* {{101contributor|Hanna-Marike Reger|developer}}
+* {{101contributor|Helena Swerdlow|developer}}
+* {{101contributor|Jan Ruether|developer}}
+* {{101contributor|Tobias Zimmer|reviewer}}

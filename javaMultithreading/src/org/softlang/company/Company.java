@@ -29,7 +29,7 @@ public class Company {
 			total += d.total();
 		}
 		return total;
-	}	
+	}
 	
 	public void cut() {
 		for (Department d : getDepts()) {
