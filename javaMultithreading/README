@@ -25,6 +25,36 @@ Multithreading grants simultaneously executed multiple access to the [[101compan
 
 == Illustration ==
 
+The actions [[101feature:Cut|cut]] and [[101feature:Total|total]] are encapsulated in the execute-method of the ConcurrentContext. The synchronization of the execute-method allows only one executed action at a time.
+
+<syntaxhighlight lang="java">
+	public synchronized <X, Y> void execute(final Action<X, Y> action,
+		final X param) {
+
+		final ConcurrentContext context = this;
+		pool.submit(new Runnable() {
+			@Override
+			public void run() {
+				action.execute(context, param);
+
+			}
+		});
+
+	}
+</syntaxhighlight>
+
+Each action calls the method cut or total of the company. The specific method runs through the department-list and cuts the current department or adds total for the the departments.
+
+<syntaxhighlight lang="java">
+	public Double total() {
+		double total = 0;
+		for (Department d : getDepts()) {
+			total += d.total(); // the total-method in department is similar to this one
+		}
+		return total;
+	}
+</syntaxhighlight>
+
 == Architecture ==
 
 Package ''org.softlang.company'' hosts the object model for [[101feature:Company]]. The methods for [[101feature:Total]] and [[101feature:Cut]] are implemented as classes named Actions and hosted in ''org.softlang.action''. They implement the basic Action
