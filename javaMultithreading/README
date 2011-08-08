@@ -25,7 +25,7 @@ Multithreading grants simultaneously executed multiple access to the [[101compan
 
 == Illustration ==
 
-The actions [[101feature:Cut|cut]] and [[101feature:Total|total]] are encapsulated in the execute-method of the ConcurrentContext. The synchronization of the execute-method allows only one executed action at a time.
+The actions [[101feature:Cut|cut]] and [[101feature:Total|total]] are encapsulated in the execute-method of the ConcurrentContext. The synchronization of the execute-method allows only one execution at a time.
 
 <syntaxhighlight lang="java">
 	public synchronized <X, Y> void execute(final Action<X, Y> action,
@@ -43,7 +43,7 @@ The actions [[101feature:Cut|cut]] and [[101feature:Total|total]] are encapsulat
 	}
 </syntaxhighlight>
 
-Each action calls the method cut or total of the company. The specific method runs through the department-list and cuts the current department or adds total for the the departments.
+Each action calls the method cut or total of the company. The specific method runs through the department-list and cuts the current department or adds the total of all related departments.
 
 <syntaxhighlight lang="java">
 	public Double total() {
