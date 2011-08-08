@@ -19,7 +19,9 @@ Multithreading implementation in [[Language:Java]].
 
 == Motivation ==
 
-''This project was created at the PTT-Hackathon 2011''
+''This project was created at the PTT-Hackathon 2011.''
+
+Multithreading grants simultaneously executed multiple access to the [[101companies:System]]. This is usefull for multiclient-applications, in which it is possible to initiate different changes at the same time. The project uses the [[Technology:Monitor|monitor]]-concept of [[Language:Java]].
 
 == Illustration ==
 
