@@ -4,11 +4,11 @@ an implementation in a Pharo Smalltalk with the Moose capabilities.
 
 == Technologies ==
 
+* [[Technology:Pharo]]
+
 == Languages ==
 
 * [[Language:Smalltalk]]
-
-Specific versions may be defined by any given implementation.
 
 == Description ==
 
