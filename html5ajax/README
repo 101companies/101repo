@@ -53,7 +53,7 @@ This message tells the server to [[101feature:Cut|cut]] the company with the ide
 }
 </syntaxhighlight>
 
-A [[server-side]] method performs that [[101feature:Cut|cut]]-request:
+The [[server]] receives the [[101feature:Cut|cut]]-request and performs the action:
 
 <syntaxhighlight lang="php">
 // ---------------------------------------- cut company
