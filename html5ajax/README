@@ -90,6 +90,11 @@ After the database is running, follow the next steps:
 * Put the files into the htdocs-directory of your XAMPP (a new sub-directory in "htdocs" is recommended)
 * Run index.html
 
+The project is provided as a netbeans-project. If you want to change the code, you have to:
+
+* Download (http://netbeans.org/) and install [[Technology:NetBeans]]
+* "Open project" and select the html5ajax-folder
+
 == Contributors ==
 
 * {{101contributor|Tobias Zimmer|developer}}
