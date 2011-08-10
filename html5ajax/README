@@ -43,6 +43,29 @@ The client sends [[Technology:JSON]]-messages to the server using [[Technology:X
 }
 </syntaxhighlight>
 
+This message tells the server to [[101feature:Cut|cut]] the company with the identifier 1. The answer for this request is a stringified company object with all needed informations about the [[101feature:Company|company]] (and nothing more):
+
+<syntaxhighlight lang="text">
+{
+	"name":"meganalysis",
+	"departments":["Research","Development"],
+	"total":199873.5
+}
+</syntaxhighlight>
+
+A [[server-side]] method performs that [[101feature:Cut|cut]]-request:
+
+<syntaxhighlight lang="php">
+// ---------------------------------------- cut company
+function cut($jsonObject) {
+	$id = $jsonObject->id;
+	$request = "UPDATE employee SET salary = salary / 2 WHERE cid = $id";
+	mysql_query($request);
+        
+	return loadCompany($jsonObject);
+}
+</syntaxhighlight>
+
 == Architecture ==
 
 
