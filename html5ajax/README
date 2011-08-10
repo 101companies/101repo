@@ -68,6 +68,7 @@ function cut($jsonObject) {
 
 == Architecture ==
 
+This application is implemented with [[Architecture:MVC|MVC]]. The client is devided into the [[101feature:Interaction|view]] ([this!!/client/company.html company.html], [this!!/client/javascript/view/companyView.js companyView.js]), the controller ([this!!/client/javascript/controller.js controller.js]) and the model ([this!!/client/javascript/model/companyModel.js companyModel.js]).
 
 == Usage ==
 
