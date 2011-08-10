@@ -97,18 +97,21 @@ public class TotalView extends JFrame {
 			public void valueChanged(TreeSelectionEvent event) {
 				// find sender
 				TreePath path = event.getNewLeadSelectionPath();
-				DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path
-						.getLastPathComponent();
-
-				if (selectedNode.getUserObject().getClass().equals(
-						Company.class)) {
-					setView((Company) selectedNode.getUserObject());
-				} else if (selectedNode.getUserObject().getClass().equals(
-						Department.class)) {
-					setView((Department) selectedNode.getUserObject());
-				} else if (selectedNode.getUserObject().getClass().equals(
-						Employee.class)) {
-					setView((Employee) selectedNode.getUserObject());
+				
+				if (path != null) {
+					DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path
+					.getLastPathComponent();
+					
+					if (selectedNode.getUserObject().getClass().equals(
+							Company.class)) {
+						setView((Company) selectedNode.getUserObject());
+					} else if (selectedNode.getUserObject().getClass().equals(
+							Department.class)) {
+						setView((Department) selectedNode.getUserObject());
+					} else if (selectedNode.getUserObject().getClass().equals(
+							Employee.class)) {
+						setView((Employee) selectedNode.getUserObject());
+					}
 				}
 			}
 		});
