@@ -72,7 +72,7 @@ function cut($jsonObject) {
 
 * The [[Technology:XMLHttpRequest|requests]] are encoded with [[Technology:JSON]]. Visit http://en.wikipedia.org/wiki/JSON to get more information. The structure of the messages is described in the [[101implementation:html5ajax#Illustration|illustration]]-section.
 
-* There is a single [[server-side]] [[Language:php]]-script for each page (e.g. [this!!/client/company.html company.html]). Each script receives the [[Technology:JSON]]-message and performs the delivered action. Each action is implemented as a seperate function.
+* There is a single [[server-side]] [[Language:php]]-script for each page (e.g. [this!!/server/companyServer.php companyServer.php]). Each script receives the [[Technology:JSON]]-message and performs the delivered action. Each action is implemented as a seperate function. The implementation is [[OO_programming_paradigm|object-oriented]], which guarantees a consistent form for the responses (e.g. [this!!/server/classes/company.php company.php]).
 
 == Usage ==
 
