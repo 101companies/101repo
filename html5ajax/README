@@ -33,6 +33,8 @@
 
 * The data-transfer is realized with [[Technology:XMLHttpRequest]] and a [[server-side]] [[Language:php]]-script. The client sends a request to the [[server]] and the [[Language:php]]-script decides, which data should be transmitted. The response is wrapped in a stringified [[Technology:JSON]]-Object, which easily can be decoded by the [[client]]. It is evident to use [[Language:SQL]] for data storage in combination with the [[server-side]] [[Language:php]]-script.
 
+* The use of [[Technology:JSON]] instead of [[Language:XML]] has a major advantage: The request and response messages are created in an [[OO_programming_paradigm|object-oriented]] style. These objects can easily be translated into [[Technology:JSON]]-strings. There is no additional effort for creating and interpreting complex [[Language:XML]]-messages.
+
 == Illustration ==
 
 The client sends [[Technology:JSON]]-messages to the server using [[Technology:XMLHttpRequest]]. A [[Technology:JSON]]-message contains the information for the current page and some extra information about the action invoked on this page. A stringified JSON-object for cutting the company is looking like:
