@@ -9,18 +9,11 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.tree.DefaultMutableTreeNode;
-
-public class Company implements Serializable {
+public class Company extends Basic implements Serializable {
 
 	private static final long serialVersionUID = -200889592677165250L;
 	private String name;
 	private List<Department> depts;
-	private DefaultMutableTreeNode treeNode;
-
-	public void setTreeNode(DefaultMutableTreeNode treeNode) {
-		this.treeNode = treeNode;
-	}
 
 	public Company() {
 		depts = new LinkedList<Department>();
@@ -78,13 +71,20 @@ public class Company implements Serializable {
 		return depts;
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 * 
-	 * eingefügt um den Namen zurückzugeben
+	/**
+	 * This method returns the name for the tree-view.
 	 */
+	@Override
 	public String toString(){
 		return this.getName();
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.softlang.company.Basic#isCompany()
+	 */
+	@Override
+	public boolean isCompany() {
+		return true;
 	}
 }

@@ -10,7 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
  * A department has a name, a manager and a list of subunits
  * 
  */
-public class Department implements Serializable {
+public class Department extends Basic implements Serializable {
 
 	private static final long serialVersionUID = -2008895922177165250L;
 	private String name;
@@ -48,20 +48,12 @@ public class Department implements Serializable {
 		return employees;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 * 
-	 * eingefügt um den Namen zurückzugeben
-	 * produziert den String auf eine feste Länge
+	/**
+	 * This method returns the name for the tree-view.
 	 */
+	@Override
 	public String toString() {
 		String treeName = this.getName();
-		if(treeName.length() < 15){
-			for(int i = treeName.length(); i<15 ;i++){
-				treeName += " ";
-			}
-		}
 		return treeName;
 	}
 
@@ -71,5 +63,14 @@ public class Department implements Serializable {
 
 	public DefaultMutableTreeNode getTreeNode() {
 		return treeNode;
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.softlang.company.Basic#isDepartment()
+	 */
+	@Override
+	public boolean isDepartment() {
+		return true;
 	}
 }

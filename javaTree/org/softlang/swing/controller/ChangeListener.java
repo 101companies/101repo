@@ -1,4 +1,4 @@
-package org.softlang.swing;
+package org.softlang.swing.controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -6,9 +6,9 @@ import java.awt.event.KeyListener;
 import javax.swing.JTextField;
 
 /**
- * Dient dazu um Änderungen im rechten Panel an den Controller weiterzuleiten.
- * Es wird der neue Wert an den Controller geschickt.
+ * This class manages the changes of the textfields of the active view.
  * 
+ * @author Eduard Ditler, Hanna-Marike Reger, Helena Swerdlow, Jan Ruether
  */
 public class ChangeListener implements KeyListener {
 
@@ -22,20 +22,20 @@ public class ChangeListener implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		nameChanged(e);
+		// stub
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		nameChanged(e);
+		valueChanged(e);
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		nameChanged(e);
+		// stub
 	}
 
-	private void nameChanged(KeyEvent e) {
+	private void valueChanged(KeyEvent e) {
 		JTextField n = (JTextField) e.getComponent();
 		if (subject.equals("address")) {
 			controller.addressChanged(n.getText());
