@@ -74,7 +74,7 @@ function cut($jsonObject) {
 
 * There is a single [[server-side]] [[Language:php]]-script for each page (e.g. [this!!/server/companyServer.php companyServer.php]). Each script receives the [[Technology:JSON]]-message and performs the delivered action. Each action is implemented as a seperate function. The implementation of the responses is [[OO_programming_paradigm|object-oriented]], which guarantees a consistent form for the messages (e.g. [this!!/server/classes/company.php company.php]).
 
-* The concrete data is stored in an [[Language:sql]]-database (comparing [[101implementation:MySql]]).
+* The concrete data is stored in an [[Language:sql]]-database (comparing [[101implementation:mySql]]).
 
 * The [[client-side]] [[101feature:Validation]] is performed directly. If an exception occurs on the server, the response contains an error-flag and a list of field-identifiers and dedicated messages. This messages are delegated to the concerning fields in the GUI.
 
