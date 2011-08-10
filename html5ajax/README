@@ -68,9 +68,11 @@ function cut($jsonObject) {
 
 == Architecture ==
 
-* This application is implemented with [[Architecture:MVC|MVC]]. The client is devided into the [[101feature:Interaction|view]] (example for company: [this!!/client/company.html company.html], [this!!/client/javascript/view/companyView.js companyView.js]), the controller ([this!!/client/javascript/controller.js controller.js]) and the model (example for company: [this!!/client/javascript/model/companyModel.js companyModel.js]). The controller manages the requests triggered by the view and changes the view, when the data has changed. The model manages the data. This means, in that case, that the model performs the [[Technology:XMLHttpRequest|requests]] and receives the responses of the [[Language:php]]-server.
+* This application is implemented with [[Architecture:MVC|MVC]]. The client is devided into the [[101feature:Interaction|view]] (e.g. [this!!/client/company.html company.html], [this!!/client/javascript/view/companyView.js companyView.js]), the controller ([this!!/client/javascript/controller.js controller.js]) and the model (e.g. [this!!/client/javascript/model/companyModel.js companyModel.js]). The controller manages the requests triggered by the view and changes the view, when the data has changed. The model manages the data. This means, in that case, that the model performs the [[Technology:XMLHttpRequest|requests]] and receives the responses of the [[Language:php]]-server.
 
-* The [[Technology:XMLHttpRequest|requests]] are encoded with [[Technology:JSON]]. Visit http://en.wikipedia.org/wiki/JSON to get more information. The structure of the messages is described in the [[101implementation:html5ajax/Illustration]] illustration.
+* The [[Technology:XMLHttpRequest|requests]] are encoded with [[Technology:JSON]]. Visit http://en.wikipedia.org/wiki/JSON to get more information. The structure of the messages is described in the [[101implementation:html5ajax#Illustration|illustration]]-section.
+
+* There is a single [[server-side]] [[Language:php]]-script for each page (e.g. [this!!/client/company.html company.html]). Each script receives the [[Technology:JSON]]-message and performs the delivered action. Each action is implemented as a seperate function.
 
 == Usage ==
 
