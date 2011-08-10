@@ -33,6 +33,15 @@ This [[Language:HTML5|HTML5]]-project provides an optimized [[server-side]] data
 
 == Illustration ==
 
+The client sends [[Technology:JSON]]-messages to the server using [[Technology:XMLHttpRequest]]. A [[Technology:JSON]]-message contains the information for the current page and some extra information about the action invoked on this page. A stringified JSON-object for cutting the company is looking like:
+
+<syntaxhighlight lang="text">
+{
+	"id":1,
+	"table":"company",
+	"action":"cut"
+}
+</syntaxhighlight>
 
 == Architecture ==
 
