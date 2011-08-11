@@ -63,8 +63,7 @@ interface [this!!src/org/softlang/action/Action.java Action.java]. These can be 
 == Usage ==
 
 * The implementation is provided as an Eclipse project. 
-* Hence, open the project with Eclipse; this will also build the project.
-* There are JUnit tests available in the package ''org.softlang.tests''.
+* Open the project with Eclipse; this will also build the project:
 ** Run class ''Basics'' with JUnit to exercise basic features and ensure working of CompanyCreator.
 ** Run class ''Threads'' with JUnit to exercise threading.
 
