@@ -26,6 +26,28 @@ The tree-based view allows the user to get a large overview of the hierarchy of 
 
 == Illustration ==
 
+The main features [[101feature:Cut]], [[101feature:Total]] and [[101feature:Company]] are adopted from [[101implementation:javaInheritance]]. The main difference to [[101implementation:swing]] is, that the [[101feature:Interaction#Navigation|navigation]] is simplified with a tree view. This tree has to be initialized recursively with the company as root:
+
+<syntaxhighlight lang="java">
+/*
+ * This method initializes the tree-view.
+ */
+private Component createTree() {
+	Company company = model.getCompany(); // get company data
+
+	DefaultMutableTreeNode root = new DefaultMutableTreeNode(company); // create root element
+
+	for (Department d : company.getDepts()) { // run through the departments and add them to the root
+		root.add(addDepartmentNode(d)); // create department subtrees
+	}
+
+	tree = new JTree(root);
+
+	return new JScrollPane(tree); // return the JTree within a scroll pane
+}
+</syntaxhighlight>
+
+The department subtrees are created in a similar way.
 
 == Architecture ==
 
