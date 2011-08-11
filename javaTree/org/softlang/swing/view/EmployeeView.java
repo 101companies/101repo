@@ -106,8 +106,7 @@ public class EmployeeView extends AbstractView {
 	 * This method adds the listener for the address field of the current
 	 * employee view.
 	 * 
-	 * @param name
-	 *            change listener
+	 * @param change listener
 	 */
 	public void addAddressListener(KeyListener listener) {
 		address.addKeyListener(listener);
@@ -117,8 +116,7 @@ public class EmployeeView extends AbstractView {
 	 * This method adds the listener for the salary field of the current
 	 * employee view.
 	 * 
-	 * @param name
-	 *            change listener
+	 * @param change listener
 	 */
 	public void addSalaryListener(KeyListener listener) {
 		total.addKeyListener(listener);
