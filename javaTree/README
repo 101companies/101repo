@@ -51,7 +51,7 @@ The department subtrees are created in a similar way.
 
 == Architecture ==
 
-The main architecture of this project is [[Architecture:MVC|MVC]]. The class [this!!org/softlang/tests/Interaction.java Interaction.java] starts the application and creates the main parts of the [[Architecture:MVC|MVC]]-structure: [this!!org/softlang/swing/view/MainView.java MainView.java], [this!!org/softlang/swing/controller/Controller.java Controller.java] and [this!!org/softlang/swing/model/Model.java Model.java].
+The main architecture of this project is [[Architecture:MVC|MVC]]. The class [this!!org/softlang/tests/Interaction.java Interaction.java] starts the application and creates the main parts of the [[Architecture:MVC|MVC]]-structure: The [this!!org/softlang/swing/view/MainView.java MainView.java] creates the tree and provides a container for the single views of the company, departments and employees. These views are initialized by the [this!!org/softlang/swing/controller/Controller.java Controller.java] while the data and the selected element of the tree is stored in the [this!!org/softlang/swing/model/Model.java Model.java]. The main features [[101feature:Cut]] and [[101feature:Total]] can be found in ''org.softlang.operations'' while the classes for the data structure are in ''org.softlang.company''.
 
 == Usage ==
 
