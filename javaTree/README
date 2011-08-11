@@ -51,6 +51,7 @@ The department subtrees are created in a similar way.
 
 == Architecture ==
 
+The main architecture of this project is [[Architecture:MVC|MVC]]. The class [this!!org/softlang/tests/Interaction.java Interaction.java] starts the application and creates the main parts of the [[Architecture:MVC|MVC]]-structure: [this!!org/softlang/swing/view/MainView.java MainView.java], [this!!org/softlang/swing/controller/Controller.java Controller.java] and [this!!org/softlang/swing/model/Model.java Model.java].
 
 == Usage ==
 
