@@ -16,6 +16,7 @@ Tree based implementation in [[Language:Java]].
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Interaction]]
 
 == Motivation ==
 
@@ -31,6 +32,8 @@ The tree-based view allows the user to get a large overview of the hierarchy of 
 
 == Usage ==
 
+* This project is provided as an [[Technology:Eclipse]] project.
+* After importing the project into [[Technology:Eclipse]] as ''Java Project'', just run Interaction.java as ''Java Application''.
 
 == Contributors ==
 
