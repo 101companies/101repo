@@ -51,16 +51,16 @@ First we want to get all salary nodes:
 
 This is an arrow from XmlTree to XmlTree, say a '''filter''' for all salary nodes. In general ''deep'' only works for non-nested results, but because of the fact that we are dealing with text nodes, which can not be nested, this is ok.
 
-The result of this node is then combined with <syntaxhighlight lang="haskell" enclose="none">getChildren >>> getText</syntaxhighlight> by using <syntaxhighlight lang="haskell">>>></syntaxhighlight>. 
+The result of this node is then combined with <syntaxhighlight lang="haskell" enclose="none">getChildren >>> getText</syntaxhighlight> by using <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight>. 
+
 This gives us the text of each salary node. So the combination has the type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree String</syntaxhighlight> 
 
-We then use ''Control.Arrow.ArrowList'''s ''listA'' to collect all these texts in an array, giving us an arrow of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree [String]</syntaxhighlight> 
+We then use ''Control.Arrow.ArrowList'''s <syntaxhighlight lang="haskell" enclose="none">listA</syntaxhighlight> to collect all these texts in an array, giving us an arrow of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree [String]</syntaxhighlight> 
 
-The result of this arrow is then passed to the lifted version of
-<syntaxhighlight lang="haskell">(sum.(map read)) :: (Read c, Num c) => [String] -> c</syntaxhighlight>
-which in this case is of type:
-<syntaxhighlight lang="haskell">ArrowXml a => a [String] Float</syntaxhighlight>
-giving us the total of all salaries.
+The result of this arrow is then passed to the lifted version of <syntaxhighlight lang="haskell" enclose="none">(sum.(map read)) :: (Read c, Num c) => [String] -> c</syntaxhighlight>, which in this case is of type:
+
+<syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a [String] Float</syntaxhighlight> giving us the sum of all salaries as a Float value.
+
 
 == Architecture ==
 
