@@ -1,0 +1,49 @@
+== Intent ==
+
+[[in-memory XML processing]] with [[Technology:HXT]] in [[Language:Haskell]]
+
+== Languages ==
+
+* [[Language:XML]]
+* [[Language:Haskell]]
+
+== Technologies ==
+
+* [[Technology:HXT]]: Haskell XML Toolbox
+* [[Technology:GHCi]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Serialization]]
+
+== Motivation ==
+
+[[101feature:Company|Companies] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
+That is, we use the rich combinator library that HXT comes with to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries.
+The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementation, because the combinator library is based on this concept. That is we exercise:
+* defining arrows by combining predefinied arrows
+* lifing ordinary functions into the arrow space
+* executing these arrows, say switching between arrows and the IO [[monad|Monad]] (See the illustration section)
+
+
+== Illustration ==
+
+== Architecture ==
+
+
+
+== Usage ==
+
+The Haskell module ''Main'' has to be consulted with GHCi, and the
+''main'' function has to be applied so that output for the test
+scenarios is produced. The ''expected'' output is available through
+the file ''baseline''. There is a ''Makefile'' with a target ''test''
+for [[test automation]].
+Use the taget ''clean'' to "reset" the project.
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
