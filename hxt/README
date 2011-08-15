@@ -22,12 +22,12 @@
 == Motivation ==
 
 [[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
-That is, we use the rich combinator library that HXT comes with to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries.
+That is, we use a rich combinator library to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company-xml-tree.
 The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementation, because the combinator library is based on this concept. That is we exercise:
-* using arrow combinators such as ''>>>'' and ''`when`''
-* lifing ordinary functions into the arrow space using ''arr''
-* using ''Control.Arrow.ArrowList'''s ''listA'' for collecting all arrow results in a list
-* executing these arrows, say switching between arrows and the IO [[monad|Monad]] (See the illustration section)
+* Using arrow combinators such as ''>>>'' and ''`when`''.
+* Lifing ordinary functions into the arrow space using ''arr''.
+* Using ''Control.Arrow.ArrowList'''s ''listA'' for collecting all arrow results in a list.
+* Executing these arrows, say switching between arrows and the IO [[monad|Monad]] space (See the illustration section).
 
 
 == Illustration ==
@@ -45,7 +45,7 @@ total = listA (deep $ hasName "salary"
         arr (sum.(map read)) 
 </syntaxhighlight>
 
-First we want to get all salary nodes.
+First we want to get all salary nodes:
 
 <syntaxhighlight lang="haskell"> deep $ hasName "salary"</syntaxhighlight> 
 
@@ -53,10 +53,10 @@ This is an arrow from XmlTree to XmlTree, say a '''filter''' for all salary node
 
 The result of this node is then combined with:
 <syntaxhighlight lang="haskell">getChildren >>> getText</syntaxhighlight> 
-This gives us the text of each salary node. So the combination has the type:
+by using ''>>>''. This gives us the text of each salary node. So the combination has the type:
 <syntaxhighlight lang="haskell">ArrowXml a => a XmlTree String</syntaxhighlight> 
 
-We then use ''listA'' to collect all these texts in an array, giving us an arrow of type:<syntaxhighlight lang="haskell"enclose="none">ArrowXml a => a XmlTree [String]</syntaxhighlight> 
+We then use ''Control.Arrow.ArrowList'''s ''listA'' to collect all these texts in an array, giving us an arrow of type:<syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree [String]</syntaxhighlight> 
 
 The result of this arrow is then passed to the lifted version of
 <syntaxhighlight lang="haskell">(sum.(map read)) :: (Read c, Num c) => [String] -> c</syntaxhighlight>
