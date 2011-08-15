@@ -48,9 +48,9 @@ This gives us the text of each salary node. So the combination has the type: <sy
 
 We then use ''Control.Arrow.ArrowList'''s <syntaxhighlight lang="haskell" enclose="none">listA</syntaxhighlight> to collect all these texts in an array, giving us an arrow of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree [String]</syntaxhighlight> 
 
-The result of this arrow is then passed to the lifted version of <syntaxhighlight lang="haskell" enclose="none">(sum.(map read)) :: (Read c, Num c) => [String] -> c</syntaxhighlight>, which in this case is of type:<syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a [String] Float</syntaxhighlight>.
+The result of this arrow is then passed to the lifted version of <syntaxhighlight lang="haskell" enclose="none">(sum.(map read)) :: (Read c, Num c) => [String] -> c</syntaxhighlight>, which in this case is of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a [String] Float</syntaxhighlight>.
 
-The overall emerging arrow, giving us the total salary, is of type <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree Float</syntaxhighlight>:
+The overall emerging arrow, giving us the total salary, is of type <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree Float</syntaxhighlight> :
 
 <syntaxhighlight lang="haskell">
 total :: ArrowXml a => a XmlTree Float
