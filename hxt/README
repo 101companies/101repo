@@ -27,13 +27,13 @@ The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementat
 * Using arrow combinators such as ''>>>'' and ''`when`''.
 * Lifing ordinary functions into the arrow space using ''arr''.
 * Using ''Control.Arrow.ArrowList'''s ''listA'' for collecting all arrow results in a list.
-* running these arrows with IO, say switching between arrows and the IO [[monad|Monad]] space (See the illustration section).
+* Running these arrows with IO, say switching between arrows and the IO [[monad|Monad]] space (See the illustration section).
 
 
 == Illustration ==
 
 In the following we will demonstrate the construction of the arrow for [[101feature:Total|totaling]] and how one can run this arrow in IO.
-The code can be found in [this!!Total.hs] resp. [this!!Main.hs]
+The code can be found in [this!!Total.hs] respectively [this!!Main.hs]
 
 === Total ===
 
@@ -80,7 +80,11 @@ Executing this arrow with runX returns a list of float values:
 
 == Architecture ==
 
+[this!!Total.hs] holds the arrow for [[101feature:Total|totaling]] salaries as described in the illustration section. 
 
+[this!!Cut.hs] contains a transformation arrow for [[101feature:Cut|cutting]] salaries.
+
+The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting the xml data provided by [this!!sampleCompany.xml]
 
 == Usage ==
 
