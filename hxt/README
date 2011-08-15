@@ -21,11 +21,12 @@
 
 == Motivation ==
 
-[[101feature:Company|Companies] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
+[[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
 That is, we use the rich combinator library that HXT comes with to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries.
 The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementation, because the combinator library is based on this concept. That is we exercise:
-* defining arrows by combining predefinied arrows
-* lifing ordinary functions into the arrow space
+* using arrow combinators such as ''>>>'' and ''`when`''
+* lifing ordinary functions into the arrow space using ''arr''
+* using ''Control.Arrow.ArrowList'''s ''listA'' for collecting all arrow results in a list
 * executing these arrows, say switching between arrows and the IO [[monad|Monad]] (See the illustration section)
 
 
