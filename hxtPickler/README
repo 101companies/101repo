@@ -1,6 +1,6 @@
 == Intent ==
 
- [[Language:Haskell|Haskell] data/[[Language:XML|XML]] mapping with [[Technology:Pickler]]
+ [[Language:Haskell|Haskell]] data/[[Language:XML|XML]] mapping with [[Technology:Pickler]]
 
 == Languages ==
 
@@ -22,9 +22,15 @@
 
 == Motivation ==
 
+TBD
+
 == Illustration ==
 
+TBD
+
 == Architecture ==
+
+TBD
 
 == Usage ==
 
