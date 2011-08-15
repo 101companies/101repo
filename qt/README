@@ -1,0 +1,40 @@
+== Intent ==
+
+[[101feature:Interaction|GUI]]-Programming with [[Language:C++]] and [[Technology:QT]]
+
+== Languages ==
+
+* [[Language:C++]]
+
+== Technologies ==
+
+* [[Technology:QT]]
+* [[Technology:QTCreator]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Interaction]]
+
+== Motivation ==
+
+''This project was created at the PTT-Hackathon 2011''
+
+== Illustration ==
+
+
+== Architecture ==
+
+
+== Usage ==
+
+
+== Contributors ==
+
+* {{101contributor|Alexander Anthes|developer}}
+* {{101contributor|Ina Schröder|developer}}
+* {{101contributor|Katharina Naujokat|developer}}
+* {{101contributor|Martina Sekulla|developer}}
+* {{101contributor|Tobias Zimmer|developer}}
