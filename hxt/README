@@ -27,12 +27,14 @@ The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementat
 * Using arrow combinators such as ''>>>'' and ''`when`''.
 * Lifing ordinary functions into the arrow space using ''arr''.
 * Using ''Control.Arrow.ArrowList'''s ''listA'' for collecting all arrow results in a list.
-* Executing these arrows, say switching between arrows and the IO [[monad|Monad]] space (See the illustration section).
+* running these arrows with IO, say switching between arrows and the IO [[monad|Monad]] space (See the illustration section).
 
 
 == Illustration ==
 
-Consider the following HXT/Arrow-based implementation of [[101feature:Total|total]]:
+=== Total ===
+
+Consider the following HXT/Arrow-based implementation of [[101feature:Total]]:
 
 <syntaxhighlight lang="haskell">
 total :: ArrowXml a => a XmlTree Float
@@ -61,6 +63,7 @@ The result of this arrow is then passed to the lifted version of <syntaxhighligh
 
 <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a [String] Float</syntaxhighlight> giving us the sum of all salaries as a Float value.
 
+=== Running an arrow ===
 
 == Architecture ==
 
