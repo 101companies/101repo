@@ -23,9 +23,9 @@ tree-based XML processing with [[Technology:HXT]] in [[Language:Haskell]]
 
 [[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
 That is, we use a rich combinator library to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company-xml-tree.
-The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementation, because the combinator library is based on this concept. That is we exercise:
-* Using arrow combinators such as ''>>>'' and ''`when`''.
-* Lifing ordinary functions into the arrow space using ''arr''.
+The concept of [[Arrow|arrows]] is also demonstrated in this implementation, because the combinator library is heavily based on this concept. That is we exercise:
+* Using arrow combinators such as ''>>>'' and ''`when`'' for expressing queries and transformations.
+* Lifing ordinary functions into the arrow space using ''arr'' to use them queries and transformations.
 * Using ''Control.Arrow.ArrowList'''s ''listA'' for collecting all arrow results in a list.
 * Running these arrows with IO, say switching between arrows and the IO [[monad|Monad]] space (See the illustration section).
 
