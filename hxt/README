@@ -65,6 +65,22 @@ total = listA (deep $ hasName "salary"
 
 === Running an arrow ===
 
+For running an arrow in IO <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c -> IO [c]</syntaxhighlight>can be used.
+The function returns all arrow results. 
+
+When we combinate the arrow for reading a sample company from a XML file with the total arrow we get:
+<syntaxhighlight lang="haskell" enclose="none">readDocument [] "sampleCompany.xml" >>> total</syntaxhighlight>
+
+Executing this arrow with runX returns a list of float values:
+
+<syntaxhighlight lang="haskell">[ttl] <- runX (readDocument [] "sampleCompany.xml" >>> total)</syntaxhighlight>
+
+<syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> holds total salary in the sample company.
+
+
+
+
+
 == Architecture ==
 
 
