@@ -33,6 +33,7 @@ The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementat
 == Illustration ==
 
 In the following we will demonstrate the construction of the arrow for [[101feature:Total|totaling]] and how one can run this arrow in IO.
+The code can be found in [this!!Total.hs] resp. [this!!Main.hs]
 
 === Total ===
 
@@ -76,10 +77,6 @@ Executing this arrow with runX returns a list of float values:
 <syntaxhighlight lang="haskell">[ttl] <- runX (readDocument [] "sampleCompany.xml" >>> total)</syntaxhighlight>
 
 <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> holds total salary in the sample company.
-
-
-
-
 
 == Architecture ==
 
