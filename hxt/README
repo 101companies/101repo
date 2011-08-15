@@ -32,6 +32,19 @@ The concept of [[Arrow|arrows]] is also heavily demonstrated in this implementat
 
 == Illustration ==
 
+Consider the following HXT/Arrow-based implementation of [[101feature:Total|total]]:
+
+<syntaxhighlight lang="haskell">
+total :: ArrowXml a => a XmlTree Float
+total = listA (deep $ hasName "salary"
+               >>> 
+               getChildren  
+               >>> 
+               getText)     
+        >>>
+        arr (sum.(map read)) 
+</syntaxhighlight>
+
 == Architecture ==
 
 
