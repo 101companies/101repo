@@ -119,7 +119,7 @@ cs <- runX ( xunpickleDocument xpCompany [withRemoveWS yes] "sampleCompany.xml" 
 
 [this!!Pickler.hs] holds the pickler definitions for companies, departments and employees.
 
-The algebraic datatype for [[101feature:Company|companoies]] and be found in [[this!!Company.hs]]. This file as well as [[this!!Total.hs] and [[this!!Cut]] are adopted from [[101implementation:haskell]] 
+The algebraic datatype for [101feature:Company|companoies] and be found in [this!!Company.hs]. This file as well as [this!!Total.hs] and [this!!Cut] are adopted from [[101implementation:haskell]].
 
 The ''main'' module (in [this!!Main.hs]) collects test scenarios for picklering/unpicklering, totaling and cutting companies.
 
