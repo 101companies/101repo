@@ -25,11 +25,11 @@
 We exercise Haskell data/XML mapping by making use of [[Technology:HXT]]'s [[Technology:Pickler|pickler]] arrows and functions. 
 
 That is, we declare XmlPickler instances for companies, departments and employees and define appropriate pickler functions. 
-This enables us to [[101feature:Serialization|serilize]] serilize values of an algebraic datatype (much like the one in [[101implementation:haskell]]) as XML data.
+This enables us to [[101feature:Serialization|serilize]] values of an algebraic datatype for [[101feature:Company|companies) (much like the one in [[101implementation:haskell]]) as XML data.
 We demonstrate declaring and using picklers by:
 * Declaring XMLPickler instances.
 * Using predefined picklers such as xpPrim for primitive values
-* Using combinators for lists (xpList), option( xpOption) and alternative (xpAlt).
+* Using combinators for lists (xpList), option (xpOption) and alternative (xpAlt).
 * The wrapper pickler xpWrap.
 * Using those picklers to pickle and unpickle xml documents.
 
@@ -53,7 +53,7 @@ xpCompany
         xpWrap ...
 </syntaxhighlight>
 
-This means, that a company should be in a tag labled "company". The content of the tag is the second argument of <syntaxhighlight lang="haskell" enclose="none">xpElem</syntaxhighlight>, definied by <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight>.
+This means, that a company should be in a tag labled "company". The content of the tag is the second argument of <syntaxhighlight lang="haskell" enclose="none">xpElem</syntaxhighlight>, defined by <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight>.
 
 <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight> is of type <syntaxhighlight lang="haskell" enclose="none">(a -> b, b -> a) -> PU a -> PU b</syntaxhighlight>. 
 It returns a Pickler (PU) for <syntaxhighlight lang="haskell" enclose="none">b</syntaxhighlight> and expects a pair of functions from <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> to <syntaxhighlight lang="haskell" enclose="none">b</syntaxhighlight> and vice versa and a Pickler for <syntaxhighlight lang="haskell"  enclose="none">a</syntaxhighlight> (<syntaxhighlight lang="haskell" enclose="none">PA a</syntaxhighlight>):
@@ -103,7 +103,7 @@ runX ( constA company
      )
 </syntaxhighlight>
 
-A lifted sample company is passed to the arrow for picklering a document. In this case the arrow expects a pickler for companies, some writing options and a file name.
+A lifted sample company is passed to the arrow for picklering a document. In this case the arrow function expects a pickler for companies, some writing options and a file name.
 
 === Unpicklering a Company ===
 
