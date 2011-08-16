@@ -1,6 +1,6 @@
 == Intent ==
 
- [[Language:Haskell|Haskell]] data/[[Language:XML|XML]] mapping with [[Technology:Pickler]]
+ [[Language:Haskell|Haskell]] data/[[Language:XML|XML]] mapping with [[Technology:Pickler|picklers]]
 
 == Languages ==
 
@@ -35,7 +35,63 @@ We demonstrate declaring and using picklers by:
 
 == Illustration ==
 
-TBD
+=== A Pickler for Companies ===
+
+To define a pickler for companies an instance of XMLPickler has to be declared.
+
+<syntaxhighlight lang="haskell">
+instance XmlPickler Company where
+    xpickle = xpCompany
+</syntaxhighlight>
+
+For definining <syntaxhighlight lang="haskell" enclose="none">xpCompany</syntaxhighlight> we use <syntaxhighlight lang="haskell" enclose="none">xpElem</syntaxhighlight> and
+<syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight>:
+
+<syntaxhighlight lang="haskell">
+xpElem "company" $ 
+xpWrap ...
+</syntaxhighlight>
+
+This means, that a company should be in a tag labled "company". The content of the tag is the second argument of <syntaxhighlight lang="haskell" enclose="none">xpElem</syntaxhighlight>.
+
+<syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight> is of type <syntaxhighlight lang="haskell" enclose="none">(a -> b, b -> a) -> PU a -> PU b</syntaxhighlight>. 
+It returns a Pickler (PU) for <syntaxhighlight lang="haskell" enclose="none">b</syntaxhighlight> and expects a pair of functions from <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> to <syntaxhighlight lang="haskell" enclose="none">b</syntaxhighlight> and vice versa and a Pickler for <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight>:
+
+<syntaxhighlight lang="haskell">
+xpCompany :: PU Company
+xpCompany 
+      = xpElem "company" $
+        xpWrap ( uncurry Company       -- (a -> b, b -> a)
+               , \c -> ( cname c
+                       , depts c
+                       )
+                ) $
+        xpPair  (xpAttr "name" xpText) -- PU a
+                (xpList xpickle)
+</syntaxhighlight>
+
+
+The first part of the first argument of the wrapping pickler is <syntaxhighlight lang="haskell" enclose="none">uncurry Company</syntaxhighlight>, which is identical to 
+<syntaxhighlight lang="haskell" enclose="none">\(n,ds) -> Company n ds</syntaxhighlight>. It definies how to contruct a Company from a pair of name and departments. The 
+second part of the argument defines the opposite direction.
+
+The second argument definies the acutal pickler for the pair (this is <syntaxhighlight lang="haskell" enclose="none"> PA a</syntaxhighlight> in the type signature of the wrapping pickler. 
+We use the combinator <syntaxhighlight lang="haskell" enclose="none">xpPair</syntaxhighlight>. The pickler for the company name is defined by using a pickler for xml attributs and a pickler for text.
+The pickler for the list of departments is defined by making use of a combinator for lists and <syntaxhighlight lang="haskell" enclose="none">xpickle</syntaxhighlight>.
+Because we also declared a XMLPickler instance for departments, Haskell will choose the appropriate pickler function. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 == Architecture ==
 
