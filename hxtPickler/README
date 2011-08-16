@@ -24,7 +24,7 @@
 
 We exercise Haskell data/XML mapping by making use of [[Technology:HXT]]'s [[Technology:Pickler|pickler]] arrows and functions. 
 
-That is, we declare XmlPickler instances for companies,departments and employees and define appropriate pickler functions. 
+That is, we declare XmlPickler instances for companies, departments and employees and define appropriate pickler functions. 
 This enables us to [[101feature:Serialization|serilize]] serilize values of an algebraic datatype (much like the one in [[101implementation:haskell]]) as XML data.
 We demonstrate declaring and using picklers by:
 * Declaring XMLPickler instances.
@@ -117,7 +117,11 @@ cs <- runX ( xunpickleDocument xpCompany [withRemoveWS yes] "sampleCompany.xml" 
 
 == Architecture ==
 
-TBD
+[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees.
+
+The algebraic datatype for [[101feature:Company|companoies]] and be found in [[this!!Company.hs]]. This file as well as [[this!!Total.hs] and [[this!!Cut]] are adopted from [[101implementation:haskell]] 
+
+The ''main'' module (in [this!!Main.hs]) collects test scenarios for picklering/unpicklering, totaling and cutting companies.
 
 == Usage ==
 
