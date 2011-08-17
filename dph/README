@@ -49,17 +49,15 @@ cut :: Company -> Company
 cut c = (consumeSalaries c) (toList $ cutV $ fromList $ flattenSalaries c)
 </syntaxhighlight>
 
-We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function from a vectosized module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
+We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function from a vectorised module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
 
 ==== Vectorised code ====
 
-In the vectorised module(in [this!!CutV.hs]), where we want to work data parallel, we declare:
+In the vectorised module (in [this!!CutV.hs]), where we want to work data parallel, we declare:
 
 <syntaxhighlight lang="haskell">
 {-# LANGUAGE ParallelArrays #-}
 {-# OPTIONS_GHC -fvectorise #-}
-
-module CutV (cutV) where
 </syntaxhighlight>
 
 This tells [[Technology:GHC]] to vectorise this module and that this module uses parallel arrays.
@@ -75,7 +73,7 @@ cutV v = toPArrayP (cutVP (fromPArrayP v))
 This function converts from <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> to a parallel array <syntaxhighlight lang="haskell" enclose="none">[:Float:]</syntaxhighlight>, calls the
 parallel code and converts back to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>.
 A parallel array can only be used in a vectorised module, so only here can we convert to it. Marking this function <syntaxhighlight lang="haskell" enclose="none">{-# NOINLINE cutV #-}</syntaxhighlight> makes
-it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> also cuts the actual parallel code <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>:
+it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> also also the actual data parallel function <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell">
 cutVP :: [:Float:] -> [:Float:]
