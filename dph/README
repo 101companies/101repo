@@ -30,8 +30,8 @@ In this context we also demonstrate some of DPH's current limitations (see illus
 
 The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
 The cut list of salaries values has then to be "consumed" by the company in question.
-These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions. 
-But this implementation is supposed to just demonstrate how one can use data parallism rather than being about efficiency.
+These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions, 
+but this implementation is supposed to just demonstrate how one can use data parallism rather than being about efficiency.
 
 == Illustration ==
 
@@ -73,15 +73,14 @@ cutV v = toPArrayP (cutVP (fromPArrayP v))
 This function converts from <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> to a parallel array <syntaxhighlight lang="haskell" enclose="none">[:Float:]</syntaxhighlight>, calls the
 parallel code and converts back to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>.
 A parallel array can only be used in a vectorised module, so only here can we convert to it. Marking this function <syntaxhighlight lang="haskell" enclose="none">{-# NOINLINE cutV #-}</syntaxhighlight> makes
-it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> also also the actual data parallel function <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight>:
+it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> also calls the actual data parallel function <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell">
 cutVP :: [:Float:] -> [:Float:]
 cutVP = mapP (/2)
 </syntaxhighlight>
 
-This code also shows one of the current limitations of DPH. The type of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be something like <syntaxhighlight lang="haskell" enclose="none">Fractional b => [b] -> [b]</syntaxhighlight>, because at the moment DPH does not support typeclasses. 
-
+This code also shows one of the current limitations of DPH. The type of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be something like <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>, because at the moment DPH does not support typeclasses. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
 
 == Architecture ==
 
