@@ -23,9 +23,9 @@ an implementation in [[Language:Haskell]] using [[Technology:DPH|Data Parallel H
 We exercise data parallelism in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel Array|parallel arrays]] and other DPH-specific [[Datastructure|datastructures]].
 
 In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
-* The inabilty to mix [[Vectorization|vectorized]] and non-vectorized code.
+* The inabilty to mix [[Vectorisation|vectorized]] and non-vectorised code.
 * No support for type classes.
-* No vectorization support for self-defined types.
+* No vectorisation support for self-defined types.
 * An extra Prelude with extra primitive types.
 
 The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
@@ -37,21 +37,52 @@ But this implementation is supposed to just demonstrate how one can use data par
 
 === Cutting in Parallel ===
 
-Like we mentioned in the motivation section, DPH currently does not allow you to use self-defined types in vectorized code. 
+Like we mentioned in the motivation section, DPH currently does not allow you to use self-defined types in vectorised code. 
 We therefore flatten the company to become a list of salaries (see [this!!SalaryFlattener.hs] for details).
 
-Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorized modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>. This code can be found in [this!!Cut.hs]:
+==== Non-vectorised code ====
+
+Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>. This code can be found in [this!!Cut.hs]:
 
 <syntaxhighlight lang="haskell">
 cut :: Company -> Company
 cut c = (consumeSalaries c) (toList $ cutV $ fromList $ flattenSalaries c)
 </syntaxhighlight>
 
-We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function from a vectorized module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
+We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function from a vectosized module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
 
-... TBD
+==== Vectorised code ====
 
+In the vectorised module(in [this!!CutV.hs]), where we want to work data parallel, we declare:
 
+<syntaxhighlight lang="haskell">
+{-# LANGUAGE ParallelArrays #-}
+{-# OPTIONS_GHC -fvectorise #-}
+
+module CutV (cutV) where
+</syntaxhighlight>
+
+This tells [[Technology:GHC]] to vectorise this module and that this module uses parallel arrays.
+
+We then define the interface function between vectorised and non-vectorised code <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight>
+
+<syntaxhighlight lang="haskell">
+cutV :: PArray Float -> PArray Float
+{-# NOINLINE cutV #-}
+cutV v = toPArrayP (cutVP (fromPArrayP v))
+</syntaxhighlight>
+
+This function converts from <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> to a parallel array <syntaxhighlight lang="haskell" enclose="none">[:Float:]</syntaxhighlight>, calls the
+parallel code and converts back to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>.
+A parallel array can only be used in a vectorised module, so only here can we convert to it. Marking this function <syntaxhighlight lang="haskell" enclose="none">{-# NOINLINE cutV #-}</syntaxhighlight> makes
+it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> also cuts the actual parallel code <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>:
+
+<syntaxhighlight lang="haskell">
+cutVP :: [:Float:] -> [:Float:]
+cutVP = mapP (/2)
+</syntaxhighlight>
+
+This code also shows one of the current limitations of DPH. The type of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be something like <syntaxhighlight lang="haskell" enclose="none">Fractional b => [b] -> [b]</syntaxhighlight>, because at the moment DPH does not support typeclasses. 
 
 
 == Architecture ==
