@@ -20,7 +20,14 @@ an implementation in [[Language:Haskell]] using [[Technology:DPH|Data Parallel H
 
 == Motivation ==
 
-TBD
+We exercise data parallelism in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel Array|parallel arrays]] and other DPH specific [Datastructure|datastructures]]. In this context we also demonstrate some of DPH's current limitations:
+* The inabilty to mix [[Vectorization|vectorized]] and non-vectorized code.
+* No support for type classes.
+* No vectorization support for self-definied types.
+* An extra Prelude with extra primitive types.
+
+The third limitation forces us to flatten the company to a list of salary values. Because of the fact that there is no support for the normal Prelude list ([]), we have to convert this list to a special
+array type before it can be passed to total and cut functionality. (See illustration)
 
 == Illustration ==
 
