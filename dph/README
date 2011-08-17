@@ -81,7 +81,7 @@ cutVP :: [:Float:] -> [:Float:]
 cutVP = mapP (/2)
 </syntaxhighlight>
 
-This code also shows one of the current limitations of DPH. The type of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be something like <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>, because at the moment DPH does not support typeclasses. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
+This code shows another limitations of current DPH version. The type of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be something like <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>, because at the moment DPH does not support typeclasses. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
 
 == Architecture ==
 
