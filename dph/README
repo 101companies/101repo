@@ -84,10 +84,14 @@ This code also shows one of the current limitations of DPH. The type of <syntaxh
 
 == Architecture ==
 
-TBD
+The module in [this!!SalaryFlattener.hs] contains functionality to flatten a company and to replace all salaries.
+[this!!Total.hs] and [this!!Cut.hs] host the code for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and calling data parallel functions for totaling and cutting salaries, which can be found in [this!!TotalV.hs] and [this!!CutV.hs].
+The algebraic datatype for companies can be found in [this!!Company]. [this!!SampleCompany.hs] holds a sample company.
+The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting.
 
 == Usage ==
 
+First that all sources have to be compiled using the GHC-options ''-c -Odph -fdph-seq''.
 The Haskell module ''Main'' has to be consulted with GHCi, and the
 ''main'' function has to be applied so that output for the test
 scenarios is produced. The ''expected'' output is available through
