@@ -1,0 +1,43 @@
+== Intent ==
+
+an implementation in [[Language:Haskell]] using [[Technology:DPH|Data Parallel Haskell]]
+
+== Languages ==
+
+* [[Language:Haskell]]
+
+== Technologies ==
+
+* [[Technology:GHC]]
+* [[Technology:GHCi]]
+* [[Technology:DPH]]
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+TBD
+
+== Illustration ==
+
+TBD
+
+== Architecture ==
+
+TBD
+
+== Usage ==
+
+The Haskell module ''Main'' has to be consulted with GHCi, and the
+''main'' function has to be applied so that output for the test
+scenarios is produced. The ''expected'' output is available through
+the file ''baseline''. There is a ''Makefile'' with a target ''test''
+for [[test automation]]. There is a ''clean'' target to "reset" the project.
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
