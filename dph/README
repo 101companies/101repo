@@ -22,19 +22,35 @@ an implementation in [[Language:Haskell]] using [[Technology:DPH|Data Parallel H
 
 We exercise data parallelism in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel Array|parallel arrays]] and other DPH-specific [[Datastructure|datastructures]].
 
-In this context we also demonstrate some of DPH's current limitations:
+In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
 * The inabilty to mix [[Vectorization|vectorized]] and non-vectorized code.
 * No support for type classes.
-* No vectorization support for self-definied types.
+* No vectorization support for self-defined types.
 * An extra Prelude with extra primitive types.
 
-The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type. Because of the fact that there is no support for the normal Prelude list ([]) in vectorized modules , we have to convert this list to a special
-array type before it can be passed to data parallel total and cut functionality. (See illustration)
+The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
 The cut list of salaries values has then to be "consumed" by the company in question.
-These flatten/consume and conversion computations obviously take more time than we gain by switching to parallel salary functions. 
+These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions. 
 But this implementation is supposed to just demonstrate how one can use data parallism rather than being about efficiency.
 
 == Illustration ==
+
+=== Cutting in Parallel ===
+
+Like we mentioned in the motivation section, DPH currently does not allow you to use self-defined types in vectorized code. 
+We therefore flatten the company to become a list of salaries (see [this!!SalaryFlattener.hs] for details).
+
+Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorized modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>. This code can be found in [this!!Cut.hs]:
+
+<syntaxhighlight lang="haskell">
+cut :: Company -> Company
+cut c = (consumeSalaries c) (toList $ cutV $ fromList $ flattenSalaries c)
+</syntaxhighlight>
+
+We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function from a vectorized module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
+
+... TBD
+
 
 
 
