@@ -17,10 +17,11 @@ an implementation in [[Language:Haskell]] using [[Technology:DPH|Data Parallel H
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
+* [[101feature:Parallelism]]
 
 == Motivation ==
 
-We exercise data parallelism in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel Array|parallel arrays]] and other DPH-specific [[Datastructure|datastructures]].
+We exercise data [[101feature:Parallelism|parallelism]] in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel Array|parallel arrays]] and other DPH-specific [[Datastructure|datastructures]].
 
 In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
 * The inabilty to mix [[Vectorisation|vectorized]] and non-vectorised code.
