@@ -29,11 +29,14 @@ In this context we also demonstrate some of DPH's current limitations:
 * An extra Prelude with extra primitive types.
 
 The third limitation forces us to flatten the company to a list of salary values. Because of the fact that there is no support for the normal Prelude list ([]), we have to convert this list to a special
-array type before it can be passed to total and cut functionality. (See illustration)
+array type before it can be passed to data parallel total and cut functionality. (See illustration)
+The cut list of salaries values has then to be "consumed" by the company in question.
+These flatten/consume and conversion computations obviously take more time than we gain by switching to parallel salary functions. 
+But this implementation is supposed to just demonstrate how one can use data parallism rather than being about efficient.
 
 == Illustration ==
 
-TBD
+
 
 == Architecture ==
 
