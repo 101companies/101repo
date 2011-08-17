@@ -2,12 +2,15 @@
 
 illustrate building a web applications with Seam
 
-
 == Languages ==
 
 * [[Language:Java]]
 * [[Language:HQL]]
 * [[Language:XHTML]]
+
+== Technologies ==
+
+* [[Technology:Seam]]
 
 == Features ==
 
@@ -54,4 +57,3 @@ the SEAM framework.
 == Contributors ==
 
 * {{101contributor|Rodrigo Bonifacio|developer}}
-
