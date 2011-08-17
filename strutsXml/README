@@ -6,8 +6,12 @@ rules are implemented using Java annotations.
 == Languages ==
 
 * [[Language:Java]]
-* [[Language:JavaServerPages]]
+* [[Language:JavaServer_Pages]]
 * [[Language:XML]]
+
+== Technologies ==
+
+* [[Technology:Struts]]
 
 == Features ==
 
@@ -162,4 +166,3 @@ value of a call to the cutSalaries method.
 
 * {{101contributor|Betim Sojeva|developer}}
 * {{101contributor|Rodrigo Bonifacio|developer}}
-
