@@ -50,7 +50,7 @@ cut :: Company -> Company
 cut c = (consumeSalaries c) (toList $ cutV $ fromList $ flattenSalaries c)
 </syntaxhighlight>
 
-We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function from a vectorised module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
+We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function <syntaxhighlight lang="haskell" enclose="none">cutV</syntaxhighlight> from a vectorised module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
 
 ==== Vectorised code ====
 
@@ -63,7 +63,7 @@ In the vectorised module (in [this!!CutV.hs]), where we want to work data parall
 
 This tells [[Technology:GHC]] to vectorise this module and that this module uses parallel arrays.
 
-We then define the interface function between vectorised and non-vectorised code <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight>
+We then define the interface function between vectorised and non-vectorised code <syntaxhighlight lang="haskell" enclose="none">cutV</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell">
 cutV :: PArray Float -> PArray Float
@@ -92,7 +92,7 @@ The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling an
 
 == Usage ==
 
-First that all sources have to be compiled using the GHC-options ''-c -Odph -fdph-seq''.
+First all sources have to be compiled using the GHC-options ''-c -Odph -fdph-seq''.
 The Haskell module ''Main'' has to be consulted with GHCi, and the
 ''main'' function has to be applied so that output for the test
 scenarios is produced. The ''expected'' output is available through
