@@ -45,9 +45,7 @@ by the system. For compact programing [[Technology:GPars|GPars]] offers a
 These variables are initialized [[Lazy Evaluation|lazily]] the first time they are accessed. 
 An example for such a [[bean]] is ''totals''.
 
-<code>
-
-
+ <nowiki>
 // outsourcing total computation for each the department
 for (i in 0..<depts.size) {
     Department d = depts.get i
@@ -56,8 +54,7 @@ for (i in 0..<depts.size) {
         totals.putAt d.name, d.total()
     }
 }
-
-</code>
+</nowiki>
 
 == Architecture ==
 

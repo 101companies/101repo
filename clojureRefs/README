@@ -36,9 +36,7 @@ encapsulated into a [[transaction]]. In [[Language:Clojure|Clojure]] the
 function ''dosync'' starts such a transaction allowing to alter [[Refs]] by 
 an update function. 
 
-<code>
-
-
+ <nowiki>
 (defn cutCompany [c]
     (dosync
         ;; alter ref function
@@ -46,7 +44,7 @@ an update function.
     ;; returning changed ref
     c)
 
-</code>
+</nowiki>
 
 == Architecture ==
 
