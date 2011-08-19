@@ -37,12 +37,15 @@ function ''dosync'' starts such a transaction allowing to alter [[Refs]] by
 an update function. 
 
 <code>
+
+
 (defn cutCompany [c]
     (dosync
         ;; alter ref function
         (alter c #(update-in % [:depts] (partial map cutDept))))
     ;; returning changed ref
     c)
+
 </code>
 
 == Architecture ==
