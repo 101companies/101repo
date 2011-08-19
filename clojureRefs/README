@@ -33,16 +33,14 @@ so that [[Refs]] and [[transactions]] are used.
 
 Changes to [[Refs]] by a transformation like [[101feature:Cut|Cut]] have to be
 encapsulated into a [[transaction]]. In [[Language:Clojure|Clojure]] the 
-function <syntaxhighlight lang="text">dosync</syntaxhighlight> starts such a
-transaction allowing to alter [[Refs]] by an update function. 
+function ''dosync'' starts such a transaction allowing to alter [[Refs]] by 
+an update function. 
 
 <syntaxhighlight lang="text">
 (defn cutCompany [c]
     (dosync
-        (alter 
-            c ;; ref
-            #(update-in % [:depts] (partial map cutDept)) ;; update function
-    ))
+        ;; alter ref function
+        (alter c #(update-in % [:depts] (partial map cutDept))))
     ;; returning changed ref
     c)
 </syntaxhighlight>
