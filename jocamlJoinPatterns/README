@@ -57,11 +57,11 @@ salary.
 
 == Usage ==
 
-You need to install JoCaml. 
+You need to install J[[Language:JoCaml|JoCaml]] . 
 
-Use the makefile for some demo:
+Use the [[Technology:GNU make|makefile]] for some demo:
 * Enter ''make compile'' to compile the code
-* Enter ''make test'' to execute the script contained in ''main.ml'' and to perform a simple diff-based test
+* Enter ''make test'' to execute the script contained in ''main.ml'' and to perform a simple [[Technology:diff|diff-based]] test
 
 == Contributors ==
 
