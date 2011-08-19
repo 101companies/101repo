@@ -1,0 +1,50 @@
+== Intent ==
+
+A Clojure-based implementation that uses transactional references (Refs)
+
+== Languages ==
+
+* [[Language:Clojure]] 
+
+== Technologies ==
+
+* [[Technology:Eclipse]] IDE (Version 3.7)
+* [[Technology:CounterClockwise]]  Eclipse plugin (Version 0.3.0)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Parallelism]]
+
+== Motivation == 
+
+Clojure provides a number of interesting approaches to the development of 
+concurrent programs. One of these approaches is the use of programmable 
+transactions, analogous to database transactions. This functionality is 
+implemented by means of transaction-specific functions and references. 
+To maintain a consistent memory state, Clojure relies on a STM. This project 
+is based on the implementation [[101implementation:clojure]] and changes it 
+so that Refs and transactions are used.
+
+== Architecture ==
+
+* ''company.clj'' definitions of the companies structure using clojure's defrecord
+* ''scenarios.clj'' functionalities: cut, total
+* ''meganalysis.clj'' a sample company (i.e. a Ref to a company)
+
+== Usage ==
+
+You need to install the Eclipse plugin CounterClockwise. 
+Update Site: [http://ccw.cgrand.net/updatesite]
+
+Then open ''meganalysis.clj'', hit "run" and excute the function you like:
+* ''(totalCompany meganalysis)'' 
+* ''(cutCompany meganalysis)''
+
+== Contributors ==
+
+* {{101contributor|Jan Baltzer|developer}}
+* {{101contributor|Thomas Schmorleiz|developer}}
+* {{101contributor|Ralf Lämmel|user}}

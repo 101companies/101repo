@@ -1,0 +1,48 @@
+== Intent ==
+
+A Groovy-based implementation that uses data flow variables
+
+== Languages ==
+
+* [[Language:Groovy]] 
+
+== Technologies ==
+
+* [[Technology:Eclipse]] IDE (Version 3.7)
+* [[Technology:Groovy-Eclipse]]  Eclipse plugin (Version 2.5.1)
+* [[Technology:GPars]] Parallel computing framework (Version 0.12)
+* [[Technology:JUnit]] Unit testing (Version 4.8.2)
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Parallelism]]
+
+== Motivation == 
+
+Groovy is one of the most well-known JVM languages. One of its strength lies 
+in the GPars framework, which offers many different approaches to parallel 
+programming. A interesting concept is the concurrency based on data flow. 
+The overall idea is the creation of a temporal order between processes due to 
+the availability of certain values. This project demonstrates the usage of 
+this data flow concurrency in Groovy using data flow variables.
+
+== Architecture ==
+
+* ''Company.groovy'' everything related to a company
+* ''Department.groovy'' everything related to a department
+* ''Employee.groovy'' everything related to an employee
+* ''Basic.groovy'' basic functionality tests with a sample company
+
+== Usage ==
+
+You need to install the Eclipse plugin Groovy-Eclipse. 
+Update Site: [http://dist.springsource.org/release/GRECLIPSE/e3.7/]
+
+Then open ''Basic.groovy'' and start the JUnit test case you like.
+
+== Contributors ==
+
+* {{101contributor|Jan Baltzer|developer}}
