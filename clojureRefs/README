@@ -1,6 +1,6 @@
 == Intent ==
 
-A Clojure-based implementation that uses transactional references (Refs)
+A [[Language:Clojure|Clojure]]-based implementation that uses [[Refs|transactional references]]
 
 == Languages ==
 
@@ -20,23 +20,42 @@ A Clojure-based implementation that uses transactional references (Refs)
 
 == Motivation == 
 
-Clojure provides a number of interesting approaches to the development of 
-concurrent programs. One of these approaches is the use of programmable 
-transactions, analogous to database transactions. This functionality is 
-implemented by means of transaction-specific functions and references. 
-To maintain a consistent memory state, Clojure relies on a STM. This project 
+[[Language:Clojure|Clojure]] provides a number of interesting approaches to 
+the development with [[concurrency]]. One of these approaches is the use of 
+programmable [[transactions]], analogous to [[database]] [[transactions]]. 
+This functionality is implemented by means of transaction-specific functions 
+and references. To maintain a consistent memory state, 
+[[Language:Clojure|Clojure]] relies on a [[Technology:STM|STM]]. This project 
 is based on the implementation [[101implementation:clojure]] and changes it 
-so that Refs and transactions are used.
+so that [[Refs]] and [[transactions]] are used.
+
+== Illustration ==
+
+Changes to [[Refs]] by a transformation like [[101feature:Cut|Cut]] have to be
+encapsulated into a [[transaction]]. In [[Language:Clojure|Clojure]] the 
+function <syntaxhighlight lang="text">dosync</syntaxhighlight> starts such a
+transaction allowing to alter [[Refs]] by an update function. 
+
+<syntaxhighlight lang="text">
+(defn cutCompany [c]
+    (dosync
+        (alter 
+            c ;; ref
+            #(update-in % [:depts] (partial map cutDept)) ;; update function
+    ))
+    ;; returning changed ref
+    c)
+</syntaxhighlight>
 
 == Architecture ==
 
 * ''company.clj'' definitions of the companies structure using clojure's defrecord
-* ''scenarios.clj'' functionalities: cut, total
-* ''meganalysis.clj'' a sample company (i.e. a Ref to a company)
+* ''scenarios.clj'' functionalities: [[101feature:Cut|Cut]], [[101feature:Total|Total]]
+* ''meganalysis.clj'' a sample company (i.e. a [[Refs|Ref]] to a [[101feature:Company|company]])
 
 == Usage ==
 
-You need to install the Eclipse plugin CounterClockwise. 
+You need to install the [[Technology:Eclipse|Eclipse]] plugin [[Technology:CounterClockwise|CounterClockwise]]. 
 Update Site: [http://ccw.cgrand.net/updatesite]
 
 Then open ''meganalysis.clj'', hit "run" and excute the function you like:
