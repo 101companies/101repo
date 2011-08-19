@@ -32,7 +32,7 @@ this [[data flow]] [[concurrency]] in [[Language:Groovy|Groovy]] using [[data fl
 
 == Illustration ==
 
-Queries like [[101feature:Total|Total]] depends on different values (i.e 
+Queries like [[101feature:Total|Total]] depends on different values (e.g. 
 the [[101feature:Total|total]] of each department). Because these subqueries 
 are independent from each other they can be executed in parallel.
 
@@ -42,7 +42,7 @@ to the ''task'' method. If such a [[thread]] needs a value of a [[data flow vari
 which is not bound (i.e. computed) yet, it is [[wait|suspended]] until its [[notify all|awoken]] 
 by the system. For compact programing [[Technology:GPars|GPars]] offers a 
 [[container]] like [[bean]], which properties are [[data flow variables]]. 
-These variables are initialized [[Lazy Evaluation|lazily] the first time they are accessed. 
+These variables are initialized [[Lazy Evaluation|lazily]] the first time they are accessed. 
 An example for such a [[bean]] is ''totals''.
 
 <syntaxhighlight lang="text">
