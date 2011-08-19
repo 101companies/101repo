@@ -1,6 +1,6 @@
 == Intent ==
 
-A JoCaml-based implementation that uses join patterns
+A [[Language:JoCaml|JoCaml]]-based implementation that uses [[join patterns]]
 
 == Languages ==
 
@@ -22,12 +22,31 @@ A JoCaml-based implementation that uses join patterns
 
 == Motivation == 
 
-Nowadays, event handling is a standard technique in GUI programming. However, 
-there is a lot of research going on to use such an event-based approach for 
-concurrent programming. The idea is to paralleize the handling of events by
-combining simple events to more complex ones using so called join patterns. 
-This project demonstrates the usage of event-handling concurrency in JoCaml 
-using such join patterns.
+Nowadays, [[event handling]] is a standard technique in GUI programming. However, 
+there is a lot of research going on to use such an [[event handling|event-based]] 
+approach for [[concurrency|concurrent programming]]. The idea is to [[101feature:Parallelism|parallelize]] 
+the [[event handling|handling of events]] by combining simple [[events]] to 
+more complex ones using so called [[join patterns]]. This project demonstrates 
+the usage of [[concurrency]] by [[event handling]] in JoCaml using such 
+[[join patterns]].
+
+== Illustration ==
+
+[[Join patterns]] combine several [[events|event]] [[channels]], which all must be 
+served in order to start the [[event handling|handling]]. If [[channels]]
+represent functions on an object-like strucure another [[channels|channel]] is often used
+as a internal [[state]], which is modified by the function.  
+
+ <nowiki>
+(* join pattern for cut *) 
+def employeeState (n, a, s) & cut () = 
+    employeeState (n, a, s *. 0.5)
+</nowiki>
+
+For example the internal state ''employeeState (n, a, s)'' describes an employee 
+with name, address and salary. If a [[101feature:Cut|Cut]]-[[Events|event]] 
+occurs this internal [[state]] is consumed and triggered again with a modified 
+salary.
 
 == Architecture ==
 

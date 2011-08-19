@@ -43,7 +43,6 @@ an update function.
         (alter c #(update-in % [:depts] (partial map cutDept))))
     ;; returning changed ref
     c)
-
 </nowiki>
 
 == Architecture ==
