@@ -11,7 +11,7 @@ class Company {
 	List<Department> depts = new LinkedList<Department>()
 	
 	double total() {
-		// map: DataFlowVariable -> bounded value
+		// bean with data flow variables as properties
 		Dataflows totals = new Dataflows()
 		
 	    // outsourcing total computation for the company
@@ -27,7 +27,7 @@ class Company {
 		for (i in 0..<depts.size) {
 			Department d = depts.get i
 			task {
-				// adding dept's total as dataflow variable to the map
+				// adding dept's total as dataflow variable to the bean
 				totals.putAt d.name, d.total()
 			}
 		}

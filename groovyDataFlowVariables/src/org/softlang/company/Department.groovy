@@ -14,7 +14,7 @@ class Department {
 
 	
 	double total() {
-		// map: DataFlowVariable -> bounded value
+		// bean with data flow variables as properties
 		Dataflows totals = new Dataflows()
 		
 		// outsourcing total computation for the dept
@@ -31,7 +31,7 @@ class Department {
 		for (i in 0..<subdepts.size()) {
 			Department d = subdepts.get(i)
 			task {
-				// adding subdept's total as dataflow variable to the map
+				// adding subdept's total as dataflow variable to the bean
 				totals.putAt d.name, d.total()
 			}
 		}
