@@ -1,6 +1,6 @@
 == Intent ==
 
-A Groovy-based implementation that uses data flow variables
+A [[Language:Groovy|Groovy]]-based implementation that uses [[data flow variables]]
 
 == Languages ==
 
@@ -22,12 +22,39 @@ A Groovy-based implementation that uses data flow variables
 
 == Motivation == 
 
-Groovy is one of the most well-known JVM languages. One of its strength lies 
-in the GPars framework, which offers many different approaches to parallel 
-programming. A interesting concept is the concurrency based on data flow. 
-The overall idea is the creation of a temporal order between processes due to 
-the availability of certain values. This project demonstrates the usage of 
-this data flow concurrency in Groovy using data flow variables.
+[[Language:Groovy|Groovy]] is one of the most well-known [[JVM languages]]. 
+One of its strength lies in the [[Technology:GPars|GPars]] [[Category:Framework|framework]], 
+which offers many different approaches to [[parallel programming]]. An 
+interesting concept is the [[concurrency]] based on [[data flow]]. The overall 
+idea is the creation of a temporal order between processes, seeing the availability 
+of certain values as [[constraints]]. This project demonstrates the usage of 
+this [[data flow]] [[concurrency]] in [[Language:Groovy|Groovy]] using [[data flow variables]].
+
+== Illustration ==
+
+Queries like [[101feature:Total|Total]] depends on different values (i.e 
+the [[101feature:Total|total]] of each department). Because these subqueries 
+are independent from each other they can be executed in parallel.
+
+In general, all subcomputations are outsourced in a new [[thread]]. Therefore, 
+these computations are encapsulated into [[Closure|closures]] and transfered 
+to the ''task'' method. If such a [[thread]] needs a value of a [[data flow variables|data flow variable]], 
+which is not bound (i.e. computed) yet, it is [[wait|suspended]] until its [[notify all|awoken]] 
+by the system. For compact programing [[Technology:GPars|GPars]] offers a 
+[[container]] like [[bean]], which properties are [[data flow variables]]. 
+These variables are initialized [[Lazy Evaluation|lazily] the first time they are accessed. 
+An example for such a [[bean]] is ''totals''.
+
+<syntaxhighlight lang="text">
+// outsourcing total computation for each the department
+for (i in 0..<depts.size) {
+    Department d = depts.get i
+    task {
+    // adding dept's total as dataflow variable to the bean
+        totals.putAt d.name, d.total()
+    }
+}
+</syntaxhighlight>
 
 == Architecture ==
 
@@ -38,10 +65,10 @@ this data flow concurrency in Groovy using data flow variables.
 
 == Usage ==
 
-You need to install the Eclipse plugin Groovy-Eclipse. 
+You need to install the [[Technology:Eclipse|Eclipse]] plugin [[Technology:Groovy-Eclipse|Groovy-Eclipse]].
 Update Site: [http://dist.springsource.org/release/GRECLIPSE/e3.7/]
 
-Then open ''Basic.groovy'' and start the JUnit test case you like.
+Then open ''Basic.groovy'' and start the [[Technology:JUnit|JUnit]] test case you like.
 
 == Contributors ==
 
