@@ -1,13 +1,13 @@
 == Intent ==
 
-* [[Web programming] with [[Technology:Snap]] in [[Language:Haskell]] 
+[[Web programming]] with [[Technology:Snap]] in [[Language:Haskell]] 
 
 == Languages ==
 
 * [[Language:Haskell]]
-* [[Language:JavaScript]
-* [[Language:XHTML]
-* [[Language:CSS]
+* [[Language:JavaScript]]
+* [[Language:XHTML]]
+* [[Language:CSS]]
 
 == Technologies ==
 
@@ -19,10 +19,8 @@
 
 * [[101feature:Company]]
 * [[101feature:Total]]
-* [[101feature:Cut]]
 * [[101feature:Interaction]]
 * [[101feature:Distribution]]
-* [[101feature:Validation]
 
 == Motivation ==
 
@@ -39,9 +37,9 @@ TBD
 == Usage ==
 
 * Use cabal install to build the implementation
-* Exectute ''haskellSnap -p 8010''' to start the server
+* Exectute ''haskellSnap -p 8010'' to start the server
 Both steps are covered by a ''Makefile'' with a target ''run''. 
-* Open [http://localhost:8010/Company/View] to demo, starting with the root view.
+* Open [http://localhost:8010/Company/View http://localhost:8010/Company/View] to demo, starting with the root view.
 * Use Ctrl+C to interrupt the server.
 * Use the target ''clean'' to "reset" the project. 
 
