@@ -47,8 +47,7 @@ An example for such a [[bean]] is ''totals''.
 
  <nowiki>
 // outsourcing total computation for each the department
-for (i in 0..<depts.size) {
-    Department d = depts.get i
+depts.each() { d ->
     task {
     // adding dept's total as dataflow variable to the bean
         totals.putAt d.name, d.total()

@@ -14,32 +14,31 @@ class Department {
 
 	
 	double total() {
-		// bean with data flow variables as properties
 		Dataflows totals = new Dataflows()
 		
 		// outsourcing total computation for the dept
 		task {
 			// retrieving employees' total
 			double tmpDept = manager.salary + totals.employees // suspension!?
-			for (d in subdepts)
+			subdepts.each() { d ->
 				// retrieving subdept's total
 				tmpDept += totals.getAt d.name // suspension!?
+			}
 			totals.dept = tmpDept // binding
 		}
 		
 		// outsourcing total computation for each subdept
-		for (i in 0..<subdepts.size()) {
-			Department d = subdepts.get(i)
+		subdepts.each() {d -> 
 			task {
-				// adding subdept's total as dataflow variable to the bean
+				// adding subdept's total to the bean
 				totals.putAt d.name, d.total()
 			}
-		}
+		};
 		
 		// outsourcing total computation for the employees
 		task {
 			double tmpEmployees = 0
-			for (e in employees) {
+			employees.each { e ->
 				tmpEmployees += e.salary
 			}
 			totals.employees = tmpEmployees // binding
