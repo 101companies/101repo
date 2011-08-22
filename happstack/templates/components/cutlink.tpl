@@ -1,0 +1,1 @@
+<a class="cutLink" href="/$(view)/Cut/$(focus)"><div>Cut</div></a>

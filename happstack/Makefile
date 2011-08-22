@@ -1,0 +1,2 @@
+run:
+	runhaskell Main.hs
