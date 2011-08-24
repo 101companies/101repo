@@ -61,7 +61,6 @@ In case the extraction fails the server falls back to being a file server.
 In case extraction succeeds it calls <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> passing the action, the view and the focus:
 
 <syntaxhighlight lang="haskell">
--- respond based on action
 mainPart :: Action -> View -> Focus -> ServerPartT IO Response
 mainPart View = viewPart
 mainPart Cut  = cutPart
@@ -72,12 +71,23 @@ In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhigh
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> passing the view and the focus:
 
 <syntaxhighlight lang="haskell">
--- respond based on action
-mainPart :: Action -> View -> Focus -> ServerPartT IO Response
-mainPart View = viewPart
-mainPart Cut  = cutPart
-mainPart Save = savePart   
+savePart :: View -> Focus -> ServerPartT IO Response
+savePart v f = do
+  s <- save
+  case s of
+    (Left errs) -> do
+      c <- readCCookie
+      displayPart v f c errs
+    (Right newc) -> displayPart v f newc []       
+    where
+      save = case v of
+        CompanyV  -> saveCompany f
+        DeptV     -> saveDepartment f
+        EmployeeV -> saveEmployee f 
 </syntaxhighlight>
+
+This function decides which <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-function to call based on the view. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or
+the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the errors. In case of sucess the new company will be displayed and no errors are passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight>
 
 
 
