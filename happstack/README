@@ -34,6 +34,7 @@ As an response the client receives HTML-documents, composed by making use of the
 
 == Illustration ==
 
+=== Saving an Employee ===
 In the following we will demonstate how a specific request is processed by the server:
 
 
@@ -42,6 +43,8 @@ After requesting to view an employee the user manipulated the input fields and s
 The browser sends an HTTP-request together with a company-cookie to the server. The URL looks like this:
 
 '''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>'''
+
+==== Routing filter ====
 
 The ''Main'' module (in [this!!Main.hs]) contains:
 
@@ -52,9 +55,9 @@ main = simpleHTTP nullConf $ msum [ path $ \v -> path $ \a -> path $ \f -> mainP
 
 That is, by making use of Happstack's <syntaxhighlight lang="haskell" enclose="none">path</syntaxhighlight> function we extract:
 
-* The view
-* The action
-* The focus 
+* The view (here <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>)
+* The action (here <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight>)
+* The focus (here <syntaxhighlight lang="haskell" enclose="none">ManagerFocus [0]</syntaxhighlight>)
 
 In case the extraction fails the server falls back to being a file server.
 
@@ -69,6 +72,8 @@ mainPart Save = savePart
 
 In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> matches on  <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight> and calls 
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> passing the view and the focus:
+
+==== Saving ====
 
 <syntaxhighlight lang="haskell">
 savePart :: View -> Focus -> ServerPartT IO Response
@@ -86,8 +91,8 @@ savePart v f = do
         EmployeeV -> saveEmployee f 
 </syntaxhighlight>
 
-This function decides which <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-function to call based on the view. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or
-the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the errors. In case of sucess the new company will be displayed and no errors are passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight>. 
+Based on the view this function decides which <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-function to call. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or
+the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company (read from the cookie) and the errors. In case of success the new company will be displayed and no errors are passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight>. 
 
 The ''Save'' module in [this!!Save.hs] holds the <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, in this case  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called:
 
@@ -95,7 +100,6 @@ The ''Save'' module in [this!!Save.hs] holds the <syntaxhighlight lang="haskell"
 saveEmployee :: Focus -> ServerPartT IO (Either [(ENames,String)] Company)
 saveEmployee f = do
   c <- readCCookie
-  let e@(Employee n a s) = readEM f c
   name <- look "Name"
   address <- look "Address"
   salary <- lookRead "Salary"
@@ -110,6 +114,33 @@ saveEmployee f = do
             addCookie Session (mkCookie "company" (show newc))
             return $ Right newc
 </syntaxhighlight>
+
+<syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> reads the company from the cookie and extracts the request parameters from the URL. <syntaxhighlight lang="haskell" enclose="none">lookRead</syntaxhighlight> also reads to a double value. Then the new <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> value is composed using the contructor. This
+<syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> is then passed to a validate function of type <syntaxhighlight lang="haskell" enclose="none">Validations Employee</syntaxhighlight>, which is a type alias for <syntaxhighlight lang="haskell" enclose="none">Company -> Focus -> a -> Maybe [(ENames,String)]</syntaxhighlight>. If the validation returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>, the <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> is replaced in the company, which is then stored in the cookie. The function then returns the new company.
+
+==== Validation ====
+
+The validation functionality can be found in [this!!Validators.hs]:
+
+<syntaxhighlight lang="haskell">
+saveEmployee :: Focus -> ServerPartT IO (Either [(ENames,String)] Company)
+saveEmployee f = do
+  c <- readCCookie
+  name <- look "Name"
+  address <- look "Address"
+  salary <- lookRead "Salary"
+  let newe = Employee name address salary
+  let ev = validateEmployee c f newe
+  case ev of
+    (Just errs)
+        -> return $ Left errs
+    Nothing
+        -> do
+            let newc = writeEM f c newe
+            addCookie Session (mkCookie "company" (show newc))
+            return $ Right newc
+</syntaxhighlight>
+
 
 
 
