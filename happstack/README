@@ -180,6 +180,10 @@ employeeBinder f co =
 
 <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> then renders the HTML document, which is sent to the client as the response.
 
+== Architecture ==
+
+[this!!Main.hs] holds the server, using various server parts in [this!!Serverparts]. The acutal save action is performed by functionality in [this!!Save.hs]. [this!!Binder.hs] contains functions to bind template varibales. The validators can be found in [this!!Validators.hs], using helper functions hosted by [this!!Utils.hs]. The algebraic datatype for companies can be found in [this!!Company], a sample company in [this!!SampleCompany.hs]. Functionality to total and cut is provided by [this!!Total.hs] and [this!!Cut.hs]. An API to companies based on the zipper concepts is hosted by [this!!API.hs]. Various types used by the server can be found in [this!!Types.hs]. [this!!static] contains the sytlesheet for the application and images. [this!!templates] contains the templates.
+
 == Usage ==
 
 * The Haskell module ''Main'' has to compiled with GHC. The executable has to be run. The Haskell module ''Main'' has to be run using ''runhaskell'' There is a ''Makefile'' with a target ''run'' to do this.
