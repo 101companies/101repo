@@ -87,7 +87,31 @@ savePart v f = do
 </syntaxhighlight>
 
 This function decides which <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-function to call based on the view. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or
-the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the errors. In case of sucess the new company will be displayed and no errors are passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight>
+the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the errors. In case of sucess the new company will be displayed and no errors are passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight>. 
+
+The ''Save'' module in [this!!Save.hs] holds the <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, in this case  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called:
+
+<syntaxhighlight lang="haskell">
+saveEmployee :: Focus -> ServerPartT IO (Either [(ENames,String)] Company)
+saveEmployee f = do
+  c <- readCCookie
+  let e@(Employee n a s) = readEM f c
+  name <- look "Name"
+  address <- look "Address"
+  salary <- lookRead "Salary"
+  let newe = Employee name address salary
+  let ev = validateEmployee c f newe
+  case ev of
+    (Just errs)
+        -> return $ Left errs
+    Nothing
+        -> do
+            let newc = writeEM f c newe
+            addCookie Session (mkCookie "company" (show newc))
+            return $ Right newc
+</syntaxhighlight>
+
+
 
 
 
