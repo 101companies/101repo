@@ -1,3 +1,0 @@
-.read Company.sql
-.read Meganalysis.sql
-.quit
