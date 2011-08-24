@@ -39,7 +39,7 @@ In the following we will demonstate how a specific request is processed by the s
 After requesting to view an employee the user manipulated the input fields and submits a request by clicking a save button.
 The browser sends an HTTP-request together with a company-cookie. The URL looks like this:
 
-<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>
+'''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>'''
 
 
 
