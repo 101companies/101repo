@@ -134,7 +134,7 @@ validateEmployee c f (Employee n a s) = if null vs
 
 * <syntaxhighlight lang="haskell" enclose="none">validateNA</syntaxhighlight> checks whether the employee's name/address pair does not occur in the company <syntaxhighlight lang="haskell" enclose="none">c</syntaxhighlight>
 * <syntaxhighlight lang="haskell" enclose="none">validateSalary</syntaxhighlight> checks two things regaring the employee's salary:
-** Whether by changing the salary does the departments manager still get the highest salary within the department
+** Whether by changing the salary the department's manager still receives the highest salary within the department
 ** Whether the salary has a postive value
 
 In case both validations return <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. Otherwise it returns the list of all error messages.
