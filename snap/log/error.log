@@ -1,7 +1,0 @@
-[22/Aug/2011:02:57:35 +0200] Server.httpServe: START (EventLoopSimple)
-[22/Aug/2011:03:03:16 +0200] Server.httpServe: START (EventLoopSimple)
-[22/Aug/2011:03:05:26 +0200] Server.httpServe: START (EventLoopSimple)
-[22/Aug/2011:03:07:38 +0200] Server.httpServe: START (EventLoopSimple)
-[22/Aug/2011:03:10:35 +0200] Server.httpServe: START (EventLoopSimple)
-[22/Aug/2011:03:11:03 +0200] Server.httpServe: SHUTDOWN
-[22/Aug/2011:03:11:03 +0200] Server.httpServe: BACKEND STOPPED
