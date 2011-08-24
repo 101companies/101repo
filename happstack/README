@@ -43,6 +43,25 @@ The browser sends an HTTP-request together with a company-cookie to the server. 
 
 '''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>'''
 
+The ''Main'' module (in [this!!Main.hs]) contains:
+
+<syntaxhighlight lang="haskell">
+main = simpleHTTP nullConf $ msum [ path $ \v -> path $ \a -> path $ \f -> mainPart a v f
+                                  , serveDirectory EnableBrowsing [] "static"]   
+</syntaxhighlight>
+
+That is by making use of Happstack's <syntaxhighlight lang="haskell" enclose="none">path</syntaxhighlight> function we extract:
+
+* The kind of component to display
+* The action
+* The focus 
+
+In case the extraction fails the server falls back to being a file server.
+
+
+
+
+
 
 
 
