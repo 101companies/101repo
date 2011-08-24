@@ -25,21 +25,25 @@
 
 == Motivation ==
 
-This implementation provides a small client/server web application written with the help of the [[Technology:Happstack]] [[Framework|framework]]. That is, we exercice the use of [[Routing filter| routing filters]] to filter requests by action. A user can either view a specific part of a [[101feature:Company|company]], [[101feature:Cut|cut]] a specific part or save a company component after manipulation of primitive fields.
+This implementation provides a small client/server [[Wen Application web application]] written with the help of the [[Technology:Happstack]] [[Framework|framework]]. That is, we exercice the use of [[Routing filter| routing filters]] to filter requests by action. A user can either view a specific part of a [[101feature:Company|company]], [[101feature:Cut|cut]] a specific part or save a company component after manipulation of primitive fields.
 The company is stored in a client-sided [[Cookie|cookie]].
 The part to be viewed,cut or saved is specified by making use if the [[Zipper|zipper]] concept. That is, the [[URL]] contains a company focus (see illustration section). 
-We also demonstrate [[101feature:Validation|validation]]. When processing a save-request, sent by a [[Language:HTML|HTML]-form, the server applies various validators to eventuelly return error messages, which will be displayed to the user in the [[Browser]].
+We also demonstrate [[101feature:Validation|validation]]. When processing a save-request, sent by an HTML-form, the server applies various validators to eventuelly return error messages, which will be displayed to the user in the [[Browser|browser]].
 
-As an response the client receives HTML-documents, composed by making use of the [[Heist]] template engine.
+As an response the client receives HTML-documents, composed by making use of the [[Heist]] HTML-templating engine.
 
 == Illustration ==
 
 In the following we will demonstate how a specific request is processed by the server:
 
+
 After requesting to view an employee the user manipulated the input fields and submits a request by clicking a save button.
-The browser sends an HTTP-request together with a company-cookie. The URL looks like this:
+
+The browser sends an HTTP-request together with a company-cookie to the server. The URL looks like this:
 
 '''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>'''
+
+
 
 
 
