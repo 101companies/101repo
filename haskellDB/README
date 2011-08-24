@@ -1,0 +1,40 @@
+== Intent ==
+
+database programming with [[Technology:HaskellDB]]
+
+== Languages ==
+
+* [[Language:Haskell 98]]
+* [[Language:SQL]]
+
+== Technologies ==
+
+* [[Technology:HaskellDB]]
+* [[Technology:HDBC]]
+* [[Technology:GHCi]]      
+
+== Features ==
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Motivation ==
+
+TBD
+
+== Illustration ==
+
+TBD 
+
+== Architecture ==
+
+TBC
+
+== Usage ==
+
+TBD
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
