@@ -179,3 +179,12 @@ employeeBinder f co =
 </syntaxhighlight>
 
 <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> then renders the HTML document, which is sent to the client as the response.
+
+== Usage ==
+
+* The Haskell module ''Main'' has to compiled with GHC. The executable has to be run. The Haskell module ''Main'' has to be run using ''runhaskell'' There is a ''Makefile'' with a target ''run'' to do this.
+* Open [http://localhost:8000/Company/View/CompanyFocus] to demo, starting with the root view.
+
+== Contributors ==
+
+* {{101contributor|Thomas Schmorleiz|developer}}
