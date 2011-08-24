@@ -50,13 +50,27 @@ main = simpleHTTP nullConf $ msum [ path $ \v -> path $ \a -> path $ \f -> mainP
                                   , serveDirectory EnableBrowsing [] "static"]   
 </syntaxhighlight>
 
-That is by making use of Happstack's <syntaxhighlight lang="haskell" enclose="none">path</syntaxhighlight> function we extract:
+That is, by making use of Happstack's <syntaxhighlight lang="haskell" enclose="none">path</syntaxhighlight> function we extract:
 
-* The kind of component to display
+* The view
 * The action
 * The focus 
 
 In case the extraction fails the server falls back to being a file server.
+
+In case extraction succeeds it calls <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> passing the action, the view and the focus:
+
+<syntaxhighlight lang="haskell">
+-- respond based on action
+mainPart :: Action -> View -> Focus -> ServerPartT IO Response
+mainPart View = viewPart
+mainPart Cut  = cutPart
+mainPart Save = savePart   
+</syntaxhighlight>
+
+In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> matches on  <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight> and calls 
+<syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> passing the view and the focus.
+
 
 
 
