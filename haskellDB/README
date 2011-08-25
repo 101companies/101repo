@@ -88,6 +88,34 @@ ttl = mkAttr Ttl
 
 This basically specifies what the name of the field should be and which type the value has, which the field is holding.
 
+The acutal total query looks like this:
+
+<syntaxhighlight lang="haskell">
+total :: String -> Query (Rel (RecCons Ttl (Expr Double) RecNil))
+total cname = do 
+  es <- table E.employee
+  cs <- table C.company
+  restrict (fromNull (constant 0) (cs!C.xid) .==. es!E.cid 
+            .&&. cs!C.name .==. constant cname)
+  project (ttl << _sum (es!E.salary))
+</syntaxhighlight>
+
+We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</syntaxhighlight> monad. The <syntaxhighlight lang="haskell" enclose="none">table</syntaxhighlight> functions return all records in the given table. Using two tables basically gives us the rational cross product of those tables. We use HaskellDB's selection function <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight> to select only those rows in which the company-id of the employee is equal to the company with has the given name <syntaxhighlight lang="haskell" enclose="none">cname</syntaxhighlight>. Inside <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight> we only select the salary column and then use the aggregation function <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight> to total all salaries. After that we put the value in the above definied field. 
+
+=== Executing the query ===
+
+We use <syntaxhighlight lang="haskell" enclose="none">query</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> to execute the totaling query:
+
+<syntaxhighlight lang="haskell">
+[res] <- withDB $ (\db -> query db (total "meganalysis"))
+</syntaxhighlight>
+
+This gives us a list (which we expect to be a singleton list) of records. We can now access the <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> field of that <syntaxhighlight lang="haskell" enclose="none">res</syntaxhighlight> to access the acutal total value and print it:
+
+<syntaxhighlight lang="haskell">
+print $ res!ttl
+</syntaxhighlight>
+
 == Architecture ==
 
 TBC
