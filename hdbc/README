@@ -61,10 +61,34 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 
 == Usage ==
 
-* Download the sqlite3 CLI tool from the [http://www.sqlite.org/download.html sqlite website]
-* Place the CLI tool in the implementation folder
-* Set up a file based database using the ''create'' target in the [this!!Makefile]
-* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test'' for test automation.
+=== Setup ===
+We need a local database Server.
+In the following we explain the steps for XAMPP.  
+http://www.apachefriends.org/en/xampp.html
+
+We also need some SQL tool.
+In the following we explain the steps for MySQL Workbench.
+http://dev.mysql.com/downloads/workbench/
+
+* Download and install XAMPP. 
+* Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
+* A local MySQL Server is now running:
+ Server Host : "localhost"
+ Port : 3306
+ Username : "root"
+ Password : "" (no password)
+
+* Connect to database in MySQL Workbench.
+* Select "101companies" schema or create one.
+* Create tables (run SQL script Company.sql)
+* Populate tables (run SQL script sampleCompany.sql)
+
+=== Testing ===
+
+* Now he Haskell module ''Main'' has to be run using GHCi, and the ''main'' function has to be applied.  
+* The output should be equal to the content of [this!!basefile]
+There is a ''Makefile'' with a target ''test'' for [[test automation]].
+
 
 == Contributors ==
 
