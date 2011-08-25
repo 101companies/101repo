@@ -37,9 +37,9 @@ This implementation also demonstrates the use of [[Technology:DBDirect]]. We use
 
 == Illustration ==
 
-=== Connecting to the Database ===
+=== Connecting to the database ===
 
-The ''MyConnection'' module (hold by [this!!MyConnection.hs]) provides a connection functionality:
+The ''MyConnection'' module (hold by [this!!MyConnection.hs]) provides connection functionality:
 
 <syntaxhighlight lang="haskell">
 withDB :: (Database -> IO a) -> IO a
@@ -55,7 +55,38 @@ withDB = connect driver conf
 We use <syntaxhighlight lang="haskell" enclose="none">connect</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">driver</syntaxhighlight>, which are both provided by the HDBC-ODBC backend.
 By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> resulting in the specified IO action. We thereby achive complete independence from the underling database implementation. One just has to use <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> to execute queries/statements.
 
+=== HaskellDB ===
 
+We use HaskellDB to generate database describing modules:
+
+<syntaxhighlight lang="make">
+dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;Port=3306;Server=localhost;User=root;Database=101companies"
+</syntaxhighlight>
+
+This generates a database description module, which has to be compiled using GHC to also generate modules, each describing one table with it's fields.
+
+
+=== Totaling ===
+
+A function defining a query to total all salaries can be found in the ''Total'' module (in [this!!Total.hs).We import the description modules for the companies and employees tables:
+
+<syntaxhighlight lang="haskell">
+import qualified DBDesc.Employee as E
+import qualified DBDesc.Company as C
+</syntaxhighlight>
+
+Because we want to store the sum of all salaries in a special field, we need to define it:
+
+<syntaxhighlight lang="haskell">
+data Ttl = Ttl
+
+instance FieldTag Ttl where fieldName _ = "ttl"
+  
+ttl :: Attr Ttl Double
+ttl = mkAttr Ttl  
+</syntaxhighlight>
+
+This basically specifies what the name of the field should be and which type the value has, which the field is holding.
 
 == Architecture ==
 
