@@ -53,12 +53,11 @@ cut conn cName = do
     commit conn
 </syntaxhighlight>
 
-The function use a prepared statement where the company name placeholder is then replaced by the given name. The statements is exectuted and the change is commited to the database.
-
+The function uses a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>. The statement is exectuted and the change is commited to the database.
 
 == Architecture ==
 
-We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements.
+We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements. The ''Main'' module (in [[this!!Main.hs]) collects test scenarios for totaling and cutting.
 
 == Usage ==
 
