@@ -37,7 +37,25 @@ This implementation also demonstrates the use of [[Technology:DBDirect]]. We use
 
 == Illustration ==
 
-TBD 
+=== Connecting to the Database ===
+
+The ''MyConnection'' module (hold by [this!!MyConnection.hs]) provides a connection functionality:
+
+<syntaxhighlight lang="haskell">
+withDB :: (Database -> IO a) -> IO a
+withDB = connect driver conf
+  where           
+    conf = [ ("Driver","MySQL ODBC 5.1 Driver")
+           , ("Port","3306")
+           , ("Server", "localhost")
+           , ("User", "root")
+           , ("Database", "101companies") ]
+</syntaxhighlight>
+
+We use <syntaxhighlight lang="haskell" enclose="none">connect</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">driver</syntaxhighlight>, which are both provided by the HDBC-ODBC backend.
+By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> resulting in the specified IO action. We thereby achive complete independence from the underling database implementation. One just has to use <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> to execute queries/statements.
+
+
 
 == Architecture ==
 
