@@ -53,7 +53,7 @@ withDB = connect driver conf
 </syntaxhighlight>
 
 We use <syntaxhighlight lang="haskell" enclose="none">connect</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">driver</syntaxhighlight>, which are both provided by the HDBC-ODBC backend.
-By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> resulting in the specified IO action. We thereby achive complete independence from the underling database implementation. One just has to use <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> to execute queries/statements.
+By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> resulting in the specified IO action and possibly a result of type <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight>. We thereby achive complete independence from the underling database implementation. One just has to use <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> to execute queries/statements.
 
 === HaskellDB ===
 
@@ -63,8 +63,7 @@ We use HaskellDB to generate database describing modules:
 dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;Port=3306;Server=localhost;User=root;Database=101companies"
 </syntaxhighlight>
 
-This generates a database description module, which has to be compiled using GHC to also generate modules, each describing one table with it's fields.
-
+This command generates a database description module, which has to be compiled using GHC to also generate modules, each describing one table with it's fields.
 
 === Totaling ===
 
