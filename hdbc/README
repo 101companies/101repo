@@ -5,12 +5,12 @@ database programming with [[Technology:HDBC]]
 == Languages ==
 
 * [[Language:Haskell 98]]
-* [[Language:SQL]] (SQLite dialect)
+* [[Language:SQL]] (MySql dialect)
 
 == Technologies ==
 
 * [[Technology:HDBC]]
-* [[Technology:Sqlite]]
+* [[Technology:MySql]]
 * [[Technology:GHCi]]      
 
 == Features ==
@@ -22,7 +22,39 @@ database programming with [[Technology:HDBC]]
 == Motivation ==
 
 We use [[Technology:HDBC]] for data processing. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within the database. 
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within the database. To connect to the [[Technology:MySql]] [[Database|database]] we use an [[ODBC]] backend. The actual functionality to cut and total salaries is independent from the [[Database implementation|database implementation]]. We demonstrate the use of [[Prepared statement|prepared statements]] in HDBC.
+
+== Illustration ==
+
+=== Connecting ===
+
+In the ''Main'' (in [this!!Main.hs]) we connect to the MySql database by using appropriate connection information.
+
+<syntaxhighlight lang="haskell">
+let connString = "Driver={MySQL ODBC 5.1 Driver};Server=localhost;Port=3306;Database=101companies;User=root;"
+conn <- connectODBC connString
+</syntaxhighlight>
+
+=== Cutting ===
+
+We can now use the open connection to cut all salaries:
+<syntaxhighlight lang="haskell">
+let cName = "meganalysis"
+cut conn cName
+</syntaxhighlight>
+
+We are using the <syntaxhighlight lang="haskell" enclose="none">cut</syntaxhighlight> function, which is provided by the ''Cut'' module (code can be found in [this!!Cut.hs]):
+
+<syntaxhighlight lang="haskell">
+cut :: IConnection conn => conn -> String -> IO ()
+cut conn cName = do
+    stmt <- prepare conn "UPDATE employee SET salary = salary / 2 WHERE employee.cid = (SELECT id FROM Company WHERE name = ?)"
+    execute stmt [toSql cName] 
+    commit conn
+</syntaxhighlight>
+
+The function use a prepared statement where the company name placeholder is then replaced by the given name. The statements is exectuted and the change is commited to the database.
+
 
 == Architecture ==
 
