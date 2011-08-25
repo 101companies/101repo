@@ -21,17 +21,16 @@ database programming with [[Technology:HaskellDB]]
 
 == Motivation ==
 
-We make use of [[Technology:HaskellDB|HaskellDB]] to express [[Database|database]] [[Query|queries]] as [[Language:Haskell]] functions rather than [[Language:SQL]]-statements. That is, we use the rich [[Combinator Library|combinator library]] of HaskellDB to express [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] statements based on [[Rational algebra|rational algebra]]. We demonstrate:
+We make use of [[Technology:HaskellDB|HaskellDB]] to express [[Database|database]] [[Query|queries]] as [[Language:Haskell]] functions rather than [[Language:SQL]]-statements. That is, we use the rich [[Combinator Library|combinator library]] of HaskellDB to express [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] statements based on [[Rational algebra|rational algebra]].  We demonstrate:
 
-* Projection
-* Selection
-* Aggregation
-* Renaming
+* Projection (HaskellDB' <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight>)
+* Selection (HaskellDB' <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight>)
+* Aggregation (Here HaskellDB' <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight>)
+* Renaming (HaskellDB' <syntaxhighlight lang="haskell" enclose="none"><<</syntaxhighlight>)
 
-We connect to the underlining [[Technology:MySql]] database we use an HaskellDB [[Technology:ODBC|ODBC]] backend.
+We connect to the underlining [[Technology:MySql]] database through a HaskellDB-[[Technology:ODBC|ODBC]] backend. We show the common approach of seperating query/statement definition from the acutal query/statement execution (see the illustration section for details).
 
-This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this [[Tool|tool]] to generate the [[Haskell module|Haskell modules]], which are describing the database. The modules are the basis quering the rational data.
-
+This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this [[Tool|tool]] to generate the, which are describing the database. The modules are the basis quering the rational data.
 
 == Illustration ==
 
