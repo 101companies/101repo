@@ -70,16 +70,26 @@ We also need some SQL tool.
 In the following we explain the steps for MySQL Workbench.
 http://dev.mysql.com/downloads/workbench/
 
-* Download and install XAMPP. 
-* Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
+* Download and install XAMPP
+* Open the "XAMPP Control Panel" and start "Apache" and "Mysql"
 * A local MySQL Server is now running:
- Server Host : "localhost"
- Port : 3306
- Username : "root"
- Password : "" (no password)
+{| class="wikitable" style="text-align:center"
+|-
+! Server Host
+| "localhost" 
+|-
+! Port
+| 3306
+|-
+! Username
+| "root"
+|-
+! Password
+|  "" (no password)
+|}
 
-* Connect to database in MySQL Workbench.
-* Select "101companies" schema or create one.
+* Connect to database in MySQL Workbench
+* Select "101companies" schema or create one
 * Create tables (run SQL script Company.sql)
 * Populate tables (run SQL script sampleCompany.sql)
 
