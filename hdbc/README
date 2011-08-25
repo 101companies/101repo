@@ -62,7 +62,7 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 == Usage ==
 
 === Setup ===
-We need a local database Server.
+We need a local database server.
 In the following we explain the steps for XAMPP.  
 http://www.apachefriends.org/en/xampp.html
 
