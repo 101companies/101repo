@@ -10,7 +10,10 @@ database programming with [[Technology:HaskellDB]]
 == Technologies ==
 
 * [[Technology:HaskellDB]]
+* [[Technology:ODBC]]
 * [[Technology:HDBC]]
+* [[Technology:DBDirect]]
+* [[Technology:MySql]]
 * [[Technology:GHCi]]      
 
 == Features ==
@@ -28,9 +31,9 @@ We make use of [[Technology:HaskellDB|HaskellDB]] to express [[Database|database
 * Aggregation (Here HaskellDB' <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight>)
 * Renaming (HaskellDB' <syntaxhighlight lang="haskell" enclose="none"><<</syntaxhighlight>)
 
-We connect to the underlining [[Technology:MySql]] database through a HaskellDB-[[Technology:ODBC|ODBC]] backend. We show the common approach of seperating query/statement definition from the acutal query/statement execution (see the illustration section for details).
+We connect to the underlining [[Technology:MySql]] database through a HaskellDB-[[Technology:HDBC]]-[[Technology:ODBC]] backend. We show the common approach of seperating query/statement definition from the acutal query/statement execution (see the illustration section for details).
 
-This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this [[Tool|tool]] to generate the, which are describing the database. The modules are the basis quering the rational data.
+This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this [[Tool|tool]] to generate the modules describing the database. The modules are the basis quering the rational data.
 
 == Illustration ==
 
