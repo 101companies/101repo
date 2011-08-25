@@ -22,13 +22,13 @@ database programming with [[Technology:HDBC]]
 == Motivation ==
 
 We use [[Technology:HDBC]] for data processing. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within the database. To connect to the [[Technology:MySql]] [[Database|database]] we use an [[ODBC]] backend. The actual functionality to cut and total salaries is independent from the [[Database implementation|database implementation]]. We demonstrate the use of [[Prepared statement|prepared statements]] in HDBC.
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within the database. To connect to the [[Technology:MySql]] [[Database|database]] we use an [[ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[Database implementation|database implementation]]. We demonstrate the use of [[Prepared statement|prepared statements]] in HDBC.
 
 == Illustration ==
 
 === Connecting ===
 
-In the ''Main'' (in [this!!Main.hs]) we connect to the MySql database by using appropriate connection information.
+In the ''Main'' module (in [this!!Main.hs]) we connect to the MySql database by using appropriate connection information:
 
 <syntaxhighlight lang="haskell">
 let connString = "Driver={MySQL ODBC 5.1 Driver};Server=localhost;Port=3306;Database=101companies;User=root;"
@@ -57,7 +57,7 @@ The function uses a prepared statement in which the company name placeholder is 
 
 == Architecture ==
 
-We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements. The ''Main'' module (in [[this!!Main.hs]) collects test scenarios for totaling and cutting.
+We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements. The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting.
 
 == Usage ==
 
@@ -76,16 +76,16 @@ http://dev.mysql.com/downloads/workbench/
 {| class="wikitable" style="text-align:center"
 |-
 ! Server Host
-| "localhost" 
+| localhost
 |-
 ! Port
 | 3306
 |-
 ! Username
-| "root"
+| root
 |-
 ! Password
-|  "" (no password)
+| (no password)
 |}
 
 * Connect to database in MySQL Workbench
@@ -95,10 +95,9 @@ http://dev.mysql.com/downloads/workbench/
 
 === Testing ===
 
-* Now he Haskell module ''Main'' has to be run using GHCi, and the ''main'' function has to be applied.  
+* Now the Haskell module ''Main'' has to be run using GHCi, and the ''main'' function has to be applied.  
 * The output should be equal to the content of [this!!basefile]
 There is a ''Makefile'' with a target ''test'' for [[test automation]].
-
 
 == Contributors ==
 
