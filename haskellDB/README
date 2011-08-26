@@ -53,8 +53,7 @@ withDB = connect driver conf
 </syntaxhighlight>
 
 We use <syntaxhighlight lang="haskell" enclose="none">connect</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">driver</syntaxhighlight>, which are both provided by the HDBC-ODBC backend.
-By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> resulting in the specified IO action and possibly a result of type <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight>. We thereby achive complete independence from the underling database implementation. One just has to use <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> to execute queries/statements.
-
+By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> resulting in the specified IO action and possibly a result of type <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight>. By encapsulating the connection process like this we achive complete independence from the underling database implementation for all queries and statements. 
 === HaskellDB ===
 
 We use HaskellDB to generate a module describing the database:
@@ -63,7 +62,7 @@ We use HaskellDB to generate a module describing the database:
 dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;Port=3306;Server=localhost;User=root;Database=101companies"
 </syntaxhighlight>
 
-This command generates a module describing the database by '''naming''' tables and fields. Compiling this module with GHC creates one module per table, each module holding actual '''variables''' for tables and fields. These variables are the basis for the following query.
+This command generates a module describing the database by '''naming''' tables and fields. Compiling this module with GHC creates one module per table, each module holding actual '''variables''' for tables and fields. These variables are the basis for the following query:
 
 === Totaling ===
 
@@ -117,11 +116,27 @@ print $ res!ttl
 
 == Architecture ==
 
-TBC
+We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's rational algebra library. The ''MyConnection'' module in [this!!MyConnection.hs] encapsulate the process of connecting to the MySql database. The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting.
 
 == Usage ==
 
-TBD
+=== Setup ===
+
+* Follow the steps of setting up the database as described in [[101implementation:hdbc]]
+
+=== Generating the database description ===
+
+* Execute the following command in the implementation folder: <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;Port=3306;Server=localhost;User=root;Database=101companies"</syntaxhighlight>
+* Compile the ''DBDesc'' module using GHC: <syntaxhighlight lang="make" enclose="none">ghc DBDesc</syntaxhighlight>
+
+=== Testing ===
+
+* Now the Haskell module ''Main'' has to be run using GHCi, and the ''main'' function has to be applied.  
+* The output should be equal to the content of [this!!basefile]
+
+The generation of the description modules and the testing is covered by the target ''test'' in [this!!Makefile]
+
+Use the ''clean'' target to "reset" the project.
 
 == Contributors ==
 
