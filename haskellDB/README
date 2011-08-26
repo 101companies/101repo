@@ -74,7 +74,7 @@ import qualified DBDesc.Employee as E
 import qualified DBDesc.Company as C
 </syntaxhighlight>
 
-Because we want to store the sum of all salaries in a special field, we need to define it:
+Because we want to store the sum of all salaries in a special field, we need to define one:
 
 <syntaxhighlight lang="haskell">
 data Ttl = Ttl
