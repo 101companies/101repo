@@ -125,7 +125,7 @@ The algebraic datatype for companies can be found in [this!!Company.hs]. There i
 
 == Usage ==
 
-* First you need to setup a webserver. In the following we explain the steps for [http://www.apachefriends.org/en/xampp.html XAMPP].
+* First you need a webserver. In the following we explain the steps for [http://www.apachefriends.org/en/xampp.html XAMPP].
 * Compile to a CGI file using GHC: <syntaxhighlight lang="make">ghc --make -o company.cgi Main.hs</syntaxhighlight>
 * Place ''company.cgi'' in the folder ''cgi-bin'' of your XAMPP installation.
 * Place [this!!style.css] in the folder ''htdocs'' of your XAMPP installation.
