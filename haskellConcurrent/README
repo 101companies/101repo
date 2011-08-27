@@ -92,11 +92,16 @@ cutCompany <- cutCompany company
 == Architecture ==
 
 [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries in a concurrent way. 
-[this!!Utils.hs] contains a useful function to collect all mvar values in a mvar list.
+[this!!Utils.hs] contains a function to collect contents all <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> list in a non-blocking way.
+The algebraic datatype for companies can be found in [this!!Company.hs]. 
+The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting a sample company hosted by [this!!SampleCompany.hs].
 
 == Usage ==
 
-* The Haskell module Main has to be consulted with GHCi, and the main function has to be applied so that output for the test scenarios is produced. The expected output is available through the file baseline. There is a target ''test'' for test automation.
+* The Haskell module ''Main'' has to be run using GHCi, and the ''main'' function has to be applied.  
+* The output should be equal to the content of [this!!basefile]
+
+Both steps are covered by the target ''test'' in [this!!Makefile]. Use the ''clean'' target to "reset" the project.
 
 == Contributors ==
 
