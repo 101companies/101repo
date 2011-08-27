@@ -24,12 +24,7 @@
 == Motivation ==
 
 We make use of the [[Technology:CGI]] library for Haskell to provide a C/S  [[Web Application|web application]] for [[101feature:Company|companies]]. 
-On every CGI page [[HTTP Request|request]] we extract the request parameters. There is an action parameter to either view or cut
-a company/department/employee or to save an edited company/department/employee. 
-With the supplied focus parameter and by using the [[Zipper|zipper]] concept 
-we read the correct company/department/employee to be viewed/cut/saved from the client-sided cookie. 
-We then use [[Language:XHTML]] [[Combinator|combinators]] to compose the new page. This page is returned to the client as the 
-CGI [[HTTPRespose|response]].  
+That is we exercise processing [[HTTP Request|requests]] from and returning [[HTTP Respond|responds]] to the client using the CGI technology. We extract request parameters from the [[URL]] like the '''Action''' to either view or [[101feature:Cut|cut]] a company/department/employee or to save an edited company/department/employee. By passing a focus parameter in the URL and by making use of the [[Zipper]] concept we specify the which part of the company should be displayed. We also demonstrate the use of [[Language:XHTML]] [[Combinator|combinators]] to compose the new page. 
 
 == Illustration ==
 
