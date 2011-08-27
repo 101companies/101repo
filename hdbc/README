@@ -63,12 +63,11 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 
 === Setup ===
 We need a local database server.
-In the following we explain the steps for XAMPP.  
-http://www.apachefriends.org/en/xampp.html
+In the following we explain the steps for [http://www.apachefriends.org/en/xampp.html XAMPP].
 
 We also need some SQL tool.
-In the following we explain the steps for MySQL Workbench.
-http://dev.mysql.com/downloads/workbench/
+In the following we explain the steps for [http://dev.mysql.com/downloads/workbench/ MySQL Workbench].
+
 
 * Download and install XAMPP
 * Open the "XAMPP Control Panel" and start "Apache" and "Mysql"
