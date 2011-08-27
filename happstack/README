@@ -34,8 +34,9 @@ As an response the client receives HTML-documents, composed by making use of the
 
 == Illustration ==
 
+In the following we will demonstate how a specific request is processed by the server.
+
 === Saving an Employee ===
-In the following we will demonstate how a specific request is processed by the server:
 
 After requesting to view a manager the user manipulated the input fields and submits a request by clicking a save button.
 
