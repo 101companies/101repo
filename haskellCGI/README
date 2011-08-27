@@ -33,13 +33,13 @@ CGI [[HTTPRespose|response]].
 
 == Illustration ==
 
-In the ''main'' module (in [this!!Main]) the server is set up like this:
+In the ''main'' module (in [this!!Main]) the server is set up:
 
 <syntaxhighlight lang="haskell>
 main = runCGI $ handleErrors cgiMain
 </syntaxhighlight>
 
-We use a default error handler. <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> is the main request handler.
+We use a default error handler provided by the CGI library. <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> is the main request handler.
 
 In the following we will demonstate how a specific request is processed by the server.
 
