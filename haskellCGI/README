@@ -1,10 +1,10 @@
 == Intent ==
 
-web programming with [[Technology:CGI]] in [[Language:Haskell]]
+[[Web programming|web programming]] with [[Technology:CGI]] in [[Language:Haskell]]
 
 == Languages ==
 
-* [[Language:Haskell 98]]
+* [[Language:Haskell]]
 * [[Language:XHTML]]
 * [[Language:CSS]]
 
@@ -23,13 +23,56 @@ web programming with [[Technology:CGI]] in [[Language:Haskell]]
 
 == Motivation ==
 
-We make use of the [[Technology:CGI]] library for Haskell to provide a C/S web application for [[101feature:Company|companies]]. 
+We make use of the [[Technology:CGI]] library for Haskell to provide a C/S  [[Web Application|web application]] for [[101feature:Company|companies]]. 
 On every CGI page [[HTTP Request|request]] we extract the request parameters. There is an action parameter to either view or cut
 a company/department/employee or to save an edited company/department/employee. 
 With the supplied focus parameter and by using the [[Zipper|zipper]] concept 
 we read the correct company/department/employee to be viewed/cut/saved from the client-sided cookie. 
 We then use [[Language:XHTML]] [[Combinator|combinators]] to compose the new page. This page is returned to the client as the 
 CGI [[HTTPRespose|response]].  
+
+== Illustration ==
+
+In the ''main'' module (in [this!!Main]) the server is set up like this:
+
+<syntaxhighlight lang="haskell>
+main = runCGI $ handleErrors cgiMain
+</syntaxhighlight>
+
+We use a default error handler. <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> is the general request handler.
+
+In the following we will demonstate how a specific request is processed by the server.
+
+=== Cutting an employee's salary ===
+
+After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
+
+'''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>'''
+
+Bacause of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to [[101implementation:happstack|happstack]]), the action and focus parameters are encoded as URL-parameters:
+
+* Focus = EmployeeFocus [1,0,0]
+* Action = Cut
+
+In the ''Response'' module (in [this!!Response.hs]) the main response handler can be found
+
+<syntaxhighlight lang="haskell>
+cgiMain :: CGI CGIResult
+cgiMain =  do
+            f <- getInput "focus"
+            let focusP = maybe CompanyFocus read f
+            a <- getInput "action"
+            let actionP = maybe View read a
+            html <- (doAction actionP) focusP 
+            output . renderHtml . page "101companies WebApp" $ html
+              where
+                doAction ap = case ap of
+                  View  -> doView
+                  Cut   -> doCut
+                  Save  -> doSave 
+</syntaxhighlight>
+
+We are working inside the <syntaxhighlight lang="haskell enclose="none">CGI</syntaxhighlight>-monad, which is provided by the library.The <syntaxhighlight lang="haskell enclose="none">getInput</syntaxhighlight> function tries to <syntaxhighlight lang="haskell enclose="none">read</syntaxhighlight> to the <syntaxhighlight lang="haskell enclose="none">Action</syntaxhighlight> respectively <syntaxhighlight lang="haskell enclose="none">Focus</syntaxhighlight> datatypes. In this example the <syntaxhighlight lang="haskell enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell enclose="none">Cut</syntaxhighlight> and the function calls <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight>, which returns <syntaxhighlight lang="haskell enclose="none">Html</syntaxhighlight>. The result is then used as the content of a new page, which is then rendered and returned as the <syntaxhighlight lang="haskell enclose="none">CGIResult</syntaxhighlight>
 
 == Architecture ==
 
