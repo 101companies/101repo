@@ -72,11 +72,12 @@ cgiMain =  do
                   Save  -> doSave 
 </syntaxhighlight>
 
-We are working inside the <syntaxhighlight lang="haskell enclose="none">CGI</syntaxhighlight>-monad, which is provided by the library. The <syntaxhighlight lang="haskell enclose="none">getInput</syntaxhighlight> function tries to <syntaxhighlight lang="haskell enclose="none">read</syntaxhighlight> to the <syntaxhighlight lang="haskell enclose="none">Action</syntaxhighlight> respectively <syntaxhighlight lang="haskell enclose="none">Focus</syntaxhighlight> datatypes. In this example the <syntaxhighlight lang="haskell enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell enclose="none">Cut</syntaxhighlight> and <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> passing the focus. <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> composes <syntaxhighlight lang="haskell enclose="none">Html</syntaxhighlight> based on the given focus. The result is then used as the content of a new page, which is then rendered to an HTML document and returned as the <syntaxhighlight lang="haskell enclose="none">CGIResult</syntaxhighlight>.
+We are working inside the <syntaxhighlight lang="haskell enclose="none">CGI</syntaxhighlight>-monad, which is provided by the library. The <syntaxhighlight lang="haskell enclose="none">getInput</syntaxhighlight> function tries to <syntaxhighlight lang="haskell enclose="none">read</syntaxhighlight> values of the <syntaxhighlight lang="haskell enclose="none">Action</syntaxhighlight> respectively <syntaxhighlight lang="haskell enclose="none">Focus</syntaxhighlight> datatypes. In this example the <syntaxhighlight lang="haskell enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell enclose="none">Cut</syntaxhighlight> and <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> passing the focus. <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> returns a <syntaxhighlight lang="haskell enclose="none">Html</syntaxhighlight> value based on the given focus. The result is then used as the content of a new page, which is then rendered to an HTML document and returned as the <syntaxhighlight lang="haskell enclose="none">CGIResult</syntaxhighlight>.
 
-<syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> performs the acutal cut action:
+The "cutting handler" <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> performs the acutal cut action:
 
 <syntaxhighlight lang="haskell>
+doCut :: Focus -> CGI Html
 doCut f = do
     c <- tryReadCCookie
     let cutC = readCutWrite f c   
