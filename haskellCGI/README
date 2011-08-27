@@ -54,7 +54,9 @@ Bacause of the fact that the CGI library does not support any extraction of info
 * Focus = EmployeeFocus [1,0,0]
 * Action = Cut
 
-In the ''Response'' module (in [this!!Response.hs]) the main response handler can be found:
+==== Main request handler ====
+
+In the ''Response'' module (in [this!!Response.hs]) the main request handler can be found:
 
 <syntaxhighlight lang="haskell>
 cgiMain :: CGI CGIResult
@@ -74,6 +76,8 @@ cgiMain =  do
 
 We are working inside the <syntaxhighlight lang="haskell enclose="none">CGI</syntaxhighlight>-monad, which is provided by the library. The <syntaxhighlight lang="haskell enclose="none">getInput</syntaxhighlight> function tries to <syntaxhighlight lang="haskell enclose="none">read</syntaxhighlight> values of the <syntaxhighlight lang="haskell enclose="none">Action</syntaxhighlight> respectively <syntaxhighlight lang="haskell enclose="none">Focus</syntaxhighlight> datatypes. In this example the <syntaxhighlight lang="haskell enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell enclose="none">Cut</syntaxhighlight> and <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> passing the focus. <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> returns a <syntaxhighlight lang="haskell enclose="none">Html</syntaxhighlight> value based on the given focus. The result is then used as the content of a new page, which is then rendered to an HTML document and returned as the <syntaxhighlight lang="haskell enclose="none">CGIResult</syntaxhighlight>.
 
+==== Cutting the cookie ====
+
 The "cutting handler" <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> performs the acutal cut action:
 
 <syntaxhighlight lang="haskell>
@@ -91,7 +95,7 @@ First the company cookie is read using <syntaxhighlight lang="haskell enclose="n
 tryReadCCookie = liftM (fromMaybe company) $ readCookie "companyCookie"
 </syntaxhighlight>
 
-This function tries to read the company cookie. If the client does not have this cookie, the default company is returned.
+This function tries to read the company cookie. If the client does not have this cookie stored, the default company is returned.
 
 <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> then calls <syntaxhighlight lang="haskell enclose="none">readCutWrite</syntaxhighlight>, which reads a company, department or employee based on the focus, cuts it and replaces it within the company (see [this!!Cut.hs] for details). After that manipulated company is written back into the cookie using <syntaxhighlight lang="haskell enclose="none">writeCCookie</syntaxhighlight>:
 
@@ -99,7 +103,9 @@ This function tries to read the company cookie. If the client does not have this
 writeCCookie = setCookie.(newCookie "companyCookie").show
 </syntaxhighlight>
 
-After that <syntaxhighlight lang="haskell enclose="none">html</syntaxhighlight> is called passing the focus and the new company:
+==== Returning HTML ====
+
+After that <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">html</syntaxhighlight> passing the focus and the new company:
 
 <syntaxhighlight lang="haskell>
 html :: Focus -> Company -> Html
