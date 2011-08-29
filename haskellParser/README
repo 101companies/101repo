@@ -39,6 +39,32 @@ companies are identical to the modules in the basic [[101implementation:haskell|
 while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany] holds a sample company used 
 to be compared to a parsed sample company (in [this!!sample.Company]). The Main module ([this!!Main.hs]) collects test scenarios.
 
+== Illustration ==
+
+We define a type alias for all of our parser:
+
+<syntaxhighlight lang="haskell" line>
+type P = Parsec String ()
+</syntaxhighlight>
+
+That is, we are dealing with parsers of stream type <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> and state type <syntaxhighlight lang="haskell" enclose="none">()</syntaxhighlight> (no state).
+
+=== Parsing a department ===
+
+<syntaxhighlight lang="haskell" line>
+pDepartment :: P Department
+pDepartment = Department
+  <$  pString "department" <*> pLit 
+  <*  pString "{" <*> pEmployee "manager"
+  <*> many pSubUnit <* pString "}"
+</syntaxhighlight>
+
+To compose a department parser we make use of the <syntaxhighlight lang="haskell" enclose="none">(<$) :: Functor f => a -> f b -> f a </syntaxhighlight> operator. That is, we pass the department contructor  <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and parsers for all contructor parameters (name, manager, list of subunits) to receive a parser for departments.
+
+
+
+
+
 == Usage ==
 
 The Haskell module ''Main'' has to be consulted with GHCi, and the
