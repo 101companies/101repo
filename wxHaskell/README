@@ -78,8 +78,6 @@ readDepartment (DeptFocus ns) (Company _ depts) = readStep ns depts
 
 Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">readDepartment</syntaxhighlight> navigates through the company until it reaches the department in question.
 
-
-
 === Starting the GUI ===
 
 In the ''Main'' module we use xwHaskell's <syntaxhighlight lang="haskell" enclose="none">start :: IO a -> IO ()</syntaxhighlight>. This function runs the given GUI of type <syntaxhighlight lang="haskell" enclose="none">IO a</syntaxhighlight> while discarding <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> and returning <syntaxhighlight lang="haskell" enclose="none">IO ()</syntaxhighlight> (code can be found in [this!!Main.hs]):
