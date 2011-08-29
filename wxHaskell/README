@@ -49,9 +49,16 @@ main = start gui
 
 <syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views and creates a panel for the root view. After that the function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame and the panel, the root focus and a sample company provided by the ''SampleCompany'' module (in [this!!SampleCompany.hs]).
 
+=== The views ===
 
+For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, we provide a view to display the component and provide actions like cut and save.
 
-=== Showing an employee ===
+In the following we demonstrate how an employee is displayed.
+
+=== Viewing an employee ===
+
+The function to view an employee can be found in the ''Views'' module (in [this!!Main.hs]):
+
 
 
 
