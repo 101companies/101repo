@@ -82,20 +82,19 @@ pDepartment = Department
 </syntaxhighlight>
 
 We make use of the <syntaxhighlight lang="haskell" enclose="none">(<$) :: Functor f => a -> f b -> f a </syntaxhighlight> operator. That is, we pass the department contructor <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and a parser for all contructor parameters (name, manager, list of subunits) to receive a parser for departments. 
-In line 3 we parse the keyword for department declaration "department". After that we parse the department name, followed by an opening curly bracket in line 4. Then we parse the employee using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. After that we use <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> to pass the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubsnit</syntaxhighlight>. At the end we expect a closing curly bracket.
+In line 3 we parse the keyword for department declaration "department". After that we parse the department name, followed by an opening curly bracket in line 4. Then we parse the employee using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. After that we use <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> in line 5 to pass the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubsnit</syntaxhighlight>. At the end we expect a closing curly bracket.
 
 === Running the Parser ===
 
 Running the company parser is realized by making use of <syntaxhighlight lang="haskell" enclose="none">runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either ParseError a</syntaxhighlight>
-We are dealing with parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.Therefore in this example the type signature for <syntaxhighlight lang="haskell" enclose="none">runP</syntaxhighlight> simplifies to <syntaxhighlight lang="haskell" enclose="none">Parsec String () Company -> () -> SourceName -> String -> Either ParseError a</syntaxhighlight>. When we choose "input" as the source name we can define a function to run the company parser:
+We are dealing with parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.Therefore in this example the type signature for <syntaxhighlight lang="haskell" enclose="none">runP</syntaxhighlight> simplifies to <syntaxhighlight lang="haskell" enclose="none">Parsec String () Company -> () -> SourceName -> String -> Either ParseError a</syntaxhighlight>. When we choose <syntaxhighlight lang="haskell" enclose="none">"input"</syntaxhighlight> as the source name we can define a function to run the company parser:
 
 <syntaxhighlight lang="haskell" line>
 parseCompany :: String -> Either ParseError Company
 parseCompany = runP (spaces *> pCompany <* eof) () "input"
 </syntaxhighlight>
 
-We add a parser for possible leading spaces and a parser for the EOF-symbol.
-
+We added a parser for possible leading spaces and a parser for the EOF-symbol.
 
 === Executing the Parser ===
 
@@ -121,12 +120,6 @@ We can use this function to print the total salary in case of parsing success.
 <syntaxhighlight lang="haskell" line>
 rightApplyPrint parsedCompany total
 </syntaxhighlight>
-
-
-
-
-
-
 
 == Usage ==
 
