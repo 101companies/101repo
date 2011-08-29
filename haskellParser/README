@@ -76,7 +76,7 @@ pDepartment = Department
 </syntaxhighlight>
 
 We make use of the <syntaxhighlight lang="haskell" enclose="none">(<$) :: Functor f => a -> f b -> f a </syntaxhighlight> operator. That is, we pass the department contructor <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and a parser for all contructor parameters (name, manager, list of subunits) to receive a parser for departments. 
-In line 3 we parse the keyword for department declaration "department". After that we parse the department name, followed by an opening curly bracket in line 4. Then we parse the employee using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. After that we use <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> in line 5 to pass the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubsnit</syntaxhighlight>. At the end we expect a closing curly bracket.
+In line 3 we parse the keyword for department declaration "department". After that we parse the department name, followed by an opening curly bracket in line 4. Then we parse the employee using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. After that we use <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> in line 5 to pass the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubUnit</syntaxhighlight>. At the end we expect a closing curly bracket.
 
 === Running the Parser ===
 
@@ -109,7 +109,7 @@ rightApplyPrint (Left e) _ = print e
 
 In case parsing was successful this function applies a given function to the company and prints the result. In case of a parse error it prints the error message.
 
-We can use this function to print the total salary in case of parsing success.
+We can use this function to print the total salary in case of parsing success:
 
 <syntaxhighlight lang="haskell" line>
 rightApplyPrint parsedCompany total
