@@ -22,8 +22,8 @@ Provide [[101feature:Interaction|interaction]] on companies by means of [[Techno
 == Motivation ==
 
 We use the [[Technology:wxHaskell]] library to provide a simple GUI for [[101feature:Company|companies]]. 
-One can navigate the hierachical company structure, [[101feature:Cut|cut]] salaries and edit fields of [[Primitive Type|primitive types ]]. 
-We make use the [[Zipper]] concept to specify which part of the company should be shown or saved after editing.
+One can navigate the hierachical company structure, [[101feature:Cut|cut]] salaries and edit fields of [[Primitive Type|primitive types]]. 
+We make use the [[Zipper|zipper]] concept to specify which part of the company should be shown or saved after editing.
 This concept also helps us to read departments/employees from a given position within the company and write manipulated departments/employees back.  
 
 == Illustration ==
@@ -130,7 +130,7 @@ view f focus = view' f focus
 
 == Architecture ==
 
-There is also a simple API (''API.hs'') to companies providing reading and writing (see Motivation) and getters and setters.
+[this!!Views.hs] provides one view per company data type. The ''Main'' module in [this!!Main.hs] starts the GUI. The algebraic datatype for companies can be found in [this!!Company.hs], a sample company in [this!!SampleCompany.hs]. There is also an API to the company hosted by [this!!API.hs]. [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries.
 
 == Usage ==
 
