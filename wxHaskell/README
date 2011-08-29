@@ -22,7 +22,7 @@ Provide [[101feature:Interaction|interaction]] on companies by means of [[Techno
 == Motivation ==
 
 We use the [[Technology:wxHaskell]] library to provide a simple GUI for [[101feature:Company|companies]]. 
-One can navigate the hierachical company structure, [[101feature:Cut|cut]] salaries and edit fields of [[Primitive Type|primitive types]]. 
+One can navigate the hierachical company structure, [[101feature:Cut|cut]] salaries and edit fields for values of [[Primitive Type|primitive types]]. 
 We make use the [[Zipper|zipper]] concept to specify which part of the company should be shown or saved after editing.
 This concept also helps us to read departments/employees from a given position within the company and write manipulated departments/employees back.  
 
