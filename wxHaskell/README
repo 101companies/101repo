@@ -47,10 +47,10 @@ There is one contructor per company datatype. For example for employees one need
 
 We now provide various focus functions (see [this!!API.hs] for details):
 
-* given a focus for a company component, compute the focus of the upper component
-* given a company/department focus, compute the list of subdeparments/employees foci
-* reading a specific component out of a given company 
-* writing, say replacing, a specific component within the company
+* Given a focus for a company component, compute the focus of the upper component.
+* Given a company/department focus, compute the list of subdeparments/employees foci.
+* Given a focus and a company, return the focused component (i.e. reading).
+* Given a focus, a company and a new company/department/employee, replace the focused company/department/employee (i.e. writing).
 
 In the following we will demonstrate reading.
 
