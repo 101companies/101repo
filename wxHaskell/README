@@ -26,8 +26,36 @@ One can navigate the hierachical company structure and edit fields of types stri
 We make use the [[Zipper]] concept to specify which part of the company should be shown or saved after editing.
 This concept also helps us to read departments/employees from a given position within the company and write manipulated departments/employees back.  
 
-== Architecture ==
+== Illustration ==
 
+In the ''Main'' we use xwHaskell's <syntaxhighlight lang="haskell" enclose="none">start :: IO a -> IO ()</syntaxhighlight> to start a the GUI. This function conceptually runs the given GUI of type <syntaxhighlight lang="haskell" enclose="none">IO a</syntaxhighlight> while discarding <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> and returning <syntaxhighlight lang="haskell" enclose="none">IO ()</syntaxhighlight>
+
+<syntaxhighlight lang="haskell">
+gui :: IO ()
+gui = do
+    f <- frame [ textBgcolor := colorRGB 112 128 144 
+               , resizeable := False
+               , fontWeight := WeightBold
+               , fontUnderline := False
+               , position := Point 50 50]
+    p <- panel f [textColor := colorRGB 18 19 51]
+    showCompany f p CompanyFocus company 
+
+main :: IO ()
+main = start gui
+</syntaxhighlight>
+
+
+
+=== Showing an employee ===
+
+
+
+=== Cutting an employee's salary ===
+
+
+
+== Architecture ==
 
 There is also a simple API (''API.hs'') to companies providing reading and writing (see Motivation) and getters and setters.
 
