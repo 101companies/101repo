@@ -21,8 +21,8 @@ Provide [[101feature:Interaction|interaction]] on companies by means of [[Techno
 
 == Motivation ==
 
-We use the [[Technology:wxHaskell]] library to provide a simple GUI for companies. 
-One can navigate the hierachical company structure and edit fields of types string and number. 
+We use the [[Technology:wxHaskell]] library to provide a simple GUI for [[101feature:Company|companies]]. 
+One can navigate the hierachical company structure, [101feature:Cut|cut] salaries and edit fields of [[Primitive Type|primitive types ]]. 
 We make use the [[Zipper]] concept to specify which part of the company should be shown or saved after editing.
 This concept also helps us to read departments/employees from a given position within the company and write manipulated departments/employees back.  
 
@@ -50,18 +50,13 @@ main = start gui
 
 === The views ===
 
-For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, we provide a view to display the specific component including buttons to cut and save.
+For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, the ''Views'' module (in [this!!Views.hs]) provides a view to display the specific component including buttons to cut and save.
 
 In the following we demonstrate how an employee is displayed.
 
-=== Viewing an employee ===
+==== Viewing an employee ====
 
-The function <syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight>to view an employee can be found in the ''Views'' module (in [this!!Views.hs]). The function is of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>
-
-
-
-
-=== Cutting an employee's salary ===
+The function <syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight> to view an employee can be found in the ''Views'' module (in [this!!Views.hs]). The function is of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.
 
 
 
