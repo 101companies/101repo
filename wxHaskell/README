@@ -50,7 +50,7 @@ main = start gui
 
 === The views ===
 
-For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, the ''Views'' module (in [this!!Views.hs]) provides a view to display the specific component including buttons to cut and save.
+For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, the ''Views'' module (in [this!!Views.hs]) provides a view to display the specific component including buttons to cut and save. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
 
 In the following we demonstrate how an employee is displayed.
 
