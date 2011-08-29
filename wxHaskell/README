@@ -56,7 +56,13 @@ In the following we demonstrate how an employee is displayed.
 
 ==== Viewing an employee ====
 
-The function <syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight> to view an employee can be found in the ''Views'' module (in [this!!Views.hs]). The function is of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.
+<syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight> of type <syntaxhighlight lang="haskell" enclose="none">viewEmployee :: Frame () -> Focus -> Company -> IO ()</syntaxhighlight> provides a view for employees. Given the focus and the company, the function uses the ''API'' module (in [this!!API.hs]) to read the employee in question:
+
+<syntaxhighlight lang="haskell" line>
+let e = readEM focus c
+</syntaxhighlight>
+
+After that the <syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight>  
 
 
 
