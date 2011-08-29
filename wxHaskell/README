@@ -28,6 +28,58 @@ This concept also helps us to read departments/employees from a given position w
 
 == Illustration ==
 
+=== Zipper ===
+
+By using the concept of zippers we specify positions of components within the company. In the ''API'' module we provide a algebraic datatype <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight>:
+
+<syntaxhighlight lang="haskell" line>
+data Focus = 
+     CompanyFocus
+   | DeptFocus [Int]
+   | ManagerFocus [Int]
+   | EmployeeFocus [Int] Int
+    deriving (Show, Read)
+</syntaxhighlight>
+
+There is one contructor per company datatype. For example for employees one needs to pass:
+* A list of indexes: Starting from the company root this list is used to navigate through the subdepartments.
+* An index: The index of this employee in the department's employees list.
+
+We now provide various focus functions (see [this!!API.hs] for details):
+
+* given a focus for a company component, compute the focus of the upper component
+* given a company/department focus, compute the list of subdeparments/employees foci
+* reading a specific component out of a given company 
+* writing, say replacing, a specific component within the company
+
+In the following we will demonstrate reading.
+
+==== Reading ====
+
+We can now provide a function to read a company component given a focus and a company:
+
+<syntaxhighlight lang="haskell" line>
+class Readable a where
+    readA :: Focus -> Company -> a
+</syntaxhighlight>
+
+An instance declaration for departments looks like this:
+
+<syntaxhighlight lang="haskell" line>
+instance Writeable Department where
+    writeA = writeDepartment
+
+readDepartment :: Focus -> Company -> Department
+readDepartment (DeptFocus ns) (Company _ depts) = readStep ns depts                 
+    where
+        readStep [n] depts = depts !! n
+        readStep (n:ns) depts = readStep ns $ getDus $ depts !! n
+</syntaxhighlight>
+
+Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">readDepartment</syntaxhighlight> navigates through the company until it reaches the department in question.
+
+
+
 === Starting the GUI ===
 
 In the ''Main'' module we use xwHaskell's <syntaxhighlight lang="haskell" enclose="none">start :: IO a -> IO ()</syntaxhighlight>. This function runs the given GUI of type <syntaxhighlight lang="haskell" enclose="none">IO a</syntaxhighlight> while discarding <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> and returning <syntaxhighlight lang="haskell" enclose="none">IO ()</syntaxhighlight> (code can be found in [this!!Main.hs]):
