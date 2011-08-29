@@ -98,7 +98,7 @@ viewEmployee f focus c = do
 </syntaxhighlight>
 
 
-In line 4 we read the employee in question using the ''API'' module (can be found in [this!!API.hs]). After that we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We than create buttons to cut the employee and go back to the department level. In lines 17-15 we set up a save button. That is, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and then shown. After that we use various layout combinators to compose all GUI elements.
+In line 4 we read the employee in question using the ''API'' module (can be found in [this!!API.hs]). After that we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We than create buttons to cut the employee's salary and to go back to the department level. In lines 17-25 we set up a save button. That is, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and then shown. After that we use various layout combinators to compose all GUI elements.
 
 === Cutting button ===
 
@@ -114,7 +114,7 @@ cutButton p f focus c = button p [ text := "Cut"
                      ]]       
 </syntaxhighlight>
 
-When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action is executed. First the view's panel is deleted. After that we use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> hosted by the ''Cut'' module (in [this!!Cut.hs]) to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component and replaces it in the given company. After that the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which view-function to call:
+When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action is executed. First the view's panel is deleted. After that we use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> hosted by the ''Cut'' module (in [this!!Cut.hs]) to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component's salaries and replaces it in the given company. After that the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which concrete view-function to call:
 
 <syntaxhighlight lang="haskell" line>
 view:: Frame () -> Focus -> Company -> IO ()
@@ -134,7 +134,7 @@ view f focus = view' f focus
 
 == Usage ==
 
-The ''Main'' module has to be compiled using GHC the output executable has to run. There is a ''Makefile'' with a target ''start'' covering both stepts. Also, there is a ''clean'' target to reset the project.
+The ''Main'' module has to be compiled using GHC the output executable has to run. There is a ''Makefile'' with a target ''start'' covering both stepts. Also, there is a ''clean'' target to "reset" the project.
 
 == Contributors ==
 
