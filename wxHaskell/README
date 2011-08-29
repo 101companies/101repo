@@ -28,12 +28,12 @@ This concept also helps us to read departments/employees from a given position w
 
 == Architecture ==
 
-We make use of the [[101feature:Cut|cutting]] and [[101feature:Total|totaling]] functionality provided by [[101implementation:haskell]], but use a slightly modified algebraic datatype for [[101feature:Company|companies]].
+
 There is also a simple API (''API.hs'') to companies providing reading and writing (see Motivation) and getters and setters.
 
 == Usage ==
 
-There is a ''Makefile'' with a target ''test'' to start the GUI.
+The ''Main'' module has to be compiled using GHC the output executable has to run. There is a ''Makefile'' with a target ''start'' covering both stepts. Also, there is a ''clean'' target to reset the project.
 
 == Contributors ==
 
