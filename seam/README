@@ -33,31 +33,18 @@ the SEAM framework.
 
 == Usage ==
 
-=== Requirements ===
+* '''Requirements:'''
+** [[Technology:JBoss|JBoss]]-4.2.x (http://sourceforge.net/projects/jboss/files/JBoss/JBoss-4.2.3.GA)
+** [[Technology:Eclipse]]
+* '''Deployment:'''
+** Import the seam project as a java project into eclipse.
+** change the build.properties located in the projects base folder. The ''jboss.home''-property must refer to your JBoss location:  ''jboss.home = <your jboss location>''
+** run the seam project as ant build in eclipse.
+* '''Access:'''
+** start a web-browser
+** go to: http://localhost:8080/seam
+** Access the system with user ''admin'' (pw:''admin''). You can also access the system with user ''user'' (pw: ''user'') but then the cut salaries method is blocked.
 
-	JBOSS-4.2.x (http://sourceforge.net/projects/jboss/files/JBoss/JBoss-4.2.3.GA)
-
-=== Build === 
-
-	(a) change the build.properties file, reviewing the jboss.home property that must refer 
-	to the place where you have installed the jboss distribution. 
-	
-	(b) run "ant deploy" in the root directory of the SEAM implementation of 101companies
-	
-=== Acessing the system ===
-
- 	(a) start a web-browser
- 	
- 	(b) inform the URL http://localhost:8080/seam  
- 	
- 	(c) you should able to access the system using either the "admin" or "user" account. If you 
- 	try to cut salaries when logged in as a "user", an exception should be thrown. 
- 	
-=== Notes ===
-
-	(a) Whenever the application is deployed, the script import-dev.sql loads the test data.  
- 	
- 	
 == Contributors ==
 
 * {{101contributor|Rodrigo Bonifacio|developer}}
