@@ -36,10 +36,14 @@ the SEAM framework.
 * '''Requirements:'''
 ** [[Technology:JBoss|JBoss]]-4.2.x (http://sourceforge.net/projects/jboss/files/JBoss/JBoss-4.2.3.GA)
 ** [[Technology:Eclipse]]
-* '''Deployment:'''
+* '''Import:'''
 ** Import the seam project as a java project into eclipse.
-** change the build.properties located in the projects base folder. The ''jboss.home''-property must refer to your JBoss location:  ''jboss.home = <your jboss location>''
+** change the build.properties located in the projects base folder. The ''jboss.home''-property must refer to your JBoss location:
+ jboss.home = <your jboss location>
+* '''Build:'''
 ** run the seam project as ant build in eclipse.
+* '''Run:'''
+** Run jboss using ''<your jboss location>/bin/run.bat''
 * '''Access:'''
 ** start a web-browser
 ** go to: http://localhost:8080/seam
