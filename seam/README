@@ -17,8 +17,8 @@ illustrate building a web applications with Seam
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
-* [[101feature:Database]]
-* [[101feature:Authentication]]
+* [[101feature:Persistence]]
+* [[101feature:Access control]]
 
 
 == Motivation == 
@@ -26,6 +26,10 @@ illustrate building a web applications with Seam
 This is a simple web implementation of the basic 101companies-features, plus 
 database persistence and authentication/authorization feaures, using  
 the SEAM framework.
+
+== Illustration ==
+
+== Architecture ==
 
 == Usage ==
 
@@ -57,3 +61,4 @@ the SEAM framework.
 == Contributors ==
 
 * {{101contributor|Rodrigo Bonifacio|developer}}
+* {{101contributor|Tobias Zimmer|reviewer}}
