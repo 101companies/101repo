@@ -19,7 +19,7 @@
 
 == Motivation ==
 
-We exercise [[101feature:Logging]] in [[Language:Haskell]] by making use of the [[Writer Monad]]. That is, during the process of [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] [[101feature:Company|companies]] we log messages like intermediate results. In this implmenetation the logs are of type <syntaxhighlight lang=haskell" enclose="none">String</syntaxhighlight>, but they could be of any [[Monoid]] type.
+We exercise [[101feature:Logging]] in [[Language:Haskell]] by making use of the [[Writer Monad]]. That is, during the process of [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] [[101feature:Company|companies]] we log messages like intermediate results. In this implementation the logs are of type <syntaxhighlight lang=haskell" enclose="none">String</syntaxhighlight>, but they could be of any [[Monoid]] type.
 
 == Illustration ==
 
@@ -44,11 +44,11 @@ cutLogDept n d@(Department name m dus eus) = do
 </syntaxhighlight>
 
 We log the start of the process of cutting a department by adding a message containing the department's name and the old total salary. We are making use of <syntaxhighlight lang=haskell" enclose="none">tell</syntaxhighlight> function, which is provided by the ''Control.Monad.Writer'' module, to add messages to the log.
-To prettyPrint this log later on we indent all log lines using the given indent size <syntaxhighlight lang=haskell" enclose="none">n</syntaxhighlight>. We then cut the department manager passing the increased indent size. To cut all sub departments and employees we make use of the monadic map function <syntaxhighlight lang=haskell" enclose="none">mapM</syntaxhighlight>. After that we log that department cutting is finished and what the new total salary is.
+To prettyPrint this log later on we indent all log lines using the given indent size <syntaxhighlight lang=haskell" enclose="none">n</syntaxhighlight>. We then cut the department manager passing the increased indent size in line 4. To cut all sub departments and employees we make use of the monadic map function <syntaxhighlight lang=haskell" enclose="none">mapM</syntaxhighlight> in lines 5 and 6. After that we log that department cutting is finished and what the new total salary is.
 
 == Architecture ==
 
-[this!!Total.hs] and [this!!Cut.hs] contain functionality to total and cut salaries while logging the process of doing so. [this!!Types.hs]] holds the log type and a function for pretty printing logs. The algebraic datatype for companies can be found in [this!!Company.hs]. The ''Main'' module in [this!!Main.hs] collects test scenarios for totaling and cutting a sample company provided by [this!!SampleCompany.hs].
+[this!!Total.hs] and [this!!Cut.hs] contain functionality to total and cut salaries while logging the process of doing so. [this!!Types.hs] holds the log type and a function for pretty printing logs. The algebraic datatype for companies can be found in [this!!Company.hs]. The ''Main'' module in [this!!Main.hs] collects test scenarios for totaling and cutting a sample company provided by [this!!SampleCompany.hs].
 
 == Usage ==
 
