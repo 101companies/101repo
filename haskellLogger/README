@@ -42,7 +42,10 @@ cutLogDept n d@(Department name m dus eus) = do
     cutDus <- mapM (cutLogDept (n + 1)) dus
     cutEus <- mapM (cutLogEmployee (n + 1)) eus
     let cutD = Department name cutManager cutDus cutEus
-    tell [replicate n '\t' ++ "Done cutting Department \"" ++ name ++ "\", new Total = " ++ (show $ totalDept cutD)]
+    tell [replicate n '\t' ++ "Done cutting Department \"" 
+                           ++ name 
+                           ++ "\", new Total = " 
+                           ++ (show $ totalDept cutD)]
     return cutD
 </syntaxhighlight>
 
