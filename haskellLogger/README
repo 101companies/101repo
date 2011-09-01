@@ -55,8 +55,7 @@ To prettyPrint this log later on we indent all log lines using the given indent 
 The Haskell module ''Main'' has to be consulted with GHCi, and the
 ''main'' function has to be applied so that output for the test
 scenarios is produced. The ''expected'' output is available through
-the file ''baseline''. There is a ''Makefile'' with a target ''test''
-for [[test automation]].
+the file ''baseline''. There is a ''Makefile'' with a target ''test'' for [[test automation]].
 Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
