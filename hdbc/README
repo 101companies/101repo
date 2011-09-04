@@ -22,7 +22,7 @@ database programming with [[Technology:HDBC]]
 == Motivation ==
 
 We use [[Technology:HDBC]] for data processing. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within the database. To connect to the [[Technology:MySql]] [[Database|database]] we use an [[ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[Database implementation|database implementation]]. We demonstrate the use of [[Prepared statement|prepared statements]] in HDBC.
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a database. To connect to the [[Technology:MySql]] [[Database|database]] we use an [[ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[Database implementation|database implementation]]. We demonstrate the use of [[Prepared statement|prepared statements]] in HDBC.
 
 == Illustration ==
 
