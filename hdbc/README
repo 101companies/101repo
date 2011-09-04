@@ -31,7 +31,11 @@ and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a data
 In the ''Main'' module (in [this!!Main.hs]) we connect to the MySql database by using appropriate connection information:
 
 <syntaxhighlight lang="haskell">
-let connString = "Driver={MySQL ODBC 5.1 Driver};Server=localhost;Port=3306;Database=101companies;User=root;"
+let connString = "Driver={MySQL ODBC 5.1 Driver};"
+              ++ "Server=localhost;"
+              ++ "Port=3306;"
+              ++ "Database=101companies;"
+              ++ "User=root;"
 conn <- connectODBC connString
 </syntaxhighlight>
 
