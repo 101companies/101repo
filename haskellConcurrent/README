@@ -20,7 +20,7 @@ task parallel programming in [[Language:Haskell]]
 == Motivation ==
 
 We make use of [[Language:Haskell]]'s [[Concurrency]] support. That is, we are using synchronized variables ([[MVar]]), which are shared among different threads. 
-Each thread [[101feature:Total|totals]] resp. [[101feature:Cut|cuts]] only the salaries in a specifed department, subdepartments are handled by new threads.
+Each thread [[101feature:Total|totals]] resp. [[101feature:Cut|cuts]] only the salaries in a specifed department; subdepartments are handled by new threads.
 The result of the computations (float values resp. new company entities) are stored in a MVar and then collected and aggregated with other results by the "upper" thread. 
 We also demonstrate the use of tryTakeMVar by implementating an aggregation function that collects all mvars values in a list of mvars, but does not block on every element (see [[#Illustration|Illustration]]).    
 
