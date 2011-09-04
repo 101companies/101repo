@@ -96,8 +96,8 @@ In the ''Main'' module (in [this!!Main.hs]) we execute the company parser:
 parsedCompany <- liftM parseCompany $ readFile "sample.Company"
 </syntaxhighlight>
 
-The variable either holds a parse error or a company. 
-We define a print-function:
+The variable <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> either holds a <syntaxhighlight lang="haskell" enclose="none">ParseError</syntaxhighlight> value or a parsed company. 
+We define print-function handling both cases:
 
 <syntaxhighlight lang="haskell" line>
 rightApplyPrint :: Show a => Either ParseError Company -> (Company -> a) -> IO ()
@@ -107,7 +107,7 @@ rightApplyPrint (Left e) _ = print e
 
 In case parsing was successful this function applies a given function to the company and prints the result. In case of a parse error it prints the error message.
 
-We can use this function to print the total salary in case of parsing success:
+We can use this function to print the total salary of <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> in case of parsing success:
 
 <syntaxhighlight lang="haskell" line>
 rightApplyPrint parsedCompany total
@@ -116,16 +116,17 @@ rightApplyPrint parsedCompany total
 == Architecture ==
 
 [this!!Parser.hs] provides the Parsec-based parser. [this!!Company.hs] holds the algebraic datatype for companies, 
-while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany] holds a sample company used 
-to be compared to a parsed sample company (in [this!!sample.Company]). The Main module ([this!!Main.hs]) collects test scenarios.
+while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany] holds a sample company used to be compared to a parsed sample company (hosted by [this!!sample.Company]). The Main module ([this!!Main.hs]) collects test scenarios.
 
 == Usage ==
 
-The Haskell module ''Main'' has to be consulted with GHCi, and the
-''main'' function has to be applied so that output for the test
-scenarios is produced. The ''expected'' output is available through
-the file ''baseline''. There is a ''Makefile'' with a target ''test''
-for [[test automation]].
+* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
+* The output should be equal to the content of the file [this!!baseline].
+
+One can also use the [this!Makefile] with a target ''test'' for [[test automation]].
+
+*Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
 
