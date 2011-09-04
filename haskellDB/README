@@ -99,7 +99,7 @@ total cname = do
   project (ttl << _sum (es!E.salary))
 </syntaxhighlight>
 
-We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</syntaxhighlight> monad. The <syntaxhighlight lang="haskell" enclose="none">table</syntaxhighlight> functions return all records in the given table. Using two tables basically gives us the rational cross product of those tables. We use HaskellDB's selection function <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight> to select only those rows in which the company-id of the employee is equal to the company which has the given name <syntaxhighlight lang="haskell" enclose="none">cname</syntaxhighlight>. Inside <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight> we only select the salary column and then use the aggregation function <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight> to total all salaries. After that we put the value in the above definied field. 
+We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</syntaxhighlight> monad. The <syntaxhighlight lang="haskell" enclose="none">table</syntaxhighlight> functions return all records in the given table. Using two tables basically gives us the rational cross product of those tables. We use HaskellDB's selection function <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight> to select only those rows in which the company-id of the employee is equal to the company which has the given name <syntaxhighlight lang="haskell" enclose="none">cname</syntaxhighlight>. By making use of <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight> we only select the salary column and then use the aggregation function <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight> to total all salaries. After that we put the total value in the above definied field. 
 
 === Executing the query ===
 
@@ -109,7 +109,7 @@ We use <syntaxhighlight lang="haskell" enclose="none">query</syntaxhighlight> an
 [res] <- withDB $ (\db -> query db (total "meganalysis"))
 </syntaxhighlight>
 
-This gives us a list (which we expect to be a singleton list) of records. We can now access the <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> field of record <syntaxhighlight lang="haskell" enclose="none">res</syntaxhighlight> by using the <syntaxhighlight lang="haskell" enclose="none">(!)</syntaxhighlight>-operator and print the field's value:
+This gives us a list (which we expect to be a singleton list) of records. We can now access the <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> attribute of the record <syntaxhighlight lang="haskell" enclose="none">res</syntaxhighlight> by using the <syntaxhighlight lang="haskell" enclose="none">(!)</syntaxhighlight>-operator. After that we print the total value:
 
 <syntaxhighlight lang="haskell">
 print $ res!ttl
