@@ -92,12 +92,14 @@ The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling an
 
 == Usage ==
 
-First all sources have to be compiled using the GHC-options ''-c -Odph -fdph-seq''.
-The Haskell module ''Main'' has to be consulted with GHCi, and the
-''main'' function has to be applied so that output for the test
-scenarios is produced. The ''expected'' output is available through
-the file ''baseline''. There is a ''Makefile'' with a target ''test''
-for [[test automation]]. There is a ''clean'' target to "reset" the project.
+* All sources have to be compiled using the GHC-options <syntaxhighlight lang="make" enclose="none">-c -Odph -fdph-seq</syntaxhighlight>.
+* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
+* The output should be equal to the content of the file [this!!baseline]. 
+
+One can also use the [this!Makefile] with a target ''test'' for [[test automation]].
+
+* Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
 
