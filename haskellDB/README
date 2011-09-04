@@ -67,7 +67,7 @@ This command generates a module describing the database by '''naming''' tables a
 
 === Totaling ===
 
-A function defining a query to total all salaries of a company (specified by name) can be found in the ''Total'' module (in [this!!Total.hs]).We import the description modules for the companies and employees tables:
+A function defining a query to total all salaries of a given company (specified by name) can be found in the ''Total'' module (in [this!!Total.hs]). We import the description modules for the companies and employees tables:
 
 <syntaxhighlight lang="haskell">
 import qualified DBDesc.Employee as E
