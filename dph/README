@@ -30,9 +30,9 @@ In this context we also demonstrate some of DPH's current limitations (see illus
 * A DHP-specific [[Prelude]] with specific primitive types.
 
 The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
-The cut list of salary values has then to be "consumed" by the company in question.
+The cut list of salary values has then to be "reconsumed" by the company in question.
 These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions, 
-but this implementation is supposed to just demonstrate how one can use data parallism rather than being about efficiency.
+but this implementation is supposed to demonstrate how one can use data parallism rather than being about efficiency.
 
 == Illustration ==
 
