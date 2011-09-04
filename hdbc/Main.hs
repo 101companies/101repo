@@ -8,7 +8,11 @@ import Cut
 
 main = do
     -- connect
-    let connString = "Driver={MySQL ODBC 5.1 Driver};Server=localhost;Port=3306;Database=101companies;User=root;"
+    let connString = "Driver={MySQL ODBC 5.1 Driver};"
+              ++ "Server=localhost;"
+              ++ "Port=3306;"
+              ++ "Database=101companies;"
+              ++ "User=root;"
     conn <- connectODBC connString
     
     -- company name
