@@ -78,7 +78,7 @@ In line 3 we parse the keyword for department declaration "department". After th
 
 === Running the Parser ===
 
-Running the company parser is realized by making use of <syntaxhighlight lang="haskell" enclose="none">runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either ParseError a</syntaxhighlight>
+Running the company parser is realized by making use of <syntaxhighlight lang="haskell" enclose="none">runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either ParseError a</syntaxhighlight>.
 We are dealing with parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.Therefore in this example the type signature for <syntaxhighlight lang="haskell" enclose="none">runP</syntaxhighlight> simplifies to <syntaxhighlight lang="haskell" enclose="none">Parsec String () Company -> () -> SourceName -> String -> Either ParseError a</syntaxhighlight>. When we choose <syntaxhighlight lang="haskell" enclose="none">"input"</syntaxhighlight> as the source name we can define a function to run the company parser:
 
 <syntaxhighlight lang="haskell" line>
