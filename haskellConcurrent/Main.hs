@@ -9,7 +9,7 @@ main = do
    oldTotal <- totalCompany company
    print oldTotal
    
-   cutCompany <- cutCompany company
+   cutC <- cutCompany company
    
-   newTotal <- totalCompany cutCompany
+   newTotal <- totalCompany cutC
    print newTotal
