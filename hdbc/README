@@ -73,7 +73,6 @@ In the following we explain the steps for [http://www.apachefriends.org/en/xampp
 We also need some SQL tool.
 In the following we explain the steps for [http://dev.mysql.com/downloads/workbench/ MySQL Workbench].
 
-
 * Download and install XAMPP
 * Open the "XAMPP Control Panel" and start "Apache" and "Mysql"
 * A local MySQL Server is now running:
