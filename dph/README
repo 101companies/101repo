@@ -43,7 +43,7 @@ We therefore flatten the company to become a list of salaries (see [this!!Salary
 
 ==== Non-vectorised code ====
 
-Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>. This code can be found in [this!!Cut.hs]:
+Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> before we can total and cut in parallel. The cut for conversion before cutting can be found in [this!!Cut.hs]:
 
 <syntaxhighlight lang="haskell">
 cut :: Company -> Company
@@ -74,14 +74,14 @@ cutV v = toPArrayP (cutVP (fromPArrayP v))
 This function converts from <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> to a parallel array <syntaxhighlight lang="haskell" enclose="none">[:Float:]</syntaxhighlight>, calls the
 parallel code and converts back to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight>.
 A parallel array can only be used in a vectorised module, so only here can we convert to it. Marking this function <syntaxhighlight lang="haskell" enclose="none">{-# NOINLINE cutV #-}</syntaxhighlight> makes
-it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> also calls the actual data parallel function <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight>:
+it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> calls the actual data parallel function <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell">
 cutVP :: [:Float:] -> [:Float:]
 cutVP = mapP (/2)
 </syntaxhighlight>
 
-This code shows another limitations of current DPH version. The type of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be something like <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>, because at the moment DPH does not support typeclasses. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
+This code shows another limitations of current DPH version. The type signature of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be based on a typeclass like in <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>. This is due to the fact that DPH does not support typeclasses at the moment. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
 
 == Architecture ==
 
