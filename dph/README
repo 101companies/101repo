@@ -97,7 +97,7 @@ The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling an
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline]. 
 
-One can also use the [this!Makefile] with a target ''test'' for [[test automation]].
+One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
 
 * Use the taget ''clean'' to "reset" the project.
 
