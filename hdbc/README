@@ -22,7 +22,7 @@ database programming with [[Technology:HDBC]]
 == Motivation ==
 
 We use [[Technology:HDBC]] for data processing. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a database. To connect to the [[Technology:MySql]] [[Database|database]] we use an [[ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[Database implementation|database implementation]]. We demonstrate the use of [[Prepared statement|prepared statements]] in HDBC.
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a database. In this context we we demonstrate the use of [[Prepared statement|prepared statements]] in HDBC. To connect to the [[Technology:MySql]] [[Database|database]] we use an [[ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[Database implementation|database implementation]]. 
 
 == Illustration ==
 
@@ -62,6 +62,7 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 == Usage ==
 
 === Setup ===
+
 We need a local database server.
 In the following we explain the steps for [http://www.apachefriends.org/en/xampp.html XAMPP].
 
@@ -94,9 +95,13 @@ In the following we explain the steps for [http://dev.mysql.com/downloads/workbe
 
 === Testing ===
 
-* Now the Haskell module ''Main'' has to be run using GHCi, and the ''main'' function has to be applied.  
-* The output should be equal to the content of [this!!basefile]
-There is a ''Makefile'' with a target ''test'' for [[test automation]].
+* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
+* The output should be equal to the content of the file [this!!baseline].
+
+One can also use the [this!Makefile] with a target ''test'' for [[test automation]].
+
+* Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
 
