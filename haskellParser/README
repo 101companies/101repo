@@ -35,7 +35,7 @@ This implementation also demonstrates [[Functor|functors]] and functor combinato
 
 === Parser type ===
 
-We define a type alias for all of our parser:
+We define a type alias of all parsers that are definied in this implementation:
 
 <syntaxhighlight lang="haskell" line>
 type P = Parsec String ()
@@ -45,23 +45,23 @@ That is, we are dealing with parsers of stream type <syntaxhighlight lang="haske
 
 === Primitive parsers ===
 
-We sometimes want to parse a specific string:
+In order to build the company parser we first need some primitive parsers.
+
+For parsing a given <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> value we define:
 
 <syntaxhighlight lang="haskell" line>
 pString :: String -> P String
 pString s = string s <* spaces
 </syntaxhighlight>
 
-<syntaxhighlight lang="haskell" enclose="none">pString</syntaxhighlight> parses a given string while ignoring trailing splaces.
+This parser also comsumes trailing spaces.
 
-We also need a parser for literals:
+We also need a parser for literals. <syntaxhighlight lang="haskell" enclose="none">pLit</syntaxhighlight> parses a quoted string:
 
 <syntaxhighlight lang="haskell" line>
 pLit :: P String
 pLit = string "\"" *> many (noneOf "\"") <* string "\"" <* spaces
 </syntaxhighlight>
-
-<syntaxhighlight lang="haskell" enclose="none">pLit</syntaxhighlight> parses a quoted string.
 
 === Parsing a department ===
 
