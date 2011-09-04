@@ -58,7 +58,7 @@ To prettyPrint this log later on we indent all log lines using the given indent 
 
 == Usage ==
 
-* The Haskell module ''Main'' has to be loaded into GHCi. 
+* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
 
