@@ -5,8 +5,9 @@ view.refresh = function() {
     content = "<ul>";
     
     if (model.response.departments.length > 0) {
-        content += "<li> <input id=\"0\" type=\"image\" src=\"symbols/plus.gif\" onclick=\"treeNavigation.toggleList(this)\"> <b>" + model.response.name + "</b></li>";
+        content += "<li> <input id=\"0\" type=\"image\" src=\"symbols/plus.gif\" onclick=\"treeNavigation.toggleList(this)\"> <b>" + model.response.name + "</b>";
         content += view.showDepartments(model.response.departments, "0");
+        content += "</li>";
     } else {
         content += "<li> <img src=\"symbols/leaf.gif\"> <b>" + model.response.name + "</b></li>";
     }
@@ -22,13 +23,14 @@ view.showDepartments = function(deps, id) {
     for (var i = 0; i < deps.length; i++) {
         if (deps[i].employees.length > 0 || deps[i].departments.length > 0) {
             var idTemp = id + i;
-            content += "<li> <input id=\"" + idTemp + "\" type=\"image\" src=\"symbols/plus.gif\" onclick=\"treeNavigation.toggleList(this)\"> <i>" + deps[i].name + "</i></li>";
+            content += "<li> <input id=\"" + idTemp + "\" type=\"image\" src=\"symbols/plus.gif\" onclick=\"treeNavigation.toggleList(this)\"> <i>" + deps[i].name + "</i>";
             if (deps[i].employees.length > 0) {
                 content += view.showEmployees(deps[i].employees, idTemp);
             }
             if (deps[i].departments.length > 0) {
                 content += view.showDepartments(deps[i].departments, idTemp);
             }
+            content += "</li>";
         } else {
             content += "<li> <img src=\"symbols/leaf.gif\"> <i>" + deps[i].name + "</i></li>";
         }

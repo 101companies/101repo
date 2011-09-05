@@ -5,14 +5,14 @@ var treeNavigation = {
         
         if (minimized || minimized == null) {
             jQuery(el).prop("src", "symbols/minus.gif");
-            jQuery(el).parent().parent().find("ul").each(function() {
+            jQuery(el).parent().find("ul").each(function() {
                 if (jQuery(this).prop("id") == id ) {
                     jQuery(this).css("display", "block");
                 }
             });
         } else {
             jQuery(el).prop("src", "symbols/plus.gif");
-            jQuery(el).parent().parent().find("ul").each(function() {
+            jQuery(el).parent().find("ul").each(function() {
                 if (jQuery(this).prop("id") == id ) {
                     jQuery(this).css("display", "none");
                 }
