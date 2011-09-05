@@ -84,6 +84,38 @@ input {}
     height: 25px;
 }
 
+.companyButton {
+    color:#000000;
+    font-weight: bold;
+    background-color: #e0e0e0; 
+    border:0px;
+}
+
+.companyButton:HOVER {
+    color:#006600;
+}
+
+.departmentButton {
+    color:#000000;
+    font-style: italic;
+    background-color: #e0e0e0; 
+    border:0px;
+}
+
+.departmentButton:HOVER {
+    color:#006600;
+}
+
+.employeeButton {
+    color:#000000;
+    background-color: #e0e0e0; 
+    border:0px;
+}
+
+.employeeButton:HOVER {
+    color:#006600;
+}
+
 /* --------------------------------------------------------- */
 /* errormessages */
 error {
