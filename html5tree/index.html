@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>101companies application</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        
+        <script type="text/javascript" src="client/javascript/controller.js"></script>
+        <script type="text/javascript" src="client/javascript/model/XMLHttpRequest.js"></script>
+        <script type="text/javascript" src="client/javascript/model/treeModel.js"></script>
+        <script type="text/javascript" src="client/javascript/view/treeView.js"></script>
+        
+        <script type="text/javascript" src="jquery/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="jquery/treeNavigation.js"></script>
+    </head>
+    <body>
+        <table>
+            <tr><th colspan="2">101Companies application</th></tr>
+            <tr><td class="tree"><div id="tree">tree</div></td><td class="view"><div id="view"></div></td></tr>
+        </table>
+        
+        <script type="text/javascript">
+            controller.loadTree(1);
+        </script>
+    </body>
+</html>

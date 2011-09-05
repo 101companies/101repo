@@ -1,0 +1,97 @@
+/* 
+    Document   : style
+    Created on : 27.07.2011, 15:21:53
+    Author     : Tobias Zimmer
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+/* headline */
+h1 {
+    text-align: center;
+    font-size: x-large;
+    font-family: fantasy;
+    font-style: normal;
+    font-weight: lighter;
+    font-variant: small-caps;
+}
+
+/* background */
+body {
+    background: #a0b0c0;
+}
+
+/* --------------------------------------------------------- */
+/* table */
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* table row */
+tr {
+    
+}
+
+/* table cell */
+td {
+    border-width: thin;
+    border: 1px #000000 solid;
+    background: #e0e0e0;
+    vertical-align: top;
+    text-align: left;
+    padding-bottom: 0px;
+}
+
+.tree {
+    min-width: 350px;
+    height: 300px;
+}
+
+.view {
+    min-width: 450px;
+}
+
+/* table headline */
+th {
+    text-align: center;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-variant: small-caps;
+}
+
+/* --------------------------------------------------------- */
+/* input: textfield, button */
+input {}
+
+/* textfield */
+.text {
+    width: 300px;
+}
+
+/* button */
+.button {
+    width: 80px;
+    height: 25px;
+}
+
+/* --------------------------------------------------------- */
+/* errormessages */
+error {
+    color: #ee3232;
+}
+
+/* --------------------------------------------------------- */
+/* lists */
+ul {
+    list-style: none;
+}
