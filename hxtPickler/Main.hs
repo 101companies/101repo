@@ -13,7 +13,7 @@ getCompany cs = do
     
     -- exit on deserialization failure
     if (null cs || length cs /= 1) 
-      then exitWith (ExitFailure (-1))
+      then error "Company could not be unpickled."
       else return () 
     
     -- extract company from arrow result
