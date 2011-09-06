@@ -22,15 +22,15 @@
 
 == Motivation ==
 
-We exercise Haskell data/XML mapping by making use of [[Technology:HXT]]'s [[Technology:Pickler|pickler]] arrows and functions. 
+We exercise Haskell data/XML mapping by making use of [[Technology:HXT]]'s [[Technology:Pickler|pickler]] [[Arrow|arrows]] and functions. 
 
 That is, we declare XmlPickler instances for companies, departments and employees and define appropriate pickler functions. 
 This enables us to [[101feature:Serialization|serilize]] values of an algebraic datatype for [[101feature:Company|companies]] (much like the one in [[101implementation:haskell]]) as XML data.
-We demonstrate declaring and using picklers by:
-* Declaring XMLPickler instances.
-* Using predefined picklers such as xpPrim for primitive values
-* Using combinators for lists (xpList), option (xpOption) and alternative (xpAlt).
-* The wrapper pickler xpWrap.
+We demonstrate common usage of HXT by:
+* Declaring instances of the <syntaxhighlight lang="haskell" enclose="none">XMLPickler</syntaxhighlight> typeclass.
+* Using predefined picklers such as <syntaxhighlight lang="haskell" enclose="none">xpPrim</syntaxhighlight> for primitive values
+* Using combinators for lists (<syntaxhighlight lang="haskell" enclose="none">xpList</syntaxhighlight>), option (<syntaxhighlight lang="haskell" enclose="none">xpOption</syntaxhighlight>) and alternative (<syntaxhighlight lang="haskell" enclose="none">xpAlt</syntaxhighlight>).
+* Using the wrapper pickler <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight>.
 * Using those picklers to pickle and unpickle xml documents.
 
 == Illustration ==
