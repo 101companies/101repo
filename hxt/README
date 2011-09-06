@@ -21,18 +21,17 @@ tree-based XML processing with [[Technology:HXT]] in [[Language:Haskell]]
 
 == Motivation ==
 
-[[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
-That is, we use a rich combinator library to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company-xml-tree.
+[[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox (HXT)]] is used for processing such company-xml-data.
+That is, we use HXT's rich combinator library to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company-xml-tree.
 The concept of [[Arrow|arrows]] is also demonstrated in this implementation, because the combinator library is heavily based on this concept. That is we exercise:
-* Using arrow combinators such as ''>>>'' and ''`when`'' for expressing queries and transformations.
-* Lifing ordinary functions into the arrow space using ''arr'' to use them queries and transformations.
-* Using ''Control.Arrow.ArrowList'''s ''listA'' for collecting all arrow results in a list.
-* Running these arrows with IO, say switching between arrows and the IO [[monad|Monad]] space (See the illustration section).
-
+* Using arrow combinators such as <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight> and <syntaxhighlight lang="haskell"  enclose="none">when</syntaxhighlight> for expressing queries and transformations.
+* Lifing ordinary functions into the arrow space using <syntaxhighlight lang="haskell"  enclose="none">arr</syntaxhighlight>.
+* Using ''Control.Arrow.ArrowList'''s <syntaxhighlight lang="haskell"  enclose="none">listA</syntaxhighlight> for collecting all arrow results in a list.
+* Running these arrows in the [[IO Monad]].
 
 == Illustration ==
 
-In the following we will demonstrate the construction of the arrow for [[101feature:Total|totaling]] and how one can run this arrow in IO.
+In the following we will demonstrate the construction of an arrow for [[101feature:Total|totaling]] and how one can run this arrow in IO.
 The code can be found in [this!!Total.hs] respectively [this!!Main.hs]
 
 === Total ===
