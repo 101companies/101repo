@@ -63,7 +63,7 @@ class Readable a where
     readA :: Focus -> Company -> a
 </syntaxhighlight>
 
-An instance declaration for departments looks like this:
+We declare an instance for <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" line>
 instance Writeable Department where
@@ -76,27 +76,7 @@ readDepartment (DeptFocus ns) (Company _ depts) = readStep ns depts
         readStep (n:ns) depts = readStep ns $ getDus $ depts !! n
 </syntaxhighlight>
 
-Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">readDepartment</syntaxhighlight> navigates through the company until it reaches the department in question.
-
-=== Starting the GUI ===
-
-In the ''Main'' module we use xwHaskell's <syntaxhighlight lang="haskell" enclose="none">start :: IO a -> IO ()</syntaxhighlight>. This function runs the given GUI of type <syntaxhighlight lang="haskell" enclose="none">IO a</syntaxhighlight> while discarding <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> and returning <syntaxhighlight lang="haskell" enclose="none">IO ()</syntaxhighlight> (code can be found in [this!!Main.hs]):
-
-<syntaxhighlight lang="haskell" line>
-gui :: IO ()
-gui = do
-    f <- frame [ textBgcolor := colorRGB 112 128 144 
-               , resizeable := False
-               , fontWeight := WeightBold
-               , fontUnderline := False
-               , position := Point 50 50]
-    showCompany f CompanyFocus company 
-
-main :: IO ()
-main = start gui
-</syntaxhighlight>
-
-<syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. After that the function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company provided by the ''SampleCompany'' module (in [this!!SampleCompany.hs]).
+Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">readDepartment</syntaxhighlight> navigates through the company until it reaches the department in question. This <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> value is returned by the function.
 
 === The views ===
 
@@ -177,6 +157,25 @@ view f focus = view' f focus
               (ManagerFocus _)    -> viewEmployee       
 </syntaxhighlight>
 
+=== Starting the GUI ===
+
+In the ''Main'' module we use xwHaskell's <syntaxhighlight lang="haskell" enclose="none">start :: IO a -> IO ()</syntaxhighlight>. This function runs the given GUI of type <syntaxhighlight lang="haskell" enclose="none">IO a</syntaxhighlight> while discarding <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> and returning <syntaxhighlight lang="haskell" enclose="none">IO ()</syntaxhighlight> (code can be found in [this!!Main.hs]):
+
+<syntaxhighlight lang="haskell" line>
+gui :: IO ()
+gui = do
+    f <- frame [ textBgcolor := colorRGB 112 128 144 
+               , resizeable := False
+               , fontWeight := WeightBold
+               , fontUnderline := False
+               , position := Point 50 50]
+    showCompany f CompanyFocus company 
+
+main :: IO ()
+main = start gui
+</syntaxhighlight>
+
+<syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. After that the function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company provided by the ''SampleCompany'' module (in [this!!SampleCompany.hs]).
 
 == Architecture ==
 
