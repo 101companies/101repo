@@ -75,7 +75,7 @@ Because of type inference and because we also declared a XMLPickler instance for
 
 === Picklering a Company ===
 
-Picklering a company is realized by using [[Arrow|arrows]]:
+Picklering a company is realized by using arrows:
 
 <syntaxhighlight lang="haskell">
 runX ( constA company 
@@ -98,20 +98,17 @@ To unpickle a company the arrow function <syntaxhighlight lang="haskell" enclose
 
 == Architecture ==
 
-[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees.
-
-The algebraic datatype for [101feature:Company|companoies] and be found in [this!!Company.hs]. This file as well as [this!!Total.hs] and [this!!Cut] are adopted from [[101implementation:haskell]].
-
-The ''main'' module (in [this!!Main.hs]) collects test scenarios for picklering/unpicklering, totaling and cutting companies.
+[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for [101feature:Company|companoies] and be found in [this!!Company.hs]. This file as well as [this!!Total.hs] and [this!!Cut] are adopted from [[101implementation:haskell]].The ''main'' module (in [this!!Main.hs]) collects test scenarios for picklering/unpicklering, totaling and cutting companies.
 
 == Usage ==
 
-The Haskell module ''Main'' has to be consulted with GHCi, and the
-''main'' function has to be applied so that output for the test
-scenarios is produced. The ''expected'' output is available through
-the file ''baseline''. There is a ''Makefile'' with a target ''test''
-for [[test automation]].
-Use the taget ''clean'' to "reset" the project.
+* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
+* The output should be equal to the content of the file [this!!baseline].
+
+One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
+
+* Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
 
