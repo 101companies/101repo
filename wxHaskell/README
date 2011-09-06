@@ -30,7 +30,7 @@ This concept also helps us to read departments/employees from a given position w
 
 === Zipper ===
 
-By using the concept of zippers we specify positions of components within the company. In the ''API'' module we provide a algebraic datatype <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight>:
+By using the concept of zippers we specify positions of components within the company. In the ''API'' module (hold by [this!!API.hs]) we provide an algebraic datatype <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" line>
 data Focus = 
