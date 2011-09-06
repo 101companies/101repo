@@ -183,7 +183,12 @@ main = start gui
 
 == Usage ==
 
-The ''Main'' module has to be compiled using GHC the output executable has to run. There is a ''Makefile'' with a target ''start'' covering both stepts. Also, there is a ''clean'' target to "reset" the project.
+* The ''Main'' module has to be compiled using GHC
+* The output executable has to run. 
+
+There is a ''Makefile'' with a target ''start'' covering both stepts. 
+
+Also, there is a ''clean'' target to "reset" the project.
 
 == Contributors ==
 
