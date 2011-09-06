@@ -15,6 +15,7 @@
 * [[Technology:XAMPP]]
 * [[Technology:Apache_HTTP_Server|Apache HTTP Server]]
 * [[Technology:XMLHttpRequest]]
+* [[Technology:jQuery]]
 * [[Technology:Webbrowser]] (HTML5 compliant)
 
 == Features ==
@@ -29,58 +30,14 @@
 
 == Motivation ==
 
-* This [[Language:HTML5|HTML5]]-project provides an optimized [[server-side]] data storage. While other projects like [[101implementation:html5XMLHttpRequest|html5XMLHttpRequest]] transmit the whole company-data from the [[server]] to the [[client]], this application only transmit the necessary data for the current page, which is the essential principe of an [[Technology:Ajax]]-application.
-
-* The data-transfer is realized with [[Technology:XMLHttpRequest]] and a [[server-side]] [[Language:php]]-script. The client sends a request to the [[server]] and the [[Language:php]]-script decides, which data should be transmitted. The response is wrapped in a stringified [[Technology:JSON]]-Object, which easily can be decoded by the [[client]]. It is evident to use [[Language:SQL]] for data storage in combination with the [[server-side]] [[Language:php]]-script.
-
-* The use of [[Technology:JSON]] instead of [[Language:XML]] has a major advantage: The request and response messages are created in an [[OO_programming_paradigm|object-oriented]] style. These objects can easily be translated into [[Technology:JSON]]-strings. There is no additional effort for creating and interpreting complex [[Language:XML]]-messages.
 
 == Illustration ==
 
-The client sends [[Technology:JSON]]-messages to the server using [[Technology:XMLHttpRequest]]. A [[Technology:JSON]]-message contains the information for the current page and some extra information about the action invoked on this page. A stringified JSON-object for cutting the company is looking like:
 
-<syntaxhighlight lang="text">
-{
-	"id":1,
-	"table":"company",
-	"action":"cut"
-}
-</syntaxhighlight>
-
-This message tells the server to [[101feature:Cut|cut]] the company with the identifier 1. The answer for this request is a stringified company object with all needed informations about the [[101feature:Company|company]] (and nothing more):
-
-<syntaxhighlight lang="text">
-{
-	"name":"meganalysis",
-	"departments":["Research","Development"],
-	"total":199873.5
-}
-</syntaxhighlight>
-
-The [[server]] receives the [[101feature:Cut|cut]]-request and performs the action:
-
-<syntaxhighlight lang="php">
-// ---------------------------------------- cut company
-function cut($jsonObject) {
-	$id = $jsonObject->id;
-	$request = "UPDATE employee SET salary = salary / 2 WHERE cid = $id";
-	mysql_query($request);
-        
-	return loadCompany($jsonObject);
-}
-</syntaxhighlight>
 
 == Architecture ==
 
-* This application is implemented with [[Architecture:MVC|MVC]]. The client is devided into the [[101feature:Interaction|view]] (e.g. [this!!/client/company.html company.html], [this!!/client/javascript/view/companyView.js companyView.js]), the controller ([this!!/client/javascript/controller.js controller.js]) and the model (e.g. [this!!/client/javascript/model/companyModel.js companyModel.js]). The controller manages the requests triggered by the view and changes the view, when the data has changed. The model manages the data. This means, in that case, that the model performs the [[Technology:XMLHttpRequest|requests]] and receives the responses of the [[Language:php]]-server.
 
-* The [[Technology:XMLHttpRequest|requests]] are encoded with [[Technology:JSON]]. Visit http://en.wikipedia.org/wiki/JSON to get more information. The structure of the messages is described in the [[101implementation:html5ajax#Illustration|illustration]]-section.
-
-* There is a single [[server-side]] [[Language:php]]-script for each page (e.g. [this!!/server/companyServer.php companyServer.php]). Each script receives the [[Technology:JSON]]-message and performs the delivered action. Each action is implemented as a seperate function. The implementation of the responses is [[OO_programming_paradigm|object-oriented]], which guarantees a consistent form for the messages (e.g. [this!!/server/classes/company.php company.php]).
-
-* The concrete data is stored in an [[Language:sql]]-database (comparing [[101implementation:mySql]]).
-
-* The [[client-side]] [[101feature:Validation]] is performed directly. If an exception occurs on the server, the response contains an error-flag and a list of field-identifiers and dedicated messages. This messages are delegated to the concerning fields in the GUI.
 
 == Usage ==
 
