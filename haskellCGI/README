@@ -40,7 +40,7 @@ In the following we will demonstate how a specific request is processed by the s
 
 === Cutting an employee's salary ===
 
-'''Scenario''': After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
+'''Scenario:''' After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
 
 ''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>''
 
