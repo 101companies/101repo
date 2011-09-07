@@ -105,15 +105,15 @@ writeCCookie = setCookie.(newCookie "companyCookie").show
 After that <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">getHtml</syntaxhighlight> passing the focus and the new company:
 
 <syntaxhighlight lang="haskell>
-getHtml :: Focus -> Company -> Html
-getHtml f = case f of 
+html :: Focus -> Company -> Html
+html f = case f of 
   CompanyFocus        -> companyHtml f
   (DeptFocus _)       -> deptHtml f
   (EmployeeFocus _ _) -> employeeHtml f
   (ManagerFocus _)    -> employeeHtml f   
 </syntaxhighlight>
 
-Based on the focus <syntaxhighlight lang="haskell enclose="none">getHtml</syntaxhighlight> calls one of the functions for composing HTML. In this example <syntaxhighlight lang="haskell enclose="none">case </syntaxhighlight> matches on <syntaxhighlight lang="haskell enclose="none">(EmployeeFocus _ _)</syntaxhighlight> and <syntaxhighlight lang="haskell enclose="none">employeeHtml</syntaxhighlight> is called. This function composes HTML for the employee in question using various HTML combinators (see [this!!CompanyHtml.hs] for details).
+Based on the focus <syntaxhighlight lang="haskell enclose="none">html</syntaxhighlight> calls one of the functions for composing HTML. In this example <syntaxhighlight lang="haskell enclose="none">case </syntaxhighlight> matches on <syntaxhighlight lang="haskell enclose="none">(EmployeeFocus _ _)</syntaxhighlight> and <syntaxhighlight lang="haskell enclose="none">employeeHtml</syntaxhighlight> is called. This function composes HTML for the employee in question using various HTML combinators (see [this!!CompanyHtml.hs] for details).
 
 == Architecture ==
 
