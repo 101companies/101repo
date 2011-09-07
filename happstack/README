@@ -36,11 +36,11 @@ In the following we will demonstate how a specific request is processed by the s
 
 === Saving an Employee ===
 
-After requesting to view a manager the user manipulated the input fields and submits a request by clicking a save button.
+'''Scenario:''' After requesting to view a manager the user manipulated the input fields and submits a request by clicking a save button.
 
 The browser sends an HTTP-request together with a company-cookie to the server. The URL looks like this:
 
-'''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>'''
+''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>''
 
 ==== Routing filter ====
 
