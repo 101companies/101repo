@@ -17,7 +17,84 @@
     <body>
         <table>
             <tr><th colspan="2">101Companies application</th></tr>
-            <tr><td class="tree"><div id="tree">loading tree ...</div></td><td class="view">
+            <tr><td class="out"><div id="tree" class="tree">loading tree ...</div></td><td class="out">
+                    
+                    <div class="view">
+                        <div id="company" style="display:none">
+                            <table>
+
+                                <tr>
+                                    <td class="label"><div id="companyNameLabel">Name:</div></td>
+                                    <td><input type="text" class="text" name="companyName"/><div id="namefailureComp"></div></td>                      
+                                </tr>
+                                <tr>
+                                    <td>Total:</td>
+                                    <td><input type="text" name="total" class="text" readonly="readonly"/></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+
+                        <div id="department" style="display:none">
+                            <table>
+
+                                <tr>
+                                    <td class="label"><div id="departmentLabelName">Name:</div></td>
+                                    <td><input type="text" class="text" name="companyName"/><div id="namefailureDep"></div></td>                      
+                                </tr>
+                                <tr>
+                                    <td>Parent:</td>
+                                    <td><select name="departmentParents" size="1" STYLE="width:100%;"></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Total:</td>
+                                    <td><input type="text" name="total" class="text" readonly="readonly"/></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
+                                </tr>
+
+                            </table>
+                            
+                            
+                        </div>
+
+                        <div id="employee" style="display:none">
+                            <table>
+
+                                <tr>
+                                    <td class="label"><div id="employeeLabelName">Name:</div></td>
+                                    <td><input type="text" class="text" name="companyName"/><div id="namefailureEmp"></div></td>                      
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td><input type="text" class="text" name="address"/><div id="addressfailure"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Parent:</td>
+                                    <td><select name="employeeParents" size="1" STYLE="width:100%;"></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Manager:</td>
+                                    <td><input type="radio" name="manager"> yes <input type="radio" name="manager"> no </td>
+                                </tr>
+                                <tr>
+                                    <td>Salary:</td>
+                                    <td><input type="text" name="total" class="text" readonly="readonly"/></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
                     
                 </td></tr>
         </table>

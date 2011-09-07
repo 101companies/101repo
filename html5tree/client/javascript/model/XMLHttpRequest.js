@@ -1,9 +1,9 @@
-var model = {};
+var requestUnit = {};
 
 // send request to the server
-model.sendRequest = function(strategy, params) {
+requestUnit.sendRequest = function(strategy, url, params) {
     var httpRequest = new XMLHttpRequest();
-    httpRequest.open('POST', model.url, true);
+    httpRequest.open('POST', url, true);
     httpRequest.setRequestHeader("Content-Type", "application/json");
     
     httpRequest.onload = function() {
@@ -13,13 +13,13 @@ model.sendRequest = function(strategy, params) {
 
             // if no error occurs, do something (strategy)
             if (result.error != true) {
-                model.response = result; 
-                model.error = {};
-                model.error.error = false;
+                requestUnit.response = result; 
+                requestUnit.error = {};
+                requestUnit.error.error = false;
                 strategy.update();
             // if there is an error: alert
             } else {
-                model.error = result;
+                requestUnit.error = result;
                 strategy.error();
             }
         }

@@ -14,6 +14,21 @@ root {
     display: block;
 }
 
+/* scroll */
+div {}
+
+.tree {
+    min-width: 450px;
+    max-width: 450px;
+    height: 300px;
+    overflow: auto;
+    margin: 0px auto;
+}
+
+.view {
+    min-width: 450px;
+}
+
 /* headline */
 h1 {
     text-align: center;
@@ -43,21 +58,19 @@ tr {
 
 /* table cell */
 td {
-    border-width: thin;
-    border: 1px #000000 solid;
-    background: #e0e0e0;
     vertical-align: top;
     text-align: left;
     padding-bottom: 0px;
 }
 
-.tree {
-    min-width: 350px;
-    height: 300px;
+.out {
+    border-width: thin;
+    border: 1px #000000 solid;
+    background: #e0e0e0;
 }
 
-.view {
-    min-width: 450px;
+.label {
+    width: 60px;
 }
 
 /* table headline */
@@ -75,7 +88,11 @@ input {}
 
 /* textfield */
 .text {
-    width: 300px;
+    width: 350px;
+}
+
+select {
+    height: 22px;
 }
 
 /* button */
@@ -84,6 +101,8 @@ input {}
     height: 25px;
 }
 
+/* --------------------------------------------------------- */
+/* Tree-Buttons */
 .companyButton {
     color:#000000;
     font-weight: bold;
@@ -93,6 +112,9 @@ input {}
 
 .companyButton:HOVER {
     color:#006600;
+    background-color: #e0e7e0;
+    border-top: 1px ridge #006600;
+    border-bottom: 1px groove #006600;
 }
 
 .departmentButton {
@@ -104,6 +126,9 @@ input {}
 
 .departmentButton:HOVER {
     color:#006600;
+    background-color: #e0e7e0;
+    border-top: 1px ridge #006600;
+    border-bottom: 1px groove #006600;
 }
 
 .employeeButton {
@@ -114,6 +139,9 @@ input {}
 
 .employeeButton:HOVER {
     color:#006600;
+    background-color: #e0e7e0;
+    border-top: 1px ridge #006600;
+    border-bottom: 1px groove #006600;
 }
 
 /* --------------------------------------------------------- */
