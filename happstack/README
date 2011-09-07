@@ -75,7 +75,7 @@ In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhigh
 
 ==== Saving ====
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" line>
 savePart :: View -> Focus -> ServerPartT IO Response
 savePart v f = do
   s <- save
@@ -95,7 +95,7 @@ The function starts by calling a save function, which is choosen based on the gi
 
 The ''Save'' module in [this!!Save.hs] holds the <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, in this case  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" line>
 saveEmployee :: Focus -> ServerPartT IO (Either [(ENames,String)] Company)
 saveEmployee f = do
   c <- readCCookie
@@ -131,7 +131,7 @@ validateEmployee c f (Employee n a s) = if null vs
 
 <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> composes two validations (see [this!!Validators.hs] for details):
 
-* <syntaxhighlight lang="haskell" enclose="none">validateNA</syntaxhighlight> checks whether the employee's name/address pair does not occur in the company <syntaxhighlight lang="haskell" enclose="none">c</syntaxhighlight>.
+* <syntaxhighlight lang="haskell" enclose="none">validateNA</syntaxhighlight> checks whether the employee's name/address pair is unique in the company <syntaxhighlight lang="haskell" enclose="none">c</syntaxhighlight>.
 * <syntaxhighlight lang="haskell" enclose="none">validateSalary</syntaxhighlight> checks two things regaring the employee's salary:
 ** Whether by changing the salary the employee's department-manager still receives the highest salary within the department.
 ** Whether the salary has a postive value.
@@ -143,7 +143,7 @@ In case both validations return <syntaxhighlight lang="haskell" enclose="none">N
 In our case the user might have tried to assign an invalid salary and an invalid name/address pair to the manager in question. Validation therefore would return error information. 
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> would call <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the error messages:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" line>
 displayPart :: View -> Focus -> Company -> [(ENames,String)] -> ServerPart Response
 displayPart v f c errs = do 
       td <- newTemplateDirectory' tDir (eNamesBinder errs $ binder f c $ emptyTemplateState tDir)
@@ -160,8 +160,8 @@ displayPart v f c errs = do
               EmployeeV -> "employee"
 </syntaxhighlight>
 
-Based on the view <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> decides which template and which binder to use. The binder will bind all template variables to strings or small HTML fragments. After that <syntaxhighlight lang="haskell" enclose="none">eNamesBinder</syntaxhighlight> will bind the error messages to template varibales. Both binders can be found in [this!!Binder.hs]. 
-They return a function of type <syntaxhighlight lang="haskell" enclose="none">Monad m => TemplateState m -> TemplateState m</syntaxhighlight>. That is binders are state transformers for templates.
+Based on the view <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> decides which template and which binder to use in lines 6-14. The binder will bind all template variables to strings or small HTML fragments. After that <syntaxhighlight lang="haskell" enclose="none">eNamesBinder</syntaxhighlight> will bind the error messages to template varibales. Both binders can be found in [this!!Binder.hs]. 
+They return a function of type <syntaxhighlight lang="haskell" enclose="none">Monad m => TemplateState m -> TemplateState m</syntaxhighlight>. That is, binders are state transformers for templates.
 
 <syntaxhighlight lang="haskell">
 employeeBinder :: Monad m => Focus -> Company -> (TemplateState m -> TemplateState m)
