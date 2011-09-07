@@ -34,15 +34,15 @@ In the ''main'' module (in [this!!Main]) the server is set up:
 main = runCGI $ handleErrors cgiMain
 </syntaxhighlight>
 
-We use a default error handler provided by the CGI library. <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> is the main request handler.
+We use a default error handler provided by the CGI library ''Network.CGI''. <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> is the main request handler, which definition is shown in the next section.
 
 In the following we will demonstate how a specific request is processed by the server.
 
 === Cutting an employee's salary ===
 
-After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
+'''Scenario''': After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
 
-'''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>'''
+''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>''
 
 Bacause of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to [[101implementation:happstack|happstack]]), the action and focus parameters are encoded as URL-parameters:
 
@@ -53,7 +53,7 @@ Bacause of the fact that the CGI library does not support any extraction of info
 
 In the ''Response'' module (in [this!!Response.hs]) the main request handler can be found:
 
-<syntaxhighlight lang="haskell>
+<syntaxhighlight lang="haskell line>
 cgiMain :: CGI CGIResult
 cgiMain =  do
             f <- getInput "focus"
@@ -69,7 +69,7 @@ cgiMain =  do
                   Save  -> doSave 
 </syntaxhighlight>
 
-We are working inside the <syntaxhighlight lang="haskell enclose="none">CGI</syntaxhighlight>-monad, which is provided by the library. The <syntaxhighlight lang="haskell enclose="none">getInput</syntaxhighlight> function tries to <syntaxhighlight lang="haskell enclose="none">read</syntaxhighlight> values of the <syntaxhighlight lang="haskell enclose="none">Action</syntaxhighlight> respectively <syntaxhighlight lang="haskell enclose="none">Focus</syntaxhighlight> datatypes out of the URL. In this example the <syntaxhighlight lang="haskell enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell enclose="none">Cut</syntaxhighlight> and <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> passing the focus. <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> returns a <syntaxhighlight lang="haskell enclose="none">Html</syntaxhighlight> value based on the given focus. The result is then used as the content of a new page, which is then rendered to an HTML document and returned as the <syntaxhighlight lang="haskell enclose="none">CGIResult</syntaxhighlight>.
+We are working inside the <syntaxhighlight lang="haskell enclose="none">CGI</syntaxhighlight>-monad, which is provided by the CGI library. In lines 3 and 5 the <syntaxhighlight lang="haskell enclose="none">getInput</syntaxhighlight> function tries to <syntaxhighlight lang="haskell enclose="none">read</syntaxhighlight> values of the <syntaxhighlight lang="haskell enclose="none">Action</syntaxhighlight> respectively <syntaxhighlight lang="haskell enclose="none">Focus</syntaxhighlight> datatypes out of the URL. By using a <syntaxhighlight lang="haskell enclose="none">case</syntaxhighlight> in line 10 we decide which action to perform. In this example the <syntaxhighlight lang="haskell enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell enclose="none">Cut</syntaxhighlight>. After that <syntaxhighlight lang="haskell enclose="none">cgiMain</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> in line 6  passing the focus. <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> returns an <syntaxhighlight lang="haskell enclose="none">IO Html</syntaxhighlight> value based on the given focus. The result is then used in line 7 as the content of a new page, which is then rendered to an HTML document and returned as the <syntaxhighlight lang="haskell enclose="none">CGIResult</syntaxhighlight>.
 
 ==== Cutting the cookie ====
 
