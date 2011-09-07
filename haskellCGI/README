@@ -75,7 +75,7 @@ We then call <syntaxhighlight lang="haskell enclose="none">doAction</syntaxhighl
 
 ==== Cutting the cookie ====
 
-The "cutting handler" <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> performs the acutal cut action:
+The function <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> performs the acutal cut action:
 
 <syntaxhighlight lang="haskell>
 doCut :: Focus -> CGI Html
