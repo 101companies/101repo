@@ -37,6 +37,7 @@
         
         // create department object
         $employee = new Employee();
+        $employee->setId($id);
         $employee->setName($name);
         $employee->setAddress($address);
         $employee->setSalary($salary);

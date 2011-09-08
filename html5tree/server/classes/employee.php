@@ -1,9 +1,15 @@
 <?php
 
     class Employee {
+        
+        public $id;
         public $name;
         public $address;
         public $salary;
+        
+        public function getId() {
+            return $id;
+        }
         
         public function getName() {
             return $name;
@@ -15,6 +21,10 @@
         
         public function getSalary() {
             return $salary;
+        }
+        
+        public function setId($newId) {
+            $this->id = $newId;
         }
         
         public function setName($name) {

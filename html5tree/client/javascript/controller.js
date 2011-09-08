@@ -32,6 +32,11 @@ controller.loadEmployee = function(id) {
     model.load(loadEntityStrategy, id);
 }
 
+// -------------------------------------------- cut
+controller.cut = function() {
+    model.cut(loadEntityStrategy);
+}
+
 // -------------------------------------------- Strategies
 // load tree
 var loadTreeStrategy = {};

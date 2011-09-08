@@ -16,3 +16,12 @@ departmentModel.load = function(strategy, id) {
 
     requestUnit.sendRequest(strategy, departmentModel.url, departmentModel.department);
 }
+
+// cut department
+departmentModel.cut = function(strategy) {
+    departmentModel.initDepartment();
+    departmentModel.department.id = departmentModel.response.id;
+    departmentModel.department.action = "cut";
+    
+    requestUnit.sendRequest(strategy, departmentModel.url, departmentModel.department);
+}

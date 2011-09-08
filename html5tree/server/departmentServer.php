@@ -60,6 +60,7 @@
         
         // create department object
         $department = new Department();
+        $department->setId($id);
         $department->setDepartments($departments);
         $department->setEmployees($employees);
         $department->setManager($manager);

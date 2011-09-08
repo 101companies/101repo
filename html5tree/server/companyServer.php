@@ -43,6 +43,7 @@
         
         // create company object
         $company = new Company();
+        $company->setId($id);
         $company->setName($name);
         $company->setTotal($total);
         

@@ -16,3 +16,11 @@ companyModel.load = function(strategy, id) {
 
     requestUnit.sendRequest(strategy, companyModel.url, companyModel.company);
 }
+
+// cut company
+companyModel.cut = function(strategy) {
+    companyModel.initCompany(companyModel.response.id);
+    companyModel.company.action = "cut";
+    
+    requestUnit.sendRequest(strategy, companyModel.url, companyModel.company);
+}
