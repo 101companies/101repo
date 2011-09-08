@@ -58,7 +58,7 @@ After the database is running, follow the next steps:
 The project is provided as a netbeans-project. If you want to change the code, you have to:
 
 * Download (http://netbeans.org/) and install [[Technology:NetBeans]]
-* "Open project" and select the html5ajax-folder
+* "Open project" and select the html5tree-folder
 
 == Contributors ==
 
