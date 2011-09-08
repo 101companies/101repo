@@ -2,29 +2,34 @@ var controller = {};
 
 // -------------------------------------------- init page
 controller.loadTree = function(id) {
-    treeModel.loadTree(loadTreeStrategy, id);
+    treeModel.load(loadTreeStrategy, id);
 }
 
 controller.loadCompany = function(id) {
-    //model = companyModel;
+    model = companyModel;
+    view = companyView;
     document.getElementById("company").style.display = "block";
     document.getElementById("department").style.display = "none";
     document.getElementById("employee").style.display = "none";
-    //model.loadCompany(loadCompanyStrategy, id);
+    model.load(loadEntityStrategy, id);
 }
 
 controller.loadDepartment = function(id) {
+    model = departmentModel;
+    view = departmentView;
     document.getElementById("company").style.display = "none";
     document.getElementById("department").style.display = "block";
     document.getElementById("employee").style.display = "none";
-    //model.loadDepartment(loadDepartmentStrategy, id);
+    model.load(loadEntityStrategy, id);
 }
 
 controller.loadEmployee = function(id) {
+    model = employeeModel;
+    view = employeeView;
     document.getElementById("company").style.display = "none";
     document.getElementById("department").style.display = "none";
     document.getElementById("employee").style.display = "block";
-    //model.loadEmployee(loadEmployeeStrategy, id);
+    model.load(loadEntityStrategy, id);
 }
 
 // -------------------------------------------- Strategies
@@ -36,8 +41,10 @@ loadTreeStrategy.update = function() {
 }
 loadTreeStrategy.error = function() { /* stub */ }
 
-// load company
-var loadCompanyStrategy = {};
-loadCompanyStrategy.update = function() {
-    //companyView.refresh();
+// load entity
+var loadEntityStrategy = {};
+loadEntityStrategy.update = function() {
+    model.response = requestUnit.response;
+    view.refresh();
 }
+loadEntityStrategy.error = function() { /* stub */ }

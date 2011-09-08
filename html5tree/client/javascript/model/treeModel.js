@@ -1,7 +1,7 @@
 var treeModel = {};
 
-// server for company-manipulation
-treeModel.url = 'server/tree.php';
+// treeview url
+treeModel.url = 'server/treeServer.php';
 
 // init request-parameter
 treeModel.initCompany = function(id) {
@@ -11,7 +11,7 @@ treeModel.initCompany = function(id) {
 }
 
 // load data for company
-treeModel.loadTree = function(strategy, id) {
+treeModel.load = function(strategy, id) {
     treeModel.initCompany(id);
     treeModel.company.action = "load";
 

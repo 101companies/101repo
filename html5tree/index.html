@@ -7,9 +7,18 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         
         <script type="text/javascript" src="client/javascript/controller.js"></script>
+        
         <script type="text/javascript" src="client/javascript/model/XMLHttpRequest.js"></script>
+        
         <script type="text/javascript" src="client/javascript/model/treeModel.js"></script>
+        <script type="text/javascript" src="client/javascript/model/companyModel.js"></script>
+        <script type="text/javascript" src="client/javascript/model/departmentModel.js"></script>
+        <script type="text/javascript" src="client/javascript/model/employeeModel.js"></script>
+        
         <script type="text/javascript" src="client/javascript/view/treeView.js"></script>
+        <script type="text/javascript" src="client/javascript/view/companyView.js"></script>
+        <script type="text/javascript" src="client/javascript/view/departmentView.js"></script>
+        <script type="text/javascript" src="client/javascript/view/employeeView.js"></script>
         
         <script type="text/javascript" src="jquery/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="jquery/treeNavigation.js"></script>
@@ -19,84 +28,95 @@
             <tr><th colspan="2">101Companies application</th></tr>
             <tr><td class="out"><div id="tree" class="tree">loading tree ...</div></td><td class="out">
                     
+                    <div id="headline"></div>
+                    
                     <div class="view">
                         <div id="company" style="display:none">
-                            <table>
+                            <form name="company">
+                                <table>
 
-                                <tr>
-                                    <td class="label"><div id="companyNameLabel">Name:</div></td>
-                                    <td><input type="text" class="text" name="companyName"/><div id="namefailureComp"></div></td>                      
-                                </tr>
-                                <tr>
-                                    <td>Total:</td>
-                                    <td><input type="text" name="total" class="text" readonly="readonly"/></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
-                                </tr>
-                                
-                            </table>
+                                    <tr>
+                                        <td class="label"><div id="companyNameLabel">Name:</div></td>
+                                        <td><input type="text" class="text" name="name"/><div id="namefailureComp"></div></td>                      
+                                    </tr>
+                                    <tr>
+                                        <td>Total:</td>
+                                        <td><input type="text" name="total" class="text" readonly="readonly"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
+                                    </tr>
+
+                                </table>
+                            </form>
                         </div>
 
                         <div id="department" style="display:none">
-                            <table>
+                            <form name="department">
+                                <table>
 
-                                <tr>
-                                    <td class="label"><div id="departmentLabelName">Name:</div></td>
-                                    <td><input type="text" class="text" name="companyName"/><div id="namefailureDep"></div></td>                      
-                                </tr>
-                                <tr>
-                                    <td>Parent:</td>
-                                    <td><select name="departmentParents" size="1" STYLE="width:100%;"></select></td>
-                                </tr>
-                                <tr>
-                                    <td>Total:</td>
-                                    <td><input type="text" name="total" class="text" readonly="readonly"/></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
-                                </tr>
+                                    <tr>
+                                        <td class="label"><div id="departmentLabelName">Name:</div></td>
+                                        <td><input type="text" class="text" name="name"/><div id="namefailureDep"></div></td>                      
+                                    </tr>
+                                    <tr>
+                                        <td>Total:</td>
+                                        <td><input type="text" name="total" class="text" readonly="readonly"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Manager:</td>
+                                        <td><select name="departmentManager" size="1" STYLE="width:100%;"></select></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Parent:</td>
+                                        <td><select name="departmentParents" size="1" STYLE="width:100%;"></select></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
+                                    </tr>
 
-                            </table>
-                            
-                            
+                                </table>
+                            </form>
                         </div>
 
                         <div id="employee" style="display:none">
-                            <table>
+                            <form name="employee">
+                                <table>
 
-                                <tr>
-                                    <td class="label"><div id="employeeLabelName">Name:</div></td>
-                                    <td><input type="text" class="text" name="companyName"/><div id="namefailureEmp"></div></td>                      
-                                </tr>
-                                <tr>
-                                    <td>Address:</td>
-                                    <td><input type="text" class="text" name="address"/><div id="addressfailure"></div></td>
-                                </tr>
-                                <tr>
-                                    <td>Parent:</td>
-                                    <td><select name="employeeParents" size="1" STYLE="width:100%;"></select></td>
-                                </tr>
-                                <tr>
-                                    <td>Manager:</td>
-                                    <td><input type="radio" name="manager"> yes <input type="radio" name="manager"> no </td>
-                                </tr>
-                                <tr>
-                                    <td>Salary:</td>
-                                    <td><input type="text" name="total" class="text" readonly="readonly"/></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
-                                </tr>
+                                    <tr>
+                                        <td class="label"><div id="employeeLabelName">Name:</div></td>
+                                        <td><input type="text" class="text" name="name"/><div id="namefailureEmp"></div></td>                      
+                                    </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td><input type="text" class="text" name="address"/><div id="addressfailure"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Salary:</td>
+                                        <td><input type="text" name="total" class="text" readonly="readonly"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Parent:</td>
+                                        <td><select name="employeeParents" size="1" STYLE="width:100%;"></select></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="button" class="button" value="save"/><input type="button" class="button" value="cut"/></td>
+                                    </tr>
 
-                            </table>
+                                </table>
+                            </form>
+                            
                         </div>
                     </div>
                     
-                </td></tr>
+                </td>
+            </tr>
+            
+            <tr><td colspan="2" class="out"><input type="button" class="buttonLong" value="create department"/><input type="button" class="buttonLong" value="create employee"/></td></tr>
+            
         </table>
         
         <script type="text/javascript">

@@ -6,9 +6,18 @@ requestUnit.sendRequest = function(strategy, url, params) {
     httpRequest.open('POST', url, true);
     httpRequest.setRequestHeader("Content-Type", "application/json");
     
+    httpRequest.onreadystatechange = function() {
+        if (this.readyState == 3) {
+            document.querySelector('#progress').innerHTML = "loading ...";
+        } else if (this.readyState == 4) {
+            document.querySelector('#progress').innerHTML = "";
+        }
+    }
+    
     httpRequest.onload = function() {
+        
         if (this.status == 200) {
-            //document.querySelector('#tree').innerHTML = httpRequest.responseText;
+            //document.querySelector('#headline').innerHTML = httpRequest.responseText;
             var result = JSON.parse(httpRequest.responseText);
 
             // if no error occurs, do something (strategy)
