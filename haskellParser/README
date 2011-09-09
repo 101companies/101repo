@@ -21,7 +21,7 @@ parsing textual syntax with [[Parsec]] in [[Language:Haskell]]
 
 == Motivation ==
 
-We make use of [[Language:Haskell]]'s [[Parsec]] [[Parser|parser]] combinator library to parse concrete textual syntax for [[101feature:Company|companies]].
+We make use of [[Language:Haskell]]'s [[Parsec]] [[Parsing|parser]] combinator library to parse concrete textual syntax for [[101feature:Company|companies]].
 We combine smaller parsers, say for salaries, to larger parsers, say for employees, to build a parser for companies.
 In terms of parsing we exercice:
 
@@ -29,7 +29,7 @@ In terms of parsing we exercice:
 * Alternative
 * Option
 
-This implementation also demonstrates [[Functor|functors]] and functor combinators, provided by the ''Control.Applicative'' module.
+This implementation also demonstrates [[Functor|applicative functors]] and functor combinators, provided by the ''Control.Applicative'' module.
 
 == Illustration ==
 
