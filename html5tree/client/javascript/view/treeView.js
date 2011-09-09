@@ -24,7 +24,12 @@ treeView.showDepartments = function(deps) {
     for (var i = 0; i < deps.length; i++) {
         if (deps[i].employees.length > 0 || deps[i].departments.length > 0) {
             content += "<li> <input type=\"image\" src=\"symbols/plus.gif\" onclick=\"treeNavigation.toggleList(this)\">";
-            content += "<input type=\"button\" class=\"departmentButton\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\">";
+            if (deps[i].inconsistent == false) {
+                content += "<input type=\"button\" class=\"departmentButton\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\">";
+            } else {
+                content += "<input type=\"button\" class=\"departmentButtonError\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\"><error>(no Manager)</error>";
+            }
+            
             if (deps[i].employees.length > 0) {
                 content += treeView.showEmployees(deps[i].employees);
             }

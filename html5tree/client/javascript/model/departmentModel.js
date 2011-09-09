@@ -3,8 +3,9 @@ var departmentModel = {};
 departmentModel.url = 'server/departmentServer.php';
 
 // init request-parameter
-departmentModel.initDepartment = function() {
+departmentModel.initDepartment = function(id) {
     departmentModel.department = {};
+    departmentModel.department.id = id;
     departmentModel.department.table = "department";
 }
 
@@ -19,9 +20,18 @@ departmentModel.load = function(strategy, id) {
 
 // cut department
 departmentModel.cut = function(strategy) {
-    departmentModel.initDepartment();
-    departmentModel.department.id = departmentModel.response.id;
+    departmentModel.initDepartment(departmentModel.response.id);
     departmentModel.department.action = "cut";
+    
+    requestUnit.sendRequest(strategy, departmentModel.url, departmentModel.department);
+}
+
+departmentModel.saveEntity = function(strategy, data) {
+    departmentModel.initDepartment(departmentModel.response.id);
+    departmentModel.department.name = data.name;
+    departmentModel.department.manager = data.manager;
+    departmentModel.department.parent = data.parent;
+    departmentModel.department.action = "save";
     
     requestUnit.sendRequest(strategy, departmentModel.url, departmentModel.department);
 }

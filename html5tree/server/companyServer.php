@@ -53,7 +53,7 @@
     
     // ---------------------------------------- save name
     function saveName($jsonObject) {
-        $name = $jsonObject->newName;
+        $name = $jsonObject->name;
         $id = $jsonObject->id;
         
         $request = "UPDATE company SET name = \"$name\" WHERE id = $id";

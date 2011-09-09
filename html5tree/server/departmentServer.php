@@ -32,27 +32,38 @@
         $row = mysql_fetch_object($result);
         
         $name = $row->name;
+        $parent = $row->did;
         
         // departments
+        $unselectable = unselectable($id);
         $departments = array();
-        $request = "SELECT * FROM department WHERE did = $id";
+        $request = "SELECT * FROM department WHERE id NOT IN (" . $unselectable . ")";
         $result = mysql_query($request);
-        $count = mysql_num_rows($result);
         while($row = mysql_fetch_object($result)) {
-            $departments[] = $row->name;
+            $department["id"] = $row->id;
+            $department["name"] = $row->name;
+            if ($row->id == $parent) {
+                $department["parent"] = true;
+            } else {
+                $department["parent"] = false;
+            }
+            $departments[] = $department;
         }
         
         // employees
         $employees = array();
-        $request = "SELECT * FROM employee WHERE did = $id";
+        $request = "SELECT * FROM employee";
         $result = mysql_query($request);
-        $count = mysql_num_rows($result);
         while($row = mysql_fetch_object($result)) {
-            if ($row->manager == true) {
-                $manager = $row->name;
+            $employee = array();
+            $employee["id"] = $row->id;
+            $employee["name"] = $row->name;
+            if ($row->manager == true && $row->did == $id) {
+                $employee["manager"] = true;
             } else {
-                $employees[] = $row->name;
+                $employee["manager"] = false;
             }
+            $employees[] = $employee;
         }
         
         // total
@@ -63,7 +74,6 @@
         $department->setId($id);
         $department->setDepartments($departments);
         $department->setEmployees($employees);
-        $department->setManager($manager);
         $department->setName($name);
         $department->setTotal($total);
         
@@ -87,10 +97,29 @@
         return $total;
     }
     
+    // ---------------------------------------- unselectable departments
+    function unselectable($id) {
+        $unselectableDeps = $id;
+        $request = "SELECT * FROM department WHERE did = $id";
+        $result = mysql_query($request);
+        while ($row = mysql_fetch_object($result)) {
+            $unselectableDeps = $unselectableDeps . ", " . unselectable("$row->id");
+        }
+        return $unselectableDeps;
+    }
+    
     // ---------------------------------------- save name
     function saveName($jsonObject) {
-        $name = $jsonObject->newName;
+        $name = $jsonObject->name;
         $id = $jsonObject->id;
+        $manager = $jsonObject->manager;
+        $parent = $jsonObject->parent;
+        
+        $request = "UPDATE employee SET manager = 0 WHERE did = " .$id;
+        mysql_query($request);
+        
+        $request = "UPDATE employee SET did = " . $id . ", manager = 1 WHERE id = " . $manager;
+        mysql_query($request);
         
         $request = "UPDATE department SET name = '" . $name . "' WHERE id = " . $id;
 	mysql_query($request);
@@ -103,7 +132,6 @@
             return $status;
         }
     }
-    
     
     // ---------------------------------------- cut department
     function cut($jsonObject) {

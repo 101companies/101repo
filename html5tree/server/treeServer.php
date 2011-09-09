@@ -1,9 +1,9 @@
 <?php
 
     include("databaseConnection/connection.php");
-    include("classes/tree/company.php");
-    include("classes/tree/department.php");
-    include("classes/tree/employee.php");
+    include("classes/tree/treeCompany.php");
+    include("classes/tree/treeDepartment.php");
+    include("classes/tree/treeEmployee.php");
     
     startServer($HTTP_RAW_POST_DATA);
     
@@ -43,25 +43,18 @@
         $row = mysql_fetch_object($result);
         
         // departments
-        $departments = array();
-        $request = "SELECT * FROM department WHERE cid = $id AND did IS NULL";
-        $result = mysql_query($request);
-        $count = mysql_num_rows($result);
-        while($row = mysql_fetch_object($result)) {
-            $department = new Department();
-            $department->setId($row->id);
-            $department->setName($row->name);
-            $department->setDepartments(loadDepartments($id, $row->id));
-            $department->setEmployees(loadEmployees($id, $row->id));
-            $departments[] = $department;
-        }
+        $departments = loadDepartments($id, -1);
         return $departments;
     }
     
     function loadDepartments($cid, $id) {
         // subdepartments
         $departments = array();
-        $request = "SELECT * FROM department WHERE cid = $cid and did = $id";
+        if ($id == -1) {
+            $request = "SELECT * FROM department WHERE cid = $cid AND did IS NULL";
+        } else {
+           $request = "SELECT * FROM department WHERE cid = $cid and did = $id";
+        }
         $result = mysql_query($request);
         $count = mysql_num_rows($result);
         while($row = mysql_fetch_object($result)) {
@@ -69,7 +62,15 @@
             $department->setId($row->id);
             $department->setName($row->name);
             $department->setDepartments(loadDepartments($cid, $row->id));
-            $department->setEmployees(loadEmployees($cid, $row->id));
+            $employees = loadEmployees($cid, $row->id);
+            $department->setEmployees($employees);
+            $inconsistent = containsManager($employees);
+            
+            if ($inconsistent == true) {
+                $department->setInconsistent(true);
+                $department->setMessage("test");
+            }
+            
             $departments[] = $department;
         }
         return $departments;
@@ -89,6 +90,17 @@
             $employees[] = $employee;
         }
         return $employees;
+    }
+    
+    function containsManager($employees) {
+        $contains = true;
+        for ($i = 0; $i < count($employees); $i++) {
+            $isManager = $employees[$i]->manager;
+            if ($isManager == 1) {
+                $contains = false;
+            }
+        }
+        return $contains;
     }
     
 ?>

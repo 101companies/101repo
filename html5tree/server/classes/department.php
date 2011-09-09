@@ -6,7 +6,6 @@
         public $name;
         public $departments;
         public $employees;
-        public $manager;
         public $total;
 
         public function getId() {
@@ -19,10 +18,6 @@
 
         public function getEmployees() {
             return $employees;
-        }
-
-        public function getManager() {
-            return $manager;
         }
 
         public function getName() {
@@ -43,10 +38,6 @@
 
         public function setEmployees($newEmployees) {
             $this->employees=$newEmployees;
-        }
-
-        public function setManager($manager) {
-            $this->manager=$manager;
         }
 
         public function setName($newName) {

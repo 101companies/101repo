@@ -24,3 +24,11 @@ companyModel.cut = function(strategy) {
     
     requestUnit.sendRequest(strategy, companyModel.url, companyModel.company);
 }
+
+companyModel.saveEntity = function(strategy, data) {
+    companyModel.initCompany(companyModel.response.id);
+    companyModel.company.name = data.name;
+    companyModel.company.action = "save";
+    
+    requestUnit.sendRequest(strategy, companyModel.url, companyModel.company);
+}

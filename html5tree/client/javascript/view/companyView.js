@@ -15,3 +15,9 @@ companyView.error = function() {
         document.querySelector('#namefailureComp').innerHTML = "<error>" + model.error.failures.name + "</error>";
     }
 }
+
+companyView.getValues = function() {
+    var data = {};
+    data.name = document.company.name.value;
+    return data;
+}
