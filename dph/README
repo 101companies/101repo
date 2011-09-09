@@ -24,7 +24,7 @@ an implementation in [[Language:Haskell]] using [[Technology:DPH|Data Parallel H
 We exercise [[101feature:Parallelism|data parallelism]] in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel array|parallel arrays]] and DPH-specific functionality on these arrays.
 
 In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
-* The inabilty to mix [[Vectorisation|vectorized]] and non-vectorised code.
+* The inabilty to mix [[Vectorization|vectorized]] and non-vectorized code.
 * No support for typeclasses.
 * No vectorisation support for self-defined types.
 * A DHP-specific [[Prelude]] with specific primitive types.
