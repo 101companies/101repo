@@ -25,7 +25,7 @@ We exercise data [[101feature:Parallelism|parallelism]] in [[Language:Haskell]] 
 
 In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
 * The inabilty to mix [[Vectorisation|vectorized]] and non-vectorised code.
-* No support for type classes.
+* No support for typeclasses.
 * No vectorisation support for self-defined types.
 * A DHP-specific [[Prelude]] with specific primitive types.
 
