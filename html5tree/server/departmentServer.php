@@ -114,17 +114,17 @@
         $id = $jsonObject->id;
         $manager = $jsonObject->manager;
         $parent = $jsonObject->parent;
-        
-        $request = "UPDATE employee SET manager = 0 WHERE did = " .$id;
+
+        $request = "UPDATE department SET name = '" . $name . "', did = " . $parent . " WHERE id = " . $id;
         mysql_query($request);
-        
-        $request = "UPDATE employee SET did = " . $id . ", manager = 1 WHERE id = " . $manager;
-        mysql_query($request);
-        
-        $request = "UPDATE department SET name = '" . $name . "' WHERE id = " . $id;
-	mysql_query($request);
         
         if (mysql_error() == '') {
+            $request = "UPDATE employee SET manager = 0 WHERE did = " .$id;
+            mysql_query($request);
+
+            $request = "UPDATE employee SET did = " . $id . ", manager = 1 WHERE id = " . $manager;
+            mysql_query($request);
+        
             return loadDepartment($jsonObject);
         } else {
             $status = new Errormessage();

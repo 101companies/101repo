@@ -6,6 +6,7 @@
         public $name;
         public $address;
         public $salary;
+        public $departments;
         
         public function getId() {
             return $id;
@@ -23,6 +24,10 @@
             return $salary;
         }
         
+        public function getDepartments() {
+            return $departments;
+        }
+        
         public function setId($newId) {
             $this->id = $newId;
         }
@@ -37,6 +42,10 @@
         
         public function setSalary($salary) {
             $this->salary = $salary;
+        }
+        
+        public function setDepartments($newDepartments) {
+            $this->departments=$newDepartments;
         }
     }
 ?>

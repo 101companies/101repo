@@ -34,6 +34,21 @@
         $name = $row->name;
         $address = $row->address;
         $salary = $row->salary;
+        $did = $row->did;
+        
+        $departments = array();
+        $request = "SELECT * FROM department";
+        $result = mysql_query($request);
+        while($row = mysql_fetch_object($result)) {
+            $department["id"] = $row->id;
+            $department["name"] = $row->name;
+            if ($row->id == $did) {
+                $department["parent"] = true;
+            } else {
+                $department["parent"] = false;
+            }
+            $departments[] = $department;
+        }
         
         // create department object
         $employee = new Employee();
@@ -41,6 +56,7 @@
         $employee->setName($name);
         $employee->setAddress($address);
         $employee->setSalary($salary);
+        $employee->setDepartments($departments);
  
         // return department object
         return $employee;
@@ -59,9 +75,9 @@
     // ---------------------------------------- save 
     function saveEmployee($jsonObject) {
         $id = $jsonObject->id;
-        $name = $jsonObject->newName;
-        $address = $jsonObject->newAddress;
-        $salary = $jsonObject->newSalary;
+        $name = $jsonObject->name;
+        $address = $jsonObject->address;
+        $salary = $jsonObject->salary;
         
         $minimumSalary = getMinimumSalaryForEmployee($id);
         $maximumSalary = getMaximumSalaryForEmployee($id);
