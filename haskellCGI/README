@@ -24,7 +24,7 @@
 == Motivation ==
 
 We make use of the [[Technology:CGI]] library for Haskell to provide a C/S  [[Web Application|web application]] for [[101feature:Company|companies]]. 
-That is we exercise processing [[HTTP Request|requests]] from and returning [[HTTP Respond|responds]] to the client using the CGI technology. We extract request parameters from the [[URL]] like the '''Action''' to either view or [[101feature:Cut|cut]] a company/department/employee or to save an edited company/department/employee. By passing a focus parameter in the URL and by making use of the [[Zipper]] concept we specify the which part of the company should be displayed. We also demonstrate the use of a [[Language:XHTML]] [[Combinator library|combinator library]] to compose the new pages. 
+That is we exercise processing [[HTTP Request|requests]] from and returning [[HTTP Respond|responds]] to the client using the CGI technology. We extract request parameters from the [[URL]] like the '''Action''' to either view or [[101feature:Cut|cut]] a company/department/employee or to save an edited company/department/employee. By passing a focus parameter in the URL and by making use of the [[Zipper]] concept we specify the which part of the company should be displayed. We also demonstrate the use of a [[Language:XHTML]] combinator [[:Category:Library|library]] to compose the new pages. 
 
 == Illustration ==
 
