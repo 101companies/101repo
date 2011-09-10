@@ -24,7 +24,7 @@ database programming with [[Technology:HaskellDB]]
 
 == Motivation ==
 
-We make use of [[Technology:HaskellDB|HaskellDB]] to express [[Database|database]] [[Query|queries]] as [[Language:Haskell]] functions rather than [[Language:SQL]]-statements. That is, we use the rich [[Combinator Library|combinator library]] of HaskellDB to express [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] statements based on [[Rational algebra|rational algebra]].  We demonstrate:
+We make use of [[Technology:HaskellDB|HaskellDB]] to express [[:Category:Database_management_system|database]] [[Query|queries]] as [[Language:Haskell]] functions rather than [[Language:SQL]]-statements. That is, we use the rich combinator [[:Category:Library|library]] of HaskellDB to express [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] statements based on [[Rational algebra|rational algebra]].  We demonstrate:
 
 * Projection (HaskellDB' <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight>)
 * Selection (HaskellDB' <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight>)
