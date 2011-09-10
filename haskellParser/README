@@ -21,7 +21,7 @@ parsing textual syntax with [[Parsec]] in [[Language:Haskell]]
 
 == Motivation ==
 
-We make use of [[Language:Haskell]]'s [[Parsec]] [[Parsing|parser]] combinator library to parse concrete textual syntax for [[101feature:Company|companies]].
+We make use of [[Language:Haskell]]'s [[Parsec]] [[Parsing|parser]] combinator [[:Category:Library|library]] to parse concrete textual syntax for [[101feature:Company|companies]].
 We combine smaller parsers, say for salaries, to larger parsers, say for employees, to build a parser for companies.
 In terms of parsing we exercice:
 
