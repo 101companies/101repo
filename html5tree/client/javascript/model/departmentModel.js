@@ -28,10 +28,19 @@ departmentModel.cut = function(strategy) {
 
 departmentModel.saveEntity = function(strategy, data) {
     departmentModel.initDepartment(departmentModel.response.id);
-    departmentModel.department.name = data.name;
-    departmentModel.department.manager = data.manager;
-    departmentModel.department.parent = data.parent;
-    departmentModel.department.action = "save";
+    if (data.name == '' || data.name == null) {
+        requestUnit.error = {};
+        requestUnit.error.error = true;
+        requestUnit.error.failures = {};
+        requestUnit.error.failures.name = errors.name;
+        strategy.error();
+    } else {
+        departmentModel.department.name = data.name;
+        departmentModel.department.manager = data.manager;
+        departmentModel.department.parent = data.parent;
+        departmentModel.department.action = "save";
+    }
+    
     
     requestUnit.sendRequest(strategy, departmentModel.url, departmentModel.department);
 }

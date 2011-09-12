@@ -26,9 +26,17 @@ companyModel.cut = function(strategy) {
 }
 
 companyModel.saveEntity = function(strategy, data) {
-    companyModel.initCompany(companyModel.response.id);
-    companyModel.company.name = data.name;
-    companyModel.company.action = "save";
-    
-    requestUnit.sendRequest(strategy, companyModel.url, companyModel.company);
+     if (data.name == '' || data.name == null) {
+        requestUnit.error = {};
+        requestUnit.error.error = true;
+        requestUnit.error.failures = {};
+        requestUnit.error.failures.name = errors.name;
+        strategy.error();
+    } else {
+        companyModel.initCompany(companyModel.response.id);
+        companyModel.company.name = data.name;
+        companyModel.company.action = "save";
+
+        requestUnit.sendRequest(strategy, companyModel.url, companyModel.company);
+    }
 }

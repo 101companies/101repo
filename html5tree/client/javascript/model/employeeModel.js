@@ -26,12 +26,35 @@ employeeModel.cut = function(strategy) {
 }
 
 employeeModel.saveEntity = function(strategy, data) {
-    employeeModel.initEmployee(employeeModel.response.id);
-    employeeModel.employee.name = data.name;
-    employeeModel.employee.address = data.address;
-    employeeModel.employee.salary = data.salary;
-    employeeModel.employee.parent = data.parent;
-    employeeModel.employee.action = "save";
+    requestUnit.error = {};
+    requestUnit.error.error = false;
+    requestUnit.error.failures = {};
     
-    requestUnit.sendRequest(strategy, employeeModel.url, employeeModel.employee);
+    if (data.name == '' || data.name == null) {
+        requestUnit.error.error = true;
+        requestUnit.error.failures.name = errors.name;
+    }
+    if (data.address == '' || data.address == null) {
+        requestUnit.error.error = true;
+        requestUnit.error.failures.address = errors.address;
+    } 
+    if (data.salary == '' || data.salary == null) {
+        requestUnit.error.error = true;
+        requestUnit.error.failures.salary = errors.salary;
+    } 
+    
+    if (requestUnit.error == null || requestUnit.error.error == false) {
+        employeeModel.initEmployee(employeeModel.response.id);
+        employeeModel.employee.name = data.name;
+        employeeModel.employee.address = data.address;
+        employeeModel.employee.salary = data.salary;
+        employeeModel.employee.parent = data.parent;
+        employeeModel.employee.action = "save";
+    
+        requestUnit.sendRequest(strategy, employeeModel.url, employeeModel.employee);
+    } else {
+        strategy.error();
+    }
+    
+    
 }
