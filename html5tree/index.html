@@ -14,6 +14,8 @@
         <script type="text/javascript" src="client/javascript/model/companyModel.js"></script>
         <script type="text/javascript" src="client/javascript/model/departmentModel.js"></script>
         <script type="text/javascript" src="client/javascript/model/employeeModel.js"></script>
+        <script type="text/javascript" src="client/javascript/model/departmentCreationModel.js"></script>
+        <script type="text/javascript" src="client/javascript/model/employeeCreationModel.js"></script>
         
         <script type="text/javascript" src="client/javascript/view/treeView.js"></script>
         <script type="text/javascript" src="client/javascript/view/companyView.js"></script>
@@ -45,7 +47,11 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input type="button" class="button" value="save" onclick="controller.saveEntity()"/><input type="button" class="button" value="cut" onclick="controller.cut()"/></td>
+                                        <td>
+                                            <input type="button" class="button" value="save" onclick="controller.saveEntity()"/>
+                                            <input type="button" class="button" value="cut" onclick="controller.cut()"/>
+                                            <input type="button" class="button" value="delete"/>
+                                        </td>
                                     </tr>
 
                                 </table>
@@ -74,7 +80,11 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input type="button" class="button" value="save" onclick="controller.saveEntity()"/><input type="button" class="button" value="cut" onclick="controller.cut()"/></td>
+                                        <td>
+                                            <input type="button" class="button" value="save" onclick="controller.saveEntity()"/>
+                                            <input type="button" class="button" value="cut" onclick="controller.cut()"/>
+                                            <input type="button" class="button" value="delete"/>
+                                        </td>
                                     </tr>
 
                                 </table>
@@ -103,7 +113,11 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input type="button" class="button" value="save" onclick="controller.saveEntity()"/><input type="button" class="button" value="cut" onclick="controller.cut()"/></td>
+                                        <td>
+                                            <input type="button" class="button" value="save" onclick="controller.saveEntity()"/>
+                                            <input type="button" class="button" value="cut" onclick="controller.cut()"/>
+                                            <input type="button" class="button" value="delete"/>
+                                        </td>
                                     </tr>
 
                                 </table>
@@ -115,7 +129,12 @@
                 </td>
             </tr>
             
-            <tr><td colspan="2" class="out"><input type="button" class="buttonLong" value="create department"/><input type="button" class="buttonLong" value="create employee"/></td></tr>
+            <tr>
+                <td colspan="2" class="out">
+                    <input type="button" class="buttonLong" value="create department" onclick="controller.createDepartment()"/>
+                    <input type="button" class="buttonLong" value="create employee" onclick="controller.createEmployee()"/>
+                </td>
+            </tr>
             
         </table>
         

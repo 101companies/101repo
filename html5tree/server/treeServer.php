@@ -1,6 +1,7 @@
 <?php
 
     include("databaseConnection/connection.php");
+    include("employeeSupportFunctions.php");
     include("classes/tree/treeCompany.php");
     include("classes/tree/treeDepartment.php");
     include("classes/tree/treeEmployee.php");
@@ -68,7 +69,7 @@
             
             if ($inconsistent == true) {
                 $department->setInconsistent(true);
-                $department->setMessage("test");
+                $department->setMessage("No Manager!");
             }
             
             $departments[] = $department;
@@ -83,7 +84,14 @@
         $result = mysql_query($request);
         $count = mysql_num_rows($result);
         while($row = mysql_fetch_object($result)) {
+            $minimumSalary = getMinimumSalaryForEmployee($row->did, $row->manager);
+            $maximumSalary = getMaximumSalaryForEmployee($row->did, $row->manager);
+        
             $employee = new Employee();
+            if ($row->salary < $minimumSalary || $row->salary > $maximumSalary) {
+                $employee->setInconsistent(true);
+                $employee->setMessage("Salary is not valid!");
+            }
             $employee->setId($row->id);
             $employee->setName($row->name);
             $employee->setManager($row->manager);

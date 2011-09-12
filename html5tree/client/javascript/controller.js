@@ -42,6 +42,25 @@ controller.saveEntity = function() {
     model.saveEntity(saveEntityStrategy, view.getValues());
 }
 
+// -------------------------------------------- create
+controller.createDepartment = function() {
+    model = departmentCreationModel;
+    view = departmentView;
+    document.getElementById("company").style.display = "none";
+    document.getElementById("department").style.display = "block";
+    document.getElementById("employee").style.display = "none";
+    model.load(loadEntityStrategy);
+}
+
+controller.createEmployee = function() {
+    model = employeeCreationModel;
+    view = employeeView;
+    document.getElementById("company").style.display = "none";
+    document.getElementById("department").style.display = "none";
+    document.getElementById("employee").style.display = "block";
+    model.load(loadEntityStrategy);
+}
+
 // -------------------------------------------- Strategies
 // load tree
 var loadTreeStrategy = {};

@@ -185,6 +185,22 @@ input {}
     border-bottom: 1px groove #006600;
 }
 
+.employeeButtonError {
+    color:#660000;
+    font-style: italic;
+    background-color: #e7e0e0; 
+    border:0px;
+    border-top: 1px ridge #660000;
+    border-bottom: 1px groove #660000;
+}
+
+.employeeButtonError:HOVER {
+    color:#666600;
+    background-color: #e7e7e0;
+    border-top: 1px ridge #666600;
+    border-bottom: 1px groove #666600;
+}
+
 .employeeButton {
     color:#000000;
     background-color: #e0e0e0; 

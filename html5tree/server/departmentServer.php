@@ -12,22 +12,65 @@
 	
         switch ($action) {
             case "load":
-                return loadDepartment($jsonObject);
+                return loadDepartment($jsonObject->id);
+                
+            case "blank":
+                return loadBlank();
             
             case "save":
                 return saveName($jsonObject);
             
+            case "create":
+                return create($jsonObject);
+                
             case "cut":
                 return cut($jsonObject);
+       
         }
     }
     
-    // ---------------------------------------- load department
-    function loadDepartment($jsonObject) {
-        $id = $jsonObject->id;
+    // ---------------------------------------- load blank
+    function loadBlank() {
         
+        // departments
+        $departments = array();
+        $request = "SELECT * FROM department";
+        $result = mysql_query($request);
+        while($row = mysql_fetch_object($result)) {
+            $department["id"] = $row->id;
+            $department["name"] = $row->name;
+            $department["parent"] = false;
+            $departments[] = $department;
+        }
+        
+        // employees
+        $employees = array();
+        $request = "SELECT * FROM employee";
+        $result = mysql_query($request);
+        while($row = mysql_fetch_object($result)) {
+            $employee = array();
+            $employee["id"] = $row->id;
+            $employee["name"] = $row->name;
+            $employee["manager"] = false;
+            $employees[] = $employee;
+        }
+        
+        // create department object
+        $department = new Department();
+        $department->setId(null);
+        $department->setDepartments($departments);
+        $department->setEmployees($employees);
+        $department->setName(null);
+        $department->setTotal(0);
+        
+        // return department object
+        return $department;
+    }
+    
+    // ---------------------------------------- load department
+    function loadDepartment($id) {
         // name
-        $request = "SELECT * FROM department WHERE id = $id";
+        $request = "SELECT * FROM department WHERE id = " . $id;
         $result = mysql_query($request);
         $row = mysql_fetch_object($result);
         
@@ -121,11 +164,43 @@
         if (mysql_error() == '') {
             $request = "UPDATE employee SET manager = 0 WHERE did = " .$id;
             mysql_query($request);
-
-            $request = "UPDATE employee SET did = " . $id . ", manager = 1 WHERE id = " . $manager;
-            mysql_query($request);
+            
+            if ($manager != null) {
+                $request = "UPDATE employee SET did = " . $id . ", manager = 1 WHERE id = " . $manager;
+                mysql_query($request);
+            }
         
-            return loadDepartment($jsonObject);
+            return loadDepartment($id);
+        } else {
+            $status = new Errormessage();
+            $status->addFailure("name", "The name '" . $name . "' is in use.<br> Enter a valid name, please.");
+            return $status;
+        }
+    }
+    
+    // ---------------------------------------- create
+    function create($jsonObject) {
+        $name = $jsonObject->name;
+        $manager = $jsonObject->manager;
+        $parent = $jsonObject->parent;
+
+        $request = "INSERT INTO department (name, cid, did) VALUES ('" . $name . "', 1, " . $parent . ")";
+        mysql_query($request);       
+        
+        if (mysql_error() == '') {
+            $request = "SELECT * FROM department WHERE name = '" . $name . "'";
+            mysql_query($request);
+            $result = mysql_query($request);
+            $row = mysql_fetch_object($result);
+
+            $id = $row->id;
+                
+            if ($manager != null) {
+                $request = "UPDATE employee SET did = " . $id . ", manager = 1 WHERE id = " . $manager;
+                mysql_query($request);
+            }
+        
+            return loadDepartment($id);
         } else {
             $status = new Errormessage();
             $status->addFailure("name", "The name '" . $name . "' is in use.<br> Enter a valid name, please.");

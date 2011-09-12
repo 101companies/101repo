@@ -27,7 +27,7 @@ treeView.showDepartments = function(deps) {
             if (deps[i].inconsistent == false) {
                 content += "<input type=\"button\" class=\"departmentButton\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\">";
             } else {
-                content += "<input type=\"button\" class=\"departmentButtonError\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\"><error>(no Manager)</error>";
+                content += "<input type=\"button\" class=\"departmentButtonError\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\"><error> " + deps[i].message + " </error>";
             }
             
             if (deps[i].employees.length > 0) {
@@ -38,7 +38,7 @@ treeView.showDepartments = function(deps) {
             }
             content += "</li>";
         } else {
-            content += "<li> <img src=\"symbols/leaf.gif\"><input type=\"button\" class=\"departmentButtonError\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\"><error>(no Manager)</error></li>";
+            content += "<li> <img src=\"symbols/leaf.gif\"><input type=\"button\" class=\"departmentButtonError\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\"><error> " + deps[i].message + " </error></li>";
         }
         
     }
@@ -54,10 +54,18 @@ treeView.showEmployees = function(employees) {
     for (var i = 0; i < employees.length; i++) {
         if (employees[i].manager == false) {
             content += "<li> <img src=\"symbols/leaf.gif\">";
-            content += "<input type=\"button\" class=\"employeeButton\" value=\"" + employees[i].name + "\" onclick=\"controller.loadEmployee(" + employees[i].id + ")\"></li>";
+            if (employees[i].inconsistent == false) {
+                content += "<input type=\"button\" class=\"employeeButton\" value=\"" + employees[i].name + "\" onclick=\"controller.loadEmployee(" + employees[i].id + ")\"></li>";
+            } else {
+                content += "<input type=\"button\" class=\"employeeButtonError\" value=\"" + employees[i].name + "\" onclick=\"controller.loadEmployee(" + employees[i].id + ")\"><error> " + employees[i].message + " </error></li>";
+            }
         } else {
             content += "<li> <img src=\"symbols/leaf.gif\">";
-            content += "<input type=\"button\" class=\"employeeButton\" value=\"" + employees[i].name + "\" onclick=\"controller.loadEmployee(" + employees[i].id + ")\"> (Manager) </li>";
+            if (employees[i].inconsistent == false) {
+                content += "<input type=\"button\" class=\"employeeButton\" value=\"" + employees[i].name + "\" onclick=\"controller.loadEmployee(" + employees[i].id + ")\"> (Manager) </li>";
+            } else {
+                content += "<input type=\"button\" class=\"employeeButtonError\" value=\"" + employees[i].name + "\" onclick=\"controller.loadEmployee(" + employees[i].id + ")\"> (Manager) <error> " + employees[i].message + " </error></li>";
+            }
         }
     }
     
