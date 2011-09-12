@@ -68,4 +68,7 @@ saveEntityStrategy.update = function() {
     document.getElementById("department").style.display = "none";
     document.getElementById("employee").style.display = "none";
 }
-saveEntityStrategy.error = function() { /* stub */ }
+saveEntityStrategy.error = function() {
+    model.error = requestUnit.error;
+    view.error();
+}

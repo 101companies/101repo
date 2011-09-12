@@ -5,6 +5,9 @@ companyView.refresh = function() {
     
     document.company.name.value = model.response.name;
     document.company.total.value = model.response.total;
+    
+    document.querySelector('#compNameFailureMessage').innerHTML = "";
+    document.querySelector('#compNameFailure').innerHTML = "Name:";
 }
 
 companyView.error = function() {
@@ -20,4 +23,13 @@ companyView.getValues = function() {
     var data = {};
     data.name = document.company.name.value;
     return data;
+}
+
+companyView.error = function() {
+    if (model.error.failures.other != null) {
+        alert(model.error.failures.other);
+    } else {
+        document.querySelector('#compNameFailure').innerHTML = "Name<error>*</error>";
+        document.querySelector('#compNameFailureMessage').innerHTML = "<error>" + model.error.failures.name + "</error>";
+    }
 }

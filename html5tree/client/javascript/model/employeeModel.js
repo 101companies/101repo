@@ -30,6 +30,7 @@ employeeModel.saveEntity = function(strategy, data) {
     employeeModel.employee.name = data.name;
     employeeModel.employee.address = data.address;
     employeeModel.employee.salary = data.salary;
+    employeeModel.employee.parent = data.parent;
     employeeModel.employee.action = "save";
     
     requestUnit.sendRequest(strategy, employeeModel.url, employeeModel.employee);

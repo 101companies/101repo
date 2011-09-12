@@ -38,7 +38,7 @@ treeView.showDepartments = function(deps) {
             }
             content += "</li>";
         } else {
-            content += "<li> <img src=\"symbols/leaf.gif\"> <i>" + deps[i].name + "</i></li>";
+            content += "<li> <img src=\"symbols/leaf.gif\"><input type=\"button\" class=\"departmentButtonError\" value=\"" + deps[i].name + "\" onclick=\"controller.loadDepartment(" + deps[i].id + ")\"><error>(no Manager)</error></li>";
         }
         
     }

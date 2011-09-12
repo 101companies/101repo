@@ -9,6 +9,9 @@ departmentView.refresh = function() {
     document.getElementById("managerList").options.length = 0;
     document.getElementById("depParentList").options.length = 0;
     
+    document.querySelector('#depNameFailureMessage').innerHTML = "";
+    document.querySelector('#depNameFailure').innerHTML = "Name:";
+       
     noManager = new Option("", null, false, false);
     document.department.manager.options[0] = noManager;
     
@@ -40,4 +43,13 @@ departmentView.getValues = function() {
     data.manager = document.department.manager.options[document.department.manager.selectedIndex].value;
     data.parent = document.department.parent.options[document.department.parent.selectedIndex].value;
     return data;
+}
+
+departmentView.error = function() {
+    if (model.error.failures.other != null) {
+        alert(model.error.failures.other);
+    } else {
+        document.querySelector('#depNameFailure').innerHTML = "Name<error>*</error>";
+        document.querySelector('#depNameFailureMessage').innerHTML = "<error>" + model.error.failures.name + "</error>";
+    }
 }
