@@ -84,13 +84,12 @@
         $result = mysql_query($request);
         $count = mysql_num_rows($result);
         while($row = mysql_fetch_object($result)) {
-            $minimumSalary = getMinimumSalaryForEmployee($row->did, $row->manager);
             $maximumSalary = getMaximumSalaryForEmployee($row->did, $row->manager);
         
             $employee = new Employee();
-            if ($row->salary < $minimumSalary || $row->salary > $maximumSalary) {
+            if ($row->salary > $maximumSalary) {
                 $employee->setInconsistent(true);
-                $employee->setMessage("Salary is not valid!");
+                $employee->setMessage("Salary > $maximumSalary");
             }
             $employee->setId($row->id);
             $employee->setName($row->name);
