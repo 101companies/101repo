@@ -214,7 +214,7 @@
         
         cutDepartment($id);
         
-        return loadDepartment($jsonObject);
+        return loadDepartment($id);
     }
     
     function cutDepartment($id) {
