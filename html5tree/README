@@ -57,7 +57,7 @@ The simple request is received by the [[server-side]] [[Language:php]] script an
 
 == Architecture ==
 
-
+* The architecture is similar to [[101implementation:html5ajax]], except that most of the html-elements of the view are located in the [this!!index.html].
 
 == Usage ==
 
