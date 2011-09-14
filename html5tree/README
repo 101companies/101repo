@@ -13,6 +13,7 @@
 
 * [[Technology:MySQL]]
 * [[Technology:XAMPP]]
+* [[Technology:JSON]]
 * [[Technology:Apache_HTTP_Server|Apache HTTP Server]]
 * [[Technology:XMLHttpRequest]]
 * [[Technology:jQuery]]
@@ -37,6 +38,22 @@
 == Illustration ==
 
 * To get an overview of the [[Technology:JSON]]-messages, visit the [[101implementation:html5ajax]] project.
+* Example for a [[Technology:JSON]]-message which [[101feature:Delete|deletes]] a department:
+
+<syntaxhighlight lang="text">
+{
+	"id":1,
+	"table":"department",
+	"action":"delete"
+}
+</syntaxhighlight>
+
+This simple request deletes the department with the id 1 at the server. In this implementation, the cascading delete anchored in the database provides a recursive deletion for all containing subdepartments:
+
+<syntaxhighlight lang="php">
+        $request = "DELETE FROM department WHERE id = " . $id;
+        mysql_query($request);
+</syntaxhighlight>
 
 == Architecture ==
 
