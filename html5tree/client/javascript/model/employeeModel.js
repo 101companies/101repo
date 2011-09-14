@@ -54,7 +54,11 @@ employeeModel.saveEntity = function(strategy, data) {
         requestUnit.sendRequest(strategy, employeeModel.url, employeeModel.employee);
     } else {
         strategy.error();
-    }
-    
-    
+    }   
+}
+
+employeeModel.deleteEntity = function(strategy) {
+    employeeModel.initEmployee(employeeModel.response.id);
+    employeeModel.employee.action = "delete";
+    requestUnit.sendRequest(strategy, employeeModel.url, employeeModel.employee);
 }

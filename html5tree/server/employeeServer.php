@@ -26,6 +26,9 @@
                 
             case "cut":
                 return cut($jsonObject);
+                
+            case "delete":
+                return delete($jsonObject);
             
         }
     }
@@ -100,7 +103,18 @@
         return loadEmployee($id);
     }
     
-    // ---------------------------------------- save
+    // ---------------------------------------- delete employee
+    function delete($jsonObject) {
+        $id = $jsonObject->id;
+        
+        $request = "DELETE FROM employee WHERE id = " . $id;
+        mysql_query($request);
+        
+        $status = new Errormessage();
+        return $status;
+    }
+    
+    // ---------------------------------------- save employee
     function saveEmployee($jsonObject) {
         $id = $jsonObject->id;
         $name = $jsonObject->name;

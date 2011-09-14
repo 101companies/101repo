@@ -17,6 +17,8 @@ controller.loadCompany = function(id) {
 controller.loadDepartment = function(id) {
     model = departmentModel;
     view = departmentView;
+    document.getElementById("cutDepartment").disabled = false;
+    document.getElementById("deleteDepartment").disabled = false;
     document.getElementById("company").style.display = "none";
     document.getElementById("department").style.display = "block";
     document.getElementById("employee").style.display = "none";
@@ -26,6 +28,8 @@ controller.loadDepartment = function(id) {
 controller.loadEmployee = function(id) {
     model = employeeModel;
     view = employeeView;
+    document.getElementById("cutEmployee").disabled = false;
+    document.getElementById("deleteEmployee").disabled = false;
     document.getElementById("company").style.display = "none";
     document.getElementById("department").style.display = "none";
     document.getElementById("employee").style.display = "block";
@@ -42,10 +46,17 @@ controller.saveEntity = function() {
     model.saveEntity(saveEntityStrategy, view.getValues());
 }
 
+// -------------------------------------------- delete
+controller.del = function() {
+    model.deleteEntity(saveEntityStrategy);
+}
+
 // -------------------------------------------- create
 controller.createDepartment = function() {
     model = departmentCreationModel;
     view = departmentView;
+    document.getElementById("cutDepartment").disabled = true;
+    document.getElementById("deleteDepartment").disabled = true;
     document.getElementById("company").style.display = "none";
     document.getElementById("department").style.display = "block";
     document.getElementById("employee").style.display = "none";
@@ -55,6 +66,8 @@ controller.createDepartment = function() {
 controller.createEmployee = function() {
     model = employeeCreationModel;
     view = employeeView;
+    document.getElementById("cutEmployee").disabled = true;
+    document.getElementById("deleteEmployee").disabled = true;
     document.getElementById("company").style.display = "none";
     document.getElementById("department").style.display = "none";
     document.getElementById("employee").style.display = "block";

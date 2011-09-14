@@ -14,9 +14,7 @@ requestUnit.sendRequest = function(strategy, url, params) {
 
             // if no error occurs, do something (strategy)
             if (result.error != true) {
-                requestUnit.response = result; 
-                requestUnit.error = {};
-                requestUnit.error.error = false;
+                requestUnit.response = result;
                 strategy.update();
             // if there is an error: alert
             } else {

@@ -39,8 +39,12 @@ departmentModel.saveEntity = function(strategy, data) {
         departmentModel.department.manager = data.manager;
         departmentModel.department.parent = data.parent;
         departmentModel.department.action = "save";
-    }
-    
-    
+    }   
+    requestUnit.sendRequest(strategy, departmentModel.url, departmentModel.department);
+}
+
+departmentModel.deleteEntity = function(strategy) {
+    departmentModel.initDepartment(departmentModel.response.id);
+    departmentModel.department.action = "delete";
     requestUnit.sendRequest(strategy, departmentModel.url, departmentModel.department);
 }

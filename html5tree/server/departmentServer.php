@@ -26,6 +26,8 @@
             case "cut":
                 return cut($jsonObject);
        
+            case "delete":
+                return delete($jsonObject);
         }
     }
     
@@ -65,6 +67,17 @@
         
         // return department object
         return $department;
+    }
+    
+    // ---------------------------------------- delete department
+    function delete($jsonObject) {
+        $id = $jsonObject->id;
+        
+        $request = "DELETE FROM department WHERE id = " . $id;
+        mysql_query($request);
+        
+        $status = new Errormessage();
+        return $status;
     }
     
     // ---------------------------------------- load department
