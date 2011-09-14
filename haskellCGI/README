@@ -53,7 +53,7 @@ Bacause of the fact that the CGI library does not support any extraction of info
 
 In the ''Response'' module (in [this!!Response.hs]) the main request handler can be found:
 
-<syntaxhighlight lang="haskell line>
+<syntaxhighlight lang="haskell" line>
 cgiMain :: CGI CGIResult
 cgiMain =  do
             f <- getInput "focus"
@@ -77,7 +77,7 @@ We then call <syntaxhighlight lang="haskell enclose="none">doAction</syntaxhighl
 
 The function <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> performs the acutal cut action:
 
-<syntaxhighlight lang="haskell>
+<syntaxhighlight lang="haskell">
 doCut :: Focus -> CGI Html
 doCut f = do
     c <- tryReadCCookie
@@ -104,7 +104,7 @@ writeCCookie = setCookie.(newCookie "companyCookie").show
 
 After that <syntaxhighlight lang="haskell enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell enclose="none">getHtml</syntaxhighlight> passing the focus and the new company:
 
-<syntaxhighlight lang="haskell>
+<syntaxhighlight lang="haskell">
 html :: Focus -> Company -> Html
 html f = case f of 
   CompanyFocus        -> companyHtml f
