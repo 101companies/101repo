@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\technologies\NUnit\2.5.9\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +46,7 @@
     <Compile Include="Company.cs" />
     <Compile Include="Features.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\FeaturesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="xsd\Company.xsd">
@@ -51,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="xsd\sampleCompany.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\csharp\csharp.csproj">
+      <Project>{8D4BEAE9-1988-4FBD-B026-AA48ADE6A9E6}</Project>
+      <Name>csharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public partial class company
+public partial class Company
 {
     public void Cut()
     {
-        foreach (var dept in department)
+        foreach (var dept in Department)
         {
-            //dept.Cut();
+            dept.Cut();
         }
     }
 
@@ -17,12 +17,12 @@ public partial class company
     {
         get
         {
-             return department.Sum(dept => dept.Total);
+             return Department.Sum(dept => dept.Total);
         }
     }
 }
 
-public partial class department
+public partial class Department
 {
     /// <summary>
     /// Total all salaries in a department and subdepartments. 
@@ -31,12 +31,17 @@ public partial class department
     {
         get
         {
-            // calculate total across sub units
+            var s = Manager.Salary;
+            if(Department1 != null)
+            {
+                s += Department1.Sum(department => department.Total);
+            }
+            if(Employee != null)
+            {
+                s += Employee.Sum(e => e.Salary);
+            }
 
-            //add current division's employees' salaries to the total
-
-            return manager.salary + department1.Sum(department => department.Total) +
-                employee.Sum(e => e.salary);
+            return s;
         }
     }
 
@@ -45,16 +50,16 @@ public partial class department
     /// </summary>
     public void Cut()
     {
-        foreach (var department in department1)
+        foreach (var department in Department1)
         {
             department.Cut();
         }
 
-        manager.salary /= 2;
+        Manager.Salary /= 2;
 
-        foreach (var emp in employee.Where(e => e.salary != 0.0))
+        foreach (var emp in Employee.Where(e => e.Salary != 0.0))
         {
-            emp.salary /= 2;
+            emp.Salary /= 2;
         }
     }
 }

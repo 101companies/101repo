@@ -22,14 +22,14 @@ using System.Xml.Serialization;
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.softlang.org/company.xsd")]
 [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.softlang.org/company.xsd", IsNullable=false)]
-public partial class company {
+public partial class Company {
     
     private string nameField;
     
-    private department[] departmentField;
+    private Department[] departmentField;
     
     /// <remarks/>
-    public string name {
+    public string Name {
         get {
             return this.nameField;
         }
@@ -39,8 +39,8 @@ public partial class company {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("department")]
-    public department[] department {
+    [System.Xml.Serialization.XmlElementAttribute("Department")]
+    public Department[] Department {
         get {
             return this.departmentField;
         }
@@ -57,18 +57,18 @@ public partial class company {
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.softlang.org/company.xsd")]
 [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.softlang.org/company.xsd", IsNullable=false)]
-public partial class department {
+public partial class Department {
     
     private string nameField;
     
-    private employee managerField;
+    private Employee managerField;
     
-    private department[] department1Field;
+    private Department[] department1Field;
     
-    private employee[] employeeField;
+    private Employee[] employeeField;
     
     /// <remarks/>
-    public string name {
+    public string Name {
         get {
             return this.nameField;
         }
@@ -78,7 +78,7 @@ public partial class department {
     }
     
     /// <remarks/>
-    public employee manager {
+    public Employee Manager {
         get {
             return this.managerField;
         }
@@ -88,8 +88,8 @@ public partial class department {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("department")]
-    public department[] department1 {
+    [System.Xml.Serialization.XmlElementAttribute("Department")]
+    public Department[] Department1 {
         get {
             return this.department1Field;
         }
@@ -99,8 +99,8 @@ public partial class department {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("employee")]
-    public employee[] employee {
+    [System.Xml.Serialization.XmlElementAttribute("Employee")]
+    public Employee[] Employee {
         get {
             return this.employeeField;
         }
@@ -116,7 +116,7 @@ public partial class department {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.softlang.org/company.xsd")]
-public partial class employee {
+public partial class Employee {
     
     private string nameField;
     
@@ -125,7 +125,7 @@ public partial class employee {
     private double salaryField;
     
     /// <remarks/>
-    public string name {
+    public string Name {
         get {
             return this.nameField;
         }
@@ -135,7 +135,7 @@ public partial class employee {
     }
     
     /// <remarks/>
-    public string address {
+    public string Address {
         get {
             return this.addressField;
         }
@@ -145,7 +145,7 @@ public partial class employee {
     }
     
     /// <remarks/>
-    public double salary {
+    public double Salary {
         get {
             return this.salaryField;
         }
