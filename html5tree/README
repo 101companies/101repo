@@ -30,6 +30,8 @@
 
 == Motivation ==
 
+* A company with many departments and employees is not clearly arranged with the current [[101feature:Interaction#navigation|navigation]]. Unlike, a treeview provides a complete overview of the whole company without exhausting much space in the GUI.
+* This project enhances the [[101implementation:html5ajax|html5ajax]]-implementation with a treeview and a refitted [[101feature:Interaction|GUI]].
 
 == Illustration ==
 
