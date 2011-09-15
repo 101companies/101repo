@@ -43,12 +43,25 @@
     <Compile Include="Company.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Features.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xsd\Company.cs">
+      <DependentUpon>Company.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="xsd\Company.xsc">
+      <DependentUpon>Company.xsd</DependentUpon>
+    </None>
     <None Include="xsd\Company.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="xsd\Company.xss">
+      <DependentUpon>Company.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xsd\sampleCompany.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema xmlns="http://www.softlang.org/company.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.softlang.org/company.xsd">
+<xs:schema id="CompanyDataSet"
+           xmlns="http://www.softlang.org/company.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           elementFormDefault="qualified" 
+           targetNamespace="http://www.softlang.org/company.xsd"
+           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
 
-	<xs:element name="company">
+	<xs:element name="company" msdata:IsDataSet="true">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="name"/>

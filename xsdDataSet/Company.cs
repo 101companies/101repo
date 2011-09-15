@@ -20,11 +20,9 @@
 [global::System.ComponentModel.DesignerCategoryAttribute("code")]
 [global::System.ComponentModel.ToolboxItem(true)]
 [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-[global::System.Xml.Serialization.XmlRootAttribute("NewDataSet")]
+[global::System.Xml.Serialization.XmlRootAttribute("company")]
 [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-public partial class NewDataSet : global::System.Data.DataSet {
-    
-    private companyDataTable tablecompany;
+public partial class company : global::System.Data.DataSet {
     
     private departmentDataTable tabledepartment;
     
@@ -34,8 +32,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
     
     private global::System.Data.DataRelation relationdepartment_department;
     
-    private global::System.Data.DataRelation relationcompany_department;
-    
     private global::System.Data.DataRelation relationdepartment_manager;
     
     private global::System.Data.DataRelation relationdepartment_employee;
@@ -44,7 +40,7 @@ public partial class NewDataSet : global::System.Data.DataSet {
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-    public NewDataSet() {
+    public company() {
         this.BeginInit();
         this.InitClass();
         global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -55,7 +51,7 @@ public partial class NewDataSet : global::System.Data.DataSet {
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-    protected NewDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+    protected company(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
             base(info, context, false) {
         if ((this.IsBinarySerialized(info, context) == true)) {
             this.InitVars(false);
@@ -68,9 +64,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
         if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
             global::System.Data.DataSet ds = new global::System.Data.DataSet();
             ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-            if ((ds.Tables["company"] != null)) {
-                base.Tables.Add(new companyDataTable(ds.Tables["company"]));
-            }
             if ((ds.Tables["department"] != null)) {
                 base.Tables.Add(new departmentDataTable(ds.Tables["department"]));
             }
@@ -96,16 +89,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
         global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
         base.Tables.CollectionChanged += schemaChangedHandler;
         this.Relations.CollectionChanged += schemaChangedHandler;
-    }
-    
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-    [global::System.ComponentModel.Browsable(false)]
-    [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-    public companyDataTable company {
-        get {
-            return this.tablecompany;
-        }
     }
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -180,7 +163,7 @@ public partial class NewDataSet : global::System.Data.DataSet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
     public override global::System.Data.DataSet Clone() {
-        NewDataSet cln = ((NewDataSet)(base.Clone()));
+        company cln = ((company)(base.Clone()));
         cln.InitVars();
         cln.SchemaSerializationMode = this.SchemaSerializationMode;
         return cln;
@@ -205,9 +188,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
             this.Reset();
             global::System.Data.DataSet ds = new global::System.Data.DataSet();
             ds.ReadXml(reader);
-            if ((ds.Tables["company"] != null)) {
-                base.Tables.Add(new companyDataTable(ds.Tables["company"]));
-            }
             if ((ds.Tables["department"] != null)) {
                 base.Tables.Add(new departmentDataTable(ds.Tables["department"]));
             }
@@ -250,12 +230,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
     internal void InitVars(bool initTable) {
-        this.tablecompany = ((companyDataTable)(base.Tables["company"]));
-        if ((initTable == true)) {
-            if ((this.tablecompany != null)) {
-                this.tablecompany.InitVars();
-            }
-        }
         this.tabledepartment = ((departmentDataTable)(base.Tables["department"]));
         if ((initTable == true)) {
             if ((this.tabledepartment != null)) {
@@ -275,7 +249,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
             }
         }
         this.relationdepartment_department = this.Relations["department_department"];
-        this.relationcompany_department = this.Relations["company_department"];
         this.relationdepartment_manager = this.Relations["department_manager"];
         this.relationdepartment_employee = this.Relations["department_employee"];
     }
@@ -283,14 +256,11 @@ public partial class NewDataSet : global::System.Data.DataSet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
     private void InitClass() {
-        this.DataSetName = "NewDataSet";
+        this.DataSetName = "company";
         this.Prefix = "";
         this.Namespace = "http://www.softlang.org/company.xsd";
-        this.Locale = new global::System.Globalization.CultureInfo("");
         this.EnforceConstraints = true;
         this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-        this.tablecompany = new companyDataTable();
-        base.Tables.Add(this.tablecompany);
         this.tabledepartment = new departmentDataTable();
         base.Tables.Add(this.tabledepartment);
         this.tablemanager = new managerDataTable();
@@ -301,13 +271,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
         fkc = new global::System.Data.ForeignKeyConstraint("department_department", new global::System.Data.DataColumn[] {
                     this.tabledepartment.department_IdColumn}, new global::System.Data.DataColumn[] {
                     this.tabledepartment.department_Id_0Column});
-        this.tabledepartment.Constraints.Add(fkc);
-        fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-        fkc.DeleteRule = global::System.Data.Rule.Cascade;
-        fkc.UpdateRule = global::System.Data.Rule.Cascade;
-        fkc = new global::System.Data.ForeignKeyConstraint("company_department", new global::System.Data.DataColumn[] {
-                    this.tablecompany.company_IdColumn}, new global::System.Data.DataColumn[] {
-                    this.tabledepartment.company_IdColumn});
         this.tabledepartment.Constraints.Add(fkc);
         fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
         fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -331,11 +294,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
                     this.tabledepartment.department_Id_0Column}, false);
         this.relationdepartment_department.Nested = true;
         this.Relations.Add(this.relationdepartment_department);
-        this.relationcompany_department = new global::System.Data.DataRelation("company_department", new global::System.Data.DataColumn[] {
-                    this.tablecompany.company_IdColumn}, new global::System.Data.DataColumn[] {
-                    this.tabledepartment.company_IdColumn}, false);
-        this.relationcompany_department.Nested = true;
-        this.Relations.Add(this.relationcompany_department);
         this.relationdepartment_manager = new global::System.Data.DataRelation("department_manager", new global::System.Data.DataColumn[] {
                     this.tabledepartment.department_IdColumn}, new global::System.Data.DataColumn[] {
                     this.tablemanager.department_IdColumn}, false);
@@ -346,12 +304,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
                     this.tableemployee.department_IdColumn}, false);
         this.relationdepartment_employee.Nested = true;
         this.Relations.Add(this.relationdepartment_employee);
-    }
-    
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-    private bool ShouldSerializecompany() {
-        return false;
     }
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -383,7 +335,7 @@ public partial class NewDataSet : global::System.Data.DataSet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
     public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-        NewDataSet ds = new NewDataSet();
+        company ds = new company();
         global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
         global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
         global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -428,9 +380,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
     }
     
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-    public delegate void companyRowChangeEventHandler(object sender, companyRowChangeEvent e);
-    
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
     public delegate void departmentRowChangeEventHandler(object sender, departmentRowChangeEvent e);
     
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -444,279 +393,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
     ///</summary>
     [global::System.Serializable()]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-    public partial class companyDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
-        
-        private global::System.Data.DataColumn columnname;
-        
-        private global::System.Data.DataColumn columncompany_Id;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public companyDataTable() {
-            this.TableName = "company";
-            this.BeginInit();
-            this.InitClass();
-            this.EndInit();
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal companyDataTable(global::System.Data.DataTable table) {
-            this.TableName = table.TableName;
-            if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                this.CaseSensitive = table.CaseSensitive;
-            }
-            if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                this.Locale = table.Locale;
-            }
-            if ((table.Namespace != table.DataSet.Namespace)) {
-                this.Namespace = table.Namespace;
-            }
-            this.Prefix = table.Prefix;
-            this.MinimumCapacity = table.MinimumCapacity;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected companyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                base(info, context) {
-            this.InitVars();
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public global::System.Data.DataColumn nameColumn {
-            get {
-                return this.columnname;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public global::System.Data.DataColumn company_IdColumn {
-            get {
-                return this.columncompany_Id;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        public int Count {
-            get {
-                return this.Rows.Count;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public companyRow this[int index] {
-            get {
-                return ((companyRow)(this.Rows[index]));
-            }
-        }
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public event companyRowChangeEventHandler companyRowChanging;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public event companyRowChangeEventHandler companyRowChanged;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public event companyRowChangeEventHandler companyRowDeleting;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public event companyRowChangeEventHandler companyRowDeleted;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public void AddcompanyRow(companyRow row) {
-            this.Rows.Add(row);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public companyRow AddcompanyRow(string name) {
-            companyRow rowcompanyRow = ((companyRow)(this.NewRow()));
-            object[] columnValuesArray = new object[] {
-                    name,
-                    null};
-            rowcompanyRow.ItemArray = columnValuesArray;
-            this.Rows.Add(rowcompanyRow);
-            return rowcompanyRow;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual global::System.Collections.IEnumerator GetEnumerator() {
-            return this.Rows.GetEnumerator();
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public override global::System.Data.DataTable Clone() {
-            companyDataTable cln = ((companyDataTable)(base.Clone()));
-            cln.InitVars();
-            return cln;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected override global::System.Data.DataTable CreateInstance() {
-            return new companyDataTable();
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal void InitVars() {
-            this.columnname = base.Columns["name"];
-            this.columncompany_Id = base.Columns["company_Id"];
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitClass() {
-            this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-            base.Columns.Add(this.columnname);
-            this.columncompany_Id = new global::System.Data.DataColumn("company_Id", typeof(int), null, global::System.Data.MappingType.Hidden);
-            base.Columns.Add(this.columncompany_Id);
-            this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                            this.columncompany_Id}, true));
-            this.columnname.AllowDBNull = false;
-            this.columncompany_Id.AutoIncrement = true;
-            this.columncompany_Id.AllowDBNull = false;
-            this.columncompany_Id.Unique = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public companyRow NewcompanyRow() {
-            return ((companyRow)(this.NewRow()));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-            return new companyRow(builder);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected override global::System.Type GetRowType() {
-            return typeof(companyRow);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-            base.OnRowChanged(e);
-            if ((this.companyRowChanged != null)) {
-                this.companyRowChanged(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-            base.OnRowChanging(e);
-            if ((this.companyRowChanging != null)) {
-                this.companyRowChanging(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-            base.OnRowDeleted(e);
-            if ((this.companyRowDeleted != null)) {
-                this.companyRowDeleted(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-            base.OnRowDeleting(e);
-            if ((this.companyRowDeleting != null)) {
-                this.companyRowDeleting(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public void RemovecompanyRow(companyRow row) {
-            this.Rows.Remove(row);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-            global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-            NewDataSet ds = new NewDataSet();
-            global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-            any1.MinOccurs = new decimal(0);
-            any1.MaxOccurs = decimal.MaxValue;
-            any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-            sequence.Items.Add(any1);
-            global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-            any2.MinOccurs = new decimal(1);
-            any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-            sequence.Items.Add(any2);
-            global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-            attribute1.Name = "namespace";
-            attribute1.FixedValue = ds.Namespace;
-            type.Attributes.Add(attribute1);
-            global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-            attribute2.Name = "tableTypeName";
-            attribute2.FixedValue = "companyDataTable";
-            type.Attributes.Add(attribute2);
-            type.Particle = sequence;
-            global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-            if (xs.Contains(dsSchema.TargetNamespace)) {
-                global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                try {
-                    global::System.Xml.Schema.XmlSchema schema = null;
-                    dsSchema.Write(s1);
-                    for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                        schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                        s2.SetLength(0);
-                        schema.Write(s2);
-                        if ((s1.Length == s2.Length)) {
-                            s1.Position = 0;
-                            s2.Position = 0;
-                            for (; ((s1.Position != s1.Length) 
-                                        && (s1.ReadByte() == s2.ReadByte())); ) {
-                                ;
-                            }
-                            if ((s1.Position == s1.Length)) {
-                                return type;
-                            }
-                        }
-                    }
-                }
-                finally {
-                    if ((s1 != null)) {
-                        s1.Close();
-                    }
-                    if ((s2 != null)) {
-                        s2.Close();
-                    }
-                }
-            }
-            xs.Add(dsSchema);
-            return type;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the strongly named DataTable class.
-    ///</summary>
-    [global::System.Serializable()]
-    [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
     public partial class departmentDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
         
         private global::System.Data.DataColumn columnname;
@@ -724,8 +400,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
         private global::System.Data.DataColumn columndepartment_Id;
         
         private global::System.Data.DataColumn columndepartment_Id_0;
-        
-        private global::System.Data.DataColumn columncompany_Id;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -786,14 +460,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public global::System.Data.DataColumn company_IdColumn {
-            get {
-                return this.columncompany_Id;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         public int Count {
             get {
@@ -829,18 +495,14 @@ public partial class NewDataSet : global::System.Data.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public departmentRow AdddepartmentRow(string name, departmentRow parentdepartmentRowBydepartment_department, companyRow parentcompanyRowBycompany_department) {
+        public departmentRow AdddepartmentRow(string name, departmentRow parentdepartmentRowBydepartment_department) {
             departmentRow rowdepartmentRow = ((departmentRow)(this.NewRow()));
             object[] columnValuesArray = new object[] {
                     name,
                     null,
-                    null,
                     null};
             if ((parentdepartmentRowBydepartment_department != null)) {
                 columnValuesArray[2] = parentdepartmentRowBydepartment_department[1];
-            }
-            if ((parentcompanyRowBycompany_department != null)) {
-                columnValuesArray[3] = parentcompanyRowBycompany_department[1];
             }
             rowdepartmentRow.ItemArray = columnValuesArray;
             this.Rows.Add(rowdepartmentRow);
@@ -873,7 +535,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
             this.columnname = base.Columns["name"];
             this.columndepartment_Id = base.Columns["department_Id"];
             this.columndepartment_Id_0 = base.Columns["department_Id_0"];
-            this.columncompany_Id = base.Columns["company_Id"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -885,14 +546,13 @@ public partial class NewDataSet : global::System.Data.DataSet {
             base.Columns.Add(this.columndepartment_Id);
             this.columndepartment_Id_0 = new global::System.Data.DataColumn("department_Id_0", typeof(int), null, global::System.Data.MappingType.Hidden);
             base.Columns.Add(this.columndepartment_Id_0);
-            this.columncompany_Id = new global::System.Data.DataColumn("company_Id", typeof(int), null, global::System.Data.MappingType.Hidden);
-            base.Columns.Add(this.columncompany_Id);
             this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                             this.columndepartment_Id}, true));
             this.columnname.AllowDBNull = false;
             this.columndepartment_Id.AutoIncrement = true;
             this.columndepartment_Id.AllowDBNull = false;
             this.columndepartment_Id.Unique = true;
+            this.Namespace = "http://www.softlang.org/company.xsd";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -960,7 +620,7 @@ public partial class NewDataSet : global::System.Data.DataSet {
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-            NewDataSet ds = new NewDataSet();
+            company ds = new company();
             global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
             any1.Namespace = "http://www.w3.org/2001/XMLSchema";
             any1.MinOccurs = new decimal(0);
@@ -1261,7 +921,7 @@ public partial class NewDataSet : global::System.Data.DataSet {
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-            NewDataSet ds = new NewDataSet();
+            company ds = new company();
             global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
             any1.Namespace = "http://www.w3.org/2001/XMLSchema";
             any1.MinOccurs = new decimal(0);
@@ -1562,7 +1222,7 @@ public partial class NewDataSet : global::System.Data.DataSet {
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-            NewDataSet ds = new NewDataSet();
+            company ds = new company();
             global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
             any1.Namespace = "http://www.w3.org/2001/XMLSchema";
             any1.MinOccurs = new decimal(0);
@@ -1624,54 +1284,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
     /// <summary>
     ///Represents strongly named DataRow class.
     ///</summary>
-    public partial class companyRow : global::System.Data.DataRow {
-        
-        private companyDataTable tablecompany;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal companyRow(global::System.Data.DataRowBuilder rb) : 
-                base(rb) {
-            this.tablecompany = ((companyDataTable)(this.Table));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public string name {
-            get {
-                return ((string)(this[this.tablecompany.nameColumn]));
-            }
-            set {
-                this[this.tablecompany.nameColumn] = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public int company_Id {
-            get {
-                return ((int)(this[this.tablecompany.company_IdColumn]));
-            }
-            set {
-                this[this.tablecompany.company_IdColumn] = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public departmentRow[] GetdepartmentRows() {
-            if ((this.Table.ChildRelations["company_department"] == null)) {
-                return new departmentRow[0];
-            }
-            else {
-                return ((departmentRow[])(base.GetChildRows(this.Table.ChildRelations["company_department"])));
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents strongly named DataRow class.
-    ///</summary>
     public partial class departmentRow : global::System.Data.DataRow {
         
         private departmentDataTable tabledepartment;
@@ -1723,39 +1335,12 @@ public partial class NewDataSet : global::System.Data.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public int company_Id {
-            get {
-                try {
-                    return ((int)(this[this.tabledepartment.company_IdColumn]));
-                }
-                catch (global::System.InvalidCastException e) {
-                    throw new global::System.Data.StrongTypingException("The value for column \'company_Id\' in table \'department\' is DBNull.", e);
-                }
-            }
-            set {
-                this[this.tabledepartment.company_IdColumn] = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public departmentRow departmentRowParent {
             get {
                 return ((departmentRow)(this.GetParentRow(this.Table.ParentRelations["department_department"])));
             }
             set {
                 this.SetParentRow(value, this.Table.ParentRelations["department_department"]);
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public companyRow companyRow {
-            get {
-                return ((companyRow)(this.GetParentRow(this.Table.ParentRelations["company_department"])));
-            }
-            set {
-                this.SetParentRow(value, this.Table.ParentRelations["company_department"]);
             }
         }
         
@@ -1769,18 +1354,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public void Setdepartment_Id_0Null() {
             this[this.tabledepartment.department_Id_0Column] = global::System.Convert.DBNull;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool Iscompany_IdNull() {
-            return this.IsNull(this.tabledepartment.company_IdColumn);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public void Setcompany_IdNull() {
-            this[this.tabledepartment.company_IdColumn] = global::System.Convert.DBNull;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1988,40 +1561,6 @@ public partial class NewDataSet : global::System.Data.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public void Setdepartment_IdNull() {
             this[this.tableemployee.department_IdColumn] = global::System.Convert.DBNull;
-        }
-    }
-    
-    /// <summary>
-    ///Row event argument class
-    ///</summary>
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-    public class companyRowChangeEvent : global::System.EventArgs {
-        
-        private companyRow eventRow;
-        
-        private global::System.Data.DataRowAction eventAction;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public companyRowChangeEvent(companyRow row, global::System.Data.DataRowAction action) {
-            this.eventRow = row;
-            this.eventAction = action;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public companyRow Row {
-            get {
-                return this.eventRow;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public global::System.Data.DataRowAction Action {
-            get {
-                return this.eventAction;
-            }
         }
     }
     
