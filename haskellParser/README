@@ -25,11 +25,9 @@ parsing textual syntax with [[Technology:Parsec]] in [[Language:Haskell]]
 We make use of [[Language:Haskell]]'s [[Technology:Parsec]] [[Parsing|parser]] combinator [[:Category:Library|library]] to parse concrete textual syntax for [[101feature:Company|companies]].
 We combine smaller parsers, say for salaries, to larger parsers, say for employees, to build a parser for companies.
 In terms of parsing we exercice:
-
 * Sequence
 * Alternative
 * Option
-
 This implementation also demonstrates [[Functor|applicative functors]] and functor combinators, provided by the ''Control.Applicative'' module.
 
 == Illustration ==
@@ -47,7 +45,6 @@ That is, we are dealing with parsers of stream type <syntaxhighlight lang="haske
 === Primitive parsers ===
 
 In order to build the company parser we first need some primitive parsers.
-
 For parsing a given <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> value we define:
 
 <syntaxhighlight lang="haskell" line>
@@ -56,7 +53,6 @@ pString s = string s <* spaces
 </syntaxhighlight>
 
 This parser also comsumes trailing spaces.
-
 We also need a parser for literals. <syntaxhighlight lang="haskell" enclose="none">pLit</syntaxhighlight> parses a quoted string:
 
 <syntaxhighlight lang="haskell" line>
@@ -124,10 +120,8 @@ while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut
 * The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-
 One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-
-*Use the taget ''clean'' to "reset" the project.
+* Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
 
