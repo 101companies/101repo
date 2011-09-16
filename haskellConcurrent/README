@@ -84,10 +84,12 @@ This function tries to take the value out of the <syntaxhighlight lang="haskell"
 
 === Executing cut ===
 
-In the ''Main'' module in [this!!Main.hs] we execute the talk parallel cut on a sample company. Because <syntaxhighlight lang="haskell" enclose="none">cut</syntaxhighlight> is not pure, we are working in the IO monad:
+In the ''Main'' module in [this!!Main.hs] we execute the parallel cut on a sample company:
 <syntaxhighlight lang="haskell">
 cutC <- cutCompany company
 </syntaxhighlight> 
+<syntaxhighlight lang="haskell" enclose="none">cutC</syntaxhighlight> is holding the cut company.
+
 
 == Architecture ==
 
@@ -101,9 +103,7 @@ The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling an
 * The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-
 One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-
 * Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
