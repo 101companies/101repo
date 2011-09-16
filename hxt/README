@@ -59,7 +59,7 @@ The overall emerging arrow, giving us the total salary, is of type <syntaxhighli
 
 === Running an arrow ===
 
-In the ''Main'' module (hosted by [this!!Main.hs) we are using <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c -> IO [c]</syntaxhighlight> for running an arrow in IO. The function returns all results of a given arrow in a list. 
+In the ''Main'' module (hosted by [this!!Main.hs]) we are using <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c -> IO [c]</syntaxhighlight> for running an arrow in IO. The function returns all results of a given arrow in a list. 
 
 When we combinate the arrow for reading a sample company from a XML file with the total arrow we get:
 <syntaxhighlight lang="haskell" enclose="none">readDocument [] "sampleCompany.xml" >>> total</syntaxhighlight>
