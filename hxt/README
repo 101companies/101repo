@@ -21,7 +21,7 @@ tree-based XML processing with [[Technology:HXT]] in [[Language:Haskell]]
 
 == Motivation ==
 
-[[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox (HXT)]] is used for processing such company-xml-data.
+[[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
 That is, we use HXT's rich combinator [[:Category:Library|library]] to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company-xml-tree.
 The concept of [[Arrow|arrows]] is also demonstrated in this implementation, because the combinator library is heavily based on this concept. That is we exercise:
 * Using arrow combinators such as <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight> and <syntaxhighlight lang="haskell"  enclose="none">when</syntaxhighlight> for expressing queries and transformations.
@@ -37,7 +37,7 @@ In the following we will demonstrate the construction of an arrow for [[101featu
 
 The query for totaling all salaries can be found in the ''Total'' module (in [this!!Total.hs]):
 
-<syntaxhighlight lang="haskell" lines>
+<syntaxhighlight lang="haskell" line>
 total :: ArrowXml a => a XmlTree Float
 total = listA (deep $ hasName "salary"
                >>> 
