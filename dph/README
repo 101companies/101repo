@@ -1,6 +1,6 @@
 == Intent ==
 
-an implementation in [[Language:Haskell]] using [[Technology:DPH|Data Parallel Haskell]]
+exercise [[Parallelism|data parallelism]] in [[Language:Haskell]] using [[Technology:DPH|Data Parallel Haskell]]
 
 == Languages ==
 
