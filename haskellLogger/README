@@ -34,7 +34,8 @@ In the following we will show how cutting all salaries in a given department is 
 <syntaxhighlight lang="haskell" line>
 cutLogDept :: Int -> Department -> Writer Log Department
 cutLogDept n d@(Department name m dus eus) = do
-    tell [replicate n '\t' ++ "Starting cutting Department \"" 
+    tell [replicate n '\t' ++ "Starting cutting "
+                           ++ "department \"" 
                            ++ name 
                            ++ "\", old Total = " 
                            ++ (show $ totalDept d)]
