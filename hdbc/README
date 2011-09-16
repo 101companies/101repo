@@ -77,16 +77,10 @@ In the following we explain the steps for [http://dev.mysql.com/downloads/workbe
 * Download and install XAMPP
 * Open the "XAMPP Control Panel" and start "Apache" and "Mysql"
 * A local MySQL Server is now running:
-\begin{table}
-    \begin{tabular}{|l|l|}
-        \hline
-        Server Host & localhost        \\ \hline
-        Port        & 3306             \\ 
-        Username    & root             \\ 
-        Password    & (empty password) \\
-        \hline
-    \end{tabular}
-\end{table}
+** '''Server Host''': localhost       
+** '''Port''': 3306             
+** '''Username''': root             
+** '''Password''': (empty password) 
 * Connect to database in MySQL Workbench
 * Select "101companies" schema or create one
 * Create tables (run SQL script Company.sql)
