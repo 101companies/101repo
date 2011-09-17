@@ -30,7 +30,7 @@ We demonstrate common usage of HXT by:
 * Using predefined picklers such as <syntaxhighlight lang="haskell" enclose="none">xpPrim</syntaxhighlight> for primitive values
 * Using combinators for lists (<syntaxhighlight lang="haskell" enclose="none">xpList</syntaxhighlight>), option (<syntaxhighlight lang="haskell" enclose="none">xpOption</syntaxhighlight>) and alternative (<syntaxhighlight lang="haskell" enclose="none">xpAlt</syntaxhighlight>).
 * Using the wrapper pickler <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight>.
-* Using those picklers to pickle (say serialize) and unpickle (say deserialize) xml documents.
+* Using those picklers to pickle (say write) and unpickle (say read) xml documents.
 
 == Illustration ==
 
