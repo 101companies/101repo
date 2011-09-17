@@ -30,20 +30,17 @@ That is we exercise processing [[HTTP Request|requests]] from and returning [[HT
 
 In the ''main'' module (in [this!!Main]) the server is set up:
 
-<syntaxhighlight lang="haskell>
+<syntaxhighlight lang="haskell" lie>
 main = runCGI $ handleErrors cgiMain
 </syntaxhighlight>
 
 We use a default error handler provided by the CGI library ''Network.CGI''. <syntaxhighlight lang="haskell" enclose="none">cgiMain</syntaxhighlight> is the main request handler, which definition is shown in the next section.
-
 In the following we will demonstate how a specific request is processed by the server.
 
 === Cutting an employee's salary ===
 
 '''Scenario:''' After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
-
 ''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>''
-
 Bacause of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to [[101implementation:happstack|happstack]]), the action and focus parameters are encoded as URL-parameters:
 
 * Focus = EmployeeFocus [1,0,0]
@@ -88,12 +85,11 @@ doCut f = do
 
 First the company cookie is read using <syntaxhighlight lang="haskell" enclose="none">tryReadCCookie</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell>
+<syntaxhighlight lang="haskell" line>
 tryReadCCookie = liftM (fromMaybe company) $ readCookie "companyCookie"
 </syntaxhighlight>
 
 This function tries to read the company cookie. If the client does not have this cookie stored, the default company is returned.
-
 <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> then calls <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight>, which reads a company, department or employee based on the focus, cuts it and replaces it within the company (see [this!!Cut.hs] for details). After that the manipulated company is written back into the cookie using <syntaxhighlight lang="haskell" enclose="none">writeCCookie</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell">
@@ -127,7 +123,6 @@ The algebraic datatype for companies can be found in [this!!Company.hs]. There i
 * Place ''company.cgi'' in the folder ''cgi-bin'' of your XAMPP installation.
 * Place [this!!style.css] in the folder ''htdocs'' of your XAMPP installation.
 * Open http://localhost/cgi-bin/haskellCGI/company.cgi in a web browser to see the application's root view.
-
 Compiling and cleaning the project is covered by ''run'' and ''clean'' targets in [this!!Makefile.hs].
 
 == Contributors ==
