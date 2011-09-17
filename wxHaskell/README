@@ -126,7 +126,7 @@ showEmployee f p focus c = do
         alignRight $ margin 10 $ widget cButton ]] 
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''API'' module. After that we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We than create buttons to cut the employee's salary and to go back to the department level. In lines 17-25 we set up a save button. When an user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and then shown. After that we use various layout combinators to compose all GUI elements.
+In line 4 we read the employee in question using the ''API'' module. After that we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We than create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When an user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. After that we use various layout combinators to compose all GUI elements.
 
 === Cutting button ===
 
