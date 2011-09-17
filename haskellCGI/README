@@ -30,7 +30,7 @@ That is we exercise processing [[HTTP Request|requests]] from and returning [[HT
 
 In the ''main'' module (in [this!!Main]) the server is set up:
 
-<syntaxhighlight lang="haskell" lie>
+<syntaxhighlight lang="haskell" line>
 main = runCGI $ handleErrors cgiMain
 </syntaxhighlight>
 
@@ -40,7 +40,9 @@ In the following we will demonstate how a specific request is processed by the s
 === Cutting an employee's salary ===
 
 '''Scenario:''' After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
+
 ''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>''
+
 Bacause of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to [[101implementation:happstack|happstack]]), the action and focus parameters are encoded as URL-parameters:
 
 * Focus = EmployeeFocus [1,0,0]
