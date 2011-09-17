@@ -23,7 +23,6 @@
 == Motivation ==
 
 We exercise [[H/X mapping]] by making use of [[Technology:HXT]]'s  [[Technology:XML pickler]] [[Arrow|arrows]] and functions. 
-
 That is, we declare XmlPickler instances for companies, departments and employees and define appropriate pickler functions. 
 This enables us to [[101feature:Serialization|serilize]] values of an [[Algebraic datatype|algebraic datatype]] for [[101feature:Company|companies]] as [[Language:XML|XML]] data.
 We demonstrate common usage of HXT by:
