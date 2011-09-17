@@ -44,27 +44,21 @@ data Focus =
 We define one contructor per company datatype and one for managers. For example to contruct a focus for an employee one needs to pass:
 * A list of indexes: Starting from the company root this list is used to navigate through the departments and subdepartments to the employee's department.
 * An index: The index of this employee in the employee's department's employees list.
-
-We now provide various focus functions (see [this!!API.hs] for details):
-
+On top of this defintion we provide various focus functions (see [this!!API.hs] for details):
 * Given a focus for a company component, compute the focus of the upper component.
 * Given a company/department focus, compute the list of the subdeparments'/employees' foci.
 * Given a focus and a company, return the focused component (i.e. reading).
 * Given a focus, a company and a company/department/employee, replace the focused company/department/employee within the company (i.e. writing).
-
 In the following we will demonstrate reading.
 
 ==== Reading ====
 
 We can now provide a function to read a company component given a focus and a company:
-
 <syntaxhighlight lang="haskell" line>
 class Readable a where
     readA :: Focus -> Company -> a
 </syntaxhighlight>
-
 We declare an instance for <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight>:
-
 <syntaxhighlight lang="haskell" line>
 instance Writeable Department where
     writeA = writeDepartment
@@ -81,7 +75,6 @@ Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</sy
 === The views ===
 
 For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, the ''Views'' module (in [this!!Views.hs]) provides a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
-
 In the following we demonstrate how an employee is displayed.
 
 ==== Viewing an employee ====
@@ -126,7 +119,6 @@ viewEmployee f focus c = do
                         alignRight $ margin 10 $ widget cButton
                      ]]       
 </syntaxhighlight>
-
 
 In line 4 we read the employee in question using the ''API'' module. After that we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We than create buttons to cut the employee's salary and to go back to the department level. In lines 17-25 we set up a save button. When an user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and then shown. After that we use various layout combinators to compose all GUI elements.
 
@@ -185,10 +177,8 @@ main = start gui
 
 * The ''Main'' module has to be compiled using GHC
 * The output executable has to run. 
-
 There is a ''Makefile'' with a target ''start'' covering both stepts. 
-
-Also, there is a ''clean'' target to "reset" the project.
+* Use the target ''clean'' to "reset" the project.
 
 == Contributors ==
 
