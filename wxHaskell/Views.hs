@@ -154,24 +154,30 @@ showEmployee f p focus c = do
     -- back button                                
     bButton <- backButton p f focus c           
     -- save button                                                             
-    sButton <- button  p [ text := "Save"
-                         , size := Size 50 22 
-                         , on command := do { 
-                             newName <- get nameBox text;
-                             newAddress <- get addressBox text;
-                             newSalary <- get salaryBox text;
-                             objectDelete p;
-                             p' <- panel f [textColor := textBlue];
-                             newc <- return $ (writeEM focus c (Employee newName newAddress (read newSalary)));
-			                       showEmployee f p' focus newc; }]
+    sButton <- button  p 
+          [ text := "Save"
+          , size := Size 50 22 
+          , on command := do { 
+              newName <- get nameBox text;
+              newAddress <- get addressBox text;
+              newSalary <- get salaryBox text;
+              objectDelete p;
+              p' <- panel f [textColor := textBlue];
+              showEmployee f p' focus $ 
+               writeEM focus c $ 
+                Employee newName newAddress $ 
+                 read newSalary; }]
     -- compose layout                                 
-    set f [layout := container p $ alignCentre $
-                     margin 20 $   
-                     column 10 [
-                        alignLeft $ row 10 [widget sButton, widget bButton],
-                        hrule 250,
-                        alignCentre $ row 94 [label "Name:", widget nameBox],
-                        alignCentre $ row 81 [label "Address:", widget addressBox],
-                        alignCentre $ row 91 [label "Salary:", widget salaryBox],
-                        alignRight $ margin 10 $ widget cButton
-                     ]]               
+    set f [layout := 
+      container p $ alignCentre $
+      margin 20 $   
+      column 10 [
+        alignLeft $ row 10 [widget sButton, widget bButton],
+        hrule 250,
+        alignCentre $ 
+            row 94 [label "Name:", widget nameBox],
+        alignCentre $ 
+            row 81 [label "Address:", widget addressBox],
+        alignCentre $ 
+            row 91 [label "Salary:", widget salaryBox],
+        alignRight $ margin 10 $ widget cButton ]]               

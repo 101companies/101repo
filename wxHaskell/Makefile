@@ -1,4 +1,4 @@
-run:
+start:
 	ghc --make Main.hs -optl-mwindows 
 	Main
   
