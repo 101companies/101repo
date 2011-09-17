@@ -105,9 +105,10 @@ showEmployee f p focus c = do
               newSalary <- get salaryBox text;
               objectDelete p;
               p' <- panel f [textColor := textBlue];
-			        showEmployee f p' focus $ 
-                writeEM focus c $ 
-                Employee newName newAddress $ read newSalary;; }]
+              showEmployee f p' focus $ 
+               writeEM focus c $ 
+                Employee newName newAddress $ 
+                 read newSalary; }]
     -- compose layout                                 
     set f [layout := 
       container p $ alignCentre $
