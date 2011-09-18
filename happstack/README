@@ -110,7 +110,8 @@ saveEmployee f = do
     Nothing
         -> do
             let newc = writeEM f c newe
-            addCookie Session (mkCookie "company" (show newc))
+            addCookie Session $ 
+              (mkCookie "company" (show newc))
             return $ Right newc
 </syntaxhighlight>
 
@@ -126,7 +127,9 @@ validateEmployee c f (Employee n a s) = if null vs
                             then Nothing
                             else Just $ concat vs 
                               where 
-                                vs = catMaybes [validateNA c f (n,a), validateSalary c f s]
+                                vs = catMaybes 
+                                  [ validateNA c f (n,a)
+                                  , validateSalary c f s]
 </syntaxhighlight>
 
 <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> composes two validations (see [this!!Validators.hs] for details):
@@ -147,7 +150,8 @@ In our case the user might have tried to assign an invalid salary and an invalid
 displayPart :: View -> Focus -> Company -> [(ENames,String)] -> ServerPart Response
 displayPart v f c errs = do 
       td <- newTemplateDirectory' tDir $ 
-              eNamesBinder errs $ binder f c $ emptyTemplateState tDir
+              eNamesBinder errs $ binder f c $ 
+                emptyTemplateState tDir
       render td (B.pack tname)
           where
             binder = case v of
