@@ -58,7 +58,11 @@ By looking at the return type of the function one can see that any database func
 We use DBDirect to generate a module describing the database:
 
 <syntaxhighlight lang="make">
-dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;Port=3306;Server=localhost;User=root;Database=101companies"
+dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;\
+		Port=3306;\
+		Server=localhost;\
+		User=root;\
+		Database=101companies"
 </syntaxhighlight>
 
 This command generates a module describing the database by '''naming''' tables and fields. Compiling this module with GHC creates one module per table, each module holding actual '''variables''' for tables and fields. These variables are the basis for the following query:
@@ -125,7 +129,14 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 
 === Generating the database description ===
 
-* Execute the following command in the implementation folder: <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;Port=3306;Server=localhost;User=root;Database=101companies"</syntaxhighlight>
+* Execute the following command in the implementation folder: 
+<syntaxhighlight lang="make">
+dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;\
+		Port=3306;\
+		Server=localhost;\
+		User=root;\
+		Database=101companies"
+</syntaxhighlight>
 * Compile the ''DBDesc'' module using GHC: <syntaxhighlight lang="make" enclose="none">ghc DBDesc</syntaxhighlight>
 
 === Testing ===
@@ -133,7 +144,7 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 * The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
+One can also use the [this!!Makefile] with a target ''test'' covering both database descriptions generation and testing.
 * Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
