@@ -72,7 +72,7 @@ We need a local database server.
 In the following we explain the steps for XAMPP <cite>xampp</cite>.
 
 We also need some SQL tool.
-In the following we explain the steps for <cite>mysqlworkbench</cite>.
+In the following we explain the steps for the MySQL Workbench <cite>mysqlworkbench</cite>.
 
 * Download and install XAMPP
 * Open the "XAMPP Control Panel" and start "Apache" and "Mysql"
