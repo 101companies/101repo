@@ -49,7 +49,8 @@ The ''Main'' module (in [this!!Main.hs]) contains:
 
 <syntaxhighlight lang="haskell" line>
 main = simpleHTTP nullConf $ 
-  msum [ path $ \v -> path $ \a -> path $ \f -> mainPart a v f
+  msum [ path $ \v -> path $ \a -> path $ 
+           \f -> mainPart a v f
        , serveDirectory EnableBrowsing [] "static"]   
 </syntaxhighlight>
 
@@ -60,9 +61,7 @@ The first list element uses Happstack's <syntaxhighlight lang="haskell" enclose=
 * The view (here <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>)
 * The action (here <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight>)
 * The focus (here <syntaxhighlight lang="haskell" enclose="none">ManagerFocus [0]</syntaxhighlight>)
-
 In case the extraction fails the server falls back to being a file server in line 2.
-
 In case extraction succeeds <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> is called passing the action, the view and the focus. This function is defined in ''Serverparts'', provided by [this!!Serverparts.hs]
 
 <syntaxhighlight lang="haskell">
