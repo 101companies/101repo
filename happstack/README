@@ -48,8 +48,9 @@ The browser sends an HTTP-request together with a company-cookie to the server. 
 The ''Main'' module (in [this!!Main.hs]) contains:
 
 <syntaxhighlight lang="haskell" line>
-main = simpleHTTP nullConf $ msum [ path $ \v -> path $ \a -> path $ \f -> mainPart a v f
-                                  , serveDirectory EnableBrowsing [] "static"]   
+main = simpleHTTP nullConf $ 
+  msum [ path $ \v -> path $ \a -> path $ \f -> mainPart a v f
+       , serveDirectory EnableBrowsing [] "static"]   
 </syntaxhighlight>
 
 We set up a simple HTTP server, configured with a default configuration. We specify serveral possible server behaviours (values of <syntaxhighlight lang="haskell" enclose="none">ServerPartT</syntaxhighlight>) in a list, which we then apply to the <syntaxhighlight lang="haskell" enclose="none">MonadPlus</syntaxhighlight>-function <syntaxhighlight lang="haskell" enclose="none">msum</syntaxhighlight>. This function tries to run each server until one serverstart succeeds.
