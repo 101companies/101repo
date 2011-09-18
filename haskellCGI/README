@@ -113,7 +113,7 @@ html f = case f of
   (ManagerFocus _)    -> employeeHtml f   
 </syntaxhighlight>
 
-Based on the focus <syntaxhighlight lang="haskell" enclose="none">html</syntaxhighlight> calls one of the functions for composing HTML. In this example <syntaxhighlight lang="haskell" enclose="none">case </syntaxhighlight> matches on <syntaxhighlight lang="haskell" enclose="none">(EmployeeFocus _ _)</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">employeeHtml</syntaxhighlight> is called. This function composes HTML for the employee in question using various HTML combinators (see [this!!CompanyHtml.hs] for details).
+Based on the focus <syntaxhighlight lang="haskell" enclose="none">html</syntaxhighlight> calls one of the functions for composing HTML. In this example <syntaxhighlight lang="haskell" enclose="none">case</syntaxhighlight> matches on <syntaxhighlight lang="haskell" enclose="none">(EmployeeFocus _ _)</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">employeeHtml</syntaxhighlight> is called. This function composes HTML for the employee in question using various HTML combinators (see [this!!CompanyHtml.hs] for details).
 
 == Architecture ==
 
