@@ -68,7 +68,10 @@ savePart v f = do
 -- response by displaying company/department/employee based on view, focus and company and possibe errors 
 displayPart :: View -> Focus -> Company -> [(ENames,String)] -> ServerPart Response
 displayPart v f c errs = do 
-      td <- newTemplateDirectory' tDir (eNamesBinder errs $ binder f c $ emptyTemplateState tDir)
+      td <- newTemplateDirectory' tDir $ 
+            eNamesBinder errs $ 
+            binder f c $ 
+            emptyTemplateState tDir
       render td (B.pack tname)
           where
             binder = case v of
