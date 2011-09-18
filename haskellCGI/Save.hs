@@ -9,9 +9,11 @@ import SampleCompany
 import API
 
 -- try to read cookie or return default company
-tryReadCCookie = liftM (fromMaybe company) $ readCookie "companyCookie"
+tryReadCCookie = liftM (fromMaybe company) $ 
+                  readCookie "companyCookie"
 -- write cookie
-writeCCookie = setCookie.(newCookie "companyCookie").show   
+writeCCookie s = setCookie $ newCookie "companyCookie" $ 
+                  show s   
 
 -- process company edit
 cSave :: Focus -> CGIT IO Company
