@@ -146,7 +146,8 @@ In our case the user might have tried to assign an invalid salary and an invalid
 <syntaxhighlight lang="haskell" line>
 displayPart :: View -> Focus -> Company -> [(ENames,String)] -> ServerPart Response
 displayPart v f c errs = do 
-      td <- newTemplateDirectory' tDir (eNamesBinder errs $ binder f c $ emptyTemplateState tDir)
+      td <- newTemplateDirectory' tDir $ 
+              eNamesBinder errs $ binder f c $ emptyTemplateState tDir
       render td (B.pack tname)
           where
             binder = case v of
@@ -171,7 +172,8 @@ They return a function of type <syntaxhighlight lang="haskell" enclose="none">Mo
 
 == Usage ==
 
-* The Haskell module ''Main'' has to compiled with GHC. The executable has to be run. The Haskell module ''Main'' has to be run using ''runhaskell'' There is a ''Makefile'' with a target ''run'' to do this.
+* The Haskell module ''Main'' has to be consulted with ''runhaskell''.
+There is a [this!!Makefile]] with a target ''run'' to do this.
 * Open ''http://localhost:8000/Company/View/CompanyFocus'' to demo, starting with the root view.
 
 == Contributors ==
