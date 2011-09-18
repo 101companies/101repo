@@ -88,7 +88,8 @@ doCut f = do
 First the company cookie is read using <syntaxhighlight lang="haskell" enclose="none">tryReadCCookie</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" line>
-tryReadCCookie = liftM (fromMaybe company) $ readCookie "companyCookie"
+tryReadCCookie = liftM (fromMaybe company) $ 
+                   readCookie "companyCookie"
 </syntaxhighlight>
 
 This function tries to read the company cookie. If the client does not have this cookie stored, the default company is returned.
