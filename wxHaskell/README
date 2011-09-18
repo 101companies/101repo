@@ -64,10 +64,12 @@ instance Writeable Department where
     writeA = writeDepartment
 
 readDepartment :: Focus -> Company -> Department
-readDepartment (DeptFocus ns) (Company _ depts) = readStep ns depts                 
+readDepartment (DeptFocus ns) (Company _ depts) = 
+ readStep ns depts                 
     where
         readStep [n] depts = depts !! n
-        readStep (n:ns) depts = readStep ns $ getDus $ depts !! n
+        readStep (n:ns) depts = readStep ns $ 
+                                 getDus $ depts !! n
 </syntaxhighlight>
 
 Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">readDepartment</syntaxhighlight> navigates through the company until it reaches the department in question. This <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> value is returned by the function.
