@@ -69,10 +69,10 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 === Setup ===
 
 We need a local database server.
-In the following we explain the steps for [http://www.apachefriends.org/en/xampp.html XAMPP].
+In the following we explain the steps for XAMPP <cite>xampp</cite>.
 
 We also need some SQL tool.
-In the following we explain the steps for [http://dev.mysql.com/downloads/workbench/ MySQL Workbench].
+In the following we explain the steps for <cite>mysqlworkbench</cite>.
 
 * Download and install XAMPP
 * Open the "XAMPP Control Panel" and start "Apache" and "Mysql"
@@ -97,3 +97,16 @@ One can also use the [this!!Makefile] with a target ''test'' for [[test automati
 == Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}
+
+== References ==
+
+<biblio>
+#xampp bibtex=@online{xampp,
+  title = {Apache friends: XAMPP},
+  note = {\newline \url{http://www.apachefriends.org/en/xampp.html}}
+}
+
+#mysqlworkbench bibtex=@online{mysqlworkbench,
+  title = {MySQL Workbench},
+  note = {\newline \url{http://dev.mysql.com/downloads/workbench/}}
+}
