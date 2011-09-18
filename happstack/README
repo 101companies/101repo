@@ -124,12 +124,12 @@ The validation functionality can be found in the ''Validators'' module:
 <syntaxhighlight lang="haskell">
 validateEmployee :: Validations Employee
 validateEmployee c f (Employee n a s) = if null vs 
-                            then Nothing
-                            else Just $ concat vs 
-                              where 
-                                vs = catMaybes 
-                                  [ validateNA c f (n,a)
-                                  , validateSalary c f s]
+                           then Nothing
+                           else Just $ concat vs 
+                             where 
+                               vs = catMaybes 
+                                 [ validateNA c f (n,a)
+                                 , validateSalary c f s]
 </syntaxhighlight>
 
 <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> composes two validations (see [this!!Validators.hs] for details):
