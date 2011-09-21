@@ -1,5 +1,3 @@
-This implementation is joint work with Ralf Lämmel and Martijn van Steenbergen.
-
 == Intent ==
 
 parsing textual syntax with [[Technology:Parsec]] in [[Language:Haskell]]
