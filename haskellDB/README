@@ -89,7 +89,6 @@ ttl = mkAttr Ttl
 </syntaxhighlight>
 
 We declare <syntaxhighlight lang="haskell" enclose="none">Ttl</syntaxhighlight> to be an instance of the <syntaxhighlight lang="haskell" enclose="none">Fieldtag</syntaxhighlight> class by specifying what the name of the field should be. We use this field and HaskellDB's <syntaxhighlight lang="haskell" enclose="none">mkAttr</syntaxhighlight> to define <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight>, a attribute for holding a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value. We will use this attribute to access the field.
-
 The acutal total query looks like this:
 
 <syntaxhighlight lang="haskell">
