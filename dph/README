@@ -22,13 +22,11 @@ exercise [[Parallelism|data parallelism]] in [[Language:Haskell]] using [[Techno
 == Motivation ==
 
 We exercise [[101feature:Parallelism|data parallelism]] in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel array|parallel arrays]] and DPH-specific functionality on these arrays.
-
 In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
 * The inabilty to mix [[Vectorization|vectorized]] and non-vectorized code.
 * No support for typeclasses.
 * No vectorisation support for self-defined types.
 * A DHP-specific [[Prelude]] with specific primitive types.
-
 The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
 The cut list of salary values has then to be "reconsumed" by the company in question.
 These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions, 
@@ -43,7 +41,7 @@ We therefore flatten the company to become a list of salaries (see [this!!Salary
 
 ==== Non-vectorised code ====
 
-Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> before we can total and cut in parallel. The cut for conversion before cutting can be found in [this!!Cut.hs]:
+Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> before we can total and cut in parallel. The code for converting before cutting can be found in [this!!Cut.hs]:
 
 <syntaxhighlight lang="haskell">
 cut :: Company -> Company
@@ -62,7 +60,6 @@ In the vectorised module (in [this!!CutV.hs]), where we want to work data parall
 </syntaxhighlight>
 
 This tells [[Technology:GHC]] to vectorise this module and that this module uses parallel arrays.
-
 We then define the interface function between vectorised and non-vectorised code <syntaxhighlight lang="haskell" enclose="none">cutV</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell">
