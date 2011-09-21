@@ -133,7 +133,8 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 
 * Execute the following command in the implementation folder: 
 <syntaxhighlight lang="make">
-dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;\
+dbdirect-hdbc-odbc "DBDesc" "DBDesc" \
+                "Driver=MySQL ODBC 5.1 Driver;\
 		Port=3306;\
 		Server=localhost;\
 		User=root;\
