@@ -59,7 +59,8 @@ By looking at the return type of the function one can see that any database func
 We use DBDirect to generate a module describing the database:
 
 <syntaxhighlight lang="make">
-dbdirect-hdbc-odbc "DBDesc" "DBDesc" "Driver=MySQL ODBC 5.1 Driver;\
+dbdirect-hdbc-odbc "DBDesc" "DBDesc" \
+                "Driver=MySQL ODBC 5.1 Driver;\
 		Port=3306;\
 		Server=localhost;\
 		User=root;\
@@ -96,8 +97,9 @@ total :: String -> Query (Rel (RecCons Ttl (Expr Double) RecNil))
 total cname = do 
   es <- table E.employee
   cs <- table C.company
-  restrict (fromNull (constant 0) (cs!C.xid) .==. es!E.cid 
-            .&&. cs!C.name .==. constant cname)
+  restrict $
+    ( fromNull (constant 0) (cs!C.xid) .==. es!E.cid 
+      .&&. cs!C.name .==. constant cname)
   project (ttl << _sum (es!E.salary))
 </syntaxhighlight>
 
