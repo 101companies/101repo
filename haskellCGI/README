@@ -24,7 +24,7 @@
 == Motivation ==
 
 We make use of the [[Technology:CGI]] library for Haskell to provide a C/S  [[Web Application|web application]] for [[101feature:Company|companies]]. 
-That is we exercise processing [[HTTP Request|requests]] from and returning [[HTTP Respond|responds]] to a web client using the CGI technology. We extract request parameters from the [[URL]] like the '''Action''' to either view or [[101feature:Cut|cut]] a company/department/employee or to save an edited company/department/employee. By passing a focus parameter in the URL and by making use of the [[Zipper]] concept we specify the which part of the company should be displayed. We also demonstrate the use of a [[Language:XHTML]] combinator [[:Category:Library|library]] to compose the new pages. 
+That is we exercise processing [[HTTP Request|requests]] from and returning [[HTTP Respond|responds]] to a web client using the CGI technology. We extract request parameters from the [[URL]] like the '''Action''' to either view or [[101feature:Cut|cut]] a company/department/employee or to save an edited company/department/employee. By passing a focus parameter in the URL and by making use of the [[Zipper]] inspired focus concept we specify the which part of the company should be displayed. Client-sided company data is stored in [[Cookie|cookies ]]. We also demonstrate the use of a [[Language:XHTML]] combinator [[:Category:Library|library]] to compose the new pages. 
 
 == Illustration ==
 
@@ -43,7 +43,7 @@ In the following we will demonstate how a specific request is processed by the s
 
 ''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>''
 
-Bacause of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to [[101implementation:happstack|happstack]]), the action and focus parameters are encoded as URL-parameters:
+Bacause of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to the [[101implementation:happstack|happstack]] implementation), the action and focus parameters are encoded as URL-parameters:
 
 * Focus = EmployeeFocus [1,0,0]
 * Action = Cut
@@ -74,7 +74,7 @@ We then call <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhigh
 
 ==== Cutting the cookie ====
 
-The function <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> performs the acutal cut action:
+The function <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> performs the acutal cut action on the company cookie:
 
 <syntaxhighlight lang="haskell">
 doCut :: Focus -> CGI Html
