@@ -116,7 +116,9 @@ saveEmployee f = do
             return $ Right newc
 </syntaxhighlight>
 
-<syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> reads the company from a cookie and extracts the request parameters from the URL in lines 3-6. These values are used to compose the new <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> value in line 7. In line 8 this employee is then passed to the validation function <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> of type <syntaxhighlight lang="haskell" enclose="none">Validations Employee</syntaxhighlight>, which is a type alias for <syntaxhighlight lang="haskell" enclose="none">Company -> Focus -> a -> Maybe [(ENames,String)]</syntaxhighlight>. If the validation succeeds, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. In this case the employee is replaced within the company, which is then re-stored in the cookie and returned by the function (lines 14-16). Otherwise <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns error information, which are then also returned by <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight>.
+<syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> reads the company from a cookie and extracts the request parameters from the URL in lines 3-6. These values are used to compose the new <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> value in line 7. 
+
+In line 8 this employee is then passed to the validation function <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> of type <syntaxhighlight lang="haskell" enclose="none">Company -> Focus -> a -> Maybe [(ENames,String)]</syntaxhighlight>. If the validation succeeds, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. In this case the employee is replaced within the company, which is then re-stored in the cookie and returned by the function (lines 14-16). Otherwise <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns error information, which is then also returned by <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight>.
 
 ==== Validation ====
 
@@ -137,13 +139,13 @@ validateEmployee c f (Employee n a s) = if null vs
 
 * <syntaxhighlight lang="haskell" enclose="none">validateNA</syntaxhighlight> checks whether the employee's name/address pair is unique in the company <syntaxhighlight lang="haskell" enclose="none">c</syntaxhighlight>.
 * <syntaxhighlight lang="haskell" enclose="none">validateSalary</syntaxhighlight> checks two things regaring the employee's salary:
-** Whether by changing the salary the employee's department-manager still receives the highest salary within the department.
-** Whether the salary has a postive value.
+** It checks whether by changing the salary the employee's department-manager still receives the highest salary within the department.
+** It checks whether the salary has a postive value.
 In case both validations return <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. Otherwise it returns the list of all error messages.
 
 ==== Binding and Responding ====
 
-In our case the user might have tried to assign an invalid salary and an invalid name/address pair to the manager in question. Validation therefore would return error information. 
+The user might have tried to assign an invalid salary and an invalid name/address pair to the manager in question. Validation therefore would return error information. 
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> would call <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the error messages:
 
 <syntaxhighlight lang="haskell" line>
