@@ -36,7 +36,7 @@ but this implementation is supposed to demonstrate the available for of data par
 
 === Cutting in Parallel ===
 
-Like we mentioned in the motivation section, DPH currently does not allow you to use self-defined types in vectorised code. 
+As we mentioned in the motivation section, DPH currently does not allow you to use self-defined types in vectorised code. 
 We therefore flatten the company to become a list of salaries (see [this!!SalaryFlattener.hs] for details).
 
 ==== Non-vectorised code ====
@@ -78,7 +78,7 @@ cutVP :: [:Float:] -> [:Float:]
 cutVP = mapP (/2)
 </syntaxhighlight>
 
-This code shows another limitations of current DPH version. The type signature of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be based on a typeclass like in <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>. This is due to the fact that DPH does not support typeclasses at the moment. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
+This code shows another limitation of current DPH version. The type signature of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be based on a typeclass like in <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>. This is due to the fact that DPH does not support typeclasses at the moment. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
 
 == Architecture ==
 
@@ -93,8 +93,8 @@ The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling an
 * The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline]. 
-One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-* Use the taget ''clean'' to "reset" the project.
+* One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
+* Use the target ''clean'' to "reset" the project.
 
 == Contributors ==
 
