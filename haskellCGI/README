@@ -102,7 +102,7 @@ writeCCookie s = setCookie $ newCookie "companyCookie" $
 
 ==== Returning HTML ====
 
-After that <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">getHtml</syntaxhighlight> passing the focus and the new company:
+After the company data is saved in the cookie <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">getHtml</syntaxhighlight> passing the focus and the new company:
 
 <syntaxhighlight lang="haskell">
 html :: Focus -> Company -> Html
@@ -122,7 +122,7 @@ The algebraic datatype for companies can be found in [this!!Company.hs]. There i
 
 == Usage ==
 
-* First you need a webserver. In the following we explain the steps for <cite>xampp</cite>.
+* First you need a webserver. In the following we explain the steps for XAMPP<cite>xampp</cite>.
 * Compile to a CGI file using GHC: <syntaxhighlight lang="make">ghc --make -o company.cgi Main.hs</syntaxhighlight>
 * Place ''company.cgi'' in the folder ''cgi-bin'' of your XAMPP installation.
 * Place [this!!style.css] in the folder ''htdocs'' of your XAMPP installation.
