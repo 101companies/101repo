@@ -24,7 +24,7 @@
 == Motivation ==
 
 We make use of the [[Technology:CGI]] library for Haskell to provide a C/S  [[Web Application|web application]] for [[101feature:Company|companies]]. 
-That is we exercise processing [[HTTP Request|requests]] from and returning [[HTTP Respond|responds]] to a web client using the CGI technology. We extract request parameters from the [[URL]] like the '''Action''' to either view or [[101feature:Cut|cut]] a company/department/employee or to save an edited company/department/employee. By passing a focus parameter in the URL and by making use of the [[Zipper]] inspired focus concept we specify the which part of the company should be displayed. Client-sided company data is stored in [[Cookie|cookies ]]. We also demonstrate the use of a [[Language:XHTML]] combinator [[:Category:Library|library]] to compose the new pages. 
+That is we exercise processing [[HTTP Request|requests]] from and returning [[HTTP Respond|responds]] to a web client using the CGI technology. We extract request parameters from the [[URL]] like the '''Action''' to either view or [[101feature:Cut|cut]] a company/department/employee or to save an edited company/department/employee. By making use of the [[Zipper]] inspired focus concept (see the illustration section of the [[101implementation:wxHaskell|wxHaskell]] implementation for details) and by passing such a focus parameter in the URL we specify which part of the company should be displayed. Client-sided company data is stored in [[Cookie|cookies ]]. We also demonstrate the use of a [[Language:XHTML]] combinator [[:Category:Library|library]] to compose the new pages. 
 
 == Illustration ==
 
@@ -39,7 +39,7 @@ In the following we will demonstate how a specific request is processed by the s
 
 === Cutting an employee's salary ===
 
-'''Scenario:''' After requesting to view an employee the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
+'''Scenario:''' After receiving an employee view the user clicks the cut button in the browser. The browser sends a request to the server using this URL:
 
 ''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&action=Cut</nowiki>''
 
