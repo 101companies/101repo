@@ -25,12 +25,12 @@ We exercise [[101feature:Parallelism|data parallelism]] in [[Language:Haskell]] 
 In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
 * The inabilty to mix [[Vectorization|vectorized]] and non-vectorized code.
 * No support for typeclasses.
-* No vectorisation support for self-defined types.
+* No vectorisation support for used-defined types.
 * A DHP-specific [[Prelude]] with specific primitive types.
 The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
-The cut list of salary values has then to be "reconsumed" by the company in question.
+The resulting list of cut salary values has then to be consumed by the company in question.
 These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions, 
-but this implementation is supposed to demonstrate how one can use data parallelism rather than being about efficiency.
+but this implementation is supposed to demonstrate the available for of data parallelism rather than being about efficiency.
 
 == Illustration ==
 
