@@ -30,9 +30,9 @@ We make use of [[Technology:HaskellDB|HaskellDB]] to express [[:Category:Databas
 * Selection (HaskellDB's <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight>)
 * Aggregation (Here HaskellDB's <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight>)
 * Renaming (HaskellDB's <syntaxhighlight lang="haskell" enclose="none"><<</syntaxhighlight>)
-We connect to the underlining [[Technology:MySQL]] database through a HaskellDB-[[Technology:HDBC]]-[[Technology:ODBC]] backend. We show the common approach of seperating query/statement definition from the actual [[:Category:Database management system|database implementation]]-dependent query/statement execution <cite>bringert2004student</cite>. That is, the queries and statements themselfs are database implementation-independent (see the illustration section for details).
+We connect to the underlining [[Technology:MySQL]] database through a HaskellDB-[[Technology:HDBC]]-[[Technology:ODBC]] backend. We show the common approach of separating query/statement definition from the actual [[:Category:Database management system|database implementation]]-dependent query/statement execution <cite>bringert2004student</cite>. That is, the queries and statements themselvess are database implementation-independent (see the illustration section for details).
 
-This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this tool to generate the modules describing the database. The modules are the basis for quering the rational data.
+This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this tool to generate the modules describing the database. The modules are the basis for quering the relational data.
 
 == Illustration ==
 
@@ -56,18 +56,7 @@ By looking at the return type of the function one can see that any database func
 
 === DBDirect ===
 
-We use DBDirect to generate a module describing the database:
-
-<syntaxhighlight lang="make">
-dbdirect-hdbc-odbc "DBDesc" "DBDesc" \
-                "Driver=MySQL ODBC 5.1 Driver;\
-		Port=3306;\
-		Server=localhost;\
-		User=root;\
-		Database=101companies"
-</syntaxhighlight>
-
-This command generates a module describing the database by '''naming''' tables and fields. Compiling this module with GHC creates one module per table, each module holding actual '''variables''' for tables and fields. These variables are the basis for the following query:
+We use DBDirect's <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc</syntaxhighlight> generate a module describing the database (see the usage section for the complete command). This command generates a module describing the database by '''naming''' tables and fields. Compiling this module with GHC creates one module per table, each module holding actual '''variables''' for tables and fields. These variables are the basis for the following totaling query.
 
 === Totaling ===
 
@@ -78,7 +67,7 @@ import qualified DBDesc.Employee as E
 import qualified DBDesc.Company as C
 </syntaxhighlight>
 
-Because we want to store the sum of all salaries in a special field, we need to define one:
+We define a special field for storing the sum of all salaries:
 
 <syntaxhighlight lang="haskell">
 data Ttl = Ttl
@@ -89,7 +78,7 @@ ttl :: Attr Ttl Double
 ttl = mkAttr Ttl  
 </syntaxhighlight>
 
-We declare <syntaxhighlight lang="haskell" enclose="none">Ttl</syntaxhighlight> to be an instance of the <syntaxhighlight lang="haskell" enclose="none">Fieldtag</syntaxhighlight> class by specifying what the name of the field should be. We use this field and HaskellDB's <syntaxhighlight lang="haskell" enclose="none">mkAttr</syntaxhighlight> to define <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight>, a attribute for holding a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value. We will use this attribute to access the field.
+We declare <syntaxhighlight lang="haskell" enclose="none">Ttl</syntaxhighlight> to be an instance of the <syntaxhighlight lang="haskell" enclose="none">FieldTag</syntaxhighlight> class by specifying what the name of the field should be. We use this field and HaskellDB's <syntaxhighlight lang="haskell" enclose="none">mkAttr</syntaxhighlight> to define <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight>, a attribute for holding a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value. We will use this attribute to access the field.
 The acutal total query looks like this:
 
 <syntaxhighlight lang="haskell">
