@@ -44,7 +44,7 @@ data Focus =
 We define one contructor per company datatype and one for managers. For example to contruct a focus for an employee one needs to pass:
 * A list of indexes: Starting from the company root this list is used to navigate through the departments and subdepartments to the employee's department.
 * An index: The index of this employee in the employee's department's employees list.
-On top of this defintion we provide various focus functions to get sub- and upperfoci and functions to read and write company components (see [this!!API.hs] for details):
+On top of this defintion we provide functions to get sub and upper foci and to read and write company components (see [this!!API.hs] for details):
 In the following we will demonstrate reading.
 
 ==== Reading ====
@@ -124,7 +124,7 @@ showEmployee f p focus c = do
         alignRight $ margin 10 $ widget cButton ]] 
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''API'' module. After that we set the frame title and create a new panel for this view. In lines 7-9 we create one input box per employee field. We than create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When an user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. After that we use various layout combinators to compose all GUI elements.
+In line 4 we read the employee in question using the ''API'' module. In the following line we set the frame title and create a new panel for this view. In lines 7-9 we create one input box per employee field. In lines 11-14 create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. After that we use various layout combinators to compose all GUI elements.
 
 === Cutting button ===
 
