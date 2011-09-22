@@ -37,7 +37,7 @@ We define a type alias of all parsers that are definied in this implementation:
 type P = Parsec String ()
 </syntaxhighlight>
 
-That is, we are dealing with parsers of stream type <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> and state type <syntaxhighlight lang="haskell" enclose="none">()</syntaxhighlight> (no state).
+That is, we are dealing with parsers of stream type <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> and state type <syntaxhighlight lang="haskell" enclose="none">()</syntaxhighlight> (no state). The return type running such a parser is explained further below.
 
 === Primitive parsers ===
 
@@ -68,12 +68,18 @@ pDepartment = Department
 </syntaxhighlight>
 
 We make use of the <syntaxhighlight lang="haskell" enclose="none">(<$) :: Functor f => a -> f b -> f a </syntaxhighlight> operator. That is, we pass the department contructor <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and a parser for all contructor parameters (for name, manager and for the list of subunits) to receive a parser for departments. 
-In line 3 we parse the keyword for department declaration "department". After that we parse the department name, followed by an opening curly bracket in line 4. Then we parse the department's manager using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. After that we use <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> in line 5 to parse the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubUnit</syntaxhighlight> as the parser for each subunits. At the end of a department declaration we expect a closing curly bracket.
+In line 3 we parse the keyword for department declaration "department". After that we parse the department name, followed by an opening curly bracket in line 4. Then we parse the department's manager using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. In line 5 we use <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> to parse the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubUnit</syntaxhighlight> as the parser for each subunits. At the end of a department declaration we expect a closing curly bracket.
 
 === Running the Parser ===
 
-Running the company parser is realized by making use of <syntaxhighlight lang="haskell" enclose="none">runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either ParseError a</syntaxhighlight>.
-We are dealing with parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.Therefore in this example the type signature for <syntaxhighlight lang="haskell" enclose="none">runP</syntaxhighlight> simplifies to <syntaxhighlight lang="haskell" enclose="none">Parsec String () Company -> () -> SourceName -> String -> Either ParseError a</syntaxhighlight>. When we choose <syntaxhighlight lang="haskell" enclose="none">"input"</syntaxhighlight> as the source name we can define a function to run the company parser:
+Running the company parser is realized by making use of 
+<syntaxhighlight lang="haskell">
+runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either ParseError a
+</syntaxhighlight>.
+We illustrated above we use parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.Therefore in this example the type signature for <syntaxhighlight lang="haskell" enclose="none">runP</syntaxhighlight> simplifies to <syntaxhighlight lang="haskell">
+Parsec String () Company -> () -> SourceName -> String -> Either ParseError a
+</syntaxhighlight>. 
+When we choose <syntaxhighlight lang="haskell" enclose="none">"input"</syntaxhighlight> as the source name we can define a function to run the company parser:
 
 <syntaxhighlight lang="haskell" line>
 parseCompany :: String -> Either ParseError Company
@@ -94,12 +100,12 @@ The variable <syntaxhighlight lang="haskell" enclose="none">parsedCompany</synta
 We define print-function handling both cases:
 
 <syntaxhighlight lang="haskell" line>
-rightApplyPrint :: Show a => Either ParseError Company -> (Company -> a) -> IO ()
-rightApplyPrint (Right c) f = print $ f c
-rightApplyPrint (Left e) _ = print e
+eitherPrint :: Show a => Either ParseError Company -> (Company -> a) -> IO ()
+eitherPrint (Right c) f = print $ f c
+eitherPrint (Left e) _ = print e
 </syntaxhighlight>
 
-In case parsing was successful this function applies a given function to the company and prints the result. In case of a parse error it prints the error message.
+In case parsing was successful this function applies a given function to the company and prints the result. In case of a parse error, it prints the error message.
 
 We can use this function to print the total salary of <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> in case of parsing success:
 
@@ -117,7 +123,7 @@ while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut
 * The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
+* One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
 * Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
