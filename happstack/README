@@ -26,10 +26,10 @@
 
 == Motivation ==
 
-This implementation provides a small client/server [[Web Application|web application]] written with the help of the [[Technology:Happstack]] [[:Category:Framework|framework]]. We exercice the use of [[Routing filter| routing filters]] to filter requests by action: A user can either view a specific part of a [[101feature:Company|company]], [[101feature:Cut|cut]] a specific part or save a company component after manipulation of primitive fields.
-The company is stored in a client-sided [[Cookie|cookie]].
+This implementation provides a small C/S [[Web Application|web application]] written with the help of the [[Technology:Happstack]] [[:Category:Framework|framework]]. We exercice the use of [[Routing filter| routing filters]] to filter requests by action: A user can either view a specific part of a [[101feature:Company|company]], [[101feature:Cut|cut]] a specific part or save a company component after manipulation of primitive fields.
+The company is stored in a client-side [[Cookie|cookie]].
 The part to be viewed, cut or saved is specified by making use if the [[Zipper|zipper]] concept. That is, the [[URL]] contains a company focus (see illustration section). 
-We also demonstrate [[101feature:Validation|validation]]: When processing a save-request, sent by an HTML-form, the server applies various validators to eventuelly return error messages, which will be displayed to the user in the [[Browser|browser]]. As an response the client receives HTML-documents, composed by making use of the [[Technology:Heist]] HTML-templating engine.
+We also demonstrate [[101feature:Validation|validation]]: When processing a save-request, sent by an HTML-form, the server applies various validators to eventuelly return error messages, which will be displayed to the user in the [[Browser|browser]]. As an response the client receives HTML-documents, which are composed by making use of the [[Technology:Heist]] HTML-templating engine.
 
 == Illustration ==
 
@@ -40,7 +40,8 @@ In the following we will demonstate how a specific request is processed by the s
 '''Scenario:''' After requesting to view a manager the user manipulated the input fields and submits a request by clicking a save button.
 The browser sends an HTTP-request together with a company-cookie to the server. The URL looks like this:
 
-''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=Utrecht&Salary=1234.0</nowiki>''
+''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=</nowiki>''
+''<nowiki>Utrecht&Salary=1234.0</nowiki>''
 
 ==== Routing filter ====
 
@@ -115,7 +116,7 @@ saveEmployee f = do
             return $ Right newc
 </syntaxhighlight>
 
-<syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> reads the company from a cookie and extracts the request parameters from the URL in lines 3-6. <syntaxhighlight lang="haskell" enclose="none">lookRead</syntaxhighlight> also reads to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value. Then the new <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> value is composed using the contructor. In line 8 this employee is then passed to the validation function <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> of type <syntaxhighlight lang="haskell" enclose="none">Validations Employee</syntaxhighlight>, which is a type alias for <syntaxhighlight lang="haskell" enclose="none">Company -> Focus -> a -> Maybe [(ENames,String)]</syntaxhighlight>. If the validation succeeds, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. In this case the employee is replaced within the company, which is then re-stored in the cookie and returned by the function (lines 14-16). Otherwise <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns error information, which are then also returned by <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight>.
+<syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> reads the company from a cookie and extracts the request parameters from the URL in lines 3-6. These values are used to compose the new <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> value in line 7. In line 8 this employee is then passed to the validation function <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> of type <syntaxhighlight lang="haskell" enclose="none">Validations Employee</syntaxhighlight>, which is a type alias for <syntaxhighlight lang="haskell" enclose="none">Company -> Focus -> a -> Maybe [(ENames,String)]</syntaxhighlight>. If the validation succeeds, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. In this case the employee is replaced within the company, which is then re-stored in the cookie and returned by the function (lines 14-16). Otherwise <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns error information, which are then also returned by <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight>.
 
 ==== Validation ====
 
