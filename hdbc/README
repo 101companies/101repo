@@ -60,6 +60,8 @@ cut conn cName = do
 
 The function uses a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>. The statement is exectuted and the change is commited to the database.
 
+Functionality to total all salaries uses a SELECT statements instead of UPDATE (see[this!!Total.hs] for details).
+
 == Architecture ==
 
 We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements. The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting.
@@ -70,7 +72,6 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 
 We need a local database server.
 In the following we explain the steps for XAMPP <cite>xampp</cite>.
-
 We also need some SQL tool.
 In the following we explain the steps for the MySQL Workbench <cite>mysqlworkbench</cite>.
 
