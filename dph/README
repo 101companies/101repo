@@ -8,8 +8,8 @@ exercise [[Parallelism|data parallelism]] in [[Language:Haskell]] using [[Techno
 
 == Technologies ==
 
-* [[Technology:GHC]]
-* [[Technology:GHCi]]
+* [[Technology:GHC]] (Version 7.2.1)
+* [[Technology:GHCi]] (Version 7.2.1)
 * [[Technology:DPH]]
 
 == Features ==
