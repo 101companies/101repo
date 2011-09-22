@@ -19,10 +19,10 @@ task parallel programming in [[Language:Haskell]]
 
 == Motivation ==
 
-We make use of [[Language:Haskell]]'s [[Concurrency]] support. That is, we are using synchronized variables ([[MVar]]), which are shared among different threads. 
-Each thread [[101feature:Total|totals]] resp. [[101feature:Cut|cuts]] only the salaries in a specifed department; subdepartments are handled by new threads.
+We make use of [[Language:Haskell]]'s [[Concurrency]] support. That is, we devide computations into multiple threads and make use of synchronized variables ([[MVar]]), which are shared among different threads. 
+Each thread [[101feature:Total|totals]] or [[101feature:Cut|cuts]] only the salaries in a specifed department; subdepartments are handled by new threads.
 The result of the computations (float values resp. new company entities) are stored in a MVar and then collected and aggregated with other results by the "upper" thread. 
-We also demonstrate the use of <syntaxhighlight lang="haskell" enclose="none">tryTakeMVar</syntaxhighlight> by implementating an aggregation function that collects all mvars values in a list of mvars, but does not block on every element.    
+We demonstrate the use of <syntaxhighlight lang="haskell" enclose="none">tryTakeMVar</syntaxhighlight> by implementating an aggregation function that collects all mvars values in a list of MVars, but does not block on every element.    
 
 == Illustration ==
 
@@ -33,11 +33,11 @@ We create a new thread using <syntaxhighlight lang="haskell" enclose="none">fork
 <syntaxhighlight lang="haskell">
 cutCompany :: Company -> IO Company
 cutCompany (Company n depts) = do
-    cuts <- forM depts $ \d -> do
+    threads <- forM depts $ \d -> do
         mvar' <- newEmptyMVar
         forkIO $ cutDept mvar' d
         return mvar'
-    cutDepts <- takeAllMVars cuts
+    cutDepts <- takeAllMVars threads
     return $ Company n cutDepts
 </syntaxhighlight>
 
@@ -46,15 +46,15 @@ We collect all <syntaxhighlight lang="haskell" enclose="none">ThreadId</syntaxhi
 <syntaxhighlight lang="haskell">
 cutDept :: MVar Department -> Department -> IO ()
 cutDept mvar (Department n m dus eus) = do
-    cuts <- forM dus $ \d -> do
+    threads <- forM dus $ \d -> do
         mvar' <- newEmptyMVar
         forkIO $ cutDept mvar' d
         return mvar'
-    cutDus <- takeAllMVars cuts
+    cutDus <- takeAllMVars threads
     putMVar mvar $ Department n (cutEmployee m) (cutDus) (map cutEmployee eus)  
 </syntaxhighlight>
 
-The cutting of direct department employees not performed in a new thread:
+The cutting of direct department employees is not performed in a new thread:
 
 <syntaxhighlight lang="haskell">
 cutEmployee :: Employee -> Employee
