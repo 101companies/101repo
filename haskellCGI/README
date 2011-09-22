@@ -117,7 +117,7 @@ Based on the focus <syntaxhighlight lang="haskell" enclose="none">html</syntaxhi
 
 == Architecture ==
 
-In the ''Main'' module in [this!!Main.hs] the server is set up using request handlers provided by [this!!Response.hs]. The save actions are performed by functionality hosted by [this!!Save.hs]. An algebraic datatype for actions is definied in [this!!Types.hs]. HTML pages are composed in [this!!CompanyHtml.hs].
+In [this!!Main.hs] the server is set up using request handlers provided by [this!!Response.hs]. The save actions are performed by functionality hosted by [this!!Save.hs]. An algebraic datatype for actions is definied in [this!!Types.hs]. HTML pages are composed in [this!!CompanyHtml.hs].
 The algebraic datatype for companies can be found in [this!!Company.hs]. There is also a simple API ([this!!API.hs]) to companies providing reading and writing and getters and setters. A sample company can be found in [this!!SampleCompany.hs]. [this!!Cut.hs] and [this!!Total.hs] provide cut and total functionality.
 
 == Usage ==
@@ -127,7 +127,7 @@ The algebraic datatype for companies can be found in [this!!Company.hs]. There i
 * Place ''company.cgi'' in the folder ''cgi-bin'' of your XAMPP installation.
 * Place [this!!style.css] in the folder ''htdocs'' of your XAMPP installation.
 * Open ''http://localhost/cgi-bin/haskellCGI/company.cgi'' in a web browser to see the application's root view.
-Compiling and cleaning the project is covered by ''run'' and ''clean'' targets in [this!!Makefile.hs].
+Compiling and cleaning the project is skripted by ''run'' and ''clean'' targets in [this!!Makefile.hs].
 
 == Contributors ==
 
