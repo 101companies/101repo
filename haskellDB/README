@@ -86,9 +86,12 @@ total :: String -> Query (Rel (RecCons Ttl (Expr Double) RecNil))
 total cname = do 
   es <- table E.employee
   cs <- table C.company
+
   restrict $
     ( fromNull (constant 0) (cs!C.xid) .==. es!E.cid 
-      .&&. cs!C.name .==. constant cname)
+      .&&. 
+      cs!C.name .==. constant cname )
+
   project (ttl << _sum (es!E.salary))
 </syntaxhighlight>
 
