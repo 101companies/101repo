@@ -88,7 +88,7 @@ This function tries to take the value out of the <syntaxhighlight lang="haskell"
 [this!!Total.hs] and [this!!Cut.hs] provide functionality for totaling and cutting salaries in a concurrent way. 
 [this!!Utils.hs] contains a function to collect content of a list of <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> values in a non-blocking way.
 The algebraic datatype for companies can be found in [this!!Company.hs]. 
-The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting a sample company hosted by [this!!SampleCompany.hs].
+The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting a sample company hosted by [this!!SampleCompany.hs].
 
 == Usage ==
 
