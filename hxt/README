@@ -21,7 +21,7 @@ tree-based XML processing with [[Technology:HXT]] in [[Language:Haskell]]
 
 == Motivation ==
 
-[[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company-xml-data.
+[[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company XML data.
 That is, we use HXT's rich combinator [[:Category:Library|library]] to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company-xml-tree.
 The concept of [[Arrow|arrows]] is also demonstrated in this implementation, because the combinator library is heavily based on this concept. That is we exercise:
 * Using arrow combinators such as <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight> and <syntaxhighlight lang="haskell"  enclose="none">when</syntaxhighlight> for expressing queries and transformations.
@@ -35,7 +35,7 @@ In the following we will demonstrate the construction of an arrow for [[101featu
 
 === Total ===
 
-The query for totaling all salaries can be found in the ''Total'' module (in [this!!Total.hs]):
+The query for totaling all salaries can be found in [this!!Total.hs]:
 
 <syntaxhighlight lang="haskell" line>
 total :: ArrowXml a => a XmlTree Float
@@ -74,15 +74,15 @@ Executing this arrow with runX returns a list of float values. Because we except
 
 == Architecture ==
 
-[this!!Total.hs] holds the arrow for [[101feature:Total|totaling]] salaries as described in the illustration section. [this!!Cut.hs] contains a transformation arrow for [[101feature:Cut|cutting]] salaries. The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting the xml data provided by [this!!sampleCompany.xml]
+[this!!Total.hs] provides the arrow for totaling salaries as described in the illustration section. [this!!Cut.hs] contains a transformation arrow for cutting salaries. The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting the xml data provided by [this!!sampleCompany.xml]
 
 == Usage ==
 
 * The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-* Use the taget ''clean'' to "reset" the project.
+* One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
+* Use the target ''clean'' to "reset" the project.
 
 == Contributors ==
 
