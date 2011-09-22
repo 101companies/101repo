@@ -28,7 +28,7 @@ This concept also helps us to read departments/employees from a given position w
 
 == Illustration ==
 
-=== Zipper ===
+=== Focus datatype ===
 
 We are using a datastructure inspired by the concept of [[Zipper|zippers]] to specify positions of components within the company. In the ''API'' module (hold by [this!!API.hs]) we provide an algebraic datatype <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight>:
 
