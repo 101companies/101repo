@@ -41,6 +41,7 @@ In the following we will demonstate how a specific request is processed by the s
 The browser sends an HTTP-request together with a company-cookie to the server. The URL looks like this:
 
 ''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=</nowiki>''
+
 ''<nowiki>Utrecht&Salary=1234.0</nowiki>''
 
 ==== Routing filter ====
