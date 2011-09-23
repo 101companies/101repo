@@ -19,10 +19,11 @@
 * [[101feature:Total]]
 * [[101feature:Cut]]
 * [[101feature:Serialization]]
+* [[101feature:Mapping]]
 
 == Motivation ==
 
-We exercise [[H/X mapping]] by making use of [[Technology:HXT]]'s  [[Technology:XML pickler]] [[Arrow|arrows]] and functions. 
+We exercise [[101feature:Mapping|mapping]] from Haskell to XML data by making use of [[Technology:HXT]]'s  [[Technology:XML pickler]] [[Arrow|arrows]] and functions. 
 That is, we declare XmlPickler instances for companies, departments and employees and define appropriate pickler functions. 
 This enables us to [[101feature:Serialization|serialize]] values of [[Algebraic datatype|algebraic datatypes]] for [[101feature:Company|companies]] as [[Language:XML|XML]] data.
 We demonstrate common usage of HXT by:
