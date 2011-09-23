@@ -1,6 +1,6 @@
 == Intent ==
 
-task parallel programming in [[Language:Haskell]]
+concurrent programming in [[Language:Haskell]]
 
 == Languages ==
 
@@ -15,7 +15,7 @@ task parallel programming in [[Language:Haskell]]
 * [[101feature:Company]]
 * [[101feature:Total]]
 * [[101feature:Cut]]
-* [[101feature:Parallelism]]
+* [[101feature:Concurrency]]
 
 == Motivation ==
 
@@ -26,7 +26,7 @@ We demonstrate the use of <syntaxhighlight lang="haskell" enclose="none">tryTake
 
 == Illustration ==
 
-=== Cutting in parallel ===
+=== Conucrrent cutting ===
 
 We create a new thread using <syntaxhighlight lang="haskell" enclose="none">forkIO :: IO () -> IO ThreadId</syntaxhighlight> provided by Haskell's concurrency library <syntaxhighlight lang="haskell" enclose="none">Control.Concurrent</syntaxhighlight>. This function executes the given IO action in a new thread and returns a <syntaxhighlight lang="haskell" enclose="none">ThreadId</syntaxhighlight> value. On the top company level we do this for every department (code can be found in [this!!Cut.hs]):
 
