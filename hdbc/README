@@ -52,7 +52,7 @@ cut conn cName = do
     commit conn
 </syntaxhighlight>
 
-The function uses a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>. The statement is exectuted and the change is commited to the database.
+We use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>. The statement is exectuted and the change is commited to the database.
 
 We can now use the open connection to cut all salaries:
 <syntaxhighlight lang="haskell" source="Main.hs">
