@@ -33,7 +33,7 @@ This implementation also demonstrates [[Functor|applicative functors]] and funct
 
 We define a type alias of all parsers that are definied in this implementation:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellParser/Parser.hs" line>
 type P = Parsec String ()
 </syntaxhighlight>
 
@@ -44,7 +44,7 @@ That is, we are dealing with parsers of stream type <syntaxhighlight lang="haske
 In order to build the company parser we first need some primitive parsers.
 For parsing a given <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> value we define:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellParser/Parser.hs" line>
 pString :: String -> P String
 pString s = string s <* spaces
 </syntaxhighlight>
@@ -52,14 +52,14 @@ pString s = string s <* spaces
 This parser also comsumes trailing spaces.
 We also need a parser for literals. <syntaxhighlight lang="haskell" enclose="none">pLit</syntaxhighlight> parses a quoted string:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellParser/Parser.hs" line>
 pLit :: P String
 pLit = string "\"" *> many (noneOf "\"") <* string "\"" <* spaces
 </syntaxhighlight>
 
 === Parsing a department ===
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellParser/Parser.hs" line>
 pDepartment :: P Department
 pDepartment = Department
   <$  pString "department" <*> pLit 
@@ -72,16 +72,17 @@ In line 3 we parse the keyword for department declaration "department". After th
 
 === Running the Parser ===
 
-Running the company parser is realized by making use of 
+Running the company parser is realized by making use of runP:
 <syntaxhighlight lang="haskell">
 runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either ParseError a
 </syntaxhighlight>.
-We illustrated above we use parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.Therefore in this example the type signature for <syntaxhighlight lang="haskell" enclose="none">runP</syntaxhighlight> simplifies to <syntaxhighlight lang="haskell">
+Aw illustrated above that we use parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>.Therefore we can simplify the type signature: 
+<syntaxhighlight lang="haskell">
 Parsec String () Company -> () -> SourceName -> String -> Either ParseError a
 </syntaxhighlight>. 
 When we choose <syntaxhighlight lang="haskell" enclose="none">"input"</syntaxhighlight> as the source name we can define a function to run the company parser:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellParser/Parser.hs" line>
 parseCompany :: String -> Either ParseError Company
 parseCompany = runP (spaces *> pCompany <* eof) () "input"
 </syntaxhighlight>
@@ -90,16 +91,16 @@ We added a parser for possible leading spaces and a parser for the EOF-symbol.
 
 === Executing the Parser ===
 
-In the ''Main'' module (in [this!!Main.hs]) we execute the company parser:
+In [this!!Main.hs] we execute the company parser:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellParser/Main.hs" line>
 parsedCompany <- liftM parseCompany $ readFile "sample.Company"
 </syntaxhighlight>
 
 The variable <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> either holds a <syntaxhighlight lang="haskell" enclose="none">ParseError</syntaxhighlight> value or a parsed company. 
 We define print-function handling both cases:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellParser/Main.hs" line>
 eitherPrint :: Show a => Either ParseError Company -> (Company -> a) -> IO ()
 eitherPrint (Right c) f = print $ f c
 eitherPrint (Left e) _ = print e
@@ -116,15 +117,14 @@ rightApplyPrint parsedCompany total
 == Architecture ==
 
 [this!!Parser.hs] provides the Parsec-based parser. [this!!Company.hs] holds the algebraic datatype for companies, 
-while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany] holds a sample company used to be compared to a parsed sample company (hosted by [this!!sample.Company]). The ''Main'' module ([this!!Main.hs]) collects test scenarios.
+while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany] holds a sample company used to be compared to a parsed sample company (hosted by [this!!sample.Company]). [this!!Main.hs] collects test scenarios.
 
 == Usage ==
 
-* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-* One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-* Use the taget ''clean'' to "reset" the project.
+One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
 
 == Contributors ==
 
