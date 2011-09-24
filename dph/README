@@ -41,9 +41,9 @@ We therefore flatten the company to become a list of salaries (see [this!!Salary
 
 ==== Non-vectorised code ====
 
-Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> before we can total and cut in parallel. The code for converting before cutting can be found in [this!!Cut.hs]:
+Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is also not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> before we can total and cut in parallel.
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="dhp/Cut.hs">
 cut :: Company -> Company
 cut c = (consumeSalaries c) (toList $ cutV $ fromList $ flattenSalaries c)
 </syntaxhighlight>
@@ -52,9 +52,9 @@ We first flatten the company, then convert the salary list to <syntaxhighlight l
 
 ==== Vectorised code ====
 
-In the vectorised module (in [this!!CutV.hs]), where we want to work data parallel, we declare:
+In the vectorised module for cutting, where we want to work data parallel, we declare:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="dhp/CutV.hs">
 {-# LANGUAGE ParallelArrays #-}
 {-# OPTIONS_GHC -fvectorise #-}
 </syntaxhighlight>
@@ -62,7 +62,7 @@ In the vectorised module (in [this!!CutV.hs]), where we want to work data parall
 This tells [[Technology:GHC]] to vectorise this module and that this module uses parallel arrays.
 We then define the interface function between vectorised and non-vectorised code <syntaxhighlight lang="haskell" enclose="none">cutV</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="dhp/CutV.hs">
 cutV :: PArray Float -> PArray Float
 {-# NOINLINE cutV #-}
 cutV v = toPArrayP (cutVP (fromPArrayP v))
@@ -73,24 +73,22 @@ parallel code and converts back to <syntaxhighlight lang="haskell" enclose="none
 A parallel array can only be used in a vectorised module, so only here can we convert to it. Marking this function <syntaxhighlight lang="haskell" enclose="none">{-# NOINLINE cutV #-}</syntaxhighlight> makes
 it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> calls the actual data parallel function <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="dhp/Cut.hs">
 cutVP :: [:Float:] -> [:Float:]
 cutVP = mapP (/2)
 </syntaxhighlight>
-
-This code shows another limitation of current DPH version. The type signature of <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> could not be based on a typeclass like in <syntaxhighlight lang="haskell" enclose="none">Fractional b => [:b:] -> [:b:]</syntaxhighlight>. This is due to the fact that DPH does not support typeclasses at the moment. Therefore we cannot use typevariables, but have to decide that <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight> only cuts float values. 
 
 == Architecture ==
 
 The module in [this!!SalaryFlattener.hs] contains functionality to flatten a company and to replace all salaries.
 [this!!Total.hs] and [this!!Cut.hs] host the code for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and calling data parallel functions for totaling and cutting salaries, which can be found in [this!!TotalV.hs] and [this!!CutV.hs].
 The algebraic datatype for companies can be found in [this!!Company]. [this!!SampleCompany.hs] holds a sample company.
-The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting.
+[this!!Main.hs] collects test scenarios for totaling and cutting.
 
 == Usage ==
 
 * All sources have to be compiled using the GHC-options <syntaxhighlight lang="make" enclose="none">-c -Odph -fdph-seq</syntaxhighlight>.
-* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline]. 
 * One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
