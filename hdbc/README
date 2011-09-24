@@ -29,9 +29,9 @@ and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a [[:C
 
 === Connecting ===
 
-In [this!!Main.hs]) we connect to the MySql database by using an ODBC driver and other appropriate connection information:
+In [this!!Main.hs] we connect to the MySql database by using an ODBC driver and other appropriate connection information:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="hdbc/Main.hs">
 let connString = "Driver={MySQL ODBC 5.1 Driver};"
               ++ "Server=localhost;"
               ++ "Port=3306;"
@@ -41,12 +41,6 @@ conn <- connectODBC connString
 </syntaxhighlight>
 
 === Cutting ===
-
-We can now use the open connection to cut all salaries:
-<syntaxhighlight lang="haskell">
-let cName = "meganalysis"
-cut conn cName
-</syntaxhighlight>
 
 The function <syntaxhighlight lang="haskell" enclose="none">cut</syntaxhighlight> defines a statement to cut all salaries:
 
@@ -59,6 +53,12 @@ cut conn cName = do
 </syntaxhighlight>
 
 The function uses a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>. The statement is exectuted and the change is commited to the database.
+
+We can now use the open connection to cut all salaries:
+<syntaxhighlight lang="haskell" source="Main.hs">
+let cName = "meganalysis"
+cut conn cName
+</syntaxhighlight>
 
 Functionality to total all salaries uses a SELECT statements instead of UPDATE (see[this!!Total.hs] for details).
 
