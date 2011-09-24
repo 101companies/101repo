@@ -63,7 +63,7 @@ cutEmployee (Employee name address salary) = Employee name address $ salary / 2
 
 === Collecting results ===
 
-Both functions <syntaxhighlight lang="haskell" enclose="none">cutCompany</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">cutDept</syntaxhighlight> need to wait for the child-threads to terminate. To do so we provide a function <syntaxhighlight lang="haskell" enclose="none">takeAllMVars</syntaxhighlight> in the ''Utils'' module (in [this!!Utils.hs]):
+Both functions <syntaxhighlight lang="haskell" enclose="none">cutCompany</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">cutDept</syntaxhighlight> need to wait for the child-threads to terminate. To do so we provide a function <syntaxhighlight lang="haskell" enclose="none">takeAllMVars</syntaxhighlight> in the in [this!!Utils.hs]:
 
 <syntaxhighlight lang="haskell">
 takeAllMVars ::  [MVar a] -> IO [a]
