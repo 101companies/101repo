@@ -28,9 +28,9 @@ That is we exercise processing [[HTTP Request|requests]] from and returning [[HT
 
 == Illustration ==
 
-In the ''main'' module (in [this!!Main]) the server is set up:
+The server is set up as follows:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellCGI/Main.hs" line>
 main = runCGI $ handleErrors cgiMain
 </syntaxhighlight>
 
@@ -51,9 +51,9 @@ Bacause of the fact that the CGI library does not support any extraction of info
 
 ==== Main request handler ====
 
-In the ''Response'' module (in [this!!Response.hs]) the main request handler can be found:
+In the ''Response'' module the main request handler can be found:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="haskellCGI/Response.hs" line>
 cgiMain :: CGI CGIResult
 cgiMain =  do
             f <- getInput "focus"
@@ -77,7 +77,7 @@ We then call <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhigh
 
 The function <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> performs the acutal cut action on the company cookie:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="haskellCGI/Cut.hs">
 doCut :: Focus -> CGI Html
 doCut f = do
     c <- tryReadCCookie
@@ -88,7 +88,7 @@ doCut f = do
 
 First the company cookie is read using <syntaxhighlight lang="haskell" enclose="none">tryReadCCookie</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" line source="haskellCGI/Save.hs">
 tryReadCCookie = liftM (fromMaybe company) $ 
                    readCookie "companyCookie"
 </syntaxhighlight>
@@ -96,7 +96,7 @@ tryReadCCookie = liftM (fromMaybe company) $
 This function tries to read the company cookie. If the client does not have this cookie stored, the default company is returned.
 <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> then calls <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight>, which reads a company, department or employee based on the focus, cuts it and replaces it within the company (see [this!!Cut.hs] for details). After that the manipulated company is written back into the cookie using <syntaxhighlight lang="haskell" enclose="none">writeCCookie</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" line source="haskellCGI/Save.hs">
 writeCCookie s = setCookie $ newCookie "companyCookie" $ 
                   show s   
 </syntaxhighlight>
@@ -105,7 +105,7 @@ writeCCookie s = setCookie $ newCookie "companyCookie" $
 
 After the company data is saved in the cookie <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">getHtml</syntaxhighlight> passing the focus and the new company:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" line source="haskellCGI/CompanyHTML.hs">
 html :: Focus -> Company -> Html
 html f = case f of 
   CompanyFocus        -> companyHtml f
