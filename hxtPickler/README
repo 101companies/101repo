@@ -37,16 +37,16 @@ We demonstrate common usage of HXT by:
 
 === A Pickler for Companies ===
 
-To define a pickler for companies we declare an instance of <syntaxhighlight lang="haskell" enclose="none">XMLPickler</syntaxhighlight> in the ''Pickler'' module (hosted by [this!!Pickler.hs]:
+To define a pickler for companies we declare an instance of <syntaxhighlight lang="haskell" enclose="none">XMLPickler</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="hxtPickler/Pickler.hs">
 instance XmlPickler Company where
     xpickle = xpCompany
 </syntaxhighlight>
 
 The acutal pickler function XMLPickler <syntaxhighlight lang="haskell" enclose="none">xpCompany</syntaxhighlight> is defined as follows:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="hxtPickler/Pickler.hs" line>
 xpCompany :: PU Company
 xpCompany 
       = xpElem "company" $
@@ -77,7 +77,7 @@ Because of type inference and because we also declared a XMLPickler instance for
 
 Picklering a company is realized by using arrows:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="hxtPickler/Main.hs">
 runX ( constA company 
        >>>
        xpickleDocument xpCompany [withIndent yes] "sampleCompanyCut.xml"
@@ -90,7 +90,7 @@ A lifted sample company is passed to the arrow for picklering a document. In thi
 
 To unpickle a company the arrow function <syntaxhighlight lang="haskell" enclose="none">xunpickleDocument</syntaxhighlight> is used:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="hxtPickler/Main.hs">
 [company1] <- runX ( xunpickleDocument xpCompany [withRemoveWS yes] "sampleCompany.xml" )
 </syntaxhighlight>
 
@@ -98,15 +98,14 @@ To unpickle a company the arrow function <syntaxhighlight lang="haskell" enclose
 
 == Architecture ==
 
-[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs]. This file as well as [this!!Total.hs] and [this!!Cut] are adopted from [[101implementation:haskell]].The ''main'' module (in [this!!Main.hs]) collects test scenarios for picklering/unpicklering, totaling and cutting companies.
+[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs]. This file as well as [this!!Total.hs] and [this!!Cut] are adopted from [[101implementation:haskell]].[this!!Main.hs] collects test scenarios for picklering/unpicklering, totaling and cutting companies.
 
 == Usage ==
 
-* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-* One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-* Use the target ''clean'' to "reset" the project.
+One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
 
 == Contributors ==
 
