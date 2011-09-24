@@ -46,9 +46,9 @@ The browser sends an HTTP-request together with a company-cookie to the server. 
 
 ==== Routing filter ====
 
-The ''Main'' module (in [this!!Main.hs]) contains:
+We set up a simple HTTP server:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="happstack/Main.hs" line>
 main = simpleHTTP nullConf $ 
   msum [ path $ \v -> path $ \a -> path $ 
            \f -> mainPart a v f
@@ -65,7 +65,7 @@ The first list element uses Happstack's <syntaxhighlight lang="haskell" enclose=
 In case the extraction fails the server falls back to being a file server in line 2.
 In case extraction succeeds <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> is called passing the action, the view and the focus. This function is defined in ''Serverparts'', provided by [this!!Serverparts.hs]
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="happstack/Serverparts.hs">
 mainPart :: Action -> View -> Focus -> ServerPartT IO Response
 mainPart View = viewPart
 mainPart Cut  = cutPart
@@ -77,7 +77,7 @@ In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhigh
 
 ==== Saving ====
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="happstack/Save.hs" line>
 savePart :: View -> Focus -> ServerPartT IO Response
 savePart v f = do
   s <- save
@@ -95,9 +95,9 @@ savePart v f = do
 
 The function starts by calling a save function, which is choosen based on the given <syntaxhighlight lang="haskell" enclose="none">View</syntaxhighlight> value. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 7 passing the old company (read from the cookie) and the errors. In case of success the new company and an empty list of errors is passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 8. 
 
-The ''Save'' module in [this!!Save.hs] holds the <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, in this case  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called:
+In this case  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called by <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="happstack/Save.hs" line>
 saveEmployee :: Focus -> ServerPartT IO (Either [(ENames,String)] Company)
 saveEmployee f = do
   c <- readCCookie
@@ -179,7 +179,7 @@ They return a function of type <syntaxhighlight lang="haskell" enclose="none">Mo
 
 == Usage ==
 
-* The Haskell module ''Main'' can to be consulted with ''runhaskell'' to avoid the compilation step.
+* [this!!Main.hs] can to be consulted with ''runhaskell'' to avoid the compilation step.
 There is a [this!!Makefile] with a target ''run'' to do this.
 * Open ''http://localhost:8000/Company/View/CompanyFocus'' to demo, starting with the root view.
 
