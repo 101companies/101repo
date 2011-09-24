@@ -67,21 +67,10 @@ Both functions <syntaxhighlight lang="haskell" enclose="none">cutCompany</syntax
 
 <syntaxhighlight lang="haskell">
 takeAllMVars ::  [MVar a] -> IO [a]
-takeAllMVars [] = return []
-takeAllMVars (m:ms) = do
-    x <- tryTakeMVar m
-    f x
-    where
-        f (Just y) = do
-            ys <- takeAllMVars ms
-            return $ y:ys
-        f (Nothing) = do
-            ys <- takeAllMVars $ rotate $ m:ms
-            return $ derotate ys
+takeAllMVars = mapM takeMVar
 </syntaxhighlight> 
 
-This function tries to take the value out of the <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> at the head of the given list. If this fails, because the <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> is empty, the list is rotated and applied to <syntaxhighlight lang="haskell" enclose="none">takeAllMVars</syntaxhighlight> again. This time the function tries to take the content of the second <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> of the intital list. If talking succeeds, the value is collected and the tail of the list is applied to <syntaxhighlight lang="haskell" enclose="none">takeAllMVars</syntaxhighlight>. This process continues until all values are collected.
-
+This function takes all <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> values one by one blocking on every empty <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight>.
 
 == Architecture ==
 
