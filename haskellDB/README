@@ -38,9 +38,9 @@ This implementation also demonstrates the use of [[Technology:DBDirect]]. We use
 
 === Connecting to the database ===
 
-The ''MyConnection'' module (hold by [this!!MyConnection.hs]) provides connection functionality:
+We connect to the underlining database by making use of <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="haskellDB/MyConnection.hs">
 withDB :: (Database -> IO a) -> IO a
 withDB = connect driver conf
   where           
@@ -56,20 +56,20 @@ By looking at the return type of the function one can see that any database func
 
 === DBDirect ===
 
-We use DBDirect's <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc</syntaxhighlight> generate a module describing the database (see the usage section for the complete command). This command generates a module describing the database by '''naming''' tables and fields. Compiling this module with GHC creates one module per table, each module holding actual '''variables''' for tables and fields. These variables are the basis for the following totaling query.
+We use DBDirect's <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc</syntaxhighlight> generate a module describing the database (see the usage section for the complete command). This command generates a module describing the database by naming tables and fields. Compiling this module with GHC creates one module per table, each module holding actual variables for tables and fields. These variables are the basis for the following totaling query.
 
 === Totaling ===
 
-A function defining a query to total all salaries of a given company (specified by name) can be found in the ''Total'' module (in [this!!Total.hs]). We import the description modules for the companies and employees tables:
+In the module which contains the totaling function import the description modules for the companies and employees tables:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="haskellDB/Total.hs">
 import qualified DBDesc.Employee as E
 import qualified DBDesc.Company as C
 </syntaxhighlight>
 
 We define a special field for storing the sum of all salaries:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="haskellDB/Total.hs">
 data Ttl = Ttl
 
 instance FieldTag Ttl where fieldName _ = "ttl"
@@ -81,7 +81,7 @@ ttl = mkAttr Ttl
 We declare <syntaxhighlight lang="haskell" enclose="none">Ttl</syntaxhighlight> to be an instance of the <syntaxhighlight lang="haskell" enclose="none">FieldTag</syntaxhighlight> class by specifying what the name of the field should be. We use this field and HaskellDB's <syntaxhighlight lang="haskell" enclose="none">mkAttr</syntaxhighlight> to define <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight>, a attribute for holding a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value. We will use this attribute to access the field.
 The acutal total query looks like this:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="haskellDB/Total.hs">
 total :: String -> Query (Rel (RecCons Ttl (Expr Double) RecNil))
 total cname = do 
   es <- table E.employee
@@ -101,19 +101,19 @@ We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</synt
 
 We use <syntaxhighlight lang="haskell" enclose="none">query</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">withDB</syntaxhighlight> to execute the totaling query:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="haskellDB/Main.hs">
 [res] <- withDB $ (\db -> query db (total "meganalysis"))
 </syntaxhighlight>
 
 This gives us a list (which we expect to be a singleton list) of records. We can now access the <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> attribute of the record <syntaxhighlight lang="haskell" enclose="none">res</syntaxhighlight> by using the <syntaxhighlight lang="haskell" enclose="none">(!)</syntaxhighlight>-operator. After that we print the total value:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="haskellDB/Main.hs">
 print $ res!ttl
 </syntaxhighlight>
 
 == Architecture ==
 
-We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's rational algebra library. The ''MyConnection'' module in [this!!MyConnection.hs] encapsulate the process of connecting to the MySql database. The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting.
+We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's rational algebra library. [this!!MyConnection.hs] encapsulate the process of connecting to the MySql database. [this!!Main.hs] collects test scenarios for totaling and cutting.
 
 == Usage ==
 
@@ -136,11 +136,10 @@ dbdirect-hdbc-odbc "DBDesc" "DBDesc" \
 
 === Testing ===
 
-* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
 One can also use the [this!!Makefile] with a target ''test'' covering both database descriptions generation and testing.
-* Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
 
