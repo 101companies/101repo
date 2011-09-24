@@ -119,7 +119,7 @@ We provide sql-scripts to create (see [this!!Company.sql]) company tables and po
 
 === Setup ===
 
-* Follow the steps of setting up the database as described in [[101implementation:hdbc]]
+* Follow the steps of setting up the database as described in the usage section for the [[101implementation:hdbc|hdbc]] implementation.
 
 === Generating the database description ===
 
