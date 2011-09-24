@@ -91,8 +91,7 @@ The algebraic datatype for companies can be found in [this!!Company]. [this!!Sam
 * [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline]. 
-* One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-* Use the target ''clean'' to "reset" the project.
+One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
 
 == Contributors ==
 
