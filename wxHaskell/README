@@ -30,7 +30,7 @@ This concept also helps us to read departments/employees from a given position w
 
 === Focus datatype ===
 
-We are using a datastructure inspired by the concept of [[Zipper|zippers]] to specify positions of components within the company. In the ''API'' module (hold by [this!!API.hs]) we provide an algebraic datatype <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight>:
+We are using a datastructure inspired by the concept of [[Zipper|zippers]] to specify positions of components within the company. We provide an algebraic datatype <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" line>
 data Focus = 
@@ -72,14 +72,14 @@ Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</sy
 
 === The views ===
 
-For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, the ''Views'' module (in [this!!Views.hs]) provides a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
+For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, we provide a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
 In the following we demonstrate how an employee is displayed.
 
 ==== Viewing an employee ====
 
 <syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight> provides a view for employees. 
 
-<syntaxhighlight lang="haskell" line>showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
+<syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
 showEmployee f p focus c = do
     -- reading employee
     let e = readEM focus c
@@ -116,7 +116,7 @@ In line 4 we read the employee in question using the ''API'' module. In the foll
 
 On each view the GUI provides a button to cut all salaries: 
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>
 cutButton :: Panel () -> Frame () -> Focus -> Company -> IO (Button ())
 cutButton p f focus c = button p [ text := "Cut"      
                                  , size := Size 50 22                                                                
@@ -126,9 +126,9 @@ cutButton p f focus c = button p [ text := "Cut"
                      ]]       
 </syntaxhighlight>
 
-When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action is executed. First the view's panel is deleted. After that we use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> hosted by the ''Cut'' module (in [this!!Cut.hs]) to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component's salaries and replaces it in the given company. After that the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which concrete view-function to call:
+When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action is executed. First the view's panel is deleted. After that we use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component's salaries and replaces it in the given company. After that the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which concrete view-function to call:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>
 view:: Frame () -> Focus -> Company -> IO ()
 view f focus = view' f focus
   where 
@@ -141,9 +141,9 @@ view f focus = view' f focus
 
 === Starting the GUI ===
 
-In the ''Main'' module we use xwHaskell's <syntaxhighlight lang="haskell" enclose="none">start :: IO a -> IO ()</syntaxhighlight>. This function runs the given GUI of type <syntaxhighlight lang="haskell" enclose="none">IO a</syntaxhighlight> while discarding <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> and returning <syntaxhighlight lang="haskell" enclose="none">IO ()</syntaxhighlight> (code can be found in [this!!Main.hs]):
+We use xwHaskell's <syntaxhighlight lang="haskell" enclose="none">start :: IO a -> IO ()</syntaxhighlight>. This function runs the given GUI of type <syntaxhighlight lang="haskell" enclose="none">IO a</syntaxhighlight> while discarding <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> and returning <syntaxhighlight lang="haskell" enclose="none">IO ()</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="wxHaskell/Main.hs" line>
 gui :: IO ()
 gui = do
     f <- frame [ textBgcolor := colorRGB 112 128 144 
@@ -157,18 +157,17 @@ main :: IO ()
 main = start gui
 </syntaxhighlight>
 
-<syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. After that the function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company provided by the ''SampleCompany'' module (in [this!!SampleCompany.hs]).
+<syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. After that the function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company.
 
 == Architecture ==
 
-[this!!Views.hs] provides one view per company data type. The ''Main'' module in [this!!Main.hs] starts the GUI. The algebraic datatype for companies can be found in [this!!Company.hs], a sample company in [this!!SampleCompany.hs]. There is also an API to the company hosted by [this!!API.hs]. [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries.
+[this!!Views.hs] provides one view per company data type. [this!!Main.hs] starts the GUI. The algebraic datatype for companies can be found in [this!!Company.hs], a sample company in [this!!SampleCompany.hs]. There is also an API to the company hosted by [this!!API.hs]. [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries.
 
 == Usage ==
 
-* The ''Main'' module has to be compiled using GHC
+* [this!!Main.hs] has to be compiled using GHC
 * The output executable has to run. 
 There is a ''Makefile'' with a target ''start'' covering both stepts. 
-* Use the target ''clean'' to "reset" the project.
 
 == Contributors ==
 
