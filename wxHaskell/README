@@ -79,8 +79,7 @@ In the following we demonstrate how an employee is displayed.
 
 <syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight> provides a view for employees. 
 
-<syntaxhighlight lang="haskell" line>
-showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
+<syntaxhighlight lang="haskell" line>showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
 showEmployee f p focus c = do
     -- reading employee
     let e = readEM focus c
@@ -104,27 +103,14 @@ showEmployee f p focus c = do
               objectDelete p;
               p' <- panel f [textColor := textBlue];
               showEmployee f p' focus $ 
-                writeEM focus c $ 
-                  Employee newName newAddress $ 
-                    read newSalary; }]
+               writeEM focus c $ 
+                Employee newName newAddress $ 
+                 read newSalary; }]
     -- compose layout                                 
-    set f [layout := 
-      container p $ alignCentre $
-      margin 20 $   
-      column 10 [
-        alignLeft $ 
-          row 10 [widget sButton, widget bButton],
-        hrule 250,
-        alignCentre $ 
-          row 94 [label "Name:", widget nameBox],
-        alignCentre $ 
-          row 81 [label "Address:", widget addressBox],
-        alignCentre $ 
-          row 91 [label "Salary:", widget salaryBox],
-        alignRight $ margin 10 $ widget cButton ]] 
+    setEmployeeLayout f p sButton bButton nameBox addressBox salaryBox cButton
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''API'' module. In the following line we set the frame title and create a new panel for this view. In lines 7-9 we create one input box per employee field. In lines 11-14 create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. After that we use various layout combinators to compose all GUI elements.
+In line 4 we read the employee in question using the ''API'' module. In the following line we set the frame title and create a new panel for this view. In lines 7-9 we create one input box per employee field. In lines 11-14 create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. After that we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
 
 === Cutting button ===
 
