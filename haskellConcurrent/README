@@ -30,7 +30,7 @@ We demonstrate the use of <syntaxhighlight lang="haskell" enclose="none">tryTake
 
 We create a new thread using <syntaxhighlight lang="haskell" enclose="none">forkIO :: IO () -> IO ThreadId</syntaxhighlight> provided by Haskell's concurrency library <syntaxhighlight lang="haskell" enclose="none">Control.Concurrent</syntaxhighlight>. This function executes the given IO action in a new thread and returns a <syntaxhighlight lang="haskell" enclose="none">ThreadId</syntaxhighlight> value. On the top company level we do this for every department (code can be found in [this!!Cut.hs]):
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight source="haskellConcurrent/Cut.hs" lang="haskell">
 cutCompany :: Company -> IO Company
 cutCompany (Company n depts) = do
     threads <- forM depts $ \d -> do
@@ -43,7 +43,7 @@ cutCompany (Company n depts) = do
 
 We collect all <syntaxhighlight lang="haskell" enclose="none">ThreadId</syntaxhighlight> values in <syntaxhighlight lang="haskell" enclose="none">cuts</syntaxhighlight>. Analogous to this we cut departments:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight source="haskellConcurrent/Cut.hs" lang="haskell">
 cutDept :: MVar Department -> Department -> IO ()
 cutDept mvar (Department n m dus eus) = do
     threads <- forM dus $ \d -> do
@@ -56,7 +56,7 @@ cutDept mvar (Department n m dus eus) = do
 
 The cutting of direct department employees is not performed in a new thread:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight source="haskellConcurrent/Cut.hs" lang="haskell">
 cutEmployee :: Employee -> Employee
 cutEmployee (Employee name address salary) = Employee name address $ salary / 2
 </syntaxhighlight>
@@ -65,7 +65,7 @@ cutEmployee (Employee name address salary) = Employee name address $ salary / 2
 
 Both functions <syntaxhighlight lang="haskell" enclose="none">cutCompany</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">cutDept</syntaxhighlight> need to wait for the child-threads to terminate. To do so we provide a function <syntaxhighlight lang="haskell" enclose="none">takeAllMVars</syntaxhighlight> in the in [this!!Utils.hs]:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight source="haskellConcurrent/Utils.hs" lang="haskell">
 takeAllMVars ::  [MVar a] -> IO [a]
 takeAllMVars = mapM takeMVar
 </syntaxhighlight> 
@@ -77,11 +77,11 @@ This function takes all <syntaxhighlight lang="haskell" enclose="none">MVar</syn
 [this!!Total.hs] and [this!!Cut.hs] provide functionality for totaling and cutting salaries in a concurrent way. 
 [this!!Utils.hs] contains a function to collect content of a list of <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> values in a non-blocking way.
 The algebraic datatype for companies can be found in [this!!Company.hs]. 
-The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting a sample company hosted by [this!!SampleCompany.hs].
+[this!!Main.hs] collects test scenarios for totaling and cutting a sample company hosted by [this!!SampleCompany.hs].
 
 == Usage ==
 
-* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
 * One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
