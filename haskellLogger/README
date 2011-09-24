@@ -29,8 +29,6 @@ The functionality for cutting all company, department or employee salaries can b
 
 In the following we will show how cutting all salaries in a given department is realized in the current implementation.
 
-==== Logging department cutting ====
-
 <syntaxhighlight lang="haskell" line>
 cutLogDept :: Int -> Department -> Writer Log Department
 cutLogDept n d@(Department name m dus eus) = do
