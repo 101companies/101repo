@@ -35,9 +35,9 @@ In the following we will demonstrate the construction of an arrow for [[101featu
 
 === Total ===
 
-The query for totaling all salaries can be found in [this!!Total.hs]:
+We define a query for totaling all:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" source="hxt/Total.hs" line>
 total :: ArrowXml a => a XmlTree Float
 total = listA (deep $ hasName "salary"
                >>> 
@@ -59,14 +59,14 @@ The overall emerging arrow, giving us the total salary, is of type <syntaxhighli
 
 === Running an arrow ===
 
-In the ''Main'' module (hosted by [this!!Main.hs]) we are using <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c -> IO [c]</syntaxhighlight> for running an arrow in IO. The function returns all results of a given arrow in a list. 
-
-When we combinate the arrow for reading a sample company from a XML file with the total arrow we get:
-<syntaxhighlight lang="haskell" enclose="none">readDocument [] "sampleCompany.xml" >>> total</syntaxhighlight>
+We use <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c -> IO [c]</syntaxhighlight> for running an arrow in IO. The function returns all results of a given arrow in a list. When we combinate the arrow for reading a sample company from a XML file with the total arrow we get:
+<syntaxhighlight lang="haskell" source="hxt/Main.hs">
+readDocument [] "sampleCompany.xml" >>> total
+</syntaxhighlight>
 
 Executing this arrow with runX returns a list of float values. Because we except this list to be a singleton list, we can write:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="hxt/Main.hs">
 [ttl] <- runX ( readDocument [] "sampleCompany.xml" 
                 >>> total)
 </syntaxhighlight>
@@ -74,15 +74,14 @@ Executing this arrow with runX returns a list of float values. Because we except
 
 == Architecture ==
 
-[this!!Total.hs] provides the arrow for totaling salaries as described in the illustration section. [this!!Cut.hs] contains a transformation arrow for cutting salaries. The ''main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting the xml data provided by [this!!sampleCompany.xml]
+[this!!Total.hs] provides the arrow for totaling salaries as described in the illustration section. [this!!Cut.hs] contains a transformation arrow for cutting salaries. [this!!Main.hs] collects test scenarios for totaling and cutting the xml data provided by [this!!sampleCompany.xml]
 
 == Usage ==
 
-* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
-* One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-* Use the target ''clean'' to "reset" the project.
+One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
 
 == Contributors ==
 
