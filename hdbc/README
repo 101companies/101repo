@@ -29,7 +29,7 @@ and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a [[:C
 
 === Connecting ===
 
-In the ''Main'' module (in [this!!Main.hs]) we connect to the MySql database by using an ODBC driver and other appropriate connection information:
+In [this!!Main.hs]) we connect to the MySql database by using an ODBC driver and other appropriate connection information:
 
 <syntaxhighlight lang="haskell">
 let connString = "Driver={MySQL ODBC 5.1 Driver};"
@@ -48,9 +48,9 @@ let cName = "meganalysis"
 cut conn cName
 </syntaxhighlight>
 
-We are using the <syntaxhighlight lang="haskell" enclose="none">cut</syntaxhighlight> function, which is provided by the ''Cut'' module (code can be found in [this!!Cut.hs]):
+The function <syntaxhighlight lang="haskell" enclose="none">cut</syntaxhighlight> defines a statement to cut all salaries:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="hdbc/Cut.hs">
 cut :: IConnection conn => conn -> String -> IO ()
 cut conn cName = do
     stmt <- prepare conn "UPDATE employee SET salary = salary / 2 WHERE employee.cid = (SELECT id FROM Company WHERE name = ?)"
@@ -64,7 +64,7 @@ Functionality to total all salaries uses a SELECT statements instead of UPDATE (
 
 == Architecture ==
 
-We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements. The ''Main'' module (in [this!!Main.hs]) collects test scenarios for totaling and cutting.
+We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements. [this!!Main.hs] collects test scenarios for totaling and cutting.
 
 == Usage ==
 
@@ -89,11 +89,10 @@ In the following we explain the steps for the MySQL Workbench <cite>mysqlworkben
 
 === Testing ===
 
-* The Haskell module ''Main'' (hosted by [this!!Main.hs]) has to be loaded into GHCi. 
+* [this!!Main.hs] has to be loaded into GHCi. 
 * The <syntaxhighlight lang="haskell" enclose="none">main</syntaxhighlight> function has to be applied.
 * The output should be equal to the content of the file [this!!baseline].
 One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
-* Use the taget ''clean'' to "reset" the project.
 
 == Contributors ==
 
