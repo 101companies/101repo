@@ -23,7 +23,7 @@ main = do
     print oldTotal
     
     -- cut 
-    cut conn "meganalysis"
+    cut conn cName
     
     -- new total
     newTotal <- total conn cName
