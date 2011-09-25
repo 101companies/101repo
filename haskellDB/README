@@ -148,7 +148,7 @@ One can also use the [this!!Makefile] with a target ''test'' covering both datab
 <biblio>
 #bringert2004student bibtex=@inproceedings{bringert2004student,
   title={Student paper: HaskellDB improved},
-  author={Bringert, B. and Höckersten, A. and Andersson, C. and Andersson, M. and Bergman, M. and Blomqvist, V. and Martin, T.},
+  author={Bringert, B. and H\"uckersten, A. and Andersson, C. and Andersson, M. and Bergman, M. and Blomqvist, V. and Martin, T.},
   booktitle={Proceedings of the 2004 ACM SIGPLAN workshop on Haskell},
   pages={108--115},
   year={2004},
