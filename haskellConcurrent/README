@@ -86,6 +86,11 @@ The algebraic datatype for companies can be found in [this!!Company.hs].
 * The output should be equal to the content of the file [this!!baseline].
 One can also use the [this!!Makefile] with a target ''test'' for [[test automation]].
 
+== Issues ==
+
+* The current implementation does address the problem of a possible unbalanced department tree.
+* The collection function for <syntaxhighlight lang="Haskell" enclose="none">MVar</syntaxhighlight> values blocks on every empty <syntaxhighlight lang="Haskell" enclose="none">MVar</syntaxhighlight>. We need a more sophisticated collection function, which proceeds with the next element after waiting a certain period of time.
+
 == Contributors ==
 
 * {{101contributor|Thomas Schmorleiz|developer}}
