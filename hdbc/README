@@ -102,11 +102,11 @@ One can also use the [this!!Makefile] with a target ''test'' for [[test automati
 
 <biblio>
 #xampp bibtex=@online{xampp,
-  title = {Apache friends: XAMPP},
+  title = "{Apache friends: XAMPP}",
   note = {\newline \url{http://www.apachefriends.org/en/xampp.html}}
 }
 
 #mysqlworkbench bibtex=@online{mysqlworkbench,
-  title = {MySQL Workbench},
+  title = "{MySQL Workbench}",
   note = {\newline \url{http://dev.mysql.com/downloads/workbench/}}
 }
