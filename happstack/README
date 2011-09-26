@@ -28,7 +28,7 @@
 
 This implementation provides a small C/S [[Web Application|web application]] written with the help of the [[Technology:Happstack]] [[:Category:Framework|framework]]. We exercice the use of [[Routing filter| routing filters]] to filter requests by action: A user can either view a specific part of a [[101feature:Company|company]], [[101feature:Cut|cut]] a specific part or save a company component after manipulation of primitive fields.
 The company is stored in a client-side [[Cookie|cookie]].
-The part to be viewed, cut or saved is specified by making use if the [[Zipper|zipper]] concept. That is, the [[URL]] contains a company focus (see illustration section). 
+The part to be viewed, cut or saved is specified by making use if the [[Zipper|zipper]]-inspired concept of foci (see the [[101implementation:wxHaskell|wxHaskell]] implementation).
 We also demonstrate [[101feature:Validation|validation]]: When processing a save-request, sent by an HTML-form, the server applies various validators to eventuelly return error messages, which will be displayed to the user in the [[Browser|browser]]. As an response the client receives HTML-documents, which are composed by making use of the [[Technology:Heist]] HTML-templating engine.
 
 == Illustration ==
