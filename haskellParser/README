@@ -79,7 +79,7 @@ runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either Pa
 We illustrated above that we use parsers of type <syntaxhighlight lang="haskell" enclose="none">Parsec String ()</syntaxhighlight>, which parse values of type <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>. Therefore we can simplify the type signature: 
 <syntaxhighlight lang="haskell">
 Parsec String () Company -> () -> SourceName -> String -> Either ParseError a
-</syntaxhighlight>. 
+</syntaxhighlight>
 When we choose <syntaxhighlight lang="haskell" enclose="none">"input"</syntaxhighlight> as the source name we can define a function to run the company parser:
 
 <syntaxhighlight lang="haskell" source="haskellParser/Parser.hs" line>
