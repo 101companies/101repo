@@ -40,7 +40,7 @@ cutCompany (Company n depts) = do
     return $ Company n cutDepts
 </syntaxhighlight>
 
-We collect all <syntaxhighlight lang="haskell" enclose="none">ThreadId</syntaxhighlight> values in <syntaxhighlight lang="haskell" enclose="none">cuts</syntaxhighlight>. Analogous to this we cut departments:
+By making use of <syntaxhighlight lang="haskell" enclose="none">forM</syntaxhighlight> we start one thread per department and pass the cut function for departments to <syntaxhighlight lang="haskell" enclose="none">forkIO</syntaxhighlight>. We collect all <syntaxhighlight lang="haskell" enclose="none">ThreadId</syntaxhighlight> values in <syntaxhighlight lang="haskell" enclose="none">threads</syntaxhighlight> in line 3. In line 7 we wait for the results of the computations. The new company is returned in line 8. Analogous to this we cut departments:
 
 <syntaxhighlight lang="haskell" source="haskellConcurrent/Cut.hs">
 cutDept :: MVar Department -> Department -> IO ()
