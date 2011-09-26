@@ -62,8 +62,8 @@ The first list element uses Happstack's <syntaxhighlight lang="haskell" enclose=
 * The view (here <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>)
 * The action (here <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight>)
 * The focus (here <syntaxhighlight lang="haskell" enclose="none">ManagerFocus [0]</syntaxhighlight>)
-In case the extraction fails the server falls back to being a file server in line 2.
-In case extraction succeeds <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> is called passing the action, the view and the focus. This function is defined in ''Serverparts'', provided by [this!!Serverparts.hs]
+In case the extraction fails the server falls back to being a file server in line 4.
+In case extraction succeeds <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> is called passing the action, the view and the focus. This function is defined in [this!!Serverparts.hs]:
 
 <syntaxhighlight lang="haskell" source="happstack/Serverparts.hs">
 mainPart :: Action -> View -> Focus -> ServerPartT IO Response
