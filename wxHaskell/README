@@ -45,30 +45,6 @@ We define one contructor per company datatype and one for managers. For example 
 * A list of indexes: Starting from the company root this list is used to navigate through the departments and subdepartments to the employee's department.
 * An index: The index of this employee in the employee's department's employees list.
 On top of this defintion we provide functions to get sub and upper foci and to read and write company components (see [this!!API.hs] for details):
-In the following we will demonstrate reading.
-
-==== Reading ====
-
-We can now provide a function to read a company component given a focus and a company:
-<syntaxhighlight lang="haskell" line>
-class Readable a where
-    readA :: Focus -> Company -> a
-</syntaxhighlight>
-We declare an instance for <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight>:
-<syntaxhighlight lang="haskell" line>
-instance Writeable Department where
-    writeA = writeDepartment
-
-readDepartment :: Focus -> Company -> Department
-readDepartment (DeptFocus ns) (Company _ depts) = 
- readStep ns depts                 
-    where
-        readStep [n] depts = depts !! n
-        readStep (n:ns) depts = readStep ns $ 
-                                 getDus $ depts !! n
-</syntaxhighlight>
-
-Using the given index list <syntaxhighlight lang="haskell" enclose="none">ns</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">readDepartment</syntaxhighlight> navigates through the company until it reaches the department in question. This <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> value is returned by the function.
 
 === The views ===
 
@@ -110,7 +86,7 @@ showEmployee f p focus c = do
     setEmployeeLayout f p sButton bButton nameBox addressBox salaryBox cButton
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''API'' module. In the following line we set the frame title and create a new panel for this view. In lines 7-9 we create one input box per employee field. In lines 11-14 create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. After that we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
+In line 4 we read the employee in question using the ''API'' module. In the following line we set the frame title and create a new panel for this view. In lines 7-9 we create one input box per employee field. In lines 11-14 create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
 
 === Cutting button ===
 
@@ -126,7 +102,7 @@ cutButton p f focus c = button p [ text := "Cut"
                      ]]       
 </syntaxhighlight>
 
-When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action is executed. First the view's panel is deleted. After that we use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component's salaries and replaces it in the given company. After that the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which concrete view-function to call:
+When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action (lines 4-6) is executed. First the view's panel is deleted. We use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component's salaries and replaces it in the given company. In line 6 the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which concrete view-function to call:
 
 <syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>
 view:: Frame () -> Focus -> Company -> IO ()
@@ -157,7 +133,7 @@ main :: IO ()
 main = start gui
 </syntaxhighlight>
 
-<syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. After that the function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company.
+In lines 3-7 <syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. The function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company in line 8.
 
 == Architecture ==
 
