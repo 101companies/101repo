@@ -37,7 +37,7 @@ We define a type alias of all parsers that are definied in this implementation:
 type P = Parsec String ()
 </syntaxhighlight>
 
-That is, we are dealing with parsers of stream type <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> and state type <syntaxhighlight lang="haskell" enclose="none">()</syntaxhighlight> (no state). The return type running such a parser is explained further below.
+That is, we are dealing with parsers of stream type <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> and state type <syntaxhighlight lang="haskell" enclose="none">()</syntaxhighlight> (no state). The return type of running such a parser is explained further below.
 
 === Primitive parsers ===
 
@@ -67,8 +67,8 @@ pDepartment = Department
   <*> many pSubUnit <* pString "}"
 </syntaxhighlight>
 
-We make use of the <syntaxhighlight lang="haskell" enclose="none">(<$) :: Functor f => a -> f b -> f a </syntaxhighlight> operator. That is, we pass the department contructor <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and a parser for all contructor parameters (for name, manager and for the list of subunits) to receive a parser for departments. 
-In line 3 we parse the keyword for department declaration "department". After that we parse the department name, followed by an opening curly bracket in line 4. Then we parse the department's manager using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. In line 5 we use <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> to parse the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubUnit</syntaxhighlight> as the parser for each subunits. At the end of a department declaration we expect a closing curly bracket.
+We make use of the <syntaxhighlight lang="haskell" enclose="none">(<$) :: Functor f => a -> f b -> f a </syntaxhighlight> operator in line 3. That is, we pass the department contructor <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and a parser for all contructor parameters (for name, manager and for the list of subunits) to receive a parser for departments. 
+In line 3 we parse the keyword for department declaration "department". In the next line we parse the department name, followed by an opening curly bracket. In line 4 we compose a parser for the department's manager using the employee parser <syntaxhighlight lang="haskell" enclose="none">pEmployee</syntaxhighlight>, which should use "manager" as the declaration keyword. In line 5 <syntaxhighlight lang="haskell" enclose="none">many :: f a -> f [a]</syntaxhighlight> is used to parse the list of subunits using <syntaxhighlight lang="haskell" enclose="none">pSubUnit</syntaxhighlight> as the parser for each subunits. At the end of a department declaration we expect a closing curly bracket.
 
 === Running the Parser ===
 
