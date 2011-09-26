@@ -10,7 +10,7 @@ import MyConnection
 -- cut update
 cut :: String -> Database -> IO ()
 cut cname db = do
-       [res] <- withDB $ \db -> query db (getcid cname)  
+       [res] <- execute $ \db -> query db (getcid cname)  
        update db E.employee
           (\r -> r!E.cid .==.  (fromNull (constant (-1)) (constant (res!C.xid))))
           (\r -> E.salary << (r!E.salary) ./. constant 2)          

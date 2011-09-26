@@ -11,12 +11,12 @@ main = do
   let cname = "meganalysis"
 
   -- run total query
-  [res] <- withDB $ (flip $ query) $ total cname
+  [res] <- execute $ (flip $ query) $ total cname
   print $ res!ttl
   
   -- do cut update
-  withDB $ cut "meganalysis"
+  execute $ cut "meganalysis"
     
   -- run total query
-  [res] <- withDB $ (flip $ query) $ total cname
+  [res] <- execute $ (flip $ query) $ total cname
   print $ res!ttl

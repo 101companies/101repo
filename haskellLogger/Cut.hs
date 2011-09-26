@@ -32,7 +32,7 @@ cutLogEmployee n e@(Employee name address salary) = do
     tell [replicate n '\t' ++ "Done cutting Employee \"" ++ name ++ "\", new salary = " ++ (show $ totalEmployee cutE)]
     return cutE
 
-
+ 
 -- not logging helpers    
 totalCompany (Company _ depts) = sum $ map totalDept depts
 totalDept (Department _ m dus eus) = sum [
