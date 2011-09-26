@@ -23,12 +23,12 @@ exercise [[Parallelism|data parallelism]] in [[Language:Haskell]] using [[Techno
 
 We exercise [[101feature:Parallelism|data parallelism]] in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel array|parallel arrays]] and DPH-specific functionality on these arrays.
 In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
-* The inabilty to mix [[Vectorization|vectorized]] and non-vectorized code.
+* The inabilty to mix [[Vectorisation|vectorised]] and non-vectorised code.
 * No support for typeclasses.
-* No vectorisation support for used-defined types.
+* No vectorization support for used-defined types.
 * A DHP-specific [[Prelude]] with specific primitive types.
 The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
-The resulting list of cut salary values has then to be consumed by the company in question.
+The resulting list of cut salary values has then to be "reconsumed" by the company in question.
 These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions, 
 but this implementation is supposed to demonstrate the available for of data parallelism rather than being about efficiency.
 
@@ -36,7 +36,7 @@ but this implementation is supposed to demonstrate the available for of data par
 
 === Cutting in Parallel ===
 
-As we mentioned in the motivation section, DPH currently does not allow you to use self-defined types in vectorised code. 
+As we mentioned in the motivation section, DPH currently does not allow user-defined types in vectorised code. 
 We therefore flatten the company to become a list of salaries (see [this!!SalaryFlattener.hs] for details).
 
 ==== Non-vectorised code ====
@@ -48,7 +48,7 @@ cut :: Company -> Company
 cut c = (consumeSalaries c) (toList $ cutV $ fromList $ flattenSalaries c)
 </syntaxhighlight>
 
-We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function <syntaxhighlight lang="haskell" enclose="none">cutV</syntaxhighlight> from a vectorised module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
+We first flatten the company, then convert the salary list to <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> and call the cut function <syntaxhighlight lang="haskell" enclose="none">cutV</syntaxhighlight> from a vectoried module. After that we convert back to <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and call <syntaxhighlight lang="haskell" enclose="none">consumeSalaries</syntaxhighlight> to replace all salaries in the company tree.
 
 ==== Vectorised code ====
 
