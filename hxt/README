@@ -44,12 +44,12 @@ total = listA (deep $ hasName "salary"
         arr (sum.(map read)) 
 </syntaxhighlight>
 
-First we query all salary nodes by using <syntaxhighlight lang="haskell" enclose="none">deep $ hasName "salary" :: ArrowXml a => a XmlTree XmlTree</syntaxhighlight>.
-This is an arrow from <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight> to <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight>, say a '''filter''' for all salary nodes. In general ''deep'' only works for non-nested results, but because of the fact that we are dealing with text nodes, which can not be nested, this is acceptable in this situtation. In lines 2-6 the result of this arrow is then combined with <syntaxhighlight lang="haskell" enclose="none">getChildren >>> getText</syntaxhighlight> by using <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight>. The new arrow of type <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree String</syntaxhighlight> gives us the text of each salary node.
+In line 2 we query all salary nodes by using <syntaxhighlight lang="haskell" enclose="none">deep $ hasName "salary" :: ArrowXml a => a XmlTree XmlTree</syntaxhighlight>.
+This is an arrow from <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight> to <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight>, say a filter for all salary nodes. In general  <syntaxhighlight lang="haskell" enclose="none">deep</syntaxhighlight> only works for non-nested results, but because of the fact that we are dealing with text nodes, which can not be nested, this is acceptable in this situtation. In lines 2 - 6 the result of this arrow is then combined with <syntaxhighlight lang="haskell" enclose="none">getChildren >>> getText</syntaxhighlight> by using <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight>. The new arrow of type <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree String</syntaxhighlight> returns the text of each salary node.
 
 We then use ''Control.Arrow.ArrowList'''s <syntaxhighlight lang="haskell" enclose="none">listA</syntaxhighlight> in line 2 to collect all results from this arrow in an array, giving us a new arrow of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree [String]</syntaxhighlight>. 
 
-The result of this arrow is then passed to the lifted version of <syntaxhighlight lang="haskell" enclose="none">(sum.(map read)) :: (Read c, Num c) => [String] -> c</syntaxhighlight>, which in this case is of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a [String] Float</syntaxhighlight>.
+In line 7 the result of this arrow is passed to the lifted version of <syntaxhighlight lang="haskell" enclose="none">(sum.(map read)) :: (Read c, Num c) => [String] -> c</syntaxhighlight>, which in this case is of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a [String] Float</syntaxhighlight>.
 
 The overall emerging arrow, giving us the total salary, is of type <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree Float</syntaxhighlight>.
 
