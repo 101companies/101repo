@@ -78,7 +78,7 @@ runX ( constA company
      )
 </syntaxhighlight>
 
-A lifted sample company is passed to the arrow for picklering a document. In this case the arrow function expects a pickler for companies, some writing options and a file name.
+A lifted sample company is passed to the arrow for picklering a document. In this case <syntaxhighlight lang="haskell" enclose="none">xpickleDocument</syntaxhighlight> expects a pickler for companies, some writing options and a file name.
 
 === Unpicklering a Company ===
 
@@ -92,7 +92,7 @@ To unpickle a company the arrow function <syntaxhighlight lang="haskell" enclose
 
 == Architecture ==
 
-[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs]. This file as well as [this!!Total.hs] and [this!!Cut] are adopted from [[101implementation:haskell]].[this!!Main.hs] collects test scenarios for picklering/unpicklering, totaling and cutting companies.
+[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs].[this!!Total.hs] and [this!!Cut] provide totaling and cutting functionality.[this!!Main.hs] collects test scenarios for picklering/unpicklering, totaling and cutting companies.
 
 == Usage ==
 
