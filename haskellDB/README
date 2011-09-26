@@ -1,6 +1,6 @@
 == Intent ==
 
-type-save [[:Category:Database_management_system|database]] programming with [[Technology:HDBC]]
+type-save [[:Category:Database_management_system|database]] programming with [[Technology:HaskellDB]]
 
 == Languages ==
 
@@ -56,7 +56,7 @@ We use DBDirect's <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc
 
 === Totaling ===
 
-In the module which contains the totaling function import the description modules for the companies and employees tables:
+We import the description modules for the companies and employees tables:
 
 <syntaxhighlight lang="haskell" source="haskellDB/Total.hs">
 import qualified DBDesc.Employee as E
@@ -91,7 +91,7 @@ total cname = do
   project (ttl << _sum (es!E.salary))
 </syntaxhighlight>
 
-We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</syntaxhighlight> monad. The <syntaxhighlight lang="haskell" enclose="none">table</syntaxhighlight> functions return all records in the given table. Using two tables gives us the rational cross product of those tables line 3 and 4. We use HaskellDB's selection function <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight> in line 6 to select only those rows in which the company-id of the employee is equal to the company which has the given name <syntaxhighlight lang="haskell" enclose="none">cname</syntaxhighlight>. By making use of <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight> we only select the salary column and then use the aggregation function <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight> to total all salaries. After that we put the total value in the above definied field in line 10. 
+We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</syntaxhighlight> monad. The <syntaxhighlight lang="haskell" enclose="none">table</syntaxhighlight> functions return all records in the given table. Using two tables gives us the relational cross product of those tables line 3 and 4. We use HaskellDB's selection function <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight> in line 6 to select only those rows in which the company-id of the employee is equal to the company which has the given name <syntaxhighlight lang="haskell" enclose="none">cname</syntaxhighlight>. By making use of <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight> we only select the salary column and then use the aggregation function <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight> to total all salaries. After that we put the total value in the above definied field in line 11. 
 
 === Executing the query ===
 
@@ -109,7 +109,7 @@ print $ res!ttl
 
 == Architecture ==
 
-We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's rational algebra library. [this!!MyConnection.hs] encapsulate the process of connecting to the MySql database. [this!!Main.hs] collects test scenarios for totaling and cutting.
+We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's relational algebra library. [this!!MyConnection.hs] encapsulate the process of connecting to the MySql database. [this!!Main.hs] collects test scenarios for totaling and cutting.
 
 == Usage ==
 
