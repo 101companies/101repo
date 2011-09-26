@@ -44,7 +44,7 @@ In the following we will demonstate how a specific request is processed by the s
 ''<nowiki>http://localhost/cgi-bin/HaskellCgi/company.cgi?focus=EmployeeFocus%20[1,0,0]%200&</nowiki>''
 ''<nowiki>action=Cut</nowiki>''
 
-Bacause of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to the [[101implementation:happstack|happstack]] implementation), the action and focus parameters are encoded as URL-parameters:
+Because of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to the [[101implementation:happstack|happstack]] implementation), the action and focus parameters are encoded as URL-parameters:
 
 * Focus = EmployeeFocus [1,0,0]
 * Action = Cut
@@ -128,7 +128,7 @@ The algebraic datatype for companies can be found in [this!!Company.hs]. There i
 * Place ''company.cgi'' in the folder ''cgi-bin'' of your XAMPP installation.
 * Place [this!!style.css] in the folder ''htdocs'' of your XAMPP installation.
 * Open ''http://localhost/cgi-bin/haskellCGI/company.cgi'' in a web browser to see the application's root view.
-Compiling and cleaning the project is skripted by ''run'' and ''clean'' targets in [this!!Makefile.hs].
+Compiling project is skripted by the ''run'' target in [this!!Makefile.hs].
 
 == Contributors ==
 
