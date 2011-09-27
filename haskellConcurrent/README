@@ -1,6 +1,6 @@
 == Intent ==
 
-concurrent programming in [[Language:Haskell]]
+[[Concurrent programming]] in [[Language:Haskell]]
 
 == Languages ==
 
@@ -88,7 +88,7 @@ One can also use the [this!!Makefile] with a target ''test'' for [[test automati
 == Issues ==
 
 * The current implementation does not address the problem of a possible unbalanced department tree.
-* The collection function for <syntaxhighlight lang="Haskell" enclose="none">MVar</syntaxhighlight> values blocks on every empty <syntaxhighlight lang="Haskell" enclose="none">MVar</syntaxhighlight>. We need a more sophisticated collection function.
+* The collection function for MVars blocks on every empty element. We need a more sophisticated collection function.
 
 == Contributors ==
 
