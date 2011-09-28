@@ -174,7 +174,7 @@ They return a function of type <syntaxhighlight lang="haskell" enclose="none">Mo
 
 == Architecture ==
 
-[this!!Main.hs] holds the server, using various server parts in [this!!Serverparts]. The acutal save action is performed by functionality in [this!!Save.hs]. [this!!Binder.hs] contains functions to bind template varibales. The validators can be found in [this!!Validators.hs], using helper functions hosted by [this!!Utils.hs]. The algebraic datatype for companies can be found in [this!!Company], a sample company in [this!!SampleCompany.hs]. Functionality to total and cut is provided by [this!!Total.hs] and [this!!Cut.hs]. An API to companies based on the zipper concepts is hosted by [this!!API.hs]. Various types used by the server can be found in [this!!Types.hs]. The [this!!static] folder contains the sytlesheet for the application and images, while [this!!templates] contains the (X)HTML templates.
+[this!!Main.hs] holds the server, using various server parts in [this!!Serverparts]. The actual save action is performed by functionality in [this!!Save.hs]. [this!!Binder.hs] contains functions to bind template variables. The validators can be found in [this!!Validators.hs], using helper functions hosted by [this!!Utils.hs]. The algebraic datatype for companies can be found in [this!!Company], a sample company in [this!!SampleCompany.hs]. Functionality to total and cut is provided by [this!!Total.hs] and [this!!Cut.hs]. An API to companies based on the zipper concepts is hosted by [this!!API.hs]. Various types used by the server can be found in [this!!Types.hs]. The [this!!static] folder contains the sytlesheet for the application and images, while [this!!templates] contains the (X)HTML templates.
 
 == Usage ==
 
