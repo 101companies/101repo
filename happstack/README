@@ -26,14 +26,14 @@
 
 == Motivation ==
 
-This implementation provides a small C/S [[Web Application|web application]] written with the help of the [[Technology:Happstack]] [[:Category:Framework|framework]]. We exercice the use of [[Routing filter| routing filters]] to filter requests by action: A user can either view a specific part of a [[101feature:Company|company]], [[101feature:Cut|cut]] a specific part or save a company component after manipulation of primitive fields.
+This implementation provides a small C/S [[Web Application|web application]] written with the help of the [[Technology:Happstack]] [[:Category:Framework|framework]]. We exercise the use of [[Routing filter| routing filters]] to filter requests by action: A user can either view a specific part of a [[101feature:Company|company]], [[101feature:Cut|cut]] a specific part or save a company component after manipulation of primitive fields.
 The company is stored in a client-side [[Cookie|cookie]].
 The part to be viewed, cut or saved is specified by making use if the [[Zipper|zipper]]-inspired concept of foci (see the [[101implementation:wxHaskell|wxHaskell]] implementation).
-We also demonstrate [[101feature:Validation|validation]]: When processing a save-request, sent by an HTML-form, the server applies various validators to eventuelly return error messages, which will be displayed to the user in the [[Browser|browser]]. As an response the client receives HTML-documents, which are composed by making use of the [[Technology:Heist]] HTML-templating engine.
+We also demonstrate [[101feature:Validation|validation]]: When processing a save-request, sent by an HTML form, the server applies various validators to eventually return error messages, which will be displayed to the user in the [[Browser|browser]]. As an response the client receives HTML documents, which are composed by making use of the [[Technology:Heist]] HTML templating engine.
 
 == Illustration ==
 
-In the following we will demonstate how a specific request is processed by the server.
+In the following we will demonstrate how a specific request is processed by the server.
 
 === Saving an Employee ===
 
@@ -93,8 +93,7 @@ savePart v f = do
         EmployeeV -> saveEmployee f 
 </syntaxhighlight>
 
-The function starts by calling a save function, which is choosen based on the given <syntaxhighlight lang="haskell" enclose="none">View</syntaxhighlight> value. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 7 passing the old company (read from the cookie) and the errors. In case of success the new company and an empty list of errors is passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 8. 
-
+The function starts by calling a save function, which is chosen based on the given <syntaxhighlight lang="haskell" enclose="none">View</syntaxhighlight> value. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 7 passing the old company (read from the cookie) and the errors. In case of success the new company and an empty list of errors is passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 8. 
 In this case  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called by <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" source="happstack/Save.hs" line>
@@ -139,9 +138,9 @@ validateEmployee c f (Employee n a s) = if null vs
 <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> composes two validations (see [this!!Validators.hs] for details):
 
 * <syntaxhighlight lang="haskell" enclose="none">validateNA</syntaxhighlight> checks whether the employee's name/address pair is unique in the company <syntaxhighlight lang="haskell" enclose="none">c</syntaxhighlight>.
-* <syntaxhighlight lang="haskell" enclose="none">validateSalary</syntaxhighlight> checks two things regaring the employee's salary:
+* <syntaxhighlight lang="haskell" enclose="none">validateSalary</syntaxhighlight> checks two things regarding the employee's salary:
 ** It checks whether by changing the salary the employee's department-manager still receives the highest salary within the department.
-** It checks whether the salary has a postive value.
+** It checks whether the salary has a positive value.
 In case both validations return <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. Otherwise it returns the list of all error messages.
 
 ==== Binding and Responding ====
