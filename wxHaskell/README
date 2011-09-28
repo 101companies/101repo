@@ -22,7 +22,7 @@ Provide [[101feature:Interaction|interaction]] on companies by means of [[Techno
 == Motivation ==
 
 We use the [[Technology:wxHaskell]] library to provide a simple GUI for [[101feature:Company|companies]]. 
-One can navigate the hierachical company structure, [[101feature:Cut|cut]] [[101feature:Total|totaled]] salaries and edit fields for values of [[Primitive Type|primitive types]]. 
+One can navigate the hierarchical company structure, [[101feature:Cut|cut]] [[101feature:Total|totaled]] salaries and edit fields for values of [[Primitive Type|primitive types]]. 
 We make use of the [[Zipper|zipper]] concept to specify which part of the company should be shown or saved after editing.
 This concept also helps us to read departments/employees from a given position within the company and write transformed departments/employees back.  
 
@@ -41,10 +41,10 @@ data Focus =
     deriving (Show, Read)
 </syntaxhighlight>
 
-We define one contructor per company datatype and one for managers. For example to contruct a focus for an employee one needs to pass:
+We define one constructor per company datatype and one for managers. For example to construct a focus for an employee one needs to pass:
 * A list of indexes: Starting from the company root this list is used to navigate through the departments and subdepartments to the employee's department.
 * An index: The index of this employee in the employee's department's employees list.
-On top of this defintion we provide functions to get sub and upper foci and to read and write company components (see [this!!API.hs] for details):
+On top of this definition we provide functions to get sub and upper foci and to read and write company components (see [this!!API.hs] for details):
 
 === The views ===
 
