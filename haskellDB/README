@@ -26,9 +26,9 @@ type-save [[:Category:Database_management_system|database]] programming with [[T
 == Motivation ==
 
 We make use of [[Technology:HaskellDB|HaskellDB]] to express [[:Category:Database_management_system|database]] [[Query|queries]] as [[Language:Haskell]] functions rather than [[Language:SQL]]-statements (like in the [[101implementation:hdbc|hdbc]] implementation). That is, we use the rich combinator [[:Category:Library|library]] of HaskellDB to express [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] statements based on [[Relational algebra|relational algebra]].  We illustrate combinators for projection, selection, aggregation and renaming.
-We connect to the underlining [[Technology:MySQL]] database through a HaskellDB-[[Technology:HDBC]]-[[Technology:ODBC]] backend. We show the common approach of separating query/statement definition from the actual [[:Category:Database management system|database implementation]]-dependent query/statement execution <cite>bringert2004student</cite>. That is, the queries and statements themselvess are database implementation-independent.
+We connect to the underlining [[Technology:MySQL]] database through a HaskellDB-[[Technology:HDBC]]-[[Technology:ODBC]] backend. We show the common approach of separating query/statement definition from the actual [[:Category:Database management system|database implementation]]-dependent query/statement execution <cite>bringert2004student</cite>. That is, the queries and statements themselves are database implementation-independent.
 
-This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this tool to generate the modules describing the database. The modules are the basis for quering the relational data.
+This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this tool to generate the modules describing the database. The modules are the basis for querying the relational data.
 
 == Illustration ==
 
@@ -48,7 +48,7 @@ execute = connect driver conf
 </syntaxhighlight>
 
 We use <syntaxhighlight lang="haskell" enclose="none">connect</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">driver</syntaxhighlight>, which are both provided by the HDBC-ODBC backend.
-By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">execute</syntaxhighlight> resulting in the specified IO action and possibly a result of type <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight>. By encapsulating the connection process like this we achive complete independence from the underling database implementation for all queries and statements. 
+By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">execute</syntaxhighlight> resulting in the specified IO action and possibly a result of type <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight>. By encapsulating the connection process like this we achieve complete independence from the underling database implementation for all queries and statements. 
 
 === DBDirect ===
 
@@ -75,7 +75,7 @@ ttl = mkAttr Ttl
 </syntaxhighlight>
 
 We declare <syntaxhighlight lang="haskell" enclose="none">Ttl</syntaxhighlight> to be an instance of the <syntaxhighlight lang="haskell" enclose="none">FieldTag</syntaxhighlight> class by specifying what the name of the field should be. We use this field and HaskellDB's <syntaxhighlight lang="haskell" enclose="none">mkAttr</syntaxhighlight> to define <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight>, a attribute for holding a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value. We will use this attribute to access the field.
-The acutal total query looks like this:
+The actual total query looks like this:
 
 <syntaxhighlight lang="haskell" source="haskellDB/Total.hs">
 total :: String -> Query (Rel (RecCons Ttl (Expr Double) RecNil))
@@ -91,7 +91,7 @@ total cname = do
   project (ttl << _sum (es!E.salary))
 </syntaxhighlight>
 
-We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</syntaxhighlight> monad. The <syntaxhighlight lang="haskell" enclose="none">table</syntaxhighlight> functions return all records in the given table. Using two tables gives us the relational cross product of those tables line 3 and 4. We use HaskellDB's selection function <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight> in line 6 to select only those rows in which the company-id of the employee is equal to the company which has the given name <syntaxhighlight lang="haskell" enclose="none">cname</syntaxhighlight>. By making use of <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight> we only select the salary column and then use the aggregation function <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight> to total all salaries. After that we put the total value in the above definied field in line 11. 
+We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</syntaxhighlight> monad. The <syntaxhighlight lang="haskell" enclose="none">table</syntaxhighlight> functions return all records in the given table. Using two tables gives us the relational cross product of those tables line 3 and 4. We use HaskellDB's selection function <syntaxhighlight lang="haskell" enclose="none">restrict</syntaxhighlight> in line 6 to select only those rows in which the company-id of the employee is equal to the company which has the given name <syntaxhighlight lang="haskell" enclose="none">cname</syntaxhighlight>. By making use of <syntaxhighlight lang="haskell" enclose="none">project</syntaxhighlight> we only select the salary column and then use the aggregation function <syntaxhighlight lang="haskell" enclose="none">_sum</syntaxhighlight> to total all salaries. After that we put the total value in the above defined field in line 11. 
 
 === Executing the query ===
 
@@ -109,7 +109,7 @@ print $ res!ttl
 
 == Architecture ==
 
-We provide sql-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's relational algebra library. [this!!MyConnection.hs] encapsulate the process of connecting to the MySql database. [this!!Main.hs] collects test scenarios for totaling and cutting.
+We provide MySQL-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's relational algebra library. [this!!MyConnection.hs] encapsulate the process of connecting to the MySql database. [this!!Main.hs] collects test scenarios for totaling and cutting.
 
 == Usage ==
 
