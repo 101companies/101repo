@@ -54,7 +54,7 @@ xpCompany
 </syntaxhighlight>
 
 For implementing <syntaxhighlight lang="haskell" enclose="none">xpCompany</syntaxhighlight> we use <syntaxhighlight lang="haskell" enclose="none">xpElem</syntaxhighlight> in line 3.
-We define that a company, represented in XML, should be inside a XML-tag labled "company". The content of the tag is the second argument of <syntaxhighlight lang="haskell" enclose="none">xpElem</syntaxhighlight>, defined by <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight>.
+We define that a company, represented in XML, should be inside a XML-tag labeled "company". The content of the tag is the second argument of <syntaxhighlight lang="haskell" enclose="none">xpElem</syntaxhighlight>, defined by <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight>.
 
 <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight> is of type <syntaxhighlight lang="haskell" enclose="none">(a -> b, b -> a) -> PU a -> PU b</syntaxhighlight>. 
 It returns a Pickler (PU) for <syntaxhighlight lang="haskell" enclose="none">b</syntaxhighlight> and expects a pair of functions from <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight> to <syntaxhighlight lang="haskell" enclose="none">b</syntaxhighlight> and vice versa and a Pickler for <syntaxhighlight lang="haskell"  enclose="none">a</syntaxhighlight> (<syntaxhighlight lang="haskell" enclose="none">PA a</syntaxhighlight>).
