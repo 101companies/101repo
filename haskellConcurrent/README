@@ -19,8 +19,8 @@ concurrent programming in [[Language:Haskell]]
 
 == Motivation ==
 
-We make use of [[Language:Haskell]]'s [[101feature:Concurrency|concurrency]] support. That is, we devide computations into multiple threads and make use of synchronized variables ([[MVar]]), which are shared among different threads. 
-Each thread [[101feature:Total|totals]] or [[101feature:Cut|cuts]] only the salaries in a specifed department; subdepartments are handled by new threads.
+We make use of [[Language:Haskell]]'s [[101feature:Concurrency|concurrency]] support. That is, we divide computations into multiple threads and make use of synchronized variables ([[MVar]]), which are shared among different threads. 
+Each thread [[101feature:Total|totals]] or [[101feature:Cut|cuts]] only the salaries in a specified department; subdepartments are handled by new threads.
 The result of the computations (float values resp. new company entities) are stored in a MVar and then collected and aggregated with other results by the "upper" thread. 
 
 == Illustration ==
