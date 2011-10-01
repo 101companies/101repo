@@ -25,7 +25,7 @@
 == Motivation ==
 
 We use [[Technology:HDBC]] to query [[101feature:Persistence|persisted]] company data. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a [[:Category:Database_management_system|database]]. SQL query results are [[101feature:Mapping|mapped]] to special HDBC datatypes. In this context we demonstrate the use of [[Prepared statement|prepared statements]] in HDBC. To connect to the [[Technology:MySQL]] database we use an [[Technology:ODBC|ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[:Category:Database_management_system|database implementation]]. 
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a [[:Category:Database_management_system|database]]. SQL query results are [[101feature:Mapping|mapped]] to special HDBC datatypes. In this context we demonstrate the use of [[Prepared statement|prepared statements]] in HDBC. We illustrate lazy fetching of query results. To connect to the [[Technology:MySQL]] database we use an [[Technology:ODBC|ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[:Category:Database_management_system|database implementation]]. 
 
 == Illustration ==
 
@@ -42,27 +42,31 @@ let connString = "Driver={MySQL ODBC 5.1 Driver};"
 conn <- connectODBC connString
 </syntaxhighlight>
 
-=== Cutting ===
+=== Totaling ===
 
 The function <syntaxhighlight lang="haskell" enclose="none">cut</syntaxhighlight> defines a statement to cut all salaries:
 
 <syntaxhighlight lang="haskell" source="hdbc/Cut.hs">
-cut :: IConnection conn => conn -> String -> IO ()
-cut conn cName = do
-    stmt <- prepare conn "UPDATE employee SET salary = salary / 2 WHERE employee.cid = (SELECT id FROM Company WHERE name = ?)"
-    execute stmt [toSql cName] 
-    commit conn
+total :: IConnection conn => conn -> String -> IO (Maybe Double)
+total conn cName = do
+     stmt <- prepare conn "SELECT sum(salary) FROM employee, company WHERE company.name = ? and company.id = employee.cid"
+     execute stmt [toSql cName]
+     res <- fetchAllRows stmt
+     return (toMaybe $ head $ head res)
+        where
+            toMaybe total@(SqlDouble _) = Just (fromSql total :: Double)
+            toMaybe SqlNull = Nothing
 </syntaxhighlight>
 
-In line 2 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>  line 3. The statement is executed and the change is committed to the database int line 4.
+In line 2 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>  line 3. The statement is executed and the change is committed to the database int line 4. We use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 5 to get the total result, which we then read to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return.
 
-We can now use the open connection to cut all salaries:
-<syntaxhighlight lang="haskell" source="Main.hs">
-let cName = "meganalysis"
-cut conn cName
+We can now use the open connection to total all salaries:
+<syntaxhighlight lang="haskell" source="hdbc/Main.hs">
+let cName = "meganalysis" 
+oldTotal <- total conn cName
 </syntaxhighlight>
 
-Functionality to total all salaries uses a SELECT statements instead of UPDATE (see [this!!Total.hs] for details).
+Functionality to cut all salaries uses an UPDATE statements instead of SELECT (see [this!!Cut.hs] for details).
 
 == Architecture ==
 
