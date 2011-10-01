@@ -44,21 +44,18 @@ conn <- connectODBC connString
 
 === Totaling ===
 
-The function <syntaxhighlight lang="haskell" enclose="none">cut</syntaxhighlight> defines a statement to cut all salaries:
+The function <syntaxhighlight lang="haskell" enclose="none">total</syntaxhighlight> defines a statement to cut all salaries:
 
 <syntaxhighlight lang="haskell" source="hdbc/Cut.hs">
-total :: IConnection conn => conn -> String -> IO (Maybe Double)
+total :: IConnection conn => conn -> String -> IO Double
 total conn cName = do
-     stmt <- prepare conn "SELECT sum(salary) FROM employee, company WHERE company.name = ? and company.id = employee.cid"
+     stmt <- prepare conn "SELECT salary FROM employee, company WHERE company.name = ? and company.id = employee.cid"
      execute stmt [toSql cName]
      res <- fetchAllRows stmt
-     return (toMaybe $ head $ head res)
-        where
-            toMaybe total@(SqlDouble _) = Just (fromSql total :: Double)
-            toMaybe SqlNull = Nothing
+     return $ sum (map (fromSql.head) res)    
 </syntaxhighlight>
 
-In line 2 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>  line 3. The statement is executed and the change is committed to the database int line 4. We use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 5 to get the total result, which we then read to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return.
+In line 2 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight> line 3. The statement is executed and we use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 5 to get all salaries, which we then sum up to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return.
 
 We can now use the open connection to total all salaries:
 <syntaxhighlight lang="haskell" source="hdbc/Main.hs">
