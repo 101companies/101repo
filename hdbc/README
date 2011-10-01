@@ -25,7 +25,7 @@
 == Motivation ==
 
 We use [[Technology:HDBC]] to query [[101feature:Persistence|persisted]] company data. That is, we use embedded [[Language:SQL]] in [[Language:Haskell]] to [[101feature:Total|total]] 
-and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a [[:Category:Database_management_system|database]]. Query results are [[101feature:Mapping|mapped]] to special HDBC datatypes. In this context we demonstrate the use of [[Prepared statement|prepared statements]] in HDBC. To connect to the [[Technology:MySQL]] database we use an [[Technology:ODBC|ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[:Category:Database_management_system|database implementation]]. 
+and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a [[:Category:Database_management_system|database]]. SQL query results are [[101feature:Mapping|mapped]] to special HDBC datatypes. In this context we demonstrate the use of [[Prepared statement|prepared statements]] in HDBC. To connect to the [[Technology:MySQL]] database we use an [[Technology:ODBC|ODBC]] backend. The actual functionality to cut and total salaries is independent from the concrete [[:Category:Database_management_system|database implementation]]. 
 
 == Illustration ==
 
