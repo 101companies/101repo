@@ -23,7 +23,7 @@ tree-based XML processing with [[Technology:HXT]] in [[Language:Haskell]]
 == Motivation ==
 
 [[101feature:Company|Companies]] are represented in [[Language:XML]] and the [[Technology:HXT|Haskell XML Toolbox]] is used for processing such company XML data.
-That is, we use HXT's rich combinator [[:Category:Library|library]] to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company XML tree. Totaling results are mapped to <syntaxhighlight lang="haskell" enclose="none">Float</syntaxhightlight> values in [[Language:Haskell|Haskell]].
+That is, we use HXT's rich combinator [[:Category:Library|library]] to formulate a query for [[101feature:Total|totaling]] and a transformation for [[101feature:Cut|cutting]] salaries in a given company XML tree. Totaling results are mapped to <syntaxhighlight lang="haskell" enclose="none">Float</syntaxhighlight> values in [[Language:Haskell|Haskell]].
 The concept of [[Arrow|arrows]] is also demonstrated in this implementation, because the combinator library is heavily based on this concept. That is, we exercise arrow combinators and functions.
 
 == Illustration ==
