@@ -1,0 +1,4 @@
+WARNING: GHCi invoked via 'ghci.exe' in *nix-like shells (cygwin-bash, in particular)
+         doesn't handle Ctrl-C well; use the 'ghcii.sh' shell wrapper instead
+399747.0
+199873.5
