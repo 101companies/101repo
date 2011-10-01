@@ -44,7 +44,7 @@ conn <- connectODBC connString
 
 === Totaling ===
 
-The function <syntaxhighlight lang="haskell" enclose="none">total</syntaxhighlight> defines a statement to cut all salaries:
+The function <syntaxhighlight lang="haskell" enclose="none">total</syntaxhighlight> defines a statement to total all salaries:
 
 <syntaxhighlight lang="haskell" source="hdbc/Cut.hs">
 total :: IConnection conn => conn -> String -> IO Double
@@ -55,7 +55,7 @@ total conn cName = do
      return $ sum (map (fromSql.head) res)    
 </syntaxhighlight>
 
-In line 2 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight> line 3. The statement is executed and we use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 5 to get all salaries, which we then sum up to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return.
+In line 2 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight> line 3. The statement is executed and we use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 5 to get all salaries, which we then sum up lazy to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return in line 6.
 
 We can now use the open connection to total all salaries:
 <syntaxhighlight lang="haskell" source="hdbc/Main.hs">
