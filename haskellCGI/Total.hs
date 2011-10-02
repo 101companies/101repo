@@ -1,7 +1,7 @@
 module Total where
 
 import Company
-import API
+import Focus
 
 totalCompany :: Company -> Float
 totalCompany (Company _ depts) = sum $ map totalDept depts 

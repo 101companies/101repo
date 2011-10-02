@@ -6,7 +6,7 @@ import Control.Monad (liftM)
 import Data.Maybe (fromMaybe)      
 
 import Company
-import API
+import Focus
 import Total
 import Cut
 import CompanyHtml

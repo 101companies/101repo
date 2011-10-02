@@ -1,7 +1,7 @@
 module Cut where
 
 import Company
-import API
+import Focus
 
 cutCompany :: Company -> Company
 cutCompany (Company n depts) = Company n $ map cutDept depts

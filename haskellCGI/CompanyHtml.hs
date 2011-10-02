@@ -2,7 +2,7 @@ module CompanyHtml where
 
 import Text.XHtml hiding (address)
 import Company
-import API
+import Focus
 import Types
 import Total
 

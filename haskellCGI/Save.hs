@@ -6,7 +6,7 @@ import Data.Maybe (fromMaybe)
 
 import Company  
 import SampleCompany
-import API
+import Focus
 
 -- try to read cookie or return default company
 tryReadCCookie = liftM (fromMaybe company) $ 
