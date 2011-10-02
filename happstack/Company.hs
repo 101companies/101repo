@@ -1,13 +1,28 @@
 module Company where
 
-data Company = Company Name [Department]
-    deriving (Eq, Read, Show)
-data Department = Department Name Manager [Department] [Employee]
- deriving (Eq, Read, Show)
+data Company = Company
+        { cname      :: Name
+        , depts     :: [Department]
+        }
+    deriving (Eq,Read,Show)
+            
+data Department = Department 
+        { dname      :: Name
+        , manager   :: Manager
+        , dus  :: [Department]
+        , eus  :: [Employee]
+        }
+    deriving (Eq,Read,Show)
+     
 type Manager = Employee
-data Employee = Employee Name Address Salary
- deriving (Eq, Read, Show)
+
+data Employee = Employee 
+        { ename      :: Name 
+        , address   :: Address
+        , salary    :: Salary
+        }
+    deriving (Eq,Read,Show)
+
 type Name = String
 type Address = String
 type Salary = Float
-

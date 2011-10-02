@@ -15,7 +15,7 @@ import Text.Templating.Heist  (emptyTemplateState)
 
 import Company
 import SampleCompany
-import API
+import Focus
 import Cut
 import Binder
 import Types

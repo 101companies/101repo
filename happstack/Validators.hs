@@ -3,7 +3,7 @@ module Validators where
 import Data.Maybe
 
 import Company
-import API
+import Focus
 import Utils
 import Types
 
@@ -29,13 +29,13 @@ validateDName = validations [deptUniqueness]
 
 -- department names are unique within a company 
 deptUniqueness :: Validation String
-deptUniqueness c f name = if (name /= oldName) && name `elem ` (map getDName (flattenDeptsC c))
+deptUniqueness c f name = if (name /= oldName) && name `elem ` (map dname (flattenDeptsC c))
                           then Just $ ([NameE],
                             "\"" ++ name ++  "\" " 
                             ++ "already used as department name.")
                           else Nothing
                             where
-                              oldName = getDName $ readDepartment f c
+                              oldName = dname $ readDepartment f c
 -- employee validations
 validateEmployee :: Validations Employee
 validateEmployee c f (Employee n a s) = if null vs 
@@ -52,13 +52,13 @@ validateNA = validations [employeeUniqueness]
 
 -- name/address pairs are unique within a company
 employeeUniqueness :: Validation (String, String)
-employeeUniqueness c f nd@(n,a) = if (nd /= oldnd) && nd `elem` (map (\e -> (getEName e, getAddress e)) (flattenEmployeesC c)) 
+employeeUniqueness c f nd@(n,a) = if (nd /= oldnd) && nd `elem` (map (\e -> (ename e, address e)) (flattenEmployeesC c)) 
                             then Just $ ([NameE,AddressE],
                               "Name/Address - combination \"" ++ n ++ "\"/\"" ++ a ++"\" " 
                               ++ "already used.")
                             else Nothing
                               where
-                                  oldnd = (getName $ readEM f c, getAddress $ readEM f c)
+                                  oldnd = (ename $ readEM f c, address $ readEM f c)
 
 -- salary validators 
 validateSalary :: Validations Float
@@ -71,13 +71,13 @@ managerMaxSalary c f@(EmployeeFocus _ _) s = if not (s < ms)
                               "Salary must be less than this employee's manager's salary (" ++ show ms ++ " $) .")
                             else Nothing
                               where
-                                ms = getSalary $ getManager $ readDepartment (upperFocus f) c
+                                ms = salary $ manager $ readDepartment (upperFocus f) c
                                 
 managerMaxSalary c f@(ManagerFocus _) s = if any (>=s) ss
                             then Just $ ([SalaryE],
                               "This manager's salary must be greater than all employees'. Greater than " ++ show (maximum ss) ++ " $.")
                             else Nothing
-                              where ss = (map getSalary $ getEus $ readDepartment (upperFocus f) c)
+                              where ss = (map salary $ eus $ readDepartment (upperFocus f) c)
                               
 -- a salary must be positive 
 salaryPositive :: Validation Float                             

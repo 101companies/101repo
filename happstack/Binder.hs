@@ -6,7 +6,7 @@ import qualified Text.XmlHtml as X
                               
 
 import Company
-import API
+import Focus
 import Total
 import Validators
 import Types
@@ -24,13 +24,13 @@ optionNodes c list readA nameA f =
       fs = list f c      
       
 -- create options splice for root departments                                    
-deptsSplice c f = return $ optionNodes c deptsFocusList readDepartment getDName f 
+deptsSplice c f = return $ optionNodes c deptsFocusList readDepartment dname f 
 
 -- create options splice for subdepartments of a given (by focus) department
-subDeptSplice c f = return $ optionNodes c dusFocusList readDepartment getDName f
+subDeptSplice c f = return $ optionNodes c dusFocusList readDepartment dname f
 
 -- same for employees
-employeesSplice c f = return $ optionNodes c eusFocusList readEmployee getEName f     
+employeesSplice c f = return $ optionNodes c eusFocusList readEmployee ename f     
                                   
 
 eNamesBinder :: Monad m => [(ENames,String)] -> (TemplateState m -> TemplateState m)
@@ -47,7 +47,7 @@ eNamesBinder ens =
 -- views return template state transforms, one per company data type
 companyBinder :: Monad m => Focus -> Company -> (TemplateState m -> TemplateState m)
 companyBinder f co =   
-    (bindString (T.pack "name") ((T.pack.getCName) c)) . 
+    (bindString (T.pack "name") ((T.pack.cname) c)) . 
     (bindString (T.pack "focus") ((T.pack.show) f)) .
     (bindSplice (T.pack "depts") (deptsSplice c CompanyFocus)) .
     (bindString (T.pack "total") ((T.pack.show.totalCompany) c)) 
@@ -57,11 +57,11 @@ companyBinder f co =
 
 departmentBinder :: Monad m => Focus -> Company -> (TemplateState m -> TemplateState m)
 departmentBinder f co = 
-    (bindString (T.pack "name") ((T.pack.getDName) d)) .
+    (bindString (T.pack "name") ((T.pack.dname) d)) .
     (bindString (T.pack "focus") ((T.pack.show) f)) .
     (bindString (T.pack "upperfocus") ((T.pack.show) upperf)) .
     (bindString (T.pack "upperview") ((T.pack.focus2view) upperf)) .
-    (bindString (T.pack "mname") ((T.pack.getEName.getManager) d)) .
+    (bindString (T.pack "mname") ((T.pack.ename.manager) d)) .
     (bindString (T.pack "mfocus") ((T.pack.show) $ managerFocus f co)) .
     (bindSplice (T.pack "subdepts") (subDeptSplice co f)) .
     (bindSplice (T.pack "employees") (employeesSplice co f)) .
@@ -72,12 +72,12 @@ departmentBinder f co =
 
 employeeBinder :: Monad m => Focus -> Company -> (TemplateState m -> TemplateState m)
 employeeBinder f co =
-     (bindString (T.pack "name") ((T.pack.getEName) e)) .
+     (bindString (T.pack "name") ((T.pack.ename) e)) .
      (bindString (T.pack "focus") ((T.pack.show) f)) .
      (bindString (T.pack "upperfocus") ((T.pack.show) upperf)) .
      (bindString (T.pack "upperview") ((T.pack.focus2view) upperf)) .
-     (bindString (T.pack "address") ((T.pack.getAddress) e)) .
-     (bindString (T.pack "salary") ((T.pack.show.getSalary) e))
+     (bindString (T.pack "address") ((T.pack.address) e)) .
+     (bindString (T.pack "salary") ((T.pack.show.salary) e))
         where
           e = readEM f co
           upperf = upperFocus f           

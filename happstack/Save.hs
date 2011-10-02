@@ -9,7 +9,7 @@ import Control.Monad
 import Happstack.Server.RqData (look, lookRead)                               
  
 import Company                               
-import API
+import Focus
 import Cut
 import Types
 import Validators

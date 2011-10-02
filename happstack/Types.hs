@@ -2,7 +2,7 @@ module Types where
 
 import Happstack.Server (FromReqURI(..))
 
-import API
+import Focus
 import Company
 
 data EName = NameE | AddressE | SalaryE
