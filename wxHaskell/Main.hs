@@ -1,7 +1,7 @@
 module Main where
 
 import SampleCompany
-import API                                       
+import Focus                                       
 import Views   
 
 import Graphics.UI.WX hiding (when)
