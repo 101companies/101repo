@@ -119,7 +119,7 @@ Based on the focus <syntaxhighlight lang="haskell" enclose="none">html</syntaxhi
 == Architecture ==
 
 In [this!!Main.hs] the server is set up using request handlers provided by [this!!Response.hs]. The save actions are performed by functionality hosted by [this!!Save.hs]. An algebraic datatype for actions is definied in [this!!Types.hs]. HTML pages are composed in [this!!CompanyHtml.hs].
-The algebraic datatype for companies can be found in [this!!Company.hs]. [this!!Focus.hs] provides a focus datatype and functions on top of it.. A sample company can be found in [this!!SampleCompany.hs]. [this!!Cut.hs] and [this!!Total.hs] provide cut and total functionality.
+The algebraic datatype for companies can be found in [this!!Company.hs]. [this!!Focus.hs] provides a focus datatype and functions on top of it. A sample company can be found in [this!!SampleCompany.hs]. [this!!Cut.hs] and [this!!Total.hs] provide cut and total functionality.
 
 == Usage ==
 
