@@ -20,8 +20,8 @@ cSave :: Focus -> CGIT IO Company
 cSave f = do
     c <- tryReadCCookie
     n <- getInput "name"
-    let name = fromMaybe (getCName $ readCompany f c) n
-    let newCompany = readSetWrite (flip setCName name) f c
+    let name = fromMaybe (cname $ readCompany f c) n
+    let newCompany = writeCompany f c (Company name (depts c)) 
     writeCCookie newCompany
     return newCompany   
 
@@ -30,9 +30,10 @@ cSave f = do
 dSave :: Focus -> CGIT IO Company
 dSave f = do 
     c <- tryReadCCookie
+    let oldDept = readDepartment f c
     n <- getInput "name"
-    let name = fromMaybe (getDName $ readDepartment f c) n
-    let newCompany = readSetWrite (flip setDName name) f c 
+    let name = fromMaybe (dname oldDept) n
+    let newCompany = writeDepartment f c (Department name (manager oldDept) (dus oldDept) (eus oldDept))
     writeCCookie newCompany
     return newCompany     
     
@@ -40,17 +41,14 @@ dSave f = do
 eSave :: Focus -> CGIT IO Company
 eSave f = do
     c <- tryReadCCookie
-    let e = readIt f c
+    let oldEmployee = readEmployee f c 
     n <- getInput "name"
-    let name = fromMaybe (getEName e) n
+    let newName = fromMaybe (ename oldEmployee) n
     a <- getInput "address"
-    let address = fromMaybe (getAddress e) a
+    let newAddress = fromMaybe (address oldEmployee) a
     s <- getInput "salary"
-    let salary = read $ fromMaybe (show $ getSalary e) s  :: Float
-    let newCompany = readSetWrite ((flip setEName name).(flip setAddress address).(flip setSalary salary)) f c
+    let newSalary = read $ fromMaybe (show $ salary oldEmployee) s  :: Float
+    let oldEmployee = readEmployee f c
+    let newCompany = writeEmployee f c (Employee newName newAddress newSalary)
     writeCCookie newCompany
     return newCompany
-        where
-            readIt = case f of
-                (EmployeeFocus _ _) -> readEmployee
-                (ManagerFocus _) -> readManager

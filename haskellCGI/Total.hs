@@ -11,12 +11,9 @@ totalEmployee :: Employee -> Float
 totalEmployee (Employee _ _ s) = s
 
 total :: Focus -> Company -> Float
-total f@CompanyFocus = readTotal totalCompany f
-total f@(DeptFocus _) = readTotal totalDept f
-total f@(EmployeeFocus _ _) = readTotal totalEmployee f
-total f@(ManagerFocus _) = readTotal totalEmployee f
-
-readTotal :: (Readable a, Writeable a) => (a -> Float) -> Focus -> Company -> Float
-readTotal t f c = t $ readA f c
+total f@CompanyFocus = totalCompany.readCompany f
+total f@(DeptFocus _) = totalDept.readDepartment f 
+total f@(EmployeeFocus _ _) = totalEmployee.readEmployee f
+total f@(ManagerFocus _) = totalEmployee.readManager f
 
                                                  

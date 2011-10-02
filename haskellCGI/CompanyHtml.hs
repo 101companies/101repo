@@ -1,6 +1,6 @@
 module CompanyHtml where
 
-import Text.XHtml
+import Text.XHtml hiding (address)
 import Company
 import API
 import Types
@@ -74,11 +74,11 @@ companyHtml f c = thediv ! [theclass "all"] $
     companyForm  ((thediv ! [theclass "nav"] $ saveSubmit)
     +++ hiddenFocus f 
     +++ br
-    +++ h1 << ("Company \"" ++ getCName c ++ "\"")
-    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Name: ") +++ thediv << (textfield ! [value (getCName co)] $ "name")))
+    +++ h1 << ("Company \"" ++ cname c ++ "\"")
+    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Name: ") +++ thediv << (textfield ! [value (cname co)] $ "name")))
     +++ br
     +++ h2 << "Departments: " 
-    +++ itemize co deptsFocusList readDepartment getDName f
+    +++ itemize co deptsFocusList readDepartment dname f
     +++ thediv ! [theclass "space"] << noHtml
     +++ totalCutDiv f c
     where 
@@ -90,17 +90,17 @@ deptHtml f c = thediv ! [theclass "all"] $
     companyForm ((thediv ! [theclass "nav"] $ saveSubmit +++ backButton f)
     +++ hiddenFocus f  
     +++ br
-    +++ h1 << ("Department \"" ++ getDName d ++ "\"")
-    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Name: ") +++ thediv << (textfield ! [value (getDName d)] $ "name")))
+    +++ h1 << ("Department \"" ++ dname d ++ "\"")
+    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Name: ") +++ thediv << (textfield ! [value (dname d)] $ "name")))
     +++ br
     +++ (thediv ! [theclass "manager"] << (h2 << "Manager:" 
-                                                +++ p ! [theclass "eName"] << (getEName $ getManager d) 
+                                                +++ p ! [theclass "eName"] << (ename $ manager d) 
                                                 +++ editButton (managerFocus f c)))  
     +++ br  
     +++ h2 << "Sub departments:"
-    +++ itemize c dusFocusList readDepartment getDName f
+    +++ itemize c dusFocusList readDepartment dname f
     +++ h2 << "Employees:"
-    +++ itemize c eusFocusList readEmployee getEName f
+    +++ itemize c eusFocusList readEmployee ename f
     +++ thediv ! [theclass "space"] << noHtml
     +++ totalCutDiv f c
     where 
@@ -112,13 +112,13 @@ employeeHtml f co = thediv ! [theclass "all"] $ companyForm $
     (thediv ! [theclass "nav"] $ saveSubmit +++ backButton f)
     +++ hiddenFocus f      
     +++ br
-    +++ h1 << ("Employee \"" ++ getEName e ++ "\"")
-    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Name: ") +++ thediv << (textfield ! [value (getEName e)] $ "name"))
+    +++ h1 << ("Employee \"" ++ ename e ++ "\"")
+    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Name: ") +++ thediv << (textfield ! [value (ename e)] $ "name"))
     +++ br
-    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Address: ") +++ thediv << (textfield ! [value (getAddress e)] $ "address"))
+    +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Address: ") +++ thediv << (textfield ! [value (address e)] $ "address"))
     +++ br
     +++ thediv ! [theclass "editable"] << (h2 << (stringToHtml "Salary: ") 
-                    +++ thediv << (textfield ! [value (show (getSalary e))] $ "salary")
+                    +++ thediv << (textfield ! [value (show (salary e))] $ "salary")
                     +++ companyCgiLink "cutLinkE" "Cut" Cut f)
     where
         e = case f of

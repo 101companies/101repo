@@ -16,10 +16,9 @@ cutEmployee :: Employee -> Employee
 cutEmployee (Employee n a s) = Employee n a (s/2)  
 
 readCutWrite :: Focus -> Company -> Company
-readCutWrite f@CompanyFocus = readCutWrite' cutCompany f  
-readCutWrite f@(DeptFocus _) = readCutWrite' cutDept f 
-readCutWrite f@(EmployeeFocus _ _) = readCutWrite' cutEmployee f 
-readCutWrite f@(ManagerFocus _) = readCutWrite' cutEmployee f
+readCutWrite f@CompanyFocus = readCutWrite' writeCompany readCompany cutCompany f  
+readCutWrite f@(DeptFocus _) = readCutWrite' writeDepartment readDepartment cutDept f 
+readCutWrite f@(EmployeeFocus _ _) = readCutWrite' writeEmployee readEmployee cutEmployee f 
+readCutWrite f@(ManagerFocus _) = readCutWrite' writeEmployee readEmployee cutEmployee f
 
-readCutWrite' :: (Readable a, Writeable a) => (a -> a) -> Focus -> Company -> Company
-readCutWrite' cu f co = (writeA f co) (cu $ readA f co)  
+readCutWrite' writeA readA cut f co = (writeA f co) (cut $ readA f co)  
