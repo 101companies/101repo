@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                <h2>Employee View</h2>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><h:inputText maxlength="100"/></td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td><h:inputText maxlength="100"/></td>
+                        </tr>
+                        <tr>
+                            <td>Salary:</td>
+                            <td>
+                                <h:inputText maxlength="100"/><br/>
+                                <h:commandButton id="cut" value="cut"/>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

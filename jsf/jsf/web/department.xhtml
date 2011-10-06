@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                <h2>Department View</h2>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><h:inputText maxlength="100"/></td>
+                        </tr>
+                        <tr>
+                            <td>Departments:<br/><br/><br/><br/><br/><br/><br/></td>
+                            <td>
+                                <h:selectOneListbox size ="5" id="departments">
+                                    <f:selectItems/>
+                                </h:selectOneListbox><br/>
+                                <h:commandButton id="selectDepartment" value="select" action="selectDepartment" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Employees:</td>
+                            <td>
+                                <h:selectOneListbox size ="5" id="employees">
+                                    <f:selectItems/>
+                                </h:selectOneListbox><br/>
+                                <h:commandButton id="selectEmployee" value="select" action="selectEmployee" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <td>
+                                <h:inputText maxlength="100" disabled="true"/><br/>
+                                <h:commandButton id="cut" value="cut"/>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

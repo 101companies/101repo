@@ -1,0 +1,50 @@
+body {
+    background-color: #ffffff;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: x-large;
+    font-family: fantasy;
+    font-style: normal;
+    font-weight: lighter;
+    font-variant: small-caps;
+}
+
+h2 {
+    text-align: center;
+}
+
+select {
+    min-width: 100%;
+}
+
+input {
+    min-width: 80px;
+}
+
+table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+td {
+    text-align: left;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
