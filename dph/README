@@ -73,7 +73,7 @@ parallel code and converts back to <syntaxhighlight lang="haskell" enclose="none
 A parallel array can only be used in a vectorised module, so only here can we convert to it. Marking this function <syntaxhighlight lang="haskell" enclose="none">{-# NOINLINE cutV #-}</syntaxhighlight> makes
 it usable in non-vectorised modules. <syntaxhighlight lang="haskell" enclose="none">cutP</syntaxhighlight> calls the actual data parallel function <syntaxhighlight lang="haskell" enclose="none">cutVP</syntaxhighlight>:
 
-<syntaxhighlight lang="haskell" source="dhp/Cut.hs">
+<syntaxhighlight lang="haskell" source="dhp/CutV.hs">
 cutVP :: [:Float:] -> [:Float:]
 cutVP = mapP (/2)
 </syntaxhighlight>
