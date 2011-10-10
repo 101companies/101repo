@@ -67,9 +67,9 @@ We use the combinator for pairs <syntaxhighlight lang="haskell" enclose="none">x
 The pickler for the list of departments is defined by making use of a combinator for lists and <syntaxhighlight lang="haskell" enclose="none">xpickle</syntaxhighlight>.
 Because of type inference and because we also declared a XMLPickler instance for departments, Haskell will choose the appropriate pickler function for departments.
 
-=== Picklering a Company ===
+=== Pickling a Company ===
 
-Picklering a company is realized by using arrows:
+Pickling a company is realized by using arrows:
 
 <syntaxhighlight lang="haskell" source="hxtPickler/Main.hs">
 runX ( constA company 
@@ -79,21 +79,23 @@ runX ( constA company
      )
 </syntaxhighlight>
 
-A lifted sample company is passed to the arrow for picklering a document. In this case <syntaxhighlight lang="haskell" enclose="none">xpickleDocument</syntaxhighlight> expects a pickler for companies, some writing options and a file name.
+A lifted sample company is passed to the arrow for pickling a document. In this case <syntaxhighlight lang="haskell" enclose="none">xpickleDocument</syntaxhighlight> expects a pickler for companies, some writing options and a file name.
 
-=== Unpicklering a Company ===
+=== Unpickling a Company ===
 
 To unpickle a company the arrow function <syntaxhighlight lang="haskell" enclose="none">xunpickleDocument</syntaxhighlight> is used:
 
 <syntaxhighlight lang="haskell" source="hxtPickler/Main.hs">
-[company1] <- runX ( xunpickleDocument xpCompany [withRemoveWS yes] "sampleCompany.xml" )
+[company1] <- runX ( xunpickleDocument xpCompany $ 
+                     [withRemoveWS yes] $ 
+                     "sampleCompany.xml" )
 </syntaxhighlight>
 
 <syntaxhighlight lang="haskell" enclose="none">runX</syntaxhighlight> returns a list of arrow results, which we except to be a singleton list. On success <syntaxhighlight lang="haskell" enclose="none">company1</syntaxhighlight> should hold the unpicklered company.
 
 == Architecture ==
 
-[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs].[this!!Total.hs] and [this!!Cut] provide totaling and cutting functionality.[this!!Main.hs] collects test scenarios for picklering/unpicklering, totaling and cutting companies.
+[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs].[this!!Total.hs] and [this!!Cut] provide totaling and cutting functionality.[this!!Main.hs] collects test scenarios for pickling/unpickling, totaling and cutting companies.
 
 == Usage ==
 
