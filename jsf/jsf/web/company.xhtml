@@ -18,25 +18,31 @@
                     <table>
                         <tr>
                             <td>Name:</td>
-                            <td><h:inputText maxlength="100"/></td>
+                            <td><h:inputText maxlength="100" value="#{companyController.name}"/></td>
                         </tr>
                         <tr>
                             <td>Departments:<br/><br/><br/><br/><br/><br/><br/></td>
                             <td>
                                 <h:selectOneListbox size ="5" id="departments">
-                                    <f:selectItems/>
+                                    <f:selectItems value="#{companyController.departments}"/>
                                 </h:selectOneListbox><br/>
-                                <h:commandButton id="selectDepartment" value="select" action="selectDepartment" />
+                                <h:commandButton id="selectDepartment" value="select" action="selectDepartment"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Total:</td>
                             <td>
-                                <h:inputText maxlength="100" disabled="true"/><br/>
+                                <h:inputText maxlength="100" disabled="true" value="#{companyController.total}"/><br/>
                                 <h:commandButton id="cut" value="cut"/>
                             </td>
                         </tr>
                     </table>
+                </h:form>
+            </ui:define>
+            
+            <ui:define name="bottom">
+                <h:form>
+                    <h:commandButton id="save" value="save" action="#{companyController.save}"/>
                 </h:form>
             </ui:define>
 
