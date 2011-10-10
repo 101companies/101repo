@@ -107,7 +107,6 @@ eitherPrint (Left e) _ = print e
 </syntaxhighlight>
 
 In case parsing was successful this function applies a given function to the company and prints the result. In case of a parse error, it prints the error message.
-
 We can use this function to print the total salary of <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> in case of parsing success:
 
 <syntaxhighlight lang="haskell" line>
