@@ -46,7 +46,7 @@ total = listA (deep $ hasName "salary"
 </syntaxhighlight>
 
 In line 2 we query all salary nodes by using <syntaxhighlight lang="haskell" enclose="none">deep $ hasName "salary" :: ArrowXml a => a XmlTree XmlTree</syntaxhighlight>.
-This is an arrow from <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight> to <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight>, say a filter for all salary nodes. In general  <syntaxhighlight lang="haskell" enclose="none">deep</syntaxhighlight> only finds for non-nested results, but because of the fact that we are dealing with text nodes, which can not be nested, this is acceptable in this situation. In lines 2-6 the result of this arrow is then combined with <syntaxhighlight lang="haskell" enclose="none">getChildren >>> getText</syntaxhighlight> by using <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight>. The new arrow of type <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree String</syntaxhighlight> returns the text of each salary node.
+This is an arrow from <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight> to <syntaxhighlight lang="haskell" enclose="none">XmlTree</syntaxhighlight>, say a filter for all salary nodes. In general  <syntaxhighlight lang="haskell" enclose="none">deep</syntaxhighlight> only finds non-nested results, but because of the fact that we are dealing with text nodes, which can not be nested, this is acceptable in this situation. In lines 2-6 the result of this arrow is then combined with <syntaxhighlight lang="haskell" enclose="none">getChildren >>> getText</syntaxhighlight> by using <syntaxhighlight lang="haskell"  enclose="none">>>></syntaxhighlight>. The new arrow of type <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree String</syntaxhighlight> returns the text of each salary node.
 
 We then use ''Control.Arrow.ArrowList'''s <syntaxhighlight lang="haskell" enclose="none">listA</syntaxhighlight> in line 2 to collect all results from this arrow in an array, giving us a new arrow of type: <syntaxhighlight lang="haskell" enclose="none">ArrowXml a => a XmlTree [String]</syntaxhighlight>. 
 
@@ -56,7 +56,7 @@ The overall emerging arrow, giving us the total salary, is of type <syntaxhighli
 
 === Running an arrow ===
 
-We use <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c -> IO [c]</syntaxhighlight> for running an arrow in IO. The function returns all results of a given arrow in a list. When we combinate the arrow for reading a sample company from a XML file with the total arrow we get:
+We use <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c -> IO [c]</syntaxhighlight> for running an arrow in IO. The function returns all results of a given arrow in a list. When we combinate the arrow for reading a sample company from a XML file with the totaling arrow we get:
 <syntaxhighlight lang="haskell" source="hxt/Main.hs">
 readDocument [] "sampleCompany.xml" >>> total
 </syntaxhighlight>
