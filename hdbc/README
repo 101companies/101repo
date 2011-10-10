@@ -49,14 +49,17 @@ The function <syntaxhighlight lang="haskell" enclose="none">total</syntaxhighlig
 <syntaxhighlight lang="haskell" source="hdbc/Cut.hs">
 total :: IConnection conn => conn -> String -> IO Double
 total conn cName = do
-     stmt <- prepare conn "SELECT salary FROM employee, company WHERE company.name = ? and company.id = employee.cid"
+     stmt <- prepare conn $ 
+        "SELECT salary " ++ 
+        "FROM employee, company " ++ 
+        "WHERE company.name = ? and " ++ 
+        "company.id = employee.cid"
      execute stmt [toSql cName]
      res <- fetchAllRows stmt
-     return $ sum (map (fromSql.head) res)    
+     return $ sum (map (fromSql.head) res)        
 </syntaxhighlight>
 
-In line 2 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight> line 3. The statement is executed and we use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 5 to get all salaries, which we then sum up lazy to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return in line 6.
-
+In line 3 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight> line 3. The statement is executed and we use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 8 to get all salaries, which we then sum up lazy to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return in line 9. That is, salaries are fetched one by one from the database.
 We can now use the open connection to total all salaries:
 <syntaxhighlight lang="haskell" source="hdbc/Main.hs">
 let cName = "meganalysis" 
@@ -78,17 +81,17 @@ In the following we explain the steps for XAMPP <cite>xampp</cite>.
 We also need some SQL tool.
 In the following we explain the steps for the MySQL Workbench <cite>mysqlworkbench</cite>.
 
-* Download and install XAMPP
-* Open the "XAMPP Control Panel" and start "Apache" and "Mysql"
+* Download and install XAMPP.
+* Open the "XAMPP Control Panel" and start "Apache" and "Mysql".
 * A local MySQL Server is now running:
 ** '''Server Host''': localhost       
 ** '''Port''': 3306             
 ** '''Username''': root             
 ** '''Password''': (empty password) 
-* Connect to database in MySQL Workbench
-* Select "101companies" schema or create one
-* Create tables (run SQL script Company.sql)
-* Populate tables (run SQL script sampleCompany.sql)
+* Connect to database in MySQL Workbench.
+* Select "101companies" schema or create one.
+* Create tables (run SQL script Company.sql).
+* Populate tables (run SQL script sampleCompany.sql).
 
 === Testing ===
 
