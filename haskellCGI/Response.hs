@@ -16,17 +16,18 @@ import Save
 -- perform action based on focus and action parameter 
 cgiMain :: CGI CGIResult
 cgiMain =  do
-            f <- getInput "focus"
-            let focusP = maybe CompanyFocus read f
-            a <- getInput "action"
-            let actionP = maybe View read a
-            chtml <- (doAction actionP) focusP 
-            output . renderHtml . page "101companies WebApp" $ chtml
-              where
-                doAction ap = case ap of
-                  View  -> doView
-                  Cut   -> doCut
-                  Save  -> doSave 
+    f <- getInput "focus"
+    let focusP = maybe CompanyFocus read f
+    a <- getInput "action"
+    let actionP = maybe View read a
+    chtml <- (doAction actionP) focusP
+    let title = "101companies WebApp" 
+    output $ renderHtml $ page title $ chtml
+      where
+        doAction ap = case ap of
+          View  -> doView
+          Cut   -> doCut
+          Save  -> doSave 
         
 -- respond to view request by just returning html      
 doView :: Focus -> CGI Html
