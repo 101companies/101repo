@@ -5,7 +5,7 @@ import Focus
 import Views   
 
 import Graphics.UI.WX hiding (when)
-import Monad 
+import Control.Monad 
  
 -- setup frame and start with root view         
 gui :: IO ()
@@ -15,8 +15,7 @@ gui = do
                , fontWeight := WeightBold
                , fontUnderline := False
                , position := Point 50 50]
-    p <- panel f [textColor := colorRGB 18 19 51]
-    showCompany f p CompanyFocus company 
+    viewCompany f CompanyFocus company 
  
 -- start the GUI   
 main :: IO ()
