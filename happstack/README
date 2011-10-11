@@ -37,7 +37,7 @@ In the following we will demonstrate how a specific request is processed by the 
 
 === Saving an Employee ===
 
-'''Scenario:''' After requesting to view a manager the user manipulated the input fields and submits a request by clicking a save button.
+'''Scenario:''' After requesting to view a manager the user manipulates the input fields and submits a request by clicking a save button.
 The browser sends an HTTP-request together with a company-cookie to the server. The URL looks like this:
 
 ''<nowiki>http://localhost:8000/Employee/Save/ManagerFocus%20[0]/?Name=Erik&Address=</nowiki>''
@@ -55,7 +55,7 @@ main = simpleHTTP nullConf $
        , serveDirectory EnableBrowsing [] "static"]   
 </syntaxhighlight>
 
-We set up a simple HTTP server, configured with a default configuration. We specify serveral possible server behaviours (values of <syntaxhighlight lang="haskell" enclose="none">ServerPartT</syntaxhighlight>) in a list, which we then apply to the <syntaxhighlight lang="haskell" enclose="none">MonadPlus</syntaxhighlight>-function <syntaxhighlight lang="haskell" enclose="none">msum</syntaxhighlight>. This function tries to run each server until one serverstart succeeds.
+We set up a simple HTTP server, configured with a default configuration. We specify two possible server behaviours (values of <syntaxhighlight lang="haskell" enclose="none">ServerPartT</syntaxhighlight>) in a list, which we then apply to the <syntaxhighlight lang="haskell" enclose="none">MonadPlus</syntaxhighlight>-function <syntaxhighlight lang="haskell" enclose="none">msum</syntaxhighlight>. This function tries to run each server until one serverstart succeeds.
 
 The first list element uses Happstack's <syntaxhighlight lang="haskell" enclose="none">path</syntaxhighlight> function in to extract:
 
@@ -63,7 +63,7 @@ The first list element uses Happstack's <syntaxhighlight lang="haskell" enclose=
 * The action (here <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight>)
 * The focus (here <syntaxhighlight lang="haskell" enclose="none">ManagerFocus [0]</syntaxhighlight>)
 In case the extraction fails the server falls back to being a file server in line 4.
-In case extraction succeeds <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> is called passing the action, the view and the focus. This function is defined in [this!!Serverparts.hs]:
+In case extraction succeeds <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> is called passing the action, the view and the focus:
 
 <syntaxhighlight lang="haskell" source="happstack/Serverparts.hs">
 mainPart :: Action -> View -> Focus -> ServerPartT IO Response
@@ -72,12 +72,12 @@ mainPart Cut  = cutPart
 mainPart Save = savePart   
 </syntaxhighlight>
 
-In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> matches on  <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight> and calls 
+In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> matches on <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight> and calls 
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> passing the view and the focus:
 
 ==== Saving ====
 
-<syntaxhighlight lang="haskell" source="happstack/Save.hs" line>
+<syntaxhighlight lang="haskell" source="happstack/Serverparts.hs" line>
 savePart :: View -> Focus -> ServerPartT IO Response
 savePart v f = do
   s <- save
@@ -117,14 +117,13 @@ saveEmployee f = do
 </syntaxhighlight>
 
 <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> reads the company from a cookie and extracts the request parameters from the URL in lines 3-6. These values are used to compose the new <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight> value in line 7. 
-
 In line 8 this employee is then passed to the validation function <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> of type <syntaxhighlight lang="haskell" enclose="none">Company -> Focus -> a -> Maybe [(ENames,String)]</syntaxhighlight>. If the validation succeeds, <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Nothing</syntaxhighlight>. In this case the employee is replaced within the company, which is then re-stored in the cookie and returned by the function (lines 14-16). Otherwise <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> returns error information, which is then also returned by <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight>.
 
 ==== Validation ====
 
 The validation functionality can be found in the ''Validators'' module:
 
-<syntaxhighlight lang="haskell">
+<syntaxhighlight lang="haskell" source="happstack/Validators.hs">
 validateEmployee :: Validations Employee
 validateEmployee c f (Employee n a s) = if null vs 
                            then Nothing
@@ -136,7 +135,6 @@ validateEmployee c f (Employee n a s) = if null vs
 </syntaxhighlight>
 
 <syntaxhighlight lang="haskell" enclose="none">validateEmployee</syntaxhighlight> composes two validations (see [this!!Validators.hs] for details):
-
 * <syntaxhighlight lang="haskell" enclose="none">validateNA</syntaxhighlight> checks whether the employee's name/address pair is unique in the company <syntaxhighlight lang="haskell" enclose="none">c</syntaxhighlight>.
 * <syntaxhighlight lang="haskell" enclose="none">validateSalary</syntaxhighlight> checks two things regarding the employee's salary:
 ** It checks whether by changing the salary the employee's department-manager still receives the highest salary within the department.
@@ -148,7 +146,7 @@ In case both validations return <syntaxhighlight lang="haskell" enclose="none">N
 The user might have tried to assign an invalid salary and an invalid name/address pair to the manager in question. Validation therefore would return error information. 
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> would call <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the error messages:
 
-<syntaxhighlight lang="haskell" line>
+<syntaxhighlight lang="haskell" line source="happstack/Serverparts.hs">
 displayPart :: View -> Focus -> Company -> [(ENames,String)] -> ServerPart Response
 displayPart v f c errs = do 
       td <- newTemplateDirectory' tDir $ 
@@ -169,7 +167,6 @@ displayPart v f c errs = do
 
 By making use of a case expression and the given view <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> decides which template and which binder to use in lines 6-14 . The binder will bind all template variables to strings or small HTML fragments. After that <syntaxhighlight lang="haskell" enclose="none">eNamesBinder</syntaxhighlight> will bind the error messages to template varibales. Both binders can be found in [this!!Binder.hs]. 
 They return a function of type <syntaxhighlight lang="haskell" enclose="none">Monad m => TemplateState m -> TemplateState m</syntaxhighlight>. That is, binders are state transformers for templates.
-
 <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> then renders the HTML document, which is sent to the client as the response in line 4.
 
 == Architecture ==
