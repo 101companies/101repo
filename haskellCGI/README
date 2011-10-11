@@ -95,7 +95,7 @@ tryReadCCookie = liftM (fromMaybe company) $
 </syntaxhighlight>
 
 This function tries to read the company cookie. If the client does not have this cookie stored, the default company is returned.
-In line 4 <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight>, which reads a company, department or employee based on the focus, cuts it and replaces it within the company (see [this!!Cut.hs] for details). In line 5 that the manipulated company is written back into the cookie using <syntaxhighlight lang="haskell" enclose="none">writeCCookie</syntaxhighlight>:
+In line 4 <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight>, which reads a company, department or employee based on the focus, cuts it and replaces it within the company (see [this!!Cut.hs] for details). In line 5 the manipulated company is written back into the cookie using <syntaxhighlight lang="haskell" enclose="none">writeCCookie</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" source="haskellCGI/Save.hs" line>
 writeCCookie s = setCookie $ 
