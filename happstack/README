@@ -72,7 +72,7 @@ mainPart Cut  = cutPart
 mainPart Save = savePart   
 </syntaxhighlight>
 
-In this case <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> matches on <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight> and calls 
+In this scenario <syntaxhighlight lang="haskell" enclose="none">mainPart</syntaxhighlight> matches on <syntaxhighlight lang="haskell" enclose="none">Save</syntaxhighlight> and calls 
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> passing the view and the focus:
 
 ==== Saving ====
@@ -94,7 +94,7 @@ savePart v f = do
 </syntaxhighlight>
 
 The function starts by calling a save function, which is chosen based on the given <syntaxhighlight lang="haskell" enclose="none">View</syntaxhighlight> value. The <syntaxhighlight lang="haskell" enclose="none">save</syntaxhighlight>-functions, which are all of type <syntaxhighlight lang="haskell" enclose="none">Focus -> ServerPartT IO (Either [(ENames,String)] Company)</syntaxhighlight> either return a list of error information or the new company. In case of an error <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 7 passing the old company (read from the cookie) and the errors. In case of success the new company and an empty list of errors is passed to <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> in line 8. 
-In this case  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called by <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight>:
+In this scenario  <syntaxhighlight lang="haskell" enclose="none">saveEmployee</syntaxhighlight> is called by <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" source="happstack/Save.hs" line>
 saveEmployee :: Focus -> ServerPartT IO (Either [(ENames,String)] Company)
@@ -165,7 +165,7 @@ displayPart v f c errs = do
               EmployeeV -> "employee"
 </syntaxhighlight>
 
-By making use of a case expression and the given view <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> decides which template and which binder to use in lines 6-14 . The binder will bind all template variables to strings or small HTML fragments. After that <syntaxhighlight lang="haskell" enclose="none">eNamesBinder</syntaxhighlight> will bind the error messages to template varibales. Both binders can be found in [this!!Binder.hs]. 
+By making use of a <syntaxhighlight lang="haskell" enclose="none">case</syntaxhighlight> expression and the given view <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> decides which template and which binder to use in lines 7-16 . The binder will bind all template variables to strings or small HTML fragments. After that <syntaxhighlight lang="haskell" enclose="none">eNamesBinder</syntaxhighlight> will bind the error messages to template varibales. Both binders can be found in [this!!Binder.hs]. 
 They return a function of type <syntaxhighlight lang="haskell" enclose="none">Monad m => TemplateState m -> TemplateState m</syntaxhighlight>. That is, binders are state transformers for templates.
 <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> then renders the HTML document, which is sent to the client as the response in line 4.
 
