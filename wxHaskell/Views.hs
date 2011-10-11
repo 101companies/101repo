@@ -41,19 +41,21 @@ listAll p c shw fs xs getName = do
 
 -- backbutton
 backButton :: Panel () -> Frame () -> Focus -> Company -> IO (Button ())
-backButton p f focus c = button p [ text := "Back"
-                                  , size := Size 50 22
-                                  , on command := do {
-                                        objectDelete p; 
-                                        view f (upperFocus focus) c;}]  
+backButton p f focus c = 
+  button p [ text := "Back"
+           , size := Size 50 22
+           , on command := do {
+                objectDelete p; 
+                view f (upperFocus focus) c;}]  
                                     
 -- cutButton
 cutButton :: Panel () -> Frame () -> Focus -> Company -> IO (Button ())
-cutButton p f focus c = button p [ text := "Cut"      
-                                 , size := Size 50 22                                                                
-                                 , on command := do {
-                                      objectDelete p; 
-                                      view f focus $ readCutWrite focus c;}]                                              
+cutButton p f focus c = 
+  button p [ text := "Cut"      
+           , size := Size 50 22                                                                
+           , on command := do {
+                objectDelete p; 
+                view f focus $ readCutWrite focus c;}]                                              
 
 -- view company (root)
 viewCompany :: Frame () -> Focus -> Company ->  IO()
