@@ -10,10 +10,11 @@ import Focus
 
 -- try to read cookie or return default company
 tryReadCCookie = liftM (fromMaybe company) $ 
-                  readCookie "companyCookie"
+                 readCookie "companyCookie"
 -- write cookie
-writeCCookie s = setCookie $ newCookie "companyCookie" $ 
-                  show s   
+writeCCookie s = setCookie $ 
+                 newCookie "companyCookie" $ 
+                 show s   
 
 -- process company edit
 cSave :: Focus -> CGIT IO Company

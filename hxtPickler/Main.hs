@@ -22,9 +22,11 @@ main = do
     -- serilize and deserialize
     [company2] <- runX ( constA cutCompany -- lifts company 
                   >>>
-	                xpickleDocument xpCompany [withIndent yes] "sampleCompanyCut.xml"
+	                xpickleDocument xpCompany [withIndent yes] $
+                  "sampleCompanyCut.xml"
 	                >>>
-	                xunpickleDocument xpCompany [withRemoveWS yes] "sampleCompanyCut.xml"  
+	                xunpickleDocument xpCompany [withRemoveWS yes] $ 
+                  "sampleCompanyCut.xml"  
                   )
           
     -- print total
