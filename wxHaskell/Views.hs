@@ -78,7 +78,14 @@ viewCompany f focus c = do
     deptsListBox <- listAll p c' (viewDept f) (deptsFocusList focus c') (depts c') dname
     -- cut button
     cButton <- cutButton p f focus c'
+    -- total company salary
+    let total = totalCompany c
     -- compose layout                                
+    setCompanyLayout f p sButton nameBox deptsListBox total cButton
+    
+                           
+-- layout composer for companies
+setCompanyLayout f p sButton nameBox deptsListBox total cButton =
     set f [layout := container p $ alignCentre $
                      margin 20 $
                      minsize (sz 250 5) $   
@@ -87,7 +94,7 @@ viewCompany f focus c = do
                         hrule 250,                                                                      
                         alignCentre $ row 90 [label "Name:", widget nameBox], 
                         alignCentre $ minsize (sz 230 5) $ boxed "Departments:" $ margin 10 $ alignCentre $ column 5 [widget deptsListBox],
-                        alignCentre $ row 18 [label $ "Total salary = " ++ (show $ totalCompany c), widget cButton]
+                        alignCentre $ row 18 [label $ "Total salary = " ++ (Prelude.show total), widget cButton]
                     ]]
          
                                 
@@ -127,8 +134,14 @@ viewDept f focus@(DeptFocus ns) c = do
     eusListBox <- listAll p c (viewEmployee f) (eusFocusList focus c) (eus d) ename
     -- cutButton
     cButton <- cutButton p f focus c
+    -- total department salary
+    let total = totalDept d
     -- compose layout
-    set f [layout := container p $ alignCentre $
+    setDeptLayout f p sButton bButton nameBox managerBox mButton dusListBox eusListBox total cButton
+    
+-- layout composer for departments   
+setDeptLayout f p sButton bButton nameBox managerBox mButton dusListBox eusListBox total cButton = 
+     set f [layout := container p $ alignCentre $
                      margin 20 $ 
                      minsize (sz 250 5) $  
                      column 15 [
@@ -138,7 +151,7 @@ viewDept f focus@(DeptFocus ns) c = do
                         alignCentre $ row 10 [label "Manager: ", widget managerBox, widget mButton],
                         alignCentre $ minsize (sz 230 5) $ boxed "Sub departments:" $ margin 10 $ alignCentre $ column 5 [widget dusListBox],
                         alignCentre $ minsize (sz 230 5) $ boxed "Employees;" $ margin 10 $ alignCentre $ column 5  $ [widget eusListBox],    
-                        alignCentre $ row 18 [label $ "Total salary = " ++ (show $ totalDept d), widget cButton]  
+                        alignCentre $ row 18 [label $ "Total salary = " ++ (Prelude.show total), widget cButton]  
                      ]]
                                              
 
@@ -161,23 +174,34 @@ viewEmployee f focus c = do
     -- back button                                
     bButton <- backButton p f focus c           
     -- save button                                                             
-    sButton <- button  p [ text := "Save"
-                         , size := Size 50 22 
-                         , on command := do { 
-                             newName <- get nameBox text;
-                             newAddress <- get addressBox text;
-                             newSalary <- get salaryBox text;
-                             objectDelete p;
-                             newc <- return $ (writeEM focus c (Employee newName newAddress (read newSalary)));
-			                       viewEmployee f focus newc; }]
+    sButton <- button  p 
+          [ text := "Save"
+          , size := Size 50 22 
+          , on command := do { 
+              newName <- get nameBox text;
+              newAddress <- get addressBox text;
+              newSalary <- get salaryBox text;
+              objectDelete p;
+              viewEmployee f focus $ 
+               writeEM focus c $ 
+                Employee newName newAddress $ 
+                 read newSalary; }]
     -- compose layout                                 
-    set f [layout := container p $ alignCentre $
-                     margin 20 $   
-                     column 10 [
-                        alignLeft $ row 10 [widget sButton, widget bButton],
-                        hrule 250,
-                        alignCentre $ row 94 [label "Name:", widget nameBox],
-                        alignCentre $ row 81 [label "Address:", widget addressBox],
-                        alignCentre $ row 91 [label "Salary:", widget salaryBox],
-                        alignRight $ margin 10 $ widget cButton
-                     ]]               
+    setEmployeeLayout f p sButton bButton nameBox addressBox salaryBox cButton
+    
+    
+-- layout composer for employees        
+setEmployeeLayout f p sButton bButton nameBox addressBox salaryBox cButton =
+    set f [layout := 
+      container p $ alignCentre $
+      margin 20 $   
+      column 10 [
+        alignLeft $ row 10 [widget sButton, widget bButton],
+        hrule 250,
+        alignCentre $ 
+            row 94 [label "Name:", widget nameBox],
+        alignCentre $ 
+            row 81 [label "Address:", widget addressBox],
+        alignCentre $ 
+            row 91 [label "Salary:", widget salaryBox],
+        alignRight $ margin 10 $ widget cButton ]]               
