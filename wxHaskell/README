@@ -53,9 +53,9 @@ In the following we demonstrate how an employee is displayed.
 
 ==== Viewing an employee ====
 
-<syntaxhighlight lang="haskell" enclose="none">showEmployee</syntaxhighlight> provides a view function for employees. 
+<syntaxhighlight lang="haskell" enclose="none">showEmployee</syntaxhighlight> is the view function for employees:
 
-<syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
+<syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>
 showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
 showEmployee f p focus c = do
     -- reading employee
@@ -87,7 +87,7 @@ showEmployee f p focus c = do
     setEmployeeLayout f p sButton bButton nameBox addressBox salaryBox cButton
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In the following line we set the frame title and create a new panel for this view. In lines 7-9 we create one input box per employee field. In lines 11-14 create buttons to cut the employee's salary and to go back to the department level. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
+In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In the following line we set the frame title. In lines 7-9 we create one input box per employee field. We create buttons to cut the employee's salary and to go back to the department level in lines 11-13. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
 
 === Cutting button ===
 
