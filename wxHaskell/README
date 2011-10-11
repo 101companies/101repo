@@ -23,7 +23,7 @@ Provide [[101feature:Interaction|interaction]] on companies by means of [[Techno
 
 We use the [[Technology:wxHaskell]] library to provide a simple GUI for [[101feature:Company|companies]]. 
 One can navigate the hierarchical company structure, [[101feature:Cut|cut]] [[101feature:Total|totaled]] salaries and edit fields for values of [[Primitive Type|primitive types]]. 
-We make use of the [Zipper|zipper]]-inspired focus concept to specify which part of the company should be shown or saved after editing.
+We make use of the [[Zipper|zipper]]-inspired focus concept to specify which part of the company should be shown or saved after editing.
 This concept also helps us to read departments/employees from a given position within the company and write transformed departments/employees back.  
 
 == Illustration ==
@@ -48,12 +48,12 @@ On top of this definition we provide functions to get sub and upper foci and to 
 
 === The views ===
 
-For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, we provide a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
+For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, [[this!!Views.hs]] provides a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
 In the following we demonstrate how an employee is displayed.
 
 ==== Viewing an employee ====
 
-<syntaxhighlight lang="haskell" enclose="none">viewEmployee</syntaxhighlight> provides a view for employees. 
+<syntaxhighlight lang="haskell" enclose="none">showEmployee</syntaxhighlight> provides a view function for employees. 
 
 <syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
 showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
