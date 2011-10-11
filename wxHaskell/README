@@ -72,29 +72,23 @@ viewEmployee f focus c = do
     -- back button                                
     bButton <- backButton p f focus c           
     -- save button                                                             
-    sButton <- button  p [ text := "Save"
-                         , size := Size 50 22 
-                         , on command := do { 
-                             newName <- get nameBox text;
-                             newAddress <- get addressBox text;
-                             newSalary <- get salaryBox text;
-                             objectDelete p;
-                             newc <- return $ (writeEM focus c (Employee newName newAddress (read newSalary)));
-			                       viewEmployee f focus newc; }]
+    sButton <- button  p 
+          [ text := "Save"
+          , size := Size 50 22 
+          , on command := do { 
+              newName <- get nameBox text;
+              newAddress <- get addressBox text;
+              newSalary <- get salaryBox text;
+              objectDelete p;
+              viewEmployee f focus $ 
+               writeEM focus c $ 
+                Employee newName newAddress $ 
+                 read newSalary; }]
     -- compose layout                                 
-    set f [layout := container p $ alignCentre $
-                     margin 20 $   
-                     column 10 [
-                        alignLeft $ row 10 [widget sButton, widget bButton],
-                        hrule 250,
-                        alignCentre $ row 94 [label "Name:", widget nameBox],
-                        alignCentre $ row 81 [label "Address:", widget addressBox],
-                        alignCentre $ row 91 [label "Salary:", widget salaryBox],
-                        alignRight $ margin 10 $ widget cButton
-                     ]]  
+    setEmployeeLayout f p sButton bButton nameBox addressBox salaryBox cButton
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In lines 6-7 we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We create buttons to cut the employee's salary and to go back to the department level in lines 13-15. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
+In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In lines 6-7 we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We create buttons to cut the employee's salary and to go back to the department level in lines 13-15. In lines 17-28 we set up a save button: When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
 
 === Cutting button ===
 
