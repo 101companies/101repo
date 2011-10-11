@@ -56,38 +56,45 @@ In the following we demonstrate how an employee is displayed.
 <syntaxhighlight lang="haskell" enclose="none">showEmployee</syntaxhighlight> is the view function for employees:
 
 <syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>
-showEmployee :: Frame () -> Panel () -> Focus -> Company -> IO ()
-showEmployee f p focus c = do
+viewEmployee :: Frame () -> Focus -> Company -> IO ()
+viewEmployee f focus c = do
     -- reading employee
     let e = readEM focus c
+    -- setting up frames and panels
     set f [ text := "Employee \"" ++ ename e ++ "\""]
+    p <- panel f [textColor := textBlue]
     -- boxes for name, address and salary
     nameBox <- entry p [text := ename e]                                    
     addressBox <- entry p [text := address e]
     salaryBox <- entry p [text := show $ salary e]
     -- cut button
-    cButton <- cutButton p f focus c showEmployee
+    cButton <- cutButton p f focus c
     -- back button                                
     bButton <- backButton p f focus c           
     -- save button                                                             
-    sButton <- button  p 
-          [ text := "Save"
-          , size := Size 50 22 
-          , on command := do { 
-              newName <- get nameBox text;
-              newAddress <- get addressBox text;
-              newSalary <- get salaryBox text;
-              objectDelete p;
-              p' <- panel f [textColor := textBlue];
-              showEmployee f p' focus $ 
-               writeEM focus c $ 
-                Employee newName newAddress $ 
-                 read newSalary; }]
+    sButton <- button  p [ text := "Save"
+                         , size := Size 50 22 
+                         , on command := do { 
+                             newName <- get nameBox text;
+                             newAddress <- get addressBox text;
+                             newSalary <- get salaryBox text;
+                             objectDelete p;
+                             newc <- return $ (writeEM focus c (Employee newName newAddress (read newSalary)));
+			                       viewEmployee f focus newc; }]
     -- compose layout                                 
-    setEmployeeLayout f p sButton bButton nameBox addressBox salaryBox cButton
+    set f [layout := container p $ alignCentre $
+                     margin 20 $   
+                     column 10 [
+                        alignLeft $ row 10 [widget sButton, widget bButton],
+                        hrule 250,
+                        alignCentre $ row 94 [label "Name:", widget nameBox],
+                        alignCentre $ row 81 [label "Address:", widget addressBox],
+                        alignCentre $ row 91 [label "Salary:", widget salaryBox],
+                        alignRight $ margin 10 $ widget cButton
+                     ]]  
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In the following line we set the frame title. In lines 7-9 we create one input box per employee field. We create buttons to cut the employee's salary and to go back to the department level in lines 11-13. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
+In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In lines 6-7 we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We create buttons to cut the employee's salary and to go back to the department level in lines 11-13. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
 
 === Cutting button ===
 
@@ -95,15 +102,15 @@ On each view the GUI provides a button to cut all salaries:
 
 <syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>
 cutButton :: Panel () -> Frame () -> Focus -> Company -> IO (Button ())
-cutButton p f focus c = button p [ text := "Cut"      
-                                 , size := Size 50 22                                                                
-                                 , on command := do {
-                                      objectDelete p; 
-                                      view f focus $ readCutWrite focus c;}] 
-                     ]]       
+cutButton p f focus c = 
+  button p [ text := "Cut"      
+           , size := Size 50 22                                                                
+           , on command := do {
+                objectDelete p; 
+                view f focus $ readCutWrite focus c;}]   
 </syntaxhighlight>
 
-When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action (lines 4-6) is executed. First the view's panel is deleted. We use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component's salaries and replaces it in the given company. In line 6 the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which concrete view-function to call:
+When the user clicks the button the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action (lines 4-6) is executed. First the view's panel is deleted in line 5. We use <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight> to cut the company component's salaries. This function reads the component in question based on the focus, then cuts this component's salaries and replaces it in the given company. In line 6 the <syntaxhighlight lang="haskell" enclose="none">command</syntaxhighlight> action calls <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> to view the company, department or employee. Based on the focus <syntaxhighlight lang="haskell" enclose="none">view</syntaxhighlight> decided which concrete view-function to call:
 
 <syntaxhighlight lang="haskell" source="wxHaskell/Views.hs" line>
 view:: Frame () -> Focus -> Company -> IO ()
