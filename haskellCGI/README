@@ -56,17 +56,17 @@ The main request handler is defined as follows:
 <syntaxhighlight lang="haskell" source="haskellCGI/Response.hs" line>
 cgiMain :: CGI CGIResult
 cgiMain =  do
-            f <- getInput "focus"
-            let focusP = maybe CompanyFocus read f
-            a <- getInput "action"
-            let actionP = maybe View read a
-            chtml <- (doAction actionP) focusP 
-            output . renderHtml . page "101companies WebApp" $ chtml
-              where
-                doAction ap = case ap of
-                  View  -> doView
-                  Cut   -> doCut
-                  Save  -> doSave 
+    f <- getInput "focus"
+    let focusP = maybe CompanyFocus read f
+    a <- getInput "action"
+    let actionP = maybe View read a
+    chtml <- (doAction actionP) focusP 
+    output $ renderHtml $ page "101companies WebApp" $ chtml
+      where
+        doAction ap = case ap of
+          View  -> doView
+          Cut   -> doCut
+          Save  -> doSave 
 </syntaxhighlight>
 
 We are working inside the <syntaxhighlight lang="haskell" enclose="none">CGI</syntaxhighlight> monad, which is provided by the CGI library. In lines 3 and 5 <syntaxhighlight lang="haskell" enclose="none">getInput :: MonadCGI m => String -> m (Maybe String)</syntaxhighlight> tries to get the focus and action input parameters as <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> values, which we then process in lines 4 and 6. If a parameter is set, that is, <syntaxhighlight lang="haskell" enclose="none">getInput</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Just a</syntaxhighlight>, we <syntaxhighlight lang="haskell" enclose="none">read</syntaxhighlight> the String to values of <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Action</syntaxhighlight>. If a parameters is not set, we use a default focus respectively a default action. 
