@@ -48,7 +48,7 @@ On top of this definition we provide functions to get sub and upper foci and to 
 
 === The views ===
 
-For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, [this!!Views.hs] provides a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
+For each company datatype, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, [this!!Views.hs] provides a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
 In the following we demonstrate how an employee is displayed.
 
 ==== Viewing an employee ====
@@ -139,7 +139,7 @@ In lines 3-7 <syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight
 
 == Architecture ==
 
-[this!!Views.hs] provides one view per company data type. [this!!Main.hs] starts the GUI. The algebraic datatype for companies can be found in [this!!Company.hs], a sample company in [this!!SampleCompany.hs]. [this!!Focus.hs] provides a focus datatype and functions on top of it. [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries.
+[this!!Views.hs] provides one view per company datatype. [this!!Main.hs] starts the GUI. The algebraic datatype for companies can be found in [this!!Company.hs], a sample company in [this!!SampleCompany.hs]. [this!!Focus.hs] provides a focus datatype and functions on top of it. [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut salaries.
 
 == Usage ==
 
