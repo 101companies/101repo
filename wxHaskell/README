@@ -48,7 +48,7 @@ On top of this definition we provide functions to get sub and upper foci and to 
 
 === The views ===
 
-For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, [[this!!Views.hs]] provides a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
+For each company data type, that is <syntaxhighlight lang="haskell" enclose="none">Company</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Employee</syntaxhighlight>, [this!!Views.hs] provides a view to display the specific component including buttons to navigate and cut salaries. All of these functions are of type <syntaxhighlight lang="haskell" enclose="none">Frame () -> Focus -> Company -> IO ()</syntaxhighlight>. That is, given the global frame, a focus and a company these functions perform GUI actions (which are IO actions). 
 In the following we demonstrate how an employee is displayed.
 
 ==== Viewing an employee ====
@@ -94,7 +94,7 @@ viewEmployee f focus c = do
                      ]]  
 </syntaxhighlight>
 
-In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In lines 6-7 we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We create buttons to cut the employee's salary and to go back to the department level in lines 11-13. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
+In line 4 we read the employee in question using the ''Focus'' module's function <syntaxhighlight lang="haskell" enclose="none">readEM</syntaxhighlight>. In lines 6-7 we set the frame title and create a new panel for this view. In lines 9-11 we create one input box per employee field. We create buttons to cut the employee's salary and to go back to the department level in lines 13-15. In lines 15-27 we set up a save button. When a user clicks the button, the name, address and salary fields are read, the panel is deleted, the employee updated in the company and the new company is displayed. In the last line  we call <syntaxhighlight lang="haskell" enclose="none">setEmployeeLayout</syntaxhighlight>, which composes the layout using various layout combinators (see [this!!Views.hs] for details).
 
 === Cutting button ===
 
