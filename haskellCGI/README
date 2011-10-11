@@ -60,8 +60,9 @@ cgiMain =  do
     let focusP = maybe CompanyFocus read f
     a <- getInput "action"
     let actionP = maybe View read a
-    chtml <- (doAction actionP) focusP 
-    output $ renderHtml $ page "101companies WebApp" $ chtml
+    chtml <- (doAction actionP) focusP
+    let title = "101companies WebApp" 
+    output $ renderHtml $ page title $ chtml
       where
         doAction ap = case ap of
           View  -> doView
@@ -71,7 +72,7 @@ cgiMain =  do
 
 We are working inside the <syntaxhighlight lang="haskell" enclose="none">CGI</syntaxhighlight> monad, which is provided by the CGI library. In lines 3 and 5 <syntaxhighlight lang="haskell" enclose="none">getInput :: MonadCGI m => String -> m (Maybe String)</syntaxhighlight> tries to get the focus and action input parameters as <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight> values, which we then process in lines 4 and 6. If a parameter is set, that is, <syntaxhighlight lang="haskell" enclose="none">getInput</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">Just a</syntaxhighlight>, we <syntaxhighlight lang="haskell" enclose="none">read</syntaxhighlight> the String to values of <syntaxhighlight lang="haskell" enclose="none">Focus</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">Action</syntaxhighlight>. If a parameters is not set, we use a default focus respectively a default action. 
 
-We then call <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhighlight>, which is defined in lines 10-13. Based on the <syntaxhighlight lang="haskell" enclose="none">Action</syntaxhighlight> value <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhighlight> returns one of the action functions <syntaxhighlight lang="haskell" enclose="none">doView</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> or <syntaxhighlight lang="haskell" enclose="none">doSave</syntaxhighlight>. In this example the <syntaxhighlight lang="haskell" enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell" enclose="none">Cut</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight>. After that <syntaxhighlight lang="haskell" enclose="none">cgiMain</syntaxhighlight> applies the focus to the action function in line 7. The action function returns an <syntaxhighlight lang="haskell" enclose="none">Html</syntaxhighlight> value, which is then used in line 8 as the content of a new page, rendered to an HTML document and returned as the <syntaxhighlight lang="haskell" enclose="none">CGIResult</syntaxhighlight>.
+We then call <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhighlight>, which is defined in lines 11-14. Based on the <syntaxhighlight lang="haskell" enclose="none">Action</syntaxhighlight> value <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhighlight> returns one of the action functions <syntaxhighlight lang="haskell" enclose="none">doView</syntaxhighlight>, <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> or <syntaxhighlight lang="haskell" enclose="none">doSave</syntaxhighlight>. In this example the <syntaxhighlight lang="haskell" enclose="none">case</syntaxhighlight> expression matches on <syntaxhighlight lang="haskell" enclose="none">Cut</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">doAction</syntaxhighlight> returns <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight>. After that <syntaxhighlight lang="haskell" enclose="none">cgiMain</syntaxhighlight> applies the focus to the action function in line 7. The action function returns an <syntaxhighlight lang="haskell" enclose="none">Html</syntaxhighlight> value, which is then used in line 9 as the content of a new page, rendered to an HTML document and returned as the <syntaxhighlight lang="haskell" enclose="none">CGIResult</syntaxhighlight>.
 
 ==== Cutting the cookie ====
 
@@ -90,15 +91,16 @@ First the company cookie is read using <syntaxhighlight lang="haskell" enclose="
 
 <syntaxhighlight lang="haskell" source="haskellCGI/Save.hs" line>
 tryReadCCookie = liftM (fromMaybe company) $ 
-                   readCookie "companyCookie"
+                 readCookie "companyCookie"
 </syntaxhighlight>
 
 This function tries to read the company cookie. If the client does not have this cookie stored, the default company is returned.
 In line 4 <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">readCutWrite</syntaxhighlight>, which reads a company, department or employee based on the focus, cuts it and replaces it within the company (see [this!!Cut.hs] for details). In line 5 that the manipulated company is written back into the cookie using <syntaxhighlight lang="haskell" enclose="none">writeCCookie</syntaxhighlight>:
 
 <syntaxhighlight lang="haskell" source="haskellCGI/Save.hs" line>
-writeCCookie s = setCookie $ newCookie "companyCookie" $ 
-                  show s   
+writeCCookie s = setCookie $ 
+                 newCookie "companyCookie" $ 
+                 show s    
 </syntaxhighlight>
 
 ==== Returning HTML ====
