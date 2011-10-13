@@ -1,11 +1,7 @@
 package beans;
 
-import company.AbstractDepartmentListHelper;
-import company.AbstractHelper;
 import company.CompanyHelper;
-import company.mapping.Company;
 import company.mapping.Department;
-import company.mapping.Employee;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,21 +13,19 @@ import javax.faces.model.SelectItem;
  *
  * @author Tobias
  */
-@ManagedBean(name="companyController")
+@ManagedBean(name="companyBean")
 @SessionScoped
-public class CompanyController implements Serializable {
-
-    Company currentCompany;
-    Department currentDepartment;
-    Employee currentEmployee;
+public class CompanyBean implements Serializable {
     
-    private AbstractHelper helper;
+    private CompanyHelper helper;
+    
+    private int currentDepartment = 1;
     
     /** Creates a new instance of CompanyController */
-    public CompanyController() {
+    public CompanyBean() {
         helper = new CompanyHelper();
     }
-    
+
     public String getName() {
         return helper.getName();
     }
@@ -40,9 +34,27 @@ public class CompanyController implements Serializable {
         helper.setName(name);
     }
     
+    public boolean isDepartmentSelected() {
+        return currentDepartment < 1;
+    }
+    
+    public int getDepartment() {
+        List<Department> deps = helper.getDepartments();
+        if (deps.isEmpty()) {
+            currentDepartment = -1;
+            return -1;
+        } else {
+            return currentDepartment;
+        }
+    }
+    
+    public void setDepartment(int id) {
+        currentDepartment = id;
+    }
+    
     public List<SelectItem> getDepartments() {
         List<SelectItem> result = new ArrayList<SelectItem>();
-        for (Department department : ((AbstractDepartmentListHelper) helper).getDepartments()) {
+        for (Department department : helper.getDepartments()) {
             result.add(new SelectItem(department.getId(), department.getName()));
         }
         return result;

@@ -2,6 +2,8 @@ package company;
 
 import company.mapping.Company;
 import company.mapping.Department;
+import company.mapping.Employee;
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,47 +14,45 @@ import util.HibernateUtil;
  *
  * @author Tobias
  */
-public class CompanyHelper extends AbstractDepartmentListHelper {
+public class CompanyHelper {
     
     Session session = null;
     
     Company company;
     
     public CompanyHelper() {
-        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
         this.company = getCompany(1);
     }
     
     private Company getCompany(int id) {
         try {
-            Transaction tx = session.beginTransaction();
+            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
             Company c = (Company) session.load(Company.class, new Integer(id));
+            
             return c;
         } catch (Exception e) {
-            // TODO
+            e.printStackTrace();
         }
         return null;
     }
     
-    @Override
     public String getName() {
         return company.getName();
     }
     
-    @Override
     public void setName(String name) {
         company.setName(name);
     }
 
-    @Override
     public double total() {
         return company.total();
     }
 
-    @Override
     public List<Department> getDepartments() {
         try {
-            Transaction tx = session.beginTransaction();
+            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
             StringBuilder query = new StringBuilder("SELECT department FROM Department AS department");
             query.append(" WHERE department.company = ");
             query.append(company.getId());
@@ -61,18 +61,36 @@ public class CompanyHelper extends AbstractDepartmentListHelper {
             
             return q.list();
         } catch (Exception e) {
-            // TODO
+            e.printStackTrace();
         }
         return null;
     }
     
-    @Override
     public void cut() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            Transaction tx = session.beginTransaction();
+            for (Employee employee : company.getEmployees()) {
+                employee.setSalary(employee.getSalary() / 2);
+                session.update(employee);
+            }
+            tx.commit();
+            session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
-    @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+            Transaction tx = session.beginTransaction();
+            session.refresh(company);
+            session.update(company);
+            tx.commit();
+            session.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

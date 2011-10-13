@@ -8,7 +8,6 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
     <navigation-rule>
         <from-view-id>/company.xhtml</from-view-id>
-
         <navigation-case>
             <from-outcome>selectDepartment</from-outcome>
             <to-view-id>/department.xhtml</to-view-id>
@@ -16,7 +15,6 @@
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/department.xhtml</from-view-id>
-
         <navigation-case>
             <from-outcome>selectDepartment</from-outcome>
             <to-view-id>/department.xhtml</to-view-id>

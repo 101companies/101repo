@@ -4,11 +4,13 @@
  */
 package company;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Tobias
  */
-public abstract class AbstractHelper {
+public abstract class AbstractHelper implements Serializable {
     
     public abstract String getName();
     

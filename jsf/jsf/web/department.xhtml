@@ -5,6 +5,9 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
+    <f:metadata>
+        <f:viewParam name="id" value="#{companyBean.department}"/>
+    </f:metadata>
     <body>
 
         <ui:composition template="./template.xhtml">
@@ -18,15 +21,17 @@
                     <table>
                         <tr>
                             <td>Name:</td>
-                            <td><h:inputText maxlength="100"/></td>
+                            <td><h:inputText maxlength="100" value="#{departmentBean.name}"/></td>
                         </tr>
                         <tr>
                             <td>Departments:<br/><br/><br/><br/><br/><br/><br/></td>
                             <td>
-                                <h:selectOneListbox size ="5" id="departments">
-                                    <f:selectItems/>
+                                <h:selectOneListbox size ="5" id="departments" value="#{departmentBean.department}">
+                                    <f:selectItems value="#{departmentBean.departments}"/>
                                 </h:selectOneListbox><br/>
-                                <h:commandButton id="selectDepartment" value="select" action="selectDepartment" />
+                                <h:commandButton id="selectDepartment" value="select" action="department?faces-redirect=true&amp;includeViewParams=true" disabled="#{departmentBean.departmentSelected}">
+                                    <f:param name="test" value="#{departmentBean.department}"/>
+                                </h:commandButton>
                             </td>
                         </tr>
                         <tr>
@@ -52,7 +57,6 @@
             <ui:define name="bottom">
                 <h:form>
                     <h:commandButton id="save" value="save" action="save"/>
-                    <h:commandButton id="back" value="back" action="back"/>
                 </h:form>
             </ui:define>
 
