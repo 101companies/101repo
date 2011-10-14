@@ -65,7 +65,7 @@ We use <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c
 
 <syntaxhighlight lang="haskell" source="hxt/Main.hs">
 [ttl] <- runX ( readDocument [] "sampleCompany.xml" 
-                >>> total)
+                >>> total )
 </syntaxhighlight>
 <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> holds the total salary of a sample company.
 
