@@ -45,12 +45,14 @@ By making use of <syntaxhighlight lang="haskell" enclose="none">forM</syntaxhigh
 <syntaxhighlight lang="haskell" source="haskellConcurrent/Cut.hs">
 cutDept :: MVar Department -> Department -> IO ()
 cutDept mvar (Department n m dus eus) = do
-    threads <- forM dus $ \d -> do
+    mvars <- forM dus $ \d -> do
         mvar' <- newEmptyMVar
         forkIO $ cutDept mvar' d
         return mvar'
-    cutDus <- takeAllMVars threads
-    putMVar mvar $ Department n (cutEmployee m) (cutDus) (map cutEmployee eus)  
+    cutDus <- takeAllMVars mvars
+    putMVar mvar $ Department n (cutEmployee m) 
+                                (cutDus) 
+                                (map cutEmployee eus)    
 </syntaxhighlight>
 
 The cutting of direct department employees is not performed in a new thread:
