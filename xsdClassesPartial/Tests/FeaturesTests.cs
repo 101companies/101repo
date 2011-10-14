@@ -40,7 +40,7 @@ namespace xsdComposition.Tests
         public void TotalTest()
         {
             var total = Company.Total;
-            Console.Write(total);
+            Assert.AreEqual(399747.0, total);
         }
     }
 }
