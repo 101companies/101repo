@@ -71,7 +71,7 @@ We use <syntaxhighlight lang="haskell" enclose="none">runX :: IOSArrow XmlTree c
 
 == Architecture ==
 
-[this!!Total.hs] provides the arrow for totaling salaries as described in the illustration section. [this!!Cut.hs] contains a transformation arrow for cutting salaries. [this!!Main.hs] collects test scenarios for totaling and cutting the XML data provided by [this!!sampleCompany.xml]
+[this!!Total.hs] provides the arrow for totaling salaries as described in the illustration section. [this!!Cut.hs] contains a transformation arrow for cutting salaries. [this!!Main.hs] collects test scenarios for totaling and cutting XML data provided by [this!!sampleCompany.xml]
 
 == Usage ==
 
