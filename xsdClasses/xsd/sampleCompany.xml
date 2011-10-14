@@ -4,7 +4,7 @@
 	xmlns="http://www.softlang.org/company.xsd" >
 	<Name>meganalysis</Name>
 
-	<Department>
+	<TopLevelDepartment>
 		<Name>Research</Name>
 		<Manager>
 			<Name>Craig</Name>
@@ -21,23 +21,23 @@
 			<Address>Koblenz</Address>
 			<Salary>1234</Salary>
 		</Employee>
-	</Department>
+	</TopLevelDepartment>
 
-	<Department>
+	<TopLevelDepartment>
 		<Name>Development</Name>
 		<Manager>
 			<Name>Ray</Name>
 			<Address>Redmond</Address>
 			<Salary>234567</Salary>
 		</Manager>
-		<Department>
+		<SubDepartment>
 			<Name>Dev1</Name>
 			<Manager>
 				<Name>Klaus</Name>
 				<Address>Boston</Address>
 				<Salary>23456</Salary>
 			</Manager>
-			<Department>
+			<SubDepartment>
 				<Name>Dev1.1</Name>
 				<Manager>
 					<Name>Karl</Name>
@@ -49,7 +49,7 @@
 					<Address>Wifi City</Address>
 					<Salary>2344</Salary>
 				</Employee>
-			</Department>
-		</Department>
-	</Department>
+			</SubDepartment>
+		</SubDepartment>
+</TopLevelDepartment>
 </Company>
