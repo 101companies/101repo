@@ -15,7 +15,7 @@ eitherPrint (Left e) _ = print e
 main 
  = do
       -- read sample file and parse content
-      parsedCompany <- liftM parseCompany $ 
+      parsedCompany <- liftM parseCompany $
                        readFile "sample.Company"
       
       -- Test wether parsing returns the expected company
