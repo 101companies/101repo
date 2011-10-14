@@ -84,7 +84,8 @@ When we choose <syntaxhighlight lang="haskell" enclose="none">"input"</syntaxhig
 
 <syntaxhighlight lang="haskell" source="haskellParser/Parser.hs" line>
 parseCompany :: String -> Either ParseError Company
-parseCompany = runP (spaces *> pCompany <* eof) () "input"
+parseCompany = runP (spaces *> pCompany <* eof) () 
+               "input"
 </syntaxhighlight>
 
 We added a parser for possible leading spaces and a parser for the EOF-symbol.
