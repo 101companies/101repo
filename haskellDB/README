@@ -99,7 +99,8 @@ We are working in the <syntaxhighlight lang="haskell" enclose="none">Query</synt
 We use <syntaxhighlight lang="haskell" enclose="none">query</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">execute</syntaxhighlight> to execute the totaling query:
 
 <syntaxhighlight lang="haskell" source="haskellDB/Main.hs">
-[res] <- execute $ (\db -> query db (total "meganalysis"))
+let cname = "meganalysis"
+[res] <- execute $ (flip $ query) $ total cname
 </syntaxhighlight>
 
 This gives us a list (which we expect to be a singleton list) of records. We can now access the <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight> attribute of the record <syntaxhighlight lang="haskell" enclose="none">res</syntaxhighlight> by using the <syntaxhighlight lang="haskell" enclose="none">(!)</syntaxhighlight>-operator and print the total value:
