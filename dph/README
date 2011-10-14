@@ -26,7 +26,7 @@ In this context we also demonstrate some of DPH's current limitations (see illus
 * The inability to mix [[Vectorisation|vectorised]] and non-vectorised code.
 * No vectorization support for used-defined types.
 * A DHP-specific [[Prelude]] with specific primitive types.
-The third limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
+The second limitation forces us to flatten the company to a list of salary values, which are of a DHP-float type, before salaries can be totaled and cut.
 The resulting list of cut salary values has then to be "reconsumed" by the company in question.
 These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions, 
 but this implementation is supposed to demonstrate Haskell's data parallelism support rather than being about efficiency.
