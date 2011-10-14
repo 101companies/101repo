@@ -11,7 +11,8 @@ import Text.Parsec
 
 
 parseCompany :: String -> Either ParseError Company
-parseCompany = runP (spaces *> pCompany <* eof) () "input"
+parseCompany = runP (spaces *> pCompany <* eof) () 
+               "input"
 
 type P = Parsec String ()
 

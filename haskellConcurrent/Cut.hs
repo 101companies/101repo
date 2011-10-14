@@ -22,7 +22,9 @@ cutDept mvar (Department n m dus eus) = do
         forkIO $ cutDept mvar' d
         return mvar'
     cutDus <- takeAllMVars mvars
-    putMVar mvar $ Department n (cutEmployee m) (cutDus) (map cutEmployee eus)   
+    putMVar mvar $ Department n (cutEmployee m) 
+                                (cutDus) 
+                                (map cutEmployee eus)   
   
 cutEmployee :: Employee -> Employee
 cutEmployee (Employee name address salary) = Employee name address $ salary / 2
