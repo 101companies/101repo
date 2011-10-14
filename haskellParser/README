@@ -94,7 +94,8 @@ We added a parser for possible leading spaces and a parser for the EOF-symbol.
 In [this!!Main.hs] we execute the company parser:
 
 <syntaxhighlight lang="haskell" source="haskellParser/Main.hs" line>
-parsedCompany <- liftM parseCompany $ readFile "sample.Company"
+parsedCompany <- liftM parseCompany $ 
+                 readFile "sample.Company"
 </syntaxhighlight>
 
 The variable <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> either holds a <syntaxhighlight lang="haskell" enclose="none">ParseError</syntaxhighlight> value or a parsed company. 
