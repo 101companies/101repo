@@ -9,12 +9,12 @@ namespace xsdClasses
     {
         public static double Total(Company company)
         {
-            return company.Department.Sum(dept => Total(dept));
+            return company.TopLevelDepartment.Sum(dept => Total(dept));
         }
 
         public static void Cut(Company company)
         {
-            foreach (var dept in company.Department)
+            foreach (var dept in company.TopLevelDepartment)
             {
                 Cut(dept);
             }
@@ -23,9 +23,9 @@ namespace xsdClasses
         public static double Total (Department department)
         {
             var s = department.Manager.Salary;
-            if (department.Department1 != null)
+            if (department.SubDepartment != null)
             {
-                s += department.Department1.Sum(d => Total(d));
+                s += department.SubDepartment.Sum(d => Total(d));
             }
             if (department.Employee != null)
             {
@@ -37,7 +37,7 @@ namespace xsdClasses
 
         public static void Cut(Department department)
         {
-            foreach (var dept in department.Department1)
+            foreach (var dept in department.SubDepartment)
             {
                 Cut(dept);
             }
