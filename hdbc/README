@@ -59,7 +59,7 @@ total conn cName = do
      return $ sum (map (fromSql.head) res)        
 </syntaxhighlight>
 
-In line 3 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight> line 3. The statement is executed and we use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 8 to get all salaries, which we then sum up lazy to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return in line 9. That is, salaries are fetched one by one from the database.
+In line 3 we use a prepared statement in which the company name placeholder is then replaced by the given name <syntaxhighlight lang="haskell" enclose="none">cName</syntaxhighlight>. The statement is executed and we use the lazy HDBC function <syntaxhighlight lang="haskell" enclose="none">fetchAllRows</syntaxhighlight> in line 9 to get all salaries, which we then sum up lazy to a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value and return in line 10. That is, salaries are fetched one by one from the database.
 We can now use the open connection to total all salaries:
 <syntaxhighlight lang="haskell" source="hdbc/Main.hs">
 let cName = "meganalysis" 
