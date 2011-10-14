@@ -53,7 +53,7 @@ By looking at the return type of the function one can see that any database func
 
 === DBDirect ===
 
-We use DBDirect's <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc</syntaxhighlight> generate a module describing the database (see the usage section for the complete command). This command generates a module describing the database by naming tables and fields. Compiling this module with GHC creates one module per table, each module holding actual variables for tables and fields. These variables are the basis for the following totaling query.
+We use the DBDirect command <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc</syntaxhighlight> to generate a module describing the database (see the usage section for the complete command). This command generates a module describing the database by naming tables and fields. Compiling this module with GHC creates one module per table, each module holding actual variables for tables and fields. These variables are the basis for the following totaling query.
 
 === Totaling ===
 
