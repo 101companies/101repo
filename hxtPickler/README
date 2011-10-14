@@ -24,7 +24,7 @@
 == Motivation ==
 
 We exercise [[101feature:Mapping|mapping]] from Haskell to XML data by making use of [[Technology:HXT]]'s  [[Technology:XML pickler]] [[Arrow|arrows]] and functions. 
-That is, we declare <syntaxhighlight lang="haskell" enclose="none">XMLPickler</syntaxhighlight> instances for companies, departments and employees and define appropriate pickler functions. In this context we demonstrate the use of predefined picklers and pickler combinators. 
+That is, we declare <syntaxhighlight lang="haskell" enclose="none">XMLPickler</syntaxhighlight> instances for companies, departments and employees and define appropriate pickler functions. In this context we illustrate predefined picklers and pickler combinators. 
 This enables us to [[101feature:Serialization|serialize]] values of [[Algebraic datatype|algebraic datatypes]] for [[101feature:Company|companies]] as [[Language:XML|XML]] data.
 
 == Illustration ==
