@@ -75,8 +75,8 @@ ttl :: Attr Ttl Double
 ttl = mkAttr Ttl  
 </syntaxhighlight>
 
-We declare <syntaxhighlight lang="haskell" enclose="none">Ttl</syntaxhighlight> to be an instance of the <syntaxhighlight lang="haskell" enclose="none">FieldTag</syntaxhighlight> class by specifying what the name of the field should be. We use this field and HaskellDB's <syntaxhighlight lang="haskell" enclose="none">mkAttr</syntaxhighlight> to define <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight>, a attribute for holding a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value. We will use this attribute to access the field.
-The actual total query looks like this:
+We declare <syntaxhighlight lang="haskell" enclose="none">Ttl</syntaxhighlight> to be an instance of the <syntaxhighlight lang="haskell" enclose="none">FieldTag</syntaxhighlight> class by specifying what the name of the field should be. We use this field and HaskellDB's <syntaxhighlight lang="haskell" enclose="none">mkAttr</syntaxhighlight> to define <syntaxhighlight lang="haskell" enclose="none">ttl</syntaxhighlight>, a attribute for holding a <syntaxhighlight lang="haskell" enclose="none">Double</syntaxhighlight> value.
+The actual total query is defined as follows:
 
 <syntaxhighlight lang="haskell" source="haskellDB/Total.hs">
 total :: String -> Query (Rel (RecCons Ttl (Expr Double) RecNil))
