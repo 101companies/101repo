@@ -78,7 +78,7 @@ Functionality to cut all salaries uses an UPDATE statements instead of SELECT (s
 
 We need a local database server.
 In the following we explain the steps for XAMPP <cite>xampp</cite>.
-We also need a SQL tool create a database and to create and populate tables.
+We also need an SQL tool to create and populate tables.
 In the following we explain the steps for the MySQL Workbench <cite>mysqlworkbench</cite>.
 
 * Download and install XAMPP.
@@ -88,7 +88,7 @@ In the following we explain the steps for the MySQL Workbench <cite>mysqlworkben
 ** '''Port''': 3306             
 ** '''Username''': root             
 ** '''Password''': (empty password) 
-* Connect to database in MySQL Workbench.
+* Connect to the database in MySQL Workbench.
 * Select "101companies" schema or create one.
 * Create tables (run SQL script Company.sql).
 * Populate tables (run SQL script sampleCompany.sql).
