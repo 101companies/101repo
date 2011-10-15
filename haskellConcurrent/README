@@ -32,15 +32,15 @@ We create new threads using <syntaxhighlight lang="haskell" enclose="none">forkI
 <syntaxhighlight lang="haskell" source="haskellConcurrent/Cut.hs">
 cutCompany :: Company -> IO Company
 cutCompany (Company n depts) = do
-    threads <- forM depts $ \d -> do
+    mvars <- forM depts $ \d -> do
         mvar' <- newEmptyMVar
         forkIO $ cutDept mvar' d
         return mvar'
-    cutDepts <- takeAllMVars threads
+    cutDepts <- takeAllMVars mvars
     return $ Company n cutDepts
 </syntaxhighlight>
 
-By making use of <syntaxhighlight lang="haskell" enclose="none">forM</syntaxhighlight> we start one thread per department and pass the cut function for departments to <syntaxhighlight lang="haskell" enclose="none">forkIO</syntaxhighlight>. We collect all <syntaxhighlight lang="haskell" enclose="none">ThreadId</syntaxhighlight> values in <syntaxhighlight lang="haskell" enclose="none">threads</syntaxhighlight> in line 3. In line 7 we wait for the results of the computations. The new company is returned in line 8. Analogous to this we cut departments:
+We iterate over the departments by making use of <syntaxhighlight lang="haskell" enclose="none">forM</syntaxhighlight> in line 3. For each department we create a new empty <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> value, which we then pass to the cut function, which we start in a new thread. We collect all <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> values in <syntaxhighlight lang="haskell" enclose="none">mvars</syntaxhighlight>. In line 7 we wait for the results of the computations. The new company is returned in line 8. Similar to this we cut departments:
 
 <syntaxhighlight lang="haskell" source="haskellConcurrent/Cut.hs">
 cutDept :: MVar Department -> Department -> IO ()
@@ -54,6 +54,8 @@ cutDept mvar (Department n m dus eus) = do
                                 (cutDus) 
                                 (map cutEmployee eus)    
 </syntaxhighlight>
+
+The difference to <syntaxhighlight lang="haskell" enclose="none">cutCompany</syntaxhighlight> is that <syntaxhighlight lang="haskell" enclose="none">cutDept</syntaxhighlight> puts the new department in a given <syntaxhighlight lang="haskell" enclose="none">MVar</syntaxhighlight> value.
 
 The cutting of direct department employees is not performed in a new thread:
 
