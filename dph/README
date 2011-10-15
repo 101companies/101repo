@@ -42,7 +42,7 @@ We therefore flatten the company to become a list of salaries (see [this!!Salary
 
 ==== Non-vectorised code ====
 
-Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> before we can total and cut in parallel.
+Unfortunately the normal Prelude list type <syntaxhighlight lang="haskell" enclose="none">[a]</syntaxhighlight> is not supported in vectorised modules, but a special array type called <syntaxhighlight lang="haskell" enclose="none">PArray a</syntaxhighlight>. We therefore need a special function in a non-vectorised module for converting between <syntaxhighlight lang="haskell" enclose="none">[Float]</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">PArray Float</syntaxhighlight> before we can cut in parallel:
 
 <syntaxhighlight lang="haskell" source="dph/Cut.hs">
 cut :: Company -> Company
