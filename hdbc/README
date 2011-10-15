@@ -90,8 +90,8 @@ In the following we explain the steps for the MySQL Workbench <cite>mysqlworkben
 ** '''Password''': (empty password) 
 * Connect to the database in MySQL Workbench.
 * Select "101companies" schema or create one.
-* Create tables (run SQL script Company.sql).
-* Populate tables (run SQL script sampleCompany.sql).
+* Create company tables: Run the SQL script [this!!Company.sql].
+* Populate company tables: Run the SQL script [this!!sampleCompany.sql].
 
 === Testing ===
 
