@@ -22,11 +22,13 @@ exercise [[Parallelism|data parallelism]] in [[Language:Haskell]] using [[Techno
 == Motivation ==
 
 We exercise [[101feature:Parallelism|data parallelism]] in [[Language:Haskell]] ([[Technology:DPH]]). That is, we [[101feature:Total|total]] and [[101feature:Cut|cut]] salaries in a [[101feature:Company|company]] by making use of [[Parallel array|parallel arrays]] and DPH-specific functionality on these arrays.
-In this context we also demonstrate some of DPH's current limitations (see illustration section for details):
+In this context we also demonstrate some of DPH's (current) limitations (see illustration section for details):
 * The inability to mix [[Vectorisation|vectorised]] and non-vectorised code.
 * No vectorization support for user-defined types.
 * A DPH-specific [[Prelude]] with specific primitive types.
-The second limitation forces us to flatten the company to a list of salary values, which are of a DPH-float type, before salaries can be totaled and cut.
+* Data parallelism can only be applied to arrays.
+The first two limitations force us to have both vectorised and non-vectorised modules, in which we define the company datatype.
+The last limitation forces us to flatten the company to a list of salary values, which are of a DPH-float type, before salaries can be totaled and cut.
 The resulting list of cut salary values has then to be "reconsumed" by the company in question.
 These flatten/consume and other conversion computations obviously take more time than we gain by switching to parallel salary functions, 
 but this implementation is supposed to demonstrate Haskell's data parallelism support rather than being about efficiency.
@@ -35,7 +37,7 @@ but this implementation is supposed to demonstrate Haskell's data parallelism su
 
 === Cutting in Parallel ===
 
-As we mentioned in the motivation section, DPH currently does not allow user-defined types in vectorised code. 
+As we mentioned in the motivation section, data parallelism can only be applied to arrays.
 We therefore flatten the company to become a list of salaries (see [this!!SalaryFlattener.hs] for details).
 
 ==== Non-vectorised code ====
