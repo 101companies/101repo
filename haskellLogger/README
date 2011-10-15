@@ -19,7 +19,7 @@
 
 == Motivation ==
 
-We exercise [[101feature:Logging|logging]] in [[Language:Haskell]] by making use of the [[Writer Monad|Writer monad]]. That is, during the process of [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] [[101feature:Company|companies]] we log messages regarding intermediate results. In this implementation we choose that logs should be of type <syntaxhighlight lang="haskell" enclose="none">String</syntaxhighlight>, yet they could be of any [[Monoid|monoid]] type.
+We exercise [[101feature:Logging|logging]] in [[Language:Haskell]] by making use of the [[Writer Monad|Writer monad]]. That is, during the process of [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] [[101feature:Company|companies]] we log messages regarding intermediate results. In this implementation we choose that logs should be of type <syntaxhighlight lang="haskell" enclose="none">[String]</syntaxhighlight>, yet they could be of any [[Monoid|monoid]] type.
 
 == Illustration ==
 
