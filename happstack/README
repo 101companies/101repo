@@ -145,7 +145,7 @@ In case both validations return <syntaxhighlight lang="haskell" enclose="none">N
 The user might have tried to assign an invalid salary and an invalid name/address pair to the manager in question. Validation therefore would return error information. 
 <syntaxhighlight lang="haskell" enclose="none">savePart</syntaxhighlight> would call <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> passing the old company and the error messages:
 
-<syntaxhighlight lang="haskell" line source="happstack/Serverparts.hs">
+<syntaxhighlight lang="haskell" source="happstack/Serverparts.hs" line>
 displayPart :: View -> Focus -> Company -> [(ENames,String)] -> ServerPart Response
 displayPart v f c errs = do 
       td <- newTemplateDirectory' tDir $ 
