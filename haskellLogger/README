@@ -48,7 +48,7 @@ cutLogDept n d@(Department name m dus eus) = do
 </syntaxhighlight>
 
 In line 3 we log the start of the process of cutting a department by adding a message containing the department's name and the old total salary. We make use of the <syntaxhighlight lang="haskell" enclose="none">tell</syntaxhighlight> function, which is provided by the ''Control.Monad.Writer'' module, to add messages to the log.
-To prettyPrint this log we indent all log lines using the given indent size <syntaxhighlight lang="haskell" enclose="none">n</syntaxhighlight>. In line 8 we cut the department manager's salary passing the increased indent size in. To cut all sub departments and employees we make use of the monadic map function <syntaxhighlight lang="haskell" enclose="none">mapM</syntaxhighlight> in lines 9 and 10. In the following lines we log that department cutting is finished and what the new total salary is. In line 17 we return the cut <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> value.
+To prettyPrint this log we indent all log lines using the given indent size <syntaxhighlight lang="haskell" enclose="none">n</syntaxhighlight>. In line 8 we cut the department manager's salary by passing the manager and an increased indent size to <syntaxhighlight lang="haskell" enclose="none">cutLogEmployee</syntaxhighlight>. To cut all sub departments and employees we make use of the monadic map function <syntaxhighlight lang="haskell" enclose="none">mapM</syntaxhighlight> in lines 9 and 10. In the following lines we log that department cutting is finished and what the new total salary is. In line 17 we return the cut <syntaxhighlight lang="haskell" enclose="none">Department</syntaxhighlight> value.
 
 == Architecture ==
 
