@@ -47,7 +47,7 @@ In the following we will demonstrate how a specific request is processed by the 
 Because of the fact that the CGI library does not support any extraction of information out of the URL path (as opposed to the [[101implementation:happstack|happstack]] implementation), the action and focus parameters are encoded as URL-parameters:
 
 * The action (here <syntaxhighlight lang="haskell" enclose="none">Cut</syntaxhighlight>)
-* The focus (<syntaxhighlight lang="haskell" enclose="none">EmployeeFocus [1,0,0]</syntaxhighlight>)
+* The focus (here <syntaxhighlight lang="haskell" enclose="none">EmployeeFocus [1,0,0]</syntaxhighlight>)
 
 ==== Main request handler ====
 
