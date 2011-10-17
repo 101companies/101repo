@@ -1,36 +1,57 @@
 package company;
 
+import company.mapping.Employee;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.HibernateUtil;
+
 
 /**
  *
  * @author Tobias
  */
-public class EmployeeHelper extends AbstractHelper {
+public class EmployeeHelper {
 
-    public EmployeeHelper() {
+    Session session = null;
+    
+    Employee employee;
+    
+    public EmployeeHelper(int id) {
+        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+        this.employee = getEmployee(id);
+    }
+    
+    private Employee getEmployee(int id) {
+        try {
+            Transaction tx = session.beginTransaction();
+            Employee e = (Employee) session.load(Employee.class, new Integer(id));
+            return e;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return employee.getName();
     }
 
-    @Override
     public void setName(String name) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        employee.setName(name);
+    }
+    
+    public String getAddress() {
+        return employee.getAddress();
     }
 
-    @Override
     public double total() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return employee.getSalary();
     }
 
-    @Override
     public void cut() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
     public void save() {
         throw new UnsupportedOperationException("Not supported yet.");
     }

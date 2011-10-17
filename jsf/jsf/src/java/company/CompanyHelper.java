@@ -3,7 +3,7 @@ package company;
 import company.mapping.Company;
 import company.mapping.Department;
 import company.mapping.Employee;
-import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -75,7 +75,6 @@ public class CompanyHelper {
                 session.update(employee);
             }
             tx.commit();
-            session.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -85,12 +84,15 @@ public class CompanyHelper {
         try {
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction tx = session.beginTransaction();
-            session.refresh(company);
+            
+            company.setEmployees(new HashSet<Employee>());
+            company.setDepartments(new HashSet<Department>());
+            System.out.println(company.getName());
             session.update(company);
             tx.commit();
-            session.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        company = getCompany(company.getId());
     }
 }

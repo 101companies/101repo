@@ -11,12 +11,12 @@ import java.util.Set;
 public class Department  implements java.io.Serializable {
 
 
-     private Integer id;
-     private Company company;
-     private Department department;
-     private String name;
-     private Set<Employee> employees = new HashSet<Employee>(0);
-     private Set<Department> departments = new HashSet<Department>(0);
+    private Integer id;
+    private Company company;
+    private Department department;
+    private String name;
+    private Set<Employee> employees = new HashSet<Employee>(0);
+    private Set<Department> departments = new HashSet<Department>(0);
 
     public Department() {
     }
@@ -75,6 +75,17 @@ public class Department  implements java.io.Serializable {
     
     public void setDepartments(Set<Department> departments) {
         this.departments = departments;
+    }
+
+    public double total() {
+        double total = 0d;
+        for (Department dep : this.departments) {
+            total += dep.total();
+        }
+        for (Employee employee : this.employees) {
+            total += employee.getSalary();
+        }
+        return total;
     }
 
     

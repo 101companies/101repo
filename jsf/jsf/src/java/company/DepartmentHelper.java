@@ -1,6 +1,7 @@
 package company;
 
 import company.mapping.Department;
+import company.mapping.Employee;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
@@ -12,7 +13,7 @@ import util.HibernateUtil;
  *
  * @author Tobias
  */
-public class DepartmentHelper extends AbstractDepartmentListHelper {
+public class DepartmentHelper {
     
     Session session = null;
     
@@ -33,38 +34,60 @@ public class DepartmentHelper extends AbstractDepartmentListHelper {
             Department c = (Department) session.load(Department.class, new Integer(id));
             return c;
         } catch (Exception e) {
-            // TODO
+            e.printStackTrace();
         }
         return null;
     }
 
-    @Override
     public List<Department> getDepartments() {
         return new ArrayList<Department>(department.getDepartments());
     }
+    
+    public List<Employee> getEmployees() {
+        return new ArrayList<Employee>(department.getEmployees());
+    }
 
-    @Override
     public String getName() {
         return department.getName();
     }
 
-    @Override
     public void setName(String name) {
         department.setName(name);
     }
 
-    @Override
     public double total() {
-        return 0;
+        return department.total();
     }
 
-    @Override
     public void cut() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
     public void save() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public Integer getLowestEmployee() {
+        int lowest = -1;
+        for (Employee employee : department.getEmployees()) {
+            if (lowest == -1) {
+                lowest = employee.getId();
+            } else if (lowest > employee.getId()) {
+                lowest = employee.getId();
+            }
+        }
+        return lowest;
+    }
+    
+    public Integer getLowestDepartment() {
+        int lowest = -1;
+        for (Department dep : department.getDepartments()) {
+            if (lowest == -1) {
+                lowest = dep.getId();
+            } else if (lowest > dep.getId()) {
+                lowest = dep.getId();
+            }
+        }
+        return lowest;
     }
 }

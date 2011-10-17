@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <f:metadata>
-        <f:viewParam name="id" value="#{companyBean.department}"/>
+        <f:viewParam name="id" value="#{companyController.currentDepartment}"/>
     </f:metadata>
     <body>
 
@@ -29,25 +29,23 @@
                                 <h:selectOneListbox size ="5" id="departments" value="#{departmentBean.department}">
                                     <f:selectItems value="#{departmentBean.departments}"/>
                                 </h:selectOneListbox><br/>
-                                <h:commandButton id="selectDepartment" value="select" action="department?faces-redirect=true&amp;includeViewParams=true" disabled="#{departmentBean.departmentSelected}">
-                                    <f:param name="test" value="#{departmentBean.department}"/>
-                                </h:commandButton>
+                                <h:commandButton id="selectDepartment" value="select" action="#{departmentBean.selectDepartment}" disabled="#{departmentBean.departmentSelectDisabled}"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Employees:</td>
                             <td>
-                                <h:selectOneListbox size ="5" id="employees">
-                                    <f:selectItems/>
+                                <h:selectOneListbox size ="5" id="employees" value="#{departmentBean.employee}">
+                                    <f:selectItems value="#{departmentBean.employees}"/>
                                 </h:selectOneListbox><br/>
-                                <h:commandButton id="selectEmployee" value="select" action="selectEmployee" />
+                                <h:commandButton id="selectEmployee" value="select" action="#{departmentBean.selectEmployee}"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Total:</td>
                             <td>
-                                <h:inputText maxlength="100" disabled="true"/><br/>
-                                <h:commandButton id="cut" value="cut"/>
+                                <h:inputText maxlength="100" disabled="true" value="#{departmentBean.total}"/><br/>
+                                <h:commandButton id="cut" value="cut"  action="#{departmentBean.cut}"/>
                             </td>
                         </tr>
                     </table>
@@ -56,7 +54,7 @@
             
             <ui:define name="bottom">
                 <h:form>
-                    <h:commandButton id="save" value="save" action="save"/>
+                    <h:commandButton id="save" value="save"/>
                 </h:form>
             </ui:define>
 

@@ -1,13 +1,16 @@
 package beans;
 
 import company.CompanyHelper;
+import company.Navigation;
 import company.mapping.Department;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
+import util.SelectItemComparator;
 
 /**
  *
@@ -19,7 +22,8 @@ public class CompanyBean implements Serializable {
     
     private CompanyHelper helper;
     
-    private int currentDepartment = 1;
+    int nextDepartment;
+    
     
     /** Creates a new instance of CompanyController */
     public CompanyBean() {
@@ -31,25 +35,31 @@ public class CompanyBean implements Serializable {
     }
     
     public void setName(String name) {
+        System.out.println(name);
         helper.setName(name);
     }
     
-    public boolean isDepartmentSelected() {
-        return currentDepartment < 1;
+    public boolean isDepartmentSelectDisabled() {
+        return helper.getDepartments().isEmpty();
     }
     
     public int getDepartment() {
         List<Department> deps = helper.getDepartments();
         if (deps.isEmpty()) {
-            currentDepartment = -1;
             return -1;
         } else {
-            return currentDepartment;
+            nextDepartment = helper.getDepartments().get(0).getId();
+            return nextDepartment;
         }
     }
     
-    public void setDepartment(int id) {
-        currentDepartment = id;
+    public void setDepartment(int newId) {
+        nextDepartment = newId;
+    }
+    
+    public String selectDepartment() {
+        Navigation.getInstance().setCurrentDepartment(nextDepartment);
+        return "department?faces-redirect=true&amp;includeViewParams=true";
     }
     
     public List<SelectItem> getDepartments() {
@@ -57,6 +67,7 @@ public class CompanyBean implements Serializable {
         for (Department department : helper.getDepartments()) {
             result.add(new SelectItem(department.getId(), department.getName()));
         }
+        Collections.sort(result, new SelectItemComparator());
         return result;
     }
     

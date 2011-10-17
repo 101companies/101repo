@@ -2,8 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
+    <f:metadata>
+        <f:viewParam name="id" value="#{companyController.currentEmployee}"/>
+    </f:metadata>
     <body>
 
         <ui:composition template="./template.xhtml">
@@ -17,16 +21,16 @@
                     <table>
                         <tr>
                             <td>Name:</td>
-                            <td><h:inputText maxlength="100"/></td>
+                            <td><h:inputText maxlength="100" value="#{employeeBean.name}"/></td>
                         </tr>
                         <tr>
                             <td>Address:</td>
-                            <td><h:inputText maxlength="100"/></td>
+                            <td><h:inputText maxlength="100" value="#{employeeBean.address}"/></td>
                         </tr>
                         <tr>
                             <td>Salary:</td>
                             <td>
-                                <h:inputText maxlength="100"/><br/>
+                                <h:inputText maxlength="100" value="#{employeeBean.total()}"/><br/>
                                 <h:commandButton id="cut" value="cut"/>
                             </td>
                         </tr>

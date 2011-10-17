@@ -26,10 +26,7 @@
                                 <h:selectOneListbox size ="5" id="departments" value="#{companyBean.department}">
                                     <f:selectItems value="#{companyBean.departments}"/>
                                 </h:selectOneListbox><br/>
-                                <h:commandButton id="selectDepartment" value="select" action="department?faces-redirect=true&amp;includeViewParams=true" disabled="#{companyBean.departmentSelected}">
-                                    <f:param name="test" value="#{companyBean.department}"/>
-                                </h:commandButton>
-                                
+                                <h:commandButton id="selectDepartment" value="select" action="#{companyBean.selectDepartment}" disabled="#{companyBean.departmentSelectDisabled}"/>
                             </td>
                         </tr>
                         <tr>
