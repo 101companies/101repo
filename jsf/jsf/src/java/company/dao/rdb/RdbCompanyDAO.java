@@ -1,7 +1,6 @@
 package company.dao.rdb;
 
 import company.dao.exception.CompanyException;
-import company.dao.exception.SaveException;
 import company.dao.interfaces.CompanyDAO;
 import company.dao.interfaces.entities.CompanyInterface;
 import company.dao.interfaces.entities.EmployeeInterface;
