@@ -53,24 +53,31 @@ public class Employee implements java.io.Serializable, EmployeeInterface {
     public void setDepartment(Department department) {
         this.department = department;
     }
+    
+    @Override
     public String getName() {
         return this.name;
     }
     
+    @Override
     public void setName(String name) {
         this.name = name;
     }
+    @Override
     public String getAddress() {
         return this.address;
     }
     
+    @Override
     public void setAddress(String address) {
         this.address = address;
     }
+    @Override
     public double getSalary() {
         return this.salary;
     }
     
+    @Override
     public void setSalary(double salary) {
         this.salary = salary;
     }
