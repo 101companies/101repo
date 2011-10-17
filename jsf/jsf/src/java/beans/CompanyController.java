@@ -13,7 +13,7 @@ import javax.faces.bean.SessionScoped;
  *
  * @author Tobias
  */
-@ManagedBean(name = "companyController")
+@ManagedBean(name = "companyCont")
 @SessionScoped
 public class CompanyController implements Serializable {
 

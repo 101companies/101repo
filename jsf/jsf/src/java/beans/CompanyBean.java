@@ -2,7 +2,7 @@ package beans;
 
 import company.CompanyHelper;
 import company.Navigation;
-import company.mapping.Department;
+import company.rdb.mapping.Department;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;

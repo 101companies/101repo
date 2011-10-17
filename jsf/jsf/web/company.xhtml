@@ -18,31 +18,28 @@
                     <table>
                         <tr>
                             <td>Name:</td>
-                            <td><h:inputText maxlength="100" value="#{companyBean.name}"/></td>
+                            <td>
+                                <h:inputText maxlength="100" value="#{companyController.name}"/><br/>
+                                <h:commandButton id="save" value="save" action="#{companyController.save()}"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Departments:<br/><br/><br/><br/><br/><br/><br/></td>
                             <td>
-                                <h:selectOneListbox size ="5" id="departments" value="#{companyBean.department}">
-                                    <f:selectItems value="#{companyBean.departments}"/>
+                                <h:selectOneListbox size ="5" id="departments">
+                                    <f:selectItems value="#{companyController.departments}"/>
                                 </h:selectOneListbox><br/>
-                                <h:commandButton id="selectDepartment" value="select" action="#{companyBean.selectDepartment}" disabled="#{companyBean.departmentSelectDisabled}"/>
+                                <h:commandButton id="selectDepartment" value="select"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Total:</td>
                             <td>
-                                <h:inputText maxlength="100" disabled="true" value="#{companyBean.total}"/><br/>
-                                <h:commandButton id="cut" value="cut" action="#{companyBean.cut}"/>
+                                <h:inputText maxlength="100" disabled="true" value="#{companyController.total()}"/><br/>
+                                <h:commandButton id="cut" value="cut" action="#{companyController.cut()}"/>
                             </td>
                         </tr>
                     </table>
-                </h:form>
-            </ui:define>
-            
-            <ui:define name="bottom">
-                <h:form>
-                    <h:commandButton id="save" value="save" action="#{companyBean.save}"/>
                 </h:form>
             </ui:define>
 

@@ -1,6 +1,6 @@
 package company;
 
-import company.mapping.Employee;
+import company.rdb.mapping.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;

@@ -1,8 +1,8 @@
 package company;
 
-import company.mapping.Company;
-import company.mapping.Department;
-import company.mapping.Employee;
+import company.rdb.mapping.Company;
+import company.rdb.mapping.Department;
+import company.rdb.mapping.Employee;
 import java.util.HashSet;
 import java.util.List;
 import org.hibernate.Query;
@@ -46,7 +46,7 @@ public class CompanyHelper {
     }
 
     public double total() {
-        return company.total();
+        return 0;
     }
 
     public List<Department> getDepartments() {
@@ -67,32 +67,10 @@ public class CompanyHelper {
     }
     
     public void cut() {
-        try {
-            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
-            Transaction tx = session.beginTransaction();
-            for (Employee employee : company.getEmployees()) {
-                employee.setSalary(employee.getSalary() / 2);
-                session.update(employee);
-            }
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
     }
     
     public void save() {
-        try {
-            this.session = HibernateUtil.getSessionFactory().getCurrentSession();
-            Transaction tx = session.beginTransaction();
-            
-            company.setEmployees(new HashSet<Employee>());
-            company.setDepartments(new HashSet<Department>());
-            System.out.println(company.getName());
-            session.update(company);
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        company = getCompany(company.getId());
+        
     }
 }

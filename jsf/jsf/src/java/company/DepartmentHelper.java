@@ -1,7 +1,7 @@
 package company;
 
-import company.mapping.Department;
-import company.mapping.Employee;
+import company.rdb.mapping.Department;
+import company.rdb.mapping.Employee;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
@@ -40,11 +40,11 @@ public class DepartmentHelper {
     }
 
     public List<Department> getDepartments() {
-        return new ArrayList<Department>(department.getDepartments());
+        return null;
     }
     
     public List<Employee> getEmployees() {
-        return new ArrayList<Employee>(department.getEmployees());
+        return null;
     }
 
     public String getName() {
@@ -69,25 +69,13 @@ public class DepartmentHelper {
 
     public Integer getLowestEmployee() {
         int lowest = -1;
-        for (Employee employee : department.getEmployees()) {
-            if (lowest == -1) {
-                lowest = employee.getId();
-            } else if (lowest > employee.getId()) {
-                lowest = employee.getId();
-            }
-        }
+        
         return lowest;
     }
     
     public Integer getLowestDepartment() {
         int lowest = -1;
-        for (Department dep : department.getDepartments()) {
-            if (lowest == -1) {
-                lowest = dep.getId();
-            } else if (lowest > dep.getId()) {
-                lowest = dep.getId();
-            }
-        }
+        
         return lowest;
     }
 }

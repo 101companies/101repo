@@ -6,8 +6,8 @@ package beans;
 
 import company.DepartmentHelper;
 import company.Navigation;
-import company.mapping.Department;
-import company.mapping.Employee;
+import company.rdb.mapping.Department;
+import company.rdb.mapping.Employee;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;

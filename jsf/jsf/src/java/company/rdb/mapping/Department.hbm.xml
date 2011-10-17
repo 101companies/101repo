@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06.10.2011 18:06:24 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="101companies" name="company.rdb.mapping.Department" table="department">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="company.rdb.mapping.Company" fetch="select" name="company">
+      <column name="cid" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="company.rdb.mapping.Department" fetch="select" name="department">
+      <column name="did"/>
+    </many-to-one>
+    <property name="name" type="string">
+      <column length="100" name="name" not-null="true" unique="true"/>
+    </property>
+    <set inverse="true" name="employees">
+      <key>
+        <column name="did" not-null="true"/>
+      </key>
+      <one-to-many class="company.rdb.mapping.Employee"/>
+    </set>
+    <set inverse="true" name="departments">
+      <key>
+        <column name="did"/>
+      </key>
+      <one-to-many class="company.rdb.mapping.Department"/>
+    </set>
+  </class>
+</hibernate-mapping>
