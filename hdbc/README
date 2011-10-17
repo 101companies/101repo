@@ -46,7 +46,7 @@ conn <- connectODBC connString
 
 The function <syntaxhighlight lang="haskell" enclose="none">total</syntaxhighlight> defines a statement to total all salaries:
 
-<syntaxhighlight lang="haskell" source="hdbc/Cut.hs">
+<syntaxhighlight lang="haskell" source="hdbc/Total.hs">
 total :: IConnection conn => conn -> String -> IO Double
 total conn cName = do
      stmt <- prepare conn $ 
@@ -66,7 +66,7 @@ let cName = "meganalysis"
 oldTotal <- total conn cName
 </syntaxhighlight>
 
-Functionality to cut all salaries uses an UPDATE statements instead of SELECT (see [this!!Cut.hs] for details).
+Functionality to cut all salaries uses an UPDATE statement instead of SELECT (see [this!!Cut.hs] for details).
 
 == Architecture ==
 
