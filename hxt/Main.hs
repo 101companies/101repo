@@ -19,13 +19,15 @@ readProWrite src dest arrow
  
 main :: IO ()
 main = do
-      [ttl] <- runX (readDocument [] "sampleCompany.xml" >>> total)
+      [ttl] <- runX ( readDocument [] "sampleCompany.xml" 
+                      >>> total )
       print ttl
       
       [rcode] <- runX (readProWrite "sampleCompany.xml" "sampleCompanyCut.xml" cut)
       exitOnError rcode
       
-      [ttl] <- runX (readDocument [] "sampleCompanyCut.xml" >>> total)
+      [ttl] <- runX ( readDocument [] "sampleCompanyCut.xml" 
+                      >>> total )
       print ttl
       
         where
