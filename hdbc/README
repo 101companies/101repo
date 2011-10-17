@@ -31,7 +31,7 @@ and [[101feature:Cut|cut]] [[101feature:Company|company]] salaries within a [[:C
 
 === Connecting ===
 
-In [this!!Main.hs] we connect to the MySQL database by using an ODBC driver and other appropriate connection information:
+In [this!!Main.hs] we connect to the MySQL database by using an ODBC driver and appropriate connection information:
 
 <syntaxhighlight lang="haskell" source="hdbc/Main.hs">
 let connString = "Driver={MySQL ODBC 5.1 Driver};"
