@@ -3,10 +3,12 @@ package company.dao.rdb;
 import company.dao.exception.CompanyException;
 import company.dao.interfaces.DepartmentDAO;
 import company.dao.interfaces.entities.DepartmentInterface;
+import company.rdb.mapping.Department;
 import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 /**
@@ -16,8 +18,16 @@ import util.HibernateUtil;
 public class RdbDepartmentDAO implements DepartmentDAO, Serializable {
 
     @Override
-    public DepartmentInterface load(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public DepartmentInterface load(int id) throws CompanyException {
+        try {
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            Department d = (Department) session.load(Department.class, new Integer(id));
+            
+            return d;
+        } catch (Exception e) {
+            throw new CompanyException(e.getMessage());
+        }
     }
 
     @Override
@@ -26,8 +36,15 @@ public class RdbDepartmentDAO implements DepartmentDAO, Serializable {
     }
 
     @Override
-    public void update(DepartmentInterface department) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void update(DepartmentInterface department) throws CompanyException {
+        try {
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            Transaction tx = session.beginTransaction();
+            session.update(department);
+            tx.commit();
+        } catch (Exception e) {
+            throw new CompanyException(e.getMessage());
+        }
     }
 
     public void cut(DepartmentInterface department) {

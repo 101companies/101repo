@@ -10,8 +10,8 @@ package company;
  */
 public class Navigation {
     
-    private int currentDepartment;
-    private int currentEmployee;
+    private int nextDepartment;
+    private int nextEmployee;
 
     private static Navigation singleton;
     
@@ -19,20 +19,20 @@ public class Navigation {
         
     }
 
-    public int getCurrentDepartment() {
-        return currentDepartment;
+    public int getNextDepartment() {
+        return nextDepartment;
     }
 
-    public void setCurrentDepartment(int currentDepartment) {
-        this.currentDepartment = currentDepartment;
+    public void setNextDepartment(int nextDepartment) {
+        this.nextDepartment = nextDepartment;
     }
 
-    public int getCurrentEmployee() {
-        return currentEmployee;
+    public int getNextEmployee() {
+        return nextEmployee;
     }
 
-    public void setCurrentEmployee(int currentEmployee) {
-        this.currentEmployee = currentEmployee;
+    public void setNextEmployee(int nextEmployee) {
+        this.nextEmployee = nextEmployee;
     }
     
     public static Navigation getInstance() {

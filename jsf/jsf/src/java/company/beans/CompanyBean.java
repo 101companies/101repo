@@ -1,5 +1,6 @@
 package company.beans;
 
+import company.Navigation;
 import company.dao.exception.CompanyException;
 import company.dao.factory.DAOFactory;
 import company.dao.factory.FactoryManager;
@@ -22,22 +23,24 @@ import util.SelectItemComparator;
  *
  * @author Tobias
  */
-@ManagedBean(name = "companyController")
+@ManagedBean(name = "companyBean")
 @SessionScoped
-public class CompanyController implements Serializable {
+public class CompanyBean implements Serializable {
     
     private CompanyInterface currentCompany;
     
     private CompanyDAO companyDAO;
+    
+    private Integer nextDepartmentId = -1;
 
     /** Creates a new instance of CompanyController */
-    public CompanyController() {
+    public CompanyBean() {
         DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
         this.companyDAO = daoFactory.getCompanyDAO();
         try {
             this.currentCompany = this.companyDAO.load(1);
         } catch (CompanyException ex) {
-            Logger.getLogger(CompanyController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -49,6 +52,22 @@ public class CompanyController implements Serializable {
         this.currentCompany.setName(name);
     }
     
+    public Integer getDepartment() {
+        return nextDepartmentId;
+    }
+    
+    public void setDepartment(Integer newId) {
+        this.nextDepartmentId = newId;
+    }
+    
+    public String selectDepartment() {
+        if (this.nextDepartmentId > 0) {
+            Navigation.getInstance().setNextDepartment(nextDepartmentId);
+            return "department?faces-redirect=true&amp;includeViewParams=true";
+        }
+        return "";
+    }
+    
     public List<SelectItem> getDepartments() {
         List<SelectItem> result = new ArrayList<SelectItem>();
         try {
@@ -58,9 +77,9 @@ public class CompanyController implements Serializable {
                 result.add(new SelectItem(department.getId(), department.getName()));
             }
             Collections.sort(result, new SelectItemComparator());
-
+            
         } catch (CompanyException ex) {
-            Logger.getLogger(CompanyController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -69,7 +88,7 @@ public class CompanyController implements Serializable {
         try {
             return this.currentCompany.total();
         } catch (CompanyException ex) {
-            Logger.getLogger(CompanyController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
             return 0d;
         }
     }
@@ -78,7 +97,7 @@ public class CompanyController implements Serializable {
         try {
             this.currentCompany.cut();
         } catch (CompanyException ex) {
-            Logger.getLogger(CompanyController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -86,9 +105,9 @@ public class CompanyController implements Serializable {
         try {
             DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
             CompanyDAO dao = daoFactory.getCompanyDAO();
-            dao.update(currentCompany);
+            dao.update(this.currentCompany);
         } catch (CompanyException ex) {
-            Logger.getLogger(CompanyController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

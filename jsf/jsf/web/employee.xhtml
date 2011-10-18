@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <f:metadata>
-        <f:viewParam name="id" value="#{companyController.currentEmployee}"/>
+        <f:viewParam name="id" value="#{navigationBean.currentEmployee}"/>
     </f:metadata>
     <body>
 
@@ -23,7 +23,6 @@
                             <td>Name:</td>
                             <td>
                                 <h:inputText maxlength="100" value="#{employeeBean.name}"/><br/>
-                                <h:commandButton id="save" value="save" action="save"/>
                             </td>
                         </tr>
                         <tr>
@@ -33,7 +32,13 @@
                         <tr>
                             <td>Salary:</td>
                             <td>
-                                <h:inputText maxlength="100" value="#{employeeBean.total()}"/><br/>
+                                <h:inputText maxlength="100" value="#{employeeBean.salary}"/><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <h:commandButton id="save" value="save" action="save"/><br/>
                                 <h:commandButton id="cut" value="cut"/>
                             </td>
                         </tr>

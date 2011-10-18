@@ -5,6 +5,7 @@ import company.dao.exception.SaveException;
 import company.dao.exception.constants.Field;
 import company.dao.interfaces.EmployeeDAO;
 import company.dao.interfaces.entities.EmployeeInterface;
+import company.rdb.mapping.Employee;
 import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Query;
@@ -19,8 +20,16 @@ import util.HibernateUtil;
 public class RdbEmployeeDAO implements EmployeeDAO, Serializable {
 
     @Override
-    public EmployeeInterface load(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public EmployeeInterface load(int id) throws CompanyException {
+        try {
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            Employee e = (Employee) session.load(Employee.class, new Integer(id));
+            
+            return e;
+        } catch (Exception e) {
+            throw new CompanyException(e.getMessage());
+        }
     }
 
     @Override

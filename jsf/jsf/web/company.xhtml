@@ -19,24 +19,24 @@
                         <tr>
                             <td>Name:</td>
                             <td>
-                                <h:inputText maxlength="100" value="#{companyController.name}"/><br/>
-                                <h:commandButton id="save" value="save" action="#{companyController.save()}"/>
+                                <h:inputText maxlength="100" value="#{companyBean.name}"/><br/>
+                                <h:commandButton id="save" value="save" action="#{companyBean.save()}"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Departments:<br/><br/><br/><br/><br/><br/><br/></td>
                             <td>
-                                <h:selectOneListbox size ="5" id="departments">
-                                    <f:selectItems value="#{companyController.departments}"/>
+                                <h:selectOneListbox size ="5" id="departments" value="#{companyBean.department}">
+                                    <f:selectItems value="#{companyBean.departments}"/>
                                 </h:selectOneListbox><br/>
-                                <h:commandButton id="selectDepartment" value="select"/>
+                                <h:commandButton id="selectDepartment" value="select" action="#{companyBean.selectDepartment()}"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Total:</td>
                             <td>
-                                <h:inputText maxlength="100" disabled="true" value="#{companyController.total()}"/><br/>
-                                <h:commandButton id="cut" value="cut" action="#{companyController.cut()}"/>
+                                <h:inputText maxlength="100" disabled="true" value="#{companyBean.total()}"/><br/>
+                                <h:commandButton id="cut" value="cut" action="#{companyBean.cut()}"/>
                             </td>
                         </tr>
                     </table>
