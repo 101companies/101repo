@@ -128,10 +128,23 @@ public class DepartmentBean {
     }
     
     public void cut() {
+        System.out.println("cut");
         try {
             this.currentDepartment.cut();
         } catch (CompanyException ex) {
             Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public String save() {
+        try {
+            DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+            DepartmentDAO dao = daoFactory.getDepartmentDAO();
+            dao.update(this.currentDepartment);
+        } catch (CompanyException ex) {
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Navigation.getInstance().setNextDepartment(this.currentDepartment.getId());
+        return "department?faces-redirect=true&amp;includeViewParams=true";
     }
 }

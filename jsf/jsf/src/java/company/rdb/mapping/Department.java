@@ -2,6 +2,7 @@ package company.rdb.mapping;
 // Generated 06.10.2011 18:06:22 by Hibernate Tools 3.2.1.GA
 
 
+import company.dao.exception.CompanyException;
 import company.dao.interfaces.entities.DepartmentInterface;
 import company.dao.interfaces.entities.EmployeeInterface;
 import java.util.HashSet;
@@ -86,13 +87,26 @@ public class Department implements java.io.Serializable, DepartmentInterface {
     }
 
     @Override
-    public double total() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public double total() throws CompanyException {
+        double total = 0d;
+        
+        for (DepartmentInterface dep : departments) {
+            total += dep.total();
+        }
+        for (EmployeeInterface employee : employees) {
+            total += employee.total();
+        }
+        return total;
     }
 
     @Override
-    public void cut() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void cut() throws CompanyException {
+        for (DepartmentInterface dep : departments) {
+            dep.cut();
+        }
+        for (EmployeeInterface employee : employees) {
+            employee.cut();
+        }
     }
 
 

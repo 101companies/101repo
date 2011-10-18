@@ -1,6 +1,10 @@
 package company.rdb.mapping;
 // Generated 06.10.2011 18:06:22 by Hibernate Tools 3.2.1.GA
 
+import company.dao.exception.CompanyException;
+import company.dao.factory.DAOFactory;
+import company.dao.factory.FactoryManager;
+import company.dao.interfaces.EmployeeDAO;
 import company.dao.interfaces.entities.EmployeeInterface;
 
 
@@ -90,15 +94,19 @@ public class Employee implements java.io.Serializable, EmployeeInterface {
     }
 
     @Override
-    public void cut() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void cut() throws CompanyException {
+        DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+        EmployeeDAO dao = daoFactory.getEmployeeDAO();
+
+        this.salary = this.salary / 2;
+
+        dao.update(this);
     }
 
     @Override
     public double total() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.getSalary();
     }
-
 
 }
 

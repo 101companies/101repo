@@ -23,7 +23,7 @@
                             <td>Name:</td>
                             <td>
                                 <h:inputText maxlength="100" value="#{departmentBean.name}"/><br/>
-                                <h:commandButton id="save" value="save"/>
+                                <h:commandButton id="save" value="save" action="#{departmentBean.save()}"/>
                             </td>
                         </tr>
                         <tr>
@@ -47,8 +47,8 @@
                         <tr>
                             <td>Total:</td>
                             <td>
-                                <h:inputText maxlength="100" disabled="true"/><br/>
-                                <h:commandButton id="cut" value="cut"/>
+                                <h:inputText maxlength="100" disabled="true" value="#{departmentBean.total()}"/><br/>
+                                <h:commandButton id="cut" value="cut" action="#{departmentBean.cut()}"/>
                             </td>
                         </tr>
                     </table>
