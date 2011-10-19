@@ -49,16 +49,27 @@ public class RdbEmployeeDAO implements EmployeeDAO, Serializable {
         }
     }
 
-    public void cut(EmployeeInterface employee) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     public List<EmployeeInterface> loadEmployeesForCompany(int id) throws CompanyException {
         try {
             Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             StringBuilder queryString = new StringBuilder("SELECT employee FROM Employee AS employee");
             queryString.append(" WHERE employee.company = ");
+            queryString.append(id);
+            
+            Query query = session.createQuery(queryString.toString());
+            return query.list();
+        } catch (Exception e) {
+            throw new CompanyException(e.getMessage());
+        }
+    }
+
+    public List<EmployeeInterface> loadEmployeesForDepartment(Integer id) throws CompanyException {
+        try {
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            StringBuilder queryString = new StringBuilder("SELECT employee FROM Employee AS employee");
+            queryString.append(" WHERE employee.department = ");
             queryString.append(id);
             
             Query query = session.createQuery(queryString.toString());

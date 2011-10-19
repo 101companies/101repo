@@ -71,4 +71,23 @@ public class EmployeeBean {
     public void setSalary(double salary) {
         this.currentEmployee.setSalary(salary);
     }
+    
+    public void cut() {
+        System.out.println("cut");
+        try {
+            this.currentEmployee.cut();
+        } catch (CompanyException ex) {
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void save() {
+        try {
+            DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+            EmployeeDAO dao = daoFactory.getEmployeeDAO();
+            dao.update(this.currentEmployee);
+        } catch (CompanyException ex) {
+            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

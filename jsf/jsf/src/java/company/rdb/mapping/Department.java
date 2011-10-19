@@ -3,9 +3,16 @@ package company.rdb.mapping;
 
 
 import company.dao.exception.CompanyException;
+import company.dao.factory.DAOFactory;
+import company.dao.factory.FactoryManager;
+import company.dao.interfaces.DepartmentDAO;
+import company.dao.interfaces.EmployeeDAO;
 import company.dao.interfaces.entities.DepartmentInterface;
 import company.dao.interfaces.entities.EmployeeInterface;
+import company.dao.rdb.RdbDepartmentDAO;
+import company.dao.rdb.RdbEmployeeDAO;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -90,10 +97,19 @@ public class Department implements java.io.Serializable, DepartmentInterface {
     public double total() throws CompanyException {
         double total = 0d;
         
-        for (DepartmentInterface dep : departments) {
+        DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+        
+        DepartmentDAO depDAO = daoFactory.getDepartmentDAO();
+        List<DepartmentInterface> deps = ((RdbDepartmentDAO)depDAO).loadDepartmentsForDepartment(this.id);
+        
+        for (DepartmentInterface dep : deps) {
             total += dep.total();
         }
-        for (EmployeeInterface employee : employees) {
+        
+        EmployeeDAO emplDAO = daoFactory.getEmployeeDAO();
+        List<EmployeeInterface> empls = ((RdbEmployeeDAO)emplDAO).loadEmployeesForDepartment(this.id);
+
+        for (EmployeeInterface employee : empls) {
             total += employee.total();
         }
         return total;
@@ -101,10 +117,22 @@ public class Department implements java.io.Serializable, DepartmentInterface {
 
     @Override
     public void cut() throws CompanyException {
-        for (DepartmentInterface dep : departments) {
+        
+        System.out.println("cut");
+        
+        DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+        
+        DepartmentDAO depDAO = daoFactory.getDepartmentDAO();
+        List<DepartmentInterface> deps = ((RdbDepartmentDAO)depDAO).loadDepartmentsForDepartment(this.id);
+        
+        for (DepartmentInterface dep : deps) {
             dep.cut();
         }
-        for (EmployeeInterface employee : employees) {
+        
+        EmployeeDAO emplDAO = daoFactory.getEmployeeDAO();
+        List<EmployeeInterface> empls = ((RdbEmployeeDAO)emplDAO).loadEmployeesForDepartment(this.id);
+        
+        for (EmployeeInterface employee : empls) {
             employee.cut();
         }
     }

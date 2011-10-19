@@ -3,8 +3,10 @@ package company.dao.rdb;
 import company.dao.exception.CompanyException;
 import company.dao.interfaces.DepartmentDAO;
 import company.dao.interfaces.entities.DepartmentInterface;
+import company.dao.interfaces.entities.EmployeeInterface;
 import company.rdb.mapping.Department;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -40,15 +42,13 @@ public class RdbDepartmentDAO implements DepartmentDAO, Serializable {
         try {
             Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction tx = session.beginTransaction();
+            ((Department)department).setDepartments(new HashSet<DepartmentInterface>(0));
+            ((Department)department).setEmployees(new HashSet<EmployeeInterface>(0));
             session.update(department);
             tx.commit();
         } catch (Exception e) {
             throw new CompanyException(e.getMessage());
         }
-    }
-
-    public void cut(DepartmentInterface department) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public List<DepartmentInterface> loadDepartmentsForCompany(int id) throws CompanyException {
@@ -59,6 +59,21 @@ public class RdbDepartmentDAO implements DepartmentDAO, Serializable {
             queryString.append(" WHERE department.company = ");
             queryString.append(id);
             queryString.append(" AND department.department IS NULL");
+            
+            Query query = session.createQuery(queryString.toString());
+            return query.list();
+        } catch (Exception e) {
+            throw new CompanyException(e.getMessage());
+        }
+    }
+
+    public List<DepartmentInterface> loadDepartmentsForDepartment(Integer id) throws CompanyException {
+        try {
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            StringBuilder queryString = new StringBuilder("SELECT department FROM Department AS department");
+            queryString.append(" WHERE department.department = ");
+            queryString.append(id);
             
             Query query = session.createQuery(queryString.toString());
             return query.list();

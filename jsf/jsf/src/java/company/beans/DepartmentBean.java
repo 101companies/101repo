@@ -36,6 +36,7 @@ public class DepartmentBean {
     
     /** Creates a new instance of DepartmentBean */
     public DepartmentBean() {
+        System.out.println("create");
         int id;
         FacesContext facesContext = FacesContext.getCurrentInstance();
         String stringId = facesContext.getExternalContext().getRequestParameterMap().get("id");
@@ -52,6 +53,7 @@ public class DepartmentBean {
         } catch (CompanyException ex) {
             Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("1" + currentDepartment.getName());
     }
     
     public String getName() {
@@ -137,6 +139,8 @@ public class DepartmentBean {
     }
     
     public String save() {
+        System.out.println("save");
+        System.out.println(currentDepartment.getName());
         try {
             DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
             DepartmentDAO dao = daoFactory.getDepartmentDAO();
@@ -144,7 +148,7 @@ public class DepartmentBean {
         } catch (CompanyException ex) {
             Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Navigation.getInstance().setNextDepartment(this.currentDepartment.getId());
+        Navigation.getInstance().setNextDepartment(currentDepartment.getId());
         return "department?faces-redirect=true&amp;includeViewParams=true";
     }
 }
