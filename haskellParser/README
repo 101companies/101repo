@@ -72,7 +72,7 @@ In line 3 we parse the keyword for department declaration "department". In the n
 
 === Running the Parser ===
 
-Running the company parser is realized by making use of runP:
+Running the company parser is realized by making use of <syntaxhighlight lang="haskell" enclose="none">runP</syntaxhighlight>:
 <syntaxhighlight lang="haskell">
 runP :: Stream s Identity t => Parsec s u a -> u -> SourceName -> s -> Either ParseError a
 </syntaxhighlight>
