@@ -1,23 +1,14 @@
 package company.beans;
 
-import company.Navigation;
-import company.dao.exception.CompanyException;
-import company.dao.factory.DAOFactory;
-import company.dao.factory.FactoryManager;
-import company.dao.interfaces.CompanyDAO;
-import company.dao.interfaces.entities.CompanyInterface;
-import company.dao.interfaces.entities.DepartmentInterface;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
+import company.AbstractComponent;
+import company.CompanyComponent;
+import company.DepartmentComponent;
+import company.EmployeeComponent;
 import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Stack;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
-import util.SelectItemComparator;
 
 /**
  *
@@ -25,89 +16,95 @@ import util.SelectItemComparator;
  */
 @ManagedBean(name = "companyBean")
 @SessionScoped
-public class CompanyBean implements Serializable {
-    
-    private CompanyInterface currentCompany;
-    
-    private CompanyDAO companyDAO;
-    
-    private Integer nextDepartmentId = -1;
+public class CompanyBean {
 
-    /** Creates a new instance of CompanyController */
+    private Integer selectedDepartment;
+    private Integer selectedEmployee;
+    
+    private Stack<Integer> history;
+    
+    private AbstractComponent component;
+    
     public CompanyBean() {
-        DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
-        this.companyDAO = daoFactory.getCompanyDAO();
-        try {
-            this.currentCompany = this.companyDAO.load(1);
-        } catch (CompanyException ex) {
-            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        history = new Stack<Integer>();
+        this.component = new CompanyComponent();
     }
-    
+
     public String getName() {
-        return this.currentCompany.getName();
+        return this.component.getName();
     }
-    
+
     public void setName(String name) {
-        this.currentCompany.setName(name);
+        this.component.setName(name);
+    }
+
+    public String getAddress() {
+        return this.component.getAddress();
+    }
+
+    public void setAddress(String address) {
+        this.component.setAddress(address);
+    }
+
+    public double getTotal() {
+        return this.component.getTotal();
+    }
+
+    public Integer getSelectedDepartment() {
+        return selectedDepartment;
     }
     
-    public Integer getDepartment() {
-        return nextDepartmentId;
+    public void setSelectedDepartment(Integer selectedDepartment) {
+        this.selectedDepartment = selectedDepartment;
     }
-    
-    public void setDepartment(Integer newId) {
-        this.nextDepartmentId = newId;
+
+    public Integer getSelectedEmployee() {
+        return selectedEmployee;
     }
-    
-    public String selectDepartment() {
-        if (this.nextDepartmentId > 0) {
-            Navigation.getInstance().setNextDepartment(nextDepartmentId);
-            return "department?faces-redirect=true&amp;includeViewParams=true";
-        }
-        return "";
+
+    public void setSelectedEmployee(Integer selectedEmployee) {
+        this.selectedEmployee = selectedEmployee;
     }
     
     public List<SelectItem> getDepartments() {
-        List<SelectItem> result = new ArrayList<SelectItem>();
-        try {
-            
-            Set<DepartmentInterface> departments = this.currentCompany.getDepartments();
-            for (DepartmentInterface department : departments) {
-                result.add(new SelectItem(department.getId(), department.getName()));
-            }
-            Collections.sort(result, new SelectItemComparator());
-            
-        } catch (CompanyException ex) {
-            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
+        return this.component.getDepartments();
     }
-    
-    public double total() {
-        try {
-            return this.currentCompany.total();
-        } catch (CompanyException ex) {
-            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
-            return 0d;
-        }
-    }
-    
-    public void cut() {
-        try {
-            this.currentCompany.cut();
-        } catch (CompanyException ex) {
-            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+    public List<SelectItem> getEmployees() {
+        return this.component.getEmployees();
     }
     
     public void save() {
-        try {
-            DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
-            CompanyDAO dao = daoFactory.getCompanyDAO();
-            dao.update(this.currentCompany);
-        } catch (CompanyException ex) {
-            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
+        this.component.save();
+    }
+    
+    public void cut() {
+        this.component.cut();
+    }
+    
+    public void navigateToDepartment() {
+        if (component instanceof DepartmentComponent) {
+            history.push(((DepartmentComponent)component).getId());
         }
+        component = new DepartmentComponent(selectedDepartment);
+    }
+    
+    public void navigateToEmployee() {
+        history.push(((DepartmentComponent)component).getId());
+        component = new EmployeeComponent(selectedEmployee);
+    }
+    
+    public String back() {
+        if (history.isEmpty()) {
+            component = new CompanyComponent();
+            return "company";
+        } else {
+            component = new DepartmentComponent(history.pop());
+            return "department";
+        }
+    }
+    
+    public boolean isBackDisabled() {
+        return component instanceof CompanyComponent;
     }
 }

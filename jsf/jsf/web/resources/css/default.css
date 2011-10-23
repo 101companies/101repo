@@ -8,33 +8,40 @@ body {
 }
 
 h1 {
-    text-align: center;
-    font-size: x-large;
-    font-family: fantasy;
-    font-style: normal;
-    font-weight: lighter;
-    font-variant: small-caps;
-}
-
-h2 {
-    text-align: center;
-}
-
-select {
-    min-width: 100%;
-}
-
-input {
-    min-width: 80px;
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
 }
 
 table {
-    margin-left:auto; 
-    margin-right:auto;
+    margin-left: auto; 
+    margin-right: auto;
 }
 
-td {
+td.label {
+    width: 100px;
     text-align: left;
+}
+
+td.content {
+    width: 400px;
+    text-align: left;
+}
+
+td.button {
+    width: 80px;
+}
+
+select {
+    width: 100%;
+}
+
+input {
+    width: 100%;
 }
 
 a:link, a:visited {

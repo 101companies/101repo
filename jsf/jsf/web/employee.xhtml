@@ -2,15 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html">
 
-    <f:metadata>
-        <f:viewParam name="id" value="#{navigationBean.currentEmployee}"/>
-    </f:metadata>
     <body>
 
-        <ui:composition template="./template.xhtml">
+        <ui:composition template="./companiesTemplate.xhtml">
 
             <ui:define name="top">
                 <h2>Employee View</h2>
@@ -18,31 +14,20 @@
 
             <ui:define name="content">
                 <h:form>
-                    <table>
-                        <tr>
-                            <td>Name:</td>
-                            <td>
-                                <h:inputText maxlength="100" value="#{employeeBean.name}"/><br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td><h:inputText maxlength="100" value="#{employeeBean.address}"/></td>
-                        </tr>
-                        <tr>
-                            <td>Salary:</td>
-                            <td>
-                                <h:inputText maxlength="100" value="#{employeeBean.salary}"/><br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <h:commandButton id="save" value="save" action="#{employeeBean.save()}"/><br/>
-                                <h:commandButton id="cut" value="cut" action="#{employeeBean.cut()}"/>
-                            </td>
-                        </tr>
-                    </table>
+                    <h:panelGrid columns="3" columnClasses="label,content,button">
+                        <h:outputLabel for="name" value="Name:"/>
+                        <h:inputText label="Name" id="name" value="#{companyBean.name}" required="true" requiredMessage="Enter a valid name, please."/>
+                        <h:commandButton value="save" actionListener="#{companyBean.save()}"/>
+                    </h:panelGrid>
+                    <h:message for="name"/>
+                </h:form>
+                <h:form>
+                    <h:panelGrid columns="3" columnClasses="label,content,button">        
+                        <h:outputLabel for="total" value="Total:"/>
+                        <h:outputText id="total" value="#{companyBean.total}"/>
+                        <h:commandButton value="cut" actionListener="#{companyBean.cut()}"/>
+                    </h:panelGrid>
+                    <h:message for="total"/>
                 </h:form>
             </ui:define>
 

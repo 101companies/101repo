@@ -1,0 +1,115 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package company;
+
+import company.beans.CompanyBean;
+import company.dao.exception.CompanyException;
+import company.dao.factory.DAOFactory;
+import company.dao.factory.FactoryManager;
+import company.dao.interfaces.DepartmentDAO;
+import company.dao.interfaces.entities.DepartmentInterface;
+import company.dao.interfaces.entities.EmployeeInterface;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.model.SelectItem;
+import util.SelectItemComparator;
+
+/**
+ *
+ * @author Tobias
+ */
+public class DepartmentComponent extends AbstractComponent {
+
+    private String name;
+    
+    private List<SelectItem> departments;
+    private List<SelectItem> employees;
+    
+    private double total;
+    
+    private DepartmentInterface department;
+    
+    public DepartmentComponent(int id) {
+        try {
+            DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+            DepartmentDAO departmentDAO = daoFactory.getDepartmentDAO();
+            department = departmentDAO.load(id);
+            
+            name = department.getName();
+            
+            Set<DepartmentInterface> deps = department.getDepartments();
+            departments = new ArrayList<SelectItem>();
+            for (DepartmentInterface dep : deps) {
+                departments.add(new SelectItem(dep.getId(), dep.getName()));
+            }
+            Collections.sort(departments, new SelectItemComparator());
+            
+            Set<EmployeeInterface> emps = department.getEmployees();
+            employees = new ArrayList<SelectItem>();
+            for (EmployeeInterface dep : emps) {
+                employees.add(new SelectItem(dep.getId(), dep.getName()));
+            }
+            Collections.sort(employees, new SelectItemComparator());
+
+            total = department.total();
+        } catch (CompanyException ex) {
+            Logger.getLogger(DepartmentComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getAddress() {
+        throw new UnsupportedOperationException("Not supported by this class.");
+    }
+
+    @Override
+    public void setAddress(String address) {
+        throw new UnsupportedOperationException("Not supported by this class.");
+    }
+
+    @Override
+    public double getTotal() {
+        return this.total;
+    }
+
+    @Override
+    public List<SelectItem> getDepartments() {
+        return this.departments;
+    }
+
+    @Override
+    public List<SelectItem> getEmployees() {
+        return this.employees;
+    }
+
+    @Override
+    public void save() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void cut() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public int getId() {
+        return department.getId();
+    }
+    
+}

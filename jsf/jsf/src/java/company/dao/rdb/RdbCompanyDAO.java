@@ -46,28 +46,5 @@ public class RdbCompanyDAO implements CompanyDAO, Serializable {
         } catch (Exception e) {
             throw new CompanyException(e.getMessage());
         }
-    }
-
-    public void cut(CompanyInterface company) throws CompanyException {
-        try {
-            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-            session.beginTransaction();
-            StringBuilder queryString = new StringBuilder("SELECT department FROM Department AS department");
-            queryString.append(" WHERE department.company = ");
-            queryString.append(company.getId());
-            queryString.append(" AND department.department IS NULL");
-            
-            Query query = session.createQuery(queryString.toString());
-            
-            List<EmployeeInterface> employees = query.list();
-            for (EmployeeInterface employee : employees) {
-                session.update(employee);
-            }
-            
-        } catch (Exception e) {
-            throw new CompanyException(e.getMessage());
-        }
-    }
-
-    
+    }    
 }
