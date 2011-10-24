@@ -3,11 +3,8 @@ package company.dao.rdb;
 import company.dao.exception.CompanyException;
 import company.dao.interfaces.CompanyDAO;
 import company.dao.interfaces.entities.CompanyInterface;
-import company.dao.interfaces.entities.EmployeeInterface;
 import company.rdb.mapping.Company;
 import java.io.Serializable;
-import java.util.List;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -41,6 +38,9 @@ public class RdbCompanyDAO implements CompanyDAO, Serializable {
         try {
             Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction tx = session.beginTransaction();
+            
+            company.getName();
+            
             session.update(company);
             tx.commit();
         } catch (Exception e) {

@@ -9,6 +9,7 @@ import company.dao.factory.DAOFactory;
 import company.dao.factory.FactoryManager;
 import company.dao.interfaces.EmployeeDAO;
 import company.dao.interfaces.entities.EmployeeInterface;
+import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +19,7 @@ import javax.faces.model.SelectItem;
  *
  * @author Tobias
  */
-public class EmployeeComponent extends AbstractComponent {
+public class EmployeeComponent extends AbstractComponent implements Serializable {
 
     private String name;
     private String address;
@@ -77,12 +78,24 @@ public class EmployeeComponent extends AbstractComponent {
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+            EmployeeDAO employeeDAO = daoFactory.getEmployeeDAO();
+            employee.setName(name);
+            employeeDAO.update(employee);
+        } catch (CompanyException ex) {
+            Logger.getLogger(EmployeeComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void cut() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            employee.cut();
+            salary = salary / 2;
+        } catch (CompanyException ex) {
+            Logger.getLogger(EmployeeComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -11,6 +11,7 @@ import company.dao.factory.FactoryManager;
 import company.dao.interfaces.CompanyDAO;
 import company.dao.interfaces.entities.CompanyInterface;
 import company.dao.interfaces.entities.DepartmentInterface;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +25,7 @@ import util.SelectItemComparator;
  *
  * @author Tobias
  */
-public class CompanyComponent extends AbstractComponent {
+public class CompanyComponent extends AbstractComponent implements Serializable {
 
     private String name;
     
@@ -35,6 +36,7 @@ public class CompanyComponent extends AbstractComponent {
     private CompanyInterface company;
     
     public CompanyComponent() {
+        System.out.println("CompanyComponent");
         try {
             DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
             CompanyDAO companyDAO = daoFactory.getCompanyDAO();
@@ -91,13 +93,14 @@ public class CompanyComponent extends AbstractComponent {
 
     @Override
     public void save() {
+        System.out.println("save");
         try {
             DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
             CompanyDAO companyDAO = daoFactory.getCompanyDAO();
             company.setName(name);
             companyDAO.update(company);
         } catch (CompanyException ex) {
-            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyComponent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -107,7 +110,7 @@ public class CompanyComponent extends AbstractComponent {
             company.cut();
             total = total / 2;
         } catch (CompanyException ex) {
-            Logger.getLogger(CompanyBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyComponent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -4,6 +4,7 @@ import company.AbstractComponent;
 import company.CompanyComponent;
 import company.DepartmentComponent;
 import company.EmployeeComponent;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Stack;
 import javax.faces.bean.ManagedBean;
@@ -16,7 +17,7 @@ import javax.faces.model.SelectItem;
  */
 @ManagedBean(name = "companyBean")
 @SessionScoped
-public class CompanyBean {
+public class CompanyBean implements Serializable {
 
     private Integer selectedDepartment;
     private Integer selectedEmployee;
@@ -26,6 +27,7 @@ public class CompanyBean {
     private AbstractComponent component;
     
     public CompanyBean() {
+        System.out.println("CompanyBean");
         history = new Stack<Integer>();
         this.component = new CompanyComponent();
     }
@@ -67,6 +69,9 @@ public class CompanyBean {
     }
     
     public List<SelectItem> getDepartments() {
+        for (SelectItem item : this.component.getDepartments()) {
+            System.out.println(item.getLabel());
+        }
         return this.component.getDepartments();
     }
 

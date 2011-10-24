@@ -4,13 +4,13 @@
  */
 package company;
 
-import company.beans.CompanyBean;
 import company.dao.exception.CompanyException;
 import company.dao.factory.DAOFactory;
 import company.dao.factory.FactoryManager;
 import company.dao.interfaces.DepartmentDAO;
 import company.dao.interfaces.entities.DepartmentInterface;
 import company.dao.interfaces.entities.EmployeeInterface;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +24,7 @@ import util.SelectItemComparator;
  *
  * @author Tobias
  */
-public class DepartmentComponent extends AbstractComponent {
+public class DepartmentComponent extends AbstractComponent implements Serializable {
 
     private String name;
     
@@ -100,12 +100,24 @@ public class DepartmentComponent extends AbstractComponent {
 
     @Override
     public void save() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
+            DepartmentDAO departmentDAO = daoFactory.getDepartmentDAO();
+            department.setName(name);
+            departmentDAO.update(department);
+        } catch (CompanyException ex) {
+            Logger.getLogger(DepartmentComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void cut() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            department.cut();
+            total = total / 2;
+        } catch (CompanyException ex) {
+            Logger.getLogger(DepartmentComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public int getId() {

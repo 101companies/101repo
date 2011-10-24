@@ -14,20 +14,29 @@
 
             <ui:define name="content">
                 <h:form>
-                    <h:panelGrid columns="3" columnClasses="label,content,button">
+                    <h:panelGrid columns="2" columnClasses="label,content">
                         <h:outputLabel for="name" value="Name:"/>
                         <h:inputText label="Name" id="name" value="#{companyBean.name}" required="true" requiredMessage="Enter a valid name, please."/>
-                        <h:commandButton value="save" actionListener="#{companyBean.save()}"/>
+                        
                     </h:panelGrid>
                     <h:message for="name"/>
-                </h:form>
-                <h:form>
-                    <h:panelGrid columns="3" columnClasses="label,content,button">        
+                    
+                    <h:panelGrid columns="2" columnClasses="label,content,button">
+                        <h:outputLabel for="address" value="Address:"/>
+                        <h:inputText label="Address" id="address" value="#{companyBean.address}" required="true" requiredMessage="Enter a valid address, please."/>
+                    </h:panelGrid>
+                    <h:message for="address"/>
+                
+                    <h:panelGrid columns="2" columnClasses="label,content">        
                         <h:outputLabel for="total" value="Total:"/>
                         <h:outputText id="total" value="#{companyBean.total}"/>
-                        <h:commandButton value="cut" actionListener="#{companyBean.cut()}"/>
                     </h:panelGrid>
                     <h:message for="total"/>
+                    
+                    <h:panelGrid columns="2" columnClasses="button, button">
+                        <h:commandButton value="save" actionListener="#{companyBean.save()}"/>
+                        <h:commandButton value="cut" actionListener="#{companyBean.cut()}"/>
+                    </h:panelGrid>
                 </h:form>
             </ui:define>
 

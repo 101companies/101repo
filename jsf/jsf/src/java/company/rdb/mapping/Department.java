@@ -117,9 +117,6 @@ public class Department implements java.io.Serializable, DepartmentInterface {
 
     @Override
     public void cut() throws CompanyException {
-        
-        System.out.println("cut");
-        
         DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
         
         DepartmentDAO depDAO = daoFactory.getDepartmentDAO();
