@@ -41,7 +41,7 @@ public class RdbCompanyDAO implements CompanyDAO, Serializable {
             
             company.getName();
             
-            session.update(company);
+            session.merge(company);
             tx.commit();
         } catch (Exception e) {
             throw new CompanyException(e.getMessage());

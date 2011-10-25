@@ -42,7 +42,7 @@ public class RdbEmployeeDAO implements EmployeeDAO, Serializable {
         try {
             Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction tx = session.beginTransaction();
-            session.update(employee);
+            session.merge(employee);
             tx.commit();
         } catch (Exception e) {
             throw new SaveException(Field.name, e.getMessage());

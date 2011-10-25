@@ -44,7 +44,7 @@ public class RdbDepartmentDAO implements DepartmentDAO, Serializable {
             Transaction tx = session.beginTransaction();
             ((Department)department).setDepartments(new HashSet<DepartmentInterface>(0));
             ((Department)department).setEmployees(new HashSet<EmployeeInterface>(0));
-            session.update(department);
+            session.merge(department);
             tx.commit();
         } catch (Exception e) {
             throw new CompanyException(e.getMessage());

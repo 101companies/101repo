@@ -132,11 +132,17 @@ public class DepartmentComponent extends AbstractComponent implements Serializab
 
     @Override
     public String getManager() {
-        return this.manager.getName();
+        if (this.manager != null) {
+            return this.manager.getName();
+        }
+        return "";
     }
 
     public Integer getManagerId() {
-        return this.manager.getId();
+        if (this.manager != null) {
+            return this.manager.getId();
+        }
+        return 0;
     }
 
     @Override
