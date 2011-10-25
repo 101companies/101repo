@@ -23,6 +23,14 @@
                     <h:message for="name"/>
                 </h:form>
                 <h:form>
+                    <h:panelGrid columns="3" columnClasses="label,content,button">        
+                        <h:outputLabel for="manager" value="Manager:"/>
+                        <h:outputText id="manager" value="#{companyBean.manager}"/>
+                        <h:commandButton value="edit" actionListener="#{companyBean.navigateToManager()}" action="selectEmployee"/>
+                    </h:panelGrid>
+                    <h:message for="total"/>
+                </h:form>
+                <h:form>
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="depSelection" value="Departments:"/>
                         <h:selectOneListbox required="true" label="Department selection" id="depSelection" size="5" value="#{companyBean.selectedDepartment}">

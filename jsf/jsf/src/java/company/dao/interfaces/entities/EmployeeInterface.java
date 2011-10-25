@@ -14,4 +14,6 @@ public interface EmployeeInterface extends EntityInterface {
     
     public void setSalary(double salary);
     
+    public boolean isManager();
+    
 }

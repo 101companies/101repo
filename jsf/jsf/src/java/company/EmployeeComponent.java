@@ -93,5 +93,10 @@ public class EmployeeComponent extends AbstractComponent implements Serializable
             Logger.getLogger(EmployeeComponent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public String getManager() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }

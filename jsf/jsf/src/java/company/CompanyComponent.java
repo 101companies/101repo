@@ -4,7 +4,6 @@
  */
 package company;
 
-import company.beans.CompanyBean;
 import company.dao.exception.CompanyException;
 import company.dao.factory.DAOFactory;
 import company.dao.factory.FactoryManager;
@@ -112,6 +111,11 @@ public class CompanyComponent extends AbstractComponent implements Serializable 
         } catch (CompanyException ex) {
             Logger.getLogger(CompanyComponent.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public String getManager() {
+        throw new UnsupportedOperationException("Not supported by this class.");
     }
     
 }

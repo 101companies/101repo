@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 06.10.2011 18:06:24 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class catalog="101companies" name="company.rdb.mapping.Employee" table="employee">
+  <class catalog="test" name="company.rdb.mapping.Employee" table="employee">
     <id name="id" type="java.lang.Integer">
       <column name="id"/>
       <generator class="identity"/>

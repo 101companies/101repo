@@ -68,6 +68,10 @@ public class CompanyBean implements Serializable {
         this.selectedEmployee = selectedEmployee;
     }
     
+    public String getManager() {
+        return this.component.getManager();
+    }
+    
     public List<SelectItem> getDepartments() {
         for (SelectItem item : this.component.getDepartments()) {
             System.out.println(item.getLabel());
@@ -97,6 +101,11 @@ public class CompanyBean implements Serializable {
     public void navigateToEmployee() {
         history.push(((DepartmentComponent)component).getId());
         component = new EmployeeComponent(selectedEmployee);
+    }
+    
+    public void navigateToManager() {
+        history.push(((DepartmentComponent)component).getId());
+        component = new EmployeeComponent(((DepartmentComponent)component).getManagerId());
     }
     
     public String back() {

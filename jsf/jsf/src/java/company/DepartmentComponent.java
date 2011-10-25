@@ -35,6 +35,8 @@ public class DepartmentComponent extends AbstractComponent implements Serializab
     
     private DepartmentInterface department;
     
+    private EmployeeInterface manager;
+    
     public DepartmentComponent(int id) {
         try {
             DAOFactory daoFactory = FactoryManager.getInstance().getDaoFactory();
@@ -52,8 +54,12 @@ public class DepartmentComponent extends AbstractComponent implements Serializab
             
             Set<EmployeeInterface> emps = department.getEmployees();
             employees = new ArrayList<SelectItem>();
-            for (EmployeeInterface dep : emps) {
-                employees.add(new SelectItem(dep.getId(), dep.getName()));
+            for (EmployeeInterface emp : emps) {
+                if (emp.isManager()) {
+                    manager = emp;
+                } else {
+                    employees.add(new SelectItem(emp.getId(), emp.getName()));
+                }
             }
             Collections.sort(employees, new SelectItemComparator());
 
@@ -122,6 +128,15 @@ public class DepartmentComponent extends AbstractComponent implements Serializab
     
     public int getId() {
         return department.getId();
+    }
+
+    @Override
+    public String getManager() {
+        return this.manager.getName();
+    }
+
+    public Integer getManagerId() {
+        return this.manager.getId();
     }
     
 }
