@@ -96,7 +96,12 @@ public class EmployeeComponent extends AbstractComponent implements Serializable
 
     @Override
     public String getManager() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported by this class.");
+    }
+
+    @Override
+    public void setTotal(double total) {
+        employee.setSalary(total);
     }
     
 }

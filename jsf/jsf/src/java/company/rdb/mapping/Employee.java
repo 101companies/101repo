@@ -85,6 +85,8 @@ public class Employee implements java.io.Serializable, EmployeeInterface {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+    
+    @Override
     public boolean isManager() {
         return this.manager;
     }

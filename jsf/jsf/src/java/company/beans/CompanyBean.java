@@ -51,6 +51,10 @@ public class CompanyBean implements Serializable {
     public double getTotal() {
         return this.component.getTotal();
     }
+    
+    public void setTotal(double total) {
+        this.component.setTotal(total);
+    }
 
     public Integer getSelectedDepartment() {
         return selectedDepartment;

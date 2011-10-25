@@ -19,6 +19,8 @@ public abstract class AbstractComponent {
     
     public abstract double getTotal();
     
+    public abstract void setTotal(double total);
+    
     public abstract String getManager();
     
     public abstract List<SelectItem> getDepartments();

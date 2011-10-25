@@ -138,5 +138,10 @@ public class DepartmentComponent extends AbstractComponent implements Serializab
     public Integer getManagerId() {
         return this.manager.getId();
     }
+
+    @Override
+    public void setTotal(double total) {
+        throw new UnsupportedOperationException("Not supported by this class.");
+    }
     
 }

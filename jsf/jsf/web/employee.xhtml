@@ -28,8 +28,8 @@
                     <h:message for="address"/>
                 
                     <h:panelGrid columns="2" columnClasses="label,content">        
-                        <h:outputLabel for="total" value="Total:"/>
-                        <h:outputText id="total" value="#{companyBean.total}"/>
+                        <h:outputLabel for="total" value="Salary:"/>
+                        <h:inputText label="Total" id="total" value="#{companyBean.total}" required="true" requiredMessage="Enter a valid Salary, please."/>
                     </h:panelGrid>
                     <h:message for="total"/>
                     

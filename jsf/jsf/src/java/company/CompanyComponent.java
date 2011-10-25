@@ -117,5 +117,10 @@ public class CompanyComponent extends AbstractComponent implements Serializable 
     public String getManager() {
         throw new UnsupportedOperationException("Not supported by this class.");
     }
+
+    @Override
+    public void setTotal(double total) {
+        throw new UnsupportedOperationException("Not supported by this class.");
+    }
     
 }
