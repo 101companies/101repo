@@ -44,7 +44,7 @@ data Focus =
 We define one constructor per company datatype and one for managers. For example to construct a focus for an employee one needs to pass:
 * A list of indexes: Starting from the company root this list is used to navigate through the departments and subdepartments to the employee's department.
 * An index: The index of this employee in the employee's department's employees list.
-On top of this definition we provide functions to get sub and upper foci and to read and write company components (see [this!!Focus.hs] for details):
+On top of this definition we provide functions to get sub and upper foci and to read and write company components (see [this!!Focus.hs] for details).
 
 === The views ===
 
