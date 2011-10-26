@@ -64,7 +64,7 @@ In lines 4-8 the first part of the first argument of the wrapping pickler is <sy
 The second argument of <syntaxhighlight lang="haskell" enclose="none">xpWrap</syntaxhighlight> in lines 9-10 defines the actual pickler for the (name, departments) pair (this is <syntaxhighlight lang="haskell" enclose="none">PA a</syntaxhighlight> in the type signature of the wrapping pickler). 
 We use the combinator for pairs <syntaxhighlight lang="haskell" enclose="none">xpPair :: PU a -> PU b -> PU (a, b)</syntaxhighlight>. The pickler for the company name is defined by using a pickler for XML attributes and a pickler for text. That is, the company name should be an attribute of the "company" tag.
 The pickler for the list of departments is defined by making use of a combinator for lists and <syntaxhighlight lang="haskell" enclose="none">xpickle</syntaxhighlight>.
-Because of type inference and because we also declared a XMLPickler instance for departments, Haskell will choose the appropriate pickler function for departments.
+Because of type inference and because we also declared a <syntaxhighlight lang="haskell" enclose="none">XMLPickler</syntaxhighlight> instance for departments, Haskell will choose the appropriate pickler function for departments.
 
 === Pickling a Company ===
 
@@ -94,7 +94,7 @@ To unpickle a company the arrow function <syntaxhighlight lang="haskell" enclose
 
 == Architecture ==
 
-[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs].[this!!Total.hs] and [this!!Cut] provide totaling and cutting functionality.[this!!Main.hs] collects test scenarios for pickling/unpickling, totaling and cutting companies.
+[this!!Pickler.hs] holds the pickler definitions for companies, departments and employees. The algebraic datatype for companies can be found in [this!!Company.hs].[this!!Total.hs] and [this!!Cut] provide totaling and cutting functionality. [this!!Main.hs] collects test scenarios for pickling/unpickling, totaling and cutting companies.
 
 == Usage ==
 
