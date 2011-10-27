@@ -174,7 +174,7 @@ They return a function of type <syntaxhighlight lang="haskell" enclose="none">Mo
 
 == Usage ==
 
-* [this!!Main.hs] can to be consulted with ''runhaskell'' to avoid the compilation step.
+* [this!!Main.hs] can to be consulted with runhaskell to avoid the compilation step.
 There is a [this!!Makefile] with a target ''run'' to do this.
 * Open ''http://localhost:8000/Company/View/CompanyFocus'' to demo, starting with the root view.
 
