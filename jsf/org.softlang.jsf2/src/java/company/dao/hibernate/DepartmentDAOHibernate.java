@@ -15,10 +15,10 @@ public class DepartmentDAOHibernate
         implements DepartmentDAO {
     
     @Override
-    public List<Department> findAllForCompanyId(Long id) {
+    public List<Department> findAllForCompanyId(Long cid) {
         StringBuilder queryString = new StringBuilder("SELECT department FROM Department AS department");
         queryString.append(" WHERE department.company = ");
-        queryString.append(id);
+        queryString.append(cid);
         queryString.append(" AND department.department IS NULL");
         
         Query query = getSession().createQuery(queryString.toString());
@@ -27,10 +27,12 @@ public class DepartmentDAOHibernate
     }
 
     @Override
-    public List<Department> findAllForDepartmentId(Long id) {
+    public List<Department> findAllForDepartmentId(Long cid, Long did) {
         StringBuilder queryString = new StringBuilder("SELECT department FROM Department AS department");
-        queryString.append(" WHERE department.department = ");
-        queryString.append(id);
+        queryString.append(" WHERE department.company = ");
+        queryString.append(cid);
+        queryString.append(" AND department.department = ");
+        queryString.append(did);
         
         Query query = getSession().createQuery(queryString.toString());
         

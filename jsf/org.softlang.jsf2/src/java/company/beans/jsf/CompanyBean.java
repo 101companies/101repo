@@ -109,5 +109,9 @@ public class CompanyBean {
     public void setDepartmentId(Long departmentId) {
         this.departmentId = departmentId;
     }
+    
+    public Long getCompanyId() {
+        return this.company.getId();
+    }
 
 }

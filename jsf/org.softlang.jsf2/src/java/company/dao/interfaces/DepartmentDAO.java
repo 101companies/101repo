@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface DepartmentDAO extends GenericDAO<Department, Long> {
     
-    public List<Department> findAllForCompanyId(Long id);
+    public List<Department> findAllForCompanyId(Long cid);
     
-    public List<Department> findAllForDepartmentId(Long id);
+    public List<Department> findAllForDepartmentId(Long cid, Long did);
             
 }

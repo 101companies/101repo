@@ -16,23 +16,57 @@
             <ui:define name="content">
                 <h:form>
                     <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
+                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="name" value="Name:"/>
                         <h:inputText label="Name" id="name" value="#{departmentBean.name}" required="true" requiredMessage="Enter a valid name, please."/>
-            
                         <h:commandButton value="save" actionListener="#{departmentBean.save()}">
                             <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
+                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
                         </h:commandButton>    
                     </h:panelGrid>
                     <h:message for="name"/>
                 </h:form>
                 <h:form>
+                    <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
+                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
+                    <h:panelGrid columns="3" columnClasses="label,content,button">        
+                        <h:outputLabel for="manager" value="Manager:"/>
+                        <h:outputText id="manager" value="#{departmentBean.managerName}"/>
+                        <h:commandButton value="edit">
+                            <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
+                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                    <h:message for="total"/>
+                </h:form>
+                <h:form>
+                    <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
+                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
+                    <h:panelGrid columns="3" columnClasses="label,content,button">
+                        <h:outputLabel for="empSelection" value="Employees:"/>
+                        <h:selectOneListbox required="true" label="Department selection" id="empSelection" size="5" requiredMessage="Select an employee, please.">
+                            <f:selectItems value="#{departmentBean.employees}"/>
+                        </h:selectOneListbox>
+                        <h:commandButton value="select">
+                            <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
+                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                    <h:message for="empSelection"/>
+                </h:form>
+                <h:form>
+                    <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
+                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="depSelection" value="Departments:"/>
-                        <h:selectOneListbox required="true" label="Department selection" id="depSelection" size="5" value="#{companyBean.selectedDepartment}">
-                            <f:selectItems value="#{companyBean.departments}"/>
+                        <h:selectOneListbox required="true" label="Department selection" id="depSelection" size="5" requiredMessage="Select a department, please.">
+                            <f:selectItems value="#{departmentBean.departments}"/>
                         </h:selectOneListbox>
-                        <h:commandButton value="select" actionListener="#{companyBean.navigateToDepartment()}" action="selectDepartment"/>
+                        <h:commandButton value="select">
+                            <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
+                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
+                        </h:commandButton>
                     </h:panelGrid>
                     <h:message for="depSelection"/>
                 </h:form>
