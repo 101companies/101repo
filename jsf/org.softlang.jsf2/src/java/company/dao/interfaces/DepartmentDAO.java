@@ -1,7 +1,8 @@
 package company.dao.interfaces;
 
 import company.dao.interfaces.generic.GenericDAO;
-import company.hibernate.mapping.Department;
+import company.classes.Department;
+import java.util.List;
 
 /**
  *
@@ -9,4 +10,8 @@ import company.hibernate.mapping.Department;
  */
 public interface DepartmentDAO extends GenericDAO<Department, Long> {
     
+    public List<Department> findAllForCompanyId(Long id);
+    
+    public List<Department> findAllForDepartmentId(Long id);
+            
 }

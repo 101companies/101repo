@@ -2,7 +2,7 @@ package company.dao.hibernate;
 
 import company.dao.hibernate.generic.GenericHibernateDAO;
 import company.dao.interfaces.CompanyDAO;
-import company.hibernate.mapping.Company;
+import company.classes.Company;
 
 /**
  *

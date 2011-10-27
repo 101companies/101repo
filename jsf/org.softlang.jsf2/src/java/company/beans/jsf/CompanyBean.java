@@ -6,9 +6,11 @@ package company.beans.jsf;
 
 import company.dao.factory.DAOFactory;
 import company.dao.interfaces.EmployeeDAO;
-import company.hibernate.mapping.Company;
-import company.hibernate.mapping.Employee;
+import company.classes.Company;
+import company.classes.Department;
+import company.classes.Employee;
 import company.hibernate.util.HibernateUtil;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import javax.faces.bean.ManagedBean;
@@ -28,17 +30,19 @@ public class CompanyBean {
     private Set<Employee> employees;
     private double total;
     
+    private Company company;
+    
+    private Long departmentId;
+    
     /** Creates a new instance of CompanyBean */
     public CompanyBean() {
-        //http://community.jboss.org/wiki/GenericDataAccessObjects
         loadCompany(Long.valueOf(1));
     }
-    
     
     private void loadCompany(Long id) {
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
-        Company company = daoFactory.getCompanyDAO().findById(id, true);
+        company = daoFactory.getCompanyDAO().findById(id, true);
         name = company.getName();
         
         employees = company.getEmployees();
@@ -46,6 +50,13 @@ public class CompanyBean {
         for (Employee employee : employees) {
             total += employee.getSalary();
         }
+        
+        departments = new ArrayList<SelectItem>();
+        List<Department> depTemp = daoFactory.getDepartmentDAO().findAllForCompanyId(id);
+        for (Department dep : depTemp) {
+            departments.add(new SelectItem(dep.getId(), dep.getName()));
+        }
+        
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
     }
 
@@ -82,4 +93,21 @@ public class CompanyBean {
     public boolean isBackDisabled() {
         return true;
     }
+    
+    public void save() {
+        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
+        DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
+        company.setName(this.name);
+        daoFactory.getCompanyDAO().makePersistent(company);
+        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+    }
+    
+    public Long getDepartmentId() {
+        return this.departmentId;
+    }
+    
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
+    }
+
 }

@@ -1,4 +1,4 @@
-package company.hibernate.mapping;
+package company.classes;
 // Generated 26.10.2011 15:04:34 by Hibernate Tools 3.2.1.GA
 
 import java.io.Serializable;

@@ -1,7 +1,7 @@
 package company.dao.interfaces;
 
 import company.dao.interfaces.generic.GenericDAO;
-import company.hibernate.mapping.Company;
+import company.classes.Company;
 
 /**
  *
