@@ -31,4 +31,5 @@ public abstract class AbstractComponent {
     
     public abstract void cut();
     
+    public abstract void refresh();
 }

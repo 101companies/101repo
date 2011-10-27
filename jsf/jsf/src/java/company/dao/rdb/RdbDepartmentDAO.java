@@ -8,6 +8,7 @@ import company.rdb.mapping.Department;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
+import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,6 +18,7 @@ import util.HibernateUtil;
  *
  * @author Tobias
  */
+@Stateless
 public class RdbDepartmentDAO implements DepartmentDAO, Serializable {
 
     @Override

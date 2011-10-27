@@ -5,6 +5,7 @@ import company.dao.interfaces.CompanyDAO;
 import company.dao.interfaces.entities.CompanyInterface;
 import company.rdb.mapping.Company;
 import java.io.Serializable;
+import javax.ejb.Stateless;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -13,6 +14,7 @@ import util.HibernateUtil;
  *
  * @author Tobias
  */
+@Stateless
 public class RdbCompanyDAO implements CompanyDAO, Serializable {
 
     @Override

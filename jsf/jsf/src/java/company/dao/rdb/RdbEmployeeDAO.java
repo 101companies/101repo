@@ -8,6 +8,7 @@ import company.dao.interfaces.entities.EmployeeInterface;
 import company.rdb.mapping.Employee;
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.Stateless;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,6 +18,7 @@ import util.HibernateUtil;
  *
  * @author Tobias
  */
+@Stateless
 public class RdbEmployeeDAO implements EmployeeDAO, Serializable {
 
     @Override

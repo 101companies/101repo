@@ -149,5 +149,32 @@ public class DepartmentComponent extends AbstractComponent implements Serializab
     public void setTotal(double total) {
         throw new UnsupportedOperationException("Not supported by this class.");
     }
+
+    @Override
+    public void refresh() {
+        try {
+            Set<DepartmentInterface> deps = department.getDepartments();
+                departments = new ArrayList<SelectItem>();
+                for (DepartmentInterface dep : deps) {
+                    departments.add(new SelectItem(dep.getId(), dep.getName()));
+                }
+                Collections.sort(departments, new SelectItemComparator());
+
+                Set<EmployeeInterface> emps = department.getEmployees();
+                employees = new ArrayList<SelectItem>();
+                for (EmployeeInterface emp : emps) {
+                    if (emp.isManager()) {
+                        manager = emp;
+                    } else {
+                        employees.add(new SelectItem(emp.getId(), emp.getName()));
+                    }
+                }
+                Collections.sort(employees, new SelectItemComparator());
+
+                total = department.total();
+        } catch (CompanyException ex) {
+            Logger.getLogger(DepartmentComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

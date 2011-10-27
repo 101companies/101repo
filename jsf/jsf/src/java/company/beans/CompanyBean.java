@@ -22,13 +22,13 @@ public class CompanyBean implements Serializable {
     private Integer selectedDepartment;
     private Integer selectedEmployee;
     
-    private Stack<Integer> history;
+    private Stack<AbstractComponent> history;
     
     private AbstractComponent component;
     
     public CompanyBean() {
         System.out.println("CompanyBean");
-        history = new Stack<Integer>();
+        history = new Stack<AbstractComponent>();
         this.component = new CompanyComponent();
     }
 
@@ -96,28 +96,26 @@ public class CompanyBean implements Serializable {
     }
     
     public void navigateToDepartment() {
-        if (component instanceof DepartmentComponent) {
-            history.push(((DepartmentComponent)component).getId());
-        }
+        history.push(component);
         component = new DepartmentComponent(selectedDepartment);
     }
     
     public void navigateToEmployee() {
-        history.push(((DepartmentComponent)component).getId());
+        history.push(component);
         component = new EmployeeComponent(selectedEmployee);
     }
     
     public void navigateToManager() {
-        history.push(((DepartmentComponent)component).getId());
+        history.push(component);
         component = new EmployeeComponent(((DepartmentComponent)component).getManagerId());
     }
     
     public String back() {
-        if (history.isEmpty()) {
-            component = new CompanyComponent();
+        component = history.pop();
+        component.refresh();
+        if (component instanceof CompanyComponent) {
             return "company";
         } else {
-            component = new DepartmentComponent(history.pop());
             return "department";
         }
     }

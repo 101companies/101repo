@@ -122,5 +122,21 @@ public class CompanyComponent extends AbstractComponent implements Serializable 
     public void setTotal(double total) {
         throw new UnsupportedOperationException("Not supported by this class.");
     }
+
+    @Override
+    public void refresh() {
+        try {
+            Set<DepartmentInterface> deps = company.getDepartments();
+            departments = new ArrayList<SelectItem>();
+            for (DepartmentInterface dep : deps) {
+                System.out.println(dep.getName());
+                departments.add(new SelectItem(dep.getId(), dep.getName()));
+            }
+            Collections.sort(departments, new SelectItemComparator());
+            total = company.total();
+        } catch (CompanyException ex) {
+            Logger.getLogger(CompanyComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

@@ -103,5 +103,10 @@ public class EmployeeComponent extends AbstractComponent implements Serializable
     public void setTotal(double total) {
         employee.setSalary(total);
     }
+
+    @Override
+    public void refresh() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }
