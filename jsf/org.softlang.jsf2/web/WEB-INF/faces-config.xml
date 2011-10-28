@@ -16,10 +16,6 @@
                         <name>departmentId</name>
                         <value>#{companyBean.departmentId}</value>
                     </view-param>
-                    <view-param>
-                        <name>companyId</name>
-                        <value>#{companyBean.companyId}</value>
-                    </view-param>
                 </redirect>
             </navigation-case>
         </navigation-rule>
@@ -27,8 +23,53 @@
         <navigation-rule>
             <from-view-id>/department.xhtml</from-view-id>
             <navigation-case>
-                <from-outcome>back</from-outcome>
+                <from-outcome>backToCompany</from-outcome>
                 <to-view-id>/company.xhtml</to-view-id>
             </navigation-case>
+            <navigation-case>
+                <from-outcome>backToDepartment</from-outcome>
+                <to-view-id>/department.xhtml</to-view-id>
+                <redirect>
+                    <view-param>
+                        <name>departmentId</name>
+                        <value>#{departmentBean.previousDepartment}</value>
+                    </view-param>
+                </redirect>
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>selectDepartment</from-outcome>
+                <to-view-id>/department.xhtml</to-view-id>
+                <redirect>
+                    <view-param>
+                        <name>departmentId</name>
+                        <value>#{departmentBean.nextDepartment}</value>
+                    </view-param>
+                </redirect>
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>selectEmployee</from-outcome>
+                <to-view-id>/employee.xhtml</to-view-id>
+                <redirect>
+                    <view-param>
+                        <name>employeeId</name>
+                        <value>#{departmentBean.nextEmployee}</value>
+                    </view-param>
+                </redirect>
+            </navigation-case>
         </navigation-rule>
+        
+        <navigation-rule>
+            <from-view-id>/employee.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>back</from-outcome>
+                <to-view-id>/department.xhtml</to-view-id>
+                <redirect>
+                    <view-param>
+                        <name>departmentId</name>
+                        <value>#{employeeBean.previousDepartment}</value>
+                    </view-param>
+                </redirect>
+            </navigation-case>
+        </navigation-rule>
+        
 </faces-config>

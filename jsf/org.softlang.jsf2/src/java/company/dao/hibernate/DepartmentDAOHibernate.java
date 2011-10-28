@@ -27,11 +27,9 @@ public class DepartmentDAOHibernate
     }
 
     @Override
-    public List<Department> findAllForDepartmentId(Long cid, Long did) {
+    public List<Department> findAllForDepartmentId(Long did) {
         StringBuilder queryString = new StringBuilder("SELECT department FROM Department AS department");
-        queryString.append(" WHERE department.company = ");
-        queryString.append(cid);
-        queryString.append(" AND department.department = ");
+        queryString.append(" WHERE department.department = ");
         queryString.append(did);
         
         Query query = getSession().createQuery(queryString.toString());

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                <h2>Employee View</h2>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <h:inputHidden id="employeeId" value="${employeeBean.currentEmployee}"/>
+                    <h:panelGrid columns="2" columnClasses="label,content">
+                        <h:outputLabel for="name" value="Name:"/>
+                        <h:inputText label="Name" id="name" value="#{employeeBean.name}" required="true" requiredMessage="Enter a valid name, please."/>
+                        
+                    </h:panelGrid>
+                    <h:message for="name"/>
+                    
+                    <h:panelGrid columns="2" columnClasses="label,content,button">
+                        <h:outputLabel for="address" value="Address:"/>
+                        <h:inputText label="Address" id="address" value="#{employeeBean.address}" required="true" requiredMessage="Enter a valid address, please."/>
+                    </h:panelGrid>
+                    <h:message for="address"/>
+                
+                    <h:panelGrid columns="2" columnClasses="label,content">        
+                        <h:outputLabel for="total" value="Salary:"/>
+                        <h:inputText label="Total" id="total" value="#{employeeBean.salary}" required="true" requiredMessage="Enter a valid Salary, please."/>
+                    </h:panelGrid>
+                    <h:message for="total"/>
+                    
+                    <h:panelGrid columns="2" columnClasses="button, button">
+                        <h:commandButton value="save" actionListener="#{employeeBean.save()}">
+                            <f:param name="employeeId" value="#{employeeBean.currentEmployee}"/>
+                        </h:commandButton>
+                        <h:commandButton value="cut" actionListener="#{employeeBean.cut()}">
+                            <f:param name="employeeId" value="#{employeeBean.currentEmployee}"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+                <h:form>
+                    <h:inputHidden id="employeeId" value="${employeeBean.currentEmployee}"/>
+                    <h:panelGrid columns="1" columnClasses="button">
+                        <h:commandButton value="back" action="back">
+                            <f:param name="employeeId" value="#{employeeBean.currentEmployee}"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

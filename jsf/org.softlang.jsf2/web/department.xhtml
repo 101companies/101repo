@@ -10,62 +10,54 @@
         <ui:composition template="./template.xhtml">
 
             <ui:define name="top">
-                <h2> Company View</h2>
+                <h2>Department View</h2>
             </ui:define>
 
             <ui:define name="content">
                 <h:form>
                     <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
-                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="name" value="Name:"/>
                         <h:inputText label="Name" id="name" value="#{departmentBean.name}" required="true" requiredMessage="Enter a valid name, please."/>
                         <h:commandButton value="save" actionListener="#{departmentBean.save()}">
                             <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
-                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
                         </h:commandButton>    
                     </h:panelGrid>
                     <h:message for="name"/>
                 </h:form>
                 <h:form>
                     <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
-                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
                     <h:panelGrid columns="3" columnClasses="label,content,button">        
                         <h:outputLabel for="manager" value="Manager:"/>
                         <h:outputText id="manager" value="#{departmentBean.managerName}"/>
                         <h:commandButton value="edit">
                             <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
-                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
                         </h:commandButton>
                     </h:panelGrid>
                     <h:message for="total"/>
                 </h:form>
                 <h:form>
                     <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
-                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="empSelection" value="Employees:"/>
-                        <h:selectOneListbox required="true" label="Department selection" id="empSelection" size="5" requiredMessage="Select an employee, please.">
+                        <h:selectOneListbox required="true" label="Department selection" id="empSelection" size="5" requiredMessage="Select an employee, please." value="#{departmentBean.nextEmployee}">
                             <f:selectItems value="#{departmentBean.employees}"/>
                         </h:selectOneListbox>
-                        <h:commandButton value="select">
+                        <h:commandButton value="select" action="selectEmployee">
                             <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
-                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
                         </h:commandButton>
                     </h:panelGrid>
                     <h:message for="empSelection"/>
                 </h:form>
                 <h:form>
                     <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
-                    <h:inputHidden id="companyId" value="#{departmentBean.currentCompany}"/>
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="depSelection" value="Departments:"/>
-                        <h:selectOneListbox required="true" label="Department selection" id="depSelection" size="5" requiredMessage="Select a department, please.">
+                        <h:selectOneListbox required="true" label="Department selection" id="depSelection" size="5" requiredMessage="Select a department, please." value="#{departmentBean.nextDepartment}">
                             <f:selectItems value="#{departmentBean.departments}"/>
                         </h:selectOneListbox>
-                        <h:commandButton value="select">
+                        <h:commandButton value="select" action="selectDepartment">
                             <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
-                            <f:param name="companyId" value="#{departmentBean.currentCompany}"/>
                         </h:commandButton>
                     </h:panelGrid>
                     <h:message for="depSelection"/>
@@ -74,8 +66,11 @@
             
             <ui:define name="bottom">
                 <h:form>
+                    <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
                     <h:panelGrid columns="1" columnClasses="button">
-                        <h:commandButton value="back" action="back"/>
+                        <h:commandButton value="back" action="#{departmentBean.back()}">
+                            <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
+                        </h:commandButton>
                     </h:panelGrid>
                 </h:form>
             </ui:define>

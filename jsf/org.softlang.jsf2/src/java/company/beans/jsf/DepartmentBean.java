@@ -11,7 +11,6 @@ import company.dao.interfaces.DepartmentDAO;
 import company.hibernate.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -35,7 +34,11 @@ public class DepartmentBean {
     private Department department;
     
     private Long currentDepartment;
-    private Long currentCompany;
+    
+    private Long nextDepartment;
+    private Long previousDepartment;
+    
+    private Long nextEmployee;
     
     /** Creates a new instance of DepartmentBean */
     public DepartmentBean() {
@@ -43,21 +46,25 @@ public class DepartmentBean {
 
         String did = request.getParameter("departmentId");
         currentDepartment = Long.valueOf(did);
-        String cid = request.getParameter("companyId");
-        currentCompany = Long.valueOf(cid);
         
-        loadDepartment(currentCompany, currentDepartment);
+        loadDepartment(currentDepartment);
     }
     
-    private void loadDepartment(Long cid, Long did) {
+    private void loadDepartment(Long did) {
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
         DepartmentDAO departmentDAO = daoFactory.getDepartmentDAO();
         this.department = departmentDAO.findById(did, true);
         this.name = this.department.getName();
         
+        if (department.getDepartment() == null) {
+            previousDepartment = null;
+        } else {
+            previousDepartment = department.getDepartment().getId();
+        }
+        
         this.departments = new ArrayList<SelectItem>();
-        List<Department> depTemp = departmentDAO.findAllForDepartmentId(cid, did);
+        List<Department> depTemp = departmentDAO.findAllForDepartmentId(did);
         for (Department dep : depTemp) {
             this.departments.add(new SelectItem(dep.getId(), dep.getName()));
         }
@@ -90,14 +97,6 @@ public class DepartmentBean {
         this.currentDepartment = currentDepartment;
     }
 
-    public Long getCurrentCompany() {
-        return currentCompany;
-    }
-
-    public void setCurrentCompany(Long currentCompany) {
-        this.currentCompany = currentCompany;
-    }
-
     public Department getDepartment() {
         return department;
     }
@@ -116,6 +115,38 @@ public class DepartmentBean {
 
     public String getManagerName() {
         return manager.getName();
+    }
+
+    public Long getNextDepartment() {
+        return nextDepartment;
+    }
+
+    public void setNextDepartment(Long departmentId) {
+        this.nextDepartment = departmentId;
+    }
+
+    public Long getNextEmployee() {
+        return nextEmployee;
+    }
+
+    public void setNextEmployee(Long nextEmployee) {
+        this.nextEmployee = nextEmployee;
+    }
+    
+    public String back() {
+        if (previousDepartment == null) {
+            return "backToCompany";
+        } else {
+            return "backToDepartment";
+        }
+    }
+    
+    public Long getPreviousDepartment() {
+        return previousDepartment;
+    }
+
+    public void setPreviousDepartment(Long previousDepartment) {
+        this.previousDepartment = previousDepartment;
     }
     
     public void save() {
