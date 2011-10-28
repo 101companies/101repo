@@ -10,7 +10,7 @@
         <ui:composition template="./template.xhtml">
 
             <ui:define name="top">
-                <h2> Company View</h2>
+                <h2>Company View</h2>
             </ui:define>
 
             <ui:define name="content">
@@ -18,17 +18,17 @@
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="name" value="Name:"/>
                         <h:inputText label="Name" id="name" value="#{companyBean.name}" required="true" requiredMessage="Enter a valid name, please."/>
-                        <h:commandButton value="save"/>
+                        <h:commandButton value="save" actionListener="#{companyBean.save()}"/>
                     </h:panelGrid>
                     <h:message for="name"/>
                 </h:form>
                 <h:form>
                     <h:panelGrid columns="3" columnClasses="label,content,button">
                         <h:outputLabel for="depSelection" value="Departments:"/>
-                        <h:selectOneListbox label="Department selection" id="depSelection" size="5" required="true" requiredMessage="Select a department, please.">
-                            <f:selectItems/>
+                        <h:selectOneListbox label="Department selection" id="depSelection" size="5" required="true" requiredMessage="Select a department, please." value="#{companyBean.departmentId}">
+                            <f:selectItems value="#{companyBean.departments}"/>
                         </h:selectOneListbox>
-                        <h:commandButton value="select" action="select"/>
+                        <h:commandButton value="select" action="selectDepartment"/>
                     </h:panelGrid>
                     <h:message for="depSelection"/>
                 </h:form> 
@@ -42,6 +42,15 @@
                 </h:form>
             </ui:define>
 
+            
+            <ui:define name="bottom">
+                <h:form>
+                    <h:panelGrid columns="1" columnClasses="button">
+                        <h:commandButton value="back" disabled="true"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+            
         </ui:composition>
 
     </body>
