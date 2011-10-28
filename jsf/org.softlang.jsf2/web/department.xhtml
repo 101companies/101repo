@@ -30,7 +30,7 @@
                     <h:panelGrid columns="3" columnClasses="label,content,button">        
                         <h:outputLabel for="manager" value="Manager:"/>
                         <h:outputText id="manager" value="#{departmentBean.managerName}"/>
-                        <h:commandButton value="edit">
+                        <h:commandButton value="edit" actionListener="#{departmentBean.selectManager()}" action="selectEmployee">
                             <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
                         </h:commandButton>
                     </h:panelGrid>
@@ -61,6 +61,17 @@
                         </h:commandButton>
                     </h:panelGrid>
                     <h:message for="depSelection"/>
+                </h:form>
+                <h:form>
+                    <h:inputHidden id="departmentId" value="${departmentBean.currentDepartment}"/>
+                    <h:panelGrid columns="3" columnClasses="label,content,button">        
+                        <h:outputLabel for="total" value="Total:"/>
+                        <h:outputText id="total" value="#{departmentBean.total}"/>
+                        <h:commandButton value="cut" actionListener="#{departmentBean.cut()}">
+                            <f:param name="departmentId" value="#{departmentBean.currentDepartment}"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                    <h:message for="total"/>
                 </h:form>
             </ui:define>
             

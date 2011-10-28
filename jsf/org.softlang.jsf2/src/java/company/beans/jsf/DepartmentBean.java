@@ -8,6 +8,7 @@ import company.classes.Department;
 import company.classes.Employee;
 import company.dao.factory.DAOFactory;
 import company.dao.interfaces.DepartmentDAO;
+import company.dao.interfaces.EmployeeDAO;
 import company.hibernate.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,9 @@ public class DepartmentBean {
     
     private Long nextEmployee;
     
+    private EmployeeDAO employeeDAO;
+    private DepartmentDAO departmentDAO;
+    
     /** Creates a new instance of DepartmentBean */
     public DepartmentBean() {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -53,7 +57,7 @@ public class DepartmentBean {
     private void loadDepartment(Long did) {
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
-        DepartmentDAO departmentDAO = daoFactory.getDepartmentDAO();
+        this.departmentDAO = daoFactory.getDepartmentDAO();
         this.department = departmentDAO.findById(did, true);
         this.name = this.department.getName();
         
@@ -63,14 +67,17 @@ public class DepartmentBean {
             previousDepartment = department.getDepartment().getId();
         }
         
+        total = 0;
+        
         this.departments = new ArrayList<SelectItem>();
-        List<Department> depTemp = departmentDAO.findAllForDepartmentId(did);
-        for (Department dep : depTemp) {
+        for (Department dep : department.getDepartments()) {
             this.departments.add(new SelectItem(dep.getId(), dep.getName()));
+            total += total(dep);
         }
         
         this.employees = new ArrayList<SelectItem>();
         for (Employee emp : department.getEmployees()) {
+            total += emp.getSalary();
            if (emp.isManager()) {
                manager = emp;
            } else {
@@ -79,6 +86,29 @@ public class DepartmentBean {
         }
         
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+    }
+    
+    private double total(Department dep) {
+        double totalTemp = 0;
+        List<Department> depsTemp = departmentDAO.findAllForDepartmentId(dep.getId());
+        for (Department depTemp : depsTemp) {
+            totalTemp += total(depTemp);
+        }
+        for (Employee emp : dep.getEmployees()) {
+            totalTemp += emp.getSalary();
+        }
+        return totalTemp;
+    }
+    
+    private void cut(Department dep) {
+        List<Department> depsTemp = departmentDAO.findAllForDepartmentId(dep.getId());
+        for (Department depTemp : depsTemp) {
+            cut(depTemp);
+        }
+        for (Employee emp : dep.getEmployees()) {
+            emp.setSalary(emp.getSalary() / 2);
+            employeeDAO.makePersistent(emp);
+        }
     }
 
     public String getName() {
@@ -148,12 +178,40 @@ public class DepartmentBean {
     public void setPreviousDepartment(Long previousDepartment) {
         this.previousDepartment = previousDepartment;
     }
+
+    public double getTotal() {
+        return total;
+    }
+    
+    public void selectManager() {
+        nextEmployee = manager.getId();
+    }
     
     public void save() {
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
         department.setName(this.name);
         daoFactory.getDepartmentDAO().makePersistent(department);
+        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+    }
+    
+    public void cut() {
+        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
+        DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
+        this.departmentDAO = daoFactory.getDepartmentDAO();
+        this.employeeDAO = daoFactory.getEmployeeDAO();
+        
+        for (Department dep : department.getDepartments()) {
+            cut(dep);
+        }
+        
+        for (Employee emp : department.getEmployees()) {
+            emp.setSalary(emp.getSalary() / 2);
+            employeeDAO.makePersistent(emp);
+        }
+        
+        total = total / 2;
+        
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
     }
     
