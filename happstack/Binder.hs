@@ -11,6 +11,8 @@ import Total
 import Validators
 import Types
 
+tDir = "templates"
+
 focus2view CompanyFocus = "Company"
 focus2view (DeptFocus _) = "Department"
 focus2view (EmployeeFocus _ _) = "Employee"

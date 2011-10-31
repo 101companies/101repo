@@ -14,8 +14,6 @@ import Cut
 import Types
 import Validators
 
-tDir = "templates"
-
 readCCookie = readCookieValue "company"
 
 -- save s.th by reading the parameters, validating them 
