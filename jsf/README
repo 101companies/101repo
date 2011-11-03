@@ -70,9 +70,9 @@ The ''commandButton'' creates an html-button with the name "cut", specified by t
 
 * The [[Technology:JavaServer Faces|JSF]]-framework creates [[Language:HTML]]- and [[Language:JavaScript]]-code out of the [[Technology:Facelets]]. Within this [[Language:JavaScript]], the [[client]] creates requests to the [[server]] via [[Technology:XMLHttpRequest]].
 
-* The [[Technology:Java Beans]] encapsulate business methods to create the webservices, which send the responses to the [[client]]-requests.
+* The [[Technology:Java Beans]] encapsulate business methods to create the webservices, which send the responses to the [[client]]-requests. The used webserver for this webservices is [[Technology:Glassfish]].
 
-* The grid for the main [[101feature:Interaction|GUI]] features is implemented via template ([this!!org.softlang.jsf/web/template.xhtml template.xhtml]).
+* The grid for the main [[101feature:Interaction|GUI]] features is implemented via [this!!org.softlang.jsf/web/template.xhtml template]. This template adjusts the headline, content-frame and button-line for each view.
 
 == Usage ==
 
