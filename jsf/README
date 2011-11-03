@@ -37,7 +37,7 @@ This implementation covers the popular approach for [[Web-application programmin
 
 == Usage ==
 
-You need a web- and sql-server to use this application. In this tutorial both will be taken by XAMPP: http://www.apachefriends.org/en/xampp.html
+You need an sql-server to use this application. In this tutorial both will be taken by XAMPP: http://www.apachefriends.org/en/xampp.html
 
 You can use the ''company.sql'' and ''sampleCompany.sql'' of [[101implementation:mySql]] for this project.
 
