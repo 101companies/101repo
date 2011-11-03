@@ -43,7 +43,7 @@ The features [[101feature:Cut]] and [[101feature:Total]] are implemented by [[Te
 
 </syntaxhighlight>
 
-This button invokes the method ''cut()'' in [this!!org.softlang.jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java]:
+The ''h:commandButton'' creates an html-button with the name "cut", specified by the attribute ''value''. The action-listener invokes the method ''cut()'' in the managed [[Technology:Java Beans|bean]] [this!!org.softlang.jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java]:
 
 <syntaxhighlight lang="java">
 
