@@ -34,7 +34,7 @@ the SEAM framework.
 == Usage ==
 
 * '''Requirements:'''
-** [[Technology:JBoss|JBoss]]-4.2.x (http://sourceforge.net/projects/jboss/files/JBoss/JBoss-4.2.3.GA)
+** [[Technology:JBoss Application Server]] Version 4.2.x (http://sourceforge.net/projects/jboss/files/JBoss/JBoss-4.2.3.GA)
 ** [[Technology:Eclipse]]
 * '''Import:'''
 ** Import the seam project as a java project into eclipse.
