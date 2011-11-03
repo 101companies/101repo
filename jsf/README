@@ -37,6 +37,23 @@ This implementation covers the popular approach for [[Web-application programmin
 
 == Usage ==
 
+You need a web- and sql-server to use this application. In this tutorial both will be taken by XAMPP: http://www.apachefriends.org/en/xampp.html
+
+You can use the ''company.sql'' and ''sampleCompany.sql'' of [[101implementation:mySql]] for this project.
+
+* Download and install XAMPP
+* Open the "XAMPP Control Panel" and start "Apache" and "MySQL"
+* Use the guideline of [[101implementation:mySql]] up to "Populate tables..."
+
+After the database is running, follow the next steps:
+
+* To start the application, you need to download all project-files except the README
+* Open the project with [[Technology:NetBeans]] (http://netbeans.org/)
+* Select the project, right click and ''run''
+* The glassfish-server (and a browser window) with the application will start automatically
+
+The project is implemented with [[Technology:NetBeans]] 7.0.1. You will need the full version with an installed [[Technology:Glassfish]] [[webserver]].
+
 == Contributors ==
 
 * {{101contributor|Tobias Zimmer|developer}}
