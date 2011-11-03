@@ -29,7 +29,7 @@
 
 == Motivation ==
 
-This implementation covers the popular approach for [[Web-application programming]] with [[Technology:JavaServer Faces]].
+This implementation covers the popular approach for [[Web-application programming]] with [[Technology:JavaServer Faces]]. It introduces the [[Technology:Glassfish]] [[webserver]]. The implementation illustrates the use of [[Pattern:Model View Controller|MVC]] and [[Pattern:Data Access Object]]. The view and controller are implemented with [[Technology:JavaServer Faces]], where the model is implemented with [[Technology:Hibernate]].
 
 == Illustration ==
 
