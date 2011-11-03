@@ -66,6 +66,8 @@ The ''h:commandButton'' creates an html-button with the name "cut", specified by
 
 == Architecture ==
 
+* The architecture is based on the [[Pattern:Model View Controller|MVC]]-Pattern. View and Controller are implemented with the [[Technology:JavaServer Faces|JSF]]-technology. The [[101feature:Interaction|GUI]] is made with [[Technology:Facelets]], e. g. [this!!org.softlang.jsf/web/company.xhtml company.xhtml], [this!!org.softlang.jsf/web/department.xhtml department.xhtml], [this!!org.softlang.jsf/web/employee.xhtml employee.xhtml].
+
 == Usage ==
 
 You need an sql-server to use this application. In this tutorial both will be taken by XAMPP: http://www.apachefriends.org/en/xampp.html
