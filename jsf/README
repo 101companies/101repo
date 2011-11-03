@@ -36,12 +36,18 @@ This implementation covers the popular approach for [[Web-application programmin
 The features [[101feature:Cut]] and [[101feature:Total]] are implemented by [[Technology:Java Beans]]. In case of [[101feature:Company|company]] the [this!!org.softlang.jsf/web/company.xhtml company.xhtml] contains a button:
 
 <syntaxhighlight lang="xml">
+
+    ...
     <h:commandButton value="cut" actionListener="#{companyBean.cut()}"/>
+    ...
+
 </syntaxhighlight>
 
 This button invokes the method ''cut()'' in [this!!org.softlang.jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java]:
 
 <syntaxhighlight lang="java">
+
+    // this method cuts all employees of the loaded company
     public void cut() {
         HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
         DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
@@ -55,6 +61,7 @@ This button invokes the method ''cut()'' in [this!!org.softlang.jsf/src/java/com
         total = total / 2;
         HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
     }
+
 </syntaxhighlight>
 
 == Architecture ==
