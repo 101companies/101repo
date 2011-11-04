@@ -28,7 +28,7 @@ We make use of the WebDSL Plugin. Update Site: http://webdsl.org/page/Download
 
 * Build the project by running the Ant Build file
 * Select the project in the package explorer -> right click -> Run As -> Run on Server
-* Select your preferred server (we made use of Apache -> Tomcat v6.0 Server) and click "Next"
+* Select your preferred server (we made use of [[Technology:Apache Tomcat]] v6.0 Server) and click "Next"
 * Click "Download and Install" and follow the menu's steps
 * Click "Finish"
 * The project will be published on the installed server
