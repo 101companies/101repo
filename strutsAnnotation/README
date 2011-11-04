@@ -119,7 +119,7 @@ the next listing.
 	
 === Requirements ===
 	
-	        Any web server based on Servlet technology, such as Tomcat.
+	        Any web server based on Servlet technology, such as [[Technology:Apache Tomcat]].
 	        
 === Build === 
 
@@ -135,4 +135,3 @@ the next listing.
 == Contributors ==
 	   
 * {{101contributor|Rodrigo Bonifacio|developer}}
- 
