@@ -29,7 +29,7 @@
 
 == Motivation ==
 
-This implementation covers the popular approach for [[Web-application programming]] with [[Technology:JavaServer Faces]]. It introduces the [[Technology:Glassfish]] [[webserver]]. The implementation illustrates the use of [[Pattern:Model View Controller|MVC]] and [[Pattern:Data Access Object]]. The view and controller are implemented with [[Technology:JavaServer Faces]], where the model is implemented with [[Technology:Hibernate]].
+This implementation covers the popular approach for [[Web-application programming]] with [[Technology:JavaServer Faces]]. It introduces the [[Technology:GlassFish]] [[:Category:Webserver]]. The implementation illustrates the use of the [[Pattern:Model View Controller|MVC]]- and [[Pattern:Data Access Object|DAO]]-[[:Category:Pattern|patterns]]. The view and controller are implemented with [[Technology:JavaServer Faces]], where the model is implemented with [[Technology:Hibernate]].
 
 == Illustration ==
 
@@ -93,7 +93,7 @@ After the database is running, follow the next steps:
 * Select the project, right click and ''run''
 * The glassfish-server (and a browser window) with the application will start automatically
 
-The project is implemented with [[Technology:NetBeans]] 7.0.1. You will need the full version with an installed [[Technology:Glassfish]] [[webserver]].
+The project is implemented with [[Technology:NetBeans]] 7.0.1. You will need the full version with an installed [[Technology:GlassFish]] [[:Category:Webserver]].
 
 == Contributors ==
 
