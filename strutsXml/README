@@ -153,7 +153,7 @@ value of a call to the cutSalaries method.
 == Usage ==
 
 (a) run mvn clean package
-(b) copy the target/struts.war file to the webapps direcoty of your Tomcat distribution
+(b) copy the target/struts.war file to the webapps direcoty of your [[Technology:Apache Tomcat]] distribution
 (c) start your Tomcat distribution
 (d) point your browser to http://localhost:8080/struts (replacing the port if necessary) 
 
