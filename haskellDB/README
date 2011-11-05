@@ -53,7 +53,7 @@ By looking at the return type of the function one can see that any database func
 
 === DBDirect ===
 
-We use the DBDirect command <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc</syntaxhighlight> to generate a module describing the database (see the usage section for the complete command). This command generates a module describing the database by naming tables and fields. Compiling this module with GHC creates one module per table, each module holding actual variables for tables and fields. These variables are the basis for the following totaling query.
+We use the DBDirect command <syntaxhighlight lang="make" enclose="none">dbdirect-hdbc-odbc</syntaxhighlight> (see the usage section for the complete command). This command generates a module describing the database by naming tables and fields. Compiling this module with GHC creates one module per table, each module holding actual variables for tables and fields. These variables are the basis for the following totaling query.
 
 === Totaling ===
 
@@ -111,7 +111,7 @@ print $ res!ttl
 
 == Architecture ==
 
-We provide MySQL-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's relational algebra library. [this!!MyConnection.hs] encapsulates the process of connecting to the MySql database. [this!!Main.hs] collects test scenarios for totaling and cutting.
+We provide MySQL-scripts to create (see [this!!Company.sql]) company tables and populate (see [this!!Meganalysis.sql]) these tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using HaskellDB's relational algebra library. [this!!MyConnection.hs] encapsulates the process of connecting to the MySQL database. [this!!Main.hs] collects test scenarios for totaling and cutting.
 
 == Usage ==
 
