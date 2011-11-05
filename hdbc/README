@@ -70,7 +70,7 @@ Functionality to cut all salaries uses an UPDATE statement instead of SELECT (se
 
 == Architecture ==
 
-[this!!Company.sql] and [this!!Meganalysis.sql] provide SQL-scripts to create and populate company tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL Statements. [this!!Main.hs] collects test scenarios for totaling and cutting.
+[this!!Company.sql] and [this!!Meganalysis.sql] provide SQL-scripts to create and populate company tables. [this!!Total.hs] and [this!!Cut.hs] provide totaling and cutting functionality using SQL statements. [this!!Main.hs] collects test scenarios for totaling and cutting.
 
 == Usage ==
 
@@ -91,7 +91,7 @@ In the following we explain the steps for the MySQL Workbench <cite>mysqlworkben
 * Connect to the database in MySQL Workbench.
 * Select the "101companies" schema or create it.
 * Create company tables: Run the SQL script [this!!Company.sql].
-* Populate company tables: Run the SQL script [this!!sampleCompany.sql].
+* Populate company tables: Run the SQL script [this!!Meganalysis.sql].
 
 === Testing ===
 
