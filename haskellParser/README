@@ -100,7 +100,7 @@ parsedCompany <- liftM parseCompany $
 </syntaxhighlight>
 
 The variable <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> either holds a <syntaxhighlight lang="haskell" enclose="none">ParseError</syntaxhighlight> value or a parsed company. 
-We define print-function handling both cases:
+We define a function for printing, which handles both cases:
 
 <syntaxhighlight lang="haskell" source="haskellParser/Main.hs" line>
 eitherPrint :: Show a => Either ParseError Company -> (Company -> a) -> IO ()
@@ -112,13 +112,13 @@ In case parsing was successful this function applies a given function to the com
 We can use this function to print the total salary of <syntaxhighlight lang="haskell" enclose="none">parsedCompany</syntaxhighlight> in case of parsing success:
 
 <syntaxhighlight lang="haskell" line>
-rightApplyPrint parsedCompany total
+eitherPrint parsedCompany total
 </syntaxhighlight>
 
 == Architecture ==
 
 [this!!Parser.hs] provides the Parsec-based parser. [this!!Company.hs] holds the algebraic datatype for companies, 
-while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany] holds a sample company used to be compared to a parsed sample company (hosted by [this!!sample.Company]). [this!!Main.hs] collects test scenarios.
+while [this!!Total.hs] and [this!!Cut.hs] provide functionality to total and cut companies. [this!!SampleCompany.hs] holds a sample company used to be compared to a parsed sample company (hosted by [this!!sample.Company]). [this!!Main.hs] collects test scenarios.
 
 == Usage ==
 
