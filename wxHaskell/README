@@ -135,7 +135,7 @@ main :: IO ()
 main = start gui
 </syntaxhighlight>
 
-In lines 3-7 <syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. The function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company in line 8.
+In lines 3-7 <syntaxhighlight lang="haskell" enclose="none">gui</syntaxhighlight> creates the main frame for all views passing a list attributes, which are assigned by making use of assign operator <syntaxhighlight lang="haskell" enclose="none">(:=)</syntaxhighlight>. In the last line the function calls <syntaxhighlight lang="haskell" enclose="none">showCompany</syntaxhighlight> passing the frame, the root focus and a sample company in line 8.
 
 == Architecture ==
 
