@@ -126,7 +126,7 @@ The algebraic datatype for companies can be found in [this!!Company.hs]. [this!!
 == Usage ==
 
 * First you need a webserver. In the following we explain the steps for XAMPP<cite>xampp</cite>.
-* Compile to a CGI file using GHC: <syntaxhighlight lang="make">ghc --make -o company.cgi Main.hs</syntaxhighlight>
+* Compile [this!!Main.hs] to a CGI file using GHC: <syntaxhighlight lang="make">ghc --make -o company.cgi Main.hs</syntaxhighlight>
 * Place ''company.cgi'' in the folder ''cgi-bin'' of your XAMPP installation.
 * Place [this!!style.css] in the folder ''htdocs'' of your XAMPP installation.
 * Open ''http://localhost/cgi-bin/haskellCGI/company.cgi'' in a web browser to see the application's root view.
