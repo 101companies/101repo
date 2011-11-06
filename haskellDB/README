@@ -27,7 +27,7 @@ type-save [[:Category:Database_management_system|database]] programming with [[T
 == Motivation ==
 
 We make use of [[Technology:HaskellDB|HaskellDB]] to express [[:Category:Database_management_system|database]] [[Query|queries]] as [[Language:Haskell]] functions rather than [[Language:SQL]]-statements (like in the [[101implementation:hdbc|hdbc]] implementation). That is, we use the rich combinator [[:Category:Library|library]] of HaskellDB to express [[101feature:Total|totaling]] and [[101feature:Cut|cutting]] statements based on [[Relational algebra|relational algebra]]. We illustrate combinators for projection, selection, aggregation and renaming. Query results are [[101feature:Mapping|mapped]] to values of user-defined attributes in Haskell.
-We connect to the underlining [[Technology:MySQL]] database through a HaskellDB-[[Technology:HDBC]]-[[Technology:ODBC]] backend. We show the common approach of separating query/statement definition from the actual [[:Category:Database management system|database implementation]]-dependent query/statement execution <cite>bringert2004student</cite>. That is, the queries and statements themselves are database implementation-independent.
+We connect to the underlining [[Technology:MySQL]] database through a HaskellDB-[[Technology:HDBC]]-[[Technology:ODBC]] back-end. We show the common approach of separating query/statement definition from the actual [[:Category:Database management system|database implementation]]-dependent query/statement execution <cite>bringert2004student</cite>. That is, the queries and statements themselves are database implementation-independent.
 
 This implementation also demonstrates the use of [[Technology:DBDirect]]. We use this tool to generate modules describing the database. These modules are the basis for querying the relational data.
 
@@ -48,7 +48,7 @@ execute = connect driver conf
            , ("Database", "101companies") ]
 </syntaxhighlight>
 
-We use <syntaxhighlight lang="haskell" enclose="none">connect</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">driver</syntaxhighlight>, which are both provided by the HDBC-ODBC backend.
+We use <syntaxhighlight lang="haskell" enclose="none">connect</syntaxhighlight> and <syntaxhighlight lang="haskell" enclose="none">driver</syntaxhighlight>, which are both provided by the HDBC-ODBC back-end.
 By looking at the return type of the function one can see that any database function of type <syntaxhighlight lang="haskell" enclose="none">Database -> IO a</syntaxhighlight> can be applied to <syntaxhighlight lang="haskell" enclose="none">execute</syntaxhighlight> resulting in the specified IO action and possibly a result of type <syntaxhighlight lang="haskell" enclose="none">a</syntaxhighlight>. By encapsulating the connection process like this we achieve complete independence from the underling database implementation for all queries and statements. 
 
 === DBDirect ===
