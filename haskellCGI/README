@@ -107,7 +107,7 @@ writeCCookie s = setCookie $
 
 After the company data is saved in the cookie <syntaxhighlight lang="haskell" enclose="none">doCut</syntaxhighlight> calls <syntaxhighlight lang="haskell" enclose="none">html</syntaxhighlight> passing the focus and the new company:
 
-<syntaxhighlight lang="haskell" source="haskellCGI/CompanyHTML.hs" line>
+<syntaxhighlight lang="haskell" source="haskellCGI/CompanyHtml.hs" line>
 html :: Focus -> Company -> Html
 html f = case f of 
   CompanyFocus        -> companyHtml f
