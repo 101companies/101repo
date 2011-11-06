@@ -164,7 +164,7 @@ displayPart v f c errs = do
               EmployeeV -> "employee"
 </syntaxhighlight>
 
-In lines 8-16 <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> decides which template and which binder to apply by making use of a <syntaxhighlight lang="haskell" enclose="none">case</syntaxhighlight> expression on the given view. The binder will bind all template variables to strings or small HTML fragments (splices). After that <syntaxhighlight lang="haskell" enclose="none">eNamesBinder</syntaxhighlight> will bind the error messages to template varibales. Both binders can be found in [this!!Binder.hs]. 
+In lines 8-16 <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> decides which template and which binder to apply by making use of a <syntaxhighlight lang="haskell" enclose="none">case</syntaxhighlight> expression on the given view. The binder will bind all template variables to strings or small HTML fragments (splices). After that <syntaxhighlight lang="haskell" enclose="none">eNamesBinder</syntaxhighlight> will bind the error messages to template variables. Both binders can be found in [this!!Binder.hs]. 
 They return a function of type <syntaxhighlight lang="haskell" enclose="none">Monad m => TemplateState m -> TemplateState m</syntaxhighlight>. That is, binders are state transformers for templates.
 <syntaxhighlight lang="haskell" enclose="none">displayPart</syntaxhighlight> then renders the HTML document, which is sent to the client as the response in line 6.
 
