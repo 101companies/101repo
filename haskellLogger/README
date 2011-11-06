@@ -52,7 +52,7 @@ To prettyPrint this log we indent all log lines using the given indent size <syn
 
 == Architecture ==
 
-[this!!Total.hs] and [this!!Cut.hs] contain functionality to total and cut salaries while logging the process of doing so. [this!!Types.hs] holds the log type and a function for pretty printing logs. The algebraic datatype for companies can be found in [this!!Company.hs]. [this!!Main.hs] collects test scenarios for totaling and cutting a sample company provided by [this!!SampleCompany.hs].
+[this!!Total.hs] and [this!!Cut.hs] contain functionality to total and cut salaries while logging the process of doing so. [this!!Types.hs] holds the log type and a function for prettyprinting logs. The algebraic datatype for companies can be found in [this!!Company.hs]. [this!!Main.hs] collects test scenarios for totaling and cutting a sample company provided by [this!!SampleCompany.hs].
 
 == Usage ==
 
