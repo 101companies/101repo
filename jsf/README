@@ -74,7 +74,7 @@ The ''commandButton'' creates an html-button with the name "cut", specified by t
 
 * The grid for the main [[101feature:Interaction|GUI]] features is implemented via [this!!org.softlang.jsf/web/template.xhtml template]. This template adjusts the headline, content-frame and button-line for each view.
 
-* The model is realized as [[Pattern:Data Access Object|DAOs]]. The [[Technology:Java Beans]] call the DAO-methods and the DAOs fill the [this!!org.softlang.jsf/src/java/company/classes/company.java company]]-, [this!!org.softlang.jsf/src/java/company/classes/department.java department]]- and [this!!org.softlang.jsf/src/java/company/classes/employee.java employee]]-objects. In case of this implementation, the DAO connects to a [[Technology:MySQL]]-Database via [[Technology:Hibernate]].
+* The model is realized as [[Pattern:Data Access Object|DAOs]]. The [[Technology:Java Beans]] call the DAO-methods and the DAOs fill the [this!!org.softlang.jsf/src/java/company/classes/company.java company]-, [this!!org.softlang.jsf/src/java/company/classes/department.java department]- and [this!!org.softlang.jsf/src/java/company/classes/employee.java employee]-objects. In case of this implementation, the DAO connects to a [[Technology:MySQL]]-Database via [[Technology:Hibernate]].
 
 == Usage ==
 
