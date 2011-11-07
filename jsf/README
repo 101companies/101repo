@@ -33,7 +33,7 @@ This implementation covers the popular approach for [[Web-application programmin
 
 == Illustration ==
 
-The features [[101feature:Cut]] and [[101feature:Total]] are implemented by [[Technology:Java Beans]]. In case of [[101feature:Company|company]] the [this!!org.softlang.jsf/web/company.xhtml company.xhtml] contains a button:
+The features [[101feature:Cut]] and [[101feature:Total]] are implemented by [[Technology:Java Beans]]. In case of [[101feature:Company|company]] the [this!!jsf/web/company.xhtml company.xhtml] contains a button:
 
 <syntaxhighlight lang="xml">
 
@@ -43,7 +43,7 @@ The features [[101feature:Cut]] and [[101feature:Total]] are implemented by [[Te
 
 </syntaxhighlight>
 
-The ''commandButton'' creates an html-button with the name "cut", specified by the attribute ''value''. The action-listener invokes the method ''cut()'' in the managed [[Technology:Java Beans|bean]] [this!!org.softlang.jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java]:
+The ''commandButton'' creates an html-button with the name "cut", specified by the attribute ''value''. The action-listener invokes the method ''cut()'' in the managed [[Technology:Java Beans|bean]] [this!!jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java]:
 
 <syntaxhighlight lang="java">
 
@@ -66,7 +66,7 @@ The ''commandButton'' creates an html-button with the name "cut", specified by t
 
 == Architecture ==
 
-* The architecture is based on the [[Pattern:Model View Controller|MVC]]-Pattern. View and Controller are implemented with the [[Technology:JavaServer Faces|JSF]]-technology. The view is made with [[Technology:Facelets]], e. g. [this!!org.softlang.jsf/web/company.xhtml company.xhtml], [this!!org.softlang.jsf/web/department.xhtml department.xhtml], [this!!org.softlang.jsf/web/employee.xhtml employee.xhtml]. The controller is made with [[Technology:Java Beans#Managed Beans|managed beans]]. The view invokes the specific methods of this controller [this!!org.softlang.jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java], [this!!org.softlang.jsf/src/java/company/beans/jsf/DepartmentBean.java DepartmentBean.java] and [this!!org.softlang.jsf/src/java/company/beans/jsf/EmployeeBean.java EmployeeBean.java].
+* The architecture is based on the [[Pattern:Model View Controller|MVC]]-Pattern. View and Controller are implemented with the [[Technology:JavaServer Faces|JSF]]-technology. The view is made with [[Technology:Facelets]], e. g. [this!!jsf/web/company.xhtml company.xhtml], [this!!jsf/web/department.xhtml department.xhtml], [this!!jsf/web/employee.xhtml employee.xhtml]. The controller is made with [[Technology:Java Beans#Managed Beans|managed beans]]. The view invokes the specific methods of this controller [this!!jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java], [this!!jsf/src/java/company/beans/jsf/DepartmentBean.java DepartmentBean.java] and [this!!jsf/src/java/company/beans/jsf/EmployeeBean.java EmployeeBean.java].
 
 * The [[Technology:JavaServer Faces|JSF]]-framework creates [[Language:HTML]]- and [[Language:JavaScript]]-code out of the [[Technology:Facelets]]. Within this [[Language:JavaScript]], the [[client]] creates requests to the [[:Category:Server]] via [[Technology:XMLHttpRequest]].
 
@@ -74,7 +74,7 @@ The ''commandButton'' creates an html-button with the name "cut", specified by t
 
 * The grid for the main [[101feature:Interaction|GUI]] features is implemented via [this!!org.softlang.jsf/web/template.xhtml template]. This template adjusts the headline, content-frame and button-line for each view.
 
-* The model is realized as [[Pattern:Data Access Object|DAOs]]. The [[Technology:Java Beans]] call the DAO-methods and the DAOs fill the [this!!org.softlang.jsf/src/java/company/classes/company.java company]-, [this!!org.softlang.jsf/src/java/company/classes/department.java department]- and [this!!org.softlang.jsf/src/java/company/classes/employee.java employee]-objects. In case of this implementation, the DAO connects to a [[Technology:MySQL]]-Database via [[Technology:Hibernate]].
+* The model is realized as [[Pattern:Data Access Object|DAOs]]. The [[Technology:Java Beans]] call the DAO-methods and the DAOs fill the [this!!jsf/src/java/company/classes/company.java company]-, [this!!jsf/src/java/company/classes/department.java department]- and [this!!jsf/src/java/company/classes/employee.java employee]-objects. In case of this implementation, the DAO connects to a [[Technology:MySQL]]-Database via [[Technology:Hibernate]].
 
 == Usage ==
 
