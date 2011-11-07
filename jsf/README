@@ -35,7 +35,7 @@ This implementation covers the popular approach for [[Web-application programmin
 
 The features [[101feature:Cut]] and [[101feature:Total]] are implemented by [[Technology:Java Beans]]. In case of [[101feature:Company|company]] the [this!!jsf/web/company.xhtml company.xhtml] contains a button:
 
-<syntaxhighlight lang="xml">
+<syntaxhighlight lang="xml" source="jsf/web/company.xhtml" line>
 
     ...
     <h:commandButton value="cut" actionListener="#{companyBean.cut()}"/>
@@ -45,7 +45,7 @@ The features [[101feature:Cut]] and [[101feature:Total]] are implemented by [[Te
 
 The ''commandButton'' creates an html-button with the name "cut", specified by the attribute ''value''. The action-listener invokes the method ''cut()'' in the managed [[Technology:Java Beans|bean]] [this!!jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java]:
 
-<syntaxhighlight lang="java">
+<syntaxhighlight lang="java" source="jsf/src/java/company/beans/jsf/CompanyBean.java" line>
 
     // this method cuts all employees of the loaded company
     public void cut() {
