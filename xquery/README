@@ -11,7 +11,7 @@ exercise [[:Category:XML processing]] with [[Language:XQuery]]
 
 * [[Technology:Saxon]]: Free XQuery
 * [[Technology:BaseX]]: Free XQuery incl. update facility
-* [[Technology:JSE]]: Version 6 needed for BaseX
+* [[Technology:Java SE]]: Version 6 needed for BaseX
 
 == Features ==
 
