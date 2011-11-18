@@ -15,7 +15,7 @@
 * [[Technology:Hibernate]]
 * [[Language:Java]]-[[:Category:Annotation|annotations]]
 * [[Technology:NetBeans]]
-* [[Technology:Glassfish]]
+* [[Technology:GlassFish]]
 
 == Features ==
 
@@ -29,7 +29,7 @@
 
 == Motivation ==
 
-This implementation covers the popular approach for [[Web-application programming]] with [[Technology:JavaServer Faces]]. It introduces the [[Technology:GlassFish]] [[:Category:Application server]]. The implementation illustrates the use of the [[Pattern:Model View Controller|MVC]]- and [[Pattern:Data Access Object|DAO]]-[[:Category:Pattern|patterns]]. The view and controller are implemented with [[Technology:JavaServer Faces]], where the model is implemented with [[Technology:Hibernate]].
+This implementation covers the popular approach for [[web programming]] with [[Technology:JavaServer Faces]]. It introduces the [[Technology:GlassFish]] [[:Category:Application server]]. The implementation illustrates the use of the [[Model View Controller|MVC]]- and [[Data Access Object|DAO]]-[[:Category:Pattern|patterns]]. The view and controller are implemented with [[Technology:JavaServer Faces]], where the model is implemented with [[Technology:Hibernate]].
 
 == Illustration ==
 
@@ -65,15 +65,15 @@ public void cut() {
 
 == Architecture ==
 
-* The architecture is based on the [[Pattern:Model View Controller|MVC]]-Pattern. View and Controller are implemented with the [[Technology:JavaServer Faces|JSF]]-technology. The view is made with [[Technology:Facelets]], e. g. [this!!jsf/web/company.xhtml company.xhtml], [this!!jsf/web/department.xhtml department.xhtml], [this!!jsf/web/employee.xhtml employee.xhtml]. The controller is made with [[Technology:Java Beans#Managed Beans|managed beans]]. The view invokes the specific methods of this controller [this!!jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java], [this!!jsf/src/java/company/beans/jsf/DepartmentBean.java DepartmentBean.java] and [this!!jsf/src/java/company/beans/jsf/EmployeeBean.java EmployeeBean.java].
+* The architecture is based on the [[Model View Controller|MVC]]-[[:Category:Pattern|pattern]]. View and Controller are implemented with the [[Technology:JavaServer Faces|JSF]]-technology. The view is made with [[Technology:Facelets]], e. g. [this!!jsf/web/company.xhtml company.xhtml], [this!!jsf/web/department.xhtml department.xhtml], [this!!jsf/web/employee.xhtml employee.xhtml]. The controller is made with [[Technology:Java Beans#Managed Beans|managed beans]]. The view invokes the specific methods of this controller [this!!jsf/src/java/company/beans/jsf/CompanyBean.java CompanyBean.java], [this!!jsf/src/java/company/beans/jsf/DepartmentBean.java DepartmentBean.java] and [this!!jsf/src/java/company/beans/jsf/EmployeeBean.java EmployeeBean.java].
 
-* The [[Technology:JavaServer Faces|JSF]]-framework creates [[Language:HTML]]- and [[Language:JavaScript]]-code out of the [[Technology:Facelets]]. Within this [[Language:JavaScript]], the [[client]] creates requests to the [[:Category:Server]] via [[Technology:XMLHttpRequest]].
+* The [[Technology:JavaServer Faces|JSF]]-framework creates [[Language:HTML]]- and [[Language:JavaScript]]-code out of the [[Technology:Facelets]]. Within this [[Language:JavaScript]], the [[:Category:Client]] creates requests to the [[:Category:Server]] via [[Technology:XMLHttpRequest]].
 
 * The [[Technology:Java Beans]] encapsulate business methods to create the webservices, which send the responses to the [[:Category:Client]]-requests. The used [[:Category:Webserver]] for this webservices is [[Technology:GlassFish]].
 
 * The grid for the main [[101feature:Interaction|GUI]] features is implemented via [this!!jsf/web/template.xhtml template]. This template adjusts the headline, content-frame and button-line for each view.
 
-* The model is realized as [[Pattern:Data Access Object|DAOs]]. The [[Technology:Java Beans]] call the DAO-methods and the DAOs fill the [this!!jsf/src/java/company/classes/company.java company]-, [this!!jsf/src/java/company/classes/department.java department]- and [this!!jsf/src/java/company/classes/employee.java employee]-objects. In case of this implementation, the DAO connects to a [[Technology:MySQL]]-Database via [[Technology:Hibernate]].
+* The model is realized as [[Data Access Object|DAOs]]. The [[Technology:Java Beans]] call the DAO-methods and the DAOs fill the [this!!jsf/src/java/company/classes/company.java company]-, [this!!jsf/src/java/company/classes/department.java department]- and [this!!jsf/src/java/company/classes/employee.java employee]-objects. In case of this implementation, the DAO connects to a [[Technology:MySQL]]-Database via [[Technology:Hibernate]].
 
 == Usage ==
 
