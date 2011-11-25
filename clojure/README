@@ -1,7 +1,7 @@
 == Intent == 
 a simple clojure implementation
 
-== Description ==
+== Motivation ==
 
 We define the company's hierarchical structure by making use of clojure's defrecord.
 defrecord will generate compiled class bytecode for companies, departments and employees. Each class with a set of the given fields. 
