@@ -15,13 +15,11 @@ In company.clj we make use of clojure's defrecord to define the companies struct
 scenarios.clj provides functionality to cut and total salaries.
 A sample company can be found in meganalysis.clj
 
-== Requirements ==
+== Usage ==
 
 We make use of CounterClockwise: http://code.google.com/p/counterclockwise/ 
 Update Site:
 http://updatesite.counterclockwise.googlecode.com/hg/
-
-== Usage ==
 
 To run a demo:
 * Open meganalysis.clj
