@@ -7,7 +7,7 @@ We define the company's hierarchical structure by making use of clojure's defrec
 defrecord will generate compiled class bytecode for companies, departments and employees. Each class with a set of the given fields. 
 
 There are two scenarios: Cutting and summing up salaries in a company.
-We also provide a sample company (meganalysis).   
+We also provide a sample company ("meganalysis").   
 
 === Architecture ===
  
