@@ -21,7 +21,7 @@ We make use of CounterClockwise: http://code.google.com/p/counterclockwise/
 Update Site:
 http://updatesite.counterclockwise.googlecode.com/hg/
 
-== Demo ==
+== Usage ==
 
 To run a demo:
 * Open meganalysis.clj
