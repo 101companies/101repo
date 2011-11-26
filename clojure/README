@@ -13,7 +13,7 @@ We also provide a sample company (meganalysis).
  
 In company.clj we make use of clojure's defrecord to define the companies structure.
 scenarios.clj provides functionality to cut and total salaries.
-A sample company can be found in meganalysis.clj
+A sample company can be found in meganalysis.clj.
 
 == Usage ==
 
