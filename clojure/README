@@ -18,8 +18,7 @@ A sample company can be found in meganalysis.clj.
 == Usage ==
 
 We make use of CounterClockwise: http://code.google.com/p/counterclockwise/ 
-Update Site:
-http://updatesite.counterclockwise.googlecode.com/hg/
+Update Site: http://updatesite.counterclockwise.googlecode.com/hg/
 
 To run a demo:
 * Open meganalysis.clj
