@@ -1,4 +1,4 @@
-module company			// Companymodel
+module company			
 
 	entity Company {
 		name :: String
