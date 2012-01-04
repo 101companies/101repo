@@ -88,7 +88,7 @@ namespace csharpBaseline
                                                           {
                                                              new Department("Dev 1.1", new Employee(new Person("Karl"){Address = "Riga"}){Salary = 2345, Id = Guid.Parse("DDC2AC74-5BB0-4C14-A4E3-071C47579E23")})
                                                                  {
-                                                                     Id = Guid.Parse("A4DC6AC2-70E7-448D-86F4-39A1D6784C69"),
+                                                                     Id = Guid.Parse("94474108-B8EF-4622-9289-C93B82576FDD"),
                                                                      Employees = new List<Employee>
                                                                                      {
                                                                                          new Employee(new Person("Joe"){Address = "Wifi City"}){Salary = 2344, Id = Guid.Parse("0EDFB6FC-FCAA-4479-A711-DBC677EF7097")}
