@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>meganalysis</Name>
+  <Departments>
+    <Department>
+      <Name>Research</Name>
+      <Manager>
+        <Salary>123456</Salary>
+        <Person>
+          <Name>Craig</Name>
+          <Address>Redmond</Address>
+        </Person>
+      </Manager>
+      <Employees>
+        <Employee>
+          <Salary>12345</Salary>
+          <Person>
+            <Name>Erik</Name>
+            <Address>Utrecht</Address>
+          </Person>
+        </Employee>
+        <Employee>
+          <Salary>1234</Salary>
+          <Person>
+            <Name>Ralf</Name>
+            <Address>Koblenz</Address>
+          </Person>
+        </Employee>
+      </Employees>
+      <SubDepartments />
+    </Department>
+    <Department>
+      <Name>Development</Name>
+      <Manager>
+        <Salary>234567</Salary>
+        <Person>
+          <Name>Ray</Name>
+          <Address>Redmond</Address>
+        </Person>
+      </Manager>
+      <Employees />
+        <SubDepartments>
+        <Department>
+          <Name>Dev1</Name>
+          <Manager>
+            <Salary>23456</Salary>
+            <Person>
+              <Name>Klaus</Name>
+              <Address>Boston</Address>
+            </Person>
+          </Manager>
+          <Employees />
+          <SubDepartments>
+            <Department>
+              <Name>Dev 1.1</Name>
+              <Manager>
+                <Salary>2345</Salary>
+                <Person>
+                  <Name>Karl</Name>
+                  <Address>Riga</Address>
+                </Person>
+              </Manager>
+              <Employees>
+                <Employee>
+                  <Salary>2344</Salary>
+                  <Person>
+                    <Name>Joe</Name>
+                    <Address>Wifi City</Address>
+                  </Person>
+                </Employee>
+              </Employees>
+              <SubDepartments />
+            </Department>
+          </SubDepartments>
+        </Department>
+      </SubDepartments>
+    </Department>
+  </Departments>
+</Company>
