@@ -7,18 +7,21 @@
   		<%= @employee.name %>
 	</p>
   </div>
+  <hr>
   <div class="attr">
 	<p>
   		<b>Address:</b>
   		<%= @employee.address %>
 	</p>
   </div>
+  <hr>
   <div class="attr">
 	<p>
   		<b>Salary:</b>
   		<%= @employee.salary %>
 	</p>
   </div>
+  <hr>
   <%= link_to 'Edit', edit_employee_path(@employee) %> |
   <%= link_to 'Back', employees_path %>
 </div>

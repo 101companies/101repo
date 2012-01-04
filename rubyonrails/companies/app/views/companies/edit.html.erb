@@ -3,7 +3,18 @@
   <h1>Editing company</h1>
   <%= render 'form' %>
   <hr>
-  <h2>Add a department:</h2>
+  <div class="attr">
+  	<p>
+  		<h3>Sub departments:</h3>
+  	</p>
+  	<% @company.departments.each do |department| %>
+  		<p>
+    		<%= department.name %>
+    		<%= link_to 'Remove', department, :confirm => 'Are you sure?', :method => :delete %>
+  		</p>
+  	<% end %>
+  </div>
+  <h3>Add a department:</h3>
    <%= form_for([@company, @company.departments.build]) do |f| %>
   	  <div class="field">
     	<%= f.label :name %><br />

@@ -3,7 +3,32 @@
   <h1>Editing department</h1>
   <%= render 'form' %>
   <hr>
-  <h2>Add a department:</h2>
+  <div class="attr">
+  	<p>
+  		<h3>Manager:</h3>
+  	</p>
+  	<% @department.employees.each do |employee| %>
+  		<p>
+    		<% if (employee.isManager?) %>
+    			<%=	employee.name %>
+    			<%= link_to 'Remove', employee, :confirm => 'Are you sure?', :method => :delete %>
+    		<% end %> 
+  		</p>
+  	<% end %>
+  </div>
+  <hr>
+  <div class="attr">
+  	<p>
+  		<h3>Sub departments:</h3>
+  	</p>
+  	<% @department.departments.each do |subdepartment| %>
+  		<p>
+    		<%= subdepartment.name %>
+    		<%= link_to 'Remove', subdepartment, :confirm => 'Are you sure?', :method => :delete %>
+  		</p>
+  	<% end %>
+  </div>
+  <b>Add a department:</b>
    <%= form_for([@department, @department.departments.build]) do |f| %>
   	  <div class="field">
     	<%= f.label :name %><br />
@@ -14,11 +39,26 @@
       </div>
   <% end %>
   <hr>
-  <h2>Add an employee:</h2>
+  <div class="attr">
+  	<p>
+  		<h3>Employees:</h3>
+  	</p>
+  	<% @department.employees.each do |employee| %>
+  		<p>
+    		<% if (!employee.isManager?) %>
+    			<%=	employee.name %>
+    			<%= link_to 'Remove', employee, :confirm => 'Are you sure?', :method => :delete %>
+    		<% end %> 
+  		</p>
+  	<% end %>
+  </div>
+  <b>Add an employee:</b>
    <%= form_for([@department, @department.employees.build]) do |f| %>
   	  <div class="field">
     	<%= f.label :name %><br />
     	<%= f.text_field :name %>
+    	Set as manager?
+    	<%= f.check_box :isManager %>
   	  </div>
   	  <div class="actions">
         <%= f.submit %>

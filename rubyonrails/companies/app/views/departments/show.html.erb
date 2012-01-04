@@ -7,6 +7,22 @@
   		<%= @department.name %>
 	</p>
   </div>
+  <hr>
+  <div class="attr">
+  	<p>
+  		<b>Manager:</b>
+  	</p>
+  	<% @department.employees.each do |employee| %>
+  		<p>
+    		<%= 
+    			if (employee.isManager?)
+    				link_to employee.name, employee_path(employee) 
+    			end 
+    		%>
+  		</p>
+  	<% end %>
+  </div>
+  <hr>
   <div class="attr">
   	<p>
   		<b>Sub departments:</b>
@@ -17,16 +33,22 @@
   		</p>
   	<% end %>
   </div>
+  <hr>
   <div class="attr">
   	<p>
   		<b>Employees:</b>
   	</p>
   	<% @department.employees.each do |employee| %>
   		<p>
-    		<%= link_to employee.name, employee_path(employee) %>
+    		<%= 
+    			if (!employee.isManager?)
+    				link_to employee.name, employee_path(employee) 
+    			end 
+    		%>
   		</p>
   	<% end %>
   </div>
+  <hr>
   <%= link_to 'Edit', edit_department_path(@department) %> |
   <%= link_to 'Back', departments_path %>
 </div>

@@ -36,6 +36,7 @@ div.content p {
 }
 
 a {
+ font-size: 15px;
  color: #354B7E;
 }
 a:visited {
