@@ -1,0 +1,32 @@
+<div class="headline"><h2>101companies Ruby on Rails Web App</h2></div>
+<div class="content">
+  <p id="notice"><%= notice %></p>
+  <div class="attr">
+	<p>
+  		<b>Name:</b>
+  		<%= @department.name %>
+	</p>
+  </div>
+  <div class="attr">
+  	<p>
+  		<b>Sub departments:</b>
+  	</p>
+  	<% @department.departments.each do |subdepartment| %>
+  		<p>
+    		<%= link_to subdepartment.name, department_path(subdepartment) %>
+  		</p>
+  	<% end %>
+  </div>
+  <div class="attr">
+  	<p>
+  		<b>Employees:</b>
+  	</p>
+  	<% @department.employees.each do |employee| %>
+  		<p>
+    		<%= link_to employee.name, employee_path(employee) %>
+  		</p>
+  	<% end %>
+  </div>
+  <%= link_to 'Edit', edit_department_path(@department) %> |
+  <%= link_to 'Back', departments_path %>
+</div>

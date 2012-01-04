@@ -1,0 +1,45 @@
+<div class="headline"><h2>101companies Ruby on Rails Web App</h2></div>
+<div class="content">
+<h1>Listing employees</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Salary</th>
+    <th>Ismanager</th>
+    <th>Department</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= employee.name %></td>
+    <td><%= employee.address %></td>
+    <td><%= employee.salary %></td>
+    <td><%= 
+    		if (employee.isManager?)  
+    			 "Yes"
+    		else
+    			 "No"
+    		end
+    	%>
+    </td>
+ 	<td><%= 
+    		if (!employee.department.nil?)  
+    			 employee.department.name
+    		end
+    	%>
+    </td>
+    <td><%= link_to 'Show', employee %></td>
+    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+    <td><%= link_to 'Destroy', employee, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Employee', new_employee_path %>

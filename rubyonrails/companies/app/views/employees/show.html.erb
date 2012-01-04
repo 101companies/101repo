@@ -1,0 +1,24 @@
+<div class="headline"><h2>101companies Ruby on Rails Web App</h2></div>
+<div class="content">
+  <p id="notice"><%= notice %></p>
+  <div class="attr">
+	<p>
+  		<b>Name:</b>
+  		<%= @employee.name %>
+	</p>
+  </div>
+  <div class="attr">
+	<p>
+  		<b>Address:</b>
+  		<%= @employee.address %>
+	</p>
+  </div>
+  <div class="attr">
+	<p>
+  		<b>Salary:</b>
+  		<%= @employee.salary %>
+	</p>
+  </div>
+  <%= link_to 'Edit', edit_employee_path(@employee) %> |
+  <%= link_to 'Back', employees_path %>
+</div>

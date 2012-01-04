@@ -1,0 +1,22 @@
+<div class="headline"><h2>101companies Ruby on Rails Web App</h2></div>
+<div class="content">
+  <p id="notice"><%= notice %></p>
+  <div class="attr">
+  	<p>
+    	<b>Name:</b>
+    	<%= @company.name %>
+  	</p>
+  </div>
+  <div class="attr">
+  	<p>
+    	<b>Departments:</b>
+  	</p>
+  	<% @company.departments.each do |department| %>
+  		<p>
+    		<%= link_to department.name, department_path(department) %>
+  		</p>
+  	<% end %>
+  </div>
+  <%= link_to 'Edit', edit_company_path(@company) %> |
+  <%= link_to 'Back', companies_path %>
+</div>

@@ -1,0 +1,38 @@
+<div class="headline"><h2>101companies Ruby on Rails Web App</h2></div>
+<div class="content">
+<h1>Listing departments</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Company</th>
+    <th>Department</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @departments.each do |department| %>
+  <tr>
+    <td><%= department.name %></td>
+    <td><%= 
+    		if (!department.company.nil?)  
+    			 department.company.name
+    		end
+    	%>
+    </td>
+    <td><%= 
+    		if (!department.department.nil?)  
+    			 department.department.name
+    		end
+    	%>
+    </td>
+    <td><%= link_to 'Show', department %></td>
+    <td><%= link_to 'Edit', edit_department_path(department) %></td>
+    <td><%= link_to 'Destroy', department, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Department', new_department_path %>

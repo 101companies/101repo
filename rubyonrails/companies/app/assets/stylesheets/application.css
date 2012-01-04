@@ -1,0 +1,44 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+body {
+ text-align: center;
+ font-family: #E8E8E8;
+ background-color: gray;
+}
+
+div.headline {
+ margin: 10px 300px 10px 300px;
+ color: white;
+ padding: 4px 0px 4px 0px;
+ background-color: #A3141B;
+ background-image: url('/assets/rails.png');
+ background-repeat: no-repeat;
+ background-position: 20px;
+ box-shadow: 0 -3px -3px rgba(0,0,0,0.5), inset 0px 0px 8px rgba(0,0,0,0.5);
+}
+
+div.content {
+ margin: 10px 300px 20px 300px;
+ padding: 10px 20px 10px 20px;
+ text-align:left;
+ background-color: white;
+ box-shadow: 0 -3px -3px rgba(0,0,0,0.5), inset 0px 0px 8px rgba(0,0,0,0.5);
+}
+
+div.content p {
+ font-size: 18px;
+}
+
+a {
+ color: #354B7E;
+}
+a:visited {
+ color:#354B7E;
+}
+

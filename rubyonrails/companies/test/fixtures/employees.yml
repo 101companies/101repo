@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  salary: 1.5
+  isManager: false
+  department: 
+
+two:
+  name: MyString
+  address: MyString
+  salary: 1.5
+  isManager: false
+  department: 

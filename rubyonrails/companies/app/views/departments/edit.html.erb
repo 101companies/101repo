@@ -1,0 +1,29 @@
+<div class="headline"><h2>101companies Ruby on Rails Web App</h2></div>
+<div class="content">
+  <h1>Editing department</h1>
+  <%= render 'form' %>
+  <hr>
+  <h2>Add a department:</h2>
+   <%= form_for([@department, @department.departments.build]) do |f| %>
+  	  <div class="field">
+    	<%= f.label :name %><br />
+    	<%= f.text_field :name %>
+  	  </div>
+  	  <div class="actions">
+        <%= f.submit %>
+      </div>
+  <% end %>
+  <hr>
+  <h2>Add an employee:</h2>
+   <%= form_for([@department, @department.employees.build]) do |f| %>
+  	  <div class="field">
+    	<%= f.label :name %><br />
+    	<%= f.text_field :name %>
+  	  </div>
+  	  <div class="actions">
+        <%= f.submit %>
+      </div>
+  <% end %>
+  <%= link_to 'Show', @department %> |
+  <%= link_to 'Back', departments_path %>
+</div>
