@@ -21,12 +21,23 @@ namespace csharpAspNetMvc
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    "Default", // Route name
+            //    "{controller}/{action}/{id}", // URL with parameters
+            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            //);
+
             routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+               "Default", // Route name
+               "{controller}/{action}/",
+               new { controller = "Company", action = "Index" } // Parameter defaults
             );
 
+            routes.MapRoute(
+               "Department", // Route name
+               "{controller}/{action}/{id}", // URL with parameters
+               new { controller = "Departmnent", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
         }
 
         protected void Application_Start()

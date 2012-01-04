@@ -1,0 +1,30 @@
+﻿@model csharpBaseline.CompanyModel.Department
+           
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<h3>Manager:</h3>
+<h4>@Model.Manager.Person.Name</h4>
+<h4>@Model.Manager.Person.Address</h4>
+<h4>@Model.Manager.Salary</h4>
+
+<h4>SubDepartments:</h4>
+<ul>
+@foreach (var d in Model.SubDepartments)
+{
+    <li>@Html.ActionLink(d.Name, "Index", "Department", new {id = d.Id}, null)</li>
+}
+</ul>
+
+<h4>Employees</h4>
+@foreach (var e in Model.Employees)
+{
+    <h4>@e.Person.Name</h4>
+    <h4>@e.Person.Address</h4>
+    <h4>@e.Salary</h4>
+    <br />
+}
+
