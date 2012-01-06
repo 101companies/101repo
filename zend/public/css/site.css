@@ -1,0 +1,65 @@
+/* 
+    Document   : site
+    Created on : 21.11.2011, 12:46:29
+    Author     : Tobias
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body,html {
+    margin: 0 5px;
+    font-family: Verdana,sans-serif;
+}
+
+h1 {
+    font-size: 1.4em;
+    color: #008000;
+}
+
+a {
+    color: #008000;
+}
+
+/* Table */
+th {
+    text-align: left;
+}
+
+td, th {
+    padding-right: 5px;
+}
+
+/* style form */
+form dt {
+    width: 120px;
+    display: block;
+    float: left;
+    clear: left;
+}
+
+form dd {
+    margin-left: 0;
+    float: left;
+}
+
+select {
+    width:150px;
+}
+
+input {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+form #submitbutton {
+    margin-left: 100px;
+}
