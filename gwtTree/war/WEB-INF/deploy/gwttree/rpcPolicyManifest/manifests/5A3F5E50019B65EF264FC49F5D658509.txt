@@ -1,0 +1,2 @@
+serviceClass: org.softlang.client.interfaces.TreeService
+path: 46024ADFB1D1F64781376A2B08815113.gwt.rpc

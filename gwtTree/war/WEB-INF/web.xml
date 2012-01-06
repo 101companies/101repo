@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+	<!-- Servlets -->	
+	<servlet>
+		<servlet-name>treeServlet</servlet-name>
+		<servlet-class>org.softlang.server.TreeServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>companyServlet</servlet-name>
+		<servlet-class>org.softlang.server.CompanyServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>departmentServlet</servlet-name>
+		<servlet-class>org.softlang.server.DepartmentServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>employeeServlet</servlet-name>
+		<servlet-class>org.softlang.server.EmployeeServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>treeServlet</servlet-name>
+		<url-pattern>/gwttree/tree</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>companyServlet</servlet-name>
+		<url-pattern>/gwttree/company</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>departmentServlet</servlet-name>
+		<url-pattern>/gwttree/department</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>employeeServlet</servlet-name>
+		<url-pattern>/gwttree/employee</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>gwtTree.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
