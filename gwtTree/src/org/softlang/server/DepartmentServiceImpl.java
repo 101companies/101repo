@@ -110,4 +110,10 @@ public class DepartmentServiceImpl extends RemoteServiceServlet implements Depar
 		return getDepartment(id);
 	}
 
+	@Override
+	public boolean delete(Integer id) {
+		CompanyApp.getInstance().deleteDepartment(id);		
+		return true;
+	}
+
 }

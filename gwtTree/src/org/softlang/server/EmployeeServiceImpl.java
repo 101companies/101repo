@@ -79,4 +79,10 @@ public class EmployeeServiceImpl extends RemoteServiceServlet implements Employe
 		return getEmployee(id);
 	}
 
+	@Override
+	public boolean delete(Integer employee) {
+		CompanyApp.getInstance().deleteEmployee(employee);
+		return true;
+	}
+
 }

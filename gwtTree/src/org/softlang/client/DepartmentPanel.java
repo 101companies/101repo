@@ -20,7 +20,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class DepartmentPanel extends VerticalPanel {
 	
-	private final DepartmentServiceAsync  departmentService = GWT.create(DepartmentService.class);
+	private final DepartmentServiceAsync departmentService = GWT.create(DepartmentService.class);
 	
 	private Label lNameFault = new Label();
 	private Label lManagerFault = new Label();
@@ -33,13 +33,16 @@ public class DepartmentPanel extends VerticalPanel {
 	
 	private Button save = new Button("save");
 	private Button cut = new Button("cut");
+	private Button delete = new Button("delete");
 	
 	private Integer department;	
 	
 	private TreePanel tree;
+	private GwtTree main;
 	
-	public DepartmentPanel(TreePanel tree) {
+	public DepartmentPanel(TreePanel tree, GwtTree main) {
 		this.tree = tree;
+		this.main = main;
 		
 		total.setReadOnly(true);
 		name.setWidth("300px");
@@ -61,6 +64,27 @@ public class DepartmentPanel extends VerticalPanel {
 					@Override
 					public void onSuccess(Double result) {
 						DepartmentPanel.this.total.setText(Double.toString(result));
+					}
+				});
+			}
+		});
+		
+		delete.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				departmentService.delete(department, new AsyncCallback<Boolean>() {
+
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.getMessage());
+					}
+
+					@Override
+					public void onSuccess(Boolean result) {
+						if (result) {
+							DepartmentPanel.this.main.refresh();
+						}
 					}
 				});
 			}
@@ -145,6 +169,7 @@ public class DepartmentPanel extends VerticalPanel {
 		
 		buttons.add(save);
 		buttons.add(cut);
+		buttons.add(delete);
 		
 		add(buttons);
 		
@@ -192,11 +217,6 @@ public class DepartmentPanel extends VerticalPanel {
 			faultMessages.add(new Label("Enter a valid name, please."));
 			valid = false;
 		}
-		if (manager.getSelectedIndex() == 0) {
-			lManagerFault.setText("*");
-			faultMessages.add(new Label("Select a valid manager, please."));
-			valid = false;
-		}
 		return valid;
 	}
 
@@ -217,6 +237,7 @@ public class DepartmentPanel extends VerticalPanel {
 		}
 		
 		cut.setEnabled(!result.isNewDepartment());
+		delete.setEnabled(!result.isNewDepartment());
 		
 		int i = 0;
 		int index = i;

@@ -177,8 +177,10 @@ public class CompanyApp {
 	}
 
 	public void validateEmployee(Integer id, String name, double salary, Integer parent) throws ServerValidationException {
+		System.out.println(parent);
+		System.out.println(departments.keySet());
 		Department parentDepartment = departments.get(parent);
-		if (parentDepartment.getManager().getSalary() < salary && parentDepartment.getManager().getId() != id) {
+		if (parentDepartment.getManager() != null && parentDepartment.getManager().getSalary() < salary && parentDepartment.getManager().getId() != id) {
 			throw new ServerValidationException(ServerValidationException.Field.SALARY,
 					"The salary must not be greater than " + parentDepartment.getManager().getSalary() + "!");
 		}
@@ -188,5 +190,32 @@ public class CompanyApp {
 						"There is already an employee named " + name + "!");
 			}
 		}
+	}
+
+	public void deleteDepartment(Integer id) {
+		Department department = departments.get(id);
+		deleteDepartmentSubs(id);
+		department.getParent().getDepartments().remove(department);
+	}
+	
+	public void deleteDepartmentSubs(Integer id) {
+		Department department = departments.get(id);
+		
+		for (Department sub : department.getDepartments()) {
+			deleteDepartmentSubs(sub.getId());
+		}
+		department.getDepartments().clear();
+		for (Employee emp : department.getEmployees()) {
+			employees.remove(emp.getId());
+		}
+		department.getEmployees().clear();
+		
+		departments.remove(id);
+	}
+
+	public void deleteEmployee(int id) {
+		Employee employee = employees.get(id);
+		employee.getParent().getEmployees().remove(employee);
+		employees.remove(id);
 	}
 }

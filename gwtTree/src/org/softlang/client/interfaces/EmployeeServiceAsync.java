@@ -13,4 +13,6 @@ public interface EmployeeServiceAsync {
 
 	void getEmployee(Integer id, AsyncCallback<EmployeeInfo> callback);
 
+	void delete(Integer employee, AsyncCallback<Boolean> asyncCallback);
+
 }

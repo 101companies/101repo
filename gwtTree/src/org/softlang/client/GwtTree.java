@@ -32,8 +32,8 @@ public class GwtTree implements EntryPoint {
 		contentPanel = new ScrollPanel();
 		
 		companyPanel = new CompanyPanel(treePanel);
-		departmentPanel = new DepartmentPanel(treePanel);
-		employeePanel = new EmployeePanel(treePanel);
+		departmentPanel = new DepartmentPanel(treePanel, this);
+		employeePanel = new EmployeePanel(treePanel, this);
 		
 		treePanel.refreshTree();
 		
@@ -63,5 +63,10 @@ public class GwtTree implements EntryPoint {
 		contentPanel.clear();
 		employeePanel.setEmployee(employeeId);
 		contentPanel.add(employeePanel);
+	}
+
+	public void refresh() {
+		treePanel.refreshTree();
+		contentPanel.clear();
 	}
 }

@@ -14,5 +14,7 @@ public interface DepartmentService extends RemoteService {
 	public DepartmentInfo getDepartment(Integer id);
 	
 	public DepartmentInfo saveDepartment(Integer id, String name, Integer parent, Integer manager) throws ServerValidationException;
+
+	boolean delete(Integer department);
 	
 }

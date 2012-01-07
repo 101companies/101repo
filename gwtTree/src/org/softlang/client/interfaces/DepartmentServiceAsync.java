@@ -12,4 +12,6 @@ public interface DepartmentServiceAsync {
 
 	void saveDepartment(Integer id, String name, Integer parent, Integer manager,
 			AsyncCallback<DepartmentInfo> callback);
+
+	void delete(Integer department, AsyncCallback<Boolean> asyncCallback);
 }

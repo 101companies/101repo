@@ -14,4 +14,6 @@ public interface EmployeeService extends RemoteService {
 	public EmployeeInfo getEmployee(Integer id);
 	
 	public EmployeeInfo saveEmployee(Integer id, String name, String address, double salary, Integer parent) throws ServerValidationException;
+
+	boolean delete(Integer employee);
 }

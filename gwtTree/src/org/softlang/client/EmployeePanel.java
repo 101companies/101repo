@@ -25,6 +25,7 @@ public class EmployeePanel extends VerticalPanel {
 	private Label lNameFault = new Label();
 	private Label lAddressFault = new Label();
 	private Label lSalaryFault = new Label();
+	private Label lParentFault = new Label();
 	private VerticalPanel faultMessages = new VerticalPanel();
 	
 	private TextBox name = new TextBox();
@@ -34,13 +35,16 @@ public class EmployeePanel extends VerticalPanel {
 	
 	private Button save = new Button("save");
 	private Button cut = new Button("cut");
+	private Button delete = new Button("delete");
 
 	private Integer employee;
 
+	private GwtTree main;
 	private TreePanel tree;
 	
-	public EmployeePanel(TreePanel tree) {
+	public EmployeePanel(TreePanel tree, GwtTree main) {
 		this.tree = tree;
+		this.main = main;
 		
 		name.setWidth("300px");
 		address.setWidth("300px");
@@ -61,6 +65,27 @@ public class EmployeePanel extends VerticalPanel {
 					@Override
 					public void onSuccess(Double result) {
 						total.setText(Double.toString(result));
+					}
+				});
+			}
+		});
+		
+		delete.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				employeeService.delete(employee, new AsyncCallback<Boolean>() {
+
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.getMessage());
+					}
+
+					@Override
+					public void onSuccess(Boolean result) {
+						if (result) {
+							EmployeePanel.this.main.refresh();
+						}
 					}
 				});
 			}
@@ -120,6 +145,7 @@ public class EmployeePanel extends VerticalPanel {
 		lNameFault.setStylePrimaryName("error");
 		lAddressFault.setStylePrimaryName("error");
 		lSalaryFault.setStylePrimaryName("error");
+		lParentFault.setStylePrimaryName("error");
 		faultMessages.setStylePrimaryName("error");
 		faultMessages.setSpacing(5);
 		
@@ -136,6 +162,7 @@ public class EmployeePanel extends VerticalPanel {
 		grid.setWidget(0, 2, lNameFault);
 		grid.setWidget(1, 2, lAddressFault);
 		grid.setWidget(2, 2, lSalaryFault);
+		grid.setWidget(3, 2, lParentFault);
 
 		add(grid);
 		
@@ -145,6 +172,7 @@ public class EmployeePanel extends VerticalPanel {
 		
 		buttons.add(save);
 		buttons.add(cut);
+		buttons.add(delete);
 		
 		add(buttons);
 		
@@ -193,6 +221,7 @@ public class EmployeePanel extends VerticalPanel {
 		}
 		
 		cut.setEnabled(!result.isNewEmployee());
+		delete.setEnabled(!result.isNewEmployee());
 		
 		int i = 0;
 		int index = i;
@@ -227,18 +256,24 @@ public class EmployeePanel extends VerticalPanel {
 			valid = false;
 		}
 		if (total.getText() == null || total.getText().length() == 0) {
-			lNameFault.setText("*");
+			lSalaryFault.setText("*");
 			faultMessages.add(new Label("Enter a valid salary, please."));
 			valid = false;
 		} else {
 			try {
 				Double.parseDouble(total.getText());
 			} catch (NumberFormatException e) {
-				lNameFault.setText("*");
+				lSalaryFault.setText("*");
 				faultMessages.add(new Label("Enter a valid salary, please."));
 				valid = false;
 			}
 		}
+		if (parent.getSelectedIndex() == 0) {
+			lParentFault.setText("*");
+			faultMessages.add(new Label("Select a valid parent department, please."));
+			valid = false;
+		}
+
 		return valid;
 	}
 
@@ -246,6 +281,7 @@ public class EmployeePanel extends VerticalPanel {
 		lNameFault.setText("");
 		lAddressFault.setText("");
 		lSalaryFault.setText("");
+		lParentFault.setText("");
 		faultMessages.clear();
 	}
 	
