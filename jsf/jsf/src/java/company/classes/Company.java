@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name="company",
-    catalog="101companies",
+    catalog="test",
     uniqueConstraints = @UniqueConstraint(columnNames="name") 
 )
 public class Company implements Serializable {
