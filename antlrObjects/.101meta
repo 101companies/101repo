@@ -2,7 +2,7 @@
    "nosource":[
       {
          "path": "org/softlang/parser/",
-		 "extensions" : ["*.tokens", "*.java"]
+		 "extensions" : ["tokens", "java"]
       }
 	]}
 }
