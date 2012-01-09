@@ -51,12 +51,16 @@ class Application_Form_Department extends Zend_Form
         
         $cut = new Zend_Form_Element_Submit('cut');
         $cut->setAttrib('id', 'submitbutton');
+        
+        $back = new Zend_Form_Element_Submit('back');
+        $back->setAttrib('id', 'submitbutton');
 
         $this->addElements(array($id, $name, $submit));
         $this->addElements(array($managerId, $manager, $edit));
         $this->addElements(array($this->departmentList, $selectDepartment));
         $this->addElements(array($this->employeeList, $selectEmployee));
         $this->addElements(array($total, $cut));
+        $this->addElements(array($back));
     }
     
     public function fillLists($id) {

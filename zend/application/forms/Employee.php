@@ -35,8 +35,12 @@ class Application_Form_Employee extends Zend_Form
         $cut = new Zend_Form_Element_Submit('cut');
         $cut->setAttrib('id', 'submitbutton');
         
+        $back = new Zend_Form_Element_Submit('back');
+        $back->setAttrib('id', 'submitbutton');
+        
         $this->addElements(array($id, $name, $address, $salary, $submit));
         $this->addElements(array($cut));
+        $this->addElements(array($back));
     }
 
 
