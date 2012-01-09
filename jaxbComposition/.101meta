@@ -2,7 +2,7 @@
    "nosource":[
       {
          "path": "org/softlang/company/",
-		 "extensions" : ["*.java"]
+		 "extensions" : ["java"]
       }
 	]}
 }
