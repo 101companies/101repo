@@ -1,0 +1,8 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "org/softlang/company/",
+		 "extensions" : ["*.java"]
+      }
+	]}
+}
