@@ -27,10 +27,16 @@ class Application_Model_DbTable_Department extends Zend_Db_Table_Abstract
     }
     
     public function updateDepartment($id, $name) {
-        $data = array(
-            'name' => $name
-        );
-        $this->update($data, 'id = '. (int) $id);
+        try {
+            $data = array(
+                'name' => $name
+            );
+            $this->update($data, 'id = '. (int) $id);
+            return "";
+        }
+        catch (Exception $e) {
+            return "Duplicate entry for " . $name . ". Enter a valid name, please.";
+        }
     }
 }
 

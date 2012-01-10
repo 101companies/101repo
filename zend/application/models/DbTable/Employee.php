@@ -69,12 +69,18 @@ class Application_Model_DbTable_Employee extends Zend_Db_Table_Abstract
     }
     
     public function updateEmployee($id, $name, $address, $salary) {
-        $data = array(
-            'name' => $name,
-            'address' => $address,
-            'salary' => $salary
-        );
-        $this->update($data, 'id = '. (int) $id);
+        try {
+            $data = array(
+                'name' => $name,
+                'address' => $address,
+                'salary' => $salary
+            );
+            $this->update($data, 'id = '. (int) $id);
+            return "";
+        }
+        catch (Exception $e) {
+            return "Duplicate entry for the combination of name and address (name = " . $name . ", address = " . $address . "). Enter valid values, please.";
+        }
     }
     
     public function getManagerForDepartment($id) {

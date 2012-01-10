@@ -79,8 +79,12 @@ class IndexController extends Zend_Controller_Action
             if ($form->isValid($formData) && $form->save->isChecked()) {
                 $id = (int)$form->getValue('id');
                 $name = $form->getValue('name');
-                $department->updateDepartment($id, $name);
-                $this->_helper->redirector('department', 'index', null, array('id' => $id));
+                $errorMessage = $department->updateDepartment($id, $name);
+                if ($errorMessage != "") {
+                    echo $errorMessage;
+                } else {
+                    $this->_helper->redirector('department', 'index', null, array('id' => $id));
+                }
             } else if ($form->cut->isChecked()) {
                 $id = (int)$form->getValue('id');
                 $employee->cutDepartment($id);
@@ -98,6 +102,16 @@ class IndexController extends Zend_Controller_Action
                 $empId = (int)$form->getValue('managerId');
                 
                 $this->_helper->redirector('employee', 'index', null, array('id' => $empId));
+            } else if ($form->back->isChecked()) {
+                $id = (int)$form->getValue('id');
+                                
+                $depTemp = $department->getDepartment($id);
+                
+                if ($depTemp[did] == null) {
+                    $this->_helper->redirector('index');
+                } else {
+                    $this->_helper->redirector('department', 'index', null, array('id' => $depTemp[did]));
+                }
             }
         } else {
             $id = $this->_getParam('id', 0);
@@ -130,8 +144,12 @@ class IndexController extends Zend_Controller_Action
                 $name = $form->getValue('name');
                 $address = $form->getValue('address');
                 $salary = $form->getValue('salary');
-                $employee->updateEmployee($id, $name, $address, $salary);
-                $this->_helper->redirector('employee', 'index', null, array('id' => $id));
+                $errorMessage = $employee->updateEmployee($id, $name, $address, $salary);
+                if ($errorMessage != "") {
+                    echo $errorMessage;
+                } else {
+                    $this->_helper->redirector('employee', 'index', null, array('id' => $id));
+                }
             } else if ($form->cut->isChecked()) {
                 $id = (int)$form->getValue('id');
                 $employee->cutEmployee($id);
@@ -149,16 +167,3 @@ class IndexController extends Zend_Controller_Action
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

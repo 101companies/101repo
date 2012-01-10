@@ -16,6 +16,7 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 	$m['TextBox'] = $p['___import___']('pyjamas.ui.TextBox.TextBox', null, null, false);
 	$m['ListBox'] = $p['___import___']('pyjamas.ui.ListBox.ListBox', null, null, false);
 	$m['AbsolutePanel'] = $p['___import___']('pyjamas.ui.AbsolutePanel.AbsolutePanel', null, null, false);
+	$m['VerticalPanel'] = $p['___import___']('pyjamas.ui.VerticalPanel.VerticalPanel', null, null, false);
 	$m['pygwt'] = $p['___import___']('pygwt', null);
 	$m['Company'] = (function(){
 		var $cls_definition = new Object();
@@ -392,7 +393,7 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 			} else {
 				var self = arguments[0];
 			}
-			var $attr11,$attr12;
+			var $attr15,$attr14,$attr16,$attr11,$attr13,$attr12;
 			$m['AbsolutePanel']['__init__'](self);
 			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('app', $m['CompaniesApp']()) : $p['setattr'](self, 'app', $m['CompaniesApp']());
 			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('history', $p['list']([])) : $p['setattr'](self, 'history', $p['list']([]));
@@ -408,10 +409,18 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('departments', $pyjs_kwargs_call(null, $m['ListBox'], null, null, [{Size:'100%', VisibleItemCount:'5'}])) : $p['setattr'](self, 'departments', $pyjs_kwargs_call(null, $m['ListBox'], null, null, [{Size:'100%', VisibleItemCount:'5'}]));
 			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('employees', $pyjs_kwargs_call(null, $m['ListBox'], null, null, [{Size:'100%', VisibleItemCount:'5'}])) : $p['setattr'](self, 'employees', $pyjs_kwargs_call(null, $m['ListBox'], null, null, [{Size:'100%', VisibleItemCount:'5'}]));
 			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('total', $m['TextBox']()) : $p['setattr'](self, 'total', $m['TextBox']());
+			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('errors', $m['VerticalPanel']()) : $p['setattr'](self, 'errors', $m['VerticalPanel']());
 			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('grid', $m['Grid']()) : $p['setattr'](self, 'grid', $m['Grid']());
-			self['add']((($attr11=($attr12=self)['grid']) == null || (($attr12.__is_instance__) && typeof $attr11 == 'function') || (typeof $attr11['__get__'] == 'function')?
+			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('allPanels', $m['VerticalPanel']()) : $p['setattr'](self, 'allPanels', $m['VerticalPanel']());
+			self['allPanels']['add']((($attr11=($attr12=self)['grid']) == null || (($attr12.__is_instance__) && typeof $attr11 == 'function') || (typeof $attr11['__get__'] == 'function')?
 						$p['getattr']($attr12, 'grid'):
 						self['grid']));
+			self['allPanels']['add']((($attr13=($attr14=self)['errors']) == null || (($attr14.__is_instance__) && typeof $attr13 == 'function') || (typeof $attr13['__get__'] == 'function')?
+						$p['getattr']($attr14, 'errors'):
+						self['errors']));
+			self['add']((($attr15=($attr16=self)['allPanels']) == null || (($attr16.__is_instance__) && typeof $attr15 == 'function') || (typeof $attr15['__get__'] == 'function')?
+						$p['getattr']($attr16, 'allPanels'):
+						self['allPanels']));
 			self['initCompanyGUI']();
 			return null;
 		}
@@ -424,69 +433,78 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 				var self = arguments[0];
 				sender = arguments[1];
 			}
-			var $attr20,$attr21,$attr22,$attr23,$attr24,$attr25,$attr26,$attr27,$attr28,$attr29,$attr33,$attr32,$attr31,$attr30,$attr19,$attr18,$attr35,$attr34,$attr15,$attr14,$attr17,$attr16,$attr13,$attr36;
-			if ($p['bool']($p['op_eq'](sender, (($attr13=($attr14=self)['cut']) == null || (($attr14.__is_instance__) && typeof $attr13 == 'function') || (typeof $attr13['__get__'] == 'function')?
-						$p['getattr']($attr14, 'cut'):
+			var $attr40,$attr41,$attr20,$attr21,$attr22,$attr23,$attr24,$attr25,$attr26,$attr27,$attr28,$attr29,$attr39,$attr42,$attr33,$attr32,$attr31,$attr30,$attr19,$attr36,$attr35,$attr34,$attr17,$attr38,$attr43,$attr44,$attr37,$attr18;
+			self['errors']['clear']();
+			if ($p['bool']($p['op_eq'](sender, (($attr17=($attr18=self)['cut']) == null || (($attr18.__is_instance__) && typeof $attr17 == 'function') || (typeof $attr17['__get__'] == 'function')?
+						$p['getattr']($attr18, 'cut'):
 						self['cut'])))) {
 				self['current']['cut']();
 				self['total']['setText'](self['current']['total']());
 			}
-			if ($p['bool']($p['op_eq'](sender, (($attr15=($attr16=self)['save']) == null || (($attr16.__is_instance__) && typeof $attr15 == 'function') || (typeof $attr15['__get__'] == 'function')?
-						$p['getattr']($attr16, 'save'):
+			if ($p['bool']($p['op_eq'](sender, (($attr19=($attr20=self)['save']) == null || (($attr20.__is_instance__) && typeof $attr19 == 'function') || (typeof $attr19['__get__'] == 'function')?
+						$p['getattr']($attr20, 'save'):
 						self['save'])))) {
-				if ($p['bool']($p['op_eq']((($attr17=($attr18=self['current']['__class__'])['__name__']) == null || (($attr18.__is_instance__) && typeof $attr17 == 'function') || (typeof $attr17['__get__'] == 'function')?
-							$p['getattr']($attr18, '__name__'):
+				if ($p['bool']($p['op_eq']((($attr21=($attr22=self['current']['__class__'])['__name__']) == null || (($attr22.__is_instance__) && typeof $attr21 == 'function') || (typeof $attr21['__get__'] == 'function')?
+							$p['getattr']($attr22, '__name__'):
 							self['current']['__class__']['__name__']), 'Employee'))) {
-					self['current']['save'](self['$$name']['getText'](), self['address']['getText'](), $p['float'](self['total']['getText']()));
+					if ($p['bool']($p['op_eq'](self['validateEmployee']((($attr23=($attr24=self['current'])['id']) == null || (($attr24.__is_instance__) && typeof $attr23 == 'function') || (typeof $attr23['__get__'] == 'function')?
+								$p['getattr']($attr24, 'id'):
+								self['current']['id']), self['$$name']['getText'](), self['address']['getText'](), self['total']['getText']()), true))) {
+						self['current']['save'](self['$$name']['getText'](), self['address']['getText'](), $p['float'](self['total']['getText']()));
+					}
 				}
 				else {
-					self['current']['save'](self['$$name']['getText']());
+					if ($p['bool']($p['op_eq'](self['validateDepartment']((($attr25=($attr26=self['current'])['id']) == null || (($attr26.__is_instance__) && typeof $attr25 == 'function') || (typeof $attr25['__get__'] == 'function')?
+								$p['getattr']($attr26, 'id'):
+								self['current']['id']), self['$$name']['getText']()), true))) {
+						self['current']['save'](self['$$name']['getText']());
+					}
 				}
 			}
-			if ($p['bool']($p['op_eq'](sender, (($attr19=($attr20=self)['selectDepartment']) == null || (($attr20.__is_instance__) && typeof $attr19 == 'function') || (typeof $attr19['__get__'] == 'function')?
-						$p['getattr']($attr20, 'selectDepartment'):
+			if ($p['bool']($p['op_eq'](sender, (($attr27=($attr28=self)['selectDepartment']) == null || (($attr28.__is_instance__) && typeof $attr27 == 'function') || (typeof $attr27['__get__'] == 'function')?
+						$p['getattr']($attr28, 'selectDepartment'):
 						self['selectDepartment'])))) {
 				if ($p['bool'](($p['cmp'](self['departments']['getSelectedIndex'](), (typeof ($usub1=1)=='number'?
 					-$usub1:
 					$p['op_usub']($usub1))) == 1))) {
-					self['history']['append']((($attr21=($attr22=self)['current']) == null || (($attr22.__is_instance__) && typeof $attr21 == 'function') || (typeof $attr21['__get__'] == 'function')?
-								$p['getattr']($attr22, 'current'):
+					self['history']['append']((($attr29=($attr30=self)['current']) == null || (($attr30.__is_instance__) && typeof $attr29 == 'function') || (typeof $attr29['__get__'] == 'function')?
+								$p['getattr']($attr30, 'current'):
 								self['current']));
 					self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('current', self['app']['getDepartment'](self['departments']['getValue'](self['departments']['getSelectedIndex']()))) : $p['setattr'](self, 'current', self['app']['getDepartment'](self['departments']['getValue'](self['departments']['getSelectedIndex']())));
 					self['initDepartmentGUI']();
 				}
 			}
-			if ($p['bool']($p['op_eq'](sender, (($attr23=($attr24=self)['selectEmployee']) == null || (($attr24.__is_instance__) && typeof $attr23 == 'function') || (typeof $attr23['__get__'] == 'function')?
-						$p['getattr']($attr24, 'selectEmployee'):
+			if ($p['bool']($p['op_eq'](sender, (($attr31=($attr32=self)['selectEmployee']) == null || (($attr32.__is_instance__) && typeof $attr31 == 'function') || (typeof $attr31['__get__'] == 'function')?
+						$p['getattr']($attr32, 'selectEmployee'):
 						self['selectEmployee'])))) {
 				if ($p['bool'](($p['cmp'](self['employees']['getSelectedIndex'](), (typeof ($usub2=1)=='number'?
 					-$usub2:
 					$p['op_usub']($usub2))) == 1))) {
-					self['history']['append']((($attr25=($attr26=self)['current']) == null || (($attr26.__is_instance__) && typeof $attr25 == 'function') || (typeof $attr25['__get__'] == 'function')?
-								$p['getattr']($attr26, 'current'):
+					self['history']['append']((($attr33=($attr34=self)['current']) == null || (($attr34.__is_instance__) && typeof $attr33 == 'function') || (typeof $attr33['__get__'] == 'function')?
+								$p['getattr']($attr34, 'current'):
 								self['current']));
 					self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('current', self['app']['getEmployee'](self['employees']['getValue'](self['employees']['getSelectedIndex']()))) : $p['setattr'](self, 'current', self['app']['getEmployee'](self['employees']['getValue'](self['employees']['getSelectedIndex']())));
 					self['initEmployeeGUI']();
 				}
 			}
-			if ($p['bool']($p['op_eq'](sender, (($attr27=($attr28=self)['edit']) == null || (($attr28.__is_instance__) && typeof $attr27 == 'function') || (typeof $attr27['__get__'] == 'function')?
-						$p['getattr']($attr28, 'edit'):
+			if ($p['bool']($p['op_eq'](sender, (($attr35=($attr36=self)['edit']) == null || (($attr36.__is_instance__) && typeof $attr35 == 'function') || (typeof $attr35['__get__'] == 'function')?
+						$p['getattr']($attr36, 'edit'):
 						self['edit'])))) {
-				self['history']['append']((($attr29=($attr30=self)['current']) == null || (($attr30.__is_instance__) && typeof $attr29 == 'function') || (typeof $attr29['__get__'] == 'function')?
-							$p['getattr']($attr30, 'current'):
+				self['history']['append']((($attr37=($attr38=self)['current']) == null || (($attr38.__is_instance__) && typeof $attr37 == 'function') || (typeof $attr37['__get__'] == 'function')?
+							$p['getattr']($attr38, 'current'):
 							self['current']));
 				self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('current', self['current']['getManager']()) : $p['setattr'](self, 'current', self['current']['getManager']());
 				self['initEmployeeGUI']();
 			}
-			if ($p['bool']($p['op_eq'](sender, (($attr31=($attr32=self)['back']) == null || (($attr32.__is_instance__) && typeof $attr31 == 'function') || (typeof $attr31['__get__'] == 'function')?
-						$p['getattr']($attr32, 'back'):
+			if ($p['bool']($p['op_eq'](sender, (($attr39=($attr40=self)['back']) == null || (($attr40.__is_instance__) && typeof $attr39 == 'function') || (typeof $attr39['__get__'] == 'function')?
+						$p['getattr']($attr40, 'back'):
 						self['back'])))) {
-				if ($p['bool'](($p['cmp']($p['len']((($attr33=($attr34=self)['history']) == null || (($attr34.__is_instance__) && typeof $attr33 == 'function') || (typeof $attr33['__get__'] == 'function')?
-							$p['getattr']($attr34, 'history'):
+				if ($p['bool'](($p['cmp']($p['len']((($attr41=($attr42=self)['history']) == null || (($attr42.__is_instance__) && typeof $attr41 == 'function') || (typeof $attr41['__get__'] == 'function')?
+							$p['getattr']($attr42, 'history'):
 							self['history'])), 0) == 1))) {
 					self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('current', self['history']['pop']()) : $p['setattr'](self, 'current', self['history']['pop']());
-					if ($p['bool']($p['op_eq']((($attr35=($attr36=self['current']['__class__'])['__name__']) == null || (($attr36.__is_instance__) && typeof $attr35 == 'function') || (typeof $attr35['__get__'] == 'function')?
-								$p['getattr']($attr36, '__name__'):
+					if ($p['bool']($p['op_eq']((($attr43=($attr44=self['current']['__class__'])['__name__']) == null || (($attr44.__is_instance__) && typeof $attr43 == 'function') || (typeof $attr43['__get__'] == 'function')?
+								$p['getattr']($attr44, '__name__'):
 								self['current']['__class__']['__name__']), 'Company'))) {
 						self['initCompanyGUI']();
 					}
@@ -499,53 +517,137 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 		}
 	, 1, [null,null,['self'],['sender']]);
 		$cls_definition['onClick'] = $method;
+		$method = $pyjs__bind_method2('validateDepartment', function(index, name) {
+			if (this.__is_instance__ === true) {
+				var self = this;
+			} else {
+				var self = arguments[0];
+				index = arguments[1];
+				name = arguments[2];
+			}
+			var $iter10_nextval,$attr47,$attr45,$and1,$iter10_array,$attr46,item,valid,$and2,$iter10_type,$iter10_iter,$iter10_idx,$attr48;
+			valid = true;
+			if ($p['bool']($p['op_eq'](name, ''))) {
+				self['errors']['add']($m['Label']('- Enter a valid name, please.'));
+				valid = false;
+			}
+			$iter10_iter = self['app']['departments'];
+			$iter10_nextval=$p['__iter_prepare']($iter10_iter,false);
+			while (typeof($p['__wrapped_next']($iter10_nextval).$nextval) != 'undefined') {
+				item = $iter10_nextval.$nextval;
+				if ($p['bool'](($p['bool']($and1=!$p['op_eq']((($attr45=($attr46=item)['id']) == null || (($attr46.__is_instance__) && typeof $attr45 == 'function') || (typeof $attr45['__get__'] == 'function')?
+							$p['getattr']($attr46, 'id'):
+							item['id']), index))?$p['op_eq'](name, (($attr47=($attr48=item)['$$name']) == null || (($attr48.__is_instance__) && typeof $attr47 == 'function') || (typeof $attr47['__get__'] == 'function')?
+							$p['getattr']($attr48, '$$name'):
+							item['$$name'])):$and1))) {
+					self['errors']['add']($m['Label']('- There is already a department with the same name. Enter a valid name, please.'));
+					valid = false;
+				}
+			}
+			return valid;
+		}
+	, 1, [null,null,['self'],['index'],['name']]);
+		$cls_definition['validateDepartment'] = $method;
+		$method = $pyjs__bind_method2('validateEmployee', function(index, name, address, salary) {
+			if (this.__is_instance__ === true) {
+				var self = this;
+			} else {
+				var self = arguments[0];
+				index = arguments[1];
+				name = arguments[2];
+				address = arguments[3];
+				salary = arguments[4];
+			}
+			var $iter11_type,$attr49,$pyjs_try_err,$iter11_idx,$iter11_iter,$and3,$and4,$and5,$iter11_array,$iter11_nextval,$attr51,$attr50,$attr53,$attr52,$attr54,item,valid;
+			valid = true;
+			if ($p['bool']($p['op_eq'](name, ''))) {
+				self['errors']['add']($m['Label']('- Enter a valid name, please.'));
+				valid = false;
+			}
+			if ($p['bool']($p['op_eq'](address, ''))) {
+				self['errors']['add']($m['Label']('- Enter a valid address, please.'));
+				valid = false;
+			}
+			if ($p['bool']($p['op_eq'](salary, ''))) {
+				self['errors']['add']($m['Label']('- Enter a valid salary, please.'));
+				valid = false;
+			}
+			try {
+				$p['float'](salary);
+			} catch($pyjs_try_err) {
+				var $pyjs_try_err_name = (typeof $pyjs_try_err.__name__ == 'undefined' ? $pyjs_try_err.name : $pyjs_try_err.__name__ );
+				$pyjs.__last_exception__ = {error: $pyjs_try_err, module: $m};
+				if (($pyjs_try_err_name == $p['ValueError'].__name__)||$p['_isinstance']($pyjs_try_err,$p['ValueError'])) {
+					self['errors']['add']($m['Label']('- The salary must be a number. Enter a valid salary, please.'));
+					valid = false;
+				} else { $pyjs.__active_exception_stack__ = $pyjs.__last_exception_stack__; $pyjs.__last_exception_stack__ = null; throw $pyjs_try_err; }
+			}
+			$iter11_iter = self['app']['employees'];
+			$iter11_nextval=$p['__iter_prepare']($iter11_iter,false);
+			while (typeof($p['__wrapped_next']($iter11_nextval).$nextval) != 'undefined') {
+				item = $iter11_nextval.$nextval;
+				if ($p['bool'](($p['bool']($and3=!$p['op_eq']((($attr49=($attr50=item)['id']) == null || (($attr50.__is_instance__) && typeof $attr49 == 'function') || (typeof $attr49['__get__'] == 'function')?
+							$p['getattr']($attr50, 'id'):
+							item['id']), index))?($p['bool']($and4=$p['op_eq'](name, (($attr51=($attr52=item)['$$name']) == null || (($attr52.__is_instance__) && typeof $attr51 == 'function') || (typeof $attr51['__get__'] == 'function')?
+							$p['getattr']($attr52, '$$name'):
+							item['$$name'])))?$p['op_eq']((($attr53=($attr54=item)['address']) == null || (($attr54.__is_instance__) && typeof $attr53 == 'function') || (typeof $attr53['__get__'] == 'function')?
+							$p['getattr']($attr54, 'address'):
+							item['address']), address):$and4):$and3))) {
+					self['errors']['add']($m['Label']('- There is already an employee with the same name and address combination. Enter a valid name and address, please.'));
+					valid = false;
+				}
+			}
+			return valid;
+		}
+	, 1, [null,null,['self'],['index'],['name'],['address'],['salary']]);
+		$cls_definition['validateEmployee'] = $method;
 		$method = $pyjs__bind_method2('initCompanyGUI', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
 			} else {
 				var self = arguments[0];
 			}
-			var $iter10_nextval,$attr46,$attr47,$attr44,$attr45,$attr42,$attr43,$attr40,$attr41,$iter10_iter,$attr48,$attr49,$iter10_idx,$attr37,$attr39,$attr38,$attr51,$attr50,$attr53,$attr52,$attr55,$attr54,$iter10_array,$attr56,item,$iter10_type;
-			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('current', (($attr37=($attr38=self['app'])['company']) == null || (($attr38.__is_instance__) && typeof $attr37 == 'function') || (typeof $attr37['__get__'] == 'function')?
-						$p['getattr']($attr38, 'company'):
-						self['app']['company'])) : $p['setattr'](self, 'current', (($attr37=($attr38=self['app'])['company']) == null || (($attr38.__is_instance__) && typeof $attr37 == 'function') || (typeof $attr37['__get__'] == 'function')?
-						$p['getattr']($attr38, 'company'):
+			var $attr73,$attr71,$attr70,$attr68,$attr69,$attr64,$attr65,$attr67,$attr60,$attr61,$attr62,$attr63,$attr66,$iter12_array,$attr59,$attr58,$iter12_type,$attr74,$attr55,$attr72,$attr57,$attr56,$iter12_iter,item,$iter12_idx,$iter12_nextval;
+			self.__is_instance__ && typeof self.__setattr__ == 'function' ? self.__setattr__('current', (($attr55=($attr56=self['app'])['company']) == null || (($attr56.__is_instance__) && typeof $attr55 == 'function') || (typeof $attr55['__get__'] == 'function')?
+						$p['getattr']($attr56, 'company'):
+						self['app']['company'])) : $p['setattr'](self, 'current', (($attr55=($attr56=self['app'])['company']) == null || (($attr56.__is_instance__) && typeof $attr55 == 'function') || (typeof $attr55['__get__'] == 'function')?
+						$p['getattr']($attr56, 'company'):
 						self['app']['company']));
 			self['grid']['clear']();
 			self['grid']['resize'](4, 3);
 			self['grid']['setWidget'](0, 0, $m['Label']('Name:'));
 			self['grid']['setWidget'](1, 0, $m['Label']('Department:'));
 			self['grid']['setWidget'](2, 0, $m['Label']('Total:'));
-			self['grid']['setWidget'](0, 1, (($attr39=($attr40=self)['$$name']) == null || (($attr40.__is_instance__) && typeof $attr39 == 'function') || (typeof $attr39['__get__'] == 'function')?
-						$p['getattr']($attr40, '$$name'):
+			self['grid']['setWidget'](0, 1, (($attr57=($attr58=self)['$$name']) == null || (($attr58.__is_instance__) && typeof $attr57 == 'function') || (typeof $attr57['__get__'] == 'function')?
+						$p['getattr']($attr58, '$$name'):
 						self['$$name']));
-			self['grid']['setWidget'](1, 1, (($attr41=($attr42=self)['departments']) == null || (($attr42.__is_instance__) && typeof $attr41 == 'function') || (typeof $attr41['__get__'] == 'function')?
-						$p['getattr']($attr42, 'departments'):
+			self['grid']['setWidget'](1, 1, (($attr59=($attr60=self)['departments']) == null || (($attr60.__is_instance__) && typeof $attr59 == 'function') || (typeof $attr59['__get__'] == 'function')?
+						$p['getattr']($attr60, 'departments'):
 						self['departments']));
-			self['grid']['setWidget'](2, 1, (($attr43=($attr44=self)['total']) == null || (($attr44.__is_instance__) && typeof $attr43 == 'function') || (typeof $attr43['__get__'] == 'function')?
-						$p['getattr']($attr44, 'total'):
+			self['grid']['setWidget'](2, 1, (($attr61=($attr62=self)['total']) == null || (($attr62.__is_instance__) && typeof $attr61 == 'function') || (typeof $attr61['__get__'] == 'function')?
+						$p['getattr']($attr62, 'total'):
 						self['total']));
-			self['grid']['setWidget'](0, 2, (($attr45=($attr46=self)['save']) == null || (($attr46.__is_instance__) && typeof $attr45 == 'function') || (typeof $attr45['__get__'] == 'function')?
-						$p['getattr']($attr46, 'save'):
+			self['grid']['setWidget'](0, 2, (($attr63=($attr64=self)['save']) == null || (($attr64.__is_instance__) && typeof $attr63 == 'function') || (typeof $attr63['__get__'] == 'function')?
+						$p['getattr']($attr64, 'save'):
 						self['save']));
-			self['grid']['setWidget'](1, 2, (($attr47=($attr48=self)['selectDepartment']) == null || (($attr48.__is_instance__) && typeof $attr47 == 'function') || (typeof $attr47['__get__'] == 'function')?
-						$p['getattr']($attr48, 'selectDepartment'):
+			self['grid']['setWidget'](1, 2, (($attr65=($attr66=self)['selectDepartment']) == null || (($attr66.__is_instance__) && typeof $attr65 == 'function') || (typeof $attr65['__get__'] == 'function')?
+						$p['getattr']($attr66, 'selectDepartment'):
 						self['selectDepartment']));
-			self['grid']['setWidget'](2, 2, (($attr49=($attr50=self)['cut']) == null || (($attr50.__is_instance__) && typeof $attr49 == 'function') || (typeof $attr49['__get__'] == 'function')?
-						$p['getattr']($attr50, 'cut'):
+			self['grid']['setWidget'](2, 2, (($attr67=($attr68=self)['cut']) == null || (($attr68.__is_instance__) && typeof $attr67 == 'function') || (typeof $attr67['__get__'] == 'function')?
+						$p['getattr']($attr68, 'cut'):
 						self['cut']));
-			self['$$name']['setText']((($attr51=($attr52=self['current'])['$$name']) == null || (($attr52.__is_instance__) && typeof $attr51 == 'function') || (typeof $attr51['__get__'] == 'function')?
-						$p['getattr']($attr52, '$$name'):
+			self['$$name']['setText']((($attr69=($attr70=self['current'])['$$name']) == null || (($attr70.__is_instance__) && typeof $attr69 == 'function') || (typeof $attr69['__get__'] == 'function')?
+						$p['getattr']($attr70, '$$name'):
 						self['current']['$$name']));
 			self['departments']['clear']();
-			$iter10_iter = self['current']['departments'];
-			$iter10_nextval=$p['__iter_prepare']($iter10_iter,false);
-			while (typeof($p['__wrapped_next']($iter10_nextval).$nextval) != 'undefined') {
-				item = $iter10_nextval.$nextval;
-				self['departments']['addItem']((($attr53=($attr54=item)['$$name']) == null || (($attr54.__is_instance__) && typeof $attr53 == 'function') || (typeof $attr53['__get__'] == 'function')?
-							$p['getattr']($attr54, '$$name'):
-							item['$$name']), (($attr55=($attr56=item)['id']) == null || (($attr56.__is_instance__) && typeof $attr55 == 'function') || (typeof $attr55['__get__'] == 'function')?
-							$p['getattr']($attr56, 'id'):
+			$iter12_iter = self['current']['departments'];
+			$iter12_nextval=$p['__iter_prepare']($iter12_iter,false);
+			while (typeof($p['__wrapped_next']($iter12_nextval).$nextval) != 'undefined') {
+				item = $iter12_nextval.$nextval;
+				self['departments']['addItem']((($attr71=($attr72=item)['$$name']) == null || (($attr72.__is_instance__) && typeof $attr71 == 'function') || (typeof $attr71['__get__'] == 'function')?
+							$p['getattr']($attr72, '$$name'):
+							item['$$name']), (($attr73=($attr74=item)['id']) == null || (($attr74.__is_instance__) && typeof $attr73 == 'function') || (typeof $attr73['__get__'] == 'function')?
+							$p['getattr']($attr74, 'id'):
 							item['id']));
 			}
 			if ($p['bool'](($p['cmp'](self['departments']['getItemCount'](), 0) == 1))) {
@@ -562,7 +664,7 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 			} else {
 				var self = arguments[0];
 			}
-			var $iter12_type,$iter11_type,$attr88,$attr71,$attr82,$attr83,$attr80,$attr81,$attr68,$attr69,$attr84,$attr85,$attr64,$attr65,$attr67,$attr60,$attr61,$attr62,$attr63,$attr89,$iter12_nextval,$iter11_idx,$iter11_iter,$iter12_array,$iter11_array,$attr86,$iter11_nextval,$attr92,$attr87,$attr59,$attr58,$attr91,$attr90,$attr79,$attr78,$attr77,$attr76,$attr75,$attr74,$attr73,$attr72,$attr57,$attr70,$iter12_iter,item,$iter12_idx,$attr66;
+			var $attr93,$iter13_idx,$attr82,$attr83,$attr80,$attr81,$attr86,$attr87,$attr84,$attr85,$attr89,$iter13_iter,$attr106,$attr107,$attr104,$attr105,$attr102,$attr103,$attr100,$attr101,$iter13_type,$attr108,$attr109,$iter14_array,$iter14_type,$iter14_iter,$iter13_nextval,$iter14_idx,$iter14_nextval,$attr95,$attr94,$attr97,$attr96,$attr91,$attr90,$attr79,$attr78,$attr77,$attr76,$attr75,$attr92,$attr99,$attr98,$iter13_array,item,$attr110,$attr88;
 			self['grid']['clear']();
 			self['grid']['resize'](6, 3);
 			self['grid']['setWidget'](0, 0, $m['Label']('Name:'));
@@ -570,73 +672,73 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 			self['grid']['setWidget'](2, 0, $m['Label']('Department:'));
 			self['grid']['setWidget'](3, 0, $m['Label']('Employee:'));
 			self['grid']['setWidget'](4, 0, $m['Label']('Total:'));
-			self['grid']['setWidget'](0, 1, (($attr57=($attr58=self)['$$name']) == null || (($attr58.__is_instance__) && typeof $attr57 == 'function') || (typeof $attr57['__get__'] == 'function')?
-						$p['getattr']($attr58, '$$name'):
+			self['grid']['setWidget'](0, 1, (($attr75=($attr76=self)['$$name']) == null || (($attr76.__is_instance__) && typeof $attr75 == 'function') || (typeof $attr75['__get__'] == 'function')?
+						$p['getattr']($attr76, '$$name'):
 						self['$$name']));
-			self['grid']['setWidget'](1, 1, (($attr59=($attr60=self)['manager']) == null || (($attr60.__is_instance__) && typeof $attr59 == 'function') || (typeof $attr59['__get__'] == 'function')?
-						$p['getattr']($attr60, 'manager'):
+			self['grid']['setWidget'](1, 1, (($attr77=($attr78=self)['manager']) == null || (($attr78.__is_instance__) && typeof $attr77 == 'function') || (typeof $attr77['__get__'] == 'function')?
+						$p['getattr']($attr78, 'manager'):
 						self['manager']));
-			self['grid']['setWidget'](2, 1, (($attr61=($attr62=self)['departments']) == null || (($attr62.__is_instance__) && typeof $attr61 == 'function') || (typeof $attr61['__get__'] == 'function')?
-						$p['getattr']($attr62, 'departments'):
+			self['grid']['setWidget'](2, 1, (($attr79=($attr80=self)['departments']) == null || (($attr80.__is_instance__) && typeof $attr79 == 'function') || (typeof $attr79['__get__'] == 'function')?
+						$p['getattr']($attr80, 'departments'):
 						self['departments']));
-			self['grid']['setWidget'](3, 1, (($attr63=($attr64=self)['employees']) == null || (($attr64.__is_instance__) && typeof $attr63 == 'function') || (typeof $attr63['__get__'] == 'function')?
-						$p['getattr']($attr64, 'employees'):
+			self['grid']['setWidget'](3, 1, (($attr81=($attr82=self)['employees']) == null || (($attr82.__is_instance__) && typeof $attr81 == 'function') || (typeof $attr81['__get__'] == 'function')?
+						$p['getattr']($attr82, 'employees'):
 						self['employees']));
-			self['grid']['setWidget'](4, 1, (($attr65=($attr66=self)['total']) == null || (($attr66.__is_instance__) && typeof $attr65 == 'function') || (typeof $attr65['__get__'] == 'function')?
-						$p['getattr']($attr66, 'total'):
+			self['grid']['setWidget'](4, 1, (($attr83=($attr84=self)['total']) == null || (($attr84.__is_instance__) && typeof $attr83 == 'function') || (typeof $attr83['__get__'] == 'function')?
+						$p['getattr']($attr84, 'total'):
 						self['total']));
-			self['grid']['setWidget'](0, 2, (($attr67=($attr68=self)['save']) == null || (($attr68.__is_instance__) && typeof $attr67 == 'function') || (typeof $attr67['__get__'] == 'function')?
-						$p['getattr']($attr68, 'save'):
+			self['grid']['setWidget'](0, 2, (($attr85=($attr86=self)['save']) == null || (($attr86.__is_instance__) && typeof $attr85 == 'function') || (typeof $attr85['__get__'] == 'function')?
+						$p['getattr']($attr86, 'save'):
 						self['save']));
-			self['grid']['setWidget'](1, 2, (($attr69=($attr70=self)['edit']) == null || (($attr70.__is_instance__) && typeof $attr69 == 'function') || (typeof $attr69['__get__'] == 'function')?
-						$p['getattr']($attr70, 'edit'):
+			self['grid']['setWidget'](1, 2, (($attr87=($attr88=self)['edit']) == null || (($attr88.__is_instance__) && typeof $attr87 == 'function') || (typeof $attr87['__get__'] == 'function')?
+						$p['getattr']($attr88, 'edit'):
 						self['edit']));
-			self['grid']['setWidget'](2, 2, (($attr71=($attr72=self)['selectDepartment']) == null || (($attr72.__is_instance__) && typeof $attr71 == 'function') || (typeof $attr71['__get__'] == 'function')?
-						$p['getattr']($attr72, 'selectDepartment'):
+			self['grid']['setWidget'](2, 2, (($attr89=($attr90=self)['selectDepartment']) == null || (($attr90.__is_instance__) && typeof $attr89 == 'function') || (typeof $attr89['__get__'] == 'function')?
+						$p['getattr']($attr90, 'selectDepartment'):
 						self['selectDepartment']));
-			self['grid']['setWidget'](3, 2, (($attr73=($attr74=self)['selectEmployee']) == null || (($attr74.__is_instance__) && typeof $attr73 == 'function') || (typeof $attr73['__get__'] == 'function')?
-						$p['getattr']($attr74, 'selectEmployee'):
+			self['grid']['setWidget'](3, 2, (($attr91=($attr92=self)['selectEmployee']) == null || (($attr92.__is_instance__) && typeof $attr91 == 'function') || (typeof $attr91['__get__'] == 'function')?
+						$p['getattr']($attr92, 'selectEmployee'):
 						self['selectEmployee']));
-			self['grid']['setWidget'](4, 2, (($attr75=($attr76=self)['cut']) == null || (($attr76.__is_instance__) && typeof $attr75 == 'function') || (typeof $attr75['__get__'] == 'function')?
-						$p['getattr']($attr76, 'cut'):
+			self['grid']['setWidget'](4, 2, (($attr93=($attr94=self)['cut']) == null || (($attr94.__is_instance__) && typeof $attr93 == 'function') || (typeof $attr93['__get__'] == 'function')?
+						$p['getattr']($attr94, 'cut'):
 						self['cut']));
-			self['grid']['setWidget'](5, 2, (($attr77=($attr78=self)['back']) == null || (($attr78.__is_instance__) && typeof $attr77 == 'function') || (typeof $attr77['__get__'] == 'function')?
-						$p['getattr']($attr78, 'back'):
+			self['grid']['setWidget'](5, 2, (($attr95=($attr96=self)['back']) == null || (($attr96.__is_instance__) && typeof $attr95 == 'function') || (typeof $attr95['__get__'] == 'function')?
+						$p['getattr']($attr96, 'back'):
 						self['back']));
-			self['$$name']['setText']((($attr79=($attr80=self['current'])['$$name']) == null || (($attr80.__is_instance__) && typeof $attr79 == 'function') || (typeof $attr79['__get__'] == 'function')?
-						$p['getattr']($attr80, '$$name'):
+			self['$$name']['setText']((($attr97=($attr98=self['current'])['$$name']) == null || (($attr98.__is_instance__) && typeof $attr97 == 'function') || (typeof $attr97['__get__'] == 'function')?
+						$p['getattr']($attr98, '$$name'):
 						self['current']['$$name']));
 			self['departments']['clear']();
 			self['employees']['clear']();
-			$iter11_iter = self['current']['departments'];
-			$iter11_nextval=$p['__iter_prepare']($iter11_iter,false);
-			while (typeof($p['__wrapped_next']($iter11_nextval).$nextval) != 'undefined') {
-				item = $iter11_nextval.$nextval;
-				self['departments']['addItem']((($attr81=($attr82=item)['$$name']) == null || (($attr82.__is_instance__) && typeof $attr81 == 'function') || (typeof $attr81['__get__'] == 'function')?
-							$p['getattr']($attr82, '$$name'):
-							item['$$name']), (($attr83=($attr84=item)['id']) == null || (($attr84.__is_instance__) && typeof $attr83 == 'function') || (typeof $attr83['__get__'] == 'function')?
-							$p['getattr']($attr84, 'id'):
+			$iter13_iter = self['current']['departments'];
+			$iter13_nextval=$p['__iter_prepare']($iter13_iter,false);
+			while (typeof($p['__wrapped_next']($iter13_nextval).$nextval) != 'undefined') {
+				item = $iter13_nextval.$nextval;
+				self['departments']['addItem']((($attr99=($attr100=item)['$$name']) == null || (($attr100.__is_instance__) && typeof $attr99 == 'function') || (typeof $attr99['__get__'] == 'function')?
+							$p['getattr']($attr100, '$$name'):
+							item['$$name']), (($attr101=($attr102=item)['id']) == null || (($attr102.__is_instance__) && typeof $attr101 == 'function') || (typeof $attr101['__get__'] == 'function')?
+							$p['getattr']($attr102, 'id'):
 							item['id']));
 			}
 			if ($p['bool'](($p['cmp'](self['departments']['getItemCount'](), 0) == 1))) {
 				self['departments']['setSelectedIndex'](0);
 			}
-			$iter12_iter = self['current']['employees'];
-			$iter12_nextval=$p['__iter_prepare']($iter12_iter,false);
-			while (typeof($p['__wrapped_next']($iter12_nextval).$nextval) != 'undefined') {
-				item = $iter12_nextval.$nextval;
-				if ($p['bool']($p['op_eq']((($attr85=($attr86=item)['manager']) == null || (($attr86.__is_instance__) && typeof $attr85 == 'function') || (typeof $attr85['__get__'] == 'function')?
-							$p['getattr']($attr86, 'manager'):
+			$iter14_iter = self['current']['employees'];
+			$iter14_nextval=$p['__iter_prepare']($iter14_iter,false);
+			while (typeof($p['__wrapped_next']($iter14_nextval).$nextval) != 'undefined') {
+				item = $iter14_nextval.$nextval;
+				if ($p['bool']($p['op_eq']((($attr103=($attr104=item)['manager']) == null || (($attr104.__is_instance__) && typeof $attr103 == 'function') || (typeof $attr103['__get__'] == 'function')?
+							$p['getattr']($attr104, 'manager'):
 							item['manager']), 0))) {
-					self['employees']['addItem']((($attr87=($attr88=item)['$$name']) == null || (($attr88.__is_instance__) && typeof $attr87 == 'function') || (typeof $attr87['__get__'] == 'function')?
-								$p['getattr']($attr88, '$$name'):
-								item['$$name']), (($attr89=($attr90=item)['id']) == null || (($attr90.__is_instance__) && typeof $attr89 == 'function') || (typeof $attr89['__get__'] == 'function')?
-								$p['getattr']($attr90, 'id'):
+					self['employees']['addItem']((($attr105=($attr106=item)['$$name']) == null || (($attr106.__is_instance__) && typeof $attr105 == 'function') || (typeof $attr105['__get__'] == 'function')?
+								$p['getattr']($attr106, '$$name'):
+								item['$$name']), (($attr107=($attr108=item)['id']) == null || (($attr108.__is_instance__) && typeof $attr107 == 'function') || (typeof $attr107['__get__'] == 'function')?
+								$p['getattr']($attr108, 'id'):
 								item['id']));
 				}
 				else {
-					self['manager']['setText']((($attr91=($attr92=item)['$$name']) == null || (($attr92.__is_instance__) && typeof $attr91 == 'function') || (typeof $attr91['__get__'] == 'function')?
-								$p['getattr']($attr92, '$$name'):
+					self['manager']['setText']((($attr109=($attr110=item)['$$name']) == null || (($attr110.__is_instance__) && typeof $attr109 == 'function') || (typeof $attr109['__get__'] == 'function')?
+								$p['getattr']($attr110, '$$name'):
 								item['$$name']));
 				}
 			}
@@ -654,38 +756,38 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 			} else {
 				var self = arguments[0];
 			}
-			var $attr95,$attr94,$attr97,$attr96,$attr93,$attr110,$attr99,$attr98,$attr106,$attr107,$attr104,$attr105,$attr102,$attr103,$attr100,$attr101,$attr108,$attr109;
+			var $attr119,$attr118,$attr111,$attr112,$attr115,$attr114,$attr117,$attr116,$attr120,$attr121,$attr122,$attr123,$attr124,$attr125,$attr126,$attr127,$attr128,$attr113;
 			self['grid']['clear']();
 			self['grid']['resize'](4, 3);
 			self['grid']['setWidget'](0, 0, $m['Label']('Name:'));
 			self['grid']['setWidget'](1, 0, $m['Label']('Address:'));
 			self['grid']['setWidget'](2, 0, $m['Label']('Salary:'));
-			self['grid']['setWidget'](0, 1, (($attr93=($attr94=self)['$$name']) == null || (($attr94.__is_instance__) && typeof $attr93 == 'function') || (typeof $attr93['__get__'] == 'function')?
-						$p['getattr']($attr94, '$$name'):
+			self['grid']['setWidget'](0, 1, (($attr111=($attr112=self)['$$name']) == null || (($attr112.__is_instance__) && typeof $attr111 == 'function') || (typeof $attr111['__get__'] == 'function')?
+						$p['getattr']($attr112, '$$name'):
 						self['$$name']));
-			self['grid']['setWidget'](1, 1, (($attr95=($attr96=self)['address']) == null || (($attr96.__is_instance__) && typeof $attr95 == 'function') || (typeof $attr95['__get__'] == 'function')?
-						$p['getattr']($attr96, 'address'):
+			self['grid']['setWidget'](1, 1, (($attr113=($attr114=self)['address']) == null || (($attr114.__is_instance__) && typeof $attr113 == 'function') || (typeof $attr113['__get__'] == 'function')?
+						$p['getattr']($attr114, 'address'):
 						self['address']));
-			self['grid']['setWidget'](2, 1, (($attr97=($attr98=self)['total']) == null || (($attr98.__is_instance__) && typeof $attr97 == 'function') || (typeof $attr97['__get__'] == 'function')?
-						$p['getattr']($attr98, 'total'):
+			self['grid']['setWidget'](2, 1, (($attr115=($attr116=self)['total']) == null || (($attr116.__is_instance__) && typeof $attr115 == 'function') || (typeof $attr115['__get__'] == 'function')?
+						$p['getattr']($attr116, 'total'):
 						self['total']));
-			self['grid']['setWidget'](0, 2, (($attr99=($attr100=self)['save']) == null || (($attr100.__is_instance__) && typeof $attr99 == 'function') || (typeof $attr99['__get__'] == 'function')?
-						$p['getattr']($attr100, 'save'):
+			self['grid']['setWidget'](0, 2, (($attr117=($attr118=self)['save']) == null || (($attr118.__is_instance__) && typeof $attr117 == 'function') || (typeof $attr117['__get__'] == 'function')?
+						$p['getattr']($attr118, 'save'):
 						self['save']));
-			self['grid']['setWidget'](2, 2, (($attr101=($attr102=self)['cut']) == null || (($attr102.__is_instance__) && typeof $attr101 == 'function') || (typeof $attr101['__get__'] == 'function')?
-						$p['getattr']($attr102, 'cut'):
+			self['grid']['setWidget'](2, 2, (($attr119=($attr120=self)['cut']) == null || (($attr120.__is_instance__) && typeof $attr119 == 'function') || (typeof $attr119['__get__'] == 'function')?
+						$p['getattr']($attr120, 'cut'):
 						self['cut']));
-			self['grid']['setWidget'](3, 2, (($attr103=($attr104=self)['back']) == null || (($attr104.__is_instance__) && typeof $attr103 == 'function') || (typeof $attr103['__get__'] == 'function')?
-						$p['getattr']($attr104, 'back'):
+			self['grid']['setWidget'](3, 2, (($attr121=($attr122=self)['back']) == null || (($attr122.__is_instance__) && typeof $attr121 == 'function') || (typeof $attr121['__get__'] == 'function')?
+						$p['getattr']($attr122, 'back'):
 						self['back']));
-			self['$$name']['setText']((($attr105=($attr106=self['current'])['$$name']) == null || (($attr106.__is_instance__) && typeof $attr105 == 'function') || (typeof $attr105['__get__'] == 'function')?
-						$p['getattr']($attr106, '$$name'):
+			self['$$name']['setText']((($attr123=($attr124=self['current'])['$$name']) == null || (($attr124.__is_instance__) && typeof $attr123 == 'function') || (typeof $attr123['__get__'] == 'function')?
+						$p['getattr']($attr124, '$$name'):
 						self['current']['$$name']));
-			self['address']['setText']((($attr107=($attr108=self['current'])['address']) == null || (($attr108.__is_instance__) && typeof $attr107 == 'function') || (typeof $attr107['__get__'] == 'function')?
-						$p['getattr']($attr108, 'address'):
+			self['address']['setText']((($attr125=($attr126=self['current'])['address']) == null || (($attr126.__is_instance__) && typeof $attr125 == 'function') || (typeof $attr125['__get__'] == 'function')?
+						$p['getattr']($attr126, 'address'):
 						self['current']['address']));
-			self['total']['setText']((($attr109=($attr110=self['current'])['salary']) == null || (($attr110.__is_instance__) && typeof $attr109 == 'function') || (typeof $attr109['__get__'] == 'function')?
-						$p['getattr']($attr110, 'salary'):
+			self['total']['setText']((($attr127=($attr128=self['current'])['salary']) == null || (($attr128.__is_instance__) && typeof $attr127 == 'function') || (typeof $attr127['__get__'] == 'function')?
+						$p['getattr']($attr128, 'salary'):
 						self['current']['salary']));
 			return null;
 		}
@@ -708,5 +810,5 @@ $pyjs.loaded_modules['101Companies'] = function (__mod_name__) {
 
 
 /*
-PYJS_DEPS: ['pyjd', 'pyjamas.ui.RootPanel.RootPanel', 'pyjamas', 'pyjamas.ui', 'pyjamas.ui.RootPanel', 'pyjamas.ui.Button.Button', 'pyjamas.ui.Button', 'pyjamas.ui.Label.Label', 'pyjamas.ui.Label', 'pyjamas.ui.Grid.Grid', 'pyjamas.ui.Grid', 'pyjamas.ui.TextBox.TextBox', 'pyjamas.ui.TextBox', 'pyjamas.ui.ListBox.ListBox', 'pyjamas.ui.ListBox', 'pyjamas.ui.AbsolutePanel.AbsolutePanel', 'pyjamas.ui.AbsolutePanel', 'pygwt']
+PYJS_DEPS: ['pyjd', 'pyjamas.ui.RootPanel.RootPanel', 'pyjamas', 'pyjamas.ui', 'pyjamas.ui.RootPanel', 'pyjamas.ui.Button.Button', 'pyjamas.ui.Button', 'pyjamas.ui.Label.Label', 'pyjamas.ui.Label', 'pyjamas.ui.Grid.Grid', 'pyjamas.ui.Grid', 'pyjamas.ui.TextBox.TextBox', 'pyjamas.ui.TextBox', 'pyjamas.ui.ListBox.ListBox', 'pyjamas.ui.ListBox', 'pyjamas.ui.AbsolutePanel.AbsolutePanel', 'pyjamas.ui.AbsolutePanel', 'pyjamas.ui.VerticalPanel.VerticalPanel', 'pyjamas.ui.VerticalPanel', 'pygwt']
 */

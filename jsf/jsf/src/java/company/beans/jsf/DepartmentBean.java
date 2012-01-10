@@ -12,11 +12,13 @@ import company.dao.interfaces.EmployeeDAO;
 import company.hibernate.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
+import org.hibernate.exception.ConstraintViolationException;
 
 /**
  *
@@ -188,11 +190,22 @@ public class DepartmentBean {
     }
     
     public void save() {
-        HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-        DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
-        department.setName(this.name);
-        daoFactory.getDepartmentDAO().makePersistent(department);
-        HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+        try {
+            HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
+            DAOFactory daoFactory = DAOFactory.instance(DAOFactory.HIBERNATE);
+            department.setName(this.name);
+            daoFactory.getDepartmentDAO().makePersistent(department);
+            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+        } catch (ConstraintViolationException e) {
+            HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
+            StringBuilder sb = new StringBuilder();
+            sb.append("Error: There is already a department with the name ");
+            sb.append(this.name);
+            sb.append(". Enter a valid name, please.");
+            FacesMessage facesMessage = new FacesMessage(sb.toString(), "name");
+            FacesContext.getCurrentInstance().addMessage("name", facesMessage);
+        }
+        
     }
     
     public void cut() {

@@ -1,0 +1,8 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "Scripts/",
+		 "extensions" : ["js"]
+      }
+	]}
+}

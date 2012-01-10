@@ -6,6 +6,7 @@ from pyjamas.ui.Grid import Grid
 from pyjamas.ui.TextBox import TextBox
 from pyjamas.ui.ListBox import ListBox
 from pyjamas.ui.AbsolutePanel import AbsolutePanel
+from pyjamas.ui.VerticalPanel import VerticalPanel
 
 import pygwt
 
@@ -140,21 +141,29 @@ class CompaniesAppGUI(AbsolutePanel):
 		self.departments = ListBox(Size=("100%"), VisibleItemCount="5")
 		self.employees = ListBox(Size=("100%"), VisibleItemCount="5")
 		self.total = TextBox()
+
+		self.errors = VerticalPanel()
 		
 		self.grid = Grid()
-		self.add(self.grid)
+		self.allPanels = VerticalPanel()
+		self.allPanels.add(self.grid)
+		self.allPanels.add(self.errors)
+		self.add(self.allPanels)
 		
 		self.initCompanyGUI()
 		
 	def onClick(self, sender):
+                self.errors.clear()
 		if sender == self.cut:
 			self.current.cut()
 			self.total.setText(self.current.total())
 		if sender == self.save:
 			if self.current.__class__.__name__ == "Employee":
-				self.current.save(self.name.getText(), self.address.getText(), float(self.total.getText()))
+                                if self.validateEmployee(self.current.id, self.name.getText(), self.address.getText(), self.total.getText()) == True:
+                                        self.current.save(self.name.getText(), self.address.getText(), float(self.total.getText()))
 			else:
-				self.current.save(self.name.getText())
+                                if self.validateDepartment(self.current.id, self.name.getText()) == True:
+                                        self.current.save(self.name.getText())
 		if sender == self.selectDepartment:
 			if (self.departments.getSelectedIndex() > -1):
 				self.history.append(self.current)
@@ -176,6 +185,47 @@ class CompaniesAppGUI(AbsolutePanel):
 					self.initCompanyGUI()
 				else:
 					self.initDepartmentGUI()
+
+	def validateDepartment(self, index, name):
+                valid = True
+
+                if name == "":
+                        self.errors.add(Label("- Enter a valid name, please."))
+                        valid = False
+                
+                for item in self.app.departments:
+                        if item.id != index and name == item.name:
+                                self.errors.add(Label("- There is already a department with the same name. Enter a valid name, please."))
+                                valid = False
+                return valid
+
+        def validateEmployee(self, index, name, address, salary):
+                valid = True
+
+                if name == "":
+                        self.errors.add(Label("- Enter a valid name, please."))
+                        valid = False
+
+                if address == "":
+                        self.errors.add(Label("- Enter a valid address, please."))
+                        valid = False
+
+                if salary == "":
+                        self.errors.add(Label("- Enter a valid salary, please."))
+                        valid = False
+
+                try:
+                        float(salary)
+                except ValueError:
+                        self.errors.add(Label("- The salary must be a number. Enter a valid salary, please."))
+                        valid = False
+                        
+                
+                for item in self.app.employees:
+                        if item.id != index and name == item.name and item.address == address:
+                                self.errors.add(Label("- There is already an employee with the same name and address combination. Enter a valid name and address, please."))
+                                valid = False
+                return valid
 			
 	def initCompanyGUI(self):
 		self.current = self.app.company
