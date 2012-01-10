@@ -1,11 +1,11 @@
 {"meta":{
-   "nosource":[
-      {
-         "path": "settings/"
-      },
-      {
-         "path": "./"
-         "extensions" : ["classpath", "project"] 
-      }
+	"nosource":[
+		{
+         	"path": "settings/"
+		},
+      	{
+         	"path": "./"
+         	"extensions" : ["classpath", "project"] 
+      	}
 	]}
 }
