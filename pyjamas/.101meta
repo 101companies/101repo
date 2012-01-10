@@ -1,0 +1,8 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "output/",
+		 "extensions" : ["js", "html", "css"]
+      }
+	]}
+}
