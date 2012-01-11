@@ -1,5 +1,4 @@
-{'extensions':{[
-			{'ext':'prefs','lang':''},
+{'extensions':[ {'ext':'prefs','lang':''},
 			{'ext':'Company','lang':''},
 			{'ext':'g','lang':''},
 			{'ext':'tokens','lang':''},
@@ -102,4 +101,4 @@
 			{'ext':'xq','lang':''},
 			{'ext':'xslt','lang':''},
 			{'ext':'phtml','lang':''}]
-}}
+}
