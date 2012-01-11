@@ -100,5 +100,6 @@
 			{"ext":"baseline","lang":""},
 			{"ext":"xq","lang":""},
 			{"ext":"xslt","lang":""},
-			{"ext":"phtml","lang":""}]
+			{"ext":"phtml","lang":""},
+			{"ext":"v","lang":""}]
 }
