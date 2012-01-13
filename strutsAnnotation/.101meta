@@ -1,0 +1,13 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "src/main/webapp/WEB-INF/"
+      },
+	  {
+	      "path": "src/main/webapp/table-images/"
+	  },
+	  {
+	      "path": "src/main/resources/"
+	  }
+	]}
+}
