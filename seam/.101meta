@@ -1,0 +1,16 @@
+{"meta":{
+	"nosource":[
+		{
+         	"path": "bootstrap/"
+		},
+		{
+			"path": "lib/"
+		},
+		{
+			"path": "nbprojectt/"
+		},
+		{
+			"path": "resources/"
+		}
+	]}
+}
