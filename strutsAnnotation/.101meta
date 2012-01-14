@@ -11,6 +11,12 @@
 	  },
 	  {
 	      "path": "src/main/resources/"
+	  },
+	  {
+	      "file": "pom.xml"
+	  },
+	  {
+	     "file":"src/main/resources/log4j.xml"
 	  }
 	]}
 }

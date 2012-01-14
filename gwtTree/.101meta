@@ -7,10 +7,16 @@
 			"path": "war/WEB-INF/"
 		},
 		{
-			"path": "war/gwt/"
+			"paht": "src/META-INF/"
+		}
+		{
+			"path": "war/gwttree/"
 		},
 		{
 			"path": "war/img/"
+		},
+		{
+			"path": "war/gwttree/gwt/clean/"
 		}
 	]}
 }
