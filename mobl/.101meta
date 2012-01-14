@@ -1,0 +1,16 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": " www/"
+      },
+	  {
+         "path": " www/js/"
+      },
+	  {
+         "path": " www/mobl/"
+      },
+      {
+         "path": " www/mobl/ui/"
+      }
+	]}
+}
