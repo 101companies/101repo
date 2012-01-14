@@ -4,10 +4,16 @@
          	"path": ".settings/"
 		},
 		{
+			"path": "src/META-INF/"
+		},
+		{
 			"path": "war/WEB-INF/"
 		},
 		{
 			"path": "war/gwt/"
+		},
+		{
+			"path":"war/gwt/gwt/standard/"
 		},
 		{
 			"path": "war/img/"
