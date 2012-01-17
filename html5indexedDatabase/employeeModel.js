@@ -45,10 +45,13 @@ model.save = function(id, newName, newAddress, newSalary) {
 	cursorRequest.onsuccess = function(e) {
 		var result = e.target.result;
 		
-		result.value.employee = newName;
-		result.value.address = newAddress;
-		result.value.salary = newSalary;
-		empStore.put(result.value);
+		temp = result.value;
+		
+		temp.employee = newName;
+		temp.address = newAddress;
+		temp.salary = newSalary;
+		
+		empStore.put(temp);
 	};
 	
 	cursorRequest.onerror = companies.indexedDB.onerror;
