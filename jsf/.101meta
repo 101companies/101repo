@@ -1,0 +1,10 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "jsf/nbproject/"
+      },
+	  {
+         "path": "web/resources/"
+      }
+	]}
+}

@@ -1,0 +1,22 @@
+{"meta":{
+	"nosource":[
+		{
+         	"path": ".settings/"
+		},
+		{
+			"path": "war/WEB-INF/"
+		},
+		{
+			"paht": "src/META-INF/"
+		},
+		{
+			"path": "war/gwttree/"
+		},
+		{
+			"path": "war/img/"
+		},
+		{
+			"path": "war/gwttree/gwt/clean/"
+		}
+	]}
+}
