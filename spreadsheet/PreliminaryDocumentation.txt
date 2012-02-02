@@ -1,0 +1,35 @@
+== Intent ==
+Using a spreadsheet with a flat structure and formulaes expressed in terms of spreadsheet functions.
+== Motivation ==
+Spreadsheets (e.g. Microsoft Excel, OpenOffice Calc, or  are one of the most used programs in IT.
+This implementations aims to show 
+* how the data model of the 101 companies can be flattened in one table
+* how a trival formulae can be used to implement the sum and cut of salaries
+* how more sophisticated formulaes can be used to deal with tree-based features including the "depth" of the company and the decreasing salary constraint over the hierarchy.
+* how such programs provide for free a rather user interface to edit the data, and to visualize them  
+ 
+== Status ==
+code is stable
+preliminary documentation
+== Technologies ==
+MicrosoftExcel, OpenOfficeCalc, GoogleSpreadsheet 
+== Language ==
+ExcelLanguage
+== Features ==
+Company,Cut,Total
+Depth, Export,Import,Precedence,Logging
+Persistence,Scalability
+AttributeEditing, UndoRedo
+== Illustration ==
+
+== Architecture ==
+
+== Usage ==
+The file meganalysis.xls can be open either via Microsoft Excel, OpenOffice 
+The file is protected so by default you can only change the data.
+== Issues==
+* It is assumed that names of departement (the same for person) are 
+key, that is distinct for each other.
+* The 
+== ==
+jeanmariefavre, creator
