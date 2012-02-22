@@ -1,0 +1,6 @@
+syntax: glob
+*~
+*.swp
+*.kdev4
+.kdev_include_paths
+
