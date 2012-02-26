@@ -1,0 +1,10 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "Properties/"
+      },
+      {
+		"file":"CompanyDataSet.Designer.cs"
+      }
+	]}
+}

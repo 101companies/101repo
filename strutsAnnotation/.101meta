@@ -1,0 +1,22 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "src/main/webapp/WEB-INF/"
+      },
+	  {
+         "path": "src/main/webapp/WEB-INF/content"
+      },
+	  {
+	      "path": "src/main/webapp/table-images/"
+	  },
+	  {
+	      "path": "src/main/resources/"
+	  },
+	  {
+	      "file": "pom.xml"
+	  },
+	  {
+	     "file":"src/main/resources/log4j.xml"
+	  }
+	]}
+}

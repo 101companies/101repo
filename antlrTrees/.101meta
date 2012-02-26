@@ -1,0 +1,11 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": ".settings/"
+      },
+	  {
+         "path": "org/softlang/company/",
+		 "extensions" : ["tokens", "java"]
+      }
+	]}
+}

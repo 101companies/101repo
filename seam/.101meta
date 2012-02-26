@@ -1,0 +1,28 @@
+{"meta":{
+	"nosource":[
+		{
+         	"path": "bootstrap/"
+		},
+		{
+			"path": "lib/"
+		},
+		{
+			"path": "nbprojectt/"
+		},
+		{
+			"path": "resources/"
+		},
+		{
+			"path": "resources/META-IN/"
+		},
+		{
+			"file": "glassfish-build.xml"
+		},
+		{
+			"file": "glassfish-readme.txt"
+		},
+		{
+			"file": "validate.xml"
+		}
+	]}
+}

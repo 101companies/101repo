@@ -145,10 +145,13 @@ model.innerCutAndTotal = function(id, allDeps, cut) {
 		for (var i = 0; i < relevantDeps.length; i++) {
 			if (result.value.departmentId == relevantDeps[i].id) {
 				if (cut == true) {
-					result.value.salary = result.value.salary / 2;
-					empStore.put(result.value);
+					temp = result.value;
+					temp.salary = temp.salary / 2;
+					model.totalValue += temp.salary;
+					empStore.put(temp);
+				} else {
+					model.totalValue += result.value.salary;
 				}
-				model.totalValue += result.value.salary;
 			}
 		}
 		
@@ -232,9 +235,11 @@ model.changeName = function(id, name) {
 
 	cursorRequest.onsuccess = function(e) {
 		var result = e.target.result;
-				
-		result.value.department = name;
-		depStore.put(result.value);
+		
+		temp = result.value;
+		temp.department = name;
+		
+		depStore.put(temp);
 	};
 	
 	cursorRequest.onerror = companies.indexedDB.onerror;

@@ -1,0 +1,11 @@
+{"meta":{
+   "nosource":[
+      {
+         "path": "Properties/"
+      },
+	 {
+         "path": "xsd/",
+		 "extensions" : ["bat", "java"]
+      }
+	]}
+}

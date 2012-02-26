@@ -87,6 +87,7 @@ model.determineTotal = function() {
 }
 
 model.cut = function() {
+	
 	var db = companies.indexedDB.db;
 	var transEmp = db.transaction(["Employee"], IDBTransaction.READ_WRITE, 0);
 	var empStore = transEmp.objectStore("Employee");
@@ -95,14 +96,16 @@ model.cut = function() {
 	var cursorRequest = empStore.openCursor(keyRange);
 
 	cursorRequest.onsuccess = function(e) {
+		
 		var result = e.target.result;
 		if(!!result == false) {
 			model.determineTotal();
 			return;
 		}
-
-		result.value.salary = result.value.salary / 2;
-		empStore.put(result.value);
+		
+		temp = result.value;
+		temp.salary = temp.salary / 2;
+		empStore.put(temp);
 		result.continue();
 	};
 	
@@ -125,8 +128,9 @@ model.changeName = function(newName) {
 		}
 		
 		if (result.value.id == 0) {
-			result.value.company = newName;
-			compStore.put(result.value);
+			temp = result.value;
+			temp.company = newName;
+			compStore.put(temp);
 		}
 		result.continue();
 	};
