@@ -29,13 +29,13 @@ getResult tprogress ta = do
             return result
 
 -- generic company transaction based on a step-wise focus
-companyTransaction :: Company -> TFocusProgress -> TMVar b -> (Company -> Focus -> b -> b) -> STM Bool
+companyTransaction :: Company -> TFocusProgress -> TMVar b -> (Focus -> b -> b) -> STM Bool
 companyTransaction c tprogress tb f = do
     currentProgress <- readTMVar tprogress
     case currentProgress of
         (Do currentFocus) -> do
             currentB <- readTMVar tb
-            let newB = f c currentFocus currentB
+            let newB = f currentFocus currentB
             swapTMVar tb newB
             case nextEmployeeFocus c currentFocus of
                 Just newFocus -> do
@@ -44,7 +44,7 @@ companyTransaction c tprogress tb f = do
                 Nothing -> do
                     swapTMVar tprogress Done
                     return True
-        Done -> return False
+        Done -> return True
 
 repeatTransaction :: STM Bool -> IO ()
 repeatTransaction t = do

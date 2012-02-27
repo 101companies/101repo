@@ -17,5 +17,5 @@ total c = startTransactions c 0.0 (addSalary c)
 
 -- transaction from one salary in a list of salary to a total of salariesTEST
 addSalary :: Company -> TFocusProgress -> TTotal -> STM Bool
-addSalary c tprogress ttotal = companyTransaction c tprogress ttotal f 
+addSalary c tprogress ttotal = companyTransaction c tprogress ttotal (f c) 
     where f c currentFocus currentTotal = currentTotal + (salary (readEM currentFocus c))

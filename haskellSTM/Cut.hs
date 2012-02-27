@@ -20,6 +20,6 @@ cutSalary tprogress tcompany = do
     currentCompany <- readTMVar tcompany
     companyTransaction currentCompany tprogress tcompany f 
     where 
-        f _ currentFocus currentCompany = (writeEM currentFocus currentCompany) (cutEmployee $ readEM currentFocus currentCompany)
+        f currentFocus currentCompany = (writeEM currentFocus currentCompany) (cutEmployee $ readEM currentFocus currentCompany)
         cutEmployee (Employee n a s) = Employee n a (s/2)
 
