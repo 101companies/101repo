@@ -1,1 +1,1 @@
-The developers of the implementation are preparing the source code.
+For more information visit the [Rascal page](http://101companies.org/index.php/101implementation:rascal) on the [101companies wiki](http://www.101companies.org).
