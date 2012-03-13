@@ -46,8 +46,7 @@ pEmployee :: String -> P Manager
 pEmployee ty = Employee
   <$  pString ty <*> pLit
   <*  pString "{" <* pString "address" <*> pLit
-  <*  pString "salary" <*> pFloat
-  <*> optionMaybe (pString "mentor" *> pLit) <* pString "}"
+  <*  pString "salary" <*> pFloat <* pString "}"
 
 pSubUnit :: P SubUnit
 pSubUnit = EUnit <$> pEmployee "employee"
