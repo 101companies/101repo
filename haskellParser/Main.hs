@@ -13,18 +13,18 @@ eitherPrint (Left e) _ = print e
 
 main 
  = do
-      readCompany <- liftM read $ 
-      					readFile "sampleCompany.ser"
+ 	readCompany <- liftM read $ 
+		readFile "sampleCompany.ser"
 
-      -- read sample file and parse content
-      parsedCompany <- liftM parseCompany $
-                       readFile "sample.Company"
-      
-      -- Test wether parsing returns the expected company
-      eitherPrint parsedCompany (== readCompany)
+	-- read sample file and parse content
+	parsedCompany <- liftM parseCompany $
+		readFile "sample.Company"
+		
+	-- Test wether parsing returns the expected company
+	eitherPrint parsedCompany (== readCompany)
 
-      -- Total all salaries
-      eitherPrint parsedCompany total
+	-- Total all salaries
+	eitherPrint parsedCompany total
 
-      -- Cut and total all salaries
-      eitherPrint parsedCompany $ total.cut
+	-- Cut and total all salaries
+	eitherPrint parsedCompany $ total.cut
