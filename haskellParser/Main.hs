@@ -1,7 +1,6 @@
 module Main where
 
 import Company
-import SampleCompany
 import Total
 import Cut
 import Parser
@@ -14,12 +13,15 @@ eitherPrint (Left e) _ = print e
 
 main 
  = do
+      readCompany <- liftM read $ 
+      					readFile "sampleCompany.ser"
+
       -- read sample file and parse content
       parsedCompany <- liftM parseCompany $
                        readFile "sample.Company"
       
       -- Test wether parsing returns the expected company
-      eitherPrint parsedCompany (== company)
+      eitherPrint parsedCompany (== readCompany)
 
       -- Total all salaries
       eitherPrint parsedCompany total
