@@ -1,0 +1,31 @@
+[0m[[0mdebug[0m] [0mOther repositories:[0m
+[0m[[0mdebug[0m] [0mDefault repositories:[0m
+[0m[[0mdebug[0m] [0m	Raw(ProjectResolver(inter-project, mapped: ))[0m
+[0m[[0mdebug[0m] [0m	FileRepository(local,FileConfiguration(true,None),sbt.Patterns@3244eabe)[0m
+[0m[[0mdebug[0m] [0m	Typesafe Repository: http://repo.typesafe.com/typesafe/releases/[0m
+[0m[[0mdebug[0m] [0m	public: http://repo1.maven.org/maven2/[0m
+[0m[[0mdebug[0m] [0m	Scala-Tools Maven2 Repository: http://scala-tools.org/repo-releases[0m
+[0m[[0mdebug[0m] [0mUsing inline dependencies specified in Scala.[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.9.0-1 ...[0m
+[0m[[0minfo[0m] [0mResolving se.scalablesolutions.akka#akka-actor;1.1.3 ...[0m
+[0m[[0minfo[0m] [0mResolving se.scalablesolutions.akka#akka-typed-actor;1.1.3 ...[0m
+[0m[[0minfo[0m] [0mResolving org.guiceyfruit#guice-all;2.0 ...[0m
+[0m[[0minfo[0m] [0mResolving aopalliance#aopalliance;1.0 ...[0m
+[0m[[0minfo[0m] [0mResolving org.codehaus.aspectwerkz#aspectwerkz;2.2.3 ...[0m
+[0m[[0minfo[0m] [0mResolving se.scalablesolutions.akka#akka-stm;1.1.3 ...[0m
+[0m[[0minfo[0m] [0mResolving org.multiverse#multiverse-alpha;0.6.2 ...[0m
+[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-core_2.9.0-1;6.0.1 ...[0m
+[0m[[0minfo[0m] [0mResolving org.specs2#specs2_2.9.0-1;1.4 ...[0m
+[0m[[0minfo[0m] [0mResolving org.scala-tools.testing#scalacheck_2.9.0-1;1.9 ...[0m
+[0m[[0minfo[0m] [0mResolving org.scala-tools.testing#test-interface;0.5 ...[0m
+[0m[[0minfo[0m] [0mResolving org.specs2#specs2-scalaz-core_2.9.0-1;6.0.RC2 ...[0m
+[0m[[0minfo[0m] [0mResolving org.hamcrest#hamcrest-all;1.1 ...[0m
+[0m[[0minfo[0m] [0mResolving org.mockito#mockito-all;1.8.5 ...[0m
+[0m[[0minfo[0m] [0mResolving junit#junit;4.7 ...[0m
+[0m[[0minfo[0m] [0mResolving org.pegdown#pegdown;1.0.1 ...[0m
+[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-core;1.0.0 ...[0m
+[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-java;1.0.0 ...[0m
+[0m[[0minfo[0m] [0mResolving asm#asm-tree;3.3.1 ...[0m
+[0m[[0minfo[0m] [0mResolving asm#asm;3.3.1 ...[0m
+[0m[[0minfo[0m] [0mResolving asm#asm-util;3.3.1 ...[0m
+[0m[[0minfo[0m] [0mResolving asm#asm-analysis;3.3.1 ...[0m
