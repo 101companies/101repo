@@ -2,7 +2,7 @@
 <Company 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.softlang.org/company.xsd" >
-	<Name>meganalysis</Name>
+	<Name>AcmeCorp</Name>
 
 	<TopLevelDepartment>
 		<Name>Research</Name>
