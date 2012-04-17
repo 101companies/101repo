@@ -1,0 +1,12 @@
+Languages XSD, CSharp, XML, ClrObjectGraphs .
+Language CSharpFromXsd subsetOf CSharp .
+File xmlTypes elementOf XSD .
+File ooTypes elementOf CSharpFromXsd .
+File xmlDoc elementOf XML .
+ObjectGraph clrObj elementOf ClrObjectGraphs .
+Function classgen : XSD -> CSharpFromXsd .
+Function deserialize : XML -> ClrObjectGraphs .
+xmlDoc conformsTo xmlTypes .
+clrObj conformsTo ooTypes .
+classgen(xmlTypes) |-> ooTypes .
+deserialize(xmlDoc) |-> clrObj .
