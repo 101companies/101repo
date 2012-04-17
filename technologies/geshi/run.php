@@ -1,6 +1,6 @@
 <?php
 
-include_once 'src/geshi/geshi.php';
+include_once 'src/geshi.php';
 
 $ifilename = $argv[1];
 
