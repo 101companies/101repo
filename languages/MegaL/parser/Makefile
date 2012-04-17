@@ -4,7 +4,7 @@ parse = java ${CLASSPATH} megal.parser.Main
 run: build
 
 build:
-	cd megal/parser; make build
+	@cd megal/parser; make build
 
 clean:
-	cd megal/parser; make clean
+	@cd megal/parser; make clean
