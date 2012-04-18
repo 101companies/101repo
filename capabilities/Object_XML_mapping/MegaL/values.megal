@@ -2,5 +2,9 @@ megamodel capabilities/Object_XML_mapping/values .
 include capabilities/Object_XML_mapping/types .
 global Language XML .
 variable Language ObjectGraphs .
+Mapper dependsOn XML .
+Mapper dependsOn ObjectGraphs .
 local Function deserialize : XML -> ObjectGraphs .
 local Function serialize : ObjectGraphs -> XML .
+deserialize partOf Mapper .
+serialize partOf Mapper .
