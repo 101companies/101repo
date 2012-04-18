@@ -3,5 +3,7 @@ include capabilities/Object_XML_mapping/types .
 include capabilities/Object_XML_mapping/values .
 variable File xmlOutputDoc elementOf XML .
 variable ObjectGraph finalObj elementOf ObjectGraphs .
-finalObj conformsTo xmlOutputDoc .
+xmlOutputDoc conformsTo xmlTypes .
+finalObj conformsTo ooTypes .
+finalObj correspondsTo xmlOutputDoc .
 serialize(finalObj) |-> xmlOutputDoc .
