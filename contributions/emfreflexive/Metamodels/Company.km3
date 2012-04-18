@@ -1,0 +1,31 @@
+package Company {
+
+	class Company {
+		reference depts[*] container : Dept;
+	}
+
+	abstract class Subunit {}
+
+	class Dept extends Subunit {
+		attribute name : String;
+		reference manager container : Employee;
+		reference subunits[*] container : Subunit;
+	}
+
+	class Employee extends Subunit {
+		attribute salary : Double;
+		reference person container : Person;
+	}
+
+	class Person {
+		attribute name : String;
+		attribute address : String;
+	}
+}
+
+package PrimitiveTypes {
+
+	datatype String;
+
+	datatype Double;
+}
