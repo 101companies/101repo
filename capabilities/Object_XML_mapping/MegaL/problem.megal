@@ -1,0 +1,12 @@
+{- Make explicit the existence of a problem-specific language
+underlying the involved type-level artifacts. We think of this
+language as being abstract in the sense of not fixing it here as being
+a set of XML trees or object graphs. -}
+
+megamodel capabilities/Object_XML_mapping/problem .
+
+include capabilities/Object_XML_mapping/basics .
+
+local Language problemLanguage .
+xmlTypes definitionOf problemLanguage .
+ooTypes definitionOf problemLanguage .
