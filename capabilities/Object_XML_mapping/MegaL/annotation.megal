@@ -1,0 +1,8 @@
+megamodel capabilities/Object_XML_mapping/annotation .
+include capabilities/Object_XML_mapping/values .
+variable Language Annotation partOf OoLanguage .
+variable Language OxAnnotation subsetOf Annotation .
+OxAnnotation partOf OxMapper .
+variable Fragment+ anno partOf ooTypes .
+deserialize dependsOn anno .
+serialize dependsOn anno .

@@ -1,0 +1,7 @@
+megamodel capabilities/Object_XML_mapping/configuration .
+include capabilities/Object_XML_mapping/values .
+variable Language OxConfiguration .
+OxConfiguration partOf OxMapper .
+variable File config elementOf OxConfiguration .
+deserialize dependsOn config .
+serialize dependsOn config .
