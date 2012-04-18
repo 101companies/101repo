@@ -1,0 +1,7 @@
+megamodel capabilities/Object_XML_mapping/query .
+include capabilities/Object_XML_mapping/deserialization .
+variable File queryProgram elementOf OoLanguage .
+queryProgram dependsOn ooTypes .
+variable Fragment deserialization partOf queryProgram .
+deserialization dependsOn XmlSerializer .
+deserialization realizationOf deserialize .

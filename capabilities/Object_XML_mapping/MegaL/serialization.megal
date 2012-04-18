@@ -1,8 +1,7 @@
 megamodel capabilities/Object_XML_mapping/serialization .
-
-include capabilities/Object_XML_mapping/basics .
-
+include capabilities/Object_XML_mapping/types .
+include capabilities/Object_XML_mapping/values .
 variable File xmlOutputDoc elementOf XML .
 variable ObjectGraph finalObj elementOf ObjectGraphs .
 finalObj conformsTo xmlOutputDoc .
-deserialize(xmlOutputDoc) |-> finalObj .
+serialize(finalObj) |-> xmlOutputDoc .
