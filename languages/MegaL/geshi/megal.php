@@ -35,13 +35,14 @@ $language_data = array (
     'KEYWORDS' => array(
         /* main keywords */
         1 => array(
+		   'megamodel',
+		   'local', 'variable',
 		   'Language', 'Artifact', 'Function',
-		   'Languages', 'Artifacts', 'Functions',
-		   'File', 'Files',
-		   'Fragment', 'Fragments',
-		   'Program', 'Programs',
-		   'Library', 'Libraries',
-		   'ObjectGraph', 'ObjectGraphs',
+		   'File',
+		   'Fragment',
+		   'Program',
+		   'Library',
+		   'ObjectGraph',
 		   'elementOf', 'definitionOf', 'subsetOf', 'partOf', 'correspondsTo', 'conformsTo', 'dependsOn', 'refersTo', 'realizationOf', 'descriptionOf'
             ),
         /* define names of main libraries, so we can link to it */
@@ -55,7 +56,7 @@ $language_data = array (
         ),
     /* highlighting symbols */
     'SYMBOLS' => array(
-           '<', '@', ':', '=', '-|', '~>', '->', '=>', '|->', '(', ')'
+		       '/', '<', '@', ':', '+', '=', '-|', '~>', '->', '=>', '|->', '(', ')'
         ),
     'CASE_SENSITIVE' => array(
         GESHI_COMMENTS => false,
