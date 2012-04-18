@@ -1,11 +1,9 @@
 megamodel capabilities/Object_XML_mapping/classgen .
 
-include capabilities/Object_XML_mapping/basics .
-
-local Program
+include capabilities/Object_XML_mapping/types .
 
 local Function classgen : XmlSchemas -> MappableOo .
 
-xsdDotExe realizationOf classgen .
+classgen partOf Mapper.
 
 classgen(xmlTypes) |-> ooTypes .
