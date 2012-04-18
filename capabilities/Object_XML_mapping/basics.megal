@@ -1,6 +1,6 @@
 megamodel capabilities/Object_XML_mapping/basics .
 
-Language XML .
+global Language XML .
 
 variable Language XmlSchemas .
 variable Language OoLanguage .
@@ -9,10 +9,10 @@ variable Language MappableOo .
 
 MappableOo subsetOf OoLanguage .
 
-local File+ xmlTypes elementOf XmlSchemas .
-local File+ ooTypes elementOf MappableOo .
+variable File+ xmlTypes elementOf XmlSchemas .
+variable File+ ooTypes elementOf MappableOo .
 
 xmlTypes conformsTo ooTypes .
 
-Function XML.deserialize : XML -> ObjectGraphs .
-Function XML.serialize : ObjectGraphs -> XML .
+local Function deserialize : XML -> ObjectGraphs .
+local Function serialize : ObjectGraphs -> XML .
