@@ -1,0 +1,7 @@
+megamodel capabilities/Object_XML_mapping/write .
+include capabilities/Object_XML_mapping/serialization .
+variable File problemProgram elementOf OoLanguage .
+problemProgram dependsOn ooTypes .
+variable Fragment serialization partOf problemProgram .
+serialization realizationOf serialize .
+serialization dependsOn OxLibrary .

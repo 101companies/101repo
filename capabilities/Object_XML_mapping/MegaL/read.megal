@@ -1,0 +1,7 @@
+megamodel capabilities/Object_XML_mapping/read .
+include capabilities/Object_XML_mapping/deserialization .
+variable File problemProgram elementOf OoLanguage .
+problemProgram dependsOn ooTypes .
+variable Fragment deserialization partOf problemProgram .
+deserialization realizationOf deserialize .
+deserialization dependsOn OxLibrary .
