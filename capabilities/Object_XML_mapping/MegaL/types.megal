@@ -1,6 +1,4 @@
-megamodel capabilities/Object_XML_mapping/basics .
-
-global Language XML .
+megamodel capabilities/Object_XML_mapping/types .
 
 variable Language XmlSchemas .
 variable Language OoLanguage .
@@ -22,6 +20,3 @@ a set of XML trees or object graphs. -}
 local Language problemLanguage .
 xmlTypes definitionOf problemLanguage .
 ooTypes definitionOf problemLanguage .
-
-local Function deserialize : XML -> ObjectGraphs .
-local Function serialize : ObjectGraphs -> XML .

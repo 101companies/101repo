@@ -1,0 +1,5 @@
+megamodel capabilities/Object_XML_mapping/values .
+include capabilities/Object_XML_mapping/types .
+global Language XML .
+local Function deserialize : XML -> ObjectGraphs .
+local Function serialize : ObjectGraphs -> XML .
