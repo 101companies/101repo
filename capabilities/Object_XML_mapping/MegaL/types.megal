@@ -1,23 +1,13 @@
 megamodel capabilities/Object_XML_mapping/types .
-
-variable Technology Mapper .
-variable Language XmlSchemas .
-variable Language OoLanguage .
-variable Language MappableOo subsetOf OoLanguage .
-Mapper dependsOn XmlSchemas .
-Mapper dependsOn OoLanguage .
-MappableOo partOf Mapper .
-
+include capabilities/Object_XML_mapping/technology .
 variable File+ xmlTypes elementOf XmlSchemas .
 variable File+ ooTypes elementOf MappableOo .
-
 xmlTypes conformsTo ooTypes .
 
 {- Make explicit the existence of a problem-specific language
 underlying the involved type-level artifacts. We think of this
 language as being abstract in the sense of not fixing it here as being
 a set of XML trees or object graphs. -}
-
 local Language problemLanguage .
 xmlTypes definitionOf problemLanguage .
 ooTypes definitionOf problemLanguage .

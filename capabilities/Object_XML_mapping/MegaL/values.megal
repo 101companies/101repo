@@ -6,5 +6,5 @@ Mapper dependsOn XML .
 Mapper dependsOn ObjectGraphs .
 local Function deserialize : XML -> ObjectGraphs .
 local Function serialize : ObjectGraphs -> XML .
-deserialize partOf Mapper .
-serialize partOf Mapper .
+deserialize dependsOn OxMapper .
+serialize dependsOn OxMapper .

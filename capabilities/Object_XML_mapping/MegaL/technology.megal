@@ -1,0 +1,10 @@
+megamodel capabilities/Object_XML_mapping/technology .
+variable Technology OxMapper .
+variable Library OxLibrary .
+OxLibrary partOf OxMapper .
+variable Language XmlSchemas .
+variable Language OoLanguage .
+variable Language MappableOo subsetOf OoLanguage .
+OxMapper dependsOn XmlSchemas .
+OxMapper dependsOn OoLanguage .
+MappableOo partOf OxMapper .
