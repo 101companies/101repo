@@ -1,0 +1,7 @@
+megamodel capabilities/Object_XML_mapping/classgen .
+
+import capabilities/Object_XML_mapping/basics .
+
+local function classgen : XmlSchemas -> MappableOo .
+
+classgen(xmlTypes) |-> ooTypes .
