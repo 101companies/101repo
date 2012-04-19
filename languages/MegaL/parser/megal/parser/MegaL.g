@@ -41,8 +41,7 @@ decl : ( modifier? entity | relationship ) '.' DECLCMT?;
 modifier : 'local' | 'variable';
 
 entity :
-      'Language' '+'? idsbin (',' idsbin)*
-    | artifact '+'? idsbin (',' idsbin)*
+      artifact '+'? idsbin (',' idsbin)*
     | 'Function' '+'? idsfun (',' idsfun)*
     ;
 
@@ -53,6 +52,8 @@ idsfun : ID fun?;
 artifact
     : 'Artifact'
     | 'File'
+    | 'Language'
+    | 'Technology'
     | 'Fragment'
     | 'ObjectGraph'
     | 'Program'

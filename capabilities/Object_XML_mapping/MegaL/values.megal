@@ -1,6 +1,6 @@
 megamodel capabilities/Object_XML_mapping/values .
 include capabilities/Object_XML_mapping/types .
-global Language XML .
+Language XML .
 variable Language ObjectGraphs .
 Mapper dependsOn XML .
 Mapper dependsOn ObjectGraphs .
