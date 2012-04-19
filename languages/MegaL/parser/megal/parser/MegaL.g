@@ -1,7 +1,7 @@
 grammar MegaL;
 
 options {
-  k = 5;
+  k = 7;
 }
 
 @header {
@@ -23,26 +23,32 @@ public void emitErrorMessage(String msg)
   error = true;
   super.emitErrorMessage(msg);
 }
+
 }
 
-megal : decl* block* EOF;
+megal : modelheader moduleinclude* decl* block* EOF;
+
+modelheader : 'megamodel' simpleuri '.';
+
+simpleuri : ID ('/' ID)+;
+
+moduleinclude : 'include' simpleuri '.' ;
 
 block : BLOCKCMT decl+;
 
-decl : ( entity | relationship ) '.' DECLCMT?;
+decl : ( modifier? entity | relationship ) '.' DECLCMT?;
 
-entity
-    : 'Language' idbin
-    | 'Languages' idbin (',' idbin)+
-    | artifact idbin
-    | artifacts idbin (',' idbin)+
-    | 'Function' idfun
-    | 'Functions' idfun (',' idfun)+
+modifier : 'local' | 'variable';
+
+entity :
+      'Language' '+'? idsbin (',' idsbin)*
+    | artifact '+'? idsbin (',' idsbin)*
+    | 'Function' '+'? idsfun (',' idsfun)*
     ;
 
-idbin : ID (bin ID)?;
+idsbin : ID (bin ID)?;
 
-idfun : ID fun?;
+idsfun : ID fun?;
 
 artifact
     : 'Artifact'
@@ -51,15 +57,6 @@ artifact
     | 'ObjectGraph'
     | 'Program'
     | 'Library'
-    ;
-
-artifacts
-    : 'Artifacts'
-    | 'Files'
-    | 'Fragments'
-    | 'ObjectGraphs'
-    | 'Programs'
-    | 'Libraries'
     ;
 
 relationship
@@ -80,7 +77,7 @@ bin
   
 fun : ':' ID '->' ID;
 
-ID       :   ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')* ;
+ID       :   ('a'..'z'|'A'..'Z') ('_'|'a'..'z'|'A'..'Z'|'0'..'9')* ;
 STRING   :   '"' (~'"')* '"';
 WS       :   (' '|'\r'? '\n'|'\t')+ { skip(); };
 DECLCMT  :   '-' '-' (~('\n'|'\r'))*;
