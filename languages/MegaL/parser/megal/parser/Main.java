@@ -16,5 +16,7 @@ public class Main {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MegaLParser parser = new MegaLParser(tokens);
         parser.megal();
+        if (parser.error)
+	    System.exit(-1);
     }
 }

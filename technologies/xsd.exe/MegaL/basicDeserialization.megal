@@ -1,4 +1,4 @@
-megamodel technologies/xsdDotExe/basicDeserialization
+megamodel technologies/xsdDotExe/basicDeserialization .
 
 Language XSD, CSharp, XML, ClrObjectGraphs .
 local Language CSharpFromXsd subsetOf CSharp .
