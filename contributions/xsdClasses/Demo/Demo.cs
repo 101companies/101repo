@@ -33,5 +33,24 @@ namespace xsdClasses
             var total = Operations.Total(Company);
             Assert.AreEqual(399747.0, total);
         }
+
+        [Test]
+        public void CutAcmeCorp()
+        {
+            var acmeCorp = xsdClasses.Serialization.Deserialize<Company>("AcmeCorp.xml");
+            Operations.Cut(acmeCorp);
+            xsdClasses.Serialization.Serialize("AcmeCorpCut.xml", acmeCorp);
+        }
+
+        [Test]
+        public void TotalAcmeCorp()
+        {
+            var acmeCorp = xsdClasses.Serialization.Deserialize<Company>("AcmeCorp.xml");
+            var total = Operations.Total(acmeCorp);
+            using (var file = new StreamWriter("AcmeCorpTotal.txt"))
+            {
+                file.WriteLine(total);
+            }
+        }
     }
 }

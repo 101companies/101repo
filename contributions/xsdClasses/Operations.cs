@@ -37,16 +37,23 @@ namespace xsdClasses
 
         public static void Cut(Department department)
         {
-            foreach (var dept in department.SubDepartment)
+            if(department.SubDepartment != null)
             {
-                Cut(dept);
+                foreach (var dept in department.SubDepartment)
+                {
+                    Cut(dept);
+                }
             }
+
 
             department.Manager.Salary /= 2;
 
-            foreach (var emp in department.Employee.Where(e => e.Salary != 0.0))
+            if(department.Employee != null)
             {
-                emp.Salary /= 2;
+                foreach (var emp in department.Employee.Where(e => e.Salary != 0.0))
+                {
+                    emp.Salary /= 2;
+                }  
             }
         }
     }
