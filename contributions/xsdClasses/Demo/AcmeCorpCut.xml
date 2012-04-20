@@ -6,17 +6,17 @@
     <Manager>
       <Name>Craig</Name>
       <Address>Redmond</Address>
-      <Salary>123456</Salary>
+      <Salary>61728</Salary>
     </Manager>
     <Employee>
       <Name>Erik</Name>
       <Address>Utrecht</Address>
-      <Salary>12345</Salary>
+      <Salary>6172.5</Salary>
     </Employee>
     <Employee>
       <Name>Ralf</Name>
       <Address>Koblenz</Address>
-      <Salary>1234</Salary>
+      <Salary>617</Salary>
     </Employee>
   </TopLevelDepartment>
   <TopLevelDepartment>
@@ -24,26 +24,26 @@
     <Manager>
       <Name>Ray</Name>
       <Address>Redmond</Address>
-      <Salary>234567</Salary>
+      <Salary>117283.5</Salary>
     </Manager>
     <SubDepartment>
       <Name>Dev1</Name>
       <Manager>
         <Name>Klaus</Name>
         <Address>Boston</Address>
-        <Salary>23456</Salary>
+        <Salary>11728</Salary>
       </Manager>
       <SubDepartment>
         <Name>Dev1.1</Name>
         <Manager>
           <Name>Karl</Name>
           <Address>Riga</Address>
-          <Salary>2345</Salary>
+          <Salary>1172.5</Salary>
         </Manager>
         <Employee>
           <Name>Joe</Name>
           <Address>Wifi City</Address>
-          <Salary>2344</Salary>
+          <Salary>1172</Salary>
         </Employee>
       </SubDepartment>
     </SubDepartment>
