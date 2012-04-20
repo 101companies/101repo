@@ -47,18 +47,19 @@
     <Compile Include="Operations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization.cs" />
-    <Compile Include="Demo.cs" />
+    <Compile Include="Demo\Demo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AcmeCorp.xml">
+    <Content Include="Demo\AcmeCorp.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="xsd\AcmeCorp.xsd">
+    <None Include="Company.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="xsd\make.bat" />
+    <None Include="CompanyXSD2CS.bat" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
