@@ -47,7 +47,7 @@ namespace xsdClasses
         {
             var acmeCorp = xsdClasses.Serialization.Deserialize<Company>("AcmeCorp.xml");
             var total = Operations.Total(acmeCorp);
-            using (var file = new System.IO.StreamWriter("AcmeCorpTotal.txt"))
+            using (var file = new StreamWriter("AcmeCorpTotal.txt"))
             {
                 file.WriteLine(total);
             }
