@@ -17,7 +17,7 @@
                     var obj = xs.Deserialize(fs) as T;
                     return obj;
                 }
-            }
+        }
 
         public static void Serialize(string fileName, object obj)
         {
