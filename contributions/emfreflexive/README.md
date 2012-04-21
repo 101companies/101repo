@@ -1,4 +1,2 @@
-# Intent
-Reflexive Implementation of the Transformation with EMF
+See the [101companies wiki](http://www.101companies.org) for further information.
 
-For more information visit the [101companies wiki](http://www.101companies.org).
