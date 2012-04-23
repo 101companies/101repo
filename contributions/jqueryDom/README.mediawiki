@@ -1,0 +1,47 @@
+<nowiki></nowiki>
+
+'''This is an implementation in the 101companies software corpus.''' 
+
+== Intent ==
+
+Demonstrate a term-rewriting style of programmnig using jQuery, JavaScript and the DOM
+
+== Motivation ==
+
+jQuery is a library for DOM manipulation in Javascript. The DOM is a tree-structured view of a HTML page and jQuery allows programming this tree with a "select and manipulate" style. Term-rewriting is a style of programming which adopts a "traverse and match" approach. Rules are written which fire on any matching value and all values in the program are checked against that rule during a traversal of data. While "select and manipulate" is not quite the same as "traverse and match" style, the two overlap considerably.  This 101Companies implementation aims to demonstrate that overlap by using jQuery/DOM for a task which is very well suited to term-rewriting.
+
+== Technologies ==
+
+* HTML DOM
+* jQuery Javascript library.
+
+== Languages ==
+
+* Javascript
+
+== Features ==
+
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+* [[101feature:Precedence]]
+* [[101feature:Depth]]
+
+== Illustration ==
+
+A commentry on the implementation is online at [[http://mattr.net.au/articles/101jquery/]].
+
+== Architecture ==
+
+The entire program is in one HTML file.  Static HTML is used to set up an initial state and Javascript does the rest.
+
+== Usage ==
+
+Open the <tt>101jquery.html</tt> file in your web browser (development is done in Safari4+ but the code works in many browsers), this sets up the static data and registers the javascript code to certain events.  The data is displayed as a series of nested boxes.  You can use the buttons at the top of the page to perform calculations on the data.  Calculations which generate a mega-company will replace the existing data with the result of the computation, and you will see the results on the page.  Refresh the page in your browser to return to the initial state.
+
+== Contributors ==
+
+* [[http://mattr.net.au | Matt Roberts ]]
+
+[[Category:101implementation]]

@@ -1,0 +1,124 @@
+<html>
+
+<head>
+<title>101 Companies: JQuery Version</title>
+<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+<style type="text/css">
+div {
+  margin:15px;
+  padding: 5px;
+  border:solid black 1px;
+  font-family:menlo; consolas; monospace;
+}
+
+.employee{border:dotted black 1px;}
+.address {margin:0px; margin-left:15px; padding:0px; border:none;}
+.salary  {margin:0px; margin-left:15px; padding:0px; border:none;}
+
+</style>
+<script>
+function extractFloat(o){return parseFloat(o.textContent);}
+function setFloat(o,v){o.textContent = v;}
+function allTrue(arr){
+  var ret = true;
+  jQuery.each(arr,function(i,a){ret = ret && a;});
+  return ret;
+}
+
+function cut(){
+  $(".salary > .int").contents().each(function(){
+    var old = extractFloat(this);
+    setFloat(this, old/2);
+  });
+}
+
+function total(){
+  var t = 0;
+  $(".salary > .int").contents().each(function(){
+    t = t + extractFloat(this);
+  });  
+  alert(t);
+}
+
+// todo: works now but I think it is doing extra calculation by finding the departments more than once.
+function depth(jqo){
+  var depts = $(jqo).find(".department")
+  var depths = jQuery.map(depts,function(a){return depth($(a));});
+  var add = 0;
+  if (jqo.attr("class") == "department"){add = 1;}
+  if (depths.length == 0) {return add;} else {return  (Math.max.apply(null, depths) + add);}
+}
+
+function check_precedence(m,jqo){
+  if (jqo.attr("class") ==  "department") {
+    var manager_sal = parseFloat(jqo.children().slice(1,2).children().slice(2,3).first().text())
+    return allTrue(jqo.children().slice(2).map(function(){return check_precedence(manager_sal, $(this))}));
+  }
+  else if (jqo.attr("class") ==  "employee") {
+    var employee_sal = parseFloat(jqo.children().slice(2,3).first().text());
+    return (m > employee_sal);
+  }
+  else if (jqo.attr("class") ==  "manager") {
+    var manager_sal = parseFloat(jqo.children().slice(2,3).first().text());
+    return (m > manager_sal);
+  }
+  else { 
+    return allTrue(jqo.children().map(function(){return check_precedence(m, $(this))}));
+  }
+}
+
+</script>
+</head>
+
+<body>
+  
+<button id="cut"   onClick="cut();">  cut</button>
+<button id="total" onClick="total();">total</button>
+<button id="depth" onClick="alert(depth($('.company')));">depth</button>
+<button id="check_precedence" onClick="alert(check_precedence(0,$('.company')));">check_precedence</button>
+
+<div class="company">
+  <span class="string">meganalysis</span>
+  <div class="department">
+    <span class="string">Research</span>
+    <div class="manager"><span class="string">Craig</span>
+                         <div class="address"><span class="string">Redmond</span></div>
+                         <div class="salary"><span class="int">123456</span></div>
+    </div>
+    <div class="employee"><span class="string">Erik</span>
+                          <div class="address"><span class="string">Utrect</span></div>
+                          <div class="salary"><span class="int">12345</span></div>
+    </div>
+    <div class="employee"><span class="string">Ralf</span>
+                          <div class="address"><span class="string">Koblenz</span></div>
+                          <div class="salary"><span class="int">1234</span></div>
+    </div>
+  </div>
+  <div class="department">
+    <span class="string">Development</span>
+    <div class="manager"><span class="string">Ray</span>
+                         <div class="address"><span class="string">Redmond</span></div>
+                         <div class="salary"><span class="int">234567</span></div>
+    </div>
+    <div class="department">
+      <span class="string">Dev1</span>
+      <div class="manager"><span class="string">Klaus</span>
+                           <div class="address"><span class="string">Boston</span></div>
+                           <div class="salary"><span class="int">23456</span></div>
+      </div>
+      <div class="department">
+        <span class="string">Dev1.1</span>
+        <div class="manager"><span class="string">Karl</span>
+                         <div class="address"><span class="string">Riga</span></div>
+                         <div class="salary"><span class="int">12345</span></div>
+        </div>
+        <div class="employee"><span class="string">Joe</span>
+                          <div class="address"><span class="string">Wifi City</span></div>
+                          <div class="salary"><span class="int">2344</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
