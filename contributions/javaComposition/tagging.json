@@ -1,0 +1,24 @@
+{
+ "feature" : [
+  {
+   "tag" : "cut/company",
+   "locator" : "file[org/softlang/company/Company.java] # class[Company] # method[cut]"
+  },
+  {
+   "tag" : "cut/department",
+   "locator" : "file[org/softlang/company/Department.java] # class[Department] # method[cut]"
+  },
+  {
+   "tag" : "cut/employee",
+   "locator" : "file[org/softlang/company/Employee.java] # class[Employee] # method[cut]"
+  },
+  {
+   "tag" : "deserialize",
+   "locator" : "file[org/softlang/features/Serialization.java] # class[Serialization] # method[readCompany]" 
+  },
+  {
+   "tag" : "serialize",
+   "locator" : "file[org/softlang/features/Serialization.java] # class[Serialization] # method[writeCompany]" 
+  }
+ ]
+}

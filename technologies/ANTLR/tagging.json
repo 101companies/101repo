@@ -1,0 +1,12 @@
+{
+ "input" : {
+  "extension" : ".g"
+ },
+ "output" : {
+  "extension" : ".tokens",
+  "pattern" : [
+   "@Lexer.java",
+   "@Parser.java"
+  ]
+ }
+}
