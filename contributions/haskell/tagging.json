@@ -1,0 +1,16 @@
+{
+ "feature" : [
+  {
+   "tag" : "cut",
+   "locator" : "file[haskell/Cut.hs] # module[Cut] # function[cut]"
+  },
+  {
+   "tag" : "deserialize",
+   "locator" : "file[haskell/Company.hs] # module[Company] # data=company" 
+  },
+  {
+   "tag" : "serialize",
+   "locator" : "file[haskell/Company.hs] # module[Company] # data=company" 
+  }
+ ]
+}
