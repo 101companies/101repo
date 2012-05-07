@@ -31,7 +31,7 @@ The use of a list enables fragment selection into nested and anonymous classes.
  { "class" : "HelloWorld" },
  { "method" : "main" }
 ]
-</pre<
+</pre>
 
 For the given file, the class "HelloWorld".
 
