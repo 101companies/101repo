@@ -3,42 +3,42 @@
   {
    "tag" : "cut/company",
    "file" : "org/softlang/company/Company.java",
-   "fragment" : {
-    "class" : "Company",
-    "method" : "cut"
-   }
+   "fragment" : [
+    { "class" : "Company" },
+    { "method" : "cut" }
+   ]
   },
   {
    "tag" : "cut/department",
    "file" : "org/softlang/company/Department.java",
-   "fragment" : {
-    "class" : "Department",
-    "method" : "cut"
-   }
+   "fragment" : [
+    { "class" : "Department" },
+    { "method" : "cut" }
+   ]
   },
   {
    "tag" : "cut/employee",
    "file" : "org/softlang/company/Employee.java",
-   "fragment" : {
-    "class" : "Employee",
-    "method" : "cut"
-   }
+   "fragment" : [
+    { "class" : "Employee" },
+    { "method" : "cut" }
+   ]
   },
   {
    "tag" : "deserialize",
    "file" : "org/softlang/features/Serialization.java",
-   "fragment" : {
-    "class" : "Serialization",
-    "method" : "readCompany"
-   }
+   "fragment" : [
+    { "class" : "Serialization" },
+    { "method" : "readCompany" }
+   ]
   },
   {
    "tag" : "serialize",
    "file" : "org/softlang/features/Serialization.java",
-   "fragment" : {
-    "class" : "Serialization",
-    "method" : "writeCompany"
-   }
+   "fragment" : [
+    { "class" : "Serialization" },
+    { "method" : "writeCompany" }
+   ]
   }
  ]
 }

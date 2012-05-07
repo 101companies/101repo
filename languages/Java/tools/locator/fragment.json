@@ -1,5 +1,4 @@
-{
-    "class" : "HelloWorld",
-    "method" : "main"
-}
-
+[
+ { "class" : "HelloWorld" },
+ { "method" : "main" }
+]
