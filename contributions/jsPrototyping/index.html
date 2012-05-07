@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>101companies - JavaScript prototyping implementation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<style>
+			body, .content > div {
+				padding-top:	60px; /* 60px to make the container go all the way to the bottom of the topbar */
+			}
+			
+			pre {
+				tab-size:		4 !important; /* Set tab size to 4 spaces */
+				-moz-tab-size:	4 !important;
+				-o-tab-size:	4 !important;
+			}
+			
+			pre ol {
+				padding-left:	1em; /* Extend line number column for larger line numbers (>100) */
+			}
+			
+			#console-container .navbar, #console {
+				margin-bottom:	0; /* Let's look the navbars like glued to the console */
+				margin-top:		0;
+			}
+			
+			.navbar .input-append .btn {
+				margin: 0;
+			}
+			
+			#console-navbar-eval input {
+				width: 60%;
+			}
+		</style>
+	</head>
+	
+	<body data-spy="scroll">
+		
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="#">101companies - JavaScript prototyping implementation</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li><a href="#intro">Introduction</a></li>
+							<li><a href="#testing">Testing</a></li>
+							<li><a href="#examples">Examples</a></li>
+							<li><a href="#code">Code</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="content container" style="max-width: 50em;">
+			
+			<div id="intro">
+				<h2>Introduction</h1>
+				<p>
+					The source code of this document itself is not very important at all.
+					This is a customized boilerplate of Twitter's <a href="http://bootstrap.com">Bootstrap</a>
+					filled with some content and explanation, but it can be reused as test bed for any javascript
+					code, which uses the provided test.js-Unit-Testing-framework.
+				</p>
+				<p>
+					The source code, which is important for 101companies, is that from <a href="js/comapnies101.js">companies101.js</a>.
+					It is loaded dynamically by javascript itself to allow unit testing and to show it pretty printed in the section <a href="#code">Code</a>.
+				</p>
+			</div>
+			
+			<div id="testing">
+				<h2>Testing</h2>
+				<div class="hero-unit">
+					<h1>Test panel</h1>
+					<p>
+						Use the test panel to try if the code works as expected and if everything is fine.
+						All code is guilty, unless proven innocent!
+					</p>
+					
+					<div id="progress" class="progress progress-striped progress-success">
+						<div class="bar" style="width: 0%;"></div>
+					</div>
+					
+					<table id="testcases" class="table table-striped table-bordered table-condensed">
+						<thead>
+							<tr>
+								<th>Test</th>
+								<th>Status?</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					
+					<div id="console-container">
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="container">
+								    <span class="brand">Console</span>
+									<div class="pull-left">
+										<a id="reload"	class="btn btn-danger	btn-large"><i class="icon-refresh icon-white"></i>Reload</a>
+										<a id="execute"	class="btn btn-primary	btn-large"><i class="icon-forward icon-white"></i>Execute all tests</a>
+									</div>
+									<div class="pull-right">
+										<a id="clear"	class="btn btn-inverse	btn-large"><i class="icon-remove icon-white"></i>Clear console</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div id="console" class="well" style="overflow: auto; height: 20em;">
+						</div>
+						
+						<div id="console-navbar-eval" class="navbar">
+							<div class="navbar-inner">
+								<div class="container">
+									<label class="brand" for="eval-code">Eval:</label>
+									<form class="navbar-form">
+										<div class="input-append"><!-- This comments are needed to remove interpreted whitespaces between elements!
+											--><input	id="eval-input"	class="span2"	type="text"><!--
+											--><button	id="eval-go"	class="btn"		type="button"><i class="icon-play"></i></button><!--
+											--><button	id="eval-clear"	class="btn"		type="button"><i class="icon-remove"></i></button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="examples">
+				<h2>Examples</h2>
+				<p>
+					Try out the following examples on the console above to better understand how the code works!
+					You can also use Firebug or another similar browser extension to explore the object structures.
+				</p>
+				<pre class="prettyprint lang-js">
+// Try toString
+companies101.meganalysis.object.toString();
+
+// Execute tests
+companies101.testSuite.executeAll();
+
+// Manipulate a test to let it fail
+companies101.testSuite.getCases()["companies101.Company.cut()"] = new test.TestCase(function() { assertTrue(false); });
+				</pre>
+			</div>
+			
+			<div id="code">
+				<h2>Code</h2>
+				<p>
+					The most important thing: the source code!
+				</p>
+				<pre id="companies101" class="prettyprint linenums lang-js">/* Will be load dynamically. Please enable JavaScript, if you don't have! */</pre>
+			</div>
+			
+		</div>
+		
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/components.js"></script>
+		<script type="text/javascript" src="js/test.js"></script>
+		<script type="text/javascript" src="js/prettify.min.js"></script>
+		<script type="text/javascript">
+			var SCRIPT_PATH = 'js/companies101.js';
+			var evalResult;
+			
+			var virtualConsole, progressBar;
+			var evalInput;
+			var testCasesTableBody;
+			
+			// Initializes everything
+			$(document).ready(function() {
+					// Setup components
+					virtualConsole	= new components.Console($('#console'));
+					progressBar		= new components.ProgressBar($('#progress'));
+					
+					
+					// Load selectors
+					testCasesTableBody	= $('#testcases tbody');
+					evalInput			= $('#eval-input');
+					
+					
+					// Extend the progress bar component
+					progressBar.testProgress	= 0;
+					progressBar.testCount		= 1;
+					
+					progressBar.inc = function() {
+							this.testProgress++;
+							this.setProgress(this.testProgress*100 / this.testCount);
+						};
+					
+					progressBar.reset = function() {
+							this.testProgress = 0;
+							this.setProgress(0);
+						};
+					
+					
+					// Basic interactons
+					$('#clear').click(function() {
+							virtualConsole.clear();
+						});
+					
+					$('#reload').click(function() {
+							loadSourceCode();
+						});
+					
+					$('#eval-go').click(function() {
+							evalResult = null;
+							eval("evalResult = "+evalInput.val());
+							virtualConsole.log(evalResult);
+						});
+					
+					$('#eval-clear').click(function() {
+							evalInput.val("");
+						});
+					
+					
+					// Load the source code finally
+					loadSourceCode();
+				});
+			
+			
+			/**
+			 * Load the source code dynamically to execute it
+			 * and write it in the code display container.
+			 */
+			function loadSourceCode() {
+				progressBar.reset();
+				testCasesTableBody.html('<tr><td colspan="2"><div class="alert alert-info">Loading...</div></td></tr>');
+				
+				$.get(SCRIPT_PATH, {}, function(content) {
+							$('#companies101').text(content);
+							prettyPrint();
+						},
+						'text' // Manually set the metatype, otherwise it would be maybe parsed
+					);
+				
+				$.getScript(SCRIPT_PATH)
+					.done(function() {
+						setupTests();
+					})
+					.fail(function(jqxhr, settings, exception) {
+						virtualConsole.error('There was some problem by loading, parsing or executing companies101.js: '+exception);
+					});
+			}
+			
+			
+			/**
+			 * Handler for test results, which writes results to
+			 * the virtual console and updates the progress bar.
+			 */
+			function handleTestResult(testCase, success, message) {
+				var button = testCase.tableRow
+					.find('.btn')
+					.addClass('disabled');
+				
+				if (success) {
+					progressBar.inc();
+					virtualConsole.success('<strong>Success!</strong> '+message);
+					button.html('<i class="icon-ok icon-white"></i>Success').addClass('btn-success');
+				} else {
+					virtualConsole.error('<strong>Fail!</strong> '+message);
+					button.html('<i class="icon-remove icon-white"></i>Fail').addClass('btn-danger');
+				}
+			};
+			
+			
+			/**
+			 * Setup the test panel
+			 */
+			function setupTests() {
+				// Write a message about loading success
+				virtualConsole.info('companies101.js was loaded successfully!');
+				
+				// Set test count of progress bar
+				progressBar.testCount = util.size(companies101.testSuite.getCases());
+				
+				// Set the callback for test results
+				test.callback = handleTestResult;
+				
+				// Interaction for "Execute all" button
+				$('#execute').click(function() {
+						progressBar.reset();
+						companies101.testSuite.executeAll();
+					});
+				
+				// Fill test case table
+				testCasesTableBody.html('');
+				$.each(companies101.testSuite.getCases(), function(name, testCase) {
+						var tableRow = $(
+								'<tr>'
+								+'<td>'+name+'</td>'
+								+'<td><a class="btn btn-primary btn-mini"><i class="icon-play icon-white"></i>Execute</a></td>'
+								+'</tr>'
+							);
+						
+						tableRow
+							.find('.btn')
+							.click(function() {
+								companies101.testSuite.execute(testCase);
+							});
+						
+						testCase.tableRow = tableRow;
+						testCasesTableBody.append(tableRow);
+					});
+			}
+		</script>
+	</body>
+</html>

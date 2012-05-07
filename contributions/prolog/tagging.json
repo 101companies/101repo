@@ -1,0 +1,7 @@
+{
+ "feature" : [
+  {
+   "tag" : "cut",
+   "locator" : "file[prolog/Cut.pro] # predicate[cut]"
+  },
+}
