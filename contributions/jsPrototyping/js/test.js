@@ -7,7 +7,6 @@
  * Indentation: by tabs (size=4)
  * 
  * @author {Marius Rackwitz}
- * @license {GPLv3}
  * @version {0.3}
  */
 var test = new (function($, undefined) {

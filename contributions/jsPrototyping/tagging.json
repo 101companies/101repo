@@ -1,0 +1,20 @@
+{
+ "feature" : [
+  {
+   "tag" : "cut/company",
+   "locator" : "file[jsPrototyping/companies101.js] # var[companies101.Company.prototype.cut]"
+  },
+  {
+   "tag" : "cut/department",
+   "locator" : "file[jsPrototyping/companies101.js] # var[companies101.Department.prototype.cut]"
+  },
+  {
+   "tag" : "cut/employee",
+   "locator" : "file[jsPrototyping/companies101.js] # var[companies101.Employee.prototype.cut]"
+  },
+  {
+   "tag" : "deserialize",
+   "locator" : "file[jsPrototyping/companies101.js] # var[companies101.Company.deserializeFromJson]"
+  },
+ ]
+}
