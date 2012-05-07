@@ -2,15 +2,24 @@
  "feature" : [
   {
    "tag" : "cut",
-   "locator" : "file[haskell/Cut.hs] # module[Cut] # function[cut]"
+   "file" : "haskell/Cut.hs",
+   "fragment" : {
+    "function" : "cut"
+   }
   },
   {
    "tag" : "deserialize",
-   "locator" : "file[haskell/Company.hs] # module[Company] # data=company" 
+   "file" : "haskell/Company.hs",
+   "fragment" : {
+    "data" : "Department"
+   }
   },
   {
    "tag" : "serialize",
-   "locator" : "file[haskell/Company.hs] # module[Company] # data=company" 
+   "file" : "haskell/Company.hs",
+   "fragment" : {
+    "data" : "Department"
+   }
   }
  ]
 }
