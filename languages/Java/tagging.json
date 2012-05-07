@@ -1,4 +1,5 @@
 {
  "geshi" : "java",
- "extension" : ".java"
+ "extension" : ".java",
+ "locator" : "tools/locator/locator.py"
 }
