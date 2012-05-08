@@ -26,15 +26,13 @@ public void emitErrorMessage(String msg)
 
 }
 
-megal : modelheader moduleinclude* decl* block* EOF;
+megal : DESC? modelheader moduleinclude* decl+ EOF;
 
 modelheader : 'megamodel' simpleuri '.';
 
 simpleuri : ID ('/' ID)+;
 
 moduleinclude : 'include' simpleuri '.' ;
-
-block : BLOCKCMT decl+;
 
 decl : ( modifier? entity | relationship ) '.' DECLCMT?;
 
@@ -82,4 +80,4 @@ ID       :   ('a'..'z'|'A'..'Z') ('_'|'a'..'z'|'A'..'Z'|'0'..'9')* ;
 STRING   :   '"' (~'"')* '"';
 WS       :   (' '|'\r'? '\n'|'\t')+ { skip(); };
 DECLCMT  :   '-' '-' (~('\n'|'\r'))*;
-BLOCKCMT :   '{' '-' ((~'-')|'-'~'}')* '-' '}';
+DESC     :   '{' '-' ((~'-')|'-'~'}')* '-' '}';

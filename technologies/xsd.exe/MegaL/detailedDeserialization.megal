@@ -1,54 +1,30 @@
+{- a more detailed description of XML serialization (in fact,
+de-serialization with xsd.exe and .NET's library for XML serialization
+-}
+
 megamodel technologies/xsdDotExe/detailedDeserialization .
 
-{- Disclose the components of .NET's O/X mapping technology -}
+local Program xsdDotExe . -- the "xsd.exe" CLI tool
+local Library XmlSerializer . -- the .NET library for XML serialization
+local Language XsdMetadata . -- custom attributes for XML serialization
 
-local Program xsdDotExe . -- to be labeled "xsd.exe"
-local Library XmlSerializer .
-local Language XsdMetadata .
+xsdDotExe realizationOf classgen . -- the relevant class-generator functionality
 
+variable File+ problemProgram elementOf CSharp . -- a C# program
+problemProgram dependsOn ooTypes . -- the dependence of the program on generated classes
 
-{- Model that the xsd.exe tool realizes the class generator. We do not
-capture the issue here that the xsd.exe tool can be used in a number
-of different modes that are controlled on the command line. -}
+variable Fragment deserialization partOf problemProgram . -- program encodes deserialization  
+deserialization dependsOn XmlSerializer . -- deserialization relies on library
+deserialization realizationOf deserialize . -- functional meaning of deserialization code
 
-xsdDotExe realizationOf classgen .
+local Language CSharpMetadata . -- part of C# dealing with custom attributes
+CSharpMetadata partOf CSharp . -- partOf relationship on languages
+XsdMetadata subsetOf CSharpMetadata . -- custom attributes related to XML serialization
+ooTypes dependsOn XsdMetadata . -- OO types refer to such custom attributes
 
+variable Language problemLanguage . -- a problem-specific language
+xmlTypes definitionOf problemLanguage . -- the XML types define the language
+ooTypes definitionOf problemLanguage . -- the OO types define the language, too
 
-{- Introduce the problem-specific program that uses the schema-derived
-classes. -}
-
-variable File+ problemProgram elementOf CSharp .
-problemProgram dependsOn ooTypes .
-
-
-{- Use .NET's XML Serializer library in the problem-specific program
-to perform de-serialization. -}
-
-variable Fragment deserialization partOf problemProgram .
-deserialization dependsOn XmlSerializer .
-deserialization realizationOf deserialize .
-
-
-{- Model that .NET Xml Serialization approach relies on attributes,
-i.e., metadata. -}
-
-local Language CSharpMetadata .
-CSharpMetadata partOf CSharp .
-XsdMetadata subsetOf CSharpMetadata .
-ooTypes dependsOn XsdMetadata .
-
-
-{- Make explicit the existence of a problem-specific language
-underlying the involved type-level artifacts. We think of this
-language as being abstract in the sense of not fixing it here as being
-a set of XML trees or object graphs. -}
-
-variable Language problemLanguage .
-xmlTypes definitionOf problemLanguage .
-ooTypes definitionOf problemLanguage .
-
-
-{- Impose correspondence relationships at type and instance levels. -}
-
-xmlTypes correspondsTo ooTypes .
-xmlDoc correspondsTo clrObj .
+xmlTypes correspondsTo ooTypes . -- correspondence at the type level
+xmlDoc correspondsTo clrObj . -- correspondence at the instance level
