@@ -26,15 +26,13 @@ public void emitErrorMessage(String msg)
 
 }
 
-megal : DESC modelheader moduleinclude* decl* block* EOF;
+megal : DESC modelheader moduleinclude* decl+ EOF;
 
 modelheader : 'megamodel' simpleuri '.';
 
 simpleuri : ID ('/' ID)+;
 
 moduleinclude : 'include' simpleuri '.' ;
-
-block : decl+;
 
 decl : ( modifier? entity | relationship ) '.' DECLCMT?;
 
