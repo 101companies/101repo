@@ -26,7 +26,7 @@ public void emitErrorMessage(String msg)
 
 }
 
-megal : DESC modelheader moduleinclude* decl+ EOF;
+megal : DESC? modelheader moduleinclude* decl+ EOF;
 
 modelheader : 'megamodel' simpleuri '.';
 
