@@ -8,5 +8,8 @@
    "@Lexer.java",
    "@Parser.java"
   ]
+ },
+ "support" : {
+  "pattern" : "antlr-@.jar"
  }
 }
