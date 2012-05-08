@@ -6,7 +6,7 @@
    "fragment" : [
     { "class" : "Cut" },
     { "method" : "cut",
-      "overload" : true,
+      "overloaded" : true,
 	  "number" : 0
     }
    ]
@@ -17,9 +17,9 @@
    "fragment" : [
     { "class" : "Cut" },
     { "method" : "cut",
-      "overload" : true,
+      "overloaded" : true,
 	  "number" : 1
-	}
+    }
    ]
   },
   {
@@ -27,10 +27,10 @@
    "file" : "org/softlang/features/Cut.java",
    "fragment" : [
     { "class" : "Cut" },
-    { "method" : "cut"
-      "overload" : true,
+    { "method" : "cut",
+      "overloaded" : true,
 	  "number" : 2
-	}
+    }
    ]
   },
   {
