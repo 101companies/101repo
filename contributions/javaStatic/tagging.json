@@ -6,8 +6,7 @@
    "fragment" : [
     { "class" : "Cut" },
     { "method" : "cut",
-      "overloaded" : true,
-      "number" : 0
+      "overloaded" : 0
     }
    ]
   },
@@ -17,8 +16,7 @@
    "fragment" : [
     { "class" : "Cut" },
     { "method" : "cut",
-      "overloaded" : true,
-      "number" : 1
+      "overloaded" : 1,
     }
    ]
   },
@@ -28,8 +26,7 @@
    "fragment" : [
     { "class" : "Cut" },
     { "method" : "cut",
-      "overloaded" : true,
-      "number" : 2
+      "overloaded" : 2,
     }
    ]
   },
