@@ -5,7 +5,10 @@
    "file" : "org/softlang/features/Cut.java",
    "fragment" : [
     { "class" : "Cut" },
-    { "method" : "cut" }
+    { "method" : "cut",
+      "overload" : true,
+	  "number" : 0
+    }
    ]
   },
   {
@@ -13,7 +16,10 @@
    "file" : "org/softlang/features/Cut.java",
    "fragment" : [
     { "class" : "Cut" },
-    { "method" : "cut" }
+    { "method" : "cut",
+      "overload" : true,
+	  "number" : 1
+	}
    ]
   },
   {
@@ -21,7 +27,10 @@
    "file" : "org/softlang/features/Cut.java",
    "fragment" : [
     { "class" : "Cut" },
-    { "method" : "cut" }
+    { "method" : "cut"
+      "overload" : true,
+	  "number" : 2
+	}
    ]
   },
   {
