@@ -1,10 +1,16 @@
-generate:
-	javac -Xlint -classpath .:lib/gson-1.7.1.jar:lib/javaparser-1.0.8.jar locator/Fragment.java locator/Tupel.java locator/JFragmentLocator.java
+build:
+	make locator/JFragmentLocator.class
+
+locator/JFragmentLocator.class: locator/*.java Makefile
+	javac \
+		-Xlint \
+		-classpath .:lib/gson-1.7.1.jar:lib/javaparser-1.0.8.jar \
+		locator/*.java
 
 test: 
-	java -classpath .:lib/gson-1.7.1.jar:lib/javaparser-1.0.8.jar locator/JFragmentLocator HelloWorld.java fragment.json lines.json
+	./locator.py HelloWorld.java fragment.json lines.json
 	diff baseline.json lines.json
-	
+
 clean: 
 	rm -f locator/*.class
-	rm lines.json
+	rm -f lines.json

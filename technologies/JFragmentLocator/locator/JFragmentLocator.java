@@ -62,6 +62,7 @@ public class JFragmentLocator {
     private static void writeOutput(String fileName, String output) throws IOException {
         FileWriter writer = new FileWriter(new File(fileName));
         writer.write(output);
+        writer.write('\n');
         writer.close();
     }
 }
