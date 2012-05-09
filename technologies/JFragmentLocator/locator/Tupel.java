@@ -9,17 +9,15 @@ package locator;
  * @author Martin
  */
 public class Tupel {
-    private int startLine;
-    private int endLine;
+    private int to;
+    private int from;
+    
     
     public Tupel() { }
     
     public Tupel(int start, int end) {
-        startLine = start;
-        endLine = end;
+        from = start;
+        to = end;
     }
-    
-    public String toJSON() {
-        return "{\"to\": "+startLine+ ", \"from\": "+endLine+"}";
-    }
+
 }

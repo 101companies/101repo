@@ -5,14 +5,16 @@
 package locator;
 
 import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import japa.parser.JavaParser;
 import japa.parser.ParseException;
 import japa.parser.ast.CompilationUnit;
 import japa.parser.ast.body.MethodDeclaration;
 import japa.parser.ast.visitor.VoidVisitorAdapter;
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -20,20 +22,33 @@ import java.util.HashMap;
  * @author Martin
  */
 public class JFragmentLocator {
-    @SuppressWarnings("unchecked")
+ 
     private static class MethodVisitor extends VoidVisitorAdapter {
+        private HashMap<String, Integer> methodCnt = new HashMap<String, Integer>();
+        
         @Override
         public void visit(MethodDeclaration decl, Object obj) {
-            methods.put(decl.getName(), new Tupel(decl.getBeginLine(), decl.getEndLine()));
+            String methodName = decl.getName();
+            if (fragment.isOverloaded()) {
+                if (!methodCnt.containsKey(methodName))
+                    methodCnt.put(methodName, 0);
+                else
+                    methodCnt.put(methodName, methodCnt.get(methodName)+1);
+                
+                methodName += methodCnt.get(methodName);
+            }
+                
+            methods.put(methodName, new Tupel(decl.getBeginLine(), decl.getEndLine()));
         }
     }
     
+    private static Fragment fragment;
     private static HashMap<String, Tupel> methods = new HashMap<String, Tupel>(); 
+    private static Gson gson = new Gson();
     
     /**
      * @param args the command line arguments
      */
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws ParseException, IOException {
         if (args.length != 3) {
             System.out.println("usage: inputFile (.java) fragmentFile (.json) outputFile");
@@ -44,19 +59,21 @@ public class JFragmentLocator {
         String fragmentFile = args[1];
         String ouputFile = args[2];
         
-        Fragment fragment = readFragment(fragmentFile);
+        fragment = gson.fromJson(new JsonReader(new FileReader(fragmentFile)), Fragment.class);
         
-        CompilationUnit unit = JavaParser.parse(new File(inputFile));
-        MethodVisitor visitor = new MethodVisitor();
+        parse(inputFile);
         
-        visitor.visit(unit, null);
+        String methodName = fragment.getMethod();
+        if (fragment.isOverloaded())
+            methodName += fragment.getOverload();
         
-        writeOutput(ouputFile, methods.get(fragment.method).toJSON());
-	System.exit(0);
+        writeOutput(ouputFile, gson.toJson(methods.get(methodName)));
     }
     
-    private static Fragment readFragment(String fileName) throws FileNotFoundException {
-        return new Gson().fromJson(new JsonReader(new FileReader(new File(fileName))), Fragment.class);
+    private static void parse(String inputFile) throws ParseException, IOException {
+        CompilationUnit unit = JavaParser.parse(new File(inputFile));
+        MethodVisitor visitor = new MethodVisitor();
+        visitor.visit(unit, null);
     }
     
     private static void writeOutput(String fileName, String output) throws IOException {
