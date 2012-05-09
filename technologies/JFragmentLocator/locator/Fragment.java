@@ -12,6 +12,31 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Fragment {
         @SerializedName("class")
-        public String classname;
-        public String method;
+        private String classname;
+        @SerializedName("method")
+        private String method;
+        @SerializedName("package")
+        private String packagename;
+        @SerializedName("overload")
+        private String overload;
+
+        public boolean isOverloaded() {
+            return overload != null;
+        }
+        
+        public String getOverload() {
+            return overload;
+        }
+
+        public String getClassname() {
+            return classname;
+        }
+
+        public String getMethod() {
+            return method;
+        }
+
+        public String getPackagename() {
+            return packagename;
+        } 
 }
