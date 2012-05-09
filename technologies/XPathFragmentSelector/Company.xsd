@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://www.softlang.org/company.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.softlang.org/company.xsd">
+
+	<xs:element name="company">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="department"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="department">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element name="manager" type="employee"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="department"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="employee" type="employee"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>	
+
+	<xs:complexType name="employee">
+		<xs:sequence>
+			<xs:element ref="name"/>
+			<xs:element ref="address"/>
+			<xs:element ref="salary"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="address" type="xs:string"/>
+	<xs:element name="salary" type="xs:double"/>
+</xs:schema>
