@@ -1,6 +1,7 @@
 module Company where
 
-type Company = (Name, [Department])
+data Company = Company Name [Department]
+ deriving (Eq, Read, Show)
 data Department = Department Name Manager [SubUnit]
  deriving (Eq, Read, Show)
 type Manager = Employee

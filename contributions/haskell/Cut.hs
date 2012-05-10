@@ -3,7 +3,7 @@ module Cut where
 import Company
 
 cut :: Company -> Company
-cut (n,ds) = (n,map dept ds)
+cut (Company n ds) = Company n (map dept ds)
  where
   dept :: Department -> Department
   dept (Department n m sus) = Department n (employee m) (map subunit sus)

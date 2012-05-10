@@ -1,23 +1,32 @@
 [
  {
+  "tag" : "total",
+  "file" : "Total.hs",
+  "fragment" : {
+   "function" : "total"
+  }
+ },
+ {
   "tag" : "cut",
-  "file" : "haskell/Cut.hs",
+  "file" : "Cut.hs",
   "fragment" : {
    "function" : "cut"
   }
  },
  {
   "tag" : "deserialize",
-  "file" : "haskell/Company.hs",
+  "file" : "Company.hs",
   "fragment" : {
-   "data" : "Department"
+   "data" : "Company",
+   "deriving" : "Read"
   }
  },
  {
   "tag" : "serialize",
-  "file" : "haskell/Company.hs",
+  "file" : "Company.hs",
   "fragment" : {
-   "data" : "Department"
+   "data" : "Company",
+   "deriving" : "Show"
   }
  }
 ]

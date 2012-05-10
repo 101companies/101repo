@@ -3,7 +3,7 @@ module Total where
 import Company
 
 total :: Company -> Float
-total = sum . map dept . snd
+total (Company n ds) = sum (map dept ds)
  where
   dept :: Department -> Float
   dept (Department _ m sus) = sum (employee m : map subunit sus)
