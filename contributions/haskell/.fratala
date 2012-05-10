@@ -1,0 +1,23 @@
+[
+ {
+  "tag" : "cut",
+  "file" : "haskell/Cut.hs",
+  "fragment" : {
+   "function" : "cut"
+  }
+ },
+ {
+  "tag" : "deserialize",
+  "file" : "haskell/Company.hs",
+  "fragment" : {
+   "data" : "Department"
+  }
+ },
+ {
+  "tag" : "serialize",
+  "file" : "haskell/Company.hs",
+  "fragment" : {
+   "data" : "Department"
+  }
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "tag" : "cut/company",
+  "file" : "js/companies101.js",
+  "fragment" : "companies101.Company.prototype.cut"
+ },
+ {
+  "tag" : "cut/department",
+  "file" : "js/companies101.js",
+  "fragment" : "companies101.Department.prototype.cut"
+ },
+ {
+  "tag" : "cut/employee",
+  "file" : "js/companies101.js",
+  "fragment" : "companies101.Employee.prototype.cut"
+ },
+ {
+  "tag" : "deserialize",
+  "file" : "js/companies101.js",
+  "fragment" : "companies101.Company.deserializeFromJson"
+ },
+]
