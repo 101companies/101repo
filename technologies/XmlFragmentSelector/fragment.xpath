@@ -1,2 +1,1 @@
-/schema/element[name="department"]
-
+/xs:schema/xs:element[@name='department']
