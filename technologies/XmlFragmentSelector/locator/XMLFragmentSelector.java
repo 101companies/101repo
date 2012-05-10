@@ -12,6 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
@@ -44,15 +45,21 @@ public class XMLFragmentSelector {
        xPath.setNamespaceContext(new ResolverContext(doc.getDocumentElement()));
        
        XPathExpression expression = xPath.compile(xPathQuery);
-       Element e = (Element)expression.evaluate(doc, XPathConstants.NODE);
+       NodeList nodes = (NodeList)expression.evaluate(doc, XPathConstants.NODESET);
        
-       if (e != null) {
-        System.out.println(xmlParser.getLineRange(e).toJSON());
-        writeOutput(new File(outputFile), xmlParser.getLineRange(e).toJSON());
+       if (nodes.getLength() > 0) {
+           Element firstElement = (Element)nodes.item(0);
+           Element lastElement  = (Element)nodes.item(nodes.getLength()-1);
+           Tupel t = new Tupel(xmlParser.getLineRange(firstElement).getFrom(),
+                               xmlParser.getLineRange(lastElement).getTo());
+           writeOutput(new File(outputFile), t.toJSON());
        } else {
-           System.out.println("Query didn't return an element");
+           System.out.println("Query didn't return an element - the query must at least return 1 element");
            System.exit(1);
        }
+       
+        //writeOutput(new File(outputFile), xmlParser.getLineRange(e).toJSON());
+       
     }
     
     private static String readFragment(File fragment) throws FileNotFoundException, IOException {
