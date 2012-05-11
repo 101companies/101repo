@@ -19,7 +19,7 @@ import org.xml.sax.SAXException;
  *
  * @author Martin
  */
-public class XMLFragmentSelector {
+public class XmlFragmentSelector {
     
     /**
      * @param args the command line arguments
