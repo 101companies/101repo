@@ -1,5 +1,5 @@
 {
  "geshi" : "java",
  "extension" : ".java",
- "locator" : "tools/locator/locator.py"
+ "locator" : "../../technologies/JFragmentLocator/locator.py"
 }
