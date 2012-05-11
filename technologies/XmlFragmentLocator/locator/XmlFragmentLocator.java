@@ -19,7 +19,7 @@ import org.xml.sax.SAXException;
  *
  * @author Martin
  */
-public class XmlFragmentSelector {
+public class XmlFragmentLocator {
     
     /**
      * @param args the command line arguments
@@ -34,7 +34,7 @@ public class XmlFragmentSelector {
        String fragmentFile = args[1];
        String outputFile = args[2];
        
-       SelectorXMLParser xmlParser = new SelectorXMLParser(new File(inputFile));
+       LocatorXMLParser xmlParser = new LocatorXMLParser(new File(inputFile));
        Document doc = xmlParser.getDocument();
        //Document doc = domParse(new File(inputFile));
        

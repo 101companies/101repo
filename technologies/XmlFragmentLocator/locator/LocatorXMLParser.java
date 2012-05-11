@@ -21,11 +21,11 @@ import org.xml.sax.helpers.DefaultHandler;
  *
  * @author Martin
  */
-public class SelectorXMLParser {
+public class LocatorXMLParser {
     private HashMap<Element, Tupel> elementRanges = new HashMap<Element, Tupel>();
     private Document doc;
     
-    public SelectorXMLParser(File xmlFile) throws IOException, SAXException {
+    public LocatorXMLParser(File xmlFile) throws IOException, SAXException {
         doc = readXML(xmlFile);
     }
     

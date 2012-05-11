@@ -15,7 +15,6 @@ if (status):
     print output
     sys.exit(status)
 command = "java -classpath " + x + ":"+ x + "/lib/* " + "locator/JFragmentLocator " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
-print command
 status, output = commands.getstatusoutput(command)
 if (status):
     print output
