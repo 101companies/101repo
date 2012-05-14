@@ -37,7 +37,7 @@ $language_data = array (
         1 => array(
 		   'megamodel',
 		   'local', 'global', 'variable', 'include',
-		   'Language', 'Artifact', 'Function',
+		   'Language', 'Technology', 'Artifact', 'Function',
 		   'File',
 		   'Fragment',
 		   'Program',
