@@ -1,6 +1,6 @@
 # Headline
 
-a fragment locator tool for Java
+a fragment locator for Java
 
 # Background
 

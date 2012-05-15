@@ -12,21 +12,5 @@
   "fragment" : {
    "function" : "cut"
   }
- },
- {
-  "tag" : "deserialize",
-  "file" : "Company.hs",
-  "fragment" : {
-   "data" : "Company",
-   "deriving" : "Read"
-  }
- },
- {
-  "tag" : "serialize",
-  "file" : "Company.hs",
-  "fragment" : {
-   "data" : "Company",
-   "deriving" : "Show"
-  }
  }
 ]
