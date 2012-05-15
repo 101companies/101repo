@@ -9,7 +9,7 @@ test: Locator
 	make function2.test
 
 %.test:
-	./Locator tests/Test.hs tests/$*.json tests/$*.lines
+	./locator.py tests/Test.hs tests/$*.json tests/$*.lines
 	diff tests/$*.baseline tests/$*.lines
 
 clean:
