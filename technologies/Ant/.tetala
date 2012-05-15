@@ -1,5 +1,7 @@
-{
- "input" : {
-  "file" : "build.xml"
+[
+ {
+  "file" : "build.xml",
+  "geshi" : "text",
+  "role" : "input"
  }
-}
+]

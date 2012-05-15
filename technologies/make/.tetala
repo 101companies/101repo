@@ -1,5 +1,7 @@
-{
- "input" : {
-  "file" : "Makefile"
+[
+ {
+  "file" : "Makefile",
+  "geshi" : "text",
+  "role" : "input"
  }
-}
+]

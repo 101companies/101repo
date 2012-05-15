@@ -1,15 +1,24 @@
-{
- "input" : {
-  "extension" : ".g"
+[
+ { 
+  "extension" : ".g",
+  "geshi" : "text",
+  "role" : "input"
  },
- "output" : {
+ { 
   "extension" : ".tokens",
-  "pattern" : [
-   "@Lexer.java",
-   "@Parser.java"
-  ]
+  "geshi" : "text",
+  "role" : "output"
  },
- "support" : {
-  "pattern" : "antlr-@.jar"
+ {
+  "pattern" : "@Lexer.java",
+  "role" : "output"
+ },
+ {
+  "pattern" : "@Parser.java",
+  "role" : "output"
+ },
+ {
+  "pattern" : "antlr-@.jar",
+  "role" : "support"
  }
-}
+]

@@ -1,5 +1,12 @@
-{
- "input" : {
-  "file" : [".project", ".classpath"]
- }
-}
+[
+ {
+  "file" : ".project",
+  "geshi" : "xml",
+  "role" : "input"
+ },
+ {
+  "file" : ".classpath",
+  "geshi" : "xml",
+  "role" : "input"
+ } 
+]
