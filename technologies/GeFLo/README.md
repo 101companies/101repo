@@ -32,7 +32,7 @@ The JSON-parser expects the following structure for .summary.json input file:
 
 ## Example call
 
-    java -jar geflo.jar data/cut.geflo data/company.rb.summary.json
+	java -jar geflo.jar data/cut.geflo data/company.rb.summary.json
 
 # Building
 
@@ -58,5 +58,5 @@ Tested with jUnit 4.8.2.
 
 # Project dependencies
 
-* **jUnit 4 ** licensed under "Common Public License - v 1.0" (http://www.junit.org/)
-* **JSON-java** by Douglas Crockford licensed under "The software shall be used for good, not evil." (http://json.org/java/)
+* [**jUnit 4**](http://www.junit.org/) licensed under "Common Public License - v 1.0"
+* [**JSON-java**](http://json.org/java/) by Douglas Crockford licensed under "The software shall be used for good, not evil."
