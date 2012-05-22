@@ -1,0 +1,25 @@
+Company : 
+	'company' cname=QqString
+	'{'
+		departments=Department* 
+	'}';
+
+Department :
+	'department' dname=QqString 
+	'{' 
+	    'manager' manager=Employee	
+		subdepartments=Department* 
+		employees=NonManager* 
+	'}';
+	
+NonManager :
+	'employee'
+	employee=Employee
+	;
+	
+Employee : 
+	name=QqString 
+	'{' 
+		'address' address=QqString
+		'salary' salary=Number 
+	'}';

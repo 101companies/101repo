@@ -79,6 +79,6 @@ employee returns [Employee e]:
   }
   ;
 
-WS      :   (' '|'\r'? '\n'|'\t')+ {skip();};
+WS      :   (' '|'\r'? '\n'|'\t')+ { skip(); };
 STRING  :   '"' (~'"')* '"';
 FLOAT   :   ('0'..'9')+ ('.' ('0'..'9')+)?;

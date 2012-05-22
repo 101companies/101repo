@@ -32,7 +32,7 @@ company :
   
 department :
   'department' STRING '{' 
-    ('manager' employee)
+    'manager' employee
     ('employee' employee)* 
     department*
   '}';
@@ -40,8 +40,8 @@ department :
 employee :
   STRING '{'
     'address' STRING
-    'salary' s=FLOAT 
-    { total += Double.parseDouble($s.text); }
+    'salary' FLOAT 
+    { total += Double.parseDouble($FLOAT.text); }
   '}';
 
 STRING  :   '"' (~'"')* '"';

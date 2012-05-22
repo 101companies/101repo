@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2011-05-02 01:48:15
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 Company.g 2012-05-22 14:47:12
 
 package org.softlang.parser;
 
@@ -201,124 +201,29 @@ public class CompanyLexer extends Lexer {
     }
     // $ANTLR end "T__14"
 
-    // $ANTLR start "WS"
-    public final void mWS() throws RecognitionException {
-        try {
-            int _type = WS;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:47:9: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
-            // Company.g:47:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
-            {
-            // Company.g:47:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
-            int cnt2=0;
-            loop2:
-            do {
-                int alt2=4;
-                switch ( input.LA(1) ) {
-                case ' ':
-                    {
-                    alt2=1;
-                    }
-                    break;
-                case '\n':
-                case '\r':
-                    {
-                    alt2=2;
-                    }
-                    break;
-                case '\t':
-                    {
-                    alt2=3;
-                    }
-                    break;
-
-                }
-
-                switch (alt2) {
-            	case 1 :
-            	    // Company.g:47:14: ' '
-            	    {
-            	    match(' '); 
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // Company.g:47:18: ( '\\r' )? '\\n'
-            	    {
-            	    // Company.g:47:18: ( '\\r' )?
-            	    int alt1=2;
-            	    int LA1_0 = input.LA(1);
-
-            	    if ( (LA1_0=='\r') ) {
-            	        alt1=1;
-            	    }
-            	    switch (alt1) {
-            	        case 1 :
-            	            // Company.g:47:18: '\\r'
-            	            {
-            	            match('\r'); 
-
-            	            }
-            	            break;
-
-            	    }
-
-            	    match('\n'); 
-
-            	    }
-            	    break;
-            	case 3 :
-            	    // Company.g:47:29: '\\t'
-            	    {
-            	    match('\t'); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt2 >= 1 ) break loop2;
-                        EarlyExitException eee =
-                            new EarlyExitException(2, input);
-                        throw eee;
-                }
-                cnt2++;
-            } while (true);
-
-            skip();
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "WS"
-
     // $ANTLR start "STRING"
     public final void mSTRING() throws RecognitionException {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:48:9: ( '\"' (~ '\"' )* '\"' )
-            // Company.g:48:13: '\"' (~ '\"' )* '\"'
+            // Company.g:47:9: ( '\"' (~ '\"' )* '\"' )
+            // Company.g:47:13: '\"' (~ '\"' )* '\"'
             {
             match('\"'); 
-            // Company.g:48:17: (~ '\"' )*
-            loop3:
+            // Company.g:47:17: (~ '\"' )*
+            loop1:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-                if ( ((LA3_0>='\u0000' && LA3_0<='!')||(LA3_0>='#' && LA3_0<='\uFFFF')) ) {
-                    alt3=1;
+                if ( ((LA1_0>='\u0000' && LA1_0<='!')||(LA1_0>='#' && LA1_0<='\uFFFF')) ) {
+                    alt1=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt1) {
             	case 1 :
-            	    // Company.g:48:18: ~ '\"'
+            	    // Company.g:47:18: ~ '\"'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -334,7 +239,7 @@ public class CompanyLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop3;
+            	    break loop1;
                 }
             } while (true);
 
@@ -355,24 +260,24 @@ public class CompanyLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Company.g:49:9: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
-            // Company.g:49:13: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+            // Company.g:48:9: ( ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+            // Company.g:48:13: ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
             {
-            // Company.g:49:13: ( '0' .. '9' )+
-            int cnt4=0;
-            loop4:
+            // Company.g:48:13: ( '0' .. '9' )+
+            int cnt2=0;
+            loop2:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-                if ( ((LA4_0>='0' && LA4_0<='9')) ) {
-                    alt4=1;
+                if ( ((LA2_0>='0' && LA2_0<='9')) ) {
+                    alt2=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt2) {
             	case 1 :
-            	    // Company.g:49:14: '0' .. '9'
+            	    // Company.g:48:14: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -380,41 +285,41 @@ public class CompanyLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt4 >= 1 ) break loop4;
+            	    if ( cnt2 >= 1 ) break loop2;
                         EarlyExitException eee =
-                            new EarlyExitException(4, input);
+                            new EarlyExitException(2, input);
                         throw eee;
                 }
-                cnt4++;
+                cnt2++;
             } while (true);
 
-            // Company.g:49:25: ( '.' ( '0' .. '9' )+ )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // Company.g:48:25: ( '.' ( '0' .. '9' )+ )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA6_0=='.') ) {
-                alt6=1;
+            if ( (LA4_0=='.') ) {
+                alt4=1;
             }
-            switch (alt6) {
+            switch (alt4) {
                 case 1 :
-                    // Company.g:49:26: '.' ( '0' .. '9' )+
+                    // Company.g:48:26: '.' ( '0' .. '9' )+
                     {
                     match('.'); 
-                    // Company.g:49:30: ( '0' .. '9' )+
-                    int cnt5=0;
-                    loop5:
+                    // Company.g:48:30: ( '0' .. '9' )+
+                    int cnt3=0;
+                    loop3:
                     do {
-                        int alt5=2;
-                        int LA5_0 = input.LA(1);
+                        int alt3=2;
+                        int LA3_0 = input.LA(1);
 
-                        if ( ((LA5_0>='0' && LA5_0<='9')) ) {
-                            alt5=1;
+                        if ( ((LA3_0>='0' && LA3_0<='9')) ) {
+                            alt3=1;
                         }
 
 
-                        switch (alt5) {
+                        switch (alt3) {
                     	case 1 :
-                    	    // Company.g:49:31: '0' .. '9'
+                    	    // Company.g:48:31: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -422,12 +327,12 @@ public class CompanyLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt5 >= 1 ) break loop5;
+                    	    if ( cnt3 >= 1 ) break loop3;
                                 EarlyExitException eee =
-                                    new EarlyExitException(5, input);
+                                    new EarlyExitException(3, input);
                                 throw eee;
                         }
-                        cnt5++;
+                        cnt3++;
                     } while (true);
 
 
@@ -447,8 +352,103 @@ public class CompanyLexer extends Lexer {
     }
     // $ANTLR end "FLOAT"
 
+    // $ANTLR start "WS"
+    public final void mWS() throws RecognitionException {
+        try {
+            int _type = WS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Company.g:49:9: ( ( ' ' | ( '\\r' )? '\\n' | '\\t' )+ )
+            // Company.g:49:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            {
+            // Company.g:49:13: ( ' ' | ( '\\r' )? '\\n' | '\\t' )+
+            int cnt6=0;
+            loop6:
+            do {
+                int alt6=4;
+                switch ( input.LA(1) ) {
+                case ' ':
+                    {
+                    alt6=1;
+                    }
+                    break;
+                case '\n':
+                case '\r':
+                    {
+                    alt6=2;
+                    }
+                    break;
+                case '\t':
+                    {
+                    alt6=3;
+                    }
+                    break;
+
+                }
+
+                switch (alt6) {
+            	case 1 :
+            	    // Company.g:49:14: ' '
+            	    {
+            	    match(' '); 
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // Company.g:49:18: ( '\\r' )? '\\n'
+            	    {
+            	    // Company.g:49:18: ( '\\r' )?
+            	    int alt5=2;
+            	    int LA5_0 = input.LA(1);
+
+            	    if ( (LA5_0=='\r') ) {
+            	        alt5=1;
+            	    }
+            	    switch (alt5) {
+            	        case 1 :
+            	            // Company.g:49:18: '\\r'
+            	            {
+            	            match('\r'); 
+
+            	            }
+            	            break;
+
+            	    }
+
+            	    match('\n'); 
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // Company.g:49:29: '\\t'
+            	    {
+            	    match('\t'); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt6 >= 1 ) break loop6;
+                        EarlyExitException eee =
+                            new EarlyExitException(6, input);
+                        throw eee;
+                }
+                cnt6++;
+            } while (true);
+
+            skip();
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "WS"
+
     public void mTokens() throws RecognitionException {
-        // Company.g:1:8: ( T__7 | T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | WS | STRING | FLOAT )
+        // Company.g:1:8: ( T__7 | T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | STRING | FLOAT | WS )
         int alt7=11;
         switch ( input.LA(1) ) {
         case 'c':
@@ -491,17 +491,9 @@ public class CompanyLexer extends Lexer {
             alt7=8;
             }
             break;
-        case '\t':
-        case '\n':
-        case '\r':
-        case ' ':
-            {
-            alt7=9;
-            }
-            break;
         case '\"':
             {
-            alt7=10;
+            alt7=9;
             }
             break;
         case '0':
@@ -514,6 +506,14 @@ public class CompanyLexer extends Lexer {
         case '7':
         case '8':
         case '9':
+            {
+            alt7=10;
+            }
+            break;
+        case '\t':
+        case '\n':
+        case '\r':
+        case ' ':
             {
             alt7=11;
             }
@@ -583,23 +583,23 @@ public class CompanyLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // Company.g:1:55: WS
-                {
-                mWS(); 
-
-                }
-                break;
-            case 10 :
-                // Company.g:1:58: STRING
+                // Company.g:1:55: STRING
                 {
                 mSTRING(); 
 
                 }
                 break;
-            case 11 :
-                // Company.g:1:65: FLOAT
+            case 10 :
+                // Company.g:1:62: FLOAT
                 {
                 mFLOAT(); 
+
+                }
+                break;
+            case 11 :
+                // Company.g:1:68: WS
+                {
+                mWS(); 
 
                 }
                 break;

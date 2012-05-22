@@ -1,0 +1,10 @@
+Grammar 	: prods=Production*;
+Production 	: lhs=Id ':' rhs=Expression ';';
+Expression  : Sequence | Choice;
+Sequence 	: list=Atom*;
+Choice 		: first=Id rest=Option*;
+Atom	 	: Terminal | Nonterminal | Many;
+Terminal 	: symbol=QString;
+Nonterminal : label=Id '=' symbol=Id;
+Option 		: '|' symbol=Id;
+Many 		: elem=Nonterminal '*';
