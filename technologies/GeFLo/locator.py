@@ -14,7 +14,7 @@ status, output = commands.getstatusoutput(command)
 if (status):
     print output
     sys.exit(status)
-command = "java -classpath " + x + "/bin" + ":"+ x + "/libs/* " + "geflo.main.GeFLoLocator.java " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
+command = "java -cp " + x + "/bin" + ":"+ x + "/libs/* " + "geflo.main.GeFLoFragmentLocator " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
 status, output = commands.getstatusoutput(command)
 if (status):
     print output

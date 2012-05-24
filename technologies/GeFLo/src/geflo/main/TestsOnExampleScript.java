@@ -2,8 +2,12 @@ package geflo.main;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
 import geflo.pattern.GeFLoMatcher;
 import geflo.pattern.GeFLoMatcher.MatchingLineBounds;
+import geflo.pattern.GeFLoRegistry;
+
+import java.util.logging.Level;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +18,9 @@ public class TestsOnExampleScript {
 	
 	@Before
 	public void prepare() {
+		// Turn the logger off
+                GeFLoRegistry.getLogger().setLevel(Level.OFF);
+		
 		scriptInput = GeFLoMatcher.prepareScript(
 				ExampleFactory.createScript()
 			);
