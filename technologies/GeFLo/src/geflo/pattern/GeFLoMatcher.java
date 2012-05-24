@@ -59,6 +59,8 @@ public class GeFLoMatcher {
 	
 	/**
 	 * Quotes the pre- and post-delimiter in a token
+	 * and also the special chars of replace strings
+	 * for Java-Patterns.
 	 * 
 	 * @param unquoted token from Script or SpecificToken
 	 * @return quoted token
@@ -66,6 +68,8 @@ public class GeFLoMatcher {
 	public static String quoteToken(String token) {
 		token.replace(PRE_DELIMITER,	PRE_DELIMITER_QUOTE);
 		token.replace(POST_DELIMITER,	POST_DELIMITER_QUOTE);
+		token.replace("\\",				"\\\\");
+		token.replace("$",				"\\$");
 		return token;
 	}
 	

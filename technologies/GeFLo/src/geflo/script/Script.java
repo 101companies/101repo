@@ -3,6 +3,7 @@ package geflo.script;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,9 +32,20 @@ public class Script {
 		return tokens;
 	}
 	
+	public static Script parseJSONString(String input) {
+		return parseJSON(new JSONTokener(input));
+	}
+	
+	public static Script parseJSONStream(InputStream stream) {
+		return parseJSON(new JSONTokener(stream));
+	}
+	
 	public static Script parseJSONFile(File file) throws FileNotFoundException {
+		return parseJSON(new JSONTokener(new FileInputStream(file)));
+	}
+	
+	protected static Script parseJSON(final JSONTokener tokener) {
 		try {
-			final JSONTokener	tokener	= new JSONTokener(new FileInputStream(file));
 			final JSONObject	json	= new JSONObject(tokener);
 			final JSONArray		tokens	= json.getJSONArray("tokens");
 			if (tokens == null) {
@@ -51,8 +63,6 @@ public class Script {
 				script.add(token);
 			}
 			return script;
-		} catch (FileNotFoundException e) {
-			throw e;
 		} catch (JSONException e) {
 			throw new RuntimeException(e);
 		}

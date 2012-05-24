@@ -12,7 +12,7 @@ import geflo.script.Token;
 public abstract class ExampleFactory {
 	
 	public static GeFLoPattern createPatternTotal() {
-		//return GeFLoInputParser.parse("def total (def!)*");
+		//return GeFLoInputParser.parse("def total ^[def]*");
 		Sequence seq = new Sequence();
 		seq.getPatterns().add(new SpecificToken("def"));
 		seq.getPatterns().add(new SpecificToken("total"));

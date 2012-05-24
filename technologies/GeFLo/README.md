@@ -10,14 +10,17 @@ See http://101companies.org/index.php/Technology:GeFLo
 
 The main class takes two arguments.
 
-* **gefloFile** is the name of a .geflo input, which is encoded in UTF-8 and contains a GeFLo-pattern.
-* **inputFile** is the name of a .summary.json input file.
+* **inputFile** is the name of a script input file.
+* **gefloFile** is...
+** ...either the name of a .geflo input file, which is encoded in UTF-8 and contains a GeFLo-pattern
+** ...or a geflo pattern string.
 
 The locator writes without respect to existing files to the path of the **gefloFile** by replacing the .geflo suffix through .baseline.
 
 ## Input file
 
 The JSON-parser expects the following structure for .summary.json input file:
+
 	{
 		...,
 		tokens: [
@@ -32,25 +35,52 @@ The JSON-parser expects the following structure for .summary.json input file:
 
 ## Example call
 
-	java -jar geflo.jar data/cut.geflo data/company.rb.summary.json
+	# preferred:
+	locator.py data/company.rb data/cut.geflo data/cut.lines
+	
+	# alternative:
+	java -jar geflo.jar data/company.rb data/cut.geflo data/cut.lines
 
 # Building
 
 The tool can be builded by calling:
 
-	javac -classpath src -encoding UTF-8 src/geflo/main/Main.java
+	# preferred:
+	make Locator
+	
+	# alternative:
+	mkdir bin
+	javac \
+		-nowarn \
+		-encoding UTF-8 \
+		-classpath src;libs/* \
+		-d bin \
+		src/geflo/main/*.java
 
 # Testing
 
-There is one class with several test cases: "geflo.main.TestOnExampleScript"
+There is one class with several test cases for geflo pattern matching: "geflo.main.TestOnExampleScript".
 
-You can run it by calling:
+Furthermore there are in the sub directory "data" some example files, which could be used to test the
+command line interface. Therefore you can either use the Makefile or the main method of the class
+"geflo.main.MainTester".
+
+You can run the tests by calling:
 	
+	# full test:
+	make test
+	
+	# jUnit-only:
 	java -cp libs/junit-4.10.jar;src org.junit.runner.JUnitCore src/geflo/main/TestOnExampleScript.java
+	
+	# CLI-only:
+	java -cp bin geflo.main.MainTester
 
 # Architecture
 
 The locator is essentially coded in Java; see package geflo.
+For tokenize script files, there exists a php proxy to megalib, which is called "megalibProxy.php".
+It includes the megalib library, which itself uses GeSHi to tokenize scripts.
 
 Tested with JavaSE-1.6.0_31.
 
