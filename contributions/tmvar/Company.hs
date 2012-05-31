@@ -4,7 +4,7 @@ data Company = Company
         { cname      :: Name
         , depts     :: [Department]
         }
-    deriving (Eq,Read,Show)
+    deriving (Eq,Show)
             
 data Department = Department 
         { dname      :: Name
@@ -12,7 +12,7 @@ data Department = Department
         , dus  :: [Department]
         , eus  :: [Employee]
         }
-    deriving (Eq,Read,Show)
+    deriving (Eq,Show)
      
 type Manager = Employee
 
@@ -21,7 +21,7 @@ data Employee = Employee
         , address   :: Address
         , salary    :: Salary
         }
-    deriving (Eq,Read,Show)
+    deriving (Eq,Show)
 
 type Name = String
 type Address = String
