@@ -1,29 +1,3 @@
-399747.0
-
-Totaling Company "meganalysis"
-	Totaling Department "Research"
-		Totaling Employee "Craig"
-		Done totaling Employee "Craig". Result = 123456.0
-		Totaling Employee "Erik"
-		Done totaling Employee "Erik". Result = 12345.0
-		Totaling Employee "Ralf"
-		Done totaling Employee "Ralf". Result = 1234.0
-	Done totaling Department "Research". Result = 137035.0
-	Totaling Department "Development"
-		Totaling Employee "Ray"
-		Done totaling Employee "Ray". Result = 234567.0
-		Totaling Department "Dev1"
-			Totaling Employee "Klaus"
-			Done totaling Employee "Klaus". Result = 23456.0
-			Totaling Department "Dev1.1"
-				Totaling Employee "Karl"
-				Done totaling Employee "Karl". Result = 2345.0
-				Totaling Employee "Joe"
-				Done totaling Employee "Joe". Result = 2344.0
-			Done totaling Department "Dev1.1". Result = 4689.0
-		Done totaling Department "Dev1". Result = 28145.0
-	Done totaling Department "Development". Result = 262712.0
-Done totaling Company "meganalysis"
 
 Starting cutting Company "meganalysis", old Total = 399747.0
 	Starting cutting Department "Research", old Total = 137035.0
@@ -49,29 +23,3 @@ Starting cutting Company "meganalysis", old Total = 399747.0
 		Done cutting Department "Dev1", new Total = 14072.5
 	Done cutting Department "Development", new Total = 131356.0
 Done cutting Company "meganalysis", new Total = 199873.5
-199873.5
-
-Totaling Company "meganalysis"
-	Totaling Department "Research"
-		Totaling Employee "Craig"
-		Done totaling Employee "Craig". Result = 61728.0
-		Totaling Employee "Erik"
-		Done totaling Employee "Erik". Result = 6172.5
-		Totaling Employee "Ralf"
-		Done totaling Employee "Ralf". Result = 617.0
-	Done totaling Department "Research". Result = 68517.5
-	Totaling Department "Development"
-		Totaling Employee "Ray"
-		Done totaling Employee "Ray". Result = 117283.5
-		Totaling Department "Dev1"
-			Totaling Employee "Klaus"
-			Done totaling Employee "Klaus". Result = 11728.0
-			Totaling Department "Dev1.1"
-				Totaling Employee "Karl"
-				Done totaling Employee "Karl". Result = 1172.5
-				Totaling Employee "Joe"
-				Done totaling Employee "Joe". Result = 1172.0
-			Done totaling Department "Dev1.1". Result = 2344.5
-		Done totaling Department "Dev1". Result = 14072.5
-	Done totaling Department "Development". Result = 131356.0
-Done totaling Company "meganalysis"
