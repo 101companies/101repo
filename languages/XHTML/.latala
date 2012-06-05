@@ -1,7 +1,7 @@
 {
   "geshi": "html",
   "suffix": [
-    ".html"
+    ".xhtml"
   ],
   "locator": ""
 }

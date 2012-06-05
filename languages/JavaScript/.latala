@@ -1,7 +1,6 @@
 {
   "geshi": "javascript",
   "suffix": [
-    ".101meta",
     ".js",
     ".json"
   ],

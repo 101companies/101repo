@@ -3,8 +3,7 @@
   "suffix": [
     ".php",
     ".php4",
-    ".php5",
-    ".phtml"
+    ".php5"
   ],
   "locator": ""
 }

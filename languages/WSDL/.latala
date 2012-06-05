@@ -1,7 +1,7 @@
 {
-  "geshi": "html",
+  "geshi": "",
   "suffix": [
-    ".html"
+    ".wsdl"
   ],
   "locator": ""
 }

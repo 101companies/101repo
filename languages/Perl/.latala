@@ -1,7 +1,7 @@
 {
-  "geshi": "html",
+  "geshi": "perl",
   "suffix": [
-    ".html"
+    ".pl"
   ],
   "locator": ""
 }
