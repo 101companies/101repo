@@ -3,6 +3,6 @@
   "suffix": [
     ".hs"
   ],
-  "locator": "HsFragmentLocator/locator.py"
+  "locator": "HsFragmentLocator/locator.py",
   "matcher": "HsImportMatcher/matcher.py"
 }
