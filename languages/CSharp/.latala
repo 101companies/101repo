@@ -1,5 +1,5 @@
 {
  "geshi" : "csharp",
- "extension" : ".cs"
+ "suffix" : ".cs"
 }
 

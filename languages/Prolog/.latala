@@ -1,4 +1,4 @@
 {
  "geshi" : "prolog",
- "extension" : [".pro", ".pl"]
+ "suffix" : ".pro"
 }

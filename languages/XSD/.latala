@@ -1,5 +1,5 @@
 {
  "geshi" : "xml",
- "extension" : ".xsd",
+ "suffix" : ".xsd",
  "locator" : "../../technologies/XmlFragmentLocator/locator.py"
 }

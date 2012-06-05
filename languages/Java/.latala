@@ -1,5 +1,5 @@
 {
  "geshi" : "java",
- "extension" : ".java",
+ "suffix" : ".java",
  "locator" : "../../technologies/JFragmentLocator/locator.py"
 }
