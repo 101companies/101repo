@@ -1,7 +1,7 @@
 {
   "geshi": "xml",
   "suffix": [
-    ".xml"
+    ".ecore"
   ],
   "locator": "XmlFragmentLocator/locator.py"
 }
