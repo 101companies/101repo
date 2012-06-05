@@ -1,0 +1,6 @@
+[
+ { 
+  "language" : "Haskell",
+  "namespace" : "Text.XML.HXT"
+ }
+]
