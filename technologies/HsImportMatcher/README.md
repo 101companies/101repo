@@ -24,6 +24,8 @@ The tool builds itself when needed.
 
 Run "make test" to test the tool.
 
+The test case establishes that "Technology:HXT" (say namespace Text.XML.HXT) is used in 101implementation:hx.
+
 # Architecture
 
 The matcher is essentially coded in Haskell; see *.hs.
