@@ -1,5 +1,7 @@
 {
- "geshi" : "haskell",
- "suffix" : ".hs",
- "locator" : "../../technologies/HsFragmentLocator/locator.py"
+  "geshi": "haskell",
+  "suffix": [
+    ".hs"
+  ],
+  "locator": "HsFragmentLocator/locator.py"
 }

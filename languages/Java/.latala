@@ -1,5 +1,7 @@
 {
- "geshi" : "java",
- "suffix" : ".java",
- "locator" : "../../technologies/JFragmentLocator/locator.py"
+  "geshi": "java",
+  "suffix": [
+    ".java"
+  ],
+  "locator": "JFragmentLocator/locator.py"
 }

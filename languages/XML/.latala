@@ -1,5 +1,18 @@
 {
- "geshi" : "xml",
- "suffix" : ".xml",
- "locator" : "../../technologies/XmlFragmentLocator/locator.py"
+  "geshi": "xml",
+  "suffix": [
+    ".config",
+    ".csproj",
+    ".ecore",
+    ".emx",
+    ".genmodel",
+    ".graphml",
+    ".tpl",
+    ".xaml",
+    ".xmi",
+    ".xml",
+    ".xq",
+    ".xsl"
+  ],
+  "locator": "XmlFragmentLocator/locator.py"
 }

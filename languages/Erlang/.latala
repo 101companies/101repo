@@ -1,7 +1,7 @@
 {
-  "geshi": "csharp",
+  "geshi": "erlang",
   "suffix": [
-    ".cs"
+    ".erl"
   ],
   "locator": ""
 }

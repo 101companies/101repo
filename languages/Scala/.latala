@@ -1,7 +1,7 @@
 {
-  "geshi": "csharp",
+  "geshi": "scala",
   "suffix": [
-    ".cs"
+    ".scala"
   ],
   "locator": ""
 }

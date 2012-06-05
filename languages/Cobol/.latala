@@ -1,7 +1,7 @@
 {
-  "geshi": "csharp",
+  "geshi": "cobol",
   "suffix": [
-    ".cs"
+    ".cob"
   ],
   "locator": ""
 }

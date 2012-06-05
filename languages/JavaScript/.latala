@@ -1,4 +1,9 @@
 {
- "geshi" : "javascript",
- "suffix" : ".js"
+  "geshi": "javascript",
+  "suffix": [
+    ".101meta",
+    ".js",
+    ".json"
+  ],
+  "locator": ""
 }

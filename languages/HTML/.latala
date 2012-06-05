@@ -1,0 +1,10 @@
+{
+  "geshi": "html",
+  "suffix": [
+    ".cshtml",
+    ".html",
+    ".xhtml",
+    "project.properties"
+  ],
+  "locator": ""
+}
