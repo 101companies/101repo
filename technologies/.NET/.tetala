@@ -1,0 +1,7 @@
+[
+  {
+    "language" : "CSharp", 
+    "import" : "System.Xml",
+    "resource" : "Dotnet:System.Xml"
+  }
+]
