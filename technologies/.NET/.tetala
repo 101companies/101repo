@@ -1,6 +1,6 @@
 [
   {
-    "language" : "CSharp", 
+    "language" : ["CSharp", "VB.NET"],
     "import" : "System.Xml",
     "resource" : "Dotnet:System.Xml"
   }
