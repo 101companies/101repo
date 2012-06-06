@@ -1,24 +1,14 @@
 [
  { 
-  "extension" : ".g",
-  "geshi" : "text",
-  "role" : "input"
- },
- { 
-  "extension" : ".tokens",
-  "geshi" : "text",
-  "role" : "output"
+  "language":"Java",
+  "import" : "org.antlr.runtime",
  },
  {
-  "pattern" : "@Lexer.java",
-  "role" : "output"
+  "language":"Java",
+  "import":"antlr.collections"
  },
  {
-  "pattern" : "@Parser.java",
-  "role" : "output"
- },
- {
-  "pattern" : "antlr-@.jar",
-  "role" : "support"
+  "language" : "Java",
+  "basename" : "antlr-(.*)\.jar$"
  }
 ]
