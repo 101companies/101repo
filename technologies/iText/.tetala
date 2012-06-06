@@ -1,6 +1,6 @@
 [
  { 
   "language" : "Java",
-  "namespace" : "com.lowagie.text"
+  "import" : "com.lowagie.text"
  }
 ]

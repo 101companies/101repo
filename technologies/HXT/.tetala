@@ -1,6 +1,6 @@
 [
  { 
   "language" : "Haskell",
-  "namespace" : "Text.XML.HXT"
+  "import" : "Text.XML.HXT"
  }
 ]
