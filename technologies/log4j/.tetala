@@ -1,0 +1,14 @@
+[
+ {
+  "language" : "Java",
+  "import" : "org.apache.log4j"
+ },
+ {
+  "language" : "Java",
+  "basename" : "log4j\.jar$"
+ },  
+ {
+  "language" : "Java",
+  "basename" : "log4j-(.*)\.jar$"
+ }
+]

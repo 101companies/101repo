@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "org.apache.lucene"
+ },
+ {
+  "language" : "Java",
+  "basename" : "lucene-core\.jar$"
+ }
+]

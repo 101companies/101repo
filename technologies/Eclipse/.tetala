@@ -1,12 +1,12 @@
 [
  {
-  "file" : ".project",
-  "geshi" : "xml",
+  "basename" : "\.project$",
+  "language" : "XML",
   "role" : "input"
  },
  {
-  "file" : ".classpath",
-  "geshi" : "xml",
+  "basename" : "\.classpath$",
+  "geshi" : "XML",
   "role" : "input"
  } 
 ]

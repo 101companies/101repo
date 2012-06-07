@@ -1,0 +1,14 @@
+[
+ { 
+  "language" : "Java",
+  "import" : "com.lowagie.text"
+ },
+ { 
+  "language" : "Java",
+  "basename" : "itext\.jar$"
+ },
+ { 
+  "language" : "Java",
+  "basename" : "itext-rtf\.jar$"
+ }
+]

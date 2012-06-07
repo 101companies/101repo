@@ -1,7 +1,6 @@
 [
  {
-  "file" : "build.xml",
-  "geshi" : "text",
-  "role" : "input"
+  "language" : "XML",
+  "basename" : "build\.xml$",
  }
 ]

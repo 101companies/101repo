@@ -1,0 +1,8 @@
+{
+  "geshi": "xml",
+  "suffix": [
+    ".xq",
+    ".xqery"
+  ],
+  "locator": "XmlFragmentLocator/locator.py"
+}

@@ -1,0 +1,9 @@
+{
+  "geshi": "php",
+  "suffix": [
+    ".php",
+    ".php4",
+    ".php5"
+  ],
+  "locator": ""
+}

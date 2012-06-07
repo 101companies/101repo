@@ -1,0 +1,7 @@
+{
+  "geshi": "xml",
+  "suffix": [
+    ".xmi"
+  ],
+  "locator": "XmlFragmentLocator/locator.py"
+}

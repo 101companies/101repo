@@ -1,0 +1,14 @@
+[
+ {
+  "language" : "Java",
+  "import" : "org.jfree.chart"
+ },
+ {
+  "language" : "Java",
+  "import" : "org.jfree.data"
+ },
+ {
+  "language" : "Java",
+  "basename" : "jfreechart\.jar$"
+ }
+]

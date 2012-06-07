@@ -1,5 +1,7 @@
 {
- "geshi" : "csharp",
- "extension" : ".cs"
+  "geshi": "csharp",
+  "suffix": [
+    ".cs"
+  ],
+  "locator": ""
 }
-

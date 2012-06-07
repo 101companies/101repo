@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "org.jdom"
+ },
+ {
+  "language" : "Java",
+  "basename" : "jdom-(.*)\.jar$"
+ }
+]

@@ -1,4 +1,4 @@
 {
- "geshi" : "javascript",
- "extension" : ".js"
+  "GeSHi": "javascript",
+  "suffix": ".js"
 }

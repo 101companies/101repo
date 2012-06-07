@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "javax.transaction"
+ },
+ {
+  "language" : "Java",
+  "basename" : "jta\.jar$"  
+ }
+]
