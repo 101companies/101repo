@@ -1,0 +1,10 @@
+[
+ { 
+  "language" : "Java",
+  "import" : "org.htmlparser"
+ },
+ { 
+  "language" : "Java",
+  "basename" : "htmlparser\.jar$"
+ }
+]

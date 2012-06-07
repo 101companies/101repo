@@ -1,7 +1,7 @@
 [
  {
-  "file" : "Makefile",
-  "geshi" : "text",
+  "basename" : "Makefile",
+  "language" : "text",
   "role" : "input"
  }
 ]

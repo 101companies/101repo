@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "javax.activation"
+ },
+ {
+  "language" : "Java",
+  "basename" : "activation\.jar$"
+ }
+]

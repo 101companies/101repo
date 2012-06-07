@@ -1,0 +1,14 @@
+[
+ {
+  "language" : "Java",
+  "basename" : "jsf-api.jar$"
+ },  
+ {
+  "language" : "Java",
+  "basename" : "jsf-facelets\.jar$"
+ },
+ {
+  "language" : "Java",
+  "basename" : "jsf-impl\.jar$"
+ }   
+]

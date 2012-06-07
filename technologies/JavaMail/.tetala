@@ -1,0 +1,10 @@
+[
+ { 
+  "language" : "Java",
+  "import" : "javax.mail"
+ },
+ {
+  "language" : "Java",
+  "basename" : "mail\.jar"
+ }
+]

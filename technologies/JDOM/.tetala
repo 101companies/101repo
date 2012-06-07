@@ -1,0 +1,6 @@
+[
+ {
+  "language" : "Java",
+  "basename" : "xom-(.*)\.jar$"
+ }
+]

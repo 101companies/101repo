@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "javax.ejb"
+ },
+ {
+  "language" : "Java",
+  "basename" : "ejb-api\.jar$"
+ }
+]

@@ -1,0 +1,10 @@
+[
+ { 
+  "language" : "Java",
+  "import" : "org.hibernate"
+ },
+ { 
+  "language" : "Java",
+  "basename" : "hibernate(.*)\.jar$"
+ }
+]

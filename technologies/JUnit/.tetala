@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "junit"
+ },
+ {
+  "language" : "Java",
+  "basename" : "junit\.jar$"  
+ }
+]
