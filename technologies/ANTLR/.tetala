@@ -14,5 +14,21 @@
  {
   "language" : "Java",
   "basename" : "ant-antlr\.jar$"
+ },
+ {
+  "language" : "text",
+  "basename" : "(.*)\.g$"
+ },
+ {
+  "language" : "text",
+  "basename" : "(.*)\.tokens$"
+ },
+ {
+  "language" : "Java",
+  "basename" : "(.*)Lexer\.java$"
+ },
+ {
+  "language" : "Java",
+  "basename" : "(.*)Parser\.java$"
  }
 ]
