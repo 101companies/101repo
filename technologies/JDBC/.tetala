@@ -6,5 +6,5 @@
  {
   "language" : "Java",
   "basename" : "mysql-connector-java-(.*)-bin\.jar$"
- },
+ }
 ]

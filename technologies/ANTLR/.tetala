@@ -1,7 +1,7 @@
 [
  { 
   "language":"Java",
-  "import" : "org.antlr.runtime",
+  "import" : "org.antlr.runtime"
  },
  {
   "language":"Java",
