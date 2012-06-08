@@ -1,22 +1,28 @@
 build: Locator
 
-Locator: *.java Makefile
-	mkdir bin
+Locator: src/geflo/*/*.java src/geflo/*/*/*.java Makefile
+	mkdir -p bin
 	javac \
 		-nowarn \
 		-encoding UTF-8 \
-		-classpath src;libs/* \
+		-cp ./src:./libs/* \
 		-d bin \
 		src/geflo/main/*.java
 	jar cf geflo.jar bin/geflo/main/*.class
 
 test: Locator
+	make junit
 	make total.test
 	make cut.test
 
+junit:
+	java \
+		-cp libs/junit-4.10.jar:bin \
+		org.junit.runner.JUnitCore \
+		geflo.main.TestsOnExampleScript
+
 %.test:
-	java -cp libs/junit-4.10.jar;src org.junit.runner.JUnitCore src/geflo/main/TestOnExampleScript.java
-	./locator.py data/$*.geflo data/company.rb data/$*.lines
+	./locator.py data/company.rb data/$*.geflo data/$*.lines
 	diff data/$*.baseline data/$*.lines
 
 clean:

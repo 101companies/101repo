@@ -1,0 +1,25 @@
+
+Starting cutting Company "meganalysis", old Total = 399747.0
+	Starting cutting Department "Research", old Total = 137035.0
+		Starting cutting Employee "Craig", old salary = 123456.0
+		Done cutting Employee "Craig", new salary = 61728.0
+		Starting cutting Employee "Erik", old salary = 12345.0
+		Done cutting Employee "Erik", new salary = 6172.5
+		Starting cutting Employee "Ralf", old salary = 1234.0
+		Done cutting Employee "Ralf", new salary = 617.0
+	Done cutting Department "Research", new Total = 68517.5
+	Starting cutting Department "Development", old Total = 262712.0
+		Starting cutting Employee "Ray", old salary = 234567.0
+		Done cutting Employee "Ray", new salary = 117283.5
+		Starting cutting Department "Dev1", old Total = 28145.0
+			Starting cutting Employee "Klaus", old salary = 23456.0
+			Done cutting Employee "Klaus", new salary = 11728.0
+			Starting cutting Department "Dev1.1", old Total = 4689.0
+				Starting cutting Employee "Karl", old salary = 2345.0
+				Done cutting Employee "Karl", new salary = 1172.5
+				Starting cutting Employee "Joe", old salary = 2344.0
+				Done cutting Employee "Joe", new salary = 1172.0
+			Done cutting Department "Dev1.1", new Total = 2344.5
+		Done cutting Department "Dev1", new Total = 14072.5
+	Done cutting Department "Development", new Total = 131356.0
+Done cutting Company "meganalysis", new Total = 199873.5

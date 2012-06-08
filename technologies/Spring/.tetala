@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "org.springframework"
+ },
+ {
+  "language" : "Java",
+  "basename" : "spring\.jar$"
+ }
+]

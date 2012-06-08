@@ -1,0 +1,8 @@
+{
+  "geshi": "text",
+  "suffix": [
+    ".erb",
+    ".rb"
+  ],
+  "locator": ""
+}

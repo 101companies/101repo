@@ -1,0 +1,7 @@
+[
+  {
+    "language" : "Java",
+    "import" : "com.apple.eawt",
+    "resource" : "Java:com.apple.eawt"
+  }
+]

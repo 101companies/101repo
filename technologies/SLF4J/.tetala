@@ -1,0 +1,14 @@
+[
+ {
+  "language" : "Java",
+  "import" : "org.slf4j"
+ },
+ {
+  "language" : "Java",
+  "basename" : "slf4j-api\.jar$"
+ },
+ {
+  "language" : "Java",
+  "basename" : "slf4j-log4j(.*)\.jar$"
+ }
+]

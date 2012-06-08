@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "org.jgroups"
+ },
+ {
+  "language" : "Java",
+  "basename" : "jgroups\.jar$"
+ }
+]

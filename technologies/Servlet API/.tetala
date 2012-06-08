@@ -1,0 +1,10 @@
+[
+ {
+  "language" : "Java",
+  "import" : "javax.servlet"
+ },
+ {
+  "language" : "Java",
+  "basename" : "servlet-api\.jar$"
+ }
+]

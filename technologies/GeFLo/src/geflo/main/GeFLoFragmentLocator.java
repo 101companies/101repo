@@ -32,7 +32,7 @@ public class GeFLoFragmentLocator {
 	static {
 		final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		final URL url		= classLoader.getResource(".");
-		final String base	= url.getPath().replaceAll("^/", "")+"../";
+		final String base	= url.getPath().replaceAll("^/([A-Z]:)", "\1")+"../";
 		TOKENIZER_PATH = base+TOKENIZER_NAME;
 	}
 	
