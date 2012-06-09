@@ -1,0 +1,60 @@
+'''This is an implementation in the 101companies software corpus.'''
+
+== Intent ==
+
+Provide an example of employing the features of a document oriented database to manage 101companies.
+
+== Motivation ==
+
+This implementation demonstrates the basic features of a document oriented database where entries do not need to adhere to a rigid tuple shape like in a relational database.
+
+== Technologies ==
+
+* MongoDB
+* JavaScript
+* MapReduce
+
+== Languages ==
+
+* JavaScript
+
+== Features ==
+
+
+* [[101feature:Company]]
+* [[101feature:Total]]
+* [[101feature:Cut]]
+
+== Architecture ==
+
+One MongoDB instance can handle many databases, in which collections of documents reside. A document is a [[101language:BSON]] object. In this implementation the 101companies [[101feature:Tree Structure]] is mapped onto the MongoDB server as follows:
+
+* Each company has its own database.
+* Per database there is:
+** One collection for employees
+** one collection for departments
+
+Each employee refers to her department by its ObjectID, a unique identifier assigned by MongoDB to each entry. This is also employed to have departments refer to their super-departments in the tree, as well as to their managers.
+For top-level departments, this reference is simply omitted.
+
+Total is implemented using MongoDBs MapReduce capabilities. The map function will emit one entry per employee, all under the same key. The reduce function will just sum up all these entries and return the results.
+Note: Normally, the result of a MapReduce computation will be written into a new collection inside MongoDB, due to the small size of the example, the server is advised to simply return the computation as a JSON object.
+
+Cut is implemented by simply iterating over the employees collection and changing the salary field for each document inside.
+
+== Usage ==
+
+In the json subfolder are two dumps created via the mongoimport tool. To import those, make sure you have a MongoDB server running on your local machine and enter:
+<nowiki>mongoimport -d meganalysis -c employees json/employees.json</nowiki>
+to import the imployees database. Adding the departments collection is the same, just run:
+<nowiki>mongoimport -d meganalysis -c depts json/depts.json</nowiki>
+
+Cut and Total are run using the mongo command by simply specifying the correct database and the corresponding JavaScript files as command line arguments like this:
+<nowiki>mongo meganalysis total.js</nowiki>
+Each script will print out
+
+== Contributors ==
+
+* {{101contributor|Sebastian Jackel|developer}}
+
+[[Category:101implementation]]
