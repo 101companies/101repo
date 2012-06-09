@@ -1,6 +1,6 @@
 [
  {
   "language" : "Java",
-  "basename" : "gretl\.jar$"
+  "basename" : "#^gretl[.]jar$#"
  }
 ]

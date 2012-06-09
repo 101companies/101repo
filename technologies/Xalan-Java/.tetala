@@ -1,6 +1,6 @@
 [
  {
   "language" : "Java",
-  "basename" : "xalan.jar$"
+  "basename" : "#^xalan[.]jar$#"
  }
 ]

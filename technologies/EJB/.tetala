@@ -5,6 +5,6 @@
  },
  {
   "language" : "Java",
-  "basename" : "ejb-api\.jar$"
+  "basename" : "#^ejb-api[.]jar$#"
  }
 ]

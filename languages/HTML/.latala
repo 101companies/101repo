@@ -1,7 +1,6 @@
 {
-  "geshi": "html",
+  "GeSHi.language": "html",
   "suffix": [
     ".html"
-  ],
-  "locator": ""
+  ]
 }

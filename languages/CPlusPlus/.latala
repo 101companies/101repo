@@ -1,8 +1,7 @@
 {
-  "geshi": "cpp",
+  "GeSHi.language": "cpp",
   "suffix": [
     ".cpp",
     ".hpp"
-  ],
-  "locator": ""
+  ]
 }

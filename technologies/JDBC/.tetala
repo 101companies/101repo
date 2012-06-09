@@ -1,10 +1,10 @@
 [
  {
   "language" : "Java",
-  "basename" : "google_sql\.jar$"
+  "basename" : "#^google_sql[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "mysql-connector-java-(.*)-bin\.jar$"
+  "basename" : "#^mysql-connector-java-(.*)-bin[.]jar$#"
  }
 ]

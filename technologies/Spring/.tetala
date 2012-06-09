@@ -5,6 +5,6 @@
  },
  {
   "language" : "Java",
-  "basename" : "spring\.jar$"
+  "basename" : "#^spring[.]jar$#"
  }
 ]

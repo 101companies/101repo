@@ -1,7 +1,6 @@
 {
-  "geshi": "csharp",
+  "GeSHi.language": "csharp",
   "suffix": [
     ".cs"
-  ],
-  "locator": ""
+  ]
 }

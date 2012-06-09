@@ -5,6 +5,6 @@
  },
  {
   "language" : "Java",
-  "basename" : "junit\.jar$"  
+  "basename" : "#^junit[.]jar$#"  
  }
 ]

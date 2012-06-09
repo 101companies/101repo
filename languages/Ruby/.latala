@@ -1,8 +1,7 @@
 {
-  "geshi": "text",
+  "GeSHi.language": "text",
   "suffix": [
     ".erb",
     ".rb"
-  ],
-  "locator": ""
+  ]
 }

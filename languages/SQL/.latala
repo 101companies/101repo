@@ -1,11 +1,10 @@
 {
-  "geshi": "sql",
+  "GeSHi.language": "sql",
   "suffix": [
     ".sql",
     ".sqlcmdvars",
     ".sqldeployment",
     ".sqlpermissions",
     ".sqlsettings"
-  ],
-  "locator": ""
+  ]
 }

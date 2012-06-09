@@ -1,14 +1,14 @@
 [
  {
   "language" : "Java",
-  "basename" : "jsf-api.jar$"
+  "basename" : "#^jsf-api[.]jar$#"
  },  
  {
   "language" : "Java",
-  "basename" : "jsf-facelets\.jar$"
+  "basename" : "#^jsf-facelets[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "jsf-impl\.jar$"
+  "basename" : "#^jsf-impl[.]jar$#"
  }   
 ]

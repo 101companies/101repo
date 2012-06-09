@@ -5,6 +5,6 @@
  },
  {
   "language" : "Java",
-  "basename" : "lucene-core\.jar$"
+  "basename" : "#^lucene-core[.]jar$#"
  }
 ]

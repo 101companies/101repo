@@ -5,6 +5,6 @@
  },
  { 
   "language" : "Java",
-  "basename" : "htmlparser\.jar$"
+  "basename" : "#^htmlparser[.]jar$#"
  }
 ]

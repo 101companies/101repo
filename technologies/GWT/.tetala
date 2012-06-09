@@ -1,6 +1,6 @@
 [
  {
   "language" : "Java",
-  "basename" : "gwt-servlet\.jar$"
+  "basename" : "#^gwt-servlet[.]jar$#"
  }
 ]

@@ -1,6 +1,6 @@
 [
  {
   "language" : "XML",
-  "basename" : "build\.xml$"
+  "basename" : "#^build[.]xml$#"
  }
 ]

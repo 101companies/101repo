@@ -9,26 +9,26 @@
  },
  {
   "language" : "Java",
-  "basename" : "antlr-(.*)\.jar$"
+  "basename" : "#^antlr-(.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "ant-antlr\.jar$"
+  "basename" : "#^ant-antlr[.]jar$#"
  },
  {
   "language" : "text",
-  "basename" : "(.*)\.g$"
+  "basename" : "#^(.*)[.]g$#"
  },
  {
   "language" : "text",
-  "basename" : "(.*)\.tokens$"
+  "basename" : "#^(.*)[.]tokens$#"
  },
  {
   "language" : "Java",
-  "basename" : "(.*)Lexer\.java$"
+  "basename" : "#^(.*)Lexer[.]java$#"
  },
  {
   "language" : "Java",
-  "basename" : "(.*)Parser\.java$"
+  "basename" : "#^(.*)Parser[.]java$#"
  }
 ]

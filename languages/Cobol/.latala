@@ -1,7 +1,6 @@
 {
-  "geshi": "cobol",
+  "GeSHi.language": "cobol",
   "suffix": [
     ".cob"
-  ],
-  "locator": ""
+  ]
 }

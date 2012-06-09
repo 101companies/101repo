@@ -1,7 +1,6 @@
 {
-  "geshi": "text",
+  "GeSHi.language": "text",
   "suffix": [
     ".rsc"
-  ],
-  "locator": ""
+  ]
 }

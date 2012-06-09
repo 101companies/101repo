@@ -1,6 +1,6 @@
 [
  {
   "language" : "Java",
-  "basename" : "xom-(.*)\.jar$"
+  "basename" : "#^xom-(.*)[.]jar$#"
  }
 ]

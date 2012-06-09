@@ -5,10 +5,10 @@
  },
  {
   "language" : "Java",
-  "basename" : "log4j\.jar$"
+  "basename" : "#^log4j[.]jar$#"
  },  
  {
   "language" : "Java",
-  "basename" : "log4j-(.*)\.jar$"
+  "basename" : "#^log4j-(.*)[.]jar$#"
  }
 ]

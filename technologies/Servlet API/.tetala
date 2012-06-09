@@ -5,6 +5,6 @@
  },
  {
   "language" : "Java",
-  "basename" : "servlet-api\.jar$"
+  "basename" : "#^servlet-api[.]jar$#"
  }
 ]

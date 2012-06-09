@@ -1,7 +1,6 @@
 {
-  "geshi": "",
+  "GeSHi.language": "xml",
   "suffix": [
     ".wsdl"
-  ],
-  "locator": ""
+  ]
 }

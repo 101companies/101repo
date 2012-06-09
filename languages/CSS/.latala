@@ -1,7 +1,6 @@
 {
-  "geshi": "css",
+  "GeSHi.language": "css",
   "suffix": [
     ".css"
-  ],
-  "locator": ""
+  ]
 }

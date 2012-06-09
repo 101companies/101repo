@@ -1,7 +1,6 @@
 {
-  "geshi": "python",
+  "GeSHi.language": "python",
   "suffix": [
     ".py"
-  ],
-  "locator": ""
+  ]
 }

@@ -1,6 +1,6 @@
 [
  {
-  "basename" : "Makefile",
+  "basename" : "#^Makefile$#",
   "language" : "text",
   "role" : "input"
  }

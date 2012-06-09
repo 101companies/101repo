@@ -5,14 +5,14 @@
  },
  { 
   "language" : "Java",
-  "basename" : "jaxb-api\.jar$"
+  "basename" : "#^jaxb-api[.]jar$#"
  },
  { 
   "language" : "Java",
-  "basename" : "jaxrs-api\.jar$"
+  "basename" : "#^jaxrs-api[.]jar$#"
  },
  { 
   "language" : "Java",
-  "basename" : "jaxws-api\.jar$"
+  "basename" : "#^jaxws-api[.]jar$#"
  }
 ]

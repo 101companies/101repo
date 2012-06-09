@@ -1,7 +1,6 @@
 {
-  "geshi": "erlang",
+  "GeSHi.language": "erlang",
   "suffix": [
     ".erl"
-  ],
-  "locator": ""
+  ]
 }

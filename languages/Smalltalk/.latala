@@ -1,7 +1,6 @@
 {
-  "geshi": "smalltalk",
+  "GeSHi.language": "smalltalk",
   "suffix": [
     ".st"
-  ],
-  "locator": ""
+  ]
 }

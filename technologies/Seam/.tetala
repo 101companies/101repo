@@ -1,114 +1,114 @@
 [
  {
   "language" : "Java",
-  "basename" : "jboss-seam-debug\.jar$"  
+  "basename" : "#^jboss-seam-debug[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-debug-sources\.jar$"  
+  "basename" : "#^jboss-seam-debug-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-excel\.jar$"  
+  "basename" : "#^jboss-seam-excel[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-excel-sources\.jar$"  
+  "basename" : "#^jboss-seam-excel-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-ioc\.jar$"  
+  "basename" : "#^jboss-seam-ioc[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-ioc-sources\.jar$"  
+  "basename" : "#^jboss-seam-ioc-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam\.jar$"  
+  "basename" : "#^jboss-seam[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-jul\.jar$"  
+  "basename" : "#^jboss-seam-jul[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-mail\.jar$"  
+  "basename" : "#^jboss-seam-mail[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-mail-sources\.jar$"  
+  "basename" : "#^jboss-seam-mail-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-pdf\.jar$"  
+  "basename" : "#^jboss-seam-pdf[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-pdf-sources\.jar$"  
+  "basename" : "#^jboss-seam-pdf-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-remoting\.jar$"  
+  "basename" : "#^jboss-seam-remoting[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-remoting-sources\.jar$"  
+  "basename" : "#^jboss-seam-remoting-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-rss\.jar$"  
+  "basename" : "#^jboss-seam-rss[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-rss-sources\.jar$"  
+  "basename" : "#^jboss-seam-rss-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-sources\.jar$"  
+  "basename" : "#^jboss-seam-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-ui\.jar$"  
+  "basename" : "#^jboss-seam-ui[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-ui-sources\.jar$"  
+  "basename" : "#^jboss-seam-ui-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-wicket-ant-sources\.jar$"  
+  "basename" : "#^jboss-seam-wicket-ant-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "jboss-seam-wicket-sources\.jar$"  
+  "basename" : "#^jboss-seam-wicket-sources[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "meldware-mailapi\.jar$"  
+  "basename" : "#^meldware-mailapi[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "meldware-mailjmx\.jar$"  
+  "basename" : "#^meldware-mailjmx[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "metawidget-backend\.jar$"  
+  "basename" : "#^metawidget-backend[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "metawidget-frontend\.jar$"  
+  "basename" : "#^metawidget-frontend[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "metawidget\.jar$"  
+  "basename" : "#^metawidget[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "mvel14\.jar$"  
+  "basename" : "#^mvel14[.]jar$#"  
  },
  {
   "language" : "Java",
-  "basename" : "thirdparty-all\.jar$"  
+  "basename" : "#^thirdparty-all[.]jar$#"  
  }
 ]

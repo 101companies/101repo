@@ -1,7 +1,6 @@
 {
- "geshi" : "prolog",
+ "GeSHi.language" : "prolog",
   "suffix": [
     ".pro"
-  ],
-  "locator": ""
+  ]
 }

@@ -5,50 +5,50 @@
  },
  {
   "language" : "Java",
-  "basename" : "commons-beanutils\.jar$"
+  "basename" : "#^commons-beanutils[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-cli-(.*)\.jar$"
+  "basename" : "#^commons-cli-(.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-codec(-.*)\.jar$"
+  "basename" : "#^commons-codec(-.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-collections(-.*)\.jar$"
+  "basename" : "#^commons-collections(-.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-digester\.jar$"
+  "basename" : "#^commons-digester[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-el-(.*)\.jar$"
+  "basename" : "#^commons-el-(.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-httpclient(-.*)\.jar$"
+  "basename" : "#^commons-httpclient(-.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-io\.jar$"
+  "basename" : "#^commons-io[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-lang(-.*)\.jar$"
+  "basename" : "#^commons-lang(-.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-logging(-.*)\.jar$"
+  "basename" : "#^commons-logging(-.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-logging-api-(.*)\.jar$"
+  "basename" : "#^commons-logging-api-(.*)[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "commons-net-(.*)\.jar$"
+  "basename" : "#^commons-net-(.*)[.]jar$#"
  }
 ]

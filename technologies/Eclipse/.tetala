@@ -1,11 +1,12 @@
 [
  {
-  "basename" : "\.project$",
+  "basename" : "#^[.]project$#",
   "language" : "XML",
   "role" : "input"
  },
  {
-  "basename" : "\.classpath$",
+  "language" : "XML",
+  "basename" : "#^[.]classpath$#",
   "geshi" : "XML",
   "role" : "input"
  } 

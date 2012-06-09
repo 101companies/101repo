@@ -5,10 +5,10 @@
  },
  {
   "language" : "Java",
-  "basename" : "asm\.jar$"
+  "basename" : "#^asm[.]jar$#"
  },
  {
   "language" : "Java",
-  "basename" : "asm-attrs\.jar$"
+  "basename" : "#^asm-attrs[.]jar$#"
  }
 ]

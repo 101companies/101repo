@@ -5,10 +5,10 @@
  },
  { 
   "language" : "Java",
-  "basename" : "itext\.jar$"
+  "basename" : "#^itext[.]jar$#"
  },
  { 
   "language" : "Java",
-  "basename" : "itext-rtf\.jar$"
+  "basename" : "#^itext-rtf[.]jar$#"
  }
 ]

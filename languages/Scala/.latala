@@ -1,7 +1,6 @@
 {
-  "geshi": "scala",
+  "GeSHi.language": "scala",
   "suffix": [
     ".scala"
-  ],
-  "locator": ""
+  ]
 }

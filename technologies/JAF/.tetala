@@ -5,6 +5,6 @@
  },
  {
   "language" : "Java",
-  "basename" : "activation\.jar$"
+  "basename" : "#^activation[.]jar$#"
  }
 ]

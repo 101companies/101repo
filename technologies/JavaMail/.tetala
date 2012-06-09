@@ -5,6 +5,6 @@
  },
  {
   "language" : "Java",
-  "basename" : "mail\.jar"
+  "basename" : "#^mail[.]jar$#"
  }
 ]
