@@ -22,7 +22,9 @@ This implementation demonstrates the basic features of a document oriented datab
 
 
 * [[101feature:Company]]
+
 * [[101feature:Total]]
+
 * [[101feature:Cut]]
 
 == Architecture ==
