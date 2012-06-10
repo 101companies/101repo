@@ -1,4 +1,4 @@
-package org.softlang.features;
+package org.softlang.quality;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
 
-import org.softlang.company.Company;
+import org.softlang.structure.Company;
 
 public class Serialization {
 	
@@ -156,7 +156,7 @@ public class Serialization {
 			LinkedList<?> l2 = (LinkedList<?>) f2.get(o2);
 			int length = l1.size();
 			for (int i = 0; i < length; i++) {
-				if (!(org.softlang.features.Serialization.structurallyEqual(l1.get(i), l2.get(i)))) {
+				if (!(org.softlang.quality.Serialization.structurallyEqual(l1.get(i), l2.get(i)))) {
 					return false;
 				}
 			}

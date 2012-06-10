@@ -1,6 +1,6 @@
-package org.softlang.features;
+package org.softlang.behavior;
 
-import org.softlang.company.*;
+import org.softlang.structure.*;
 
 public class Total {
 
