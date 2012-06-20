@@ -1,4 +1,4 @@
-{ "_id" : { "$oid" : "4fd1ea2942afa58847224864" }, "manager" : { "$oid" : "4fd1eff716fc9783d9e779f1" }, "name" : "Research", "super" : null }
-{ "_id" : { "$oid" : "4fd1f78316fc9783d9e779f2" }, "manager" : { "$oid" : "4fd2024f16fc9783d9e779f4" }, "name" : "Development", "super" : null }
-{ "_id" : { "$oid" : "4fd1f7b616fc9783d9e779f3" }, "manager" : { "$oid" : "4fd1f7b616fc9783d9e779f3" }, "name" : "Dev1", "super" : { "$oid" : "4fd1f78316fc9783d9e779f2" } }
-{ "_id" : { "$oid" : "4fd2061816fc9783d9e779f6" }, "manager" : { "$oid" : "4fd2073116fc9783d9e779f7" }, "name" : "Dev1.1", "super" : { "$oid" : "4fd1f7b616fc9783d9e779f3" } }
+{ "_id" : { "$oid" : "4fd1ea2942afa58847224864" }, "manager" : { "$oid" : "4fd1ee6f42afa58847224866" }, "name" : "Research" }
+{ "_id" : { "$oid" : "4fd1f78316fc9783d9e779f2" }, "manager" : { "$oid" : "4fd2024f16fc9783d9e779f4" }, "name" : "Development" }
+{ "_id" : { "$oid" : "4fd1f7b616fc9783d9e779f3" }, "manager" : { "$oid" : "4fd1f7b616fc9783d9e779f3" }, "super" : { "$oid" : "4fd1f78316fc9783d9e779f2" }, "name" : "Dev1", "ancestors" : [ { "$oid" : "4fd1f78316fc9783d9e779f2" } ] }
+{ "_id" : { "$oid" : "4fd2061816fc9783d9e779f6" }, "manager" : { "$oid" : "4fd2073116fc9783d9e779f7" }, "super" : { "$oid" : "4fd1f7b616fc9783d9e779f3" }, "name" : "Dev1.1", "ancestors" : [ { "$oid" : "4fd1f7b616fc9783d9e779f3" }, { "$oid" : "4fd1f78316fc9783d9e779f2" } ] }

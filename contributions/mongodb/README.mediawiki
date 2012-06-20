@@ -6,30 +6,28 @@ Provide an example of employing the features of a document oriented database to 
 
 == Motivation ==
 
-This implementation demonstrates the basic features of a document oriented database where entries do not need to adhere to a rigid tuple shape like in a relational database.
+This implementation demonstrates the basic features of a [[Technology:Document-Oriented Database]] by example of [[Technology:MongoDB]]. Entries do not need to adhere to a rigid tuple shape like in a relational database. In MongoDB, entries are contained in [[Language:BSON]] objects which are organized in collections
 
 == Technologies ==
 
-* MongoDB
-* JavaScript
-* MapReduce
+* [[Technology:MongoDB]]
+* [[Technology:Data Aggregation]]
 
 == Languages ==
 
-* JavaScript
+* [[Language:JavaScript]]
 
 == Features ==
 
+* [[101feature:Tree Structure]]
 
-* [[101feature:Company]]
+* [[101feature:Type-driven query]]
 
-* [[101feature:Total]]
+* [[101feature:Type-driven transformation]]
 
-* [[101feature:Cut]]
+== Illustration ==
 
-== Architecture ==
-
-One MongoDB instance can handle many databases, in which collections of documents reside. A document is a [[101language:BSON]] object. In this implementation the 101companies [[101feature:Tree Structure]] is mapped onto the MongoDB server as follows:
+One MongoDB instance can handle many databases, in which collections of documents reside. In this implementation the 101companies [[101feature:Tree Structure]] is mapped onto the MongoDB server as follows:
 
 * Each company has its own database.
 * Per database there is:
@@ -47,13 +45,24 @@ Cut is implemented by simply iterating over the employees collection and changin
 == Usage ==
 
 In the json subfolder are two dumps created via the mongoimport tool. To import those, make sure you have a MongoDB server running on your local machine and enter:
-<nowiki>mongoimport -d meganalysis -c employees json/employees.json</nowiki>
+
+<syntaxhighlight lang="bash">
+$ mongoimport -d meganalysis -c employees json/employees.json
+</syntaxhighlight>
+
 to import the imployees database. Adding the departments collection is the same, just run:
-<nowiki>mongoimport -d meganalysis -c depts json/depts.json</nowiki>
+
+<syntaxhighlight lang="bash">
+$ mongoimport -d meganalysis -c depts json/depts.json
+</syntaxhighlight>
 
 Cut and Total are run using the mongo command by simply specifying the correct database and the corresponding JavaScript files as command line arguments like this:
-<nowiki>mongo meganalysis total.js</nowiki>
-Each script will print out
+
+<syntaxhighlight lang="bash">
+$ mongo meganalysis total.js
+</syntaxhighlight>
+
+Each script will print out the results of the respective computation.
 
 == Contributors ==
 
