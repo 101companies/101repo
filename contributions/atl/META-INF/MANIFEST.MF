@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ATL
+Bundle-SymbolicName: ATL
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Hugo Bruneliere
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.m2m.atl.common,
+ org.eclipse.m2m.atl.core,
+ org.eclipse.m2m.atl.core.emf,
+ org.eclipse.m2m.atl.engine.emfvm,
+ ATL_CutPlugin,
+ ATL_ComputeTotalPlugin

@@ -1,10 +1,10 @@
 {"meta":{
    "nosource":[
       {
-         "file": "Total.asm"
+         "file": "Transformations/Total.asm"
       },
 	  {
-		"file": "Cut.asm"
+		"file": "Transformations/Cut.asm"
 	  }
 	]}
 }
