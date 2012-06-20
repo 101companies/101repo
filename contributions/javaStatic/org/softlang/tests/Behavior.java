@@ -1,14 +1,15 @@
 package org.softlang.tests;
 
-import org.softlang.company.Company;
-import static org.softlang.features.Total.*;
-import static org.softlang.features.Cut.*;
-import static org.softlang.features.Serialization.*;
+import org.softlang.structure.Company;
+
+import static org.softlang.behavior.Cut.*;
+import static org.softlang.behavior.Total.*;
+import static org.softlang.quality.Serialization.*;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class Basics {
+public class Behavior {
 	
 	@Test
 	public void testTotal() {

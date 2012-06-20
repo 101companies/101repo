@@ -2,7 +2,7 @@ module Mentoring where
 
 import Prelude hiding (null)
 import Company
-import Data.Generics
+import Data.Generics hiding (empty)
 import Data.Set
 
 -- Check that mentoring constraint hold

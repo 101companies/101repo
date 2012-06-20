@@ -1,0 +1,32 @@
+[
+  { 
+    "basename" : "#^antlr-(.*)\.jar$#",
+    "metadata" : { 
+      "comment" : "The ANTLR library, Version $1"
+    } 
+  },
+  { 
+    "suffix" : ".g",
+    "metadata" : {
+      "role" : "input",
+      "comment" : "An ANTLR grammar"
+    } 
+  },
+  { 
+    "basename" : [ "#^.*Parser.java$#", "#^.*Lexer.java$#" ],
+    "predicate" : "grepAntlrOutput.sh",
+    "metadata" : {
+      "role" : "output",
+      "comment" : "An ANTLR-generated source"
+    } 
+  },
+  { 
+  "suffix" : ".java",
+    "predicate" : "../Java_platform/javaImport.sh",
+    "args" : ["org.antlr.runtime"],
+    "metadata" : {
+      "role" : "import",
+      "comment" : "A source that imports ANTLR"
+    } 
+  }
+]

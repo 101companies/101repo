@@ -1,4 +1,4 @@
-package org.softlang.company;
+package org.softlang.structure;
 
 import java.io.Serializable;
 
@@ -36,8 +36,4 @@ public class Employee implements Serializable {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-	
-	public void cut() {
-		setSalary(getSalary() / 2);
-	}	
 }
