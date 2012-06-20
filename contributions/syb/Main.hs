@@ -1,6 +1,7 @@
 module Main where
 
 import Company
+import Deriving
 import Total
 import Cut
 import Depth

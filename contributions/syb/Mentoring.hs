@@ -2,6 +2,7 @@ module Mentoring where
 
 import Prelude hiding (null)
 import Company
+import Deriving
 import Data.Generics hiding (empty)
 import Data.Set
 

@@ -6,7 +6,7 @@ import Data.Generics
 -- Check that precedence constraint hold
 
 precedence :: Company -> Bool
-precedence (_,ds) = and (map department ds)
+precedence (Company _ ds) = and (map department ds)
  where
 
   -- Test department

@@ -1,31 +1,46 @@
 [
   { 
     "basename" : "#^antlr-(.*)\.jar$#",
-    "metadata" : { 
+    "metadata" : {
+      "technology" : "ANTLR",
       "comment" : "The ANTLR library, Version $1"
     } 
   },
   { 
     "suffix" : ".g",
     "metadata" : {
-      "role" : "input",
+      "inputOf" : "ANTLR",
       "comment" : "An ANTLR grammar"
     } 
   },
   { 
-    "basename" : [ "#^.*Parser.java$#", "#^.*Lexer.java$#" ],
+    "basename" : "#^.*Parser.java$#",
     "predicate" : "grepAntlrOutput.sh",
-    "metadata" : {
-      "role" : "output",
-      "comment" : "An ANTLR-generated source"
-    } 
+    "metadata" : [
+      {
+        "outputOf" : "ANTLR",
+        "comment" : "An ANTLR-generated parser"
+      },
+      { "concept" : "Parser" }
+    ]
+  },
+  { 
+    "basename" : "#^.*Lexer.java$#",
+    "predicate" : "grepAntlrOutput.sh",
+    "metadata" : [
+      {
+        "outputOf" : "ANTLR",
+        "comment" : "An ANTLR-generated lexer"
+      },
+      { "concept" : "Lexer" }
+    ]
   },
   { 
   "suffix" : ".java",
     "predicate" : "../Java_platform/javaImport.sh",
     "args" : ["org.antlr.runtime"],
     "metadata" : {
-      "role" : "import",
+      "imports" : "ANTLR",
       "comment" : "A source that imports ANTLR"
     } 
   }

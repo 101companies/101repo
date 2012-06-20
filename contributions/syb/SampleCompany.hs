@@ -3,8 +3,8 @@ module SampleCompany where
 import Company
 
 company = 
- ( "meganalysis"
- , [ Department "Research" 
+ Company "meganalysis"
+   [ Department "Research" 
       (Employee "Craig" "Redmond" 123456 Nothing)
       [ EUnit (Employee "Erik" "Utrecht" 12345 Nothing)
       , EUnit (Employee "Ralf" "Koblenz" 1234 (Just "Joe"))
@@ -20,4 +20,3 @@ company =
              ])
        ]
    ]
- )

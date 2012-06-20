@@ -1,6 +1,7 @@
 module Cut where
 
 import Company
+import Deriving
 import Data.Generics
 
 cut :: Company -> Company

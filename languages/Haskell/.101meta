@@ -1,7 +1,8 @@
 { 
   "suffix" : ".hs", 
-  "metadata" : { 
-    "geshi" : "haskell",
-    "locator" : "../../technologies/HsFragmentSelector/locator.py"
-  } 
+  "metadata" : [ 
+    { "language" : "Haskell" },
+    { "geshi" : "haskell" },
+    { "locator" : "../../technologies/HsFragmentSelector/locator.py" }
+  ] 
 }
