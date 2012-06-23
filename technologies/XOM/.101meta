@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "XOM"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.jdom"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "XOM"
+      }
+    ],
+    "basename": "#^jdom-(.*)[.]jar$#"
+  }
+]

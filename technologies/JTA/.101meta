@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JTA"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "javax.transaction"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JTA"
+      }
+    ],
+    "basename": "#^jta[.]jar$#"
+  }
+]

@@ -1,0 +1,17 @@
+[
+	{
+		"suffix" : ".ecore",
+		"metadata" : [
+			{"geshi":"xml"},
+			{"language":"Ecore"}
+		]
+	}
+]
+
+{
+  "GeSHi.language": "xml",
+  "suffix": [
+    ".ecore"
+  ],
+  "locator": "technology/XmlFragmentLocator/locator.py"
+}

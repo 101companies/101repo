@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Tidy"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.w3c.tidy"
+  }
+]

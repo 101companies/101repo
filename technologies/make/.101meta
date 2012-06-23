@@ -1,0 +1,13 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "text"
+      },
+      {
+        "technology": "make"
+      }
+    ],
+    "basename": "#^Makefile$#"
+  }
+]

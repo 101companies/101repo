@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Hibernate"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.hibernate"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Hibernate"
+      }
+    ],
+    "basename": "#^hibernate(.*)[.]jar$#"
+  }
+]

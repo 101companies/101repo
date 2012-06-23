@@ -1,0 +1,47 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JAXB"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "javax.xml.bind"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JAXB"
+      }
+    ],
+    "basename": "#^jaxb-api[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JAXB"
+      }
+    ],
+    "basename": "#^jaxrs-api[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JAXB"
+      }
+    ],
+    "basename": "#^jaxws-api[.]jar$#"
+  }
+]

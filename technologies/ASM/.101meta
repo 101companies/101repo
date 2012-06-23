@@ -1,0 +1,36 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ASM"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.objectweb.asm"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ASM"
+      }
+    ],
+    "basename": "#^asm[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ASM"
+      }
+    ],
+    "basename": "#^asm-attrs[.]jar$#"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "log4j"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.apache.log4j"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "log4j"
+      }
+    ],
+    "basename": "#^log4j[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "log4j"
+      }
+    ],
+    "basename": "#^log4j-(.*)[.]jar$#"
+  }
+]

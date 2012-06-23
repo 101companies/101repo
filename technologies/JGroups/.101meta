@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JGroups"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.jgroups"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JGroups"
+      }
+    ],
+    "basename": "#^jgroups[.]jar$#"
+  }
+]

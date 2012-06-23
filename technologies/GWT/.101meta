@@ -1,0 +1,13 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "GWT"
+      }
+    ],
+    "basename": "#^gwt-servlet[.]jar$#"
+  }
+]

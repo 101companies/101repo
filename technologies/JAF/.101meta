@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JAF"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "javax.activation"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JAF"
+      }
+    ],
+    "basename": "#^activation[.]jar$#"
+  }
+]

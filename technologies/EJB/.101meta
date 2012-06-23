@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "EJB"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "javax.ejb"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "EJB"
+      }
+    ],
+    "basename": "#^ejb-api[.]jar$#"
+  }
+]

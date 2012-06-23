@@ -1,0 +1,16 @@
+[
+	{
+		"suffix" : ".erb",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Ruby"}
+		]
+	},
+	{
+		"suffix" : ".rb",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Ruby"}
+		]
+	}
+]

@@ -1,7 +1,0 @@
-{
-  "GeSHi.language": "java",
-  "suffix": [
-    ".java"
-  ],
-  "locator": "technology/JFragmentLocator/locator.py"
-}

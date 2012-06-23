@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Jetty"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.mortbay.jetty"
+  }
+]

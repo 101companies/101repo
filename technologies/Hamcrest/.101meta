@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Hamcrest"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.hamcrest"
+  }
+]

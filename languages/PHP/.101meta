@@ -1,0 +1,23 @@
+[
+	{
+		"suffix" : ".php",
+		"metadata" : [
+			{"geshi":"php"},
+			{"language":"PHP"}
+		]
+	},
+	{
+		"suffix" : ".php4",
+		"metadata" : [
+			{"geshi":"php"},
+			{"language":"PHP"}
+		]
+	},
+	{
+		"suffix" : ".php5",
+		"metadata" : [
+			{"geshi":"php"},
+			{"language":"PHP"}
+		]
+	}
+]

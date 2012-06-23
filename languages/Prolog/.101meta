@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".pro",
+		"metadata" : [
+			{"geshi":"prolog"},
+			{"language":"Prolog"}
+		]
+	}
+]

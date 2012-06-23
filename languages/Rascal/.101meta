@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".rsc",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Rascal"}
+		]
+	}
+]

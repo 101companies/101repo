@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Haskell"
+      },
+      {
+        "technology": "HXT"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "Text.XML.HXT"
+  }
+]

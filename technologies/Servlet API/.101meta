@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Servlet API"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "javax.servlet"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Servlet API"
+      }
+    ],
+    "basename": "#^servlet-api[.]jar$#"
+  }
+]

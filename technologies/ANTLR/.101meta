@@ -1,47 +1,92 @@
 [
-  { 
-    "basename" : "#^antlr-(.*)\.jar$#",
-    "metadata" : {
-      "technology" : "ANTLR",
-      "comment" : "The ANTLR library, Version $1"
-    } 
-  },
-  { 
-    "suffix" : ".g",
-    "metadata" : {
-      "inputOf" : "ANTLR",
-      "comment" : "An ANTLR grammar"
-    } 
-  },
-  { 
-    "basename" : "#^.*Parser.java$#",
-    "predicate" : "grepAntlrOutput.sh",
-    "metadata" : [
+  {
+    "metadata": [
       {
-        "outputOf" : "ANTLR",
-        "comment" : "An ANTLR-generated parser"
+        "language": "Java"
       },
-      { "concept" : "Parser" }
-    ]
-  },
-  { 
-    "basename" : "#^.*Lexer.java$#",
-    "predicate" : "grepAntlrOutput.sh",
-    "metadata" : [
       {
-        "outputOf" : "ANTLR",
-        "comment" : "An ANTLR-generated lexer"
-      },
-      { "concept" : "Lexer" }
-    ]
+        "technology": "ANTLR"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.antlr.runtime"
   },
-  { 
-  "suffix" : ".java",
-    "predicate" : "../Java_platform/javaImport.sh",
-    "args" : ["org.antlr.runtime"],
-    "metadata" : {
-      "imports" : "ANTLR",
-      "comment" : "A source that imports ANTLR"
-    } 
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ANTLR"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "antlr.collections"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ANTLR"
+      }
+    ],
+    "basename": "#^antlr-(.*)[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ANTLR"
+      }
+    ],
+    "basename": "#^ant-antlr[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "text"
+      },
+      {
+        "technology": "ANTLR"
+      }
+    ],
+    "basename": "#^(.*)[.]g$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "text"
+      },
+      {
+        "technology": "ANTLR"
+      }
+    ],
+    "basename": "#^(.*)[.]tokens$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ANTLR"
+      }
+    ],
+    "basename": "#^(.*)Lexer[.]java$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "ANTLR"
+      }
+    ],
+    "basename": "#^(.*)Parser[.]java$#"
   }
 ]

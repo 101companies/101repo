@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".js",
+		"metadata" : [
+			{"geshi":"javascript"},
+			{"language":"Javascript"}
+		]
+	}
+]

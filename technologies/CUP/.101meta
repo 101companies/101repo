@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "CUP"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "java_cup.runtime"
+  }
+]

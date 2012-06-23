@@ -1,0 +1,13 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "GReTL"
+      }
+    ],
+    "basename": "#^gretl[.]jar$#"
+  }
+]

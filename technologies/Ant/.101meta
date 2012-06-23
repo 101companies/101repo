@@ -1,0 +1,13 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "XML"
+      },
+      {
+        "technology": "Ant"
+      }
+    ],
+    "basename": "#^build[.]xml$#"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Bouncy Castle"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.bouncycastle"
+  }
+]

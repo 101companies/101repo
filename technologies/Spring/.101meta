@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Spring"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.springframework"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Spring"
+      }
+    ],
+    "basename": "#^spring[.]jar$#"
+  }
+]

@@ -1,0 +1,10 @@
+[
+	{
+		"suffix" : ".xsd",
+		"metadata" : [
+			{"geshi":"xml"},
+			{"language":"XSD"},
+			{"locator": "technology/XmlFragmentLocator/locator.py"}
+		]
+	}
+]

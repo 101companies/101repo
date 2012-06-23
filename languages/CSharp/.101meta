@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".cs",
+		"metadata" : [
+			{"geshi":"csharp"},
+			{"language":"CSharp"}
+		]
+	}
+]

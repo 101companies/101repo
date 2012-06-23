@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".py",
+		"metadata" : [
+			{"geshi":"python"},
+			{"language":"Python"}
+		]
+	}
+]

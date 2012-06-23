@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".aj",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"AspectJ"}
+		]
+	}
+]

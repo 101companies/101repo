@@ -1,0 +1,37 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JFreeChart"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.jfree.chart"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JFreeChart"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.jfree.data"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JFreeChart"
+      }
+    ],
+    "basename": "#^jfreechart[.]jar$#"
+  }
+]

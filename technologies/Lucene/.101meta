@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Lucene"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.apache.lucene"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Lucene"
+      }
+    ],
+    "basename": "#^lucene-core[.]jar$#"
+  }
+]

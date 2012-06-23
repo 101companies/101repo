@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "XStream"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "com.thoughtworks.xstream"
+  }
+]

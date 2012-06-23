@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JUnit"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "junit"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JUnit"
+      }
+    ],
+    "basename": "#^junit[.]jar$#"
+  }
+]

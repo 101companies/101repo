@@ -1,0 +1,310 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-debug[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-debug-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-excel[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-excel-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-ioc[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-ioc-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-jul[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-mail[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-mail-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-pdf[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-pdf-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-remoting[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-remoting-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-rss[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-rss-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-ui[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-ui-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-wicket-ant-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^jboss-seam-wicket-sources[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^meldware-mailapi[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^meldware-mailjmx[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^metawidget-backend[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^metawidget-frontend[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^metawidget[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^mvel14[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Seam"
+      }
+    ],
+    "basename": "#^thirdparty-all[.]jar$#"
+  }
+]

@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".erl",
+		"metadata" : [
+			{"geshi":"erlang"},
+			{"language":"Erlang"}
+		]
+	}
+]

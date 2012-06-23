@@ -1,0 +1,10 @@
+[
+	{
+		"suffix" : ".xml",
+		"metadata" : [
+			{"geshi":"xml"},
+			{"language":"XML"},
+			{"locator": "technology/XmlFragmentLocator/locator.py"}
+		]
+	}
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JDOM"
+      }
+    ],
+    "basename": "#^xom-(.*)[.]jar$#"
+  }
+]

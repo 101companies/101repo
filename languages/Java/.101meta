@@ -1,0 +1,10 @@
+[
+	{
+		"suffix" : ".java",
+		"metadata" : [
+			{"geshi":"java"},
+			{"language":"Java"},
+			{"locator": "technology/JFragmentLocator/locator.py"}
+		]
+	}
+]

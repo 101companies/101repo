@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JavaMail"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "javax.mail"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JavaMail"
+      }
+    ],
+    "basename": "#^mail[.]jar$#"
+  }
+]

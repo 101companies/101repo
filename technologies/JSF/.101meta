@@ -1,0 +1,35 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JSF"
+      }
+    ],
+    "basename": "#^jsf-api[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JSF"
+      }
+    ],
+    "basename": "#^jsf-facelets[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JSF"
+      }
+    ],
+    "basename": "#^jsf-impl[.]jar$#"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Swing"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "javax.swing"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Swing"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "com.sun.swing"
+  }
+]

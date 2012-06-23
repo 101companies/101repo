@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "HTML Parser"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.htmlparser"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "HTML Parser"
+      }
+    ],
+    "basename": "#^htmlparser[.]jar$#"
+  }
+]

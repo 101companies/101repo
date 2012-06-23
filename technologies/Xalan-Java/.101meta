@@ -1,0 +1,13 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Xalan-Java"
+      }
+    ],
+    "basename": "#^xalan[.]jar$#"
+  }
+]

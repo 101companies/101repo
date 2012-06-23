@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".xhtml",
+		"metadata" : [
+			{"geshi":"html"},
+			{"language":"XHTML"}
+		]
+	}
+]

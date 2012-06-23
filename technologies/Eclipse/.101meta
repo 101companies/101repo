@@ -1,0 +1,24 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "XML"
+      },
+      {
+        "technology": "Eclipse"
+      }
+    ],
+    "basename": "#^[.]project$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "XML"
+      },
+      {
+        "technology": "Eclipse"
+      }
+    ],
+    "basename": "#^[.]classpath$#"
+  }
+]

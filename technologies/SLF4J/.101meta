@@ -1,0 +1,36 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "SLF4J"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.slf4j"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "SLF4J"
+      }
+    ],
+    "basename": "#^slf4j-api[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "SLF4J"
+      }
+    ],
+    "basename": "#^slf4j-log4j(.*)[.]jar$#"
+  }
+]

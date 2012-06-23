@@ -1,0 +1,10 @@
+[
+	{
+		"suffix" : ".wsdl",
+		"metadata" : [
+			{"geshi":"xml"},
+			{"language":"WSDL"},
+			{"locator": "technology/XmlFragmentLocator/locator.py"}
+		]
+	}
+]

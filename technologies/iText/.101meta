@@ -1,0 +1,36 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "iText"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "com.lowagie.text"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "iText"
+      }
+    ],
+    "basename": "#^itext[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "iText"
+      }
+    ],
+    "basename": "#^itext-rtf[.]jar$#"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "Struts"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "org.apache.struts$"
+  }
+]

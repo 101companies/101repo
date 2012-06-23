@@ -1,0 +1,24 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JDBC"
+      }
+    ],
+    "basename": "#^google_sql[.]jar$#"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "JDBC"
+      }
+    ],
+    "basename": "#^mysql-connector-java-(.*)-bin[.]jar$#"
+  }
+]

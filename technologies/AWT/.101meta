@@ -1,0 +1,26 @@
+[
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "AWT"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "java.awt"
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "technology": "AWT"
+      }
+    ],
+    "predicate": "../Java_platform/javaImport.sh",
+    "args": "sun.awt"
+  }
+]
