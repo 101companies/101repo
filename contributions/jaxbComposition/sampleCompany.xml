@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <company 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://www.softlang.org/company.xsd" >
+	xmlns="http://www.softlang.org/model.xsd" >
 	<name>meganalysis</name>
 
 	<department>

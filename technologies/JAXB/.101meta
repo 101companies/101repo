@@ -1,5 +1,12 @@
 [
   {
+    "suffix" : ".java",
+    "predicate" : "output.sh",
+    "metadata" : {
+      "outputOf" : "JAXB"
+    }
+  },
+  {
     "metadata": [
       {
         "language": "Java"

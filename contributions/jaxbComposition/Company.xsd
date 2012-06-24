@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema xmlns="http://www.softlang.org/company.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.softlang.org/company.xsd">
+<xs:schema xmlns="http://www.softlang.org/model.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.softlang.org/model.xsd">
 
 	<xs:element name="company">
 		<xs:complexType>

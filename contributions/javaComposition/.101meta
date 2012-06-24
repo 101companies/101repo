@@ -1,20 +1,5 @@
 [
   {
-    "filename" : "Company.xsd",
-    "fragment" : "/xs:schema/xs:element[@name='company']",
-    "metadata" : { "term" : "Company" }
-  },
-  {
-    "filename" : "Company.xsd",
-    "fragment" : "/xs:schema/xs:element[@name='department']",
-    "metadata" : { "term" : "Department" }
-  },
-  { 
-    "filename" : "Company.xsd",
-    "fragment" : "/xs:schema/xs:element[@name='employee']",
-    "metadata" : { "term" : "Employee" }
-  },
-  {
     "filename" : "org/softlang/model/Company.java",
     "metadata" : { 
       "feature" : "Tree structure"
@@ -30,18 +15,6 @@
     "filename" : "org/softlang/model/Employee.java",
     "metadata" : { 
       "feature" : "Tree structure"
-    }
-  },
-  {
-    "filename" : "org/softlang/behavior/Total.java",
-    "metadata" : { 
-      "feature" : "Type-driven query"
-    }
-  },
-  {
-    "filename" : "org/softlang/behavior/Cut.java",
-    "metadata" : { 
-      "feature" : "Type-driven transformation"
     }
   },
   {
@@ -69,78 +42,60 @@
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
-    "metadata" : { 
-      "term" : "Total"
-    }
-  },
-  {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "org/softlang/model/Company.java",
     "fragment" : {
-      "class" : "Total",
-      "method" : "total",
-      "overloaded" : 0
+      "class" : "Company",
+      "method" : "total"
     },
     "metadata" : { 
       "phrase" : ["Total", "Company"]
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "org/softlang/model/Department.java",
     "fragment" : {
-      "class" : "Total",
-      "method" : "total",
-      "overloaded" : 1
+      "class" : "Department",
+      "method" : "total"
     },
     "metadata" : { 
       "phrase" : ["Total", "Department"]
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "org/softlang/model/Employee.java",
     "fragment" : { 
-      "class" : "Total",
-      "method" : "total",
-      "overloaded" : 2
+      "class" : "Employee",
+      "method" : "total"
     },
     "metadata" : { 
       "phrase" : ["Total", "Employee"]
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
-    "metadata" : { 
-      "term" : "Cut"
-    }
-  },
-  {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "org/softlang/model/Company.java",
     "fragment" : {
-      "class" : "Cut",
-      "method" : "cut",
-      "overloaded" : 0
+      "class" : "Company",
+      "method" : "cut"
     },
     "metadata" : { 
       "phrase" : ["Cut", "Company"]
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "org/softlang/model/Department.java",
     "fragment" : {
-      "class" : "Cut",
-      "method" : "cut",
-      "overloaded" : 1
+      "class" : "Department",
+      "method" : "cut"
     },
     "metadata" : { 
       "phrase" : ["Cut", "Department"]
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "org/softlang/model/Employee.java",
     "fragment" : { 
-      "class" : "Cut",
-      "method" : "cut",
-      "overloaded" : 2
+      "class" : "Employee",
+      "method" : "cut"
     },
     "metadata" : { 
       "phrase" : ["Cut", "Employee"]

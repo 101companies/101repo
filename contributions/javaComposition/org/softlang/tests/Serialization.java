@@ -1,8 +1,8 @@
 package org.softlang.tests;
 
-import org.softlang.structure.*;
+import org.softlang.model.*;
 
-import static org.softlang.quality.Serialization.*;
+import static org.softlang.qualities.Serialization.*;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -85,9 +85,9 @@ public class Serialization {
 	@Test
 	public void testLoadAndCreate() {
 		Company sampleCompany = createCompany(); 
-		writeCompany(sampleCompany, "sampleCompany.ser");
-		Company loadedCompany = readCompany("sampleCompany.ser");
-		assertTrue(org.softlang.quality.Serialization.structurallyEqual(sampleCompany, loadedCompany));
+		serializeCompany(sampleCompany, "sampleCompany.ser");
+		Company loadedCompany = deserializeCompany("sampleCompany.ser");
+		assertTrue(org.softlang.qualities.Serialization.structurallyEqual(sampleCompany, loadedCompany));
 	}
 	
 }

@@ -1,6 +1,6 @@
 package org.softlang.behavior;
 
-import org.softlang.structure.*;
+import org.softlang.model.*;
 
 public class Total {
 
