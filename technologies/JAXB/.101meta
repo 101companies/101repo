@@ -1,7 +1,7 @@
 [
   {
     "suffix" : ".java",
-    "predicate" : "output.sh",
+    "content" : "//.*generated.*JAXB",
     "metadata" : {
       "outputOf" : "JAXB"
     }
