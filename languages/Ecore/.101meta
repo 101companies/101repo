@@ -7,11 +7,3 @@
 		]
 	}
 ]
-
-{
-  "GeSHi.language": "xml",
-  "suffix": [
-    ".ecore"
-  ],
-  "locator": "technology/XmlFragmentLocator/locator.py"
-}
