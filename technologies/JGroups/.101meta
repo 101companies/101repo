@@ -8,8 +8,9 @@
         "technology": "JGroups"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.jgroups"
+    "args": ["org.jgroups"]
   },
   {
     "metadata": [

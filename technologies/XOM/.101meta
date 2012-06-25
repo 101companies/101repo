@@ -8,8 +8,9 @@
         "technology": "XOM"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.jdom"
+    "args": ["org.jdom"]
   },
   {
     "metadata": [

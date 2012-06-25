@@ -8,7 +8,8 @@
         "technology": "Jetty"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.mortbay.jetty"
+    "args": ["org.mortbay.jetty"]
   }
 ]

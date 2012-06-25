@@ -8,7 +8,8 @@
         "technology": "Jython"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.python"
+    "args": ["org.python"]
   }
 ]

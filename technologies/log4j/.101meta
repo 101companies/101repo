@@ -8,8 +8,9 @@
         "technology": "log4j"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.apache.log4j"
+    "args": ["org.apache.log4j"]
   },
   {
     "metadata": [

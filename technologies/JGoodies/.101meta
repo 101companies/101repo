@@ -8,7 +8,8 @@
         "technology": "JGoodies"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "com.jgoodies"
+    "args": ["com.jgoodies"]
   }
 ]

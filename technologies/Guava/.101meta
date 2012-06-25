@@ -8,7 +8,8 @@
         "technology": "Guava"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "com.google.common"
+    "args": ["com.google.common"]
   }
 ]

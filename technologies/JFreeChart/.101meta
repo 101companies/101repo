@@ -8,8 +8,9 @@
         "technology": "JFreeChart"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.jfree.chart"
+    "args": ["org.jfree.chart"]
   },
   {
     "metadata": [
@@ -20,8 +21,9 @@
         "technology": "JFreeChart"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.jfree.data"
+    "args": ["org.jfree.data"]
   },
   {
     "metadata": [

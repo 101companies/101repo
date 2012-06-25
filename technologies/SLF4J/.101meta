@@ -8,8 +8,9 @@
         "technology": "SLF4J"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.slf4j"
+    "args": ["org.slf4j"]
   },
   {
     "metadata": [

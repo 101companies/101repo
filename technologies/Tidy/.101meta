@@ -8,7 +8,8 @@
         "technology": "Tidy"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.w3c.tidy"
+    "args": ["org.w3c.tidy"]
   }
 ]

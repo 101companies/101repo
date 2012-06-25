@@ -8,7 +8,8 @@
         "technology": "CUP"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "java_cup.runtime"
+    "args": ["java_cup.runtime"]
   }
 ]

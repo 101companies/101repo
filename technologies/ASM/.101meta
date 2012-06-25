@@ -8,8 +8,9 @@
         "technology": "ASM"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.objectweb.asm"
+    "args": ["org.objectweb.asm"]
   },
   {
     "metadata": [

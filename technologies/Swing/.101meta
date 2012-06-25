@@ -8,8 +8,9 @@
         "technology": "Swing"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "javax.swing"
+    "args": ["javax.swing"]
   },
   {
     "metadata": [
@@ -20,7 +21,8 @@
         "technology": "Swing"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "com.sun.swing"
+    "args": ["com.sun.swing"]
   }
 ]

@@ -8,7 +8,8 @@
         "technology": "JAMA"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "Jama"
+    "args": ["Jama"]
   }
 ]

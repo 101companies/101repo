@@ -8,7 +8,8 @@
         "technology": "ECS"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.apache.ecs"
+    "args": ["org.apache.ecs"]
   }
 ]

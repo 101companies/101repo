@@ -8,7 +8,8 @@
         "technology": "XStream"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "com.thoughtworks.xstream"
+    "args": ["com.thoughtworks.xstream"]
   }
 ]

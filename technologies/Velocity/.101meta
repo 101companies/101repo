@@ -8,7 +8,8 @@
         "technology": "Velocity"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.apache.velocity"
+    "args": ["org.apache.velocity"]
   }
 ]

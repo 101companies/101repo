@@ -8,7 +8,8 @@
         "technology": "Bouncy Castle"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.bouncycastle"
+    "args": ["org.bouncycastle"]
   }
 ]

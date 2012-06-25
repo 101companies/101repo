@@ -8,8 +8,9 @@
         "technology": "JavaMail"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "javax.mail"
+    "args": ["javax.mail"]
   },
   {
     "metadata": [

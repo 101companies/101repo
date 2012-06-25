@@ -8,7 +8,8 @@
         "technology": "JMF"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "javax.media"
+    "args": ["javax.media"]
   }
 ]

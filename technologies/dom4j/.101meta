@@ -8,8 +8,9 @@
         "technology": "dom4j"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.dom4j"
+    "args": ["org.dom4j"]
   },
   {
     "metadata": [

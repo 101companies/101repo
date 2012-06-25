@@ -8,8 +8,9 @@
         "technology": "iText"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "com.lowagie.text"
+    "args": ["com.lowagie.text"]
   },
   {
     "metadata": [

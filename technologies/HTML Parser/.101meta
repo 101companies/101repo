@@ -8,8 +8,9 @@
         "technology": "HTML Parser"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.htmlparser"
+    "args": ["org.htmlparser"]
   },
   {
     "metadata": [

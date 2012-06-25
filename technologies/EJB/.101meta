@@ -8,8 +8,9 @@
         "technology": "EJB"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "javax.ejb"
+    "args": ["javax.ejb"]
   },
   {
     "metadata": [

@@ -8,7 +8,8 @@
         "technology": "JGraph"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.jgraph"
+    "args": ["org.jgraph"]
   }
 ]

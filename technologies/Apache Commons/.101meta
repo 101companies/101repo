@@ -8,8 +8,9 @@
         "technology": "Apache Commons"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.apache.commons"
+    "args": ["org.apache.commons"]
   },
   {
     "metadata": [

@@ -8,7 +8,8 @@
         "technology": "OSCache"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "com.opensymphony.oscache"
+    "args": ["com.opensymphony.oscache"]
   }
 ]

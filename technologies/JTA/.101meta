@@ -8,8 +8,9 @@
         "technology": "JTA"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "javax.transaction"
+    "args": ["javax.transaction"]
   },
   {
     "metadata": [

@@ -8,8 +8,9 @@
         "technology": "Spring"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.springframework"
+    "args": ["org.springframework"]
   },
   {
     "metadata": [

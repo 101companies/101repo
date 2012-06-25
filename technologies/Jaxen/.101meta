@@ -8,7 +8,8 @@
         "technology": "Jaxen"
       }
     ],
+	"suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": "org.jaxen"
+    "args": ["org.jaxen"]
   }
 ]
