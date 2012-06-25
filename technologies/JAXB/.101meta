@@ -13,7 +13,7 @@
     "args": [ "javax.xml.bind" ],
     "metadata": { 
       "dependsOn": "JAXB",
-      "API usage of JAXB" 
+      "comment" : "API usage of JAXB" 
     }
   },
   {
