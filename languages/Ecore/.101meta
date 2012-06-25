@@ -3,7 +3,8 @@
 		"suffix" : ".ecore",
 		"metadata" : [
 			{"geshi":"xml"},
-			{"language":"Ecore"}
+			{"language":"Ecore"},
+			{"locator": "technology/XmlFragmentLocator/locator.py"}
 		]
 	}
 ]
