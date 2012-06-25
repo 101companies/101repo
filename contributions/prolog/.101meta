@@ -3,7 +3,7 @@
   "tag" : "cut",
   "filename" : "Cut.pro",
   "fragment": {
-	"predicate" : "cut",
+	"predicate" : "cut"
   },
   "metadata": {
 	"phrase": ["Cut", "Company"]
