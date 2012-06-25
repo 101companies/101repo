@@ -8,7 +8,7 @@
         "technology": "CUP"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "java_cup.runtime"
   }
 ]

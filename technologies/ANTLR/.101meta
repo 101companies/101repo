@@ -15,7 +15,7 @@
   },
   { 
     "basename" : "#^.*Parser.java$#",
-    "predicate" : "grepAntlrOutput.sh",
+    "content" : "#// \$ANTLR.*\.g#",
     "metadata" : [
       {
         "outputOf" : "ANTLR",
@@ -26,7 +26,7 @@
   },
   { 
     "basename" : "#^.*Lexer.java$#",
-    "predicate" : "grepAntlrOutput.sh",
+    "content" : "#// \$ANTLR.*\.g#",
     "metadata" : [
       {
         "outputOf" : "ANTLR",
@@ -37,7 +37,7 @@
   },
   { 
   "suffix" : ".java",
-    "predicate" : "../Java_platform/javaImport.sh",
+    "predicate" : "technologies/Java_platform/javaImport.sh",
     "args" : ["org.antlr.runtime"],
     "metadata" : {
       "imports" : "ANTLR",

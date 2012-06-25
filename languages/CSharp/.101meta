@@ -3,7 +3,8 @@
 		"suffix" : ".cs",
 		"metadata" : [
 			{"geshi":"csharp"},
-			{"language":"CSharp"}
+			{"language":"CSharp"},
+			{"locator": "technologies/CSharpFragmentLocator/locator.py"}
 		]
 	}
 ]

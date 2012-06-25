@@ -2,16 +2,16 @@
   {
     "metadata": [
       {
-        "language": [
-          "CSharp",
-          "VB.NET"
-        ]
+        "language": "CSharp",
       },
+	  {
+	    "language": "VB.NET"
+	  },
       {
         "technology": ".NET"
       }
     ],
-    "predicate": "../.NET_platform/dotNETImport.sh",
+    "predicate": "technologies/.NET_platform/dotNETImport.sh",
     "args": "System.Xml"
   }
 ]

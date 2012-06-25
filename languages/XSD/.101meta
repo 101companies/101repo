@@ -4,7 +4,7 @@
 		"metadata" : [
 			{"geshi":"xml"},
 			{"language":"XSD"},
-			{"locator": "technology/XmlFragmentLocator/locator.py"}
+			{"locator": "technologies/XmlFragmentLocator/locator.py"}
 		]
 	}
 ]

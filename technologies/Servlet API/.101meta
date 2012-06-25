@@ -8,7 +8,7 @@
         "technology": "Servlet API"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "javax.servlet"
   },
   {
