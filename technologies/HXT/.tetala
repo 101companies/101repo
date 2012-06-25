@@ -1,6 +1,0 @@
-[
- { 
-  "language" : "Haskell",
-  "import" : "Text.XML.HXT"
- }
-]
