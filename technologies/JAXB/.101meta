@@ -18,9 +18,9 @@
   },
   {
     "basename": [ 
-      "#^jaxb-api\.jar$#", 
-      "#^jaxrs-api\.jar$#",
-      "#^jaxws-api[.]jar$#"
+      "#^jaxb-api\\.jar$#", 
+      "#^jaxrs-api\\.jar$#",
+      "#^jaxws-api\\.jar$#"
     ],
     "metadata": { 
       "partOf": "JAXB",
