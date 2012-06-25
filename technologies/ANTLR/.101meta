@@ -38,10 +38,10 @@
   { 
     "suffix" : ".java",
     "predicate" : "technologies/Java_platform/javaImport.sh",
-    "args" : ["org.antlr.runtime"],
+    "args" : [ "org.antlr.runtime" ],
     "metadata" : {
       "dependsOn" : "ANTLR",
       "comment" : "A source that imports ANTLR"
-    } 
+    }
   }
 ]
