@@ -1,0 +1,94 @@
+[
+ {
+  "filename" : "org/softlang/company/Company.java",
+  "metadata" : {
+	"feature" : "Tree structure"
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Department.java",
+  "metadata" : {
+	"feature" : "Tree structure"
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Employee.java",
+  "metadata" : {
+	"feature" : "Tree structure"
+  }
+ },
+ {
+  "filename" : "org/softlang/features/Serialization.java",
+  "metadata": {
+	"feature": "Serialization"
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Company.java",
+  "metadata" : {
+	"term" : "Company"
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Department.java",
+  "metadata" : {
+	"term" : "Department"
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Employee.java",
+  "metadata" : {
+	"term" : "Employee"
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Company.java",
+  "fragment" : {
+   "class" : "Company",
+   "method" : "cut"
+  },
+  "metadata" : {
+	"phrase": ["Cut", "Company"]
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Department.java",
+  "fragment" : {
+   "class" : "Department",
+   "method" : "cut"
+  },
+  "metadata" : {
+	"phrase": ["Cut", "Department"]	
+  }
+ },
+ {
+  "filename" : "org/softlang/company/Employee.java",
+  "fragment" : {
+   "class" : "Employee",
+   "method" : "cut"
+  },
+  "metadata" : {
+	"phrase": ["Cut", "Employee"]
+  }
+ },
+ {
+  "filename" : "org/softlang/features/Serialization.java",
+  "fragment" : {
+   "class" : "Serialization",
+   "method" : "readObject"
+  },
+  "metadata" : {
+	"phrase": ["Serialize", "Company"]
+  }
+ },
+ {
+  "filename" : "org/softlang/features/Serialization.java",
+  "fragment" : {
+   "class" : "Serialization",
+   "method" : "writeObject"
+  },
+  "metadata": {
+	"phrase": ["Deserialize", "Company"]
+  }
+ }
+]

@@ -1,0 +1,20 @@
+[
+	{
+		"filename" : "company/company.rb",
+		"fragment" : {
+			"geflo" : "def total ^[def]*"
+		},
+		"metadata": {
+			"phrase" : ["Total", "Company"]
+		}
+	},
+	{
+		"filename" : "company/company.rb",
+		"fragment" : {
+			"geflo" : "def cut .* > end$"
+		},
+		"metadata": {
+			"phrase" : ["Cut", "Company"]
+		}
+	}
+]

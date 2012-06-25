@@ -1,0 +1,20 @@
+[
+ {
+  "filename" : "Total.hs",
+  "fragment" : {
+   "function" : "total"
+  },
+  "metadata": {
+	"phrase": ["Total", "Company"]
+  }
+ },
+ {
+  "filename" : "Cut.hs",
+  "fragment" : {
+   "function" : "cut"
+  },
+  "metadata": {
+	"phrase": ["Cut", "Company"]
+  }
+ }
+]

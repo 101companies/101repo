@@ -1,0 +1,62 @@
+[
+ {
+  "filename" : "org/softlang/operations/Cut.java",
+  "fragment" : {
+   "class" : "Cut",
+   "method" : "cut"
+  },
+  "metadata" : {
+	"phrase": ["Cut", "Company"]
+  }
+ },
+ {
+  "filename" : "org/softlang/operations/Cut.java",
+  "fragment" : {
+   "class" : "Cut",
+   "method" : "cut"
+  },
+  "metadata" : {
+	"phrase": ["Cut", "Department"]
+  }
+ },
+ {
+  "filename" : "org/softlang/operations/Cut.java",
+  "fragment" : {
+   "class" : "Cut",
+   "method" : "cut"
+  },
+  "metadata" : {
+	"phrase": ["Cut", "Employee"]
+  }
+ },
+ {
+  "filename" : "org/softlang/operations/Total.java",
+  "fragment" : {
+   "class" : "Total",
+   "method" : "total"
+  },
+  "metadata" : {
+	"phrase": ["Total", "Company"]
+  }
+ },
+ {
+  "filename" : "org/softlang/operations/Total.java",
+  "fragment" : {
+   "class" : "Total",
+   "method" : "total"
+  },
+  "metadata" : {
+	"phrase": ["Total", "Department"]
+  }
+ },
+ {
+  "filename" : "org/softlang/operations/Total.java",
+  "fragment" : {
+   "class" : "Total",
+   "method" : "total"
+  },
+  "metadata" : {
+	"phrase": ["Total", "Employee"]
+  }
+ }
+]
