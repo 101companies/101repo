@@ -4,7 +4,7 @@
 		"metadata" : [
 			{"geshi":"java"},
 			{"language":"Java"},
-			{"locator": "technology/JFragmentLocator/locator.py"}
+			{"locator": "technologies/JFragmentLocator/locator.py"}
 		]
 	}
 ]

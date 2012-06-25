@@ -8,7 +8,7 @@
         "technology": "HXT"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "Text.XML.HXT"
   }
 ]

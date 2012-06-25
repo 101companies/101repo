@@ -8,7 +8,7 @@
         "technology": "JFreeChart"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "org.jfree.chart"
   },
   {
@@ -20,7 +20,7 @@
         "technology": "JFreeChart"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "org.jfree.data"
   },
   {

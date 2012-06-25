@@ -8,7 +8,7 @@
         "technology": "dom4j"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "org.dom4j"
   },
   {

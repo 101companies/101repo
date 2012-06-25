@@ -8,7 +8,7 @@
         "technology": "SLF4J"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "org.slf4j"
   },
   {

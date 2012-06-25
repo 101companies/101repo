@@ -8,7 +8,7 @@
         "technology": "AWT"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "java.awt"
   },
   {
@@ -20,7 +20,7 @@
         "technology": "AWT"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "sun.awt"
   }
 ]

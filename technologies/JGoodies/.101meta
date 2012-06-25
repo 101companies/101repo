@@ -8,7 +8,7 @@
         "technology": "JGoodies"
       }
     ],
-    "predicate": "../Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": "com.jgoodies"
   }
 ]
