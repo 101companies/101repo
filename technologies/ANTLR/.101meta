@@ -15,7 +15,7 @@
   },
   { 
     "basename" : "#^.*Parser.java$#",
-    "content" : "#// \$ANTLR.*\\.g#",
+    "content" : "#// \\$ANTLR.*\\.g#",
     "metadata" : [
       {
         "outputOf" : "ANTLR",
@@ -26,7 +26,7 @@
   },
   { 
     "basename" : "#^.*Lexer.java$#",
-    "content" : "#// \$ANTLR.*\\.g#",
+    "content" : "#// \\$ANTLR.*\\.g#",
     "metadata" : [
       {
         "outputOf" : "ANTLR",
