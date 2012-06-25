@@ -7,7 +7,7 @@ import SampleCompany
 
 main 
  = do
-      -- Test that show followed by read returns the same company.
+      -- Test that show followed by read returns the same company
       print $ company == read (show company)
 
       -- Total all salaries
