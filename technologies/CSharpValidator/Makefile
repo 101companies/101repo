@@ -7,7 +7,7 @@ run:
 
 test:
 	make build
-	cd bin/Debug; mono CSharpValidator.exe ../example/Program.cs
+	cd bin/Debug; mono CSharpValidator.exe ../../example/Program.cs
 
 clean:
 	@no-op	
