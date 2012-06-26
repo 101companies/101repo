@@ -2,9 +2,24 @@
   {
     "metadata": [
       {
+        "language": "Java"
+      },
+      {
         "dependsOn": "JDOM"
       }
     ],
-    "basename": "#^xom-(.*)[.]jar$#"
+    "suffix": ".java",
+    "predicate": "technologies/Java_platform/javaImport.sh",
+    "args": [
+      "org.jdom"
+    ]
+  },
+  {
+    "metadata": [
+      {
+        "dependsOn": "JDOM"
+      }
+    ],
+    "basename": "#^jdom-(.*)[.]jar$#"
   }
 ]
