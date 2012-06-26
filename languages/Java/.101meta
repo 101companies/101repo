@@ -4,8 +4,8 @@
 		"metadata" : [
 			{"geshi":"java"},
 			{"language":"Java"},
-			{"validator": "technologies/JValidator/locator.py"},
-			{"extractor": "technologies/JFactExtractor/locator.py"},
+			{"validator": "technologies/JValidator/validator.py"},
+			{"extractor": "technologies/JFactExtractor/extractor.py"},
 			{"locator": "technologies/JFragmentLocator/locator.py"}
 		]
 	}
