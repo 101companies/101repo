@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "EJB"
+        "dependsOn": "EJB"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["javax.ejb"]
+    "args": [
+      "javax.ejb"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "EJB"
+        "dependsOn": "EJB"
       }
     ],
     "basename": "#^ejb-api[.]jar$#"

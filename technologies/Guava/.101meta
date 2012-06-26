@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "Guava"
+        "dependsOn": "Guava"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["com.google.common"]
+    "args": [
+      "com.google.common"
+    ]
   }
 ]

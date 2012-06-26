@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "Java Print"
+        "dependsOn": "Java Print"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["javax.print"]
+    "args": [
+      "javax.print"
+    ]
   }
 ]

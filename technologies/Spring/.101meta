@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "Spring"
+        "dependsOn": "Spring"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.springframework"]
+    "args": [
+      "org.springframework"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Spring"
+        "dependsOn": "Spring"
       }
     ],
     "basename": "#^spring[.]jar$#"

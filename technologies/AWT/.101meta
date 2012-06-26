@@ -5,12 +5,14 @@
         "language": "Java"
       },
       {
-        "technology": "AWT"
+        "dependsOn": "AWT"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["java.awt"]
+    "args": [
+      "java.awt"
+    ]
   },
   {
     "metadata": [
@@ -18,11 +20,13 @@
         "language": "Java"
       },
       {
-        "technology": "AWT"
+        "dependsOn": "AWT"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["sun.awt"]
+    "args": [
+      "sun.awt"
+    ]
   }
 ]

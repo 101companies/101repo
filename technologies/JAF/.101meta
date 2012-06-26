@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "JAF"
+        "dependsOn": "JAF"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["javax.activation"]
+    "args": [
+      "javax.activation"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JAF"
+        "dependsOn": "JAF"
       }
     ],
     "basename": "#^activation[.]jar$#"

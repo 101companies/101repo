@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "Struts"
+        "dependsOn": "Struts"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.apache.struts"]
+    "args": [
+      "org.apache.struts"
+    ]
   }
 ]

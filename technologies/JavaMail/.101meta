@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "JavaMail"
+        "dependsOn": "JavaMail"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["javax.mail"]
+    "args": [
+      "javax.mail"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JavaMail"
+        "dependsOn": "JavaMail"
       }
     ],
     "basename": "#^mail[.]jar$#"

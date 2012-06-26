@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "Avalon"
+        "dependsOn": "Avalon"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.apache.avalon"]
+    "args": [
+      "org.apache.avalon"
+    ]
   }
 ]

@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "ASM"
+        "dependsOn": "ASM"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.objectweb.asm"]
+    "args": [
+      "org.objectweb.asm"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "ASM"
+        "dependsOn": "ASM"
       }
     ],
     "basename": "#^asm[.]jar$#"
@@ -26,10 +25,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "ASM"
+        "dependsOn": "ASM"
       }
     ],
     "basename": "#^asm-attrs[.]jar$#"

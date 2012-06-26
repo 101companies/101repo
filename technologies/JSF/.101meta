@@ -2,10 +2,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JSF"
+        "dependsOn": "JSF"
       }
     ],
     "basename": "#^jsf-api[.]jar$#"
@@ -13,10 +10,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JSF"
+        "dependsOn": "JSF"
       }
     ],
     "basename": "#^jsf-facelets[.]jar$#"
@@ -24,10 +18,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JSF"
+        "dependsOn": "JSF"
       }
     ],
     "basename": "#^jsf-impl[.]jar$#"

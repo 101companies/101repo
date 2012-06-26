@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "Lucene"
+        "dependsOn": "Lucene"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.apache.lucene"]
+    "args": [
+      "org.apache.lucene"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Lucene"
+        "dependsOn": "Lucene"
       }
     ],
     "basename": "#^lucene-core[.]jar$#"

@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "CUP"
+        "dependsOn": "CUP"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["java_cup.runtime"]
+    "args": [
+      "java_cup.runtime"
+    ]
   }
 ]

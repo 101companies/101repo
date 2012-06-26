@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "Smack"
+        "dependsOn": "Smack"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.jivesoftware.smack"]
+    "args": [
+      "org.jivesoftware.smack"
+    ]
   }
 ]

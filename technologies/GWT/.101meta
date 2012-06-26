@@ -2,10 +2,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "GWT"
+        "dependsOn": "GWT"
       }
     ],
     "basename": "#^gwt-servlet[.]jar$#"

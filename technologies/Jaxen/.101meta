@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "Jaxen"
+        "dependsOn": "Jaxen"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.jaxen"]
+    "args": [
+      "org.jaxen"
+    ]
   }
 ]

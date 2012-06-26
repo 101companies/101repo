@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "JGraph"
+        "dependsOn": "JGraph"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.jgraph"]
+    "args": [
+      "org.jgraph"
+    ]
   }
 ]

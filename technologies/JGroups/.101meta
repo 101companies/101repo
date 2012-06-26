@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "JGroups"
+        "dependsOn": "JGroups"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.jgroups"]
+    "args": [
+      "org.jgroups"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JGroups"
+        "dependsOn": "JGroups"
       }
     ],
     "basename": "#^jgroups[.]jar$#"

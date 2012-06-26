@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "dom4j"
+        "dependsOn": "dom4j"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.dom4j"]
+    "args": [
+      "org.dom4j"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "dom4j"
+        "dependsOn": "dom4j"
       }
     ],
     "basename": "#^xalan[.]jar$#"

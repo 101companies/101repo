@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "XStream"
+        "dependsOn": "XStream"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["com.thoughtworks.xstream"]
+    "args": [
+      "com.thoughtworks.xstream"
+    ]
   }
 ]

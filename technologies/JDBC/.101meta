@@ -2,10 +2,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JDBC"
+        "dependsOn": "JDBC"
       }
     ],
     "basename": "#^google_sql[.]jar$#"
@@ -13,10 +10,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JDBC"
+        "dependsOn": "JDBC"
       }
     ],
     "basename": "#^mysql-connector-java-(.*)-bin[.]jar$#"

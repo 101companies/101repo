@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "SAX"
+        "dependsOn": "SAX"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.xml.sax"]
+    "args": [
+      "org.xml.sax"
+    ]
   }
 ]

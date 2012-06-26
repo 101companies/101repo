@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "HTML Parser"
+        "dependsOn": "HTML Parser"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.htmlparser"]
+    "args": [
+      "org.htmlparser"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "HTML Parser"
+        "dependsOn": "HTML Parser"
       }
     ],
     "basename": "#^htmlparser[.]jar$#"

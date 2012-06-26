@@ -4,11 +4,11 @@
       {
         "language": "CSharp"
       },
-	  {
-	    "language": "VB.NET"
-	  },
       {
-        "technology": ".NET"
+        "language": "VB.NET"
+      },
+      {
+        "dependsOn": ".NET"
       }
     ],
     "predicate": "technologies/.NET_platform/dotNETImport.sh",

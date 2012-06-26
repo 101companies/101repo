@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "JTA"
+        "dependsOn": "JTA"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["javax.transaction"]
+    "args": [
+      "javax.transaction"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JTA"
+        "dependsOn": "JTA"
       }
     ],
     "basename": "#^jta[.]jar$#"

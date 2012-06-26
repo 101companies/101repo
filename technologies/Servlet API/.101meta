@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "Servlet API"
+        "dependsOn": "Servlet API"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["javax.servlet"]
+    "args": [
+      "javax.servlet"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Servlet API"
+        "dependsOn": "Servlet API"
       }
     ],
     "basename": "#^servlet-api[.]jar$#"

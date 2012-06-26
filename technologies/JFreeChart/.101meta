@@ -5,12 +5,14 @@
         "language": "Java"
       },
       {
-        "technology": "JFreeChart"
+        "dependsOn": "JFreeChart"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.jfree.chart"]
+    "args": [
+      "org.jfree.chart"
+    ]
   },
   {
     "metadata": [
@@ -18,20 +20,19 @@
         "language": "Java"
       },
       {
-        "technology": "JFreeChart"
+        "dependsOn": "JFreeChart"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.jfree.data"]
+    "args": [
+      "org.jfree.data"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JFreeChart"
+        "dependsOn": "JFreeChart"
       }
     ],
     "basename": "#^jfreechart[.]jar$#"

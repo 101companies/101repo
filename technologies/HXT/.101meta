@@ -5,11 +5,13 @@
         "language": "Haskell"
       },
       {
-        "technology": "HXT"
+        "dependsOn": "HXT"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["Text.XML.HXT"]
+    "args": [
+      "Text.XML.HXT"
+    ]
   }
 ]

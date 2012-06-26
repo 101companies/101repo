@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.apache.commons"]
+    "args": [
+      "org.apache.commons"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-beanutils[.]jar$#"
@@ -26,10 +25,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-cli-(.*)[.]jar$#"
@@ -37,10 +33,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-codec(-.*)[.]jar$#"
@@ -48,10 +41,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-collections(-.*)[.]jar$#"
@@ -59,10 +49,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-digester[.]jar$#"
@@ -70,10 +57,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-el-(.*)[.]jar$#"
@@ -81,10 +65,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-httpclient(-.*)[.]jar$#"
@@ -92,10 +73,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-io[.]jar$#"
@@ -103,10 +81,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-lang(-.*)[.]jar$#"
@@ -114,10 +89,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-logging(-.*)[.]jar$#"
@@ -125,10 +97,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-logging-api-(.*)[.]jar$#"
@@ -136,10 +105,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Apache Commons"
+        "dependsOn": "Apache Commons"
       }
     ],
     "basename": "#^commons-net-(.*)[.]jar$#"

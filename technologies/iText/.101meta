@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "iText"
+        "dependsOn": "iText"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["com.lowagie.text"]
+    "args": [
+      "com.lowagie.text"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "iText"
+        "dependsOn": "iText"
       }
     ],
     "basename": "#^itext[.]jar$#"
@@ -26,10 +25,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "iText"
+        "dependsOn": "iText"
       }
     ],
     "basename": "#^itext-rtf[.]jar$#"

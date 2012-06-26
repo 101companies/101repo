@@ -2,10 +2,7 @@
   {
     "metadata": [
       {
-        "language": "XML"
-      },
-      {
-        "technology": "Eclipse"
+        "dependsOn": "Eclipse"
       }
     ],
     "basename": "#^[.]project$#"
@@ -13,10 +10,7 @@
   {
     "metadata": [
       {
-        "language": "XML"
-      },
-      {
-        "technology": "Eclipse"
+        "dependsOn": "Eclipse"
       }
     ],
     "basename": "#^[.]classpath$#"

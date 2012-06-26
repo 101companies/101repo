@@ -5,11 +5,13 @@
         "language": "Java"
       },
       {
-        "technology": "Javassist"
+        "dependsOn": "Javassist"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["javassist"]
+    "args": [
+      "javassist"
+    ]
   }
 ]

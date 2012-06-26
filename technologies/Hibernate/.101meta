@@ -5,20 +5,19 @@
         "language": "Java"
       },
       {
-        "technology": "Hibernate"
+        "dependsOn": "Hibernate"
       }
     ],
-	"suffix": ".java",
+    "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": ["org.hibernate"]
+    "args": [
+      "org.hibernate"
+    ]
   },
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "Hibernate"
+        "dependsOn": "Hibernate"
       }
     ],
     "basename": "#^hibernate(.*)[.]jar$#"

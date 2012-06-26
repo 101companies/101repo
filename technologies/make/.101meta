@@ -2,10 +2,7 @@
   {
     "metadata": [
       {
-        "language": "text"
-      },
-      {
-        "technology": "make"
+        "dependsOn": "make"
       }
     ],
     "basename": "#^Makefile$#"

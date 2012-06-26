@@ -2,10 +2,7 @@
   {
     "metadata": [
       {
-        "language": "XML"
-      },
-      {
-        "technology": "Ant"
+        "dependsOn": "Ant"
       }
     ],
     "basename": "#^build[.]xml$#"

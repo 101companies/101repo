@@ -2,10 +2,7 @@
   {
     "metadata": [
       {
-        "language": "Java"
-      },
-      {
-        "technology": "JDOM"
+        "dependsOn": "JDOM"
       }
     ],
     "basename": "#^xom-(.*)[.]jar$#"
