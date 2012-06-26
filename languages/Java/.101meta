@@ -5,6 +5,7 @@
 			{"geshi":"java"},
 			{"language":"Java"},
 			{"validator": "technologies/JValidator/locator.py"},
+			{"extractor": "technologies/JFactExtractor/locator.py"},
 			{"locator": "technologies/JFragmentLocator/locator.py"}
 		]
 	}
