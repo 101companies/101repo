@@ -3,11 +3,11 @@ build:
 
 run:
 	make build
-	cd bin; mono CSharpValidator.exe $1	
+	cd bin/Debug; mono CSharpValidator.exe $1	
 
 test:
 	make build
-	cd bin; mono CSharpValidator.exe ../example/Program.cs
+	cd bin/Debug; mono CSharpValidator.exe ../example/Program.cs
 
 clean:
 	@no-op	

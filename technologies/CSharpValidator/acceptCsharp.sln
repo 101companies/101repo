@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acceptCsharp", "acceptCsharp.csproj", "{8DF5BE2C-0316-4FCC-984E-5E98D265AB84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpValidator", "CSharpValidator.csproj", "{8DF5BE2C-0316-4FCC-984E-5E98D265AB84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,6 @@ Global
 		{8DF5BE2C-0316-4FCC-984E-5E98D265AB84}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = acceptCsharp.csproj
+		StartupItem = CSharpValidator.csproj
 	EndGlobalSection
 EndGlobal

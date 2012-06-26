@@ -8,10 +8,10 @@ namespace acceptCsharp
 	{
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("(C) 2011 acceptCsharp @ softlang in Koblenz");
+			Console.WriteLine("(C) 2011-2012 CSharpValidator @ softlang in Koblenz");
 			if(args.Length < 1)
 			{
-				Console.WriteLine("Usage: acceptCsharp file.cs");
+				Console.WriteLine("Usage: CSharpValidator file.cs");
 				Environment.Exit(-1);
 			}
 			var parser = new CSharpParser();
