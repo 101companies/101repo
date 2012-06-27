@@ -4,6 +4,7 @@
 		"metadata" : [
 			{"geshi":"csharp"},
 			{"language":"CSharp"},
+			{"validator": "technologies/CSharpValidator/validator.py"},            
 			{"locator": "technologies/CSharpFragmentLocator/locator.py"}
 		]
 	}
