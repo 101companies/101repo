@@ -13,4 +13,4 @@ test:
 	cd bin/Debug; mono XSDValidator.exe ../../example/Company.xsd
 
 clean:
-	cd build; rm -r *.*	
+	cd bin; rm -r *.*	

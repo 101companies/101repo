@@ -13,4 +13,4 @@ test:
 	cd bin; mono CSharpValidator.exe ../example/Program.cs
 
 clean:
-	cd build; rm -r *.*	
+	cd bin; rm -r *.*	
