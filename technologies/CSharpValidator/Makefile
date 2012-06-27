@@ -1,3 +1,6 @@
+all:
+	make build
+
 build:
 	xbuild CSharpValidator.csproj
 
