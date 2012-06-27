@@ -3,7 +3,7 @@ build:
 
 run:
 	make build
-	cd bin; mono CSharpValidator.exe $1	
+	cd bin; mono CSharpValidator.exe $(file)
 
 test:
 	make build
