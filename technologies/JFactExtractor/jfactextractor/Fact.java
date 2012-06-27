@@ -7,6 +7,7 @@ import japa.parser.ast.body.BodyDeclaration;
 import japa.parser.ast.body.ClassOrInterfaceDeclaration;
 import japa.parser.ast.body.MethodDeclaration;
 import japa.parser.ast.body.TypeDeclaration;
+import japa.parser.ast.expr.AnnotationExpr;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -20,15 +21,32 @@ public class Fact {
         @SerializedName("class")
         public String className;
         public List<String> methods;
+        private Set<String> attributes;
         
         public Declaration() { }
         
         public Declaration(TypeDeclaration decl) {
             className = decl.getName();
             methods = new ArrayList<String>();
-            for (BodyDeclaration method : decl.getMembers())
+            attributes = new HashSet<String>();
+            processAnnotations(decl);
+            for (BodyDeclaration method : decl.getMembers()) {
+                processAnnotations(method);
                 if (method instanceof MethodDeclaration)
                     methods.add(((MethodDeclaration)method).getName());
+            }
+        }
+ 
+         private void processAnnotations(BodyDeclaration decl) {
+            if (decl.getAnnotations() != null)
+                for (AnnotationExpr expr : decl.getAnnotations())
+                    attributes.add(expr.getName().toString());
+        }
+        
+        private void processAnnotations(TypeDeclaration decl) {
+            if (decl.getAnnotations() != null)
+                for (AnnotationExpr expr : decl.getAnnotations())
+                    attributes.add(expr.getName().toString());
         }
     }
     
