@@ -4,6 +4,7 @@
 		"metadata" : [
 			{"geshi":"xml"},
 			{"language":"XML"},
+			{"validator": "technologies/XMLValidator/validator.py"},
 			{"locator": "technologies/XmlFragmentLocator/locator.py"}
 		]
 	}
