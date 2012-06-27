@@ -10,7 +10,7 @@ run:
 
 test:
 	make build
-	cd bin/Debug; mono XSDValidator.exe ../../example/test.xsd
+	cd bin/Debug; mono XSDValidator.exe ../../example/Company.xsd
 
 clean:
 	cd build; rm -r *.*	
