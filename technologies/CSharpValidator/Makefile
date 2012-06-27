@@ -6,11 +6,10 @@ build:
 
 run:
 	make build
-	cd bin; mono CSharpValidator.exe $(file)
+	./validator.py $(file)
 
 test:
-	make build
-	cd bin; mono CSharpValidator.exe ../example/Program.cs
+	./validator.py example/Program.cs
 
 clean:
 	cd bin; rm -r *.*	

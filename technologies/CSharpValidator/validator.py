@@ -6,9 +6,14 @@ import sys
 
 if len(sys.argv) != 2:
     sys.exit("Usage: validator.py inputFile")
-command = "make run file=" + sys.argv[1]
+locatorPy = sys.argv[0]
+x = os.path.dirname(locatorPy)
+command = "cd " + x + "; make"
+status, output = commands.getstatusoutput(command)
+if (status):
+    print output
+    sys.exit(status)
+command = "mono bin/CSharpValidator.exe " + sys.argv[1]
 status, output = commands.getstatusoutput(command)
 print output
-print status
 sys.exit(status)
-   
