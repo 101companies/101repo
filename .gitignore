@@ -1,2 +1,16 @@
 /do-not-commit/
 technologies/CSharpFragmentLocator/locator/bin
+technologies/CSharpValidator/obj
+technologies/CSharpValidator/bin/CSharpValidator.exe
+technologies/CSharpValidator/bin/CSharpValidator.exe.mdb
+technologies/CSharpValidator/bin/ICSharpCode.NRefactory.CSharp.dll
+technologies/CSharpValidator/bin/ICSharpCode.NRefactory.dll
+technologies/CSharpValidator/bin/Mono.Cecil.dll
+acceptCsharp.userprefs
+technologies/XSDValidator/bin/Debug/XSDValidator.exe
+technologies/XSDValidator/bin/Debug/XSDValidator.exe.mdb
+technologies/XSDValidator/obj/x86/Debug/XSDValidator.csproj.FilesWrittenAbsolute.txt
+technologies/XSDValidator/obj/x86/Debug/XSDValidator.exe
+technologies/XSDValidator/obj/x86/Debug/XSDValidator.exe.mdb
+technologies/XSDValidator/XSDValidator.sln
+technologies/XSDValidator/XSDValidator.userprefs
