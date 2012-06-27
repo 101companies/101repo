@@ -1,20 +1,19 @@
 package jfactextractor;
 
 import com.google.gson.annotations.SerializedName;
-import japa.parser.ast.Comment;
 import japa.parser.ast.CompilationUnit;
 import japa.parser.ast.ImportDeclaration;
 import japa.parser.ast.body.BodyDeclaration;
+import japa.parser.ast.body.ClassOrInterfaceDeclaration;
 import japa.parser.ast.body.MethodDeclaration;
 import japa.parser.ast.body.TypeDeclaration;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 /**
  *
- * @author Martin
+ * @author Martin Leinberger
  */
 public class Fact {
     private class Declaration {
@@ -35,31 +34,55 @@ public class Fact {
     
     private String comment = "";
     @SerializedName("package")
-    private String packageName;
+    private String packageName = "";
     @SerializedName("imports")
     private Set<String> imports;
     private List<Declaration> declarations;
     
     public Fact() { }
     
-    public Fact(CompilationUnit compilationUnit) {
-        for (Comment c : compilationUnit.getComments())
-            if (c.getBeginLine() < compilationUnit.getPackage().getBeginLine())
-                comment += c.getContent();
+    public Fact(File file, CompilationUnit compilationUnit) throws FileNotFoundException {
+        if (compilationUnit.getPackage() != null)
+            packageName = compilationUnit.getPackage().getName().toString().replace("package", "");
         
-        packageName = compilationUnit.getPackage().getName().toString().replace("package", "");
-        
+        comment = extractTopComment(file);
+
         imports = new HashSet<String>();
-        for (ImportDeclaration imp : compilationUnit.getImports()) {
-            String str = imp.getName().toString();
-            if (!imp.isAsterisk())
-                str = str.substring(0, str.lastIndexOf("."));
-            imports.add(str);
-        }
+        if (compilationUnit.getImports() != null)
+            for (ImportDeclaration imp : compilationUnit.getImports()) {
+                String str = imp.getName().toString();
+                if (!imp.isAsterisk())
+                    str = str.substring(0, str.lastIndexOf("."));
+                imports.add(str);
+            }
             
         declarations = new ArrayList<Declaration>();
-        for (TypeDeclaration decl : compilationUnit.getTypes()) {
-            declarations.add(new Declaration(decl));
-        }
+        if (compilationUnit.getTypes() != null)
+            for (TypeDeclaration decl : compilationUnit.getTypes()) {
+                if (decl instanceof ClassOrInterfaceDeclaration)
+                    declarations.add(new Declaration(decl));
+            }
+    }
+    
+    private String extractTopComment(File file) throws FileNotFoundException {
+        StringBuffer buffer = new StringBuffer("");
+        Scanner scanner = new Scanner(file);
+        boolean blockComment = false;
+        
+        String str;
+        do {
+            str = scanner.nextLine();
+            if (str.contains("/*"))
+                blockComment = true;
+            
+            if (blockComment || str.startsWith("//"))
+                buffer.append(str).append("\n");
+            
+            if (str.contains("*/"))
+                blockComment = false;
+            
+            if (!blockComment && (str.matches("package .*;") || str.matches("(private|protected|public) class .* \\{")))
+                return buffer.toString().trim();
+        } while (true);
     }
 }
