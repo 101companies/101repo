@@ -6,11 +6,10 @@ build:
 
 run:
 	make build
-	cd bin; mono XSDValidator.exe $(file)
+	./validator.py $(file)
 
 test:
-	make build
-	cd bin/Debug; mono XSDValidator.exe ../../example/Company.xsd
+	./validator.py example/Company.xsd
 
 clean:
 	cd bin; rm -r *.*	
