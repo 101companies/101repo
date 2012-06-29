@@ -13,7 +13,7 @@ status, output = commands.getstatusoutput(command)
 if (status):
     print output
     sys.exit(status)
-command = "mono bin/Debug/XSDValidator.exe " + sys.argv[1]
+command = "mono " + x + "/bin/Debug/XSDValidator.exe " + sys.argv[1]
 status, output = commands.getstatusoutput(command)
 print output
 sys.exit(status)
