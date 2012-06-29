@@ -1,81 +1,81 @@
 [
   {
-    "filename" : "Company.xsd",
+    "filename" : "contributions/jaxbComposition/Company.xsd",
     "fragment" : "/xs:schema/xs:element[@name='company']",
     "metadata" : { "term" : "Company" }
   },
   {
-    "filename" : "Company.xsd",
+    "filename" : "contributions/jaxbComposition/Company.xsd",
     "fragment" : "/xs:schema/xs:element[@name='department']",
     "metadata" : { "term" : "Department" }
   },
   { 
-    "filename" : "Company.xsd",
+    "filename" : "contributions/jaxbComposition/Company.xsd",
     "fragment" : "/xs:schema/xs:element[@name='employee']",
     "metadata" : { "term" : "Employee" }
   },
   {
-    "filename" : "org/softlang/model/Company.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/model/Company.java",
     "metadata" : { 
       "feature" : "Tree structure"
     }
   },
   {
-    "filename" : "org/softlang/model/Department.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/model/Department.java",
     "metadata" : { 
       "feature" : "Tree structure"
     }
   },
   {
-    "filename" : "org/softlang/model/Employee.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/model/Employee.java",
     "metadata" : { 
       "feature" : "Tree structure"
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Total.java",
     "metadata" : { 
       "feature" : "Type-driven query"
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Cut.java",
     "metadata" : { 
       "feature" : "Type-driven transformation"
     }
   },
   {
-    "filename" : "org/softlang/qualities/Serialization.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/qualities/Serialization.java",
     "metadata" : { 
       "feature" : "Serialization"
     }
   },
   {
-    "filename" : "org/softlang/model/Company.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/model/Company.java",
     "metadata" : { 
       "term" : "Company"
     }
   },
   {
-    "filename" : "org/softlang/model/Department.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/model/Department.java",
     "metadata" : { 
       "term" : "Department"
     }
   },
   {
-    "filename" : "org/softlang/model/Employee.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/model/Employee.java",
     "metadata" : { 
       "term" : "Employee"
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Total.java",
     "metadata" : { 
       "term" : "Total"
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Total.java",
     "fragment" : {
       "class" : "Total",
       "method" : "total",
@@ -86,7 +86,7 @@
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Total.java",
     "fragment" : {
       "class" : "Total",
       "method" : "total",
@@ -97,7 +97,7 @@
     }
   },
   {
-    "filename" : "org/softlang/behavior/Total.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Total.java",
     "fragment" : { 
       "class" : "Total",
       "method" : "total",
@@ -108,13 +108,13 @@
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Cut.java",
     "metadata" : { 
       "term" : "Cut"
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Cut.java",
     "fragment" : {
       "class" : "Cut",
       "method" : "cut",
@@ -125,7 +125,7 @@
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Cut.java",
     "fragment" : {
       "class" : "Cut",
       "method" : "cut",
@@ -136,7 +136,7 @@
     }
   },
   {
-    "filename" : "org/softlang/behavior/Cut.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/behavior/Cut.java",
     "fragment" : { 
       "class" : "Cut",
       "method" : "cut",
@@ -147,7 +147,7 @@
     }
   },
   {
-    "filename" : "org/softlang/qualities/Serialization.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/qualities/Serialization.java",
     "fragment" : {
       "class" : "Serialization",
       "method" : "serializeCompany"
@@ -157,7 +157,7 @@
     }
   },
   {
-    "filename" : "org/softlang/qualities/Serialization.java",
+    "filename" : "contributions/jaxbComposition/org/softlang/qualities/Serialization.java",
     "fragment" : {
       "class" : "Serialization",
       "method" : "deserializeCompany"

@@ -1,48 +1,48 @@
 [
   {
-    "filename" : "org/softlang/model/Company.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Company.java",
     "metadata" : { 
       "feature" : "Tree structure"
     }
   },
   {
-    "filename" : "org/softlang/model/Department.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Department.java",
     "metadata" : { 
       "feature" : "Tree structure"
     }
   },
   {
-    "filename" : "org/softlang/model/Employee.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Employee.java",
     "metadata" : { 
       "feature" : "Tree structure"
     }
   },
   {
-    "filename" : "org/softlang/qualities/Serialization.java",
+    "filename" : "contributions/javaComposition/org/softlang/qualities/Serialization.java",
     "metadata" : { 
       "feature" : "Serialization"
     }
   },
   {
-    "filename" : "org/softlang/model/Company.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Company.java",
     "metadata" : { 
       "term" : "Company"
     }
   },
   {
-    "filename" : "org/softlang/model/Department.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Department.java",
     "metadata" : { 
       "term" : "Department"
     }
   },
   {
-    "filename" : "org/softlang/model/Employee.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Employee.java",
     "metadata" : { 
       "term" : "Employee"
     }
   },
   {
-    "filename" : "org/softlang/model/Company.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Company.java",
     "fragment" : {
       "class" : "Company",
       "method" : "total"
@@ -52,7 +52,7 @@
     }
   },
   {
-    "filename" : "org/softlang/model/Department.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Department.java",
     "fragment" : {
       "class" : "Department",
       "method" : "total"
@@ -62,7 +62,7 @@
     }
   },
   {
-    "filename" : "org/softlang/model/Employee.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Employee.java",
     "fragment" : { 
       "class" : "Employee",
       "method" : "total"
@@ -72,7 +72,7 @@
     }
   },
   {
-    "filename" : "org/softlang/model/Company.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Company.java",
     "fragment" : {
       "class" : "Company",
       "method" : "cut"
@@ -82,7 +82,7 @@
     }
   },
   {
-    "filename" : "org/softlang/model/Department.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Department.java",
     "fragment" : {
       "class" : "Department",
       "method" : "cut"
@@ -92,7 +92,7 @@
     }
   },
   {
-    "filename" : "org/softlang/model/Employee.java",
+    "filename" : "contributions/javaComposition/org/softlang/model/Employee.java",
     "fragment" : { 
       "class" : "Employee",
       "method" : "cut"
@@ -102,7 +102,7 @@
     }
   },
   {
-    "filename" : "org/softlang/qualities/Serialization.java",
+    "filename" : "contributions/javaComposition/org/softlang/qualities/Serialization.java",
     "fragment" : {
       "class" : "Serialization",
       "method" : "serializeCompany"
@@ -112,7 +112,7 @@
     }
   },
   {
-    "filename" : "org/softlang/qualities/Serialization.java",
+    "filename" : "contributions/javaComposition/org/softlang/qualities/Serialization.java",
     "fragment" : {
       "class" : "Serialization",
       "method" : "deserializeCompany"
