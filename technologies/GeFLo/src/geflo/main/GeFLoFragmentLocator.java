@@ -152,7 +152,7 @@ public class GeFLoFragmentLocator {
 			
 			// Save the specified output file
 			if (DEBUG) {
-				System.out.println("Saving to the result to the file ".outputFile) ;
+				System.out.println("Saving to the result to the file "+outputFile) ;
 			}
 			final Writer out = new OutputStreamWriter(new FileOutputStream(outputFile), ENCODING);
 			try {
