@@ -71,6 +71,12 @@ public class GeFLoFragmentLocator {
 				pattern	= args[1];
 			}
 			
+			if (DEBUG) {
+				System.out.println("Source file is       '"+inputFile+"'") ;
+				System.out.println("Pattern to search is '"+pattern+"'") ;
+				System.out.println("Output file is       '"+outputFile+"'") ;
+			}
+			
 			/* Use an external process TOKENIZER to parse
 			 * the script and get a JSON token array, which
 			 * will be parsed with Script to an array of
@@ -96,12 +102,17 @@ public class GeFLoFragmentLocator {
 				while ((line = input.readLine()) != null) {
 					stringBuilder.append(line);
 					stringBuilder.append('\n');
-					if (DEBUG) System.out.println(line);
+					if (DEBUG) {
+						System.out.print('Line read: ') ;
+						System.out.println(line);
+					}
 				}
 			} finally {
 				if (input != null) input.close();
 			}
-			
+			if (DEBUG) {
+				System.out.println('Output from command successfully read') ;
+			}
 			final String tokenizerOutput = stringBuilder.toString();
 			stringBuilder = null;
 			
@@ -125,20 +136,37 @@ public class GeFLoFragmentLocator {
 			// Parse token array
 			final Script script	= Script.parseJSONString(tokenizerOutput);
 			
+			
 			// Matches the pattern against the script
+			if (DEBUG) {
+				System.out.println('Launching GeFLoMatcher.find') ;
+			}
 			final MatchingLineBounds bounds = GeFLoMatcher.find(pattern, script);
 			if (bounds == null) {
 				System.err.println("Found nothing!");
 			}
+			if (DEBUG) {
+				System.out.println('GeFloMatcher.find is done') ;
+			}
+
 			
 			// Save the specified output file
+			if (DEBUG) {
+				System.out.println('Saving to the result to the file '.outputFile) ;
+			}
 			final Writer out = new OutputStreamWriter(new FileOutputStream(outputFile), ENCODING);
 			try {
 		    	out.write(bounds.toJson());
 		    } finally {
 		    	out.close();
 		    }
+			if (DEBUG) {
+				System.out.println('Saved') ;
+			}			
 		} catch (IndexOutOfBoundsException e) {
+			// added. There was nothing here 
+			System.err.println("IndexOutOfBoundsException has be raised")
+			System.err.println(e.getMessage());
 			
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
