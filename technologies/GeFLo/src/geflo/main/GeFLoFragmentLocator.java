@@ -165,7 +165,7 @@ public class GeFLoFragmentLocator {
 			}			
 		} catch (IndexOutOfBoundsException e) {
 			// added. There was nothing here 
-			System.err.println("IndexOutOfBoundsException has be raised")
+			System.err.println("IndexOutOfBoundsException has be raised") ;
 			System.err.println(e.getMessage());
 			
 		} catch (Exception e) {
