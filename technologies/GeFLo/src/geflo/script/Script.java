@@ -14,6 +14,9 @@ import org.json.JSONTokener;
 
 public class Script {
 	
+	public static final boolean	DEBUG			= true;
+
+	
 	private List<Token> tokens = new ArrayList<Token>();
 	
 	public Token get(int i) {
