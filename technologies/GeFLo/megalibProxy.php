@@ -2,16 +2,15 @@
 
 require_once dirname(__FILE__).'/../../../101worker/configs/main.config.local.php';
 
-if (DEBUG > 10) echo "Using megalib from ".ABSPATH_MEGALIB."\n";
+if (DEBUG > 5) echo "Using megalib from ".ABSPATH_MEGALIB."\n";
 
 if (!defined('ABSPATH_SRC_GESHI_LIBRARY')) {
 	define('ABSPATH_SRC_GESHI_LIBRARY', ABSPATH_BASE.'101repo/technologies/geshi/src');
 }
 
-if (DEBUG > 10) echo "Using GeSHi from ".ABSPATH_SRC_GESHI_LIBRARY."\n";
+if (DEBUG > 5) echo "Using GeSHi from ".ABSPATH_SRC_GESHI_LIBRARY."\n";
 
-require_once ABSPATH_MEGALIB.'SourceCode.php';
-require_once ABSPATH_MEGALIB.'FileSystemMatcher.php';
+require_once ABSPATH_MEGALIB.'SourceFiles.php';
 
 if (count($argv) < 2) {
 	echo "ERROR: Too few arguments!\n";
@@ -26,16 +25,19 @@ if (!is_file($path)) {
 	exit(1);
 }
 
-$matcher	= new GeSHiExtensionPatternMatcher();
-$fileInfo	= $matcher->matchPath('file', $path);
-if (empty($fileInfo)) {
-	echo "ERROR: Unknown extension for GeSHi! Can\'t parse file contents!";
-	exit(1);
-}
+// $matcher	= new GeSHiExtensionPatternMatcher();
+// $fileInfo	= $matcher->matchPath('file', $path);
+// if (empty($fileInfo)) {
+//	echo "ERROR: Unknown extension for GeSHi! Can\'t parse file contents!";
+//	exit(1);
+//}
 
-$contents	= file_get_contents($path);
-$sourceCode	= new SourceCode($contents, $fileInfo['geshiLanguage']);
+// $contents	= file_get_contents($path);
+// $sourceCode	= new SourceCode($contents, $fileInfo['geshiLanguage']);
 
 // Box the token array in an associative array
-echo json_encode(array('tokens' => $sourceCode->getTokens()));
+// echo json_encode(array('tokens' => $sourceCode->getTokens()));
+
+$sourceFile = new SourceFile($path) ;
+echo json_encode($sourceFile->getSourceCode()->getTokens()) ;
 exit(0);
