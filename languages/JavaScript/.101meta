@@ -5,5 +5,11 @@
 			{"geshi":"javascript"},
 			{"language":"Javascript"}
 		]
+	},
+		"suffix" : ".min.js",
+		"metadata" : {
+			"concept" : "Minification",
+			"comment" : "Minified JavaScript source code"
+		}
 	}
 ]

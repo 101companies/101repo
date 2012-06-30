@@ -1,0 +1,7 @@
+{ 
+    "suffix" : ".jar", 
+    "metadata" : [ 
+      { "language" : "JAR" },
+      { "nature" : "archive" }
+    ]
+}
