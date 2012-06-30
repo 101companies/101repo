@@ -46,12 +46,19 @@ public class Script {
 	
 	protected static Script parseJSON(final JSONTokener tokener) {
 		try {
-			final JSONObject	json	= new JSONObject(tokener);
-			final JSONArray		tokens	= json.getJSONArray("tokens");
-			if (tokens == null) {
-				throw new RuntimeException("There is no key 'tokens'!");
+			// final JSONObject	json	= new JSONObject(tokener);
+			// final JSONArray		tokens	= json.getJSONArray("tokens");
+			if (DEBUG) {
+				System.out.println("Parsing the following JSON as a array of tokens") ;
+				System.out.println(tokener) ;
 			}
-			
+			final JSONArray tokens = new JSONArray(tokener) ;
+			if (tokens == null) {
+				throw new RuntimeException("The json provided is not an array!");
+			}
+			if (DEBUG) {
+				System.out.println(tokens.length()+" tokens founds in json") ;
+			}
 			final Script script = new Script();
 			for (int i=0; i<tokens.length(); i++) {
 				JSONObject jsonToken = tokens.getJSONObject(i);
