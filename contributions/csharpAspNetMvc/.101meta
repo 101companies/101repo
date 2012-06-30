@@ -10,7 +10,8 @@
     "filename" : "#^contributions/csharpAspNetMvc/Scripts/*.js$#",
     "metadata" : {
       "dominator" : "geshi",
-      "comment" : "GeSHi cannot handle all files."
+      "geshi" : "text",
+      "comment" : "GeSHi cannot handle all JavaScript files."
     }
   }
 ]
