@@ -128,11 +128,14 @@ public class GeFLoFragmentLocator {
 				 * to avoid zombies or worse things.
 				 */
 				tokenizer.destroy();
-				if (!tokenizerOutput.startsWith("{")) {
-					throw new RuntimeException(tokenizerOutput);
+				if (!tokenizerOutput.startsWith("[")) {
+					throw new RuntimeException("Output do not start with [ : "+tokenizerOutput);
 				}
 			}
 			
+			if (DEBUG) {
+				System.out.println("Parsing the output as JSON") ;
+			}
 			// Parse token array
 			final Script script	= Script.parseJSONString(tokenizerOutput);
 			
