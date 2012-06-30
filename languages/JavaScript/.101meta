@@ -6,6 +6,7 @@
 			{"language":"Javascript"}
 		]
 	},
+	{
 		"suffix" : ".min.js",
 		"metadata" : {
 			"concept" : "Minification",
