@@ -134,7 +134,7 @@ public class GeFLoFragmentLocator {
 			}
 			
 			if (DEBUG) {
-				System.out.println("Parsing the output as JSON") ;
+				System.out.println("Parsing the output as a json array of tokens") ;
 			}
 			// Parse token array
 			final Script script	= Script.parseJSONString(tokenizerOutput);
