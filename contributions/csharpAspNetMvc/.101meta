@@ -11,6 +11,6 @@
     "metadata" : {
       "dominator" : "geshi",
       "comment" : "GeSHi cannot handle all files."
-    },
+    }
   }
 ]
