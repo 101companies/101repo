@@ -24,7 +24,7 @@ public class GeFLoFragmentLocator {
 	public static final boolean	DEBUG			= true;
 	public static final String	ENCODING		= "UTF-8";
 	public static final String	SUFFIX			= ".geflo";
-	public static final String	TOKENIZER_NAME	= "megalibProxy.php";
+	public static final String	TOKENIZER_NAME	= "getGeSHiTokens.php";
 	public static final String	TOKENIZER_PATH;
 	
 	public static String phpPath = "php";
@@ -76,10 +76,17 @@ public class GeFLoFragmentLocator {
 			 * will be parsed with Script to an array of
 			 * Token
 			 */
-			final String cmd = phpPath+" "+TOKENIZER_PATH+" "+inputFile.getAbsolutePath();
-			if (DEBUG) System.out.println(cmd);
+			// final String cmd = phpPath+" "+TOKENIZER_PATH+" "+inputFile.getAbsolutePath();
+			final String cmd = phpPath+" "+TOKENIZER_NAME+" "+inputFile.getAbsolutePath();
+
+			if (DEBUG) {
+				System.out.println("The following command will be executed to get the GeSHi tokens") ;
+				System.out.println(cmd);
+			}
 			Process tokenizer = Runtime.getRuntime().exec(cmd);
-			
+			if (DEBUG) {
+				System.out.println("Execution performed") ;
+			}
 			// Read output
 			StringBuilder	stringBuilder = new StringBuilder();
 			BufferedReader	input = null;
