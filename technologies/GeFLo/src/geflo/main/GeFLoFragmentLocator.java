@@ -103,7 +103,7 @@ public class GeFLoFragmentLocator {
 					stringBuilder.append(line);
 					stringBuilder.append('\n');
 					if (DEBUG) {
-						System.out.print('Line read: ') ;
+						System.out.print("Line read: ") ;
 						System.out.println(line);
 					}
 				}
@@ -111,7 +111,7 @@ public class GeFLoFragmentLocator {
 				if (input != null) input.close();
 			}
 			if (DEBUG) {
-				System.out.println('Output from command successfully read') ;
+				System.out.println("Output from command successfully read") ;
 			}
 			final String tokenizerOutput = stringBuilder.toString();
 			stringBuilder = null;
@@ -139,20 +139,20 @@ public class GeFLoFragmentLocator {
 			
 			// Matches the pattern against the script
 			if (DEBUG) {
-				System.out.println('Launching GeFLoMatcher.find') ;
+				System.out.println("Launching GeFLoMatcher.find") ;
 			}
 			final MatchingLineBounds bounds = GeFLoMatcher.find(pattern, script);
 			if (bounds == null) {
 				System.err.println("Found nothing!");
 			}
 			if (DEBUG) {
-				System.out.println('GeFloMatcher.find is done') ;
+				System.out.println("GeFloMatcher.find is done") ;
 			}
 
 			
 			// Save the specified output file
 			if (DEBUG) {
-				System.out.println('Saving to the result to the file '.outputFile) ;
+				System.out.println("Saving to the result to the file ".outputFile) ;
 			}
 			final Writer out = new OutputStreamWriter(new FileOutputStream(outputFile), ENCODING);
 			try {
@@ -161,7 +161,7 @@ public class GeFLoFragmentLocator {
 		    	out.close();
 		    }
 			if (DEBUG) {
-				System.out.println('Saved') ;
+				System.out.println("Saved") ;
 			}			
 		} catch (IndexOutOfBoundsException e) {
 			// added. There was nothing here 
