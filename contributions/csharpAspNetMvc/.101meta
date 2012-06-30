@@ -7,7 +7,7 @@
     }
   },
   {
-    "filename" : "#^contributions/csharpAspNetMvc/Scripts/*.js$#",
+    "filename" : "#^contributions/csharpAspNetMvc/Scripts/*\\.js$#",
     "metadata" : {
       "dominator" : "geshi",
       "geshi" : "text",

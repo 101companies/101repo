@@ -14,7 +14,7 @@
     } 
   },
   { 
-    "basename" : "#^.*Parser.java$#",
+    "basename" : "#^.*Parser\\.java$#",
     "content" : "// \\$ANTLR.*\\.g",
     "metadata" : [
       {
@@ -25,7 +25,7 @@
     ]
   },
   { 
-    "basename" : "#^.*Lexer.java$#",
+    "basename" : "#^.*Lexer\\.java$#",
     "content" : "// \\$ANTLR.*\\.g",
     "metadata" : [
       {
