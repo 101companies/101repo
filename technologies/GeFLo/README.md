@@ -19,19 +19,16 @@ The locator writes without respect to existing files to the path of the **gefloF
 
 ## Input file
 
-The JSON-parser expects the following structure for .summary.json input file:
-
-	{
-		...,
-		tokens: [
-			...,
-			{
-				name: "token",
-				line: 42,
-				...,
-			}
-		],
-	}
+The JSON-parser expects the following structure as an input :
+  [
+    {
+      "text" : "import",
+      "line" : 1,
+      "i" : 0,
+      "class" : "kw"    // not used in current implementation
+    }
+    ... other tokens
+  ]  
 
 ## Example call
 
@@ -79,7 +76,7 @@ You can run the tests by calling:
 # Architecture
 
 The locator is essentially coded in Java; see package geflo.
-For tokenize script files, there exists a php proxy to megalib, which is called "megalibProxy.php".
+For tokenize script files, there exists a php proxy to megalib, which is called "getGeSHiTokens.php".
 It includes the megalib library, which itself uses GeSHi to tokenize scripts.
 
 Tested with JavaSE-1.6.0_31.
