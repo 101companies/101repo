@@ -62,16 +62,6 @@
     }
   },
   {
-    "filename" : "contributions/javaComposition/org/softlang/model/Employee.java",
-    "fragment" : { 
-      "class" : "Employee",
-      "method" : "total"
-    },
-    "metadata" : { 
-      "phrase" : ["Total", "Employee"]
-    }
-  },
-  {
     "filename" : "contributions/javaComposition/org/softlang/model/Company.java",
     "fragment" : {
       "class" : "Company",
