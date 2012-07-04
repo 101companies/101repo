@@ -1,28 +1,44 @@
-{"meta":{
-	"nosource":[
-		{
-         	"path": "bootstrap/"
-		},
-		{
-			"path": "lib/"
-		},
-		{
-			"path": "nbprojectt/"
-		},
-		{
-			"path": "resources/"
-		},
-		{
-			"path": "resources/META-IN/"
-		},
-		{
-			"file": "glassfish-build.xml"
-		},
-		{
-			"file": "glassfish-readme.txt"
-		},
-		{
-			"file": "validate.xml"
-		}
-	]}
-}
+[
+  {
+    "dirname" : "contributions/seam/bootstrap",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+   {
+    "dirname" : "contributions/seam/lib",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+   {
+    "dirname" : "contributions/seam/nbprojectt",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+   {
+    "dirname" : "contributions/seam/resources",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+   {
+    "filename" : "contributions/seam/glassfish-build.xml",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+   {
+    "filename" : "contributions/seam/glassfish-readme.txt",
+    "metadata" : {
+      "assignment" : "external"
+    }
+   },
+    {
+    "filename" : "contributions/seam/validate.xml",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  }
+]

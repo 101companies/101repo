@@ -1,6 +1,6 @@
 [
   {
-    "dirname" : "contributions/mobl/mobl",
+    "dirname" : "contributions/mobl/www",
     "metadata" : {
       "assignment" : "external",
       "comment" : "User interface elements, images"
