@@ -1,11 +1,9 @@
-{"meta":{
-   "nosource":[
-      {
-         "file": "Transformations/Total.asm"
-      },
-	  {
-		"file": "Transformations/Cut.asm"
-	  }
-	]}
-}
-
+[
+  {
+    "dirname" : "#^contributions/atl/ransformations/.*\\.asm$#",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "The results of the transformation"
+    }
+  }
+]
