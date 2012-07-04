@@ -1,8 +1,9 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": "output/",
-		 "extensions" : ["js", "html", "css"]
-      }
-	]}
-}
+[
+  {
+    "dirname" : "contributions/pyjamas/output",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "The resulting web app is completely generated from the sources"
+    }
+  }
+]
