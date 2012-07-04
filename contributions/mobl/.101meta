@@ -1,16 +1,9 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": "www/"
-      },
-	  {
-         "path": "www/js/"
-      },
-	  {
-         "path": "www/mobl/"
-      },
-      {
-         "path": "www/mobl/ui/"
-      }
-	]}
-}
+[
+  {
+    "dirname" : "contributions/mobl/mobl",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "User interface elements, images"
+    }
+  }
+]
