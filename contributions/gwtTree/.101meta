@@ -1,25 +1,3 @@
-{"meta":{
-	"nosource":[
-		{
-         	"path": ".settings/"
-		},
-		{
-			"path": "war/WEB-INF/"
-		},
-		{
-			"paht": "src/META-INF/"
-		},
-		{
-			"path": "war/gwttree/"
-		},
-		{
-			"path": "war/img/"
-		},
-		{
-			"path": "war/gwttree/gwt/clean/"
-		}
-	]}
-}
 [
   {
     "dirname" : "contributions/gwtTree/.settings",
@@ -40,13 +18,7 @@
     }
   },
   {
-    "dirname" : "contributions/gwtTree/war/gwt",
-    "metadata" : {
-      "assignment" : "external"
-    }
-  },
-  {
-    "dirname" : "contributions/gwtTree/war/gwttree/gwt/clean/",
+    "dirname" : "contributions/gwtTree/war/gwttree",
     "metadata" : {
       "assignment" : "external"
     }
