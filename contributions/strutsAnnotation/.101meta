@@ -14,14 +14,14 @@
     }
   },
   {
-    "dirname" : "contributions/strutsAnnotation/src/main/resources/log4j.xml",
+    "filename" : "contributions/strutsAnnotation/src/main/resources/log4j.xml",
     "metadata" : {
       "assignment" : "external",
       "comment" : "log4j configuration"
     }
   },
   {
-    "dirname" : "contributions/strutsAnnotation/pom.xml",
+    "filename" : "contributions/strutsAnnotation/pom.xml",
     "metadata" : {
       "assignment" : "external",
       "comment" : "Maven project configuration"
