@@ -1,22 +1,30 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": "src/main/webapp/WEB-INF/"
-      },
-	  {
-         "path": "src/main/webapp/WEB-INF/content"
-      },
-	  {
-	      "path": "src/main/webapp/table-images/"
-	  },
-	  {
-	      "path": "src/main/resources/"
-	  },
-	  {
-	      "file": "pom.xml"
-	  },
-	  {
-	     "file":"src/main/resources/log4j.xml"
-	  }
-	]}
-}
+[
+  {
+    "dirname" : "contributions/strutsAnnotation/src/main/webapp/WEB-INF/content",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "Eclipse settings"
+    }
+  },
+  {
+    "dirname" : "contributions/strutsAnnotation/src/main/webapp/table-images",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "Icons for the web application"
+    }
+  },
+  {
+    "dirname" : "contributions/strutsAnnotation/src/main/resources/log4j.xml",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "log4j configuration"
+    }
+  },
+  {
+    "dirname" : "contributions/strutsAnnotation/pom.xml",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "Maven project configuration"
+    }
+  }
+]
