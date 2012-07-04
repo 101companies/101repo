@@ -1,11 +1,23 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": ".settings/"
-      },
-	  {
-         "path": "org/softlang/company/",
-		 "extensions" : ["tokens", "java"]
-      }
-	]}
-}
+[
+ {
+    "dirname" : "contributions/antlrTrees/.settings",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "Eclipse settings"
+    }
+  }
+  {
+    "filename" : "#^contributions/antlrTrees/org/softlang/company/.*\\.tokens$#",
+    "metadata" : {
+     "assignment" : "external",
+     "comment" : "Generated files"
+  	}
+  },
+  {
+    "filename" : "#^contributions/antlrTrees/org/softlang/company/.*\\.java$#",
+    "metadata" : {
+     "assignment" : "external",
+     "comment" : "Generated files"
+  	}
+  }
+]

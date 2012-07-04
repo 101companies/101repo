@@ -1,8 +1,16 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": "org/softlang/parser/",
-		 "extensions" : ["tokens", "java"]
-      }
-	]}
-}
+[
+  {
+    "filename" : "#^contributions/antlrObjects/org/softlang/parser/.*\\.tokens$#",
+    "metadata" : {
+     "assignment" : "external",
+     "comment" : "Generated files"
+  	}
+  },
+  {
+    "filename" : "#^contributions/antlrObjects/org/softlang/parser/.*\\.java$#",
+    "metadata" : {
+     "assignment" : "external",
+     "comment" : "Generated files"
+  	}
+  }
+]
