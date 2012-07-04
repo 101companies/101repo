@@ -12,6 +12,6 @@
       }
     ],
     "predicate": "technologies/.NET_platform/dotNETImport.sh",
-    "args": "System.Xml"
+    "args": [ "System.Xml" ]
   }
 ]
