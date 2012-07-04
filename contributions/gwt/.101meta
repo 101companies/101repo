@@ -1,22 +1,32 @@
-{"meta":{
-	"nosource":[
-		{
-         	"path": ".settings/"
-		},
-		{
-			"path": "src/META-INF/"
-		},
-		{
-			"path": "war/WEB-INF/"
-		},
-		{
-			"path": "war/gwt/"
-		},
-		{
-			"path":"war/gwt/gwt/standard/"
-		},
-		{
-			"path": "war/img/"
-		}
-	]}
-}
+[
+  {
+    "dirname" : "contributions/gwt/.settings",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+  {
+    "dirname" : "contributions/gwt/src/META-INF",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+  {
+    "dirname" : "contributions/gwt/war/WEB-INF",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+  {
+    "dirname" : "contributions/gwt/war/gwt",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+  {
+    "dirname" : "contributions/gwt/war/img",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  }
+]

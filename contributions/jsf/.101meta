@@ -1,10 +1,14 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": "jsf/nbproject/"
-      },
-	  {
-         "path": "web/resources/"
-      }
-	]}
-}
+[
+  {
+    "dirname" : "contributions/jsf/nbproject",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  },
+  {
+    "dirname" : "contributions/jsf/web/resources",
+    "metadata" : {
+      "assignment" : "external"
+    }
+  }
+]

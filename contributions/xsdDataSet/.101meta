@@ -1,11 +1,16 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": "Properties/"
-      },
-	 {
-         "path": "xsd/",
-		 "extensions" : ["bat", "java"]
-      }
-	]}
-}
+[
+  {
+    "dirname" : "contributions/xsdDataSet/Properties",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "Project properties file"
+    }
+  },
+  {
+    "filename" : "contributions/xsdDataSet/make.bat",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "Batch script to execute the transformation"
+    }
+  }
+]
