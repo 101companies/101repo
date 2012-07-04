@@ -1,7 +1,9 @@
-{"meta":{
-   "nosource":[
-      {
-         "path": "jdom/"
-      }
-	]}
-}
+[
+  {
+    "dirname" : "contributions/jdom/jdom",
+    "metadata" : {
+      "assignment" : "external",
+      "comment" : "JDOM jar and documentation"
+    }
+  }
+]
