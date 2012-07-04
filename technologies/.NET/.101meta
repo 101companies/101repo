@@ -11,6 +11,7 @@
         "dependsOn": ".NET"
       }
     ],
+    "suffix": ".cs",
     "predicate": "technologies/.NET_platform/dotNETImport.sh",
     "args": [ "System.Xml" ]
   }
