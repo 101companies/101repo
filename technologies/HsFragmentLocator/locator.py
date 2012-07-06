@@ -16,6 +16,7 @@ if (status):
     sys.exit(status)
 command = x + "/Locator " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
 status, output = commands.getstatusoutput(command)
+print output
 if (status):
     print output
     sys.exit(status)
