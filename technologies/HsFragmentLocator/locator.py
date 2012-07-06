@@ -14,11 +14,11 @@ status, output = commands.getstatusoutput(command)
 if status:
     print "Status1: " + str(status)
     print "Output1: " + output
-    sys.exit(status)
+    sys.exit(1)
 command = x + "/Locator " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
 status, output = commands.getstatusoutput(command)
 if status:
     print "Status2: " + str(status)
     print "Output2: " + output
-    sys.exit(status)
+    sys.exit(1)
 
