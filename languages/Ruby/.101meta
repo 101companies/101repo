@@ -3,14 +3,16 @@
 		"suffix" : ".erb",
 		"metadata" : [
 			{"geshi":"text"},
-			{"language":"Ruby"}
+			{"language":"Ruby"},
+			{"locator": "technologies/GeFLo/locator.py"}
 		]
 	},
 	{
 		"suffix" : ".rb",
 		"metadata" : [
 			{"geshi":"text"},
-			{"language":"Ruby"}
+			{"language":"Ruby"},
+			{"locator": "technologies/GeFLo/locator.py"}
 		]
 	}
 ]

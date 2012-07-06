@@ -1,6 +1,7 @@
-build: Locator
+build:
+	make geflo.jar
 
-Locator: src/geflo/*/*.java src/geflo/*/*/*.java Makefile
+geflo.jar: src/geflo/*/*.java src/geflo/*/*/*.java Makefile
 	mkdir -p bin
 	javac \
 		-nowarn \
