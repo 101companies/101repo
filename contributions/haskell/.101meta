@@ -1,6 +1,6 @@
 [
  {
-  "filename" : "Total.hs",
+  "filename" : "contributions/haskell/Total.hs",
   "fragment" : {
    "function" : "total"
   },
@@ -9,7 +9,7 @@
   }
  },
  {
-  "filename" : "Cut.hs",
+  "filename" : "contributions/haskell/Cut.hs",
   "fragment" : {
    "function" : "cut"
   },
