@@ -1,18 +1,14 @@
 [
 	{
 		"filename" : "contributions/ruby/company/company.rb",
-		"fragment" : {
-			"geflo" : "def total ^[def]*"
-		},
+		"fragment" : "def total ^[def]*",
 		"metadata": {
 			"phrase" : ["Total", "Company"]
 		}
 	},
 	{
 		"filename" : "contributions/ruby/company/company.rb",
-		"fragment" : {
-			"geflo" : "def cut .* > end$"
-		},
+		"fragment" : "geflo" : "def cut .* > end$",
 		"metadata": {
 			"phrase" : ["Cut", "Company"]
 		}
