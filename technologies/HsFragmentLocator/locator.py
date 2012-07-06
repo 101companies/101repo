@@ -11,13 +11,14 @@ locatorPy = sys.argv[0]
 x = os.path.dirname(locatorPy)
 command = "cd " + x + "; make"
 status, output = commands.getstatusoutput(command)
-print (status, output)
 if status:
-    print output
+    print "Status: " + str(status)
+    print "Output: " + output
     sys.exit(status)
 command = x + "/Locator " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
 status, output = commands.getstatusoutput(command)
-print (status, output)
 if status:
-    print output
+    print "Status: " + str(status)
+    print "Output: " + output
     sys.exit(status)
+
