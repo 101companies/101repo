@@ -8,7 +8,7 @@
 	},
 	{
 		"filename" : "contributions/ruby/company/company.rb",
-		"fragment" : "geflo" : "def cut .* > end$",
+		"fragment" : "def cut .* > end$",
 		"metadata": {
 			"phrase" : ["Cut", "Company"]
 		}
