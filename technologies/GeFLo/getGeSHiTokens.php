@@ -2,10 +2,12 @@
 
 // Search for the condiguration file 
 $myself = realpath($argv[0]);
+// Find 101worker parallel to 101repo
 $configFile = dirname($myself).'/../../../101worker/configs/main.config.local.php' ;
 echo $configFile;
 if (! is_file($configFile)) {
-  $configFile = dirname($myself)."/../".$configFile ;
+// Find 101worker parallel to 101repo
+  $configFile = dirname($myself).'/../../../../101worker/configs/main.config.local.php' ;
 }
 require_once $configFile;
 
