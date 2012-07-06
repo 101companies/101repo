@@ -1,6 +1,6 @@
 [
 	{
-		"filename" : "company/company.rb",
+		"filename" : "contributions/ruby/company/company.rb",
 		"fragment" : {
 			"geflo" : "def total ^[def]*"
 		},
@@ -9,7 +9,7 @@
 		}
 	},
 	{
-		"filename" : "company/company.rb",
+		"filename" : "contributions/ruby/company/company.rb",
 		"fragment" : {
 			"geflo" : "def cut .* > end$"
 		},
