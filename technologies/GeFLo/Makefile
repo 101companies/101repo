@@ -11,7 +11,7 @@ geflo.jar: src/geflo/*/*.java src/geflo/*/*/*.java Makefile
 		src/geflo/main/*.java
 	jar cf geflo.jar bin/geflo/main/*.class
 
-test: Locator
+test: build
 	make junit
 	make total.test
 	make cut.test

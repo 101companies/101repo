@@ -11,11 +11,11 @@ locatorPy = sys.argv[0]
 x = os.path.dirname(locatorPy)
 command = "cd " + x + "; make"
 status, output = commands.getstatusoutput(command)
-if (status):
+if status:
     print output
     sys.exit(status)
-command = "java -cp " + x + "/bin" + ":"+ x + "/libs/* " + "geflo.main.GeFLoFragmentLocator " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
+command = "java -cp " + x + "/bin" + ":"+ x + "/libs/* " + "geflo.main.GeFLoFragmentLocator " + x + " " + sys.argv[1] + " " + sys.argv[2] + " " + sys.argv[3]
 status, output = commands.getstatusoutput(command)
-if (status):
+if status:
     print output
     sys.exit(status)

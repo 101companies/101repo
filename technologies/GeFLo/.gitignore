@@ -1,3 +1,4 @@
 *.lines
+*.tokens.json
 bin
 geflo.jar
