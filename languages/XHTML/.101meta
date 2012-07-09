@@ -4,7 +4,7 @@
 		"metadata" : [
 			{"geshi":"html"},
 			{"language":"XHTML"},
-			{"locator": "technologies/W3CValidator/validator.py"}
+			{"validator": "technologies/W3CValidator/validator.py"}
 		]
 	}
 ]
