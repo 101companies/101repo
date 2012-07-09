@@ -1,0 +1,23 @@
+[%
+import "CoreOps.eol";
+%]
+public class [%=currentClass.name%] {
+[%
+  for (attr in currentClass.eAllAttributes) {
+    %]
+  private [%=attr.getType(true)%] [%=attr.name%];
+  
+  public [%=attr.getType(true)%] get[%=attr.name.firstToUpperCase()%] () {
+    return [%=attr.name%];
+  }
+  [%if (attr.changeable) {%]
+
+  public void set[%=attr.name.firstToUpperCase()%] ([%=attr.getType(true)%] [%=attr.name%]) {
+    this.[%=attr.name%] = [%=attr.name%];
+  }  
+  [%}%]
+  
+    [%
+  }
+%]
+}

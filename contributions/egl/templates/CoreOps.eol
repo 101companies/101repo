@@ -1,0 +1,23 @@
+-- Library of operations reused across templates
+
+operation EStructuralFeature getType (abstract : Boolean) {
+  if (self.many) {
+    if (abstract) {
+      return 'Set<' + self.eType.getTypeName() + '>';
+    }
+    else {
+      return 'HashSet<' + self.eType.getTypeName() + '>';
+    }
+  }
+  else {
+    return self.eType.getTypeName();
+  }
+}
+operation EClassifier getTypeName() {
+  if (self.getInstanceClassName().isDefined()) {
+    return self.getInstanceClassName();
+  }
+  else {
+    return self.name;
+  }
+}

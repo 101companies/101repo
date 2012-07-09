@@ -1,0 +1,91 @@
+<project name="101companies" default="generate_all" basedir="..">
+	<property name="dir" value="${basedir}/src" />
+
+	<!-- Combine everything. This is the main target -->
+	<target name="generate_all" 
+		    depends="register_associations,
+		             register_attributes,
+		             register_cutSalary_implementations,
+		             init">
+		<epsilon.eglMerge>
+			<file>
+				<include name="${dir}/*.java" />
+
+				<superimpose artifactHandler="java15" />
+			</file>
+
+			<order second="assoc" first="attr" />
+			<order second="cut" first="assoc" />
+		</epsilon.eglMerge>
+		<epsilon.disposeModel model="classes" />
+	</target>
+
+	<!-- Combine everything. This is an alternate version using association classes -->
+	<target name="generate_all_assocclasses" 
+		    depends="register_association_classes,
+		             register_attributes,
+		             register_cutSalary_implementations,
+		             init">
+		<epsilon.eglMerge>
+			<file>
+				<include name="${dir}/*.java" />
+
+				<superimpose artifactHandler="java15" />
+			</file>
+
+			<order second="assoc" first="attr" />
+			<order second="cut" first="assoc" />
+		</epsilon.eglMerge>
+		<epsilon.disposeModel model="classes" />
+	</target>
+
+	<!-- Register manually written code for salary cuts -->
+	<target name="register_cutSalary_implementations" depends="init">
+		<epsilon.eglRegisterFile source="model/src/Company.java" 
+			                     targetName="${dir}/Company.java" 
+			                     feature="cut" />
+		<epsilon.eglRegisterFile source="model/src/Department.java" 
+			                     targetName="${dir}/Department.java" 
+			                     feature="cut" />
+		<epsilon.eglRegisterFile source="model/src/Employee.java" 
+			                	 targetName="${dir}/Employee.java" 
+			                	 feature="cut" />
+	</target>
+		
+	<!-- Generate code for association handling and register it for merging -->
+	<target name="register_associations" depends="init">
+		<epsilon.eglRegister src="templates/Associations.egl" feature="assoc">
+			<model ref="classes" as="Model" />
+		</epsilon.eglRegister>
+	</target>
+
+	<!-- Generate alternative code for association handling and register it for merging -->
+	<target name="register_association_classes" depends="init">
+		<epsilon.eglRegister src="templates/AssociationClasses.egl" feature="assoc">
+			<model ref="classes" as="Model" />
+		</epsilon.eglRegister>
+	</target>
+
+	<!-- Generate code for attribute handling and register it for merging -->
+	<target name="register_attributes" depends="init">
+		<epsilon.eglRegister src="templates/Attributes.egl" feature="attr">
+			<model ref="classes" as="Model" />
+		</epsilon.eglRegister>
+	</target>
+
+	<target name="init">
+		<!-- Introduce the superimposition merge strategy -->
+		<typedef name="superimpose" 
+			     classname="org.eclipse.epsilon.egl.symmetric_ao.tasks.superimpose.SuperimpositionMerge"/>
+		<!-- Ensure ${dir} exists and is empty -->
+		<mkdir dir="${dir}" />
+		<delete includeemptydirs="true">
+			<fileset dir="${dir}" includes="**/*" />
+		</delete>
+		<!-- Load company model -->
+		<epsilon.emf.loadModel name="classes" 
+			                   modelfile="model/101companies.ecore" 
+			                   metamodeluri="http://www.eclipse.org/emf/2002/Ecore"
+			                   read="true" store="false" />
+	</target>
+</project>

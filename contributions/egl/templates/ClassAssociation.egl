@@ -1,0 +1,35 @@
+[%
+import "CoreOps.eol";
+%]
+import java.util.Set;
+
+public class [%=currentClass.name%] {
+
+  [%if (currentRef.many) {%]
+  public [%=currentRef.getType(true)%] get[%=currentRef.name.firstToUpperCase()%] () {
+    return Ref[%=currentRef.name.firstToUpperCase()%].get (this);
+  }
+  
+    [%if (currentRef.changeable) {%]
+  public void addTo[%=currentRef.name.firstToUpperCase()%] ([%=currentRef.eType.getTypeName()%] [%=currentRef.name%]) {
+    Ref[%=currentRef.name.firstToUpperCase()%].add (this, [%=currentRef.name%]);
+  }
+  
+  public void removeFrom[%=currentRef.name.firstToUpperCase()%] ([%=currentRef.eType.getTypeName()%] [%=currentRef.name%]) {
+    Ref[%=currentRef.name.firstToUpperCase()%].remove (this, [%=currentRef.name%]);
+  }
+    [%}
+  } else {%]
+  private [%=currentRef.getType(true)%] [%=currentRef.name%]; 
+  
+  public [%=currentRef.getType(true)%] get[%=currentRef.name.firstToUpperCase()%] () {
+    return [%=currentRef.name%];
+  }
+  
+    [%if (currentRef.changeable) {%]
+  public void set[%=currentRef.name.firstToUpperCase()%] ([%=currentRef.getType(true)%] [%=currentRef.name%]) {
+    this.[%=currentRef.name%] = [%=currentRef.name%];
+  }
+    [%}
+  }%]
+}

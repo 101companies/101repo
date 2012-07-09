@@ -1,0 +1,35 @@
+[%
+import "CoreOps.eol";
+%]
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
+
+public class Ref[%=currentRef.name.firstToUpperCase()%] {
+
+  private static Map<[%=currentClass.name%], [%=currentRef.getType(true)%]> mpLinks = new HashMap<[%=currentClass.name%], [%=currentRef.getType(true)%]>();
+  
+  public static void add ([%=currentClass.name%] src, [%=currentRef.eType.getTypeName()%] tgt) {
+    [%=currentRef.getType(true)%] sLinks = mpLinks.get (src);
+    if (sLinks == null) {
+      sLinks = new [%=currentRef.getType(false)%]();
+      mpLinks.put (src, sLinks);
+    }
+    sLinks.add (tgt);
+  }
+  
+  public static void remove ([%=currentClass.name%] src, [%=currentRef.eType.getTypeName()%] tgt) {
+    [%=currentRef.getType(true)%] sLinks = mpLinks.get (src);
+    if (sLinks != null) {
+      sLinks.remove (tgt);
+      if (sLinks.isEmpty()) {
+        mpLinks.remove (src);
+      }
+    }
+  }
+  
+  public static [%=currentRef.getType(true)%] get ([%=currentClass.name%] src) {
+    return mpLinks.get (src);
+  }
+}

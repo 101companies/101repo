@@ -1,0 +1,19 @@
+[%
+  import "CoreOps.eol";
+  -- Generate association classes for associations and appropriate handler code in the end classes
+  for (cl in Model!EClass.all()) {
+    for (ref in cl.eAllReferences) {
+      if (ref.many) {
+        var t := TemplateFactory.load('AssociationClass.egl');
+        t.populate ('currentClass', cl);
+        t.populate ('currentRef', ref);
+        t.generate ('../src/Ref' + ref.name.firstToUpperCase() + '.java');
+      }
+        
+      var t := TemplateFactory.load('ClassAssociation.egl');
+      t.populate ('currentClass', cl);
+      t.populate ('currentRef', ref);
+      t.generate ('../src/' + cl.name + '.java');
+    }
+  }
+%]

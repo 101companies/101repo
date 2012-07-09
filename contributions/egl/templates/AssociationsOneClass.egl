@@ -1,0 +1,38 @@
+[%
+import "CoreOps.eol";
+%]
+import java.util.Set;
+import java.util.HashSet;
+
+public class [%=currentClass.name%] {
+[%
+  for (ref in currentClass.eAllReferences) {%]
+  private [%=ref.getType(true)%] [%=ref.name%]
+    [%if (ref.many) {%]
+      = new [%=ref.getType(false)%]()[%}%]; 
+  
+  public [%=ref.getType(true)%] get[%=ref.name.firstToUpperCase()%] () {
+    return [%=ref.name%];
+  }
+  
+  [%if (ref.changeable) {
+      if (ref.many) {%]
+  public void addTo[%=ref.name.firstToUpperCase()%] ([%=ref.eType.getTypeName()%] [%=ref.name%]) {
+    this.[%=ref.name%].add([%=ref.name%]);
+  }
+  
+  public void removeFrom[%=ref.name.firstToUpperCase()%] ([%=ref.eType.getTypeName()%] [%=ref.name%]) {
+    this.[%=ref.name%].remove([%=ref.name%]);
+  }
+
+    [%} else {%]
+  public void set[%=ref.name.firstToUpperCase()%] ([%=ref.getType(true)%] [%=ref.name%]) {
+    this.[%=ref.name%] = [%=ref.name%];
+  }
+    [%}  
+    }%]
+  
+    [%
+  }
+%]
+}

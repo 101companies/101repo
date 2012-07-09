@@ -1,0 +1,29 @@
+@namespace(
+  uri="http://www.eclipse.org/emf/2011/101companies", 
+  prefix="_101companies")
+package _101companies;
+
+class Company {
+  attr String name;
+  val  Department[*] departments;
+  @"http://www.eclipse.org/ocl/examples/OCL"(derive=" departments->collect (d | d.totalSalary) ")
+  derived readonly attr float totalSalary;
+}
+
+class Department {
+   attr String name;
+   val  Employee manager;
+   val  Employee[*] employees;
+   val  Department[*] subdepartments;
+   @"http://www.eclipse.org/ocl/examples/OCL"(
+     derive=" manager.salary + 
+            employees->collect (e | e.salary) + 
+            subdepartments->collect (d | d.totalSalary) ")
+   derived readonly attr float totalSalary;
+}
+
+class Employee {
+   attr String name;
+   attr String address;
+   attr float salary;
+}

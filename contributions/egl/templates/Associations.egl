@@ -1,0 +1,7 @@
+[%
+  for (cl in Model!EClass.all()) {
+    var t := TemplateFactory.load('AssociationsOneClass.egl');
+    t.populate ('currentClass', cl);
+    t.generate ('../src/' + cl.name + '.java');
+  }
+%]

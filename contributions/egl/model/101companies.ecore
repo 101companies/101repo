@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="_101companies"
+    nsURI="http://www.eclipse.org/emf/2011/101companies" nsPrefix="_101companies">
+  <eClassifiers xsi:type="ecore:EClass" name="Company">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departments" upperBound="-1"
+        eType="#//Department" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalSalary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        changeable="false" derived="true">
+      <eAnnotations source="http://www.eclipse.org/ocl/examples/OCL">
+        <details key="derive" value=" departments->collect (d | d.totalSalary) "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Department">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="#//Employee"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1"
+        eType="#//Employee" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subdepartments" upperBound="-1"
+        eType="#//Department" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalSalary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        changeable="false" derived="true">
+      <eAnnotations source="http://www.eclipse.org/ocl/examples/OCL">
+        <details key="derive" value=" manager.salary + &#xD;&#xA;            employees->collect (e | e.salary) + &#xD;&#xA;            subdepartments->collect (d | d.totalSalary) "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Employee">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+</ecore:EPackage>

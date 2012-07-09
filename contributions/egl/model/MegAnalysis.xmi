@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<_101companies:Company xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:_101companies="http://www.eclipse.org/emf/2011/101companies" xsi:schemaLocation="http://www.eclipse.org/emf/2011/101companies 101companies.ecore" name="meganalysis">
+  <departments name="Research">
+    <manager name="Craig" address="Redmond" salary="123456.0"/>
+    <employees name="Erik" address="Utrecht" salary="12345.0"/>
+    <employees name="Ralf" address="Koblenz" salary="1234.0"/>
+  </departments>
+  <departments name="Development">
+    <manager name="Ray" address="Redmond" salary="234567.0"/>
+    <subdepartments name="Dev1">
+      <manager name="Klaus" address="Boston" salary="23456.0"/>
+      <subdepartments name="Dev1.1">
+        <manager name="Karl" address="Riga" salary="2345.0"/>
+        <employees name="Joe" address="Wifi City" salary="2344.0"/>
+      </subdepartments>
+    </subdepartments>
+  </departments>
+</_101companies:Company>
