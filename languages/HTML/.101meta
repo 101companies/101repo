@@ -3,7 +3,8 @@
 		"suffix" : ".html",
 		"metadata" : [
 			{"geshi":"html"},
-			{"language":"HTML"}
+			{"language":"HTML"},
+			{"locator": "technologies/W3CValidator/validator.py"}
 		]
 	}
 ]

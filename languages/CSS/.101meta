@@ -3,7 +3,8 @@
 		"suffix" : ".css",
 		"metadata" : [
 			{"geshi":"css"},
-			{"language":"CSS"}
+			{"language":"CSS"},
+			{"locator": "technologies/W3CValidator/validator.py"}
 		]
 	}
 ]
