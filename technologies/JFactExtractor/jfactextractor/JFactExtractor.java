@@ -39,7 +39,7 @@ public class JFactExtractor {
             writer.write(gson.toJson(fact));
             writer.close();
         } catch (Exception e) {
-            System.err.println(e);
+            e.printStackTrace();
             System.exit(1);
         }
     }
