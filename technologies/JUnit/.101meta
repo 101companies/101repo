@@ -11,6 +11,27 @@
     "suffix": ".java",
     "predicate": "technologies/Java_platform/javaImport.sh",
     "args": [
+      "Test",
+	  "Suite.SuiteClasses",
+	  "Before",
+      "After",
+	  "BeforeClass",
+	  "AfterClass",
+	  "Ignore"
+    ]
+  },
+  {
+    "metadata": [
+      {
+        "language": "Java"
+      },
+      {
+        "dependsOn": "JUnit"
+      }
+    ],
+    "suffix": ".java",
+    "predicate": "technologies/Java_platform/javaAnnotation.py",
+    "args": [
       "junit"
     ]
   },
