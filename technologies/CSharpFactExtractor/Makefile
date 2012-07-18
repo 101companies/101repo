@@ -2,6 +2,7 @@ build:
 	make csharpfactextractor/CSharpFactExtractor.exe
 
 csharpfactextractor/CSharpFactExtractor.exe: extractor/*.cs Makefile
+	mkdir -p bin
 	dmcs \
 			-target:exe -out:bin/extractor.exe \
 			-lib:./lib -reference:Mono.Cecil.dll -reference:ICSharpCode.NRefactory.dll -reference:ICSharpCode.NRefactory.CSharp.dll \
@@ -11,10 +12,10 @@ csharpfactextractor/CSharpFactExtractor.exe: extractor/*.cs Makefile
 	cp lib/*.so bin
 
 test:
-	mono bin/extractor.exe Company.cs Company.cs.facts.json
+	./extractor.py Company.cs Company.cs.facts.json
 
 clean:
-	rm -r bin/*.exe
-	rm -r bin/*.dll
-	rm -r bin/*.so
+	rm -rf bin/*.exe
+	rm -rf bin/*.dll
+	rm -rf bin/*.so
 	rm -f Company.cs.facts.json
