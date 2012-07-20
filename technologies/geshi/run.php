@@ -12,7 +12,9 @@ $geshi = new GeSHi();
 $geshi->set_source($text);
 $geshi->set_language($language); 
 $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
-$geshi->enable_classes();
+// $geshi->enable_classes();
+// Special CSS handling perhaps required:
+// https://github.com/megaplanet/megalib/blob/master/SourceCode.php
 $geshi->enable_ids(true);
 
 $output = $geshi->parse_code();
