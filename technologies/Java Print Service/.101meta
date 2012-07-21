@@ -5,7 +5,7 @@
         "language": "Java"
       },
       {
-        "dependsOn": "Java Print"
+        "dependsOn": "Java Print Service"
       }
     ],
     "suffix": ".java",

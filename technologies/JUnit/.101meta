@@ -9,7 +9,7 @@
       }
     ],
     "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
+    "predicate": "technologies/Java_platform/javaAnnotation.py",
     "args": [
       "Test",
 	  "Suite.SuiteClasses",
@@ -30,7 +30,7 @@
       }
     ],
     "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaAnnotation.py",
+    "predicate": "technologies/Java_platform/javaImport.sh",
     "args": [
       "junit"
     ]

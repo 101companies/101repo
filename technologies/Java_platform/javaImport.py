@@ -4,7 +4,7 @@ import sys
 import json
 
 if len(sys.argv) < 3:
-    sys.exit("Usage: factImport.py sourceFile import [import ...]")
+    sys.exit("Usage: javaImport.py sourceFile import [import ...]")
 
 extractPath = sys.argv[1] + '.extractor.json';
 imported = sys.argv[2];
