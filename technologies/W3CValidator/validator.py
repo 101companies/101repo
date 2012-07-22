@@ -29,23 +29,25 @@ def validateCSS(fileName):
 	w3cresult = json.loads(output)
 	errors   = w3cresult['cssvalidation']['result']['errorcount']
 	warnings = w3cresult['cssvalidation']['result']['warningcount']
-	if verbose:
-		print output
+	#if verbose:
+	#	print output
 	return (errors, warnings)
 
 
 
 
 if len(sys.argv) < 2:
-	sys.exit('Usage: w3cValidator.py filename [-verbose]')
+	sys.exit('Usage: w3cValidator.py filename [-silent]')
 
 fileName = sys.argv[1]
-verbose = False
+verbose = True
 
 if len(sys.argv) == 3:
-	if sys.argv[2] == '-verbose':
-		verbose = True
+	if sys.argv[2] == '-silent':
+		verbose = False
 
+if verbose:
+	print 'checking ' + fileName
 if fileName.endswith('.css'):
 	(errorCount, warningCount) = validateCSS(fileName)										   #MML = MathML	
 elif fileName.endswith('.html') or fileName.endswith('.xhtml') or fileName.endswith('.svg') or fileName.endswith('.mml'):
