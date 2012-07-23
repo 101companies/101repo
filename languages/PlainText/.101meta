@@ -1,0 +1,16 @@
+[
+	{
+		"suffix" : ".txt",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Plain Text"}
+		]
+	},
+	{
+		"suffix" : ".md",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Plain Text"}
+		]
+	}
+]
