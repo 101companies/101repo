@@ -1,6 +1,8 @@
+[
 	{
 		"suffix" : ".class",
 		"metadata" : [
 			{"language":"Java_bytecode"}
 		]
 	}
+]
