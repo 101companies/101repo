@@ -8,5 +8,11 @@
 			{"extractor": "technologies/JFactExtractor/extractor.py"},
 			{"locator": "technologies/JFragmentLocator/locator.py"}
 		]
+	},
+	{
+		"suffix" : ".class",
+		"metadata" : [
+			{"language":"Java"}
+		]
 	}
 ]
