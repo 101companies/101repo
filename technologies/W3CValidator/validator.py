@@ -5,9 +5,10 @@ import os
 import sys
 import json
 import commands
+import time
 
 def validateHTML(fileName):
-	cmd = ('curl -sF "uploaded_file=@%s;type=text/html" -F output=json http://validator.w3.org/check' % (fileName))
+	cmd = ('curl -sF "uploaded_file=' + fileName + ';type=text/html" -F output=json http://validator.w3.org/check')
 	status, output = commands.getstatusoutput(cmd)
 	w3cresult = json.loads(output)
 	errors = 0
@@ -24,7 +25,7 @@ def validateHTML(fileName):
 	return (errors, warnings)
 
 def validateCSS(fileName):
-	cmd = ('curl -sF "file=@%s;type=text/css" -F output=json http://jigsaw.w3.org/css-validator/validator' % (fileName))
+	cmd = ('curl -sF "file=' + fileName + ';type=text/css" -F output=json http://jigsaw.w3.org/css-validator/validator')
 	status, output = commands.getstatusoutput(cmd)
 	w3cresult = json.loads(output)
 	errors   = w3cresult['cssvalidation']['result']['errorcount']
@@ -32,7 +33,6 @@ def validateCSS(fileName):
 	#if verbose:
 	#	print output
 	return (errors, warnings)
-
 
 
 
@@ -46,16 +46,19 @@ if len(sys.argv) == 3:
 	if sys.argv[2] == '-silent':
 		verbose = False
 
+
 if verbose:
 	print 'checking ' + fileName
+
+
 if fileName.endswith('.css'):
-	(errorCount, warningCount) = validateCSS(fileName)										   #MML = MathML	
+	(errorCount, warningCount) = validateCSS(fileName)														   #MML = MathML	
 elif fileName.endswith('.html') or fileName.endswith('.xhtml') or fileName.endswith('.svg') or fileName.endswith('.mml'):
 	(errorCount, warningCount) = validateHTML(fileName)
 else:
 	print "didn't recognize file - aborting..."
 	sys.exit(1)	
-	
+
 if errorCount:
 	print 'exiting with error, because validation failed with ' + str(errorCount) + ' error(s)'	
 	sys.exit(1)
