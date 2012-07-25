@@ -8,7 +8,7 @@ import commands
 import time
 
 def validateHTML(fileName):
-	cmd = ('curl -sF "uploaded_file=' + fileName + ';type=text/html" -F output=json http://validator.w3.org/check')
+	cmd = ('curl -sF "uploaded_file=@' + fileName + ';type=text/html" -F output=json http://validator.w3.org/check')
 	status, output = commands.getstatusoutput(cmd)
 	w3cresult = json.loads(output)
 	errors = 0
@@ -25,7 +25,7 @@ def validateHTML(fileName):
 	return (errors, warnings)
 
 def validateCSS(fileName):
-	cmd = ('curl -sF "file=' + fileName + ';type=text/css" -F output=json http://jigsaw.w3.org/css-validator/validator')
+	cmd = ('curl -sF "file=@' + fileName + ';type=text/css" -F output=json http://jigsaw.w3.org/css-validator/validator')
 	status, output = commands.getstatusoutput(cmd)
 	w3cresult = json.loads(output)
 	errors   = w3cresult['cssvalidation']['result']['errorcount']
@@ -37,15 +37,17 @@ def validateCSS(fileName):
 
 
 if len(sys.argv) < 2:
-	sys.exit('Usage: w3cValidator.py filename [-silent]')
+	sys.exit('Usage: w3cValidator.py filename [-silent] [-negative]')
 
 fileName = sys.argv[1]
 verbose = True
+negative = False
 
-if len(sys.argv) == 3:
-	if sys.argv[2] == '-silent':
+for arg in sys.argv:
+	if arg == '-silent':
 		verbose = False
-
+	elif arg == '-negative':
+		negative = True
 
 if verbose:
 	print 'checking ' + fileName
@@ -59,6 +61,22 @@ else:
 	print "didn't recognize file - aborting..."
 	sys.exit(1)	
 
-if errorCount:
-	print 'exiting with error, because validation failed with ' + str(errorCount) + ' error(s)'	
-	sys.exit(1)
+if not negative:
+	if errorCount:
+		if verbose:
+			print 'validation failed with ' + str(errorCount) + ' error(s)'
+		sys.exit(1)
+	else:
+		if verbose:
+			print 'validation succeeded'
+		sys.exit(0)
+
+if negative:
+	if errorCount:
+		if verbose:
+			print 'validation failed with ' + str(errorCount) + ' error(s) as expected'	
+		sys.exit(0)
+	else:
+		if verbose:
+			print "validation succeeded, even though it shouldn't"
+		sys.exit(1)
