@@ -14,7 +14,7 @@ status, output = commands.getstatusoutput(command)
 if (status):
 	print output
 	sys.exit(status)
-command = "mono bin/extractor.exe " + sys.argv[1] + " " + sys.argv[2]
+command = "cd " + x + "; mono bin/extractor.exe " + sys.argv[1] + " " + sys.argv[2]
 status, output = commands.getstatusoutput(command)
 if (status):
 	print output
