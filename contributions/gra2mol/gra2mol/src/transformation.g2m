@@ -1,0 +1,37 @@
+rule 'mapCompany'
+	from company c
+	to   Company
+	queries
+	  dElem : /c//#department;    
+	mappings
+	  name  = removeQuotes c.STRING;
+	  depts = dElem;
+end_rule
+
+rule 'mapDepartment'
+	from department d
+	to   Department
+	queries
+	  mElem : /d/department_manager/#employee;
+	  eElem : /d/department_employees/#employee;
+	  dElem : /d/#department;
+	mappings
+	  name      = removeQuotes d.STRING;
+	  manager   = mElem;
+	  employees = eElem;
+	  subDepts  = dElem;
+end_rule
+
+rule 'mapEmployee'
+	from employee e
+	to   Employee
+	queries
+	  mElem : //#employee{STRING[0].eq(e.STRING[2])};
+	mappings
+	  name    = removeQuotes e.STRING[0];
+	  address = removeQuotes e.STRING[1];
+	  salary  = e.FLOAT;
+	  mentor  = mElem;
+end_rule
+
+
