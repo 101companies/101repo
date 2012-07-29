@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Gra2MoL"
+    nsURI="http://gts.inf.um.es/modernization/Gra2MoL" nsPrefix="Gra2MoL">
+  <eSubpackages name="Core" nsURI="http://gts.inf.um.es/modernization/gra2mol/core"
+      nsPrefix="Core">
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceGrammar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetMetamodel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hashes" upperBound="-1"
+          eType="#//Core/Hash" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+          eType="#//Core/Rule" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true">
+      <eOperations name="prepareQueryUnits"/>
+      <eOperations name="getQuery" eType="#//Query/QueryUnit">
+        <eParameters name="variableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
+          eType="#//Query/QueryUnit" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inits" eType="#//Core/InitUnitGroup"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StandardRule" eSuperTypes="#//Core/Rule">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Core/RuleType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
+          eType="#//Core/FromElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Core/ToElement"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixins" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MixinRule" eSuperTypes="#//Core/Rule"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="RuleType">
+      <eLiterals name="NORMAL"/>
+      <eLiterals name="SKIP" value="1"/>
+      <eLiterals name="COPY" value="2" literal="COPY"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FromElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Query/QueryUnit"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ToElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InitUnit"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InitUnitElement" eSuperTypes="#//Core/InitUnit">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="element" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extension" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Core/InitUnitElementValue"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InitUnitElementValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Core/InitUnitElementValueType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+          eType="#//Core/Parameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="InitUnitElementValueType">
+      <eLiterals name="VALUE"/>
+      <eLiterals name="QUERY_RESULT" value="1"/>
+      <eLiterals name="QUERY_ACCESS" value="2"/>
+      <eLiterals name="OPERATION_CONCAT" value="3"/>
+      <eLiterals name="OPERATION_CREATION" value="4"/>
+      <eLiterals name="HASH" value="5" literal="HASH"/>
+      <eLiterals name="OPERATION_EXTRACT" value="6" literal="OPERATION_CODE"/>
+      <eLiterals name="OPERATION_CALL" value="7"/>
+      <eLiterals name="OPERATION_REMOVE_QUOTES" value="8" literal="OPERATION_REMOVE_QUOTES"/>
+      <eLiterals name="OPERATION_EXTRACTID" value="9"/>
+      <eLiterals name="SKIP" value="10"/>
+      <eLiterals name="OPERATION_COUNT" value="11" literal="OPERATION_COUNT"/>
+      <eLiterals name="OPERATION_CONVERTH2S" value="12" literal="OPERATION_CONVERTH2S"/>
+      <eLiterals name="OPERATION_EXTENSION" value="13"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InitUnitGroup" eSuperTypes="#//Core/InitUnit">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Core/InitUnitGroupType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inits" upperBound="-1"
+          eType="#//Core/InitUnit" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Query/FilterExpression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="InitUnitGroupType">
+      <eLiterals name="NORMAL"/>
+      <eLiterals name="IF" value="1"/>
+      <eLiterals name="ELSE" value="2" literal="ELSE"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="valuePosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extensionPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Core/ParameterType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ParameterType">
+      <eLiterals name="STRING_VALUE" literal="STRING_VALUE"/>
+      <eLiterals name="NUMBER_VALUE" value="1" literal="NUMBER_VALUE"/>
+      <eLiterals name="QUERY_ACCESS" value="2" literal="QUERY_ACCESS"/>
+      <eLiterals name="VARIABLE" value="3"/>
+      <eLiterals name="MULTIPLE" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Hash">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+          eType="#//Core/HashValue" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HashValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromElementType" eType="#//Core/HashValueType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="toElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="toElementType" eType="#//Core/HashValueType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="HashValueType">
+      <eLiterals name="VALUE"/>
+      <eLiterals name="GRAMMAR_ELEMENT" value="1"/>
+      <eLiterals name="METAMODEL_ELEMENT" value="2"/>
+      <eLiterals name="DEFAULT" value="3" literal="DEFAULT"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Query" nsURI="http://gts.inf.um.es/modernization/gra2mol/query"
+      nsPrefix="Query">
+    <eClassifiers xsi:type="ecore:EClass" name="QueryUnit">
+      <eOperations name="getMarkedFilterUnit" eType="#//Query/FilterUnit"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cast" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Query/FilterUnit"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="absoluteQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="control" eType="#//Query/QueryControl"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryControl"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryControlFor" eSuperTypes="#//Query/QueryControl">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryControlGreater" eSuperTypes="#//Query/QueryControl">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryControlExtension" eSuperTypes="#//Query/QueryControl">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+          eType="#//Core/Parameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FilterUnit">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Query/FilterType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//Query/FilterOperationType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Query/QueryElement"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Query/FilterExpression"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Query/FilterUnit"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FilterType">
+      <eLiterals name="DIRECT" literal="DIRECT"/>
+      <eLiterals name="INDIRECT" value="1" literal="INDIRECT"/>
+      <eLiterals name="RECURSIVE" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FilterOperationType">
+      <eLiterals name="NORMAL" literal="NORMAL"/>
+      <eLiterals name="POSITION" value="1" literal="POSITION"/>
+      <eLiterals name="UNIQUE" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Query/QueryElementType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mark" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="QueryElementType">
+      <eLiterals name="NODE" literal="NODE"/>
+      <eLiterals name="LEAF" value="1"/>
+      <eLiterals name="TOKEN" value="2" literal="TOKEN"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FilterExpression" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FilterExpressionComplex" eSuperTypes="#//Query/FilterExpression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+          eType="#//Query/FilterExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Query/FilterExpressionType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FilterExpressionType">
+      <eLiterals name="AND" literal="AND"/>
+      <eLiterals name="OR" value="1" literal="OR"/>
+      <eLiterals name="NOT" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FilterExpressionUnit" eSuperTypes="#//Query/FilterExpression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Query/ExpressionElement"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="global" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//Core/Parameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Query/ExpressionElementType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ExpressionElementType">
+      <eLiterals name="LEAF"/>
+      <eLiterals name="TOKEN" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="OperationType">
+      <eLiterals name="EQUALS"/>
+      <eLiterals name="EXISTS" value="1"/>
+      <eLiterals name="CHECK" value="2"/>
+      <eLiterals name="HASRESULTS" value="4"/>
+      <eLiterals name="STARTS_WITH" value="5" literal="STARTS_WITH"/>
+      <eLiterals name="ENDS_WITH" value="6" literal="ENDS_WITH"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

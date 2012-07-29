@@ -1,0 +1,44 @@
+company "companyA" { 
+	department "departmentA" {
+		manager "managerA" {
+   		 	address "streetManagerA"
+	   		salary 10000.00
+		}
+		employee "employeeA"{
+   	 		address "streetEmployeeA"
+	   		salary 5000.00
+		}
+		employee "employeeB"{
+   	 		address "streetEmployeeB"
+	   		salary 7000.00
+		}
+		employee "employeeC"{
+	   	 	address "streetEmployeeC"
+   			salary 9000.00
+	   		mentor "employeeB"
+		}
+	}
+	
+	department "departmentB" {
+		manager "managerB" {
+   		 	address "streetManagerB"
+	   		salary 10000.00
+	   		mentor "managerA"
+		}
+		employee "employeeD"{
+   	 		address "streetEmployeeD"
+	   		salary 2900.00
+	   		mentor "employeeE"
+		}
+		employee "employeeE"{
+   	 		address "streetEmployeeE"
+	   		salary 6500.00
+		}
+		employee "employeeF"{
+	   	 	address "streetEmployeeF"
+   			salary 8700.00
+	   		mentor "employeeB"
+		}
+	}
+}
+

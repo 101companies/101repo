@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Javier Luis Cánovas Izquierdo 
+     Version: 0.3 
+     Description: This build file incorporates the target for supporting extensions
+-->
+<project name="G2Ge" default="build">
+
+	<!-- GENERAL PROPERTIES -->
+	<!-- Binaries directory -->
+    <property name="binDir" value="gra2mol/bin"/>
+	<!-- Generated files directory -->
+    <property name="genDir" value="gra2mol/gen"/>
+	<!-- Source files directory -->
+    <property name="srcDir" value="gra2mol/src"/>
+	<!-- Extension files directory -->
+    <property name="extDir" value="gra2mol/extensions"/>
+	<!-- Metamodels directory -->
+    <property name="metamodelsDir" value="gra2mol/metamodels"/>
+	<!-- Grammars directory -->
+    <property name="grammarsDir" value="gra2mol/grammars"/>
+	<!-- Templates directory -->
+    <property name="templatesDir" value="lib/templates"/>
+	<!-- Extensions directory -->
+    <property name="extensionsDir" value="gra2mol/extensions"/>
+	
+	<!-- PROPERTIES TO CONVERG G INTO Ge -->
+	<!-- Original grammar -->
+    <property name="grammar" value="${grammarsDir}/Company.g"/>
+	<!-- Enriched grammar -->
+    <property name="grammarE" value="${genDir}/Company.g"/>
+	<!-- Template used to enrich the grammar (dont change) -->
+    <property name="templates" value="${templatesDir}/G2Ge.stg"/>
+
+	<!-- ANTLR OPTIONS TO CONVERT Ge INTO Parser --> 
+	<property name="multithreaded" value="true" /> 
+	<property name="report" value="false" /> 
+	<property name="depend" value="true" /> 
+	<property name="profile" value="false" /> 
+	<property name="lib" location="lib" />
+	<property name="output.antlr" location="${genDir}" /> 
+	
+	<!-- PROPERTIES TO COMPILE THE GENERATED Java code -->
+    <property name="javasrc" value="${genDir}"/>
+    <property name="javaDestDir" value="${binDir}"/>
+	
+	<!-- PROPERTIES TO THE INTERPRETER -->
+	<!-- Name of the grammar -->
+    <property name="grammarName" value="Company"/>
+	<!-- Name of the main rule of the grammar -->
+    <property name="grammarMainRule" value="company"/>
+	<!-- Gra2MoL definition -->
+    <property name="sourceView" value="${srcDir}/transformation.g2m"/>
+	<!-- Path to target metamodel -->
+    <property name="pathMetamodel" value="${metamodelsDir}/Company.ecore"/>
+	<!-- Name of the target metamodel -->
+    <property name="targetMetamodel" value="company"/>
+	<!-- Path to result target model -->
+    <property name="resultInterpreter" value="resultModel.ecore.xmi"/>
+
+    <path id="path.taskdef">
+    	<pathelement location="./lib/ant.jar"/>
+    	<pathelement location="./lib/antlr-3.2.jar"/>
+    	<pathelement location="./lib/org.eclipse.emf.cdo_2.0.0.v200906160459.jar"/>
+    	<pathelement location="./lib/org.eclipse.emf.cdo.common_2.0.0.v200906160459.jar"/>
+    	<pathelement location="./lib/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
+        <pathelement location="./lib/org.eclipse.emf.ecore.xmi_2.5.0.v200906151043.jar"/>
+    	<pathelement location="./lib/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+    	<pathelement location="./lib/org.eclipse.equinox.common_3.5.0.v20090520-1800.jar"/>
+    	<pathelement location="./lib/org.eclipse.net4j_2.0.0.v200906160348.jar"/>
+    	<pathelement location="./lib/org.eclipse.net4j.tcp_2.0.0.v200906160348.jar"/>
+    	<pathelement location="./lib/org.eclipse.net4j.util_2.0.0.v200906160348.jar"/>
+        <pathelement location="./lib/gra2mol.jar"/>
+     	<pathelement location="${binDir}/."/>
+   	</path> 
+		
+	<target name="checkEGrammarExists">
+		<echo>Checking enriched grammar existence...</echo>
+		<condition property="existsCondition">
+	    	<available file="${grammarE}"/>
+	    </condition>
+	</target>
+
+	<target name="checkDates" if="existsCondition">
+		<echo>Checking enriched grammar date...</echo>
+		<uptodate property="phaseOne.required" targetfile="${grammar}" srcfile="${grammarE}"/>
+	</target>
+	
+	<target name="dontExist" unless="existsCondition">
+		<echo>Enriched grammar does not exist</echo>
+		<property name="phaseOne.required" value="true"/>
+	</target>
+	
+	<target name="phaseOne" depends="checkDates, dontExist" if="phaseOne.required"
+		description="This first phase enrich the grammar with semantic actions to create the CSTs. Next it creates
+		the parser with ANTLR tool and compiles it. Finally, the generated parser is fixed.">
+
+		<!-- PHASE ONE -->
+		<echo>Executing Phase 1</echo>
+		<mkdir dir="${binDir}"/>
+		<mkdir dir="${genDir}"/>
+		<!-- The grammar is enriched -->
+		<taskdef name="G2Ge" classname="gts.modernization.util.G2GeAntTask" classpathref="path.taskdef"/>
+			<G2Ge 
+				pathGrammar="${grammar}" 
+				pathResult="${grammarE}" 
+				pathTemplates="${templates}"
+		/>
+		
+		<!-- The parser is built -->
+		<mkdir dir="${genDir}"/>
+		<java classname="org.antlr.Tool" fork="true">
+			<jvmarg value="-Xmx1024m"/>
+			<arg value="${grammarE}"/>
+			<classpath>
+				<path refid="path.taskdef" />
+			</classpath>
+		</java>    
+		
+		<!-- Bug fixed in created parser  -->
+		<replace file="${output.antlr}/${grammarName}Parser.java" token=".getTemplate()" value=""/>
+		
+		<!-- The created parser is compiled -->
+		<mkdir dir="${javaDestDir}"/>
+		<javac srcdir="${javasrc}"
+			destdir="${javaDestDir}"
+			includeantruntime="false"
+		    debug="on"
+		    source="1.6">
+			<classpath>
+				<path refid="path.taskdef" />
+			</classpath>
+		</javac>
+	</target>
+
+	
+	<target name="phaseTwo"
+		depends="phaseOne"
+		description="This second phase executes the interpreter of Gra2MoL">
+				
+		<!-- PHASE TWO -->
+		<echo>Executing Phase 2</echo>
+		<!-- Interpreter of Gra2MoL -->
+		<taskdef name="Gra2MoLDinamicInterpreter" classname="gts.modernization.util.Gra2MoLDinamicInterpreterAntTask" classpathref="path.taskdef"/>
+		<Gra2MoLDinamicInterpreter 
+					pathSourceView="${sourceView}" 
+					pathMetamodel="${pathMetamodel}"
+					targetMetamodel="${targetMetamodel}"
+					className="${grammarName}Test"
+					result="${resultInterpreter}"
+					grammar="${grammarName}" 
+					mainRule="${grammarMainRule}" 
+					caseSensitive="true">
+			<!-- Filter the files to intepreter -->
+			<fileset dir="${srcDir}" includes="*.101"/>
+		</Gra2MoLDinamicInterpreter>
+	</target>
+	
+
+	<target name="checkExtensions">
+		<echo>Checking extensions...</echo>
+		<condition property="extensionsExist">
+			<available file="${extDir}" type="dir"/>
+		</condition>
+	</target>
+	
+	<target name="yesExtension" if="extensionsExist">
+		<echo>Extensions detected.</echo>
+		<echo>Compiling extensions...</echo>
+		<javac srcdir="${extensionsDir}"
+			includeantruntime="false"
+			destdir="${javaDestDir}"
+		    debug="on"
+		    source="1.6">
+			<classpath>
+				<path refid="path.taskdef" />
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="noExtension" unless="extensionsExist">
+		<echo>Extensions not detected.</echo>
+		<property name="compileExtensions.required" value="false"/>
+	</target>
+	
+	<target name="build" depends="checkExtensions, yesExtension, noExtension, checkEGrammarExists, phaseOne, phaseTwo">
+		<tstamp/>
+	</target>	
+
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="gra2mol/bin">
+	   		<include name="*"/>
+			</fileset>
+		</delete>
+		<delete>
+			<fileset dir="gra2mol/gen">
+	   		<include name="*"/>
+			</fileset>
+		</delete>
+		<delete file="CSTModel.ecore"/>
+		<delete file="gra2molModel.ecore"/>
+		<delete file="log.txt"/> 
+		<delete file="resultModel.ecore.xmi"/>
+	</target>
+</project>
