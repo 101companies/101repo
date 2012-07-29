@@ -25,8 +25,9 @@ def validateHTML(fileName):
 	return (errors, warnings)
 
 def validateCSS(fileName):
-	cmd = ('curl -m 10 -sF "file=@' + fileName + ';type=text/css" -F output=json http://jigsaw.w3.org/css-validator/validator')
+	cmd = 'java -jar css-validator.jar --output=json file:' + fileName
 	status, output = commands.getstatusoutput(cmd)
+	output = output.replace('{vextwarning=false, output=json, lang=en, warning=2, medium=all, profile=css3}', '')
 	w3cresult = json.loads(output)
 	errors   = w3cresult['cssvalidation']['result']['errorcount']
 	warnings = w3cresult['cssvalidation']['result']['warningcount']
