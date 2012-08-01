@@ -24,9 +24,10 @@ def validateHTML(fileName):
 			warnings += 1
 	return (errors, warnings)
 
-def validateCSS(fileName):
-	cmd = 'java -jar css-validator.jar --output=json file:' + fileName
+def validateCSS(fileName, x):
+	cmd = 'java -jar ' + x + '/css-validator.jar --output=json file:' + fileName
 	status, output = commands.getstatusoutput(cmd)
+	print output
 	output = output.replace('{vextwarning=false, output=json, lang=en, warning=2, medium=all, profile=css3}', '')
 	w3cresult = json.loads(output)
 	errors   = w3cresult['cssvalidation']['result']['errorcount']
@@ -39,6 +40,9 @@ def validateCSS(fileName):
 
 if len(sys.argv) < 2:
 	sys.exit('Usage: w3cValidator.py filename [-silent] [-negative]')
+
+validatorPy = sys.argv[0]
+x = os.path.dirname(validatorPy)
 
 fileName = sys.argv[1]
 verbose = True
@@ -53,17 +57,17 @@ for arg in sys.argv:
 if verbose:
 	print 'checking ' + fileName
 
-try:
+#try:
 	if fileName.endswith('.css'):
-		(errorCount, warningCount) = validateCSS(fileName)														   #MML = MathML	
+		(errorCount, warningCount) = validateCSS(fileName, x)														   #MML = MathML	
 	elif fileName.endswith('.html') or fileName.endswith('.xhtml') or fileName.endswith('.svg') or fileName.endswith('.mml'):
 		(errorCount, warningCount) = validateHTML(fileName)
 	else:
 		print "didn't recognize file - aborting..."
 		sys.exit(1)	
-except ValueError:
-	print "Something went wrong - answer wasn't a JSON object"
-	sys.exit(1)
+#except ValueError:
+#	print "Something went wrong - answer wasn't a JSON object"
+#	sys.exit(1)
 
 if not negative:
 	if errorCount:
