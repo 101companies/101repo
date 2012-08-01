@@ -1,17 +1,115 @@
 [
   {
     "dirname" : "contributions/csharpAspNetMvc/Scripts",
-    "metadata" : {
-      "assignment" : "external",
-      "comment" : "Third-party JavaScript sources"
-    }
+    "metadata" : [
+      {"assignment" : "external"},
+      {"comment" : "Third-party JavaScript sources"}
+    ]
   },
   {
     "filename" : "#^contributions/csharpAspNetMvc/Scripts/.*\\.js$#",
-    "metadata" : {
-      "dominator" : "geshi",
-      "geshi" : "text",
-      "comment" : "GeSHi cannot handle all JavaScript files."
-    }
+    "metadata" : [
+      {"dominator" : "geshi"},
+      {"geshi" : "text"},
+      {"comment" : "GeSHi cannot handle all JavaScript files."}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.accordion.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.all.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.autocomplete.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.base.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.button.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.core.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.datepicker.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.dialog.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.progressbar.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.resizable.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.selectable.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.slider.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.tabs.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+    "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.theme.css",
+    "metadata" : [
+      {"dominator" : "validator"},
+      {"comment" : "3rd party library - no validation needed"}
+    ]
   }
 ]
