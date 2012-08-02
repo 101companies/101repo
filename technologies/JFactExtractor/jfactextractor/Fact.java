@@ -99,7 +99,7 @@ public class Fact {
             if (str.contains("*/"))
                 blockComment = false;
             
-            if (!blockComment && (str.matches("package .*;") || str.matches("(private|protected|public) class .* \\{")))
+            if (!blockComment && (str.matches("package .*;") || str.matches("(private|protected|public)\\s+class .* \\{")))
                 return buffer.toString().trim();
         } while (true);
     }

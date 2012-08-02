@@ -3,17 +3,18 @@
 import sys
 import json
 
-if len(sys.argv) != 3:
-    sys.exit("Usage: factAnnotation.py sourceFile attribute")
+if len(sys.argv) < 3:
+    sys.exit("Usage: factAnnotation.py sourceFile attribute [attribute ...]")
 
 extractPath = sys.argv[1] + '.extractor.json';
-attribute = sys.argv[2];
 
 factsFile = open(extractPath);
 facts = json.load(factsFile);
 
-for x in facts["attributes"]:
-	if x == attribute:
-		sys.exit(0);
+for decl in facts["declarations"]:
+	for attr in decl["attributes"]:
+		for i in range(2, len(sys.argv)):
+			if attr == sys.argv[i]:
+				exit()
 
 sys.exit(1);

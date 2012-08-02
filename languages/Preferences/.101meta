@@ -1,0 +1,23 @@
+[
+	{
+		"suffix" : ".prefs",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Preferences"}
+		]
+	},
+	{
+		"suffix" : ".properties",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Preferences"}
+		]
+	},
+	{
+		"suffix" : ".ini",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Preferences"}
+		]
+	}
+]

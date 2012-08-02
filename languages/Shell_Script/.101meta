@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".sh",
+		"metadata" : [
+			{"geshi":"text"},
+			{"language":"Shell_Script"}
+		]
+	}
+]

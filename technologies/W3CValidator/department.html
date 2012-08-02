@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<!-- department view -->
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+<body>
+
+<center>
+<script type="text/javascript" src="head.js"></script>
+
+<h3>Department</h3>
+
+<script type="text/javascript" src="company.js"></script>
+<script type="text/javascript" src="departmentController.js"></script>
+<script type="text/javascript" src="departmentView.js"></script>
+<script type="text/javascript" src="departmentModel.js"></script>
+
+<script type="text/javascript">
+
+function process() {
+    var parameters = location.search.substring(1).split("&");
+
+	var temp = parameters[0].split("=");
+	departmentId = unescape(temp[1]);
+}
+process();
+
+</script>
+
+<div id="content" name="content"></div>
+
+<script type="text/javascript">
+model.loadDepartment(departmentId);
+</script>
+</center>
+
+</body>
+</html>
