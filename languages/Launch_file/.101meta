@@ -1,0 +1,9 @@
+[
+	{
+		"suffix" : ".launch",
+		"metadata" : [
+			{"geshi":"xml"},
+			{"language":"Launch_file"}
+		]
+	}
+]

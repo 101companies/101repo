@@ -36,6 +36,15 @@
     ]
   },
   { 
+    "suffix" : ".tokens",
+    "metadata" : [
+      {
+        "outputOf" : "ANTLR",
+        "comment" : "An ANTLR-generated token file"
+      }
+    ]
+  },
+  { 
     "suffix" : ".java",
     "predicate" : "technologies/Java_platform/javaImport.sh",
     "args" : [ "org.antlr.runtime" ],

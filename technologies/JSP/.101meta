@@ -1,0 +1,10 @@
+[
+  {
+	"suffix": ".jsp",
+    "metadata": [
+      {
+        "dependsOn": "JSP"
+      }
+    ]
+  }
+]
