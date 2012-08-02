@@ -1,5 +1,5 @@
 module Company where
-
+-- 
 data Company = Company Name [Department]
     deriving (Eq, Show)
 data Department = Department Name Manager [Department] [Employee]
