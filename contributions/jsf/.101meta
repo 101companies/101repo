@@ -10,5 +10,33 @@
     "metadata" : {
       "assignment" : "external"
     }
+  },
+  {
+    "filename":"contributions/jsf/jsf/web/company.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/jsf/jsf/web/department.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/jsf/jsf/web/employee.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/jsf/jsf/web/template.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
   }
 ]

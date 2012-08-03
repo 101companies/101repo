@@ -40,5 +40,68 @@
     "metadata" : {
       "assignment" : "external"
     }
+  },
+  {
+    "filename":"contributions/seam/view/home.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/showEmployeeDetails.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/showDepartmentDetails.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/showCompanyDetails.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/login.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/listAllCompanies.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/index.html",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/error.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/layout/template.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
   }
 ]
