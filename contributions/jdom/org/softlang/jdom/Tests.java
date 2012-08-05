@@ -31,7 +31,6 @@ public class Tests {
 		double preCutSalary = Total.total(doc);
 		Cut.cut(doc);
 		double newSalary = Total.total(doc);
-		assertEquals(preCutSalary / 2, newSalary, 0.0);
+		assertEquals(preCutSalary/2, newSalary, 0.0);
 	}
-
 }
