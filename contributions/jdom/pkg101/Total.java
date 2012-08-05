@@ -16,7 +16,8 @@ public class Total {
 		// Iterate over all salary elements
 		Iterator<?> iterator = doc.getDescendants(new ElementFilter("salary"));
 		while (iterator.hasNext()) {
-			Double salary = Double.valueOf(((Element)iterator.next()).getText());
+			Element elem = (Element)iterator.next();
+			Double salary = Double.valueOf(elem.getText());
 			total += salary;
 		}
 
