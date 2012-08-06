@@ -24,22 +24,38 @@ namespace CSharpFactExtractor {
 			get { return attributes; }
 		}
 		
+		private void extractAttributes(AstNodeCollection<AttributeSection> attributes) {
+			if (attributes != null)
+				foreach (ICSharpCode.NRefactory.CSharp.AttributeSection a in attributes) {
+					foreach (ICSharpCode.NRefactory.CSharp.Attribute at in a.Attributes)
+						if (!this.attributes.Contains(at.FirstChild.ToString())) {
+							this.attributes.Add(at.FirstChild.ToString());
+						}
+				}
+		}
+		
 		public Declaration(TypeDeclaration typeDeclaration) {
 			className = typeDeclaration.Name;
-				
+			extractAttributes(typeDeclaration.Attributes);
+
+			
 			foreach (AstNode node in typeDeclaration.Children) {
 				ConstructorDeclaration c = node as ConstructorDeclaration;
 				if (c != null) {
+					extractAttributes(c.Attributes);
 					methods.Add(c.Name);
 				}
 				MethodDeclaration d = node as MethodDeclaration;
 				if (d != null) {
-					methods.Add(d.Name);					
+					extractAttributes(d.Attributes);
+					methods.Add(d.Name);
 				}
 				PropertyDeclaration p = node as PropertyDeclaration;
 				if (p != null) {
+					extractAttributes(p.Attributes);
 					methods.Add(p.Name);
 				}
+				
  			}
 		}
 		
@@ -62,7 +78,7 @@ namespace CSharpFactExtractor {
 			for (int i = 0; i < attributesList.Count-1; i++)
 				json += "\t\t\t\t\"" + attributesList[i] + "\",\n";
 			if (attributes.Count > 0)
-				json += "\t\t\t\t\"" + methodsList[attributesList.Count-1] + "\"\n";
+				json += "\t\t\t\t\"" + attributesList[attributesList.Count-1] + "\"\n";
 			json += "\t\t\t]\n";
 			json += "\t\t}";
 			
@@ -74,21 +90,25 @@ namespace CSharpFactExtractor {
 		private String comment = "";
 		private String package = "";
 		private int firstClassStartLine = -1;
-		private int nameSpaceStartLine = -1;
+//		private int nameSpaceStartLine = -1;
 		private SortedSet<String> imports = new SortedSet<String>();
 		private List<Declaration> declarations = new List<Declaration>();
 		private List<Comment> comments = new List<Comment>();
 		
 		public Fact (String filePath) {
 			TextReader reader = File.OpenText(filePath);
-			CSharpParser parser = new CSharpParser();
-			CompilationUnit unit = parser.Parse(reader, filePath);
 			
+			
+			CSharpParser parser = new CSharpParser();
+			
+			CompilationUnit unit = parser.Parse(reader, filePath);
+		
 			this.VisitCompilationUnit(unit);
 			
 			for (int j = 0; j < comments.Count; j++)
 				if (comments[j].StartLocation.Line< firstClassStartLine)
-					comment += comments[j].GetText().Replace("//","").Replace("\n", "\\n");			
+					comment += comments[j].GetText().Replace("//","").Replace("\n", "\\n");
+			
 		}
 		
 		
@@ -96,7 +116,7 @@ namespace CSharpFactExtractor {
 		public override void VisitNamespaceDeclaration (NamespaceDeclaration namespaceDeclaration)
 		{
 			package = namespaceDeclaration.Name;
-			nameSpaceStartLine = namespaceDeclaration.EndLocation.Line;
+			//nameSpaceStartLine = namespaceDeclaration.EndLocation.Line;
 			base.VisitNamespaceDeclaration(namespaceDeclaration);
 		}
 		
@@ -110,6 +130,13 @@ namespace CSharpFactExtractor {
 		{
 			comments.Add(comment);
 			base.VisitComment(comment);
+		}
+		
+		public override void VisitAttribute (ICSharpCode.NRefactory.CSharp.Attribute attribute)
+		{
+			
+//			Console.WriteLine(attribute);
+			base.VisitAttribute (attribute);
 		}
 		
 		public override void VisitTypeDeclaration (TypeDeclaration typeDeclaration)
@@ -147,4 +174,3 @@ namespace CSharpFactExtractor {
 		}
 	}
 }
-
