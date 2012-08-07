@@ -1,0 +1,9 @@
+[
+  {
+    "suffix": ".csproj",
+    "metadata": [
+      { "geshi" : "xml" },
+      { "dependsOn": "MSBuild" }
+    ]
+  }
+]

@@ -3,21 +3,21 @@
 		"suffix" : ".prefs",
 		"metadata" : [
 			{"geshi":"text"},
-			{"language":"Preferences"}
+			{"language":"Settings"}
 		]
 	},
 	{
 		"suffix" : ".properties",
 		"metadata" : [
 			{"geshi":"text"},
-			{"language":"Preferences"}
+			{"language":"Settings"}
 		]
 	},
 	{
 		"suffix" : ".ini",
 		"metadata" : [
 			{"geshi":"text"},
-			{"language":"Preferences"}
+			{"language":"Settings"}
 		]
 	}
 ]
