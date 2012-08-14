@@ -103,5 +103,33 @@
       {"dominator":"validator"},
       {"comment":"JSF should be validated through an own validator"}
     ]
+  },
+  {
+    "filename":"contributions/seam/view/layout/menu.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/layout/sort.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/layout/edit.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
+  },
+  {
+    "filename":"contributions/seam/view/layout/display.xhtml",
+    "metadata":[
+      {"dominator":"validator"},
+      {"comment":"JSF should be validated through an own validator"}
+    ]
   }
 ]
