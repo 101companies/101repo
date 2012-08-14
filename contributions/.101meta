@@ -1,0 +1,15 @@
+[
+   {
+      "suffix" : ".Company",
+      "metadata" : [
+         {"geshi" : "text"},
+         {"nature" : "text"}
+      ]
+   },
+   {
+      "suffix" : ".ser",
+      "metadata" : [
+         {"nature" : "binary"}
+      ]
+   }
+]
