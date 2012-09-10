@@ -1,3 +1,9 @@
 [submodule "contributions/mongodb"]
 	path = contributions/mongodb
 	url = git://github.com/DerDackel/mongo101companies.git
+[submodule "contributions/gremlin-neo4j"]
+	path = contributions/gremlin-neo4j
+	url = git://github.com/DerDackel/gremlin-neo4j101companies.git
+[submodule "contributions/riak"]
+	path = contributions/riak
+	url = git://github.com/DerDackel/riak101companies.git
