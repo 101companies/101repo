@@ -1,7 +1,0 @@
-{ "_id" : { "$oid" : "4fd1ee6f42afa58847224866" }, "address" : { "city" : "Redmond", "country" : "USA" }, "dept" : { "$oid" : "4fd1ea2942afa58847224864" }, "name" : "Craig", "salary" : 123456 }
-{ "_id" : { "$oid" : "4fd1ef6716fc9783d9e779f0" }, "address" : { "city" : "Koblenz", "country" : "Germany" }, "dept" : { "$oid" : "4fd1ea2942afa58847224864" }, "name" : "Ralf", "salary" : 1234 }
-{ "_id" : { "$oid" : "4fd2024f16fc9783d9e779f4" }, "name" : "Ray", "salary" : 234567, "dept" : { "$oid" : "4fd1f78316fc9783d9e779f2" }, "address" : { "city" : "Redmond", "country" : "USA" } }
-{ "_id" : { "$oid" : "4fd2052816fc9783d9e779f5" }, "name" : "Klaus", "salary" : 23456, "dept" : { "$oid" : "4fd1f7b616fc9783d9e779f3" }, "address" : { "city" : "Boston", "country" : "USA" } }
-{ "_id" : { "$oid" : "4fd2073116fc9783d9e779f7" }, "name" : "Karl", "salary" : 2345, "dept" : { "$oid" : "4fd2061816fc9783d9e779f6" }, "address" : { "city" : "Riga", "country" : "Latvia" } }
-{ "_id" : { "$oid" : "4fd2082616fc9783d9e779f8" }, "name" : "Joe", "salary" : 2344, "dept" : { "$oid" : "4fd2061816fc9783d9e779f6" }, "address" : { "city" : "Wifi City", "country" : "The Metaverse" } }
-{ "_id" : { "$oid" : "4fd2097316fc9783d9e779f9" }, "name" : "Erik", "salary" : 12345, "dept" : { "$oid" : "4fd1ea2942afa58847224864" }, "address" : { "city" : "Utrecht", "country" : "Netherlands" } }
