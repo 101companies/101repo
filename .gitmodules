@@ -1,0 +1,3 @@
+[submodule "contributions/mongodb"]
+	path = contributions/mongodb
+	url = git://github.com/DerDackel/mongo101companies.git
