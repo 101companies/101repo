@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import sys
-import simplejson as json
+import json
 
 def cut(object):
     if "salary" in object:
