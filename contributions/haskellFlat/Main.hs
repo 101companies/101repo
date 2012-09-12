@@ -13,9 +13,13 @@ main
       -- Total all salaries
       print $ total employees
 
-      -- Total all salaries per department
-      print $ totalPerDepartment employees
-
       -- Cut all salaries
       print $ total (cut employees)
 
+      -- Total all salaries per department
+      let per = totalPerDepartment employees
+      print $ per
+
+      -- Check the alternative approaches
+      print $ per == totalPerDepartment' employees
+      print $ per == totalPerDepartment'' employees
