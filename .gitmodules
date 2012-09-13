@@ -7,3 +7,6 @@
 [submodule "contributions/riak"]
 	path = contributions/riak
 	url = git://github.com/DerDackel/riak101companies.git
+[submodule "contributions/hbase"]
+	path = contributions/hbase
+	url = git@github.com:DerDackel/hbase101companies.git
