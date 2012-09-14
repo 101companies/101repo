@@ -9,4 +9,4 @@
 	url = git://github.com/DerDackel/riak101companies.git
 [submodule "contributions/hbase"]
 	path = contributions/hbase
-	url = git@github.com:DerDackel/hbase101companies.git
+	url = git://github.com/DerDackel/hbase101companies.git
