@@ -19,3 +19,14 @@ technologies/XMLValidator/obj/x86/Debug/XMLValidator.exe
 technologies/XMLValidator/obj/x86/Debug/XMLValidator.exe.mdb
 technologies/XMLValidator/bin/Debug/XMLValidator.exe
 technologies/XMLValidator/bin/Debug/XMLValidator.exe.mdb
+
+/contributions/linq2Sql/obj
+/contributions/linq2Sql/_ReSharper.linq2Sql
+/contributions/linq2Sql/bin
+/contributions/linq2Sql/packages
+/contributions/sqlServer/Backup
+/contributions/sqlServer/_ReSharper.sqlServer
+/contributions/sqlServer/_UpgradeReport_Files
+/contributions/sqlServer/Debug.publish.xml
+/contributions/sqlServer/obj
+/contributions/sqlServer/sql
