@@ -1,0 +1,32 @@
+[
+  { 
+    "sourcerepo" : "git://github.com/DerDackel/mongo101companies.git",
+    "sourcedir" : "/",
+    "targetdir" : "contributions/mongodb"
+  },
+  { 
+    "sourcerepo" : "git://github.com/DerDackel/gremlin-neo4j101companies.git",
+    "sourcedir" : "/",
+    "targetdir" : "contributions/gremlin-neo4j"
+  },
+  {
+    "sourcerepo" : "git://github.com/DerDackel/riak101companies.git",
+    "sourcedir" : "/",
+    "targetdir" : "contributions/riak"
+  },
+  {
+    "sourcerepo" : "git://github.com/DerDackel/hbase101companies.git",
+    "sourcedir" : "/",
+    "targetdir" : "contributions/hbase"
+  },
+  {
+    "sourcerepo" : "git@github.com:101companies/101datalog.git",
+    "sourcedir" : "/",
+    "targetdir" : "contributions"
+  },
+  {
+    "sourcerepo" : "git@github.com:SoTeSoLa/SoTeSoLa.git",
+    "sourcedir" : "/hackathon/callref-rascal",
+    "targetdir" : "contributions/callref-rascal"
+  }
+]
