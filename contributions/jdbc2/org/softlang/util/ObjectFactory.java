@@ -69,8 +69,7 @@ public class ObjectFactory {
 			deptR.next();
 			dept.setName(deptR.getString("name"));
 			String sqlManager = "SELECT id FROM employee WHERE did = ? AND manager";
-			PreparedStatement pstmtManager = myConnection.getConn()
-			.prepareStatement(sqlManager);
+			PreparedStatement pstmtManager = myConnection.getConn().prepareStatement(sqlManager);
 			pstmtManager.setInt(1, deptId);
 			ResultSet deptManager = pstmtManager.executeQuery();
 			deptManager.next();

@@ -9,10 +9,10 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
 // Use database name
-define('DB_NAME', '101zend');
+define('DB_NAME', 'test');
 
 //Web Site base url
-define('BASE_URL', 'http://127.0.0.1/101php/');
+define('BASE_URL', 'http://127.0.0.1/demo1/php/');
 
 //SERVER REFERER variable
 define('REFERER', $_SERVER['HTTP_REFERER']);
