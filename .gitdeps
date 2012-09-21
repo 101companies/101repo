@@ -22,7 +22,8 @@
   {
     "sourcerepo" : "git@github.com:101companies/101datalog.git",
     "sourcedir" : "/",
-    "targetdir" : "contributions"
+    "targetdir" : "contributions",
+    "mode" : "subdirsonly"
   },
   {
     "sourcerepo" : "git@github.com:SoTeSoLa/SoTeSoLa.git",
