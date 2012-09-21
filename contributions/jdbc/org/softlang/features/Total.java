@@ -19,15 +19,12 @@ public class Total {
 			//
 			String query = 
 				"SELECT salary FROM employee "
-			  + "WHERE cid = (SELECT id FROM company WHERE name = ? AND age < ?);";
+			  + "WHERE cid = (SELECT id FROM company WHERE name = ?);";
 			PreparedStatement stm = connection.prepareStatement(query);
 			stm.setString(1, name);
-
 			ResultSet salaries = stm.executeQuery();
-			
 			while (salaries.next())
 				total += salaries.getDouble("salary");
-			
 		} catch (SQLException e){
 			e.printStackTrace();
 		}

@@ -22,7 +22,7 @@ public class Cut {
 			writer.write(s);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
-		}			
+		}		
 	}
 
 	// Convenient macros for pretty printing
