@@ -20,13 +20,13 @@
     "targetdir" : "contributions/hbase"
   },
   {
-    "sourcerepo" : "git@github.com:101companies/101datalog.git",
+    "sourcerepo" : "https://github.com/101companies/101datalog.git",
     "sourcedir" : "/",
     "targetdir" : "contributions",
     "mode" : "subdirsonly"
   },
   {
-    "sourcerepo" : "git@github.com:SoTeSoLa/SoTeSoLa.git",
+    "sourcerepo" : "https://github.com/SoTeSoLa/SoTeSoLa.git",
     "sourcedir" : "/hackathon/callref-rascal",
     "targetdir" : "contributions/callref-rascal"
   }
