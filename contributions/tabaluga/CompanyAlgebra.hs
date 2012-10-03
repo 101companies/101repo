@@ -10,19 +10,22 @@ data CompanyAlgebra c d e = CompanyAlgebra {
 }
 
 foldCompany :: CompanyAlgebra c d e -> Company -> c
-foldCompany f (Company n ds) = atCompany f n ds'
- where
-  ds' = map (foldDepartment f) ds
+foldCompany f (Company n ds)
+  = atCompany f n ds'
+    where
+      ds' = map (foldDepartment f) ds
 
 foldDepartment :: CompanyAlgebra c d e -> Department -> d
-foldDepartment f (Department n m ds es) = atDepartment f n m' ds' es'
- where
-  m' = foldEmployee f m
-  ds' = map (foldDepartment f) ds
-  es' = map (foldEmployee f) es
+foldDepartment f (Department n m ds es)
+  = atDepartment f n m' ds' es'
+    where
+      m' = foldEmployee f m
+      ds' = map (foldDepartment f) ds
+      es' = map (foldEmployee f) es
 
 foldEmployee :: CompanyAlgebra c d e -> Employee -> e
-foldEmployee f (Employee n w s) = atEmployee f n w s
+foldEmployee f (Employee n w s)
+  = atEmployee f n w s
  
 mapCompany :: CompanyAlgebra Company Department Employee
 mapCompany = CompanyAlgebra {
