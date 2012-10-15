@@ -30,4 +30,10 @@
     "sourcedir" : "/hackathon/callref-rascal",
     "targetdir" : "contributions/callref-rascal"
   }
+  { 
+    "sourcerepo" : "https://github.com/hakanaksu/101android.git",
+    "sourcedir" : "/",
+    "targetdir" : "contributions",
+    "mode" : "subdirsonly"
+  }
 ]
