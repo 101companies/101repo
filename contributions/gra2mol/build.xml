@@ -117,7 +117,8 @@
 		</java>    
 		
 		<!-- Bug fixed in created parser  -->
-		<replace file="${output.antlr}/${grammarName}Parser.java" token=".getTemplate()" value=""/>
+		<!-- With this line commented in, the build process will fail the first time it is executed  -->
+		<!--<replace file="${output.antlr}/${grammarName}Parser.java" token=".getTemplate()" value=""/>-->
 		
 		<!-- The created parser is compiled -->
 		<mkdir dir="${javaDestDir}"/>
