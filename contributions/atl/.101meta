@@ -1,9 +1,2 @@
 [
-  {
-    "filename" : "#^contributions/atl/ransformations/.*\\.asm$#",
-    "metadata" : {
-      "assignment" : "external",
-      "comment" : "The results of the transformation"
-    }
-  }
 ]

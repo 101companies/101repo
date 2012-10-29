@@ -21,6 +21,7 @@
         "outputOf" : "ANTLR",
         "comment" : "An ANTLR-generated parser"
       },
+	  { "assignment" : "generated" },
       { "concept" : "Parser" }
     ]
   },
@@ -32,6 +33,7 @@
         "outputOf" : "ANTLR",
         "comment" : "An ANTLR-generated lexer"
       },
+	  { "assignment" : "generated" },
       { "concept" : "Lexer" }
     ]
   },
@@ -41,7 +43,8 @@
       {
         "outputOf" : "ANTLR",
         "comment" : "An ANTLR-generated token file"
-      }
+      },
+	  { "assignment" : "generated" }
     ]
   },
   { 
