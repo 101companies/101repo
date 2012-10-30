@@ -31,6 +31,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.autocomplete.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -38,6 +39,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.base.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -45,6 +47,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.button.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -52,6 +55,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.core.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -59,6 +63,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.datepicker.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -66,6 +71,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.dialog.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -73,6 +79,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.progressbar.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -80,6 +87,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.resizable.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -87,6 +95,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.selectable.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -94,6 +103,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.slider.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -101,6 +111,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.tabs.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
@@ -108,6 +119,7 @@
   {
     "filename" : "contributions/csharpAspNetMvc/Content/themes/base/jquery.ui.theme.css",
     "metadata" : [
+	  {"assignment" : "external"},
       {"dominator" : "validator"},
       {"comment" : "3rd party library - no validation needed"}
     ]
