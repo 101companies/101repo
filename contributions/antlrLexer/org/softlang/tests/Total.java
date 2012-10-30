@@ -38,4 +38,14 @@ public class Total {
 	public void tesNegative() throws IOException, RecognitionException {
 		total(negSample);
 	}	
+	
+	@Test
+	public void testTokenization() throws IOException {
+		FileInputStream stream = new FileInputStream(posSample);
+        ANTLRInputStream antlr = new ANTLRInputStream(stream);
+        Company lexer = new Company(antlr);
+        Token token;
+        while ((token = lexer.nextToken())!=Token.EOF_TOKEN)
+        	System.out.println(token);
+	}	
 }
