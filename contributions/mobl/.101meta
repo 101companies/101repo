@@ -10,6 +10,7 @@
     "filename" : "contributions/mobl/www/mobl/ui/ios.css",
     "metadata" : [
       {"dominator" : "validator"},
+	  {"assignment" : "external"},
       {"comment" : "3rd party library - no validation needed"}
     ]
   },
@@ -17,6 +18,7 @@
     "filename" : "contributions/mobl/www/mobl/ui/generic.css",
     "metadata" : [
       {"dominator" : "validator"},
+	  {"assignment" : "external"},
       {"comment" : "3rd party library - no validation needed"}
     ]
   }
