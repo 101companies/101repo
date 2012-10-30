@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ATL ATL_ComputeTotalPlugin Transformation Runtime Plug-in
+Bundle-SymbolicName: ATL_ComputeTotalPlugin
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: ATL_ComputeTotalPlugin.Activator
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime, 
+ org.eclipse.m2m.atl.engine.emfvm
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: ATL_ComputeTotalPlugin.files

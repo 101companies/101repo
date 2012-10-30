@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Company xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.company.com">
+	<depts name="Research">
+		<manager salary="123456.0">
+			<person name="Craig" address="Redmond" />
+		</manager>
+		<subunits xsi:type="Employee" salary="62345.0">
+			<person name="Erik" address="Utrecht" />
+		</subunits>
+		<subunits xsi:type="Employee" salary="1234.0">
+			<person name="Ralf" address="Koblenz" />
+		</subunits>
+	</depts>
+	<depts name="Development">
+		<manager salary="234567.0">
+			<person name="Ray" address="Redmond" />
+		</manager>
+		<subunits xsi:type="Dept" name="Dev1">
+			<manager salary="23456.0">
+				<person name="Klaus" address="Boston" />
+			</manager>
+			<subunits xsi:type="Dept" name="Dev1.1">
+				<manager salary="2345.5">
+					<person name="Karl" address="Riga" />
+				</manager>
+				<subunits xsi:type="Employee" salary="2344.0">
+					<person name="Joe" address="Wifi City" />
+				</subunits>
+			</subunits>
+		</subunits>
+	</depts>
+</Company>

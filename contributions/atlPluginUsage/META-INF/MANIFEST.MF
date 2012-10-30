@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ATL_PluginUsage
+Bundle-SymbolicName: ATL_PluginUsage
+Bundle-Version: 1.0.0.qualifier
+Export-Package: .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.m2m.atl.common;bundle-version="3.3.1",
+ org.eclipse.m2m.atl.core;bundle-version="3.3.1",
+ org.eclipse.m2m.atl.core.emf;bundle-version="3.3.1",
+ org.eclipse.m2m.atl.engine.emfvm;bundle-version="3.3.1",
+ ATL_CutPlugin;bundle-version="0.1.0",
+ ATL_ComputeTotalPlugin;bundle-version="0.1.0"

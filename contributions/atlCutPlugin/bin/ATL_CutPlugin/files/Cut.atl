@@ -1,0 +1,15 @@
+-- @path Company=/atl2/Company.ecore
+
+module Cut;
+
+create OUT: Company refining IN: Company;
+
+
+rule Employee2Employee {
+	from
+	 s : Company!Employee 
+	to
+	 t : Company!Employee (
+	   salary <- s.salary / 2  -- cutting
+	 )
+}

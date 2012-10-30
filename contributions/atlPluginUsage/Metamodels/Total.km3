@@ -1,0 +1,13 @@
+package Total {
+
+	class TotalWrapper {
+		attribute total : Double;
+	}
+	
+}
+
+package PrimitiveTypes {
+
+	datatype Double;
+	
+}
