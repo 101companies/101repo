@@ -2,6 +2,8 @@
 // Include configs and functions
 include_once('lib/config.php');
 include_once('lib/functions.php');
+include_once('lib/Db.php');
+$db = new Db();
 
 if (get_input('type') == 'action'){
 	switch(get_input('action')){
@@ -16,7 +18,7 @@ if (get_input('type') == 'action'){
 		case 'employee':
 			include('actions/employee.php');
 			back();
-			break;	
+			break;
 		default:
 			header('Location: '.BASE_URL);
 			die();
@@ -28,35 +30,35 @@ if (get_input('type') == 'action'){
 include_once('template/header.php');
 
 //get Company information
-$companyInfo = getCompany();
-$departments = getDepartment();
+$companyInfo = $db->getCompany();
+$departments = $db->getDepartment();
 
 switch(get_input('section')){
 	case 'department':
 		$did = get_input('did');
-		$total = companyTotal($did);
+		$total = $db->companyTotal($did);
 		if (get_input('add') == 'add'){
 			$pdid = get_input('pdid', 0);
 			include('template/newdepartment.php');
 		}else{
-			$employees = getEmployees($did);
-			$departmentInfo = getDepartment($did);
-			$subDepartments = getDepartment($did, true);
+			$employees = $db->getEmployees($did);
+			$departmentInfo = $db->getDepartment($did);
+			$subDepartments = $db->getDepartment($did, true);
 			include('template/department.php');
 		}
 		break;
 	case 'employee':
 		$eid = get_input('eid');
-		$employeeInfo = getEmployees($eid, true);
+		$employeeInfo = $db->getEmployees($eid, true);
 		if (get_input('add') == 'add'){
 			$employeeInfo = array();
 			$eid = 0;
 			$employeeInfo[0]['did'] = get_input('did');
 		}
 		include('template/employee.php');
-		break;	
+		break;
 	default:
-		$total = companyTotal();
+		$total = $db->companyTotal();
 		include('template/company.php');
 		break;
 }
