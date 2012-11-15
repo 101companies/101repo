@@ -9,7 +9,6 @@
   {
     "filename" : "contributions/xsdDataSet/make.bat",
     "metadata" : {
-      "relevance" : "ignore",
       "comment" : "Batch script to execute the transformation"
     }
   }
