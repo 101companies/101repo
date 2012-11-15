@@ -2,14 +2,14 @@
   {
     "dirname" : "contributions/xsdDataSet/Properties",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "ignore",
       "comment" : "Project properties file"
     }
   },
   {
     "filename" : "contributions/xsdDataSet/make.bat",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "ignore",
       "comment" : "Batch script to execute the transformation"
     }
   }

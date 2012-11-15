@@ -4,7 +4,7 @@
     "metadata" : {
       "partOf" : "ANTLR",
       "comment" : "The ANTLR library, Version $1"
-    } 
+    },
   },
   { 
     "suffix" : ".g",
@@ -21,7 +21,7 @@
         "outputOf" : "ANTLR",
         "comment" : "An ANTLR-generated parser"
       },
-	  { "assignment" : "generated" },
+	  { "relevance" : "derive" },
       { "concept" : "Parser" }
     ]
   },
@@ -33,7 +33,7 @@
         "outputOf" : "ANTLR",
         "comment" : "An ANTLR-generated lexer"
       },
-	  { "assignment" : "generated" },
+	  { "relevance" : "derive" },
       { "concept" : "Lexer" }
     ]
   },
@@ -44,7 +44,7 @@
         "outputOf" : "ANTLR",
         "comment" : "An ANTLR-generated token file"
       },
-	  { "assignment" : "generated" }
+	  { "relevance" : "derive" },
     ]
   },
   { 

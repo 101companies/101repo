@@ -2,7 +2,7 @@
   {
     "dirname" : "contributions/pyjamas/output",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "reuse",
       "comment" : "The resulting web app is completely generated from the sources"
     }
   },

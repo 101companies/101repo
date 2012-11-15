@@ -1,0 +1,20 @@
+[
+  {
+	"basename" : "#^jquery(.*)\\.js$#"
+    "metadata": [
+      { "dependsOn": "Bootstrap" },
+	  { "relevance": "reuse" },
+	  {"dominator" : "validator"},
+	  {"comment" : "3rd party library - no validation needed"}
+    ]
+  },
+  {
+	"basename" : "#^jquery(.*)\\.css$#"
+    "metadata": [
+      { "dependsOn": "Bootstrap" },
+	  { "relevance": "reuse" },
+	  {"dominator" : "validator"},
+	  {"comment" : "3rd party library - no validation needed"}
+    ]
+  }
+]

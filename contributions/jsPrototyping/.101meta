@@ -34,33 +34,5 @@
   "metadata" : {
 	"phrase" : ["Deserialize", "Company"]
   }
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap-responsive.min.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap-responsive.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap.min.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
  }
 ]

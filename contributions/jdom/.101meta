@@ -2,7 +2,7 @@
   {
     "dirname" : "contributions/jdom/jdom",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "reuse",
       "comment" : "JDOM jar and documentation"
     }
   }

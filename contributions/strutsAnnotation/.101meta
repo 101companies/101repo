@@ -2,28 +2,28 @@
   {
     "dirname" : "contributions/strutsAnnotation/src/main/webapp/WEB-INF/content",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "ignore",
       "comment" : "Eclipse settings"
     }
   },
   {
     "dirname" : "contributions/strutsAnnotation/src/main/webapp/table-images",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "ignore",
       "comment" : "Icons for the web application"
     }
   },
   {
     "filename" : "contributions/strutsAnnotation/src/main/resources/log4j.xml",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "ignore",
       "comment" : "log4j configuration"
     }
   },
   {
     "filename" : "contributions/strutsAnnotation/pom.xml",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "ignore",
       "comment" : "Maven project configuration"
     }
   }

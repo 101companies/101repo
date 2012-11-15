@@ -2,7 +2,7 @@
   {
     "dirname" : "contributions/mobl/www",
     "metadata" : {
-      "assignment" : "external",
+      "relevance" : "ignore",
       "comment" : "User interface elements, images"
     }
   },
@@ -10,7 +10,7 @@
     "filename" : "contributions/mobl/www/mobl/ui/ios.css",
     "metadata" : [
       {"dominator" : "validator"},
-	  {"assignment" : "external"},
+	  {"relevance" : "reuse"},
       {"comment" : "3rd party library - no validation needed"}
     ]
   },
@@ -18,7 +18,7 @@
     "filename" : "contributions/mobl/www/mobl/ui/generic.css",
     "metadata" : [
       {"dominator" : "validator"},
-	  {"assignment" : "external"},
+	  {"relevance" : "reuse"},
       {"comment" : "3rd party library - no validation needed"}
     ]
   }

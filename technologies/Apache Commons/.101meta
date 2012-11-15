@@ -18,7 +18,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-beanutils[.]jar$#"
   },
@@ -26,7 +27,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-cli-(.*)[.]jar$#"
   },
@@ -34,7 +36,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-codec(-.*)[.]jar$#"
   },
@@ -42,7 +45,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-collections(-.*)[.]jar$#"
   },
@@ -50,7 +54,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-digester[.]jar$#"
   },
@@ -58,7 +63,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-el-(.*)[.]jar$#"
   },
@@ -66,7 +72,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-httpclient(-.*)[.]jar$#"
   },
@@ -74,7 +81,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-io[.]jar$#"
   },
@@ -82,7 +90,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-lang(-.*)[.]jar$#"
   },
@@ -90,7 +99,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-logging(-.*)[.]jar$#"
   },
@@ -98,7 +108,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-logging-api-(.*)[.]jar$#"
   },
@@ -106,7 +117,8 @@
     "metadata": [
       {
         "dependsOn": "Apache Commons"
-      }
+      },
+	  { "relevance" : "reuse" }
     ],
     "basename": "#^commons-net-(.*)[.]jar$#"
   }

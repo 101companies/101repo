@@ -2,7 +2,7 @@
 	{
 		"filename" : "contributions/xpathAPI/xalan-j_2_7_1/readme.html",
 		"metadata" : [
-			{"assignment" : "external" },
+			{"relevance" : "ignore" },
 			{"dominator" : "validator"},
 			{"comment" : "3rd party HTML file"}
 		]

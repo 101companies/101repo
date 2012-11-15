@@ -3,7 +3,8 @@
     "metadata": [
       {
         "dependsOn": "Eclipse"
-      }
+      },
+	  { "relevance" : "ignore" }
     ],
     "basename": "#^[.]project$#"
   },
@@ -11,8 +12,18 @@
     "metadata": [
       {
         "dependsOn": "Eclipse"
-      }
+      },
+	  { "relevance" : "ignore" }
     ],
     "basename": "#^[.]classpath$#"
+  },
+  {
+    "metadata": [
+      {
+        "dependsOn": "Eclipse"
+      },
+	  { "relevance" : "ignore" }
+    ],
+    "basename": "#^[.]settings$#"
   }
 ]
