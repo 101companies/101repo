@@ -22,8 +22,8 @@
   {
     "sourcerepo": "git://github.com/spgroup/101companies-grails.git",
     "sourcedir" : "/",
-    "targetdir" : "contributions/grails
-  }
+    "targetdir" : "contributions/grails"
+  },
   {
     "sourcerepo" : "https://github.com/101companies/101datalog.git",
     "sourcedir" : "/",
