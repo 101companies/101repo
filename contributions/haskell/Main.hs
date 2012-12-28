@@ -4,10 +4,14 @@ import Company
 import Total
 import Cut
 import Depth
-import SampleCompany
 
 main 
  = do
+
+      -- De-serialize sample company via read
+      txt <- readFile "sampleCompany.txt"
+      let company = read txt
+
       -- Test that show followed by read returns the same company
       print $ company == read (show company)
 
