@@ -3,6 +3,7 @@ module Main where
 import Company
 import Total
 import Cut
+import Depth
 import SampleCompany
 
 main 
@@ -15,3 +16,7 @@ main
 
       -- Cut all salaries
       print $ total (cut company)
+
+      -- Compute depth of department nesting
+      print $ depth company
+
