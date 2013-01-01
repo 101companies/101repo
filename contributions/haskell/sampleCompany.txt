@@ -4,7 +4,7 @@ Company
       (Employee "Craig" "Redmond" 123456)
       []
       [ Employee "Erik" "Utrecht" 12345,
-        Employee "Ralf" "Koblenz" 1234
+        Employee "Ralf" "Koblenz" 123488
       ],
     Department "Development"
       (Employee "Ray" "Redmond" 234567)

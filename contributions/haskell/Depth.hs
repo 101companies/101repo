@@ -2,9 +2,6 @@ module Depth where
 
 import Company
 
-
--- Computing nesting depth of departments
-
 depth :: Company -> Int
 depth (Company _ ds) = max' (map depth' ds)
   where
