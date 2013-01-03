@@ -1,6 +1,6 @@
 # Companies
 
-INSERT INTO company (name) VALUES ("meganalysis"); -- compId = 1
+INSERT INTO company (name) VALUES ("Acme Corporation"); -- compId = 1
 
 # Departments
 
