@@ -4,7 +4,7 @@
     "metadata" : {
       "partOf" : "ANTLR",
       "comment" : "The ANTLR library, Version $1"
-    },
+    }
   },
   { 
     "suffix" : ".g",
@@ -44,7 +44,7 @@
         "outputOf" : "ANTLR",
         "comment" : "An ANTLR-generated token file"
       },
-	  { "relevance" : "derive" },
+      { "relevance" : "derive" }
     ]
   },
   { 
