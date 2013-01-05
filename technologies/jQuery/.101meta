@@ -9,7 +9,7 @@
 		]
 	},
 	{
-		"basename" : "#^jquery(.*)\\.css$#"
+		"basename" : "#^jquery(.*)\\.css$#",
 		"metadata": [
 			{ "dependsOn": "Bootstrap" },
 			{ "relevance": "reuse" },
