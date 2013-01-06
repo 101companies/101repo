@@ -1,0 +1,38 @@
+[
+	{
+		"suffix" : ".java",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "cut" ],
+		"metadata" : {
+			"term" : "Cut",
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"suffix" : ".java",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "cut", "employee" ],
+		"metadata" : {
+			"phrase" : ["Cut", "Employee"],
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"suffix" : ".java",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "cut", "department" ],
+		"metadata" : {
+			"phrase" : ["Cut", "Department"],
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"suffix" : ".java",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "cut", "company" ],
+		"metadata" : {
+			"phrase" : ["Cut", "Company"],
+			"comment" : "based on refinedTokens"
+		}
+	}
+]

@@ -1,47 +1,47 @@
 [
-  {
-	"basename" : "#^bootstrap\\.min\\.js$#"
-    "metadata": [
-      { "dependsOn": "Bootstrap" },
-	  { "relevance": "reuse" },
-	  {"dominator" : "validator"},
-	  {"comment" : "3rd party library - no validation needed"}
-    ]
-  },
-  {
-	"basename" : "#^bootstrap\\.css$#"
-    "metadata": [
-      { "dependsOn": "Bootstrap" },
-	  { "relevance": "reuse" },
-	  {"dominator" : "validator"},
-	  {"comment" : "3rd party library - no validation needed"}
-    ]
-  },
-  {
-	"basename" : "#^bootstrap\\.min\\.css$#"
-    "metadata": [
-      { "dependsOn": "Bootstrap" },
-	  { "relevance": "reuse" },
-	  {"dominator" : "validator"},
-	  {"comment" : "3rd party library - no validation needed"}
-    ]
-  },
-  {
-	"basename" : "#^bootstrap-responsive\\.css$#"
-    "metadata": [
-      { "dependsOn": "Bootstrap" },
-	  { "relevance": "reuse" },
-	  {"dominator" : "validator"},
-	  {"comment" : "3rd party library - no validation needed"}
-    ]
-  },
-  {
-	"basename" : "#^bootstrap-responsive\\.min\\.css$#"
-    "metadata": [
-      { "dependsOn": "Bootstrap" },
-	  { "relevance": "reuse" },
-	  {"dominator" : "validator"},
-	  {"comment" : "3rd party library - no validation needed"}
-    ]
-  }
+	{
+		"basename" : "#^bootstrap\\.min\\.js$#",
+		"metadata": [
+			{ "dependsOn": "Bootstrap" },
+			{ "relevance": "reuse" },
+			{"dominator" : "validator"},
+			{"comment" : "3rd party library - no validation needed"}
+		]
+	},
+	{
+		"basename" : "#^bootstrap\\.css$#",
+		"metadata": [
+			{ "dependsOn": "Bootstrap" },
+			{ "relevance": "reuse" },
+			{"dominator" : "validator"},
+			{"comment" : "3rd party library - no validation needed"}
+		]
+	},
+	{
+		"basename" : "#^bootstrap\\.min\\.css$#",
+		"metadata": [
+			{ "dependsOn": "Bootstrap" },
+			{ "relevance": "reuse" },
+			{"dominator" : "validator"},
+			{"comment" : "3rd party library - no validation needed"}
+		]
+		},
+	{
+		"basename" : "#^bootstrap-responsive\\.css$#",
+		"metadata": [
+		{ "dependsOn": "Bootstrap" },
+		{ "relevance": "reuse" },
+		{"dominator" : "validator"},
+		{"comment" : "3rd party library - no validation needed"}
+		]
+	},
+	{
+		"basename" : "#^bootstrap-responsive\\.min\\.css$#",
+		"metadata": [
+			{ "dependsOn": "Bootstrap" },
+			{ "relevance": "reuse" },
+			{"dominator" : "validator"},
+			{"comment" : "3rd party library - no validation needed"}
+		]
+	}
 ]
