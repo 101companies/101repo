@@ -3,11 +3,17 @@ module CompanyAlgebra where
 import Company
 import Data.Monoid
 
+
+-- An algebra type for companies
+
 data CompanyAlgebra c d e = CompanyAlgebra {
   atCompany :: Name -> [d] -> c,
   atDepartment :: Name -> e -> [d] -> [e] -> d,
   atEmployee :: Name -> Address -> Salary -> e
 }
+
+
+-- A family of fold functions for companies and constituents
 
 foldCompany :: CompanyAlgebra c d e -> Company -> c
 foldCompany f (Company n ds)
@@ -27,12 +33,18 @@ foldEmployee :: CompanyAlgebra c d e -> Employee -> e
 foldEmployee f (Employee n w s)
   = atEmployee f n w s
  
+
+-- An algebra for deep identity
+
 mapCompany :: CompanyAlgebra Company Department Employee
 mapCompany = CompanyAlgebra {
   atCompany = Company,
   atDepartment = Department,
   atEmployee = Employee
 }
+
+
+-- An algebra for deep mconcat of monoid
 
 mconcatCompany ::
     Monoid m 

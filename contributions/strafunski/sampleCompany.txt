@@ -1,10 +1,5 @@
-module SampleCompany where
-
-import Company
-
-company = 
- Company
-  "meganalysis"
+Company
+  "Acme Corporation"
   [ Department "Research" 
       (Employee "Craig" "Redmond" 123456)
       []
@@ -24,4 +19,3 @@ company =
       ]
       []
   ]
-

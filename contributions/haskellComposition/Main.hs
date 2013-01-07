@@ -1,10 +1,10 @@
 module Main where
 
 import Company
+import Align
 import Total
 import Cut
 import Depth
-import Align
 
 main 
  = do
@@ -37,4 +37,3 @@ main
 
       -- Compute depth of department nesting
       print $ depth company
-
