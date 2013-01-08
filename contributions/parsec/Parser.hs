@@ -32,7 +32,7 @@ pFloat = read <$> some (digit <|> char '.') <* spaces
 -- Company-related parsers
 
 pCompany :: P Company
-pCompany = (,)
+pCompany = Company
   <$  pString "company" <*> pLit
   <*  pString "{" <*> many pDepartment <* pString "}"
 

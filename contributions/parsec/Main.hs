@@ -1,28 +1,26 @@
 module Main where
 
 import Company
-import SampleCompany
 import Total
 import Cut
 import Parser
-import Text.Parsec
-import Control.Monad (liftM)
-
-eitherPrint :: Show a => Either ParseError Company -> (Company -> a) -> IO ()
-eitherPrint (Right c) f = print $ f c
-eitherPrint (Left e) _ = print e
 
 main 
  = do
-	-- read sample file and parse content
-	parsedCompany <- liftM parseCompany $
-		readFile "sample.Company"
-		
-	-- Test wether parsing returns the expected company
-	eitherPrint parsedCompany (== company)
+      -- Parse sample company
+      txt <- readFile "sampleCompany.txt"
+      let either = parseCompany txt
 
-	-- Total all salaries
-	eitherPrint parsedCompany total
+      -- Handle parse error
+      case either of 
+       (Left e) -> print e
+       (Right company) -> do
 
-	-- Cut and total all salaries
-	eitherPrint parsedCompany $ total.cut
+        -- Total all salaries
+        print $ total company
+
+        -- Cut all salaries
+        let company' = cut company
+
+        -- Total after cut
+        print $ total company'

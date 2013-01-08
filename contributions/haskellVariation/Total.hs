@@ -3,13 +3,13 @@ module Total where
 import Company
 
 total :: Company -> Float
-total (Company n ds) = sum (map dep ds)
+total (Company _ ds) = sum (map totalD ds)
   where
-   dep :: Department -> Float
-   dep (Department _ m sus) = sum (emp m : map subunit sus)
-     where
-       emp :: Employee -> Float
-       emp (Employee _ _ s) = s
-       subunit :: SubUnit -> Float
-       subunit (EUnit e) = emp e
-       subunit (DUnit d) = dep d
+    totalD :: Department -> Float
+    totalD (Department _ m sus) = sum (totalE m : map totalS sus)
+      where
+        totalE :: Employee -> Float
+        totalE (Employee _ _ s) = s
+        totalS :: SubUnit -> Float
+        totalS (EUnit e) = totalE e
+        totalS (DUnit d) = totalD d
