@@ -26,7 +26,7 @@
   },
   {
     "sourcerepo" : "https://github.com/101companies/101haskell.git",
-    "sourcedir" : "contributions",
+    "sourcedir" : "/contributions",
     "targetdir" : "contributions",
     "mode" : "subdirsonly"
   },
