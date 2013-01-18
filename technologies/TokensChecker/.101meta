@@ -76,7 +76,7 @@
 		"predicate" : "technologies/TokensChecker/tokensChecker.py",
 		"args" : [ "mentor" ],
 		"metadata" : {
-			"term" : ["Mentor"],
+			"term" : "Mentor",
 			"comment" : "based on refinedTokens"
 		}
 	},
@@ -85,7 +85,7 @@
 		"predicate" : "technologies/TokensChecker/tokensChecker.py",
 		"args" : [ "mentee" ],
 		"metadata" : {
-			"term" : ["Mentee"],
+			"term" : "Mentee",
 			"comment" : "based on refinedTokens"
 		}
 	}
