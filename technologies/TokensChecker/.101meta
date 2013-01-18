@@ -1,15 +1,15 @@
 [
 	{
-		"suffix" : ".java",		
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
 		"predicate" : "technologies/TokensChecker/tokensChecker.py",
 		"args" : [ "cut" ],
 		"metadata" : {
 			"term" : "Cut",
-			"comment" : "based on refinedTokens"
+			"comment" : "based on refinedTokens bububu"
 		}
 	},
 	{
-		"suffix" : ".java",		
+		"basename" : "##(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
 		"predicate" : "technologies/TokensChecker/tokensChecker.py",
 		"args" : [ "cut", "employee" ],
 		"metadata" : {
@@ -18,7 +18,7 @@
 		}
 	},
 	{
-		"suffix" : ".java",		
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
 		"predicate" : "technologies/TokensChecker/tokensChecker.py",
 		"args" : [ "cut", "department" ],
 		"metadata" : {
@@ -27,11 +27,65 @@
 		}
 	},
 	{
-		"suffix" : ".java",		
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
 		"predicate" : "technologies/TokensChecker/tokensChecker.py",
 		"args" : [ "cut", "company" ],
 		"metadata" : {
 			"phrase" : ["Cut", "Company"],
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "total" ],
+		"metadata" : {
+			"term" : "total",
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "total", "employee" ],
+		"metadata" : {
+			"phrase" : ["Total", "Employee"],
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "total", "department" ],
+		"metadata" : {
+			"phrase" : ["Total", "Department"],
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "total", "company" ],
+		"metadata" : {
+			"phrase" : ["Total", "Company"],
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "mentor" ],
+		"metadata" : {
+			"term" : ["Mentor"],
+			"comment" : "based on refinedTokens"
+		}
+	},
+	{
+		"basename" : "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",		
+		"predicate" : "technologies/TokensChecker/tokensChecker.py",
+		"args" : [ "mentee" ],
+		"metadata" : {
+			"term" : ["Mentee"],
 			"comment" : "based on refinedTokens"
 		}
 	}

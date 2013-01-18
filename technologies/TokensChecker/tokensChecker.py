@@ -10,7 +10,10 @@ tokensExt = '.refinedTokens.json'
 toReplace = '../../../101results/101repo/'
 
 fileName = sys.argv[len(sys.argv)-1].replace(toReplace, '') + tokensExt
-refined = json.load(open(os.path.join(const101.tRoot, fileName)))
+filePath = os.path.join(const101.tRoot, fileName)
+if not os.path.exists(filePath):
+	sys.exit(1)
+refined = json.load(open(filePath))
 
 terms = []
 for i in range(1, len(sys.argv)-1):
