@@ -1,9 +1,0 @@
-[
-  {
-    "dirname" : "contributions/jdom/jdom",
-    "metadata" : {
-      "relevance" : "reuse",
-      "comment" : "JDOM jar and documentation"
-    }
-  }
-]
