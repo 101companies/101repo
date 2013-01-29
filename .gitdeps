@@ -31,6 +31,12 @@
     "mode" : "subdirsonly"
   },
   {
+    "sourcerepo" : "https://github.com/101companies/101simplejava.git",
+    "sourcedir" : "/contributions",
+    "targetdir" : "contributions",
+    "mode" : "subdirsonly"
+  },
+  {
     "sourcerepo" : "https://github.com/101companies/101datalog.git",
     "sourcedir" : "/",
     "targetdir" : "contributions",
