@@ -20,6 +20,16 @@ public class Fragment {
         @SerializedName("overload")
         private String overload;
 
+	public Fragment() { }
+
+	public Fragment(String fragmentDescription) {
+		String[] splitted = fragmentDescription.split("/");
+		classname = splitted[0];
+		method = splitted[1];
+		if (splitted.length > 2)
+			overload = splitted[2];	
+	}
+
         public boolean isOverloaded() {
             return overload != null;
         }

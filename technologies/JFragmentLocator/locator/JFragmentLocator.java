@@ -46,20 +46,13 @@ public class JFragmentLocator {
     private static HashMap<String, Tupel> methods = new HashMap<String, Tupel>(); 
     private static Gson gson = new Gson();
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws ParseException, IOException {
-        if (args.length != 3) {
-            System.out.println("usage: inputFile (.java) fragmentFile (.json) outputFile");
-            System.exit(1);
-        }
-            
+    private static void fileBased(String args[]) throws ParseException, IOException {
         String inputFile = args[0];
         String fragmentFile = args[1];
         String ouputFile = args[2];
         
-        fragment = gson.fromJson(new JsonReader(new FileReader(fragmentFile)), Fragment.class);
+	JsonReader r = new JsonReader(new FileReader(fragmentFile));
+        fragment = gson.fromJson(r, Fragment.class);
         
         parse(inputFile);
         
@@ -68,6 +61,40 @@ public class JFragmentLocator {
             methodName += fragment.getOverload();
         
         writeOutput(ouputFile, gson.toJson(methods.get(methodName)));
+    }
+
+    private static void consoleBased(String args[]) throws ParseException, IOException {
+        String inputFile = args[0];
+        String fragmentDescription = args[1];
+        
+	
+        fragment = new Fragment(fragmentDescription);
+        
+        parse(inputFile);
+        
+        String methodName = fragment.getMethod();
+        if (fragment.isOverloaded())
+            methodName += fragment.getOverload();
+        
+        System.out.println(gson.toJson(methods.get(methodName)));
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws ParseException, IOException {
+	switch (args.length) {
+		case 2:
+			consoleBased(args);
+			break;
+		case 3: 
+			fileBased(args);
+			break;
+		default:
+			System.out.println("usage: inputFile (.java) fragmentFile (.json) outputFile");
+            		System.out.println("alt usage: inputFile (.java) fragmentDescription");
+            		System.exit(1);
+	}       	
     }
     
     private static void parse(String inputFile) throws ParseException, IOException {

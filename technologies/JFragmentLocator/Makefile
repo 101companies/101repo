@@ -11,6 +11,10 @@ test:
 	./locator.py HelloWorld.java fragment.json lines.json
 	diff baseline.json lines.json
 
+othertest:
+	./locator.py HelloWorld.java HelloWorld/main
+
+
 clean: 
 	rm -f locator/*.class
 	rm -f lines.json
