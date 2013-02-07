@@ -8,6 +8,9 @@ test:
 	./locator.py Company.xsd fragment.xpath lines.json
 	diff baseline.json lines.json
 
+othertest: 
+	./locator.py Company.xsd /xs:schema/xs:element		
+
 clean: 
 	rm -f locator/*.class
 	rm -f lines.json

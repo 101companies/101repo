@@ -25,21 +25,27 @@ public class XmlFragmentLocator {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws  SAXException, ParserConfigurationException, IOException, XPathExpressionException {      
-       if (args.length != 3) {
+       if (args.length != 3 && args.length != 2) {
            System.out.println("Usage: inputFile fragmentFile outputFile");
+           System.out.println("Usage (alternative): inputFile fragmentDescription");
            System.exit(1);
        }
-        
+
+       String outputFile = "";        
        String inputFile = args[0];
        String fragmentFile = args[1];
-       String outputFile = args[2];
+       if (args.length == 3)
+              outputFile = args[2];
        
        LocatorXMLParser xmlParser = new LocatorXMLParser(new File(inputFile));
        Document doc = xmlParser.getDocument();
        //Document doc = domParse(new File(inputFile));
        
-       String xPathQuery = readFragment(new File(fragmentFile));
-       
+       String xPathQuery;
+       if (args.length == 3)
+              xPathQuery = readFragment(new File(fragmentFile));
+       else
+              xPathQuery = fragmentFile;	
 
        XPath xPath = XPathFactory.newInstance().newXPath();
        xPath.setNamespaceContext(new ResolverContext(doc.getDocumentElement()));
@@ -52,7 +58,10 @@ public class XmlFragmentLocator {
            Element lastElement  = (Element)nodes.item(nodes.getLength()-1);
            Tupel t = new Tupel(xmlParser.getLineRange(firstElement).getFrom(),
                                xmlParser.getLineRange(lastElement).getTo());
-           writeOutput(new File(outputFile), t.toJSON());
+           if (args.length == 3)
+                  writeOutput(new File(outputFile), t.toJSON());
+           else
+                  System.out.println(t.toJSON());
        } else {
            System.out.println("Query didn't return an element - the query must at least return 1 element");
            System.exit(1);
