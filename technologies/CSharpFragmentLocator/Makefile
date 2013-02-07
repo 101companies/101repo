@@ -1,10 +1,17 @@
-generate:
-	dmcs -target:exe -out:bin/locator.exe -lib:./bin -reference:Mono.Cecil.dll -reference:ICSharpCode.NRefactory.dll -reference:ICSharpCode.NRefactory.CSharp.dll -reference:ICSharpCode.NRefactory.Tests.dll -reference:ICSharpCode.NRefactory.Xml.dll ./locator/Main.cs ./locator/JSON.cs ./locator/LocatorCSharpParser.cs
+build:
+	make locator/bin
+
+locator/bin: locator/*.cs Makefile
+	xbuild locator/locator.csproj
 
 test:
-	mono bin/Locator.exe Company.cs fragment.json lines.json
+	mono locator/bin/Debug/locator.exe Company.cs fragment.json lines.json
 	diff -w baseline.json lines.json	
 
+fragmentDescriptionTest:
+	./locator.py Company.cs Cut/0
+
 clean:
-	rm bin/locator.exe
-	rm lines.json
+	rm -rf locator/bin
+	rm -rf locator/obj
+	rm -f lines.json
