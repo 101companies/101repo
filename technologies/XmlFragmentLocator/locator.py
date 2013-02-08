@@ -14,7 +14,7 @@ status, output = commands.getstatusoutput(command)
 if (status):
     print output
     sys.exit(status)
-command = "java -classpath " + x + " locator/XmlFragmentLocator " + sys.argv[1] + " " + sys.argv[2]
+command = "java -classpath " + x + " locator/XmlFragmentLocator " + sys.argv[1] + " " + sys.argv[2].replace("'", "\\'")
 if len(sys.argv) == 4:
     command += " " + sys.argv[3]
 status, output = commands.getstatusoutput(command)
