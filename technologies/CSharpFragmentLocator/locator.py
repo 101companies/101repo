@@ -14,12 +14,13 @@ status, output = commands.getstatusoutput(command)
 if (status):
     print output
     sys.exit(status)
-command = "mono locator/bin/Debug/locator.exe " + sys.argv[1] + " " + sys.argv[2]
+command = "mono " + x + "/locator/bin/Debug/locator.exe " + sys.argv[1] + " " + sys.argv[2]
 if len(sys.argv) == 4:
     command += " " + sys.argv[3]
 status, output = commands.getstatusoutput(command)
-if (status):
-    print output
-    sys.exit(status)
-
 print output
+#if (status):
+#    print output
+#    sys.exit(status)
+
+#print output

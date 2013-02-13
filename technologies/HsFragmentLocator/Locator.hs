@@ -1,12 +1,18 @@
 import System.Environment
+import System.IO
+import System.Directory
 import Text.JSON
 import Text.JSON.String
 import System.Exit
 import Language.Haskell.Syntax
 import Language.Haskell.Parser
-
+import qualified Data.Text as T
+	
 main = do
-   [hsfile,jsonfile,linesfile] <- getArgs
+   args <- getArgs
+   let len = length args
+   let hsfile = head args
+   let jsonfile = (!!) args 1
    hsstring <- readFile hsfile
    let hsstring' = hsstring ++ "\nfoo = 42" -- See comment.
 
@@ -26,7 +32,13 @@ day.
        putStrLn "Haskell parser failed."
        abnormal
      (ParseOk (HsModule _ _ _ _ decls)) -> do
-       jsonstring <- readFile jsonfile
+       fileExists <- doesFileExist jsonfile
+       jsonstring <- if fileExists
+           then do content <- readFile jsonfile
+                   return content
+           else do let parts = T.splitOn (T.pack "/") (T.pack jsonfile)
+                   let str = "{ \""++ T.unpack ((!!) parts 0) ++ "\" : \"" ++ T.unpack ((!!) parts 1) ++ "\"}"
+                   return str
        case runGetJSON readJSObject jsonstring of
          (Left _) -> do 
            putStrLn "JSON parser failed."
@@ -38,7 +50,9 @@ day.
                abnormal
              Just fromto -> do
                let lines = showJSValue fromto ""
-               writeFile linesfile lines
+               if len == 2
+                  then putStrLn lines
+                  else writeFile ((!!) args 2) lines
 
 
 -- Helper for abnormal exit
