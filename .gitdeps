@@ -52,5 +52,11 @@
     "sourcedir" : "/",
     "targetdir" : "contributions",
     "mode" : "subdirsonly"
+  },
+  {
+    "sourcerepo" : "git@github.com:ar7u9o/101repo.git",
+    "sourcedir" : "/contributions",
+    "targetdir" : "contributions",
+    "mode" : "subdirsonly"
   }
 ]
