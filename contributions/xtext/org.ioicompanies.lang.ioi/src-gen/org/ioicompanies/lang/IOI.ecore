@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="iOI"
-    nsURI="http://www.ioicompanies.org/lang/IOI" nsPrefix="iOI">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="iOI" nsURI="http://www.ioicompanies.org/lang/IOI" nsPrefix="iOI">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="companies" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Company"
-        containment="true"/>
+        eType="#//Company" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Employee">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="works_on" eType="ecore:EClass platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Position"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="works_on" eType="#//Position"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Company">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="positions" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Position"
-        containment="true"/>
+        eType="#//Position" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="departments" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Department"
-        containment="true"/>
+        eType="#//Department" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Department">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="ecore:EClass platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Manager"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="#//Manager"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Employee"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sub_department" eType="ecore:EClass platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Department"
+        eType="#//Employee" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub_department" eType="#//Department"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Position">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="platform:/resource/org.ioicompanies.lang.ioi/src-gen/org/ioicompanies/lang/IOI.ecore#//Employee"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="#//Employee"/>
 </ecore:EPackage>

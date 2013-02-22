@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.0.0";visibility:=reexport,
 Import-Package: org.apache.log4j,
  org.apache.commons.logging,
  org.eclipse.xtext.xbase.lib,
- org.eclipse.xtext.xtend2.lib
+ org.eclipse.xtend2.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.ioicompanies.lang,
  org.ioicompanies.lang.services,
@@ -30,4 +30,7 @@ Export-Package: org.ioicompanies.lang,
  org.ioicompanies.lang.serializer,
  org.ioicompanies.lang.parser.antlr,
  org.ioicompanies.lang.parser.antlr.internal,
- org.ioicompanies.lang.validation
+ org.ioicompanies.lang.validation,
+ org.ioicompanies.lang.scoping,
+ org.ioicompanies.lang.generator,
+ org.ioicompanies.lang.formatting

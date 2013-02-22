@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ioicompanies.lang.iOI.impl;
 
@@ -44,239 +41,232 @@ import org.ioicompanies.lang.iOI.Position;
 public class CompanyImpl extends MinimalEObjectImpl.Container implements Company
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getPositions() <em>Positions</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPositions() <em>Positions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPositions()
-   * @generated
-   * @ordered
-   */
+	 * @see #getPositions()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Position> positions;
 
   /**
-   * The cached value of the '{@link #getDepartments() <em>Departments</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDepartments() <em>Departments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDepartments()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDepartments()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Department> departments;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected CompanyImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return IOIPackage.Literals.COMPANY;
-  }
+		return IOIPackage.Literals.COMPANY;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.COMPANY__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.COMPANY__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Position> getPositions()
   {
-    if (positions == null)
-    {
-      positions = new EObjectContainmentEList<Position>(Position.class, this, IOIPackage.COMPANY__POSITIONS);
-    }
-    return positions;
-  }
+		if (positions == null) {
+			positions = new EObjectContainmentEList<Position>(Position.class, this, IOIPackage.COMPANY__POSITIONS);
+		}
+		return positions;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Department> getDepartments()
   {
-    if (departments == null)
-    {
-      departments = new EObjectContainmentEList<Department>(Department.class, this, IOIPackage.COMPANY__DEPARTMENTS);
-    }
-    return departments;
-  }
+		if (departments == null) {
+			departments = new EObjectContainmentEList<Department>(Department.class, this, IOIPackage.COMPANY__DEPARTMENTS);
+		}
+		return departments;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case IOIPackage.COMPANY__POSITIONS:
-        return ((InternalEList<?>)getPositions()).basicRemove(otherEnd, msgs);
-      case IOIPackage.COMPANY__DEPARTMENTS:
-        return ((InternalEList<?>)getDepartments()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case IOIPackage.COMPANY__POSITIONS:
+				return ((InternalEList<?>)getPositions()).basicRemove(otherEnd, msgs);
+			case IOIPackage.COMPANY__DEPARTMENTS:
+				return ((InternalEList<?>)getDepartments()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case IOIPackage.COMPANY__NAME:
-        return getName();
-      case IOIPackage.COMPANY__POSITIONS:
-        return getPositions();
-      case IOIPackage.COMPANY__DEPARTMENTS:
-        return getDepartments();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case IOIPackage.COMPANY__NAME:
+				return getName();
+			case IOIPackage.COMPANY__POSITIONS:
+				return getPositions();
+			case IOIPackage.COMPANY__DEPARTMENTS:
+				return getDepartments();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case IOIPackage.COMPANY__NAME:
-        setName((String)newValue);
-        return;
-      case IOIPackage.COMPANY__POSITIONS:
-        getPositions().clear();
-        getPositions().addAll((Collection<? extends Position>)newValue);
-        return;
-      case IOIPackage.COMPANY__DEPARTMENTS:
-        getDepartments().clear();
-        getDepartments().addAll((Collection<? extends Department>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case IOIPackage.COMPANY__NAME:
+				setName((String)newValue);
+				return;
+			case IOIPackage.COMPANY__POSITIONS:
+				getPositions().clear();
+				getPositions().addAll((Collection<? extends Position>)newValue);
+				return;
+			case IOIPackage.COMPANY__DEPARTMENTS:
+				getDepartments().clear();
+				getDepartments().addAll((Collection<? extends Department>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case IOIPackage.COMPANY__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case IOIPackage.COMPANY__POSITIONS:
-        getPositions().clear();
-        return;
-      case IOIPackage.COMPANY__DEPARTMENTS:
-        getDepartments().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case IOIPackage.COMPANY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case IOIPackage.COMPANY__POSITIONS:
+				getPositions().clear();
+				return;
+			case IOIPackage.COMPANY__DEPARTMENTS:
+				getDepartments().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case IOIPackage.COMPANY__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case IOIPackage.COMPANY__POSITIONS:
-        return positions != null && !positions.isEmpty();
-      case IOIPackage.COMPANY__DEPARTMENTS:
-        return departments != null && !departments.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case IOIPackage.COMPANY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case IOIPackage.COMPANY__POSITIONS:
+				return positions != null && !positions.isEmpty();
+			case IOIPackage.COMPANY__DEPARTMENTS:
+				return departments != null && !departments.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //CompanyImpl

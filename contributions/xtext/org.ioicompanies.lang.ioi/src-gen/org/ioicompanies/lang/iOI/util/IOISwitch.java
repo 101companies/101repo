@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ioicompanies.lang.iOI.util;
 
@@ -28,211 +25,203 @@ import org.ioicompanies.lang.iOI.*;
 public class IOISwitch<T> extends Switch<T>
 {
   /**
-   * The cached model package
-   * <!-- begin-user-doc -->
+	 * The cached model package
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected static IOIPackage modelPackage;
 
   /**
-   * Creates an instance of the switch.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public IOISwitch()
   {
-    if (modelPackage == null)
-    {
-      modelPackage = IOIPackage.eINSTANCE;
-    }
-  }
+		if (modelPackage == null) {
+			modelPackage = IOIPackage.eINSTANCE;
+		}
+	}
 
   /**
-   * Checks whether this is a switch for the given package.
-   * <!-- begin-user-doc -->
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
-   * @return whether this is a switch for the given package.
-   * @generated
-   */
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
   @Override
   protected boolean isSwitchFor(EPackage ePackage)
   {
-    return ePackage == modelPackage;
-  }
+		return ePackage == modelPackage;
+	}
 
   /**
-   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-   * <!-- begin-user-doc -->
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the first non-null result returned by a <code>caseXXX</code> call.
-   * @generated
-   */
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
   @Override
   protected T doSwitch(int classifierID, EObject theEObject)
   {
-    switch (classifierID)
-    {
-      case IOIPackage.MODEL:
-      {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case IOIPackage.EMPLOYEE:
-      {
-        Employee employee = (Employee)theEObject;
-        T result = caseEmployee(employee);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case IOIPackage.COMPANY:
-      {
-        Company company = (Company)theEObject;
-        T result = caseCompany(company);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case IOIPackage.DEPARTMENT:
-      {
-        Department department = (Department)theEObject;
-        T result = caseDepartment(department);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case IOIPackage.POSITION:
-      {
-        Position position = (Position)theEObject;
-        T result = casePosition(position);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case IOIPackage.MANAGER:
-      {
-        Manager manager = (Manager)theEObject;
-        T result = caseManager(manager);
-        if (result == null) result = caseEmployee(manager);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      default: return defaultCase(theEObject);
-    }
-  }
+		switch (classifierID) {
+			case IOIPackage.MODEL: {
+				Model model = (Model)theEObject;
+				T result = caseModel(model);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case IOIPackage.EMPLOYEE: {
+				Employee employee = (Employee)theEObject;
+				T result = caseEmployee(employee);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case IOIPackage.COMPANY: {
+				Company company = (Company)theEObject;
+				T result = caseCompany(company);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case IOIPackage.DEPARTMENT: {
+				Department department = (Department)theEObject;
+				T result = caseDepartment(department);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case IOIPackage.POSITION: {
+				Position position = (Position)theEObject;
+				T result = casePosition(position);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case IOIPackage.MANAGER: {
+				Manager manager = (Manager)theEObject;
+				T result = caseManager(manager);
+				if (result == null) result = caseEmployee(manager);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
+		}
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseModel(Model object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Employee</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Employee</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Employee</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Employee</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseEmployee(Employee object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Company</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Company</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Company</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Company</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseCompany(Company object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Department</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Department</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Department</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Department</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseDepartment(Department object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Position</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Position</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Position</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Position</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T casePosition(Position object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Manager</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Manager</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Manager</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Manager</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseManager(Manager object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch, but this is the last case anyway.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
   @Override
   public T defaultCase(EObject object)
   {
-    return null;
-  }
+		return null;
+	}
 
 } //IOISwitch

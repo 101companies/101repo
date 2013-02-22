@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<iOI:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:iOI="http://www.ioicompanies.org/lang/IOI" name="example">
+  <companies name="ACME">
+    <positions name="managing_as_hell"/>
+    <positions name="working_as_hell"/>
+    <positions name="slacking_as_hell"/>
+    <departments name="Concrete">
+      <manager name="Karl" salary="1">
+        <works_on href="text.ioi#xtextLink_::0.1.0.2.0.1::2::/11"/>
+      </manager>
+      <employees name="Heinz" salary="1">
+        <works_on href="text.ioi#xtextLink_::0.1.0.2.0.2.0::2::/11"/>
+      </employees>
+      <employees name="ZwoDrei" salary="1">
+        <works_on href="text.ioi#xtextLink_::0.1.0.2.0.2.1::2::/11"/>
+      </employees>
+      <employees name="VierNull" salary="10000">
+        <works_on href="text.ioi#xtextLink_::0.1.0.2.0.2.2::2::/11"/>
+      </employees>
+    </departments>
+    <departments name="Explosives">
+      <manager name="Karl" salary="6">
+        <works_on href="text.ioi#xtextLink_::0.1.0.2.1.1::2::/11"/>
+      </manager>
+      <employees name="Heinz" salary="5">
+        <works_on href="text.ioi#xtextLink_::0.1.0.2.1.2.0::2::/11"/>
+      </employees>
+      <sub_department name="TNT">
+        <manager name="Karl" salary="1">
+          <works_on href="text.ioi#xtextLink_::0.1.0.2.1.3.1::2::/11"/>
+        </manager>
+        <employees name="Heinz" salary="1">
+          <works_on href="text.ioi#xtextLink_::0.1.0.2.1.3.2.0::2::/11"/>
+        </employees>
+        <employees name="ZwoDrei" salary="1">
+          <works_on href="text.ioi#xtextLink_::0.1.0.2.1.3.2.1::2::/11"/>
+        </employees>
+      </sub_department>
+    </departments>
+  </companies>
+  <companies name="BACME">
+    <positions name="managing_as_hell"/>
+    <positions name="working_as_hell"/>
+    <positions name="slacking_as_hell"/>
+    <departments name="Concrete">
+      <manager name="Karl" salary="1">
+        <works_on href="text.ioi#xtextLink_::0.1.1.2.0.1::2::/11"/>
+      </manager>
+      <employees name="Heinz" salary="1">
+        <works_on href="text.ioi#xtextLink_::0.1.1.2.0.2.0::2::/11"/>
+      </employees>
+      <employees name="ZwoDrei" salary="1">
+        <works_on href="text.ioi#xtextLink_::0.1.1.2.0.2.1::2::/11"/>
+      </employees>
+      <employees name="VierNull" salary="1">
+        <works_on href="text.ioi#xtextLink_::0.1.1.2.0.2.2::2::/11"/>
+      </employees>
+    </departments>
+  </companies>
+</iOI:Model>

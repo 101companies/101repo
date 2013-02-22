@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ioicompanies.lang.iOI.impl;
 
@@ -22,24 +19,24 @@ import org.ioicompanies.lang.iOI.Manager;
 public class ManagerImpl extends EmployeeImpl implements Manager
 {
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ManagerImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return IOIPackage.Literals.MANAGER;
-  }
+		return IOIPackage.Literals.MANAGER;
+	}
 
 } //ManagerImpl
