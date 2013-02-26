@@ -20,16 +20,13 @@ data MyData = MyData1 | MyData2
 newtype MyNewtype = MyNewtype ()
 
 -- A function without signature and with just one equation
-
 f 'a' = 1
 
 -- A function with signature and with just one equation
-
 g :: Char -> Int
 g 'a' = 1
 
 -- A function with signature and with more than one equation
-
 h :: Char -> Int
 h 'a' = 1
 h 'b' = 2

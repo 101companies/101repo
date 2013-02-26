@@ -1,12 +1,10 @@
 import System.Environment
-import System.IO
-import System.Directory
 import Text.JSON
-import Text.JSON.String
 import System.Exit
 import Language.Haskell.Syntax
 import Language.Haskell.Parser
 import qualified Data.Text as T
+
 	
 main = do
    -- 1 arg for "/"-based fragment selector
@@ -29,7 +27,7 @@ main = do
              abnormal
            (ParseOk m) -> do
              -- Walk parsed input for fragment location
-             case walkModule classifier name m of
+             case walkModule (lines' input) classifier name m of
                Nothing -> do
                  putStrLn "Fragment location failed."
                  abnormal
@@ -39,61 +37,17 @@ main = do
                    showJSValue (
                      JSObject (
                        toJSObject
-                         [ ("from", (showJSON from)),
-                           ("to", (showJSON to)) ])) "")
+                         [ ("from", showJSON from),
+                           ("to", showJSON to) ])) "")
 
 
--- Walk the module and try to locate the fragment
-walkModule :: String -> String -> HsModule -> Maybe (Int,Int)
-walkModule classifier name (HsModule _ _ _ _ decls) = Just (1,42)
+-- Convert string into newline-separated lines with trimming
+lines' :: String -> [String]
+lines' = map (T.unpack . T.strip . T.pack) . lines
 
 
--- Locate the fragment in the list of top-level declarations
-getLines :: [HsDecl] -> JSValue -> Maybe JSValue
-getLines decls js
- = case js of
-     (JSObject o) -> 
-       (case fromJSObject o of
-         [(key,JSString jsstr)] -> 
-           let str = fromJSString jsstr in
-           (case key of 
-              "data" -> findData str
-              "function" -> findFunction str
-              _ -> Nothing)
-         _ -> Nothing)   
-     _ -> Nothing
- where
-   findData :: String -> Maybe JSValue
-   findData n = f decls
-    where
-     f (HsTypeDecl x (HsIdent n') _ _:r) | n==n' = result' x r
-     f (HsDataDecl x _ (HsIdent n') _ _ _:r) | n==n' = result' x r
-     f (HsNewTypeDecl x _ (HsIdent n') _ _ _:r) | n==n' = result' x r
-     f (_:r) = f r
-     f [] = Nothing
-
-   findFunction :: String -> Maybe JSValue
-   findFunction n = f Nothing decls
-    where
-     f p (HsFunBind (HsMatch x (HsIdent n') _ _ _:_):r) | n==n' = g n p x r
-     f p (HsPatBind x (HsPVar (HsIdent n')) _ _:r) | n==n' = g n p x r
-     f _ (h:t) = f (Just h) t
-     f _ [] = Nothing
-
-     g n (Just (HsTypeSig x [HsIdent n'] _)) _ r | n==n' = result' x r
-     g _ _ x r = result' x r
-
-   result' :: SrcLoc -> [HsDecl] -> Maybe JSValue
-   result' x (y:_) = result x (srcLoc y)
-   result' _ [] = Nothing 
-
-   result :: SrcLoc -> SrcLoc -> Maybe JSValue
-   result from to = 
-     Just (
-       JSObject (
-         toJSObject
-           [("from", (showJSON (srcLine from))),
-            ("to", (showJSON ((srcLine to) - 1)))]))
+-- Helper for abnormal exit
+abnormal = exitWith $ ExitFailure 101
 
 
 -- Decompose fragment selector
@@ -104,15 +58,61 @@ fromSelector sel =
     _ -> Nothing
 
 
--- Convert string into lines
-toLines :: String -> [String]
-toLines input =
-    map T.unpack
-  $ T.splitOn (T.pack "\n") (T.pack input)
+-- Walk the module and try to locate the fragment
+walkModule :: [String]
+           -> String
+           -> String
+           -> HsModule
+           -> Maybe (Int,Int)
+walkModule lines classifier n (HsModule _ _ _ _ decls) =
+    walkDecls decls
+  where
 
+    -- Search list of declarations for selected fragment
+    walkDecls :: [HsDecl] -> Maybe (Int, Int)
+    walkDecls (HsTypeDecl x (HsIdent n) _ _:r) | test "type" n = range x r
+    walkDecls (HsDataDecl x _ (HsIdent n) _ _ _:r) | test "data" n = range x r
+    walkDecls (HsNewTypeDecl x _ (HsIdent n) _ _ _:r) | test "newtype" n = range x r
+    walkDecls (HsFunBind (HsMatch x (HsIdent n) _ _ _:_):r) | test "function" n = range x r
+    walkDecls (HsPatBind x (HsPVar (HsIdent n)) _ _:r) | test "pattern" n = range x r
+    walkDecls (HsTypeSig x [HsIdent n] _:
+               HsFunBind (HsMatch _ (HsIdent n') _ _ _:_):r)
+      |    n == n'
+        && test "function" n = range x r
+    walkDecls (_:r) = walkDecls r
+    walkDecls [] = Nothing
 
--- Helper for abnormal exit
-abnormal = exitWith $ ExitFailure 101
+    -- Compare declaration with selector
+    test :: String -> String -> Bool
+    test classifier' n' = classifier == classifier' && n == n'
+
+    -- Construct a line range
+    range :: SrcLoc -> [HsDecl] -> Maybe (Int, Int)
+    range l (decl:_) = Just (include (srcLine l), exclude (srcLine (srcLoc decl) - 1))
+    range l [] = Just (include (srcLine l), length lines)
+
+    --
+    -- Include preceding comment
+    -- We search upwards for line comments and include them.
+    -- We also include white prior to hitting comments and between comment lines.
+    -- Whitespace above the comment is not included.
+    --
+    include :: Int -> Int
+    include i = include' i i
+      where
+        include' i 1 = i
+        include' i i' | lines !! (i'-2) == "" = include' i (i'-1)
+        include' i i' | take 2 (lines !! (i'-2)) == "--" = include' (i'-1) (i'-1)
+        include' i _ = i
+
+    --
+    -- Exclude subsequent whitespace/comment
+    -- We search upwards for line comments and whitespace and include them.
+    -- 
+    exclude :: Int -> Int
+    exclude i | lines !! (i-1) == "" = exclude (i-1)
+    exclude i | take 2 (lines !! (i-1)) == "--" = exclude (i-1)
+    exclude i = i
 
 
 -- Extract source location from given declaration

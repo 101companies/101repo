@@ -24,6 +24,8 @@ The following fragment selectors are supported:
 * function/n: declaration of a function with the given name n
 * pattern/n: a pattern binding with the given name n
 
+Preceding comments of declarations are included into their line ranges.
+
 # Building
 
 Build the tool with "make build".
