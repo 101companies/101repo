@@ -1,15 +1,21 @@
+l = ./locator.py tests/Test.hs
+
 build: Locator
 
 Locator: *.hs Makefile
 	ghc Locator.hs
 
 test: Locator
-	make data.test
-	make function1.test
-	make function2.test
+	${l} function/g > log
+	diff tests/function1.baseline log
+	rm -f log
+	make data.test-json
+	make function1.test-json
+	make function2.test-json
+	make function3.test-json
 
-%.test:
-	./locator.py tests/Test.hs tests/$*.json tests/$*.lines
+%.test-json:
+	${l} tests/$*.json tests/$*.lines
 	diff tests/$*.baseline tests/$*.lines
 
 clean:

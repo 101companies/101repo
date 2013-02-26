@@ -8,6 +8,7 @@ data C = C B
 f :: Int -> Int
 f = id
 
+-- Here is a comment
 g = g'
 
 g' :: Bool -> Int

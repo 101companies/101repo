@@ -49,7 +49,7 @@ day.
                putStrLn "Fragment location failed."
                abnormal
              Just fromto -> do
-               let lines = showJSValue fromto ""
+               let lines = showJSValue fromto "" ++ "\n"
                if len == 2
                   then putStrLn lines
                   else writeFile ((!!) args 2) lines
