@@ -9,55 +9,46 @@ import Language.Haskell.Parser
 import qualified Data.Text as T
 	
 main = do
+   -- 1 arg for "/"-based fragment selector
    args <- getArgs
-   let len = length args
-   let hsfile = head args
-   let jsonfile = (!!) args 1
-   hsstring <- readFile hsfile
-   let hsstring' = hsstring ++ "\nfoo = 42" -- See comment.
-
-{-
-
-RL: We use a hack to be able to determine the last line of each
-fragment. That is, we add a vacous binding "foo = 42" at the end of
-the file, prior to parsing. In this manner, we make sure that we
-always have an HsDecl past the located one and hence, we can determine
-the "to" line for the fragment. This ought to be done differently some
-day.
-
--}
-
-   case parseModule hsstring' of
-     (ParseFailed _ _) -> do
-       putStrLn "Haskell parser failed."
-       abnormal
-     (ParseOk (HsModule _ _ _ _ decls)) -> do
-       fileExists <- doesFileExist jsonfile
-       jsonstring <- if fileExists
-           then do content <- readFile jsonfile
-                   return content
-           else do let parts = T.splitOn (T.pack "/") (T.pack jsonfile)
-                   let str = "{ \""++ T.unpack ((!!) parts 0) ++ "\" : \"" ++ T.unpack ((!!) parts 1) ++ "\"}"
-                   return str
-       case runGetJSON readJSObject jsonstring of
-         (Left _) -> do 
-           putStrLn "JSON parser failed."
-           abnormal
-         (Right jsonvalue) ->
-           case getLines decls jsonvalue of
-             Nothing -> do 
-               putStrLn "Fragment location failed."
-               abnormal
-             Just fromto -> do
-               let lines = showJSValue fromto "" ++ "\n"
-               if len == 2
-                  then putStrLn lines
-                  else writeFile ((!!) args 2) lines
+   if length args < 1 then do
+     putStrLn "Command-line argument missing."
+     abnormal
+   else do
+     -- Only selectors for top-level fragments supported
+     case fromSelector (args !! 0) of
+       Nothing -> do
+         putStrLn "Illegal fragment selector."
+         abnormal
+       Just (classifier, name) -> do
+         -- Parse stdin
+         input <- getContents
+         case parseModule input of
+           (ParseFailed _ _) -> do
+             putStrLn "Haskell parser failed."
+             abnormal
+           (ParseOk m) -> do
+             -- Walk parsed input for fragment location
+             case walkModule classifier name m of
+               Nothing -> do
+                 putStrLn "Fragment location failed."
+                 abnormal
+               Just (from, to) ->
+                 -- Write JSON for line range to stdout
+                 putStrLn (
+                   showJSValue (
+                     JSObject (
+                       toJSObject
+                         [ ("from", (showJSON from)),
+                           ("to", (showJSON to)) ])) "")
 
 
--- Helper for abnormal exit
-abnormal = exitWith (ExitFailure (-1))
+-- Walk the module and try to locate the fragment
+walkModule :: String -> String -> HsModule -> Maybe (Int,Int)
+walkModule classifier name (HsModule _ _ _ _ decls) = Just (1,42)
 
+
+-- Locate the fragment in the list of top-level declarations
 getLines :: [HsDecl] -> JSValue -> Maybe JSValue
 getLines decls js
  = case js of
@@ -104,6 +95,27 @@ getLines decls js
            [("from", (showJSON (srcLine from))),
             ("to", (showJSON ((srcLine to) - 1)))]))
 
+
+-- Decompose fragment selector
+fromSelector :: String -> Maybe (String, String)
+fromSelector sel =
+  case T.splitOn (T.pack "/") (T.pack sel) of
+    [x,y] -> Just (T.unpack x, T.unpack y)
+    _ -> Nothing
+
+
+-- Convert string into lines
+toLines :: String -> [String]
+toLines input =
+    map T.unpack
+  $ T.splitOn (T.pack "\n") (T.pack input)
+
+
+-- Helper for abnormal exit
+abnormal = exitWith $ ExitFailure 101
+
+
+-- Extract source location from given declaration
 srcLoc :: HsDecl -> SrcLoc
 srcLoc (HsTypeDecl x _ _ _) = x
 srcLoc (HsDataDecl x _ _ _ _ _) = x

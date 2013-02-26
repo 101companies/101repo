@@ -1,4 +1,3 @@
-Locator
-Locator.hi
-Locator.o
-tests/*.lines
+HsiFragmentLocator
+*.o
+*.hi

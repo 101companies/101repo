@@ -36,3 +36,11 @@ h 'b' = 2
 
 -- A pattern binding
 x = ()
+
+--
+-- Two functions where the comment counts towards the first one
+--
+
+f1 1 = 1
+
+f2 2 = 2

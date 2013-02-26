@@ -1,7 +1,5 @@
-x = HsFactExtractor
-
 build:
-	ghc ${x}.hs
+	ghc HsFactExtractor.hs
 
 test: build
 	make Test.test
@@ -17,5 +15,5 @@ copy:
 	cp ../../../101haskell/contributions/haskellData/*.hs tests/haskellData
 
 clean:
-	rm -f log ${x} *.o *.hi
+	rm -f log HsFactExtractor *.o *.hi
 
