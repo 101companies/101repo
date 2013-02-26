@@ -1,90 +1,57 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package jfactextractor;
 
 import com.google.gson.annotations.SerializedName;
 import japa.parser.ast.CompilationUnit;
 import japa.parser.ast.ImportDeclaration;
-import japa.parser.ast.body.BodyDeclaration;
 import japa.parser.ast.body.ClassOrInterfaceDeclaration;
-import japa.parser.ast.body.MethodDeclaration;
 import japa.parser.ast.body.TypeDeclaration;
-import japa.parser.ast.expr.AnnotationExpr;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
  *
- * @author Martin Leinberger
+ * @author Martin
  */
 public class Fact {
-    private class Declaration {
-        @SerializedName("class")
-        public String className;
-        public List<String> methods;
-        private Set<String> attributes;
-        
-        public Declaration() { }
-        
-        public Declaration(TypeDeclaration decl) {
-            className = decl.getName();
-            methods = new ArrayList<String>();
-            attributes = new HashSet<String>();
-            processAnnotations(decl);
-            for (BodyDeclaration method : decl.getMembers()) {
-                processAnnotations(method);
-                if (method instanceof MethodDeclaration)
-                    methods.add(((MethodDeclaration)method).getName());
-            }
-        }
- 
-         private void processAnnotations(BodyDeclaration decl) {
-            if (decl.getAnnotations() != null)
-                for (AnnotationExpr expr : decl.getAnnotations())
-                    attributes.add(expr.getName().toString());
-        }
-        
-        private void processAnnotations(TypeDeclaration decl) {
-            if (decl.getAnnotations() != null)
-                for (AnnotationExpr expr : decl.getAnnotations())
-                    attributes.add(expr.getName().toString());
-        }
-    }
-    
-    private String comment = "";
+    String comment = "";
     @SerializedName("package")
-    private String packageName = "";
-    @SerializedName("imports")
-    private Set<String> imports;
-    private List<Declaration> declarations;
+    String packageStr = "";
+    Set<String> imports = new HashSet<String>();
+    List<Fragment> fragments = new ArrayList<Fragment>();
     
-    public Fact() { }
-    
-    public Fact(File file, CompilationUnit compilationUnit) throws FileNotFoundException {
-        if (compilationUnit.getPackage() != null)
-            packageName = compilationUnit.getPackage().getName().toString().replace("package", "");
+    public Fact(String inputText, CompilationUnit unit) throws FileNotFoundException {
+        if (unit.getPackage() != null)
+            packageStr = unit.getPackage().getName().toString().replace("package", "");
         
-        comment = extractTopComment(file);
-
-        imports = new HashSet<String>();
-        if (compilationUnit.getImports() != null)
-            for (ImportDeclaration imp : compilationUnit.getImports()) {
+        if (unit.getImports() != null)
+            for (ImportDeclaration imp : unit.getImports()) {
                 String str = imp.getName().toString();
                 if (!imp.isAsterisk())
                     str = str.substring(0, str.lastIndexOf("."));
                 imports.add(str);
             }
-            
-        declarations = new ArrayList<Declaration>();
-        if (compilationUnit.getTypes() != null)
-            for (TypeDeclaration decl : compilationUnit.getTypes()) {
-                if (decl instanceof ClassOrInterfaceDeclaration)
-                    declarations.add(new Declaration(decl));
-            }
+        
+        //comment = extractTopComment(inputText);
+        
+        analyze(unit);
     }
     
-    private String extractTopComment(File file) throws FileNotFoundException {
+    private void analyze(CompilationUnit unit) {
+        for (TypeDeclaration decl : unit.getTypes()) {
+            if (decl instanceof ClassOrInterfaceDeclaration) {
+                fragments.add(new Fragment((ClassOrInterfaceDeclaration)decl));
+            }
+        }
+    }
+    
+    private String extractTopComment(String input) throws FileNotFoundException {
         StringBuffer buffer = new StringBuffer("");
-        Scanner scanner = new Scanner(file);
+        Scanner scanner = new Scanner(input);
         boolean blockComment = false;
         
         String str;
