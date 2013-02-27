@@ -1,0 +1,33 @@
+{
+  "package": "org.softlang.qualities",
+  "imports": [
+    "javax.xml.stream",
+    "java.io",
+    "javax.xml.bind",
+    "org.softlang.model"
+  ],
+  "fragments": [
+    {
+      "classifier": "class",
+      "name": "Serialization",
+      "fragments": [
+        {
+          "classifier": "method",
+          "name": "initializeJaxbContext",
+          "annotations": []
+        },
+        {
+          "classifier": "method",
+          "name": "serializeCompany",
+          "annotations": []
+        },
+        {
+          "classifier": "method",
+          "name": "deserializeCompany",
+          "annotations": []
+        }
+      ],
+      "annotations": []
+    }
+  ]
+}

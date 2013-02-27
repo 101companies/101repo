@@ -8,8 +8,8 @@ jfactextractor/JFactExtractor.class: jfactextractor/*.java Makefile
 		jfactextractor/*.java
 
 test: 
-	./extractor.py example/Serialization.java example/facts.json
-
+	./extractor.py < example/Serialization.java > example/facts.json
+	diff --ignore-all-space example/baseline.json example/facts.json
 clean: 
-	rm -f jfactextractor/*.class
-	rm -f example/facts.json
+	@rm -f jfactextractor/*.class
+	@rm -f example/facts.json
