@@ -18,13 +18,13 @@ import java.util.*;
  * @author Martin
  */
 public class Fact {
-    String comment = "";
+    String comment;
     @SerializedName("package")
     String packageStr = "";
     Set<String> imports = new HashSet<String>();
     List<Fragment> fragments = new ArrayList<Fragment>();
     
-    public Fact(String inputText, CompilationUnit unit) throws FileNotFoundException {
+    public Fact(CompilationUnit unit) throws FileNotFoundException {
         if (unit.getPackage() != null)
             packageStr = unit.getPackage().getName().toString().replace("package", "");
         
@@ -36,6 +36,7 @@ public class Fact {
                 imports.add(str);
             }
         
+	//comments are currently disabled, since they are not easily accessable from the CompilationUnit
         //comment = extractTopComment(inputText);
         
         analyze(unit);

@@ -23,19 +23,9 @@ public class JFactExtractor {
      */
     public static void main(String[] args) {
         try {
-	    /*System.out.println("hello world");
-            if (args.length != 1) {
-                System.out.println("usage: inputText");
-                System.exit(1);
-            }
-	    System.out.println("still there");
-            */
-            String inputText = "lala";//args[0];
-            //InputStream in = new ByteArrayInputStream(System.in);
-            
-            
+
             CompilationUnit compilationUnit = JavaParser.parse(System.in);
-            Fact fact = new Fact(inputText, compilationUnit);
+            Fact fact = new Fact(compilationUnit);
             
             
             System.out.println(gson.toJson(fact));
