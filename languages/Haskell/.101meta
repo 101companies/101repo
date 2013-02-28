@@ -4,7 +4,8 @@
 		"metadata" : [
 			{"geshi":"haskell"},
 			{"language":"Haskell"},
-			{"locator": "technologies/HsFragmentLocator/locator.py"},
+			{"locator": "technologies/HsFragmentLocator/HsFragmentLocator"},
+			{"extractor": "technologies/HsFragmentLocator/HsFactExtractor"},
 			{"matcher": "technologies/HsImportMatcher/matcher.py"}
 		]
 	}
