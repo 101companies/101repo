@@ -5,7 +5,7 @@
 			{"geshi":"haskell"},
 			{"language":"Haskell"},
 			{"locator": "technologies/HsFragmentLocator/HsFragmentLocator"},
-			{"extractor": "technologies/HsFragmentLocator/HsFactExtractor"},
+			{"extractor": "technologies/HsFactExtractor/HsFactExtractor"},
 			{"matcher": "technologies/HsImportMatcher/matcher.py"}
 		]
 	}
