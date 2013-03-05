@@ -12,7 +12,7 @@ test:
 	diff tests/class.json tests/class.baseline
 	./locator.py class/Behavior/method/testTotal  < tests/Serialization.java > tests/method.json
 	diff tests/method.json tests/method.baseline
-	./locator.py class/Behavior/class/Testclass/method/mymethod  < tests/Serialization.java > tests/overload.json
+	./locator.py class/Behavior/class/Testclass/method/mymethod/1  < tests/Serialization.java > tests/overload.json
 	diff tests/overload.json tests/overload.baseline
 
 

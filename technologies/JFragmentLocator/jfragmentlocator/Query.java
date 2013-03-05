@@ -26,12 +26,19 @@ public class Query {
         }
     }
     
+    private int index = 0;
     private int ptr = -1;
     private List<QueryPart> parts = new ArrayList<QueryPart>();
     
     public Query(String query) {
         String tmp[] = query.split("/");
-        for (int i = 0; i < tmp.length; i+=2)
+        int lengthModifier = 0;
+        if (tmp.length % 2 == 1) {
+            index = Integer.parseInt(tmp[tmp.length-1]);
+            lengthModifier = -1;
+        }
+        
+        for (int i = 0; i < (tmp.length + lengthModifier); i+=2)
             parts.add(new QueryPart(tmp[i], tmp[i+1]));
     }
     
@@ -46,8 +53,14 @@ public class Query {
             if (fragment.equals(part))
                 result.add(fragment);
         }
-    
-        return walk(result);
+        
+        List<Fragment> tmp = walk(result);
+        if (this.index > 0) {
+            List<Fragment> r =  new ArrayList<Fragment>();
+            r.add(tmp.get(index-1));
+            return r;
+        }
+        return tmp;
     }
     
     private List<Fragment> walk(List<Fragment> fragments) {

@@ -17,12 +17,6 @@ public class JFragmentLocator {
      */
     public static void main(String[] args) {
         try {
-            if (args.length != 1) {
-                System.out.println("no query given");
-                System.exit(1);
-            }
-                
-            
             String queryString = args[0];
             CompilationUnit unit = JavaParser.parse(System.in);
             

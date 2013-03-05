@@ -4,10 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import japa.parser.JavaParser;
 import japa.parser.ast.CompilationUnit;
-import japa.parser.ast.body.TypeDeclaration;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
@@ -23,10 +21,10 @@ public class JFactExtractor {
      */
     public static void main(String[] args) {
         try {
-
-            CompilationUnit compilationUnit = JavaParser.parse(System.in);
-            Fact fact = new Fact(compilationUnit);
+            InputStream in = System.in;//new FileInputStream(new File(args[0]));
             
+            CompilationUnit compilationUnit = JavaParser.parse(in);
+            Fact fact = new Fact(compilationUnit);
             
             System.out.println(gson.toJson(fact));
         } catch (Exception e) {
