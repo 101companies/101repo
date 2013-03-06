@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "Servlet API"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "javax.servlet"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "Servlet API"
-      }
-    ],
-    "basename": "#^servlet-api[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "javax.servlet"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "Servlet API"
+            }
+        ]
+    },
+    {
+        "basename": "#^servlet-api[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "Servlet API"
+            }
+        ]
+    }
 ]

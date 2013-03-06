@@ -1,17 +1,17 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "Bouncy Castle"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.bouncycastle"
-    ]
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.bouncycastle"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "Bouncy Castle"
+            }
+        ]
+    }
 ]
