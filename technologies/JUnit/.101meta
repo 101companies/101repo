@@ -1,61 +1,61 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JUnit"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaAnnotation.py",
-    "args": [
-      "Test",
-	  "Suite.SuiteClasses",
-	  "Before",
-      "After",
-	  "BeforeClass",
-	  "AfterClass",
-	  "Ignore"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JUnit"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "junit"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JUnit"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.junit"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JUnit"
-      }
-    ],
-    "basename": "#^junit[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaAnnotation.py",
+        "args": [
+            "Test",
+            "Suite.SuiteClasses",
+            "Before",
+            "After",
+            "BeforeClass",
+            "AfterClass",
+            "Ignore"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JUnit"
+            }
+        ]
+    },
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "junit"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JUnit"
+            }
+        ]
+    },
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.junit"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JUnit"
+            }
+        ]
+    },
+    {
+        "basename": "#^junit[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JUnit"
+            }
+        ]
+    }
 ]

@@ -1,10 +1,10 @@
 [
-  {
-	"suffix": ".jsp",
-    "metadata": [
-      {
-        "dependsOn": "JSP"
-      }
-    ]
-  }
+    {
+        "suffix": ".jsp",
+        "metadata": [
+            {
+                "dependsOn": "JSP"
+            }
+        ]
+    }
 ]

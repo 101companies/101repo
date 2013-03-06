@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "dom4j"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.dom4j"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "dom4j"
-      }
-    ],
-    "basename": "#^xalan[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.dom4j"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "dom4j"
+            }
+        ]
+    },
+    {
+        "basename": "#^xalan[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "dom4j"
+            }
+        ]
+    }
 ]

@@ -1,18 +1,18 @@
 [
-  {
-    "metadata": [
-      {
-        "dependsOn": "JDBC"
-      }
-    ],
-    "basename": "#^google_sql[.]jar$#"
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JDBC"
-      }
-    ],
-    "basename": "#^mysql-connector-java-(.*)-bin[.]jar$#"
-  }
+    {
+        "basename": "#^google_sql[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JDBC"
+            }
+        ]
+    },
+    {
+        "basename": "#^mysql-connector-java-(.*)-bin[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JDBC"
+            }
+        ]
+    }
 ]

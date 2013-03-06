@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JavaMail"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "javax.mail"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JavaMail"
-      }
-    ],
-    "basename": "#^mail[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "javax.mail"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JavaMail"
+            }
+        ]
+    },
+    {
+        "basename": "#^mail[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JavaMail"
+            }
+        ]
+    }
 ]

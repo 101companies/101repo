@@ -1,9 +1,13 @@
 [
-  {
-    "metadata": [
-      { "geshi" : "text" },
-      { "dependsOn": "make" }
-    ],
-    "basename": "#^Makefile$#"
-  }
+    {
+        "basename": "#^Makefile$#",
+        "metadata": [
+            {
+                "geshi": "text"
+            },
+            {
+                "dependsOn": "make"
+            }
+        ]
+    }
 ]

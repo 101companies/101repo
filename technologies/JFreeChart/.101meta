@@ -1,40 +1,40 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JFreeChart"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.jfree.chart"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JFreeChart"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.jfree.data"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JFreeChart"
-      }
-    ],
-    "basename": "#^jfreechart[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.jfree.chart"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JFreeChart"
+            }
+        ]
+    },
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.jfree.data"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JFreeChart"
+            }
+        ]
+    },
+    {
+        "basename": "#^jfreechart[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JFreeChart"
+            }
+        ]
+    }
 ]

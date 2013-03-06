@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JGroups"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.jgroups"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JGroups"
-      }
-    ],
-    "basename": "#^jgroups[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.jgroups"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JGroups"
+            }
+        ]
+    },
+    {
+        "basename": "#^jgroups[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JGroups"
+            }
+        ]
+    }
 ]
