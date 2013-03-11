@@ -4,7 +4,7 @@
 		"metadata" : [
 			{"geshi":"python"},
 			{"language":"Python"},
-			{"extractor": "technologies/PyFactExtractor/extractor.py"},
+			{"extractor": "technologies/PyFactExtractor/extractor.py"}
 		]
 	}
 ]
