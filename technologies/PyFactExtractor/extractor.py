@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import ast
 from syb import *
 import sys
