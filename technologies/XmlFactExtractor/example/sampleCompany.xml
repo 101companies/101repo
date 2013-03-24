@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<company 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.softlang.org/company.xsd" >
+	<name>meganalysis</name>
+
+	<department>
+		<name>Research</name>
+		<manager>
+			<name>Craig</name>
+			<address>Redmond</address>
+			<salary>123456</salary>
+		</manager>
+		<employee>
+			<name>Erik</name>
+			<address>Utrecht</address>
+			<salary>12345</salary>
+		</employee>
+		<employee>
+			<name>Ralf</name>
+			<address>Koblenz</address>
+			<salary>1234</salary>
+		</employee>
+	</department>
+
+	<department>
+		<name>Development</name>
+		<manager>
+			<name>Ray</name>
+			<address>Redmond</address>
+			<salary>234567</salary>
+		</manager>
+		<department>
+			<name>Dev1</name>
+			<manager>
+				<name>Klaus</name>
+				<address>Boston</address>
+				<salary>23456</salary>
+			</manager>
+			<department>
+				<name>Dev1.1</name>
+				<manager>
+					<name>Karl</name>
+					<address>Riga</address>
+					<salary>2345</salary>
+				</manager>
+				<employee>
+					<name>Joe</name>
+					<address>Wifi City</address>
+					<salary>2344</salary>
+				</employee>
+			</department>
+		</department>
+	</department>
+</company>

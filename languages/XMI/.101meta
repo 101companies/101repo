@@ -4,6 +4,7 @@
 		"metadata" : [
 			{"geshi":"xml"},
 			{"language":"XMI"},
+			{"extractor": "technologies/XmlFactExtractor/extractor.py"},
 			{"locator": "technologies/XmlFragmentLocator/locator.py"}
 		]
 	}

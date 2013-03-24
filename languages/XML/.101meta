@@ -5,6 +5,7 @@
 			{"geshi":"xml"},
 			{"language":"XML"},
 			{"validator": "technologies/XMLValidator/validator.py"},
+			{"extractor": "technologies/XmlFactExtractor/extractor.py"},
 			{"locator": "technologies/XmlFragmentLocator/locator.py"}
 		]
 	}

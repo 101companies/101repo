@@ -4,7 +4,8 @@
 		"metadata" : [
 			{"geshi":"xml"},
 			{"language":"XSD"},
-			{"validator": "technologies/XSDValidator/validator.py"},            
+			{"validator": "technologies/XSDValidator/validator.py"},
+			{"extractor": "technologies/XmlFactExtractor/extractor.py"},            
 			{"locator": "technologies/XmlFragmentLocator/locator.py"}
 		]
 	}
