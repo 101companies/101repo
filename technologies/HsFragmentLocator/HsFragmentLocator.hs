@@ -79,6 +79,10 @@ walkModule lines classifier n (HsModule _ _ _ _ decls) =
                HsFunBind (HsMatch _ (HsIdent n') _ _ _:_):r)
       |    n == n'
         && test "function" n = range x r
+    walkDecls (HsTypeSig x [HsIdent n] _:
+               HsPatBind _ (HsPVar (HsIdent n')) _ _:r)
+      |    n == n'
+        && test "pattern" n = range x r
     walkDecls (_:r) = walkDecls r
     walkDecls [] = Nothing
 

@@ -1,4 +1,4 @@
-build:
+build: cabal
 	ghc HsFragmentLocator
 
 test: build
@@ -9,8 +9,12 @@ test: build
 	make function/g.test
 	make function/h.test
 	make pattern/x.test
+	make pattern/y.test
 	make function/f1.test
 	make function/f2.test
+
+cabal:
+	cabal install json
 
 %.test:
 	./HsFragmentLocator $* < tests/Test.hs > log

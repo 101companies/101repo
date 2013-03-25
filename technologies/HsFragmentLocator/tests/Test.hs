@@ -31,8 +31,12 @@ h :: Char -> Int
 h 'a' = 1
 h 'b' = 2
 
--- A pattern binding
+-- A pattern binding with signature
+x :: ()
 x = ()
+
+-- A pattern binding without signature
+y = ()
 
 --
 -- Two functions where the comment counts towards the first one

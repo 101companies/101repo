@@ -1,8 +1,11 @@
-build:
+build: cabal
 	ghc HsFactExtractor.hs
 
 test: build
 	make Test.test
+
+cabal:
+	cabal install json
 
 %.test:
 	./HsFactExtractor < tests/$*.hs > log
