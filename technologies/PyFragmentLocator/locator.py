@@ -118,7 +118,7 @@ source = ''.join(ls)
 
 tree = ast.parse(source)
 
-print findFragment(url, tree)
+print json.dumps(findFragment(url, tree))
 
 #output.write(r)
 
