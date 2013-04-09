@@ -8,7 +8,7 @@
    {
     "dirname" : "contributions/seam/lib",
     "metadata" : {
-      "relevance" : "ignore"
+      "relevance" : "reuse"
     }
   },
    {
