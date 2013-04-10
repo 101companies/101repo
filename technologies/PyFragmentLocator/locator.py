@@ -38,14 +38,14 @@ def findFragment(url, tree, top_fragment=None):
         if ns == 'class' and isinstance(a, ast.ClassDef):
             if a.name == name:
                 if len(pieces) == 0:
-                    return {'from': a.lineno, 'to': getLatestNode(a).lineno + 1 }
+                    return {'from': a.lineno, 'to': getLatestNode(a).lineno }
                 else:
                     return findFragment(new_url, a, top_fragment)
 
         elif ns == 'function' and isinstance(a, ast.FunctionDef):
             if a.name == name:
                 if len(pieces) == 0:
-                    return {'from': a.lineno, 'to': getLatestNode(a).lineno + 1 }
+                    return {'from': a.lineno, 'to': getLatestNode(a).lineno }
                 else:
                     return findFragment(new_url, a, top_fragment)
 
