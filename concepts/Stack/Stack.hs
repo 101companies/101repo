@@ -1,11 +1,18 @@
--- A simple implementation of stacks in Haskell
+{- A simple implementation of stacks in Haskell -}
 
-module Stack where
+module Stack (
+  Stack,
+  empty,
+  isEmpty,
+  push,
+  top,
+  pop
+) where
 
 -- Data structure for representation of stacks
 data Stack = Empty | Push Int Stack
  
-{- Operations of stacks -}
+{- Operations on stacks -}
  
 -- Return the empty stack
 empty = Empty
@@ -26,4 +33,3 @@ top (Push x s) = x
 -- Remove the top-of-stack, if available
 pop :: Stack -> Stack
 pop (Push x s) = s
-
