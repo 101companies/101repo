@@ -58,5 +58,17 @@
     "sourcedir" : "/contributions",
     "targetdir" : "contributions",
     "mode" : "subdirsonly"
+  },
+  {
+    "sourcerepo": "https://github.com/101companies/101worker.git",
+    "sourcedir" : "/modules",
+    "targetdir" : "modules",
+    "mode" : "subdirsonly"
+  },
+  {
+    "sourcerepo": "https://github.com/101companies/101worker.git",
+    "sourcedir" : "/services",
+    "targetdir" : "services",
+    "mode" : "subdirsonly"
   }
 ]
