@@ -10,6 +10,7 @@ build:
 run:
 	./Main
 	java HelloWorld
+	python HelloWorld.py
 
 clean:
 	rm -f *.o Main *.hi *.class	
