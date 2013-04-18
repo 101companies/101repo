@@ -1,6 +1,6 @@
 [
     {
-        "predicate": "technologies/.NET_platform/dotNETImport.sh",
+        "predicate": "technologies/.NET/dotNETImport.sh",
         "args": [
             "System.Xml"
         ],
