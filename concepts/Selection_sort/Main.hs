@@ -1,4 +1,4 @@
-import QuickSort
+import SelectionSort
 
 -- Illustrate sorting
 main = do
