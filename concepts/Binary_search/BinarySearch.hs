@@ -4,16 +4,10 @@ module BinarySearch where
 search :: Ord a => [a] -> a -> Bool
 search [] _ = False
 search xs x =
-  if x < b then search a x
-  else if x > b then search c x
-  else True
+   if x < y then search ys1 x
+   else if x > y then search ys2 x
+   else True
   where
-    (a,b:c) = split xs
-
--- Helper for right-biased halving
-split :: [a] -> ([a],[a])
-split [] = ([],[])
-split [x] = ([],[x])
-split (x:y:zs) = (x:xs,y:ys)
-  where
-    (xs,ys) = split zs
+    ys1 = take l xs
+    (y:ys2) = drop l xs
+    l = length xs `div` 2
