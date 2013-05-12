@@ -3,8 +3,7 @@
 An opaque list-based implementation of stacks in Haskell.
 That is, the representation type is hidden.
 The size of the stack is readily maintained.
-Thus, the size can be returned in constant time.
-Other stack implementations may require linear time.
+Thus, the size can be returned with traversing the stack.
 
 -}
 
