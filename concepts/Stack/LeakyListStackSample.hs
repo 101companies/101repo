@@ -1,6 +1,6 @@
 {- Illustration of stacks -}
 
-import ListStack
+import LeakyListStack
 
 main = do
   let stack1 = push 1 empty
