@@ -1,6 +1,6 @@
 [
   { 
-    "sourcerepo" : "git@github.com:rlaemmel/yapg.git",
+    "sourcerepo" : "https://github.com/rlaemmel/yapg.git",
     "sourcedir" : "/",
     "targetdir" : "contributions/yapg"
   },
