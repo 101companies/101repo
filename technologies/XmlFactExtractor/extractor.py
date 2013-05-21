@@ -1,25 +1,48 @@
-#! /usr/bin/env python
+#!/usr/bin/python
 
-
-import xml.etree.ElementTree as ET
-import json
 import sys
+import json
+import xml.sax
+from xml.sax.handler import ContentHandler
 
-def extract(element):
-	fragment = {
-		'classifier': 'element',
-		'name'		: element.tag.split("}")[1][0:],
-		'attributes': element.attrib,
-		'fragments' : []
-	}
-	for child in element:
-		fragment['fragments'].append(extract(child))
-	return fragment
+root = None
+stack = []
 
-text = ''.join(sys.stdin.readlines())
-root = ET.fromstring(text)
+class FragmentContentHandler(ContentHandler):
+    def __init__(self):
+        ContentHandler.__init__(self)
+
+    def startElement(self, name, attrs):
+        global root
+        global stack
+
+        if not root:
+            root = {
+                'name' : name,
+                'classifier' : 'element',
+                'fragments' : []
+            }
+            stack.append(root)
+        else:
+            f_new = {
+                'name': name,
+                'classifier': 'element',
+                'fragments': []
+            }
+            stack[-1]['fragments'].append(f_new)
+            stack.append(f_new)
+
+
+    def endElement(self, name):
+        global stack
+        stack.pop()
+
+
+
+xml.sax.parse(sys.stdin, FragmentContentHandler())
 facts = {
-	'fragments' : [ extract(root) ]
+    'imports' : [],
+    'fragments' : [ root ]
 }
 
 print json.dumps(facts, indent=4)
