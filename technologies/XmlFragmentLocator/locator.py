@@ -52,8 +52,11 @@ class Query():
         self.queryParts = queryString.split('/')
 
     def next(self):
-        if self.queryParts == []:
+        if not self.queryParts:
             raise StopIteration
+
+        if self.queryParts[0] == 'element':
+            self.queryParts.pop(0)
 
         part = {'name' : self.queryParts.pop(0), 'index' : 0}
 
@@ -72,6 +75,7 @@ xml.sax.parse(sys.stdin, FragmentContentHandler())
 curNodes = [ root ]
 selected = None
 for part in query:
+    selected = None
     for node in curNodes:
         if node.name == part['name']:
             if part['index'] == 0:
