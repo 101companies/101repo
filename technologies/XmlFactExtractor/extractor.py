@@ -29,6 +29,13 @@ class FragmentContentHandler(ContentHandler):
                 'classifier': 'element',
                 'fragments': []
             }
+            idx = 0
+            for fragment in stack[-1]['fragments']:
+                if fragment['name'] == f_new['name']:
+                    idx += 1
+            if idx > 0:
+                f_new['index'] = idx
+
             stack[-1]['fragments'].append(f_new)
             stack.append(f_new)
 
