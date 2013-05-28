@@ -1,7 +1,9 @@
 import java.lang.reflect.*;
 
 /**
- *
+ * The main method constructs an object of this very class.
+ * Then, an instance method with "Hello, world!" functionality is invoked.
+ * Construction and method invocation is expressed in terms of reflection.
  */
 public class Demo {
 
