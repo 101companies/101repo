@@ -34,7 +34,7 @@ public class Demo {
 			System.out.println("java.lang.reflect may throw in many ways.");			
 		}
 
-		// Reflection API with with generics for warnings-free code
+		// Reflection API with generics for warnings-free code
 		try { 
 			System.out.print("Again, with reflection: ");
 			Class<?> clss2 = Class.forName("helloworld.Exemplar");
