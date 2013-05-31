@@ -1,6 +1,11 @@
-{-| A simple implementation of stacks in Haskell -}
+{-| 
 
-module Stack (
+A leaky list-based implementation of stacks in Haskell.
+That is, the representation type is not hidden.
+
+-}
+
+module LeakyListStack (
   Stack,
   empty,
   isEmpty,
@@ -11,33 +16,30 @@ module Stack (
 ) where
 
 -- | Data structure for representation of stacks
-data Stack = Empty | Push Int Stack
+type Stack = [Int]
  
 {- Operations on stacks -}
  
 -- | Return the empty stack
 empty :: Stack
-empty = Empty
+empty = []
  
 -- | Test for the empty stack
 isEmpty :: Stack -> Bool
-isEmpty Empty = True
-isEmpty (Push _ _) = False
+isEmpty = null
  
 -- | Push an element onto the stack
 push :: Int -> Stack -> Stack
-push = Push
+push = (:)
  
 -- | Retrieve the top-of-stack, if available
 top :: Stack -> Int
-top (Push x s) = x
+top = head
  
 -- | Remove the top-of-stack, if available
 pop :: Stack -> Stack
-pop (Push x s) = s
+pop = tail
 
 -- | Compute size of stack
 size :: Stack -> Int
-size Empty = 0
-size (Push _ s) = 1 + size s
-
+size = length
