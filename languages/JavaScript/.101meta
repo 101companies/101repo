@@ -3,7 +3,8 @@
 		"suffix" : ".js",
 		"metadata" : [
 			{"geshi":"javascript"},
-			{"language":"JavaScript"}
+			{"language":"JavaScript"},
+			{"extractor": "technologies/JSFactExtractor/program.js"},
 		]
 	},
 	{
