@@ -14,12 +14,16 @@ f = sys.argv[1]
 
 extractPath = f + '.refinedTokens.json'
 
-factsFile = open(extractPath)
-facts = json.load(factsFile)
+if not os.path.exists(extractPath):
+    print json.dumps([False] * len(data))
+
+else:
+    factsFile = open(extractPath)
+    facts = json.load(factsFile)
 
 # result = []
 
-print json.dumps(map(lambda i: i in facts.keys(), data))
+    print json.dumps(map(lambda i: i in facts.keys(), data))
 
 #for i in data:
 #    if i in facts['imports']:
