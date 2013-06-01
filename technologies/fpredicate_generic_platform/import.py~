@@ -4,6 +4,11 @@ import sys
 import json
 import os
 
+#sys.path.append('../../libraries/101meta')
+#import const101
+
+import fileinput
+
 data = ''.join(list(sys.stdin))
 data = json.loads(data)
 

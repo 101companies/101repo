@@ -5,9 +5,9 @@
             "django"
         ],
         "suffix": ".py",
-        "metadata": {
-            "comment": "API usage of django",
-            "dependsOn": "django"
-        }
+        "metadata": [
+            {"comment": "API usage of django"},
+            {"dependsOn": "django"}
+        ]
     }
 ]
