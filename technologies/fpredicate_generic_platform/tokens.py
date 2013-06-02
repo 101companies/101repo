@@ -23,7 +23,7 @@ else:
 
 # result = []
 
-    print json.dumps(map(lambda i: i in facts.keys(), data))
+    print json.dumps(map(lambda i: i[0] in facts.keys(), data))
 
 #for i in data:
 #    if i in facts['imports']:

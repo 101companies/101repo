@@ -16,6 +16,7 @@ extractPath = f + '.refinedTokens.json'
 
 if not os.path.exists(extractPath):
     print json.dumps([False] * len(data))
+
 else:
     factsFile = open(extractPath)
     facts = json.load(factsFile)
