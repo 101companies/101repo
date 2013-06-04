@@ -1,8 +1,16 @@
 <?php
-// Include configs and functions
+// Include-path for class-loading;
+$path = __DIR__ . DIRECTORY_SEPARATOR . 'lib';
+set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
+// Include aspect.
+require_once('lib/YAPAF.php');
+require_once('aspects/DbLogAspect.php');
+YAPAF::init(array(new DbLogAspect()));
+
+// Include configs and functions.
 include_once('lib/config.php');
 include_once('lib/functions.php');
-include_once('lib/Db.php');
 $db = new Db();
 
 if (get_input('type') == 'action'){
