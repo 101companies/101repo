@@ -1,17 +1,17 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Haskell"
-      },
-      {
-        "dependsOn": "HXT"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "Text.XML.HXT"
-    ]
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "Text.XML.HXT"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Haskell"
+            },
+            {
+                "dependsOn": "HXT"
+            }
+        ]
+    }
 ]

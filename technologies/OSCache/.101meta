@@ -1,17 +1,17 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "OSCache"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "com.opensymphony.oscache"
-    ]
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "com.opensymphony.oscache"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "OSCache"
+            }
+        ]
+    }
 ]

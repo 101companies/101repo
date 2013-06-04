@@ -3,7 +3,9 @@
 		"suffix" : ".py",
 		"metadata" : [
 			{"geshi":"python"},
-			{"language":"Python"}
+			{"language":"Python"},
+			{"extractor": "technologies/PyFactExtractor/extractor.py"},
+			{"locator": "technologies/PyFragmentLocator/locator.py"}
 		]
 	}
 ]

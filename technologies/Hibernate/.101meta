@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "Hibernate"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.hibernate"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "Hibernate"
-      }
-    ],
-    "basename": "#^hibernate(.*)[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.hibernate"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "Hibernate"
+            }
+        ]
+    },
+    {
+        "basename": "#^hibernate(.*)[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "Hibernate"
+            }
+        ]
+    }
 ]

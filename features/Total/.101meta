@@ -1,0 +1,11 @@
+[
+    {
+        "fpredicate": "technologies/fpredicate_generic_platform/tokens.py",
+        "args": [
+            "total"
+        ],
+        "metadata": [
+            {"feature": "total"}
+        ]
+    }
+]

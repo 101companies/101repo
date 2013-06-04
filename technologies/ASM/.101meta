@@ -1,33 +1,33 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "ASM"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.objectweb.asm"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "ASM"
-      }
-    ],
-    "basename": "#^asm[.]jar$#"
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "ASM"
-      }
-    ],
-    "basename": "#^asm-attrs[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.objectweb.asm"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "ASM"
+            }
+        ]
+    },
+    {
+        "basename": "#^asm[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "ASM"
+            }
+        ]
+    },
+    {
+        "basename": "#^asm-attrs[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "ASM"
+            }
+        ]
+    }
 ]

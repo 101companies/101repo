@@ -1,0 +1,13 @@
+[
+    {
+        "fpredicate": "technologies/fpredicate_generic_platform/import.py",
+        "args": [
+            "django"
+        ],
+        "suffix": ".py",
+        "metadata": [
+            {"comment": "API usage of django"},
+            {"dependsOn": "django"}
+        ]
+    }
+]

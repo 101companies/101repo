@@ -1,32 +1,26 @@
 [
   {
-    "dirname" : "contributions/gwt/.settings",
-    "metadata" : {
-      "assignment" : "external"
-    }
-  },
-  {
     "dirname" : "contributions/gwt/src/META-INF",
     "metadata" : {
-      "assignment" : "external"
+      "relevance" : "ignore"
     }
   },
   {
     "dirname" : "contributions/gwt/war/WEB-INF",
     "metadata" : {
-      "assignment" : "external"
+      "relevance" : "ignore"
     }
   },
   {
     "dirname" : "contributions/gwt/war/gwt",
     "metadata" : {
-      "assignment" : "external"
+      "relevance" : "ignore"
     }
   },
   {
     "dirname" : "contributions/gwt/war/img",
     "metadata" : {
-      "assignment" : "external"
+      "relevance" : "ignore"
     }
   },
   {
@@ -34,7 +28,7 @@
     "metadata" : [
       {"dominator" : "validator"},
 	  {"comment" : "auto generated - no validation needed"},
-	  {"assignment" : "generated"}
+	  {"relevance" : "derive"}
     ]
   },
   {
@@ -42,7 +36,7 @@
     "metadata" : [
       {"dominator" : "validator"},
 	  {"comment" : "auto generated - no validation needed"},
-	  {"assignment" : "generated"}	  
+	  {"relevance" : "derive"}	  
     ]
   },
   {
@@ -50,7 +44,7 @@
     "metadata" : [
       {"dominator" : "validator"},
 	  {"comment" : "auto generated - no validation needed"},
-	  {"assignment" : "generated"}
+	  {"relevance" : "derive"}
     ]
   },
   {
@@ -58,7 +52,7 @@
     "metadata" : [
       {"dominator" : "validator"},
 	  {"comment" : "auto generated - no validation needed"},
-	  {"assignment" : "generated"}
+	  {"relevance" : "derive"}
     ]
   },
   {
@@ -66,7 +60,7 @@
     "metadata" : [
       {"dominator" : "validator"},
 	  {"comment" : "auto generated - no validation needed"},
-	  {"assignment" : "generated"}
+	  {"relevance" : "derive"}
     ]
   },
   {
@@ -74,14 +68,15 @@
     "metadata" : [
       {"dominator" : "validator"},
 	  {"comment" : "auto generated - no validation needed"},
-	  {"assignment" : "generated"}
+	  {"relevance" : "derive"}
     ]
   },
   {
     "filename" : "contributions/gwt/war/gwt/hosted.html",
     "metadata" : [
       {"dominator" : "validator"},
-	  {"comment" : "javascript container, possibly auto generated - validation not advisable"}	
+	  {"comment" : "javascript container, possibly auto generated - validation not advisable"},
+	  {"relevance" : "derive"}
     ]
   }
 ]

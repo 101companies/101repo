@@ -2,13 +2,13 @@
   {
     "dirname" : "contributions/jsf/nbproject",
     "metadata" : {
-      "assignment" : "external"
+      "assignment" : "ignore"
     }
   },
   {
     "dirname" : "contributions/jsf/web/resources",
     "metadata" : {
-      "assignment" : "external"
+      "assignment" : "ignore"
     }
   },
   {

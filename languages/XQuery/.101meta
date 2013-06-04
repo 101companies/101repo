@@ -3,8 +3,7 @@
 		"suffix" : ".xq",
 		"metadata" : [
 			{"geshi":"xml"},
-			{"language":"XQuery"},
-			{"locator": "technologies/XmlFragmentLocator/locator.py"}
+			{"language":"XQuery"}
 		]
 	}
 ]

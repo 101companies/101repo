@@ -1,33 +1,48 @@
 # Headline
 
-a fragment locator for Java
+A fragment locator for Java
 
 # Background
 
-See http://101companies.org/index.php/Technology:JFragmentLocator
+See http://101companies.org/wiki/Technology:JFragmentLocator
 
 # Usage
 
-The executable locator.py takes three arguments.
+The executable is "locator.py".
 
-* inputFile is the name of a .java input input file.
-* fragmentFile is the name of a .json input file with the fragment description.
-* linesFile is the name of a .json output file with the determined line range.
+The "/"-based fragment selector is provided as a command-line argument.
+
+The source code on which to apply fragment location is read from stdin. 
+
+The determined line range of the fragment is written in JSON format to stdout.
+
+The following fragment selectors are supported:
+
+* class/n: declaration of a class with the given name n 
+* method/n: declaration of a method with the given name n
+
+Preceding comments of declarations are included into their line ranges.
 
 # Building
 
-The tool builds itself when needed.
+Build the tool with "make build".
+
+See the Makefile for details.
 
 # Testing
 
-Run "make test" to test the tool.
+Test the tool with "make test".
+
+See the Makefile for details.
+
+Fragment location is permformed on tests/Serialization.java.
+
+The baselines for outputs are available as tests/*.baseline.
 
 # Architecture
 
-The locator is essentially coded in Java; see subdirectory locator/*.java.
+The fact extractor is coded in Java; see jfragmentlocator/*.java.
 
-The executable locator.py is only used for convenience of invocation.
+For parsing, the library javaparser 1.0.8 is used.
 
-The library javaparser is used for Java parsing; see subdirectory lib.
-
-The library GSON is used for JSON processing; see subdirectory lib.
+All dependencies are included in the fragment locator (see dir "lib").

@@ -7,6 +7,8 @@ package org.ioicompanies.lang.services;
 import com.google.inject.Singleton;
 import com.google.inject.Inject;
 
+import java.util.List;
+
 import org.eclipse.xtext.*;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.service.AbstractElementFinder.*;
@@ -29,6 +31,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCompaniesCompanyParserRuleCall_3_0 = (RuleCall)cCompaniesAssignment_3.eContents().get(0);
 		
 		//Model:
+		//
 		//	"IOICompaniesModel" name=ID companies+=Company companies+=Company*;
 		public ParserRule getRule() { return rule; }
 
@@ -64,6 +67,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cManagerParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Employee:
+		//
 		//	Employee_Impl | Manager;
 		public ParserRule getRule() { return rule; }
 
@@ -100,11 +104,14 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Company:
+		//
 		//	"Company" name=ID "{" "Positions:" "(" positions+=Position ("," positions+=Position)* ")" departments+=Department
+		//
 		//	departments+=Department* "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Company" name=ID "{" "Positions:" "(" positions+=Position ("," positions+=Position)* ")" departments+=Department
+		//
 		//departments+=Department* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -183,11 +190,14 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Department:
+		//
 		//	"Department" name=ID "{" manager=Manager employees+=Employee employees+=Employee* ("subdepartment"
+		//
 		//	sub_department=Department)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Department" name=ID "{" manager=Manager employees+=Employee employees+=Employee* ("subdepartment"
+		//
 		//sub_department=Department)? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -245,6 +255,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Position:
+		//
 		//	{Position} name=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -279,6 +290,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Manager:
+		//
 		//	"Manager" name=ID "{" ("salary" salary=EInt)? "works on" works_on=[Position|EString] "}";
 		public ParserRule getRule() { return rule; }
 
@@ -343,6 +355,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Employee_Impl returns Employee:
+		//
 		//	"Employee" name=ID "{" ("salary" salary=EInt)? "works on" works_on=[Position|EString] "}";
 		public ParserRule getRule() { return rule; }
 
@@ -396,6 +409,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//EInt returns ecore::EInt:
+		//
 		//	"-"? INT;
 		public ParserRule getRule() { return rule; }
 
@@ -416,6 +430,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//EString returns ecore::EString:
+		//
 		//	STRING | ID;
 		public ParserRule getRule() { return rule; }
 
@@ -440,19 +455,36 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	private EIntElements pEInt;
 	private EStringElements pEString;
 	
-	private final GrammarProvider grammarProvider;
+	private final Grammar grammar;
 
 	private TerminalsGrammarAccess gaTerminals;
 
 	@Inject
 	public IOIGrammarAccess(GrammarProvider grammarProvider,
 		TerminalsGrammarAccess gaTerminals) {
-		this.grammarProvider = grammarProvider;
+		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 	}
 	
-	public Grammar getGrammar() {	
-		return grammarProvider.getGrammar(this);
+	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
+		Grammar grammar = grammarProvider.getGrammar(this);
+		while (grammar != null) {
+			if ("org.ioicompanies.lang.IOI".equals(grammar.getName())) {
+				return grammar;
+			}
+			List<Grammar> grammars = grammar.getUsedGrammars();
+			if (!grammars.isEmpty()) {
+				grammar = grammars.iterator().next();
+			} else {
+				return null;
+			}
+		}
+		return grammar;
+	}
+	
+	
+	public Grammar getGrammar() {
+		return grammar;
 	}
 	
 
@@ -462,6 +494,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
+	//
 	//	"IOICompaniesModel" name=ID companies+=Company companies+=Company*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
@@ -472,6 +505,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Employee:
+	//
 	//	Employee_Impl | Manager;
 	public EmployeeElements getEmployeeAccess() {
 		return (pEmployee != null) ? pEmployee : (pEmployee = new EmployeeElements());
@@ -482,7 +516,9 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Company:
+	//
 	//	"Company" name=ID "{" "Positions:" "(" positions+=Position ("," positions+=Position)* ")" departments+=Department
+	//
 	//	departments+=Department* "}";
 	public CompanyElements getCompanyAccess() {
 		return (pCompany != null) ? pCompany : (pCompany = new CompanyElements());
@@ -493,7 +529,9 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Department:
+	//
 	//	"Department" name=ID "{" manager=Manager employees+=Employee employees+=Employee* ("subdepartment"
+	//
 	//	sub_department=Department)? "}";
 	public DepartmentElements getDepartmentAccess() {
 		return (pDepartment != null) ? pDepartment : (pDepartment = new DepartmentElements());
@@ -504,6 +542,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Position:
+	//
 	//	{Position} name=ID;
 	public PositionElements getPositionAccess() {
 		return (pPosition != null) ? pPosition : (pPosition = new PositionElements());
@@ -514,6 +553,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Manager:
+	//
 	//	"Manager" name=ID "{" ("salary" salary=EInt)? "works on" works_on=[Position|EString] "}";
 	public ManagerElements getManagerAccess() {
 		return (pManager != null) ? pManager : (pManager = new ManagerElements());
@@ -524,6 +564,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Employee_Impl returns Employee:
+	//
 	//	"Employee" name=ID "{" ("salary" salary=EInt)? "works on" works_on=[Position|EString] "}";
 	public Employee_ImplElements getEmployee_ImplAccess() {
 		return (pEmployee_Impl != null) ? pEmployee_Impl : (pEmployee_Impl = new Employee_ImplElements());
@@ -534,6 +575,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EInt returns ecore::EInt:
+	//
 	//	"-"? INT;
 	public EIntElements getEIntAccess() {
 		return (pEInt != null) ? pEInt : (pEInt = new EIntElements());
@@ -544,6 +586,7 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EString returns ecore::EString:
+	//
 	//	STRING | ID;
 	public EStringElements getEStringAccess() {
 		return (pEString != null) ? pEString : (pEString = new EStringElements());
@@ -554,43 +597,51 @@ public class IOIGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal ID:
+	//
 	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
 	} 
 
 	//terminal INT returns ecore::EInt:
+	//
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
 	} 
 
 	//terminal STRING:
+	//
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//
 	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
+	//
 	//	"/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
+	//
 	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
+	//
 	//	(" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 
 
 	//terminal ANY_OTHER:
+	//
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
 		return gaTerminals.getANY_OTHERRule();

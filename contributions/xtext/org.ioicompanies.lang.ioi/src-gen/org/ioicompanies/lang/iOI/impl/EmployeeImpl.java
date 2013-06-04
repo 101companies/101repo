@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ioicompanies.lang.iOI.impl;
 
@@ -35,269 +32,263 @@ import org.ioicompanies.lang.iOI.Position;
 public class EmployeeImpl extends MinimalEObjectImpl.Container implements Employee
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getSalary() <em>Salary</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getSalary() <em>Salary</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSalary()
-   * @generated
-   * @ordered
-   */
+	 * @see #getSalary()
+	 * @generated
+	 * @ordered
+	 */
   protected static final int SALARY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getSalary() <em>Salary</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSalary() <em>Salary</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSalary()
-   * @generated
-   * @ordered
-   */
+	 * @see #getSalary()
+	 * @generated
+	 * @ordered
+	 */
   protected int salary = SALARY_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getWorks_on() <em>Works on</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getWorks_on() <em>Works on</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWorks_on()
-   * @generated
-   * @ordered
-   */
+	 * @see #getWorks_on()
+	 * @generated
+	 * @ordered
+	 */
   protected Position works_on;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected EmployeeImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return IOIPackage.Literals.EMPLOYEE;
-  }
+		return IOIPackage.Literals.EMPLOYEE;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.EMPLOYEE__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.EMPLOYEE__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public int getSalary()
   {
-    return salary;
-  }
+		return salary;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setSalary(int newSalary)
   {
-    int oldSalary = salary;
-    salary = newSalary;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.EMPLOYEE__SALARY, oldSalary, salary));
-  }
+		int oldSalary = salary;
+		salary = newSalary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.EMPLOYEE__SALARY, oldSalary, salary));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Position getWorks_on()
   {
-    if (works_on != null && works_on.eIsProxy())
-    {
-      InternalEObject oldWorks_on = (InternalEObject)works_on;
-      works_on = (Position)eResolveProxy(oldWorks_on);
-      if (works_on != oldWorks_on)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, IOIPackage.EMPLOYEE__WORKS_ON, oldWorks_on, works_on));
-      }
-    }
-    return works_on;
-  }
+		if (works_on != null && works_on.eIsProxy()) {
+			InternalEObject oldWorks_on = (InternalEObject)works_on;
+			works_on = (Position)eResolveProxy(oldWorks_on);
+			if (works_on != oldWorks_on) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, IOIPackage.EMPLOYEE__WORKS_ON, oldWorks_on, works_on));
+			}
+		}
+		return works_on;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Position basicGetWorks_on()
   {
-    return works_on;
-  }
+		return works_on;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setWorks_on(Position newWorks_on)
   {
-    Position oldWorks_on = works_on;
-    works_on = newWorks_on;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.EMPLOYEE__WORKS_ON, oldWorks_on, works_on));
-  }
+		Position oldWorks_on = works_on;
+		works_on = newWorks_on;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IOIPackage.EMPLOYEE__WORKS_ON, oldWorks_on, works_on));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case IOIPackage.EMPLOYEE__NAME:
-        return getName();
-      case IOIPackage.EMPLOYEE__SALARY:
-        return getSalary();
-      case IOIPackage.EMPLOYEE__WORKS_ON:
-        if (resolve) return getWorks_on();
-        return basicGetWorks_on();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case IOIPackage.EMPLOYEE__NAME:
+				return getName();
+			case IOIPackage.EMPLOYEE__SALARY:
+				return getSalary();
+			case IOIPackage.EMPLOYEE__WORKS_ON:
+				if (resolve) return getWorks_on();
+				return basicGetWorks_on();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case IOIPackage.EMPLOYEE__NAME:
-        setName((String)newValue);
-        return;
-      case IOIPackage.EMPLOYEE__SALARY:
-        setSalary((Integer)newValue);
-        return;
-      case IOIPackage.EMPLOYEE__WORKS_ON:
-        setWorks_on((Position)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case IOIPackage.EMPLOYEE__NAME:
+				setName((String)newValue);
+				return;
+			case IOIPackage.EMPLOYEE__SALARY:
+				setSalary((Integer)newValue);
+				return;
+			case IOIPackage.EMPLOYEE__WORKS_ON:
+				setWorks_on((Position)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case IOIPackage.EMPLOYEE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case IOIPackage.EMPLOYEE__SALARY:
-        setSalary(SALARY_EDEFAULT);
-        return;
-      case IOIPackage.EMPLOYEE__WORKS_ON:
-        setWorks_on((Position)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case IOIPackage.EMPLOYEE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case IOIPackage.EMPLOYEE__SALARY:
+				setSalary(SALARY_EDEFAULT);
+				return;
+			case IOIPackage.EMPLOYEE__WORKS_ON:
+				setWorks_on((Position)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case IOIPackage.EMPLOYEE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case IOIPackage.EMPLOYEE__SALARY:
-        return salary != SALARY_EDEFAULT;
-      case IOIPackage.EMPLOYEE__WORKS_ON:
-        return works_on != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case IOIPackage.EMPLOYEE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case IOIPackage.EMPLOYEE__SALARY:
+				return salary != SALARY_EDEFAULT;
+			case IOIPackage.EMPLOYEE__WORKS_ON:
+				return works_on != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", salary: ");
-    result.append(salary);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", salary: ");
+		result.append(salary);
+		result.append(')');
+		return result.toString();
+	}
 
 } //EmployeeImpl

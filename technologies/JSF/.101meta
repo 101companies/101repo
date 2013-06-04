@@ -1,26 +1,26 @@
 [
-  {
-    "metadata": [
-      {
-        "dependsOn": "JSF"
-      }
-    ],
-    "basename": "#^jsf-api[.]jar$#"
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JSF"
-      }
-    ],
-    "basename": "#^jsf-facelets[.]jar$#"
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JSF"
-      }
-    ],
-    "basename": "#^jsf-impl[.]jar$#"
-  }
+    {
+        "basename": "#^jsf-api[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JSF"
+            }
+        ]
+    },
+    {
+        "basename": "#^jsf-facelets[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JSF"
+            }
+        ]
+    },
+    {
+        "basename": "#^jsf-impl[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JSF"
+            }
+        ]
+    }
 ]

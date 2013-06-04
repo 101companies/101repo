@@ -8,6 +8,8 @@ import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
 
+import org.ioicompanies.lang.ui.internal.IOIActivator;
+
 /**
  * This class was generated. Customizations should only happen in a newly
  * introduced subclass. 
@@ -16,12 +18,12 @@ public class IOIExecutableExtensionFactory extends AbstractGuiceAwareExecutableE
 
 	@Override
 	protected Bundle getBundle() {
-		return org.ioicompanies.lang.ui.internal.IOIActivator.getInstance().getBundle();
+		return IOIActivator.getInstance().getBundle();
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return org.ioicompanies.lang.ui.internal.IOIActivator.getInstance().getInjector("org.ioicompanies.lang.IOI");
+		return IOIActivator.getInstance().getInjector(IOIActivator.ORG_IOICOMPANIES_LANG_IOI);
 	}
 	
 }

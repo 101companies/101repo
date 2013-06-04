@@ -1,13 +1,9 @@
 build:
-	make locator/XmlFragmentLocator.class
+	@#no-op
 
-locator/XmlFragmentLocator.class: locator/*.java Makefile
-	javac locator/*.java
 
-test: 
-	./locator.py Company.xsd fragment.xpath lines.json
-	diff baseline.json lines.json
+test:
+	@./locator.py xs:schema/xs:element < Company.xsd
 
 clean: 
-	rm -f locator/*.class
-	rm -f lines.json
+	@#no-op

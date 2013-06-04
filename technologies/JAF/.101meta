@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JAF"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "javax.activation"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JAF"
-      }
-    ],
-    "basename": "#^activation[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "javax.activation"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JAF"
+            }
+        ]
+    },
+    {
+        "basename": "#^activation[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JAF"
+            }
+        ]
+    }
 ]

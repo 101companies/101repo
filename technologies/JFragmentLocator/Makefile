@@ -1,16 +1,21 @@
 build:
-	make locator/JFragmentLocator.class
+	make jfragmentlocator/JFragmentLocator.class
 
-locator/JFragmentLocator.class: locator/*.java Makefile
+jfragmentlocator/JFragmentLocator.class: jfragmentlocator/*.java Makefile
 	javac \
 		-Xlint \
-		-classpath .:lib/gson-1.7.1.jar:lib/javaparser-1.0.8.jar \
-		locator/*.java
+		-classpath .:lib/javaparser-1.0.8.jar \
+		jfragmentlocator/*.java
 
 test: 
-	./locator.py HelloWorld.java fragment.json lines.json
-	diff baseline.json lines.json
+	./locator.py class/Behavior/class/Testclass  < tests/Serialization.java > tests/class.json
+	diff tests/class.json tests/class.baseline
+	./locator.py class/Behavior/method/testTotal  < tests/Serialization.java > tests/method.json
+	diff tests/method.json tests/method.baseline
+	./locator.py class/Behavior/class/Testclass/method/mymethod/1  < tests/Serialization.java > tests/overload.json
+	diff tests/overload.json tests/overload.baseline
+
 
 clean: 
-	rm -f locator/*.class
-	rm -f lines.json
+	rm -f jfragmentlocator/*.class
+	rm -f tests/*.json

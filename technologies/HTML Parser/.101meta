@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "HTML Parser"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.htmlparser"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "HTML Parser"
-      }
-    ],
-    "basename": "#^htmlparser[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.htmlparser"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "HTML Parser"
+            }
+        ]
+    },
+    {
+        "basename": "#^htmlparser[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "HTML Parser"
+            }
+        ]
+    }
 ]

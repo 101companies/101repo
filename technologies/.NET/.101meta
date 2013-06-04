@@ -1,18 +1,20 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "CSharp"
-      },
-      {
-        "language": "VB.NET"
-      },
-      {
-        "dependsOn": ".NET"
-      }
-    ],
-    "suffix": ".cs",
-    "predicate": "technologies/.NET_platform/dotNETImport.sh",
-    "args": [ "System.Xml" ]
-  }
+    {
+        "predicate": "technologies/.NET/dotNETImport.sh",
+        "args": [
+            "System.Xml"
+        ],
+        "suffix": ".cs",
+        "metadata": [
+            {
+                "language": "CSharp"
+            },
+            {
+                "language": "VB.NET"
+            },
+            {
+                "dependsOn": ".NET"
+            }
+        ]
+    }
 ]

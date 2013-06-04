@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "JTA"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "javax.transaction"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "JTA"
-      }
-    ],
-    "basename": "#^jta[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "javax.transaction"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "JTA"
+            }
+        ]
+    },
+    {
+        "basename": "#^jta[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "JTA"
+            }
+        ]
+    }
 ]

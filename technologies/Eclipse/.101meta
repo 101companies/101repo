@@ -1,18 +1,35 @@
 [
-  {
-    "metadata": [
-      {
-        "dependsOn": "Eclipse"
-      }
-    ],
-    "basename": "#^[.]project$#"
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "Eclipse"
-      }
-    ],
-    "basename": "#^[.]classpath$#"
-  }
+    {
+        "basename": "#^[.]project$#",
+        "metadata": [
+            {
+                "dependsOn": "Eclipse"
+            },
+            {
+                "relevance": "ignore"
+            }
+        ]
+    },
+    {
+        "basename": "#^[.]classpath$#",
+        "metadata": [
+            {
+                "dependsOn": "Eclipse"
+            },
+            {
+                "relevance": "ignore"
+            }
+        ]
+    },
+    {
+        "basename": "#^[.]settings$#",
+        "metadata": [
+            {
+                "dependsOn": "Eclipse"
+            },
+            {
+                "relevance": "ignore"
+            }
+        ]
+    }
 ]

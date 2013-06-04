@@ -1,33 +1,33 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "iText"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "com.lowagie.text"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "iText"
-      }
-    ],
-    "basename": "#^itext[.]jar$#"
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "iText"
-      }
-    ],
-    "basename": "#^itext-rtf[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "com.lowagie.text"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "iText"
+            }
+        ]
+    },
+    {
+        "basename": "#^itext[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "iText"
+            }
+        ]
+    },
+    {
+        "basename": "#^itext-rtf[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "iText"
+            }
+        ]
+    }
 ]

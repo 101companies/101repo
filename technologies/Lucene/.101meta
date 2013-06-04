@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "Lucene"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.apache.lucene"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "Lucene"
-      }
-    ],
-    "basename": "#^lucene-core[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.apache.lucene"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "Lucene"
+            }
+        ]
+    },
+    {
+        "basename": "#^lucene-core[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "Lucene"
+            }
+        ]
+    }
 ]

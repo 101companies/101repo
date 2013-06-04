@@ -1,20 +1,47 @@
-data A = A1 Int | A2 Bool | A3 A
- deriving (Read,Show,Eq)
-data B = B1 Bool | B2 Int | B3 A
- deriving (Read,Show,Eq)
-data C = C B
- deriving (Read,Show,Eq)
+-- Import an entire module
+import Data.Maybe
 
-f :: Int -> Int
-f = id
+-- Import some bits from a module
+import Control.Monad (filterM)
 
-g = g'
+-- Qualified import
+import qualified Data.Map
 
-g' :: Bool -> Int
-g' True = 1
-g' False = 0
+-- Import with alias
+import Data.List as L
 
-h :: Bool -> Bool
-h True = False
-h False = True
+-- A simple type declaration
+type MyType = ()
 
+-- A simple data type declaration
+data MyData = MyData1 | MyData2
+
+-- A simple newtype declaration
+newtype MyNewtype = MyNewtype ()
+
+-- A function without signature and with just one equation
+f 'a' = 1
+
+-- A function with signature and with just one equation
+g :: Char -> Int
+g 'a' = 1
+
+-- A function with signature and with more than one equation
+h :: Char -> Int
+h 'a' = 1
+h 'b' = 2
+
+-- A pattern binding with signature
+x :: ()
+x = ()
+
+-- A pattern binding without signature
+y = ()
+
+--
+-- Two functions where the comment counts towards the first one
+--
+
+f1 1 = 1
+
+f2 2 = 2

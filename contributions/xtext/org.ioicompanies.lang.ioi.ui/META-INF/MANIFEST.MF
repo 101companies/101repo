@@ -20,5 +20,6 @@ Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.ioicompanies.lang.ui.contentassist.antlr,
- org.ioicompanies.lang.ui.internal
+ org.ioicompanies.lang.ui.internal,
+ org.ioicompanies.lang.ui.contentassist
 Bundle-Activator: org.ioicompanies.lang.ui.internal.IOIActivator

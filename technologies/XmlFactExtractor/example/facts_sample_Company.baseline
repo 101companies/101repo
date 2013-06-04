@@ -1,0 +1,242 @@
+{
+    "fragments": {
+        "attributes": {}, 
+        "fragments": [
+            {
+                "attributes": {}, 
+                "fragments": [], 
+                "classifier": "element", 
+                "name": "name"
+            }, 
+            {
+                "attributes": {}, 
+                "fragments": [
+                    {
+                        "attributes": {}, 
+                        "fragments": [], 
+                        "classifier": "element", 
+                        "name": "name"
+                    }, 
+                    {
+                        "attributes": {}, 
+                        "fragments": [
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "name"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "address"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "salary"
+                            }
+                        ], 
+                        "classifier": "element", 
+                        "name": "manager"
+                    }, 
+                    {
+                        "attributes": {}, 
+                        "fragments": [
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "name"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "address"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "salary"
+                            }
+                        ], 
+                        "classifier": "element", 
+                        "name": "employee"
+                    }, 
+                    {
+                        "attributes": {}, 
+                        "fragments": [
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "name"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "address"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "salary"
+                            }
+                        ], 
+                        "classifier": "element", 
+                        "name": "employee"
+                    }
+                ], 
+                "classifier": "element", 
+                "name": "department"
+            }, 
+            {
+                "attributes": {}, 
+                "fragments": [
+                    {
+                        "attributes": {}, 
+                        "fragments": [], 
+                        "classifier": "element", 
+                        "name": "name"
+                    }, 
+                    {
+                        "attributes": {}, 
+                        "fragments": [
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "name"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "address"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "salary"
+                            }
+                        ], 
+                        "classifier": "element", 
+                        "name": "manager"
+                    }, 
+                    {
+                        "attributes": {}, 
+                        "fragments": [
+                            {
+                                "attributes": {}, 
+                                "fragments": [], 
+                                "classifier": "element", 
+                                "name": "name"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [
+                                    {
+                                        "attributes": {}, 
+                                        "fragments": [], 
+                                        "classifier": "element", 
+                                        "name": "name"
+                                    }, 
+                                    {
+                                        "attributes": {}, 
+                                        "fragments": [], 
+                                        "classifier": "element", 
+                                        "name": "address"
+                                    }, 
+                                    {
+                                        "attributes": {}, 
+                                        "fragments": [], 
+                                        "classifier": "element", 
+                                        "name": "salary"
+                                    }
+                                ], 
+                                "classifier": "element", 
+                                "name": "manager"
+                            }, 
+                            {
+                                "attributes": {}, 
+                                "fragments": [
+                                    {
+                                        "attributes": {}, 
+                                        "fragments": [], 
+                                        "classifier": "element", 
+                                        "name": "name"
+                                    }, 
+                                    {
+                                        "attributes": {}, 
+                                        "fragments": [
+                                            {
+                                                "attributes": {}, 
+                                                "fragments": [], 
+                                                "classifier": "element", 
+                                                "name": "name"
+                                            }, 
+                                            {
+                                                "attributes": {}, 
+                                                "fragments": [], 
+                                                "classifier": "element", 
+                                                "name": "address"
+                                            }, 
+                                            {
+                                                "attributes": {}, 
+                                                "fragments": [], 
+                                                "classifier": "element", 
+                                                "name": "salary"
+                                            }
+                                        ], 
+                                        "classifier": "element", 
+                                        "name": "manager"
+                                    }, 
+                                    {
+                                        "attributes": {}, 
+                                        "fragments": [
+                                            {
+                                                "attributes": {}, 
+                                                "fragments": [], 
+                                                "classifier": "element", 
+                                                "name": "name"
+                                            }, 
+                                            {
+                                                "attributes": {}, 
+                                                "fragments": [], 
+                                                "classifier": "element", 
+                                                "name": "address"
+                                            }, 
+                                            {
+                                                "attributes": {}, 
+                                                "fragments": [], 
+                                                "classifier": "element", 
+                                                "name": "salary"
+                                            }
+                                        ], 
+                                        "classifier": "element", 
+                                        "name": "employee"
+                                    }
+                                ], 
+                                "classifier": "element", 
+                                "name": "department"
+                            }
+                        ], 
+                        "classifier": "element", 
+                        "name": "department"
+                    }
+                ], 
+                "classifier": "element", 
+                "name": "department"
+            }
+        ], 
+        "classifier": "element", 
+        "name": "company"
+    }
+}

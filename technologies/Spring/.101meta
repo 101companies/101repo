@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "Spring"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.springframework"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "Spring"
-      }
-    ],
-    "basename": "#^spring[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.springframework"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "Spring"
+            }
+        ]
+    },
+    {
+        "basename": "#^spring[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "Spring"
+            }
+        ]
+    }
 ]

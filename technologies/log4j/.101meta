@@ -1,33 +1,33 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "log4j"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "org.apache.log4j"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "log4j"
-      }
-    ],
-    "basename": "#^log4j[.]jar$#"
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "log4j"
-      }
-    ],
-    "basename": "#^log4j-(.*)[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "org.apache.log4j"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "log4j"
+            }
+        ]
+    },
+    {
+        "basename": "#^log4j[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "log4j"
+            }
+        ]
+    },
+    {
+        "basename": "#^log4j-(.*)[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "log4j"
+            }
+        ]
+    }
 ]

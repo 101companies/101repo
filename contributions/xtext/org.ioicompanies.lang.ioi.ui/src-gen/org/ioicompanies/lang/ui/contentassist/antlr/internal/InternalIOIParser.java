@@ -4,7 +4,6 @@ import java.io.InputStream;
 import org.eclipse.xtext.*;
 import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
-import org.eclipse.xtext.parsetree.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
@@ -87,11 +86,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleModel"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:61:1: entryRuleModel : ruleModel EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:60:1: entryRuleModel : ruleModel EOF ;
     public final void entryRuleModel() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:62:1: ( ruleModel EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:63:1: ruleModel EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:61:1: ( ruleModel EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:62:1: ruleModel EOF
             {
              before(grammarAccess.getModelRule()); 
             pushFollow(FOLLOW_ruleModel_in_entryRuleModel61);
@@ -117,21 +116,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleModel"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:70:1: ruleModel : ( ( rule__Model__Group__0 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:69:1: ruleModel : ( ( rule__Model__Group__0 ) ) ;
     public final void ruleModel() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:74:2: ( ( ( rule__Model__Group__0 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:75:1: ( ( rule__Model__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:73:2: ( ( ( rule__Model__Group__0 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:74:1: ( ( rule__Model__Group__0 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:75:1: ( ( rule__Model__Group__0 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:76:1: ( rule__Model__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:74:1: ( ( rule__Model__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:75:1: ( rule__Model__Group__0 )
             {
              before(grammarAccess.getModelAccess().getGroup()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:77:1: ( rule__Model__Group__0 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:77:2: rule__Model__Group__0
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:76:1: ( rule__Model__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:76:2: rule__Model__Group__0
             {
             pushFollow(FOLLOW_rule__Model__Group__0_in_ruleModel94);
             rule__Model__Group__0();
@@ -164,11 +163,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleEmployee"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:89:1: entryRuleEmployee : ruleEmployee EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:88:1: entryRuleEmployee : ruleEmployee EOF ;
     public final void entryRuleEmployee() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:90:1: ( ruleEmployee EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:91:1: ruleEmployee EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:89:1: ( ruleEmployee EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:90:1: ruleEmployee EOF
             {
              before(grammarAccess.getEmployeeRule()); 
             pushFollow(FOLLOW_ruleEmployee_in_entryRuleEmployee121);
@@ -194,21 +193,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleEmployee"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:98:1: ruleEmployee : ( ( rule__Employee__Alternatives ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:97:1: ruleEmployee : ( ( rule__Employee__Alternatives ) ) ;
     public final void ruleEmployee() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:102:2: ( ( ( rule__Employee__Alternatives ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:103:1: ( ( rule__Employee__Alternatives ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:101:2: ( ( ( rule__Employee__Alternatives ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:102:1: ( ( rule__Employee__Alternatives ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:103:1: ( ( rule__Employee__Alternatives ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:104:1: ( rule__Employee__Alternatives )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:102:1: ( ( rule__Employee__Alternatives ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:103:1: ( rule__Employee__Alternatives )
             {
              before(grammarAccess.getEmployeeAccess().getAlternatives()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:105:1: ( rule__Employee__Alternatives )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:105:2: rule__Employee__Alternatives
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:104:1: ( rule__Employee__Alternatives )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:104:2: rule__Employee__Alternatives
             {
             pushFollow(FOLLOW_rule__Employee__Alternatives_in_ruleEmployee154);
             rule__Employee__Alternatives();
@@ -241,11 +240,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleCompany"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:117:1: entryRuleCompany : ruleCompany EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:116:1: entryRuleCompany : ruleCompany EOF ;
     public final void entryRuleCompany() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:118:1: ( ruleCompany EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:119:1: ruleCompany EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:117:1: ( ruleCompany EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:118:1: ruleCompany EOF
             {
              before(grammarAccess.getCompanyRule()); 
             pushFollow(FOLLOW_ruleCompany_in_entryRuleCompany181);
@@ -271,21 +270,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleCompany"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:126:1: ruleCompany : ( ( rule__Company__Group__0 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:125:1: ruleCompany : ( ( rule__Company__Group__0 ) ) ;
     public final void ruleCompany() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:130:2: ( ( ( rule__Company__Group__0 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:131:1: ( ( rule__Company__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:129:2: ( ( ( rule__Company__Group__0 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:130:1: ( ( rule__Company__Group__0 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:131:1: ( ( rule__Company__Group__0 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:132:1: ( rule__Company__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:130:1: ( ( rule__Company__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:131:1: ( rule__Company__Group__0 )
             {
              before(grammarAccess.getCompanyAccess().getGroup()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:133:1: ( rule__Company__Group__0 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:133:2: rule__Company__Group__0
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:132:1: ( rule__Company__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:132:2: rule__Company__Group__0
             {
             pushFollow(FOLLOW_rule__Company__Group__0_in_ruleCompany214);
             rule__Company__Group__0();
@@ -318,11 +317,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleDepartment"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:145:1: entryRuleDepartment : ruleDepartment EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:144:1: entryRuleDepartment : ruleDepartment EOF ;
     public final void entryRuleDepartment() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:146:1: ( ruleDepartment EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:147:1: ruleDepartment EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:145:1: ( ruleDepartment EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:146:1: ruleDepartment EOF
             {
              before(grammarAccess.getDepartmentRule()); 
             pushFollow(FOLLOW_ruleDepartment_in_entryRuleDepartment241);
@@ -348,21 +347,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDepartment"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:154:1: ruleDepartment : ( ( rule__Department__Group__0 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:153:1: ruleDepartment : ( ( rule__Department__Group__0 ) ) ;
     public final void ruleDepartment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:158:2: ( ( ( rule__Department__Group__0 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:159:1: ( ( rule__Department__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:157:2: ( ( ( rule__Department__Group__0 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:158:1: ( ( rule__Department__Group__0 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:159:1: ( ( rule__Department__Group__0 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:160:1: ( rule__Department__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:158:1: ( ( rule__Department__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:159:1: ( rule__Department__Group__0 )
             {
              before(grammarAccess.getDepartmentAccess().getGroup()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:161:1: ( rule__Department__Group__0 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:161:2: rule__Department__Group__0
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:160:1: ( rule__Department__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:160:2: rule__Department__Group__0
             {
             pushFollow(FOLLOW_rule__Department__Group__0_in_ruleDepartment274);
             rule__Department__Group__0();
@@ -395,11 +394,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRulePosition"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:173:1: entryRulePosition : rulePosition EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:172:1: entryRulePosition : rulePosition EOF ;
     public final void entryRulePosition() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:174:1: ( rulePosition EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:175:1: rulePosition EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:173:1: ( rulePosition EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:174:1: rulePosition EOF
             {
              before(grammarAccess.getPositionRule()); 
             pushFollow(FOLLOW_rulePosition_in_entryRulePosition301);
@@ -425,21 +424,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rulePosition"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:182:1: rulePosition : ( ( rule__Position__Group__0 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:181:1: rulePosition : ( ( rule__Position__Group__0 ) ) ;
     public final void rulePosition() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:186:2: ( ( ( rule__Position__Group__0 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:187:1: ( ( rule__Position__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:185:2: ( ( ( rule__Position__Group__0 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:186:1: ( ( rule__Position__Group__0 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:187:1: ( ( rule__Position__Group__0 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:188:1: ( rule__Position__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:186:1: ( ( rule__Position__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:187:1: ( rule__Position__Group__0 )
             {
              before(grammarAccess.getPositionAccess().getGroup()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:189:1: ( rule__Position__Group__0 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:189:2: rule__Position__Group__0
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:188:1: ( rule__Position__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:188:2: rule__Position__Group__0
             {
             pushFollow(FOLLOW_rule__Position__Group__0_in_rulePosition334);
             rule__Position__Group__0();
@@ -472,11 +471,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleManager"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:201:1: entryRuleManager : ruleManager EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:200:1: entryRuleManager : ruleManager EOF ;
     public final void entryRuleManager() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:202:1: ( ruleManager EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:203:1: ruleManager EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:201:1: ( ruleManager EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:202:1: ruleManager EOF
             {
              before(grammarAccess.getManagerRule()); 
             pushFollow(FOLLOW_ruleManager_in_entryRuleManager361);
@@ -502,21 +501,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleManager"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:210:1: ruleManager : ( ( rule__Manager__Group__0 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:209:1: ruleManager : ( ( rule__Manager__Group__0 ) ) ;
     public final void ruleManager() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:214:2: ( ( ( rule__Manager__Group__0 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:215:1: ( ( rule__Manager__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:213:2: ( ( ( rule__Manager__Group__0 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:214:1: ( ( rule__Manager__Group__0 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:215:1: ( ( rule__Manager__Group__0 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:216:1: ( rule__Manager__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:214:1: ( ( rule__Manager__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:215:1: ( rule__Manager__Group__0 )
             {
              before(grammarAccess.getManagerAccess().getGroup()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:217:1: ( rule__Manager__Group__0 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:217:2: rule__Manager__Group__0
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:216:1: ( rule__Manager__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:216:2: rule__Manager__Group__0
             {
             pushFollow(FOLLOW_rule__Manager__Group__0_in_ruleManager394);
             rule__Manager__Group__0();
@@ -549,11 +548,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleEmployee_Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:229:1: entryRuleEmployee_Impl : ruleEmployee_Impl EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:228:1: entryRuleEmployee_Impl : ruleEmployee_Impl EOF ;
     public final void entryRuleEmployee_Impl() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:230:1: ( ruleEmployee_Impl EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:231:1: ruleEmployee_Impl EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:229:1: ( ruleEmployee_Impl EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:230:1: ruleEmployee_Impl EOF
             {
              before(grammarAccess.getEmployee_ImplRule()); 
             pushFollow(FOLLOW_ruleEmployee_Impl_in_entryRuleEmployee_Impl421);
@@ -579,21 +578,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleEmployee_Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:238:1: ruleEmployee_Impl : ( ( rule__Employee_Impl__Group__0 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:237:1: ruleEmployee_Impl : ( ( rule__Employee_Impl__Group__0 ) ) ;
     public final void ruleEmployee_Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:242:2: ( ( ( rule__Employee_Impl__Group__0 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:243:1: ( ( rule__Employee_Impl__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:241:2: ( ( ( rule__Employee_Impl__Group__0 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:242:1: ( ( rule__Employee_Impl__Group__0 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:243:1: ( ( rule__Employee_Impl__Group__0 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:244:1: ( rule__Employee_Impl__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:242:1: ( ( rule__Employee_Impl__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:243:1: ( rule__Employee_Impl__Group__0 )
             {
              before(grammarAccess.getEmployee_ImplAccess().getGroup()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:245:1: ( rule__Employee_Impl__Group__0 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:245:2: rule__Employee_Impl__Group__0
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:244:1: ( rule__Employee_Impl__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:244:2: rule__Employee_Impl__Group__0
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__0_in_ruleEmployee_Impl454);
             rule__Employee_Impl__Group__0();
@@ -626,11 +625,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:257:1: entryRuleEInt : ruleEInt EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:256:1: entryRuleEInt : ruleEInt EOF ;
     public final void entryRuleEInt() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:258:1: ( ruleEInt EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:259:1: ruleEInt EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:257:1: ( ruleEInt EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:258:1: ruleEInt EOF
             {
              before(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_ruleEInt_in_entryRuleEInt481);
@@ -656,21 +655,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleEInt"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:266:1: ruleEInt : ( ( rule__EInt__Group__0 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:265:1: ruleEInt : ( ( rule__EInt__Group__0 ) ) ;
     public final void ruleEInt() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:270:2: ( ( ( rule__EInt__Group__0 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:271:1: ( ( rule__EInt__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:269:2: ( ( ( rule__EInt__Group__0 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:270:1: ( ( rule__EInt__Group__0 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:271:1: ( ( rule__EInt__Group__0 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:272:1: ( rule__EInt__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:270:1: ( ( rule__EInt__Group__0 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:271:1: ( rule__EInt__Group__0 )
             {
              before(grammarAccess.getEIntAccess().getGroup()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:273:1: ( rule__EInt__Group__0 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:273:2: rule__EInt__Group__0
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:272:1: ( rule__EInt__Group__0 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:272:2: rule__EInt__Group__0
             {
             pushFollow(FOLLOW_rule__EInt__Group__0_in_ruleEInt514);
             rule__EInt__Group__0();
@@ -703,11 +702,11 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:285:1: entryRuleEString : ruleEString EOF ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:284:1: entryRuleEString : ruleEString EOF ;
     public final void entryRuleEString() throws RecognitionException {
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:286:1: ( ruleEString EOF )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:287:1: ruleEString EOF
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:285:1: ( ruleEString EOF )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:286:1: ruleEString EOF
             {
              before(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_ruleEString_in_entryRuleEString541);
@@ -733,21 +732,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleEString"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:294:1: ruleEString : ( ( rule__EString__Alternatives ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:293:1: ruleEString : ( ( rule__EString__Alternatives ) ) ;
     public final void ruleEString() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:298:2: ( ( ( rule__EString__Alternatives ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:299:1: ( ( rule__EString__Alternatives ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:297:2: ( ( ( rule__EString__Alternatives ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:298:1: ( ( rule__EString__Alternatives ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:299:1: ( ( rule__EString__Alternatives ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:300:1: ( rule__EString__Alternatives )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:298:1: ( ( rule__EString__Alternatives ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:299:1: ( rule__EString__Alternatives )
             {
              before(grammarAccess.getEStringAccess().getAlternatives()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:301:1: ( rule__EString__Alternatives )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:301:2: rule__EString__Alternatives
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:300:1: ( rule__EString__Alternatives )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:300:2: rule__EString__Alternatives
             {
             pushFollow(FOLLOW_rule__EString__Alternatives_in_ruleEString574);
             rule__EString__Alternatives();
@@ -780,13 +779,13 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee__Alternatives"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:313:1: rule__Employee__Alternatives : ( ( ruleEmployee_Impl ) | ( ruleManager ) );
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:312:1: rule__Employee__Alternatives : ( ( ruleEmployee_Impl ) | ( ruleManager ) );
     public final void rule__Employee__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:317:1: ( ( ruleEmployee_Impl ) | ( ruleManager ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:316:1: ( ( ruleEmployee_Impl ) | ( ruleManager ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -804,10 +803,10 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:318:1: ( ruleEmployee_Impl )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:317:1: ( ruleEmployee_Impl )
                     {
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:318:1: ( ruleEmployee_Impl )
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:319:1: ruleEmployee_Impl
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:317:1: ( ruleEmployee_Impl )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:318:1: ruleEmployee_Impl
                     {
                      before(grammarAccess.getEmployeeAccess().getEmployee_ImplParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleEmployee_Impl_in_rule__Employee__Alternatives610);
@@ -823,10 +822,10 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:324:6: ( ruleManager )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:323:6: ( ruleManager )
                     {
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:324:6: ( ruleManager )
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:325:1: ruleManager
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:323:6: ( ruleManager )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:324:1: ruleManager
                     {
                      before(grammarAccess.getEmployeeAccess().getManagerParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleManager_in_rule__Employee__Alternatives627);
@@ -859,13 +858,13 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EString__Alternatives"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:335:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:334:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
     public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:339:1: ( ( RULE_STRING ) | ( RULE_ID ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:338:1: ( ( RULE_STRING ) | ( RULE_ID ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -883,10 +882,10 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
             }
             switch (alt2) {
                 case 1 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:340:1: ( RULE_STRING )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:339:1: ( RULE_STRING )
                     {
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:340:1: ( RULE_STRING )
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:341:1: RULE_STRING
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:339:1: ( RULE_STRING )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:340:1: RULE_STRING
                     {
                      before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
                     match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EString__Alternatives659); 
@@ -898,10 +897,10 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:346:6: ( RULE_ID )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:345:6: ( RULE_ID )
                     {
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:346:6: ( RULE_ID )
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:347:1: RULE_ID
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:345:6: ( RULE_ID )
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:346:1: RULE_ID
                     {
                      before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
                     match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EString__Alternatives676); 
@@ -930,14 +929,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:359:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:358:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
     public final void rule__Model__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:363:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:364:2: rule__Model__Group__0__Impl rule__Model__Group__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:362:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:363:2: rule__Model__Group__0__Impl rule__Model__Group__1
             {
             pushFollow(FOLLOW_rule__Model__Group__0__Impl_in_rule__Model__Group__0706);
             rule__Model__Group__0__Impl();
@@ -968,17 +967,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:371:1: rule__Model__Group__0__Impl : ( 'IOICompaniesModel' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:370:1: rule__Model__Group__0__Impl : ( 'IOICompaniesModel' ) ;
     public final void rule__Model__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:375:1: ( ( 'IOICompaniesModel' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:376:1: ( 'IOICompaniesModel' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:374:1: ( ( 'IOICompaniesModel' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:375:1: ( 'IOICompaniesModel' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:376:1: ( 'IOICompaniesModel' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:377:1: 'IOICompaniesModel'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:375:1: ( 'IOICompaniesModel' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:376:1: 'IOICompaniesModel'
             {
              before(grammarAccess.getModelAccess().getIOICompaniesModelKeyword_0()); 
             match(input,11,FOLLOW_11_in_rule__Model__Group__0__Impl737); 
@@ -1005,14 +1004,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:390:1: rule__Model__Group__1 : rule__Model__Group__1__Impl rule__Model__Group__2 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:389:1: rule__Model__Group__1 : rule__Model__Group__1__Impl rule__Model__Group__2 ;
     public final void rule__Model__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:394:1: ( rule__Model__Group__1__Impl rule__Model__Group__2 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:395:2: rule__Model__Group__1__Impl rule__Model__Group__2
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:393:1: ( rule__Model__Group__1__Impl rule__Model__Group__2 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:394:2: rule__Model__Group__1__Impl rule__Model__Group__2
             {
             pushFollow(FOLLOW_rule__Model__Group__1__Impl_in_rule__Model__Group__1768);
             rule__Model__Group__1__Impl();
@@ -1043,21 +1042,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:402:1: rule__Model__Group__1__Impl : ( ( rule__Model__NameAssignment_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:401:1: rule__Model__Group__1__Impl : ( ( rule__Model__NameAssignment_1 ) ) ;
     public final void rule__Model__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:406:1: ( ( ( rule__Model__NameAssignment_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:407:1: ( ( rule__Model__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:405:1: ( ( ( rule__Model__NameAssignment_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:406:1: ( ( rule__Model__NameAssignment_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:407:1: ( ( rule__Model__NameAssignment_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:408:1: ( rule__Model__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:406:1: ( ( rule__Model__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:407:1: ( rule__Model__NameAssignment_1 )
             {
              before(grammarAccess.getModelAccess().getNameAssignment_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:409:1: ( rule__Model__NameAssignment_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:409:2: rule__Model__NameAssignment_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:408:1: ( rule__Model__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:408:2: rule__Model__NameAssignment_1
             {
             pushFollow(FOLLOW_rule__Model__NameAssignment_1_in_rule__Model__Group__1__Impl798);
             rule__Model__NameAssignment_1();
@@ -1090,14 +1089,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__2"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:419:1: rule__Model__Group__2 : rule__Model__Group__2__Impl rule__Model__Group__3 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:418:1: rule__Model__Group__2 : rule__Model__Group__2__Impl rule__Model__Group__3 ;
     public final void rule__Model__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:423:1: ( rule__Model__Group__2__Impl rule__Model__Group__3 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:424:2: rule__Model__Group__2__Impl rule__Model__Group__3
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:422:1: ( rule__Model__Group__2__Impl rule__Model__Group__3 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:423:2: rule__Model__Group__2__Impl rule__Model__Group__3
             {
             pushFollow(FOLLOW_rule__Model__Group__2__Impl_in_rule__Model__Group__2828);
             rule__Model__Group__2__Impl();
@@ -1128,21 +1127,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__2__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:431:1: rule__Model__Group__2__Impl : ( ( rule__Model__CompaniesAssignment_2 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:430:1: rule__Model__Group__2__Impl : ( ( rule__Model__CompaniesAssignment_2 ) ) ;
     public final void rule__Model__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:435:1: ( ( ( rule__Model__CompaniesAssignment_2 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:436:1: ( ( rule__Model__CompaniesAssignment_2 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:434:1: ( ( ( rule__Model__CompaniesAssignment_2 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:435:1: ( ( rule__Model__CompaniesAssignment_2 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:436:1: ( ( rule__Model__CompaniesAssignment_2 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:437:1: ( rule__Model__CompaniesAssignment_2 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:435:1: ( ( rule__Model__CompaniesAssignment_2 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:436:1: ( rule__Model__CompaniesAssignment_2 )
             {
              before(grammarAccess.getModelAccess().getCompaniesAssignment_2()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:438:1: ( rule__Model__CompaniesAssignment_2 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:438:2: rule__Model__CompaniesAssignment_2
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:437:1: ( rule__Model__CompaniesAssignment_2 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:437:2: rule__Model__CompaniesAssignment_2
             {
             pushFollow(FOLLOW_rule__Model__CompaniesAssignment_2_in_rule__Model__Group__2__Impl858);
             rule__Model__CompaniesAssignment_2();
@@ -1175,14 +1174,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__3"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:448:1: rule__Model__Group__3 : rule__Model__Group__3__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:447:1: rule__Model__Group__3 : rule__Model__Group__3__Impl ;
     public final void rule__Model__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:452:1: ( rule__Model__Group__3__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:453:2: rule__Model__Group__3__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:451:1: ( rule__Model__Group__3__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:452:2: rule__Model__Group__3__Impl
             {
             pushFollow(FOLLOW_rule__Model__Group__3__Impl_in_rule__Model__Group__3888);
             rule__Model__Group__3__Impl();
@@ -1208,20 +1207,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__Group__3__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:459:1: rule__Model__Group__3__Impl : ( ( rule__Model__CompaniesAssignment_3 )* ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:458:1: rule__Model__Group__3__Impl : ( ( rule__Model__CompaniesAssignment_3 )* ) ;
     public final void rule__Model__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:463:1: ( ( ( rule__Model__CompaniesAssignment_3 )* ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:464:1: ( ( rule__Model__CompaniesAssignment_3 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:462:1: ( ( ( rule__Model__CompaniesAssignment_3 )* ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:463:1: ( ( rule__Model__CompaniesAssignment_3 )* )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:464:1: ( ( rule__Model__CompaniesAssignment_3 )* )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:465:1: ( rule__Model__CompaniesAssignment_3 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:463:1: ( ( rule__Model__CompaniesAssignment_3 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:464:1: ( rule__Model__CompaniesAssignment_3 )*
             {
              before(grammarAccess.getModelAccess().getCompaniesAssignment_3()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:466:1: ( rule__Model__CompaniesAssignment_3 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:465:1: ( rule__Model__CompaniesAssignment_3 )*
             loop3:
             do {
                 int alt3=2;
@@ -1234,7 +1233,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:466:2: rule__Model__CompaniesAssignment_3
+            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:465:2: rule__Model__CompaniesAssignment_3
             	    {
             	    pushFollow(FOLLOW_rule__Model__CompaniesAssignment_3_in_rule__Model__Group__3__Impl915);
             	    rule__Model__CompaniesAssignment_3();
@@ -1273,14 +1272,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:484:1: rule__Company__Group__0 : rule__Company__Group__0__Impl rule__Company__Group__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:483:1: rule__Company__Group__0 : rule__Company__Group__0__Impl rule__Company__Group__1 ;
     public final void rule__Company__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:488:1: ( rule__Company__Group__0__Impl rule__Company__Group__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:489:2: rule__Company__Group__0__Impl rule__Company__Group__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:487:1: ( rule__Company__Group__0__Impl rule__Company__Group__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:488:2: rule__Company__Group__0__Impl rule__Company__Group__1
             {
             pushFollow(FOLLOW_rule__Company__Group__0__Impl_in_rule__Company__Group__0954);
             rule__Company__Group__0__Impl();
@@ -1311,17 +1310,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:496:1: rule__Company__Group__0__Impl : ( 'Company' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:495:1: rule__Company__Group__0__Impl : ( 'Company' ) ;
     public final void rule__Company__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:500:1: ( ( 'Company' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:501:1: ( 'Company' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:499:1: ( ( 'Company' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:500:1: ( 'Company' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:501:1: ( 'Company' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:502:1: 'Company'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:500:1: ( 'Company' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:501:1: 'Company'
             {
              before(grammarAccess.getCompanyAccess().getCompanyKeyword_0()); 
             match(input,12,FOLLOW_12_in_rule__Company__Group__0__Impl985); 
@@ -1348,14 +1347,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:515:1: rule__Company__Group__1 : rule__Company__Group__1__Impl rule__Company__Group__2 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:514:1: rule__Company__Group__1 : rule__Company__Group__1__Impl rule__Company__Group__2 ;
     public final void rule__Company__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:519:1: ( rule__Company__Group__1__Impl rule__Company__Group__2 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:520:2: rule__Company__Group__1__Impl rule__Company__Group__2
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:518:1: ( rule__Company__Group__1__Impl rule__Company__Group__2 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:519:2: rule__Company__Group__1__Impl rule__Company__Group__2
             {
             pushFollow(FOLLOW_rule__Company__Group__1__Impl_in_rule__Company__Group__11016);
             rule__Company__Group__1__Impl();
@@ -1386,21 +1385,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:527:1: rule__Company__Group__1__Impl : ( ( rule__Company__NameAssignment_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:526:1: rule__Company__Group__1__Impl : ( ( rule__Company__NameAssignment_1 ) ) ;
     public final void rule__Company__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:531:1: ( ( ( rule__Company__NameAssignment_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:532:1: ( ( rule__Company__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:530:1: ( ( ( rule__Company__NameAssignment_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:531:1: ( ( rule__Company__NameAssignment_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:532:1: ( ( rule__Company__NameAssignment_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:533:1: ( rule__Company__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:531:1: ( ( rule__Company__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:532:1: ( rule__Company__NameAssignment_1 )
             {
              before(grammarAccess.getCompanyAccess().getNameAssignment_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:534:1: ( rule__Company__NameAssignment_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:534:2: rule__Company__NameAssignment_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:533:1: ( rule__Company__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:533:2: rule__Company__NameAssignment_1
             {
             pushFollow(FOLLOW_rule__Company__NameAssignment_1_in_rule__Company__Group__1__Impl1046);
             rule__Company__NameAssignment_1();
@@ -1433,14 +1432,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__2"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:544:1: rule__Company__Group__2 : rule__Company__Group__2__Impl rule__Company__Group__3 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:543:1: rule__Company__Group__2 : rule__Company__Group__2__Impl rule__Company__Group__3 ;
     public final void rule__Company__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:548:1: ( rule__Company__Group__2__Impl rule__Company__Group__3 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:549:2: rule__Company__Group__2__Impl rule__Company__Group__3
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:547:1: ( rule__Company__Group__2__Impl rule__Company__Group__3 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:548:2: rule__Company__Group__2__Impl rule__Company__Group__3
             {
             pushFollow(FOLLOW_rule__Company__Group__2__Impl_in_rule__Company__Group__21076);
             rule__Company__Group__2__Impl();
@@ -1471,17 +1470,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__2__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:556:1: rule__Company__Group__2__Impl : ( '{' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:555:1: rule__Company__Group__2__Impl : ( '{' ) ;
     public final void rule__Company__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:560:1: ( ( '{' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:561:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:559:1: ( ( '{' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:560:1: ( '{' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:561:1: ( '{' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:562:1: '{'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:560:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:561:1: '{'
             {
              before(grammarAccess.getCompanyAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,13,FOLLOW_13_in_rule__Company__Group__2__Impl1107); 
@@ -1508,14 +1507,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__3"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:575:1: rule__Company__Group__3 : rule__Company__Group__3__Impl rule__Company__Group__4 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:574:1: rule__Company__Group__3 : rule__Company__Group__3__Impl rule__Company__Group__4 ;
     public final void rule__Company__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:579:1: ( rule__Company__Group__3__Impl rule__Company__Group__4 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:580:2: rule__Company__Group__3__Impl rule__Company__Group__4
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:578:1: ( rule__Company__Group__3__Impl rule__Company__Group__4 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:579:2: rule__Company__Group__3__Impl rule__Company__Group__4
             {
             pushFollow(FOLLOW_rule__Company__Group__3__Impl_in_rule__Company__Group__31138);
             rule__Company__Group__3__Impl();
@@ -1546,17 +1545,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__3__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:587:1: rule__Company__Group__3__Impl : ( 'Positions:' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:586:1: rule__Company__Group__3__Impl : ( 'Positions:' ) ;
     public final void rule__Company__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:591:1: ( ( 'Positions:' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:592:1: ( 'Positions:' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:590:1: ( ( 'Positions:' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:591:1: ( 'Positions:' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:592:1: ( 'Positions:' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:593:1: 'Positions:'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:591:1: ( 'Positions:' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:592:1: 'Positions:'
             {
              before(grammarAccess.getCompanyAccess().getPositionsKeyword_3()); 
             match(input,14,FOLLOW_14_in_rule__Company__Group__3__Impl1169); 
@@ -1583,14 +1582,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__4"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:606:1: rule__Company__Group__4 : rule__Company__Group__4__Impl rule__Company__Group__5 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:605:1: rule__Company__Group__4 : rule__Company__Group__4__Impl rule__Company__Group__5 ;
     public final void rule__Company__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:610:1: ( rule__Company__Group__4__Impl rule__Company__Group__5 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:611:2: rule__Company__Group__4__Impl rule__Company__Group__5
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:609:1: ( rule__Company__Group__4__Impl rule__Company__Group__5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:610:2: rule__Company__Group__4__Impl rule__Company__Group__5
             {
             pushFollow(FOLLOW_rule__Company__Group__4__Impl_in_rule__Company__Group__41200);
             rule__Company__Group__4__Impl();
@@ -1621,17 +1620,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__4__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:618:1: rule__Company__Group__4__Impl : ( '(' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:617:1: rule__Company__Group__4__Impl : ( '(' ) ;
     public final void rule__Company__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:622:1: ( ( '(' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:623:1: ( '(' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:621:1: ( ( '(' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:622:1: ( '(' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:623:1: ( '(' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:624:1: '('
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:622:1: ( '(' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:623:1: '('
             {
              before(grammarAccess.getCompanyAccess().getLeftParenthesisKeyword_4()); 
             match(input,15,FOLLOW_15_in_rule__Company__Group__4__Impl1231); 
@@ -1658,14 +1657,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:637:1: rule__Company__Group__5 : rule__Company__Group__5__Impl rule__Company__Group__6 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:636:1: rule__Company__Group__5 : rule__Company__Group__5__Impl rule__Company__Group__6 ;
     public final void rule__Company__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:641:1: ( rule__Company__Group__5__Impl rule__Company__Group__6 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:642:2: rule__Company__Group__5__Impl rule__Company__Group__6
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:640:1: ( rule__Company__Group__5__Impl rule__Company__Group__6 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:641:2: rule__Company__Group__5__Impl rule__Company__Group__6
             {
             pushFollow(FOLLOW_rule__Company__Group__5__Impl_in_rule__Company__Group__51262);
             rule__Company__Group__5__Impl();
@@ -1696,21 +1695,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__5__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:649:1: rule__Company__Group__5__Impl : ( ( rule__Company__PositionsAssignment_5 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:648:1: rule__Company__Group__5__Impl : ( ( rule__Company__PositionsAssignment_5 ) ) ;
     public final void rule__Company__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:653:1: ( ( ( rule__Company__PositionsAssignment_5 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:654:1: ( ( rule__Company__PositionsAssignment_5 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:652:1: ( ( ( rule__Company__PositionsAssignment_5 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:653:1: ( ( rule__Company__PositionsAssignment_5 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:654:1: ( ( rule__Company__PositionsAssignment_5 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:655:1: ( rule__Company__PositionsAssignment_5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:653:1: ( ( rule__Company__PositionsAssignment_5 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:654:1: ( rule__Company__PositionsAssignment_5 )
             {
              before(grammarAccess.getCompanyAccess().getPositionsAssignment_5()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:656:1: ( rule__Company__PositionsAssignment_5 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:656:2: rule__Company__PositionsAssignment_5
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:655:1: ( rule__Company__PositionsAssignment_5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:655:2: rule__Company__PositionsAssignment_5
             {
             pushFollow(FOLLOW_rule__Company__PositionsAssignment_5_in_rule__Company__Group__5__Impl1292);
             rule__Company__PositionsAssignment_5();
@@ -1743,14 +1742,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__6"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:666:1: rule__Company__Group__6 : rule__Company__Group__6__Impl rule__Company__Group__7 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:665:1: rule__Company__Group__6 : rule__Company__Group__6__Impl rule__Company__Group__7 ;
     public final void rule__Company__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:670:1: ( rule__Company__Group__6__Impl rule__Company__Group__7 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:671:2: rule__Company__Group__6__Impl rule__Company__Group__7
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:669:1: ( rule__Company__Group__6__Impl rule__Company__Group__7 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:670:2: rule__Company__Group__6__Impl rule__Company__Group__7
             {
             pushFollow(FOLLOW_rule__Company__Group__6__Impl_in_rule__Company__Group__61322);
             rule__Company__Group__6__Impl();
@@ -1781,20 +1780,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__6__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:678:1: rule__Company__Group__6__Impl : ( ( rule__Company__Group_6__0 )* ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:677:1: rule__Company__Group__6__Impl : ( ( rule__Company__Group_6__0 )* ) ;
     public final void rule__Company__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:682:1: ( ( ( rule__Company__Group_6__0 )* ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:683:1: ( ( rule__Company__Group_6__0 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:681:1: ( ( ( rule__Company__Group_6__0 )* ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:682:1: ( ( rule__Company__Group_6__0 )* )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:683:1: ( ( rule__Company__Group_6__0 )* )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:684:1: ( rule__Company__Group_6__0 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:682:1: ( ( rule__Company__Group_6__0 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:683:1: ( rule__Company__Group_6__0 )*
             {
              before(grammarAccess.getCompanyAccess().getGroup_6()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:685:1: ( rule__Company__Group_6__0 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:684:1: ( rule__Company__Group_6__0 )*
             loop4:
             do {
                 int alt4=2;
@@ -1807,7 +1806,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:685:2: rule__Company__Group_6__0
+            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:684:2: rule__Company__Group_6__0
             	    {
             	    pushFollow(FOLLOW_rule__Company__Group_6__0_in_rule__Company__Group__6__Impl1352);
             	    rule__Company__Group_6__0();
@@ -1846,14 +1845,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__7"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:695:1: rule__Company__Group__7 : rule__Company__Group__7__Impl rule__Company__Group__8 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:694:1: rule__Company__Group__7 : rule__Company__Group__7__Impl rule__Company__Group__8 ;
     public final void rule__Company__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:699:1: ( rule__Company__Group__7__Impl rule__Company__Group__8 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:700:2: rule__Company__Group__7__Impl rule__Company__Group__8
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:698:1: ( rule__Company__Group__7__Impl rule__Company__Group__8 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:699:2: rule__Company__Group__7__Impl rule__Company__Group__8
             {
             pushFollow(FOLLOW_rule__Company__Group__7__Impl_in_rule__Company__Group__71383);
             rule__Company__Group__7__Impl();
@@ -1884,17 +1883,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__7__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:707:1: rule__Company__Group__7__Impl : ( ')' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:706:1: rule__Company__Group__7__Impl : ( ')' ) ;
     public final void rule__Company__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:711:1: ( ( ')' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:712:1: ( ')' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:710:1: ( ( ')' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:711:1: ( ')' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:712:1: ( ')' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:713:1: ')'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:711:1: ( ')' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:712:1: ')'
             {
              before(grammarAccess.getCompanyAccess().getRightParenthesisKeyword_7()); 
             match(input,16,FOLLOW_16_in_rule__Company__Group__7__Impl1414); 
@@ -1921,14 +1920,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__8"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:726:1: rule__Company__Group__8 : rule__Company__Group__8__Impl rule__Company__Group__9 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:725:1: rule__Company__Group__8 : rule__Company__Group__8__Impl rule__Company__Group__9 ;
     public final void rule__Company__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:730:1: ( rule__Company__Group__8__Impl rule__Company__Group__9 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:731:2: rule__Company__Group__8__Impl rule__Company__Group__9
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:729:1: ( rule__Company__Group__8__Impl rule__Company__Group__9 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:730:2: rule__Company__Group__8__Impl rule__Company__Group__9
             {
             pushFollow(FOLLOW_rule__Company__Group__8__Impl_in_rule__Company__Group__81445);
             rule__Company__Group__8__Impl();
@@ -1959,21 +1958,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__8__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:738:1: rule__Company__Group__8__Impl : ( ( rule__Company__DepartmentsAssignment_8 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:737:1: rule__Company__Group__8__Impl : ( ( rule__Company__DepartmentsAssignment_8 ) ) ;
     public final void rule__Company__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:742:1: ( ( ( rule__Company__DepartmentsAssignment_8 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:743:1: ( ( rule__Company__DepartmentsAssignment_8 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:741:1: ( ( ( rule__Company__DepartmentsAssignment_8 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:742:1: ( ( rule__Company__DepartmentsAssignment_8 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:743:1: ( ( rule__Company__DepartmentsAssignment_8 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:744:1: ( rule__Company__DepartmentsAssignment_8 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:742:1: ( ( rule__Company__DepartmentsAssignment_8 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:743:1: ( rule__Company__DepartmentsAssignment_8 )
             {
              before(grammarAccess.getCompanyAccess().getDepartmentsAssignment_8()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:745:1: ( rule__Company__DepartmentsAssignment_8 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:745:2: rule__Company__DepartmentsAssignment_8
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:744:1: ( rule__Company__DepartmentsAssignment_8 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:744:2: rule__Company__DepartmentsAssignment_8
             {
             pushFollow(FOLLOW_rule__Company__DepartmentsAssignment_8_in_rule__Company__Group__8__Impl1475);
             rule__Company__DepartmentsAssignment_8();
@@ -2006,14 +2005,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__9"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:755:1: rule__Company__Group__9 : rule__Company__Group__9__Impl rule__Company__Group__10 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:754:1: rule__Company__Group__9 : rule__Company__Group__9__Impl rule__Company__Group__10 ;
     public final void rule__Company__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:759:1: ( rule__Company__Group__9__Impl rule__Company__Group__10 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:760:2: rule__Company__Group__9__Impl rule__Company__Group__10
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:758:1: ( rule__Company__Group__9__Impl rule__Company__Group__10 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:759:2: rule__Company__Group__9__Impl rule__Company__Group__10
             {
             pushFollow(FOLLOW_rule__Company__Group__9__Impl_in_rule__Company__Group__91505);
             rule__Company__Group__9__Impl();
@@ -2044,20 +2043,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__9__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:767:1: rule__Company__Group__9__Impl : ( ( rule__Company__DepartmentsAssignment_9 )* ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:766:1: rule__Company__Group__9__Impl : ( ( rule__Company__DepartmentsAssignment_9 )* ) ;
     public final void rule__Company__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:771:1: ( ( ( rule__Company__DepartmentsAssignment_9 )* ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:772:1: ( ( rule__Company__DepartmentsAssignment_9 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:770:1: ( ( ( rule__Company__DepartmentsAssignment_9 )* ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:771:1: ( ( rule__Company__DepartmentsAssignment_9 )* )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:772:1: ( ( rule__Company__DepartmentsAssignment_9 )* )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:773:1: ( rule__Company__DepartmentsAssignment_9 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:771:1: ( ( rule__Company__DepartmentsAssignment_9 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:772:1: ( rule__Company__DepartmentsAssignment_9 )*
             {
              before(grammarAccess.getCompanyAccess().getDepartmentsAssignment_9()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:774:1: ( rule__Company__DepartmentsAssignment_9 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:773:1: ( rule__Company__DepartmentsAssignment_9 )*
             loop5:
             do {
                 int alt5=2;
@@ -2070,7 +2069,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:774:2: rule__Company__DepartmentsAssignment_9
+            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:773:2: rule__Company__DepartmentsAssignment_9
             	    {
             	    pushFollow(FOLLOW_rule__Company__DepartmentsAssignment_9_in_rule__Company__Group__9__Impl1535);
             	    rule__Company__DepartmentsAssignment_9();
@@ -2109,14 +2108,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__10"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:784:1: rule__Company__Group__10 : rule__Company__Group__10__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:783:1: rule__Company__Group__10 : rule__Company__Group__10__Impl ;
     public final void rule__Company__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:788:1: ( rule__Company__Group__10__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:789:2: rule__Company__Group__10__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:787:1: ( rule__Company__Group__10__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:788:2: rule__Company__Group__10__Impl
             {
             pushFollow(FOLLOW_rule__Company__Group__10__Impl_in_rule__Company__Group__101566);
             rule__Company__Group__10__Impl();
@@ -2142,17 +2141,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group__10__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:795:1: rule__Company__Group__10__Impl : ( '}' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:794:1: rule__Company__Group__10__Impl : ( '}' ) ;
     public final void rule__Company__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:799:1: ( ( '}' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:800:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:798:1: ( ( '}' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:799:1: ( '}' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:800:1: ( '}' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:801:1: '}'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:799:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:800:1: '}'
             {
              before(grammarAccess.getCompanyAccess().getRightCurlyBracketKeyword_10()); 
             match(input,17,FOLLOW_17_in_rule__Company__Group__10__Impl1594); 
@@ -2179,14 +2178,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group_6__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:836:1: rule__Company__Group_6__0 : rule__Company__Group_6__0__Impl rule__Company__Group_6__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:835:1: rule__Company__Group_6__0 : rule__Company__Group_6__0__Impl rule__Company__Group_6__1 ;
     public final void rule__Company__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:840:1: ( rule__Company__Group_6__0__Impl rule__Company__Group_6__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:841:2: rule__Company__Group_6__0__Impl rule__Company__Group_6__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:839:1: ( rule__Company__Group_6__0__Impl rule__Company__Group_6__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:840:2: rule__Company__Group_6__0__Impl rule__Company__Group_6__1
             {
             pushFollow(FOLLOW_rule__Company__Group_6__0__Impl_in_rule__Company__Group_6__01647);
             rule__Company__Group_6__0__Impl();
@@ -2217,17 +2216,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group_6__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:848:1: rule__Company__Group_6__0__Impl : ( ',' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:847:1: rule__Company__Group_6__0__Impl : ( ',' ) ;
     public final void rule__Company__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:852:1: ( ( ',' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:853:1: ( ',' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:851:1: ( ( ',' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:852:1: ( ',' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:853:1: ( ',' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:854:1: ','
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:852:1: ( ',' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:853:1: ','
             {
              before(grammarAccess.getCompanyAccess().getCommaKeyword_6_0()); 
             match(input,18,FOLLOW_18_in_rule__Company__Group_6__0__Impl1678); 
@@ -2254,14 +2253,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group_6__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:867:1: rule__Company__Group_6__1 : rule__Company__Group_6__1__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:866:1: rule__Company__Group_6__1 : rule__Company__Group_6__1__Impl ;
     public final void rule__Company__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:871:1: ( rule__Company__Group_6__1__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:872:2: rule__Company__Group_6__1__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:870:1: ( rule__Company__Group_6__1__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:871:2: rule__Company__Group_6__1__Impl
             {
             pushFollow(FOLLOW_rule__Company__Group_6__1__Impl_in_rule__Company__Group_6__11709);
             rule__Company__Group_6__1__Impl();
@@ -2287,21 +2286,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__Group_6__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:878:1: rule__Company__Group_6__1__Impl : ( ( rule__Company__PositionsAssignment_6_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:877:1: rule__Company__Group_6__1__Impl : ( ( rule__Company__PositionsAssignment_6_1 ) ) ;
     public final void rule__Company__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:882:1: ( ( ( rule__Company__PositionsAssignment_6_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:883:1: ( ( rule__Company__PositionsAssignment_6_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:881:1: ( ( ( rule__Company__PositionsAssignment_6_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:882:1: ( ( rule__Company__PositionsAssignment_6_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:883:1: ( ( rule__Company__PositionsAssignment_6_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:884:1: ( rule__Company__PositionsAssignment_6_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:882:1: ( ( rule__Company__PositionsAssignment_6_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:883:1: ( rule__Company__PositionsAssignment_6_1 )
             {
              before(grammarAccess.getCompanyAccess().getPositionsAssignment_6_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:885:1: ( rule__Company__PositionsAssignment_6_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:885:2: rule__Company__PositionsAssignment_6_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:884:1: ( rule__Company__PositionsAssignment_6_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:884:2: rule__Company__PositionsAssignment_6_1
             {
             pushFollow(FOLLOW_rule__Company__PositionsAssignment_6_1_in_rule__Company__Group_6__1__Impl1736);
             rule__Company__PositionsAssignment_6_1();
@@ -2334,14 +2333,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:899:1: rule__Department__Group__0 : rule__Department__Group__0__Impl rule__Department__Group__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:898:1: rule__Department__Group__0 : rule__Department__Group__0__Impl rule__Department__Group__1 ;
     public final void rule__Department__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:903:1: ( rule__Department__Group__0__Impl rule__Department__Group__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:904:2: rule__Department__Group__0__Impl rule__Department__Group__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:902:1: ( rule__Department__Group__0__Impl rule__Department__Group__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:903:2: rule__Department__Group__0__Impl rule__Department__Group__1
             {
             pushFollow(FOLLOW_rule__Department__Group__0__Impl_in_rule__Department__Group__01770);
             rule__Department__Group__0__Impl();
@@ -2372,17 +2371,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:911:1: rule__Department__Group__0__Impl : ( 'Department' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:910:1: rule__Department__Group__0__Impl : ( 'Department' ) ;
     public final void rule__Department__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:915:1: ( ( 'Department' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:916:1: ( 'Department' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:914:1: ( ( 'Department' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:915:1: ( 'Department' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:916:1: ( 'Department' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:917:1: 'Department'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:915:1: ( 'Department' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:916:1: 'Department'
             {
              before(grammarAccess.getDepartmentAccess().getDepartmentKeyword_0()); 
             match(input,19,FOLLOW_19_in_rule__Department__Group__0__Impl1801); 
@@ -2409,14 +2408,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:930:1: rule__Department__Group__1 : rule__Department__Group__1__Impl rule__Department__Group__2 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:929:1: rule__Department__Group__1 : rule__Department__Group__1__Impl rule__Department__Group__2 ;
     public final void rule__Department__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:934:1: ( rule__Department__Group__1__Impl rule__Department__Group__2 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:935:2: rule__Department__Group__1__Impl rule__Department__Group__2
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:933:1: ( rule__Department__Group__1__Impl rule__Department__Group__2 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:934:2: rule__Department__Group__1__Impl rule__Department__Group__2
             {
             pushFollow(FOLLOW_rule__Department__Group__1__Impl_in_rule__Department__Group__11832);
             rule__Department__Group__1__Impl();
@@ -2447,21 +2446,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:942:1: rule__Department__Group__1__Impl : ( ( rule__Department__NameAssignment_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:941:1: rule__Department__Group__1__Impl : ( ( rule__Department__NameAssignment_1 ) ) ;
     public final void rule__Department__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:946:1: ( ( ( rule__Department__NameAssignment_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:947:1: ( ( rule__Department__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:945:1: ( ( ( rule__Department__NameAssignment_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:946:1: ( ( rule__Department__NameAssignment_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:947:1: ( ( rule__Department__NameAssignment_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:948:1: ( rule__Department__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:946:1: ( ( rule__Department__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:947:1: ( rule__Department__NameAssignment_1 )
             {
              before(grammarAccess.getDepartmentAccess().getNameAssignment_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:949:1: ( rule__Department__NameAssignment_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:949:2: rule__Department__NameAssignment_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:948:1: ( rule__Department__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:948:2: rule__Department__NameAssignment_1
             {
             pushFollow(FOLLOW_rule__Department__NameAssignment_1_in_rule__Department__Group__1__Impl1862);
             rule__Department__NameAssignment_1();
@@ -2494,14 +2493,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__2"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:959:1: rule__Department__Group__2 : rule__Department__Group__2__Impl rule__Department__Group__3 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:958:1: rule__Department__Group__2 : rule__Department__Group__2__Impl rule__Department__Group__3 ;
     public final void rule__Department__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:963:1: ( rule__Department__Group__2__Impl rule__Department__Group__3 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:964:2: rule__Department__Group__2__Impl rule__Department__Group__3
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:962:1: ( rule__Department__Group__2__Impl rule__Department__Group__3 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:963:2: rule__Department__Group__2__Impl rule__Department__Group__3
             {
             pushFollow(FOLLOW_rule__Department__Group__2__Impl_in_rule__Department__Group__21892);
             rule__Department__Group__2__Impl();
@@ -2532,17 +2531,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__2__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:971:1: rule__Department__Group__2__Impl : ( '{' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:970:1: rule__Department__Group__2__Impl : ( '{' ) ;
     public final void rule__Department__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:975:1: ( ( '{' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:976:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:974:1: ( ( '{' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:975:1: ( '{' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:976:1: ( '{' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:977:1: '{'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:975:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:976:1: '{'
             {
              before(grammarAccess.getDepartmentAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,13,FOLLOW_13_in_rule__Department__Group__2__Impl1923); 
@@ -2569,14 +2568,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__3"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:990:1: rule__Department__Group__3 : rule__Department__Group__3__Impl rule__Department__Group__4 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:989:1: rule__Department__Group__3 : rule__Department__Group__3__Impl rule__Department__Group__4 ;
     public final void rule__Department__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:994:1: ( rule__Department__Group__3__Impl rule__Department__Group__4 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:995:2: rule__Department__Group__3__Impl rule__Department__Group__4
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:993:1: ( rule__Department__Group__3__Impl rule__Department__Group__4 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:994:2: rule__Department__Group__3__Impl rule__Department__Group__4
             {
             pushFollow(FOLLOW_rule__Department__Group__3__Impl_in_rule__Department__Group__31954);
             rule__Department__Group__3__Impl();
@@ -2607,21 +2606,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__3__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1002:1: rule__Department__Group__3__Impl : ( ( rule__Department__ManagerAssignment_3 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1001:1: rule__Department__Group__3__Impl : ( ( rule__Department__ManagerAssignment_3 ) ) ;
     public final void rule__Department__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1006:1: ( ( ( rule__Department__ManagerAssignment_3 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1007:1: ( ( rule__Department__ManagerAssignment_3 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1005:1: ( ( ( rule__Department__ManagerAssignment_3 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1006:1: ( ( rule__Department__ManagerAssignment_3 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1007:1: ( ( rule__Department__ManagerAssignment_3 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1008:1: ( rule__Department__ManagerAssignment_3 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1006:1: ( ( rule__Department__ManagerAssignment_3 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1007:1: ( rule__Department__ManagerAssignment_3 )
             {
              before(grammarAccess.getDepartmentAccess().getManagerAssignment_3()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1009:1: ( rule__Department__ManagerAssignment_3 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1009:2: rule__Department__ManagerAssignment_3
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1008:1: ( rule__Department__ManagerAssignment_3 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1008:2: rule__Department__ManagerAssignment_3
             {
             pushFollow(FOLLOW_rule__Department__ManagerAssignment_3_in_rule__Department__Group__3__Impl1984);
             rule__Department__ManagerAssignment_3();
@@ -2654,14 +2653,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__4"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1019:1: rule__Department__Group__4 : rule__Department__Group__4__Impl rule__Department__Group__5 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1018:1: rule__Department__Group__4 : rule__Department__Group__4__Impl rule__Department__Group__5 ;
     public final void rule__Department__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1023:1: ( rule__Department__Group__4__Impl rule__Department__Group__5 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1024:2: rule__Department__Group__4__Impl rule__Department__Group__5
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1022:1: ( rule__Department__Group__4__Impl rule__Department__Group__5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1023:2: rule__Department__Group__4__Impl rule__Department__Group__5
             {
             pushFollow(FOLLOW_rule__Department__Group__4__Impl_in_rule__Department__Group__42014);
             rule__Department__Group__4__Impl();
@@ -2692,21 +2691,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__4__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1031:1: rule__Department__Group__4__Impl : ( ( rule__Department__EmployeesAssignment_4 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1030:1: rule__Department__Group__4__Impl : ( ( rule__Department__EmployeesAssignment_4 ) ) ;
     public final void rule__Department__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1035:1: ( ( ( rule__Department__EmployeesAssignment_4 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1036:1: ( ( rule__Department__EmployeesAssignment_4 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1034:1: ( ( ( rule__Department__EmployeesAssignment_4 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1035:1: ( ( rule__Department__EmployeesAssignment_4 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1036:1: ( ( rule__Department__EmployeesAssignment_4 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1037:1: ( rule__Department__EmployeesAssignment_4 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1035:1: ( ( rule__Department__EmployeesAssignment_4 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1036:1: ( rule__Department__EmployeesAssignment_4 )
             {
              before(grammarAccess.getDepartmentAccess().getEmployeesAssignment_4()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1038:1: ( rule__Department__EmployeesAssignment_4 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1038:2: rule__Department__EmployeesAssignment_4
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1037:1: ( rule__Department__EmployeesAssignment_4 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1037:2: rule__Department__EmployeesAssignment_4
             {
             pushFollow(FOLLOW_rule__Department__EmployeesAssignment_4_in_rule__Department__Group__4__Impl2044);
             rule__Department__EmployeesAssignment_4();
@@ -2739,14 +2738,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1048:1: rule__Department__Group__5 : rule__Department__Group__5__Impl rule__Department__Group__6 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1047:1: rule__Department__Group__5 : rule__Department__Group__5__Impl rule__Department__Group__6 ;
     public final void rule__Department__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1052:1: ( rule__Department__Group__5__Impl rule__Department__Group__6 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1053:2: rule__Department__Group__5__Impl rule__Department__Group__6
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1051:1: ( rule__Department__Group__5__Impl rule__Department__Group__6 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1052:2: rule__Department__Group__5__Impl rule__Department__Group__6
             {
             pushFollow(FOLLOW_rule__Department__Group__5__Impl_in_rule__Department__Group__52074);
             rule__Department__Group__5__Impl();
@@ -2777,20 +2776,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__5__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1060:1: rule__Department__Group__5__Impl : ( ( rule__Department__EmployeesAssignment_5 )* ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1059:1: rule__Department__Group__5__Impl : ( ( rule__Department__EmployeesAssignment_5 )* ) ;
     public final void rule__Department__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1064:1: ( ( ( rule__Department__EmployeesAssignment_5 )* ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1065:1: ( ( rule__Department__EmployeesAssignment_5 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1063:1: ( ( ( rule__Department__EmployeesAssignment_5 )* ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1064:1: ( ( rule__Department__EmployeesAssignment_5 )* )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1065:1: ( ( rule__Department__EmployeesAssignment_5 )* )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1066:1: ( rule__Department__EmployeesAssignment_5 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1064:1: ( ( rule__Department__EmployeesAssignment_5 )* )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1065:1: ( rule__Department__EmployeesAssignment_5 )*
             {
              before(grammarAccess.getDepartmentAccess().getEmployeesAssignment_5()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1067:1: ( rule__Department__EmployeesAssignment_5 )*
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1066:1: ( rule__Department__EmployeesAssignment_5 )*
             loop6:
             do {
                 int alt6=2;
@@ -2803,7 +2802,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1067:2: rule__Department__EmployeesAssignment_5
+            	    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1066:2: rule__Department__EmployeesAssignment_5
             	    {
             	    pushFollow(FOLLOW_rule__Department__EmployeesAssignment_5_in_rule__Department__Group__5__Impl2104);
             	    rule__Department__EmployeesAssignment_5();
@@ -2842,14 +2841,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__6"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1077:1: rule__Department__Group__6 : rule__Department__Group__6__Impl rule__Department__Group__7 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1076:1: rule__Department__Group__6 : rule__Department__Group__6__Impl rule__Department__Group__7 ;
     public final void rule__Department__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1081:1: ( rule__Department__Group__6__Impl rule__Department__Group__7 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1082:2: rule__Department__Group__6__Impl rule__Department__Group__7
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1080:1: ( rule__Department__Group__6__Impl rule__Department__Group__7 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1081:2: rule__Department__Group__6__Impl rule__Department__Group__7
             {
             pushFollow(FOLLOW_rule__Department__Group__6__Impl_in_rule__Department__Group__62135);
             rule__Department__Group__6__Impl();
@@ -2880,20 +2879,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__6__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1089:1: rule__Department__Group__6__Impl : ( ( rule__Department__Group_6__0 )? ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1088:1: rule__Department__Group__6__Impl : ( ( rule__Department__Group_6__0 )? ) ;
     public final void rule__Department__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1093:1: ( ( ( rule__Department__Group_6__0 )? ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1094:1: ( ( rule__Department__Group_6__0 )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1092:1: ( ( ( rule__Department__Group_6__0 )? ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1093:1: ( ( rule__Department__Group_6__0 )? )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1094:1: ( ( rule__Department__Group_6__0 )? )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1095:1: ( rule__Department__Group_6__0 )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1093:1: ( ( rule__Department__Group_6__0 )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1094:1: ( rule__Department__Group_6__0 )?
             {
              before(grammarAccess.getDepartmentAccess().getGroup_6()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1096:1: ( rule__Department__Group_6__0 )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1095:1: ( rule__Department__Group_6__0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2902,7 +2901,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1096:2: rule__Department__Group_6__0
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1095:2: rule__Department__Group_6__0
                     {
                     pushFollow(FOLLOW_rule__Department__Group_6__0_in_rule__Department__Group__6__Impl2165);
                     rule__Department__Group_6__0();
@@ -2938,14 +2937,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__7"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1106:1: rule__Department__Group__7 : rule__Department__Group__7__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1105:1: rule__Department__Group__7 : rule__Department__Group__7__Impl ;
     public final void rule__Department__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1110:1: ( rule__Department__Group__7__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1111:2: rule__Department__Group__7__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1109:1: ( rule__Department__Group__7__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1110:2: rule__Department__Group__7__Impl
             {
             pushFollow(FOLLOW_rule__Department__Group__7__Impl_in_rule__Department__Group__72196);
             rule__Department__Group__7__Impl();
@@ -2971,17 +2970,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group__7__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1117:1: rule__Department__Group__7__Impl : ( '}' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1116:1: rule__Department__Group__7__Impl : ( '}' ) ;
     public final void rule__Department__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1121:1: ( ( '}' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1122:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1120:1: ( ( '}' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1121:1: ( '}' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1122:1: ( '}' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1123:1: '}'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1121:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1122:1: '}'
             {
              before(grammarAccess.getDepartmentAccess().getRightCurlyBracketKeyword_7()); 
             match(input,17,FOLLOW_17_in_rule__Department__Group__7__Impl2224); 
@@ -3008,14 +3007,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group_6__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1152:1: rule__Department__Group_6__0 : rule__Department__Group_6__0__Impl rule__Department__Group_6__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1151:1: rule__Department__Group_6__0 : rule__Department__Group_6__0__Impl rule__Department__Group_6__1 ;
     public final void rule__Department__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1156:1: ( rule__Department__Group_6__0__Impl rule__Department__Group_6__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1157:2: rule__Department__Group_6__0__Impl rule__Department__Group_6__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1155:1: ( rule__Department__Group_6__0__Impl rule__Department__Group_6__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1156:2: rule__Department__Group_6__0__Impl rule__Department__Group_6__1
             {
             pushFollow(FOLLOW_rule__Department__Group_6__0__Impl_in_rule__Department__Group_6__02271);
             rule__Department__Group_6__0__Impl();
@@ -3046,17 +3045,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group_6__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1164:1: rule__Department__Group_6__0__Impl : ( 'subdepartment' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1163:1: rule__Department__Group_6__0__Impl : ( 'subdepartment' ) ;
     public final void rule__Department__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1168:1: ( ( 'subdepartment' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1169:1: ( 'subdepartment' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1167:1: ( ( 'subdepartment' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1168:1: ( 'subdepartment' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1169:1: ( 'subdepartment' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1170:1: 'subdepartment'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1168:1: ( 'subdepartment' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1169:1: 'subdepartment'
             {
              before(grammarAccess.getDepartmentAccess().getSubdepartmentKeyword_6_0()); 
             match(input,20,FOLLOW_20_in_rule__Department__Group_6__0__Impl2302); 
@@ -3083,14 +3082,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group_6__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1183:1: rule__Department__Group_6__1 : rule__Department__Group_6__1__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1182:1: rule__Department__Group_6__1 : rule__Department__Group_6__1__Impl ;
     public final void rule__Department__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1187:1: ( rule__Department__Group_6__1__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1188:2: rule__Department__Group_6__1__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1186:1: ( rule__Department__Group_6__1__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1187:2: rule__Department__Group_6__1__Impl
             {
             pushFollow(FOLLOW_rule__Department__Group_6__1__Impl_in_rule__Department__Group_6__12333);
             rule__Department__Group_6__1__Impl();
@@ -3116,21 +3115,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Group_6__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1194:1: rule__Department__Group_6__1__Impl : ( ( rule__Department__Sub_departmentAssignment_6_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1193:1: rule__Department__Group_6__1__Impl : ( ( rule__Department__Sub_departmentAssignment_6_1 ) ) ;
     public final void rule__Department__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1198:1: ( ( ( rule__Department__Sub_departmentAssignment_6_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1199:1: ( ( rule__Department__Sub_departmentAssignment_6_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1197:1: ( ( ( rule__Department__Sub_departmentAssignment_6_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1198:1: ( ( rule__Department__Sub_departmentAssignment_6_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1199:1: ( ( rule__Department__Sub_departmentAssignment_6_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1200:1: ( rule__Department__Sub_departmentAssignment_6_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1198:1: ( ( rule__Department__Sub_departmentAssignment_6_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1199:1: ( rule__Department__Sub_departmentAssignment_6_1 )
             {
              before(grammarAccess.getDepartmentAccess().getSub_departmentAssignment_6_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1201:1: ( rule__Department__Sub_departmentAssignment_6_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1201:2: rule__Department__Sub_departmentAssignment_6_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1200:1: ( rule__Department__Sub_departmentAssignment_6_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1200:2: rule__Department__Sub_departmentAssignment_6_1
             {
             pushFollow(FOLLOW_rule__Department__Sub_departmentAssignment_6_1_in_rule__Department__Group_6__1__Impl2360);
             rule__Department__Sub_departmentAssignment_6_1();
@@ -3163,14 +3162,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Position__Group__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1215:1: rule__Position__Group__0 : rule__Position__Group__0__Impl rule__Position__Group__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1214:1: rule__Position__Group__0 : rule__Position__Group__0__Impl rule__Position__Group__1 ;
     public final void rule__Position__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1219:1: ( rule__Position__Group__0__Impl rule__Position__Group__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1220:2: rule__Position__Group__0__Impl rule__Position__Group__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1218:1: ( rule__Position__Group__0__Impl rule__Position__Group__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1219:2: rule__Position__Group__0__Impl rule__Position__Group__1
             {
             pushFollow(FOLLOW_rule__Position__Group__0__Impl_in_rule__Position__Group__02394);
             rule__Position__Group__0__Impl();
@@ -3201,21 +3200,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Position__Group__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1227:1: rule__Position__Group__0__Impl : ( () ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1226:1: rule__Position__Group__0__Impl : ( () ) ;
     public final void rule__Position__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1231:1: ( ( () ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1232:1: ( () )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1230:1: ( ( () ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1231:1: ( () )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1232:1: ( () )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1233:1: ()
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1231:1: ( () )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1232:1: ()
             {
              before(grammarAccess.getPositionAccess().getPositionAction_0()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1234:1: ()
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1236:1: 
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1233:1: ()
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1235:1: 
             {
             }
 
@@ -3238,14 +3237,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Position__Group__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1246:1: rule__Position__Group__1 : rule__Position__Group__1__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1245:1: rule__Position__Group__1 : rule__Position__Group__1__Impl ;
     public final void rule__Position__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1250:1: ( rule__Position__Group__1__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1251:2: rule__Position__Group__1__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1249:1: ( rule__Position__Group__1__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1250:2: rule__Position__Group__1__Impl
             {
             pushFollow(FOLLOW_rule__Position__Group__1__Impl_in_rule__Position__Group__12455);
             rule__Position__Group__1__Impl();
@@ -3271,21 +3270,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Position__Group__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1257:1: rule__Position__Group__1__Impl : ( ( rule__Position__NameAssignment_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1256:1: rule__Position__Group__1__Impl : ( ( rule__Position__NameAssignment_1 ) ) ;
     public final void rule__Position__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1261:1: ( ( ( rule__Position__NameAssignment_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1262:1: ( ( rule__Position__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1260:1: ( ( ( rule__Position__NameAssignment_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1261:1: ( ( rule__Position__NameAssignment_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1262:1: ( ( rule__Position__NameAssignment_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1263:1: ( rule__Position__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1261:1: ( ( rule__Position__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1262:1: ( rule__Position__NameAssignment_1 )
             {
              before(grammarAccess.getPositionAccess().getNameAssignment_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1264:1: ( rule__Position__NameAssignment_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1264:2: rule__Position__NameAssignment_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1263:1: ( rule__Position__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1263:2: rule__Position__NameAssignment_1
             {
             pushFollow(FOLLOW_rule__Position__NameAssignment_1_in_rule__Position__Group__1__Impl2482);
             rule__Position__NameAssignment_1();
@@ -3318,14 +3317,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1278:1: rule__Manager__Group__0 : rule__Manager__Group__0__Impl rule__Manager__Group__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1277:1: rule__Manager__Group__0 : rule__Manager__Group__0__Impl rule__Manager__Group__1 ;
     public final void rule__Manager__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1282:1: ( rule__Manager__Group__0__Impl rule__Manager__Group__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1283:2: rule__Manager__Group__0__Impl rule__Manager__Group__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1281:1: ( rule__Manager__Group__0__Impl rule__Manager__Group__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1282:2: rule__Manager__Group__0__Impl rule__Manager__Group__1
             {
             pushFollow(FOLLOW_rule__Manager__Group__0__Impl_in_rule__Manager__Group__02516);
             rule__Manager__Group__0__Impl();
@@ -3356,17 +3355,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1290:1: rule__Manager__Group__0__Impl : ( 'Manager' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1289:1: rule__Manager__Group__0__Impl : ( 'Manager' ) ;
     public final void rule__Manager__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1294:1: ( ( 'Manager' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1295:1: ( 'Manager' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1293:1: ( ( 'Manager' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1294:1: ( 'Manager' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1295:1: ( 'Manager' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1296:1: 'Manager'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1294:1: ( 'Manager' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1295:1: 'Manager'
             {
              before(grammarAccess.getManagerAccess().getManagerKeyword_0()); 
             match(input,21,FOLLOW_21_in_rule__Manager__Group__0__Impl2547); 
@@ -3393,14 +3392,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1309:1: rule__Manager__Group__1 : rule__Manager__Group__1__Impl rule__Manager__Group__2 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1308:1: rule__Manager__Group__1 : rule__Manager__Group__1__Impl rule__Manager__Group__2 ;
     public final void rule__Manager__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1313:1: ( rule__Manager__Group__1__Impl rule__Manager__Group__2 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1314:2: rule__Manager__Group__1__Impl rule__Manager__Group__2
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1312:1: ( rule__Manager__Group__1__Impl rule__Manager__Group__2 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1313:2: rule__Manager__Group__1__Impl rule__Manager__Group__2
             {
             pushFollow(FOLLOW_rule__Manager__Group__1__Impl_in_rule__Manager__Group__12578);
             rule__Manager__Group__1__Impl();
@@ -3431,21 +3430,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1321:1: rule__Manager__Group__1__Impl : ( ( rule__Manager__NameAssignment_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1320:1: rule__Manager__Group__1__Impl : ( ( rule__Manager__NameAssignment_1 ) ) ;
     public final void rule__Manager__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1325:1: ( ( ( rule__Manager__NameAssignment_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1326:1: ( ( rule__Manager__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1324:1: ( ( ( rule__Manager__NameAssignment_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1325:1: ( ( rule__Manager__NameAssignment_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1326:1: ( ( rule__Manager__NameAssignment_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1327:1: ( rule__Manager__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1325:1: ( ( rule__Manager__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1326:1: ( rule__Manager__NameAssignment_1 )
             {
              before(grammarAccess.getManagerAccess().getNameAssignment_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1328:1: ( rule__Manager__NameAssignment_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1328:2: rule__Manager__NameAssignment_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1327:1: ( rule__Manager__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1327:2: rule__Manager__NameAssignment_1
             {
             pushFollow(FOLLOW_rule__Manager__NameAssignment_1_in_rule__Manager__Group__1__Impl2608);
             rule__Manager__NameAssignment_1();
@@ -3478,14 +3477,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__2"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1338:1: rule__Manager__Group__2 : rule__Manager__Group__2__Impl rule__Manager__Group__3 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1337:1: rule__Manager__Group__2 : rule__Manager__Group__2__Impl rule__Manager__Group__3 ;
     public final void rule__Manager__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1342:1: ( rule__Manager__Group__2__Impl rule__Manager__Group__3 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1343:2: rule__Manager__Group__2__Impl rule__Manager__Group__3
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1341:1: ( rule__Manager__Group__2__Impl rule__Manager__Group__3 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1342:2: rule__Manager__Group__2__Impl rule__Manager__Group__3
             {
             pushFollow(FOLLOW_rule__Manager__Group__2__Impl_in_rule__Manager__Group__22638);
             rule__Manager__Group__2__Impl();
@@ -3516,17 +3515,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__2__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1350:1: rule__Manager__Group__2__Impl : ( '{' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1349:1: rule__Manager__Group__2__Impl : ( '{' ) ;
     public final void rule__Manager__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1354:1: ( ( '{' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1355:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1353:1: ( ( '{' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1354:1: ( '{' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1355:1: ( '{' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1356:1: '{'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1354:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1355:1: '{'
             {
              before(grammarAccess.getManagerAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,13,FOLLOW_13_in_rule__Manager__Group__2__Impl2669); 
@@ -3553,14 +3552,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__3"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1369:1: rule__Manager__Group__3 : rule__Manager__Group__3__Impl rule__Manager__Group__4 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1368:1: rule__Manager__Group__3 : rule__Manager__Group__3__Impl rule__Manager__Group__4 ;
     public final void rule__Manager__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1373:1: ( rule__Manager__Group__3__Impl rule__Manager__Group__4 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1374:2: rule__Manager__Group__3__Impl rule__Manager__Group__4
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1372:1: ( rule__Manager__Group__3__Impl rule__Manager__Group__4 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1373:2: rule__Manager__Group__3__Impl rule__Manager__Group__4
             {
             pushFollow(FOLLOW_rule__Manager__Group__3__Impl_in_rule__Manager__Group__32700);
             rule__Manager__Group__3__Impl();
@@ -3591,20 +3590,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__3__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1381:1: rule__Manager__Group__3__Impl : ( ( rule__Manager__Group_3__0 )? ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1380:1: rule__Manager__Group__3__Impl : ( ( rule__Manager__Group_3__0 )? ) ;
     public final void rule__Manager__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1385:1: ( ( ( rule__Manager__Group_3__0 )? ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1386:1: ( ( rule__Manager__Group_3__0 )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1384:1: ( ( ( rule__Manager__Group_3__0 )? ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1385:1: ( ( rule__Manager__Group_3__0 )? )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1386:1: ( ( rule__Manager__Group_3__0 )? )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1387:1: ( rule__Manager__Group_3__0 )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1385:1: ( ( rule__Manager__Group_3__0 )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1386:1: ( rule__Manager__Group_3__0 )?
             {
              before(grammarAccess.getManagerAccess().getGroup_3()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1388:1: ( rule__Manager__Group_3__0 )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1387:1: ( rule__Manager__Group_3__0 )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -3613,7 +3612,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1388:2: rule__Manager__Group_3__0
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1387:2: rule__Manager__Group_3__0
                     {
                     pushFollow(FOLLOW_rule__Manager__Group_3__0_in_rule__Manager__Group__3__Impl2730);
                     rule__Manager__Group_3__0();
@@ -3649,14 +3648,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__4"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1398:1: rule__Manager__Group__4 : rule__Manager__Group__4__Impl rule__Manager__Group__5 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1397:1: rule__Manager__Group__4 : rule__Manager__Group__4__Impl rule__Manager__Group__5 ;
     public final void rule__Manager__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1402:1: ( rule__Manager__Group__4__Impl rule__Manager__Group__5 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1403:2: rule__Manager__Group__4__Impl rule__Manager__Group__5
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1401:1: ( rule__Manager__Group__4__Impl rule__Manager__Group__5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1402:2: rule__Manager__Group__4__Impl rule__Manager__Group__5
             {
             pushFollow(FOLLOW_rule__Manager__Group__4__Impl_in_rule__Manager__Group__42761);
             rule__Manager__Group__4__Impl();
@@ -3687,17 +3686,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__4__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1410:1: rule__Manager__Group__4__Impl : ( 'works on' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1409:1: rule__Manager__Group__4__Impl : ( 'works on' ) ;
     public final void rule__Manager__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1414:1: ( ( 'works on' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1415:1: ( 'works on' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1413:1: ( ( 'works on' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1414:1: ( 'works on' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1415:1: ( 'works on' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1416:1: 'works on'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1414:1: ( 'works on' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1415:1: 'works on'
             {
              before(grammarAccess.getManagerAccess().getWorksOnKeyword_4()); 
             match(input,22,FOLLOW_22_in_rule__Manager__Group__4__Impl2792); 
@@ -3724,14 +3723,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1429:1: rule__Manager__Group__5 : rule__Manager__Group__5__Impl rule__Manager__Group__6 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1428:1: rule__Manager__Group__5 : rule__Manager__Group__5__Impl rule__Manager__Group__6 ;
     public final void rule__Manager__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1433:1: ( rule__Manager__Group__5__Impl rule__Manager__Group__6 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1434:2: rule__Manager__Group__5__Impl rule__Manager__Group__6
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1432:1: ( rule__Manager__Group__5__Impl rule__Manager__Group__6 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1433:2: rule__Manager__Group__5__Impl rule__Manager__Group__6
             {
             pushFollow(FOLLOW_rule__Manager__Group__5__Impl_in_rule__Manager__Group__52823);
             rule__Manager__Group__5__Impl();
@@ -3762,21 +3761,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__5__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1441:1: rule__Manager__Group__5__Impl : ( ( rule__Manager__Works_onAssignment_5 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1440:1: rule__Manager__Group__5__Impl : ( ( rule__Manager__Works_onAssignment_5 ) ) ;
     public final void rule__Manager__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1445:1: ( ( ( rule__Manager__Works_onAssignment_5 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1446:1: ( ( rule__Manager__Works_onAssignment_5 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1444:1: ( ( ( rule__Manager__Works_onAssignment_5 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1445:1: ( ( rule__Manager__Works_onAssignment_5 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1446:1: ( ( rule__Manager__Works_onAssignment_5 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1447:1: ( rule__Manager__Works_onAssignment_5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1445:1: ( ( rule__Manager__Works_onAssignment_5 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1446:1: ( rule__Manager__Works_onAssignment_5 )
             {
              before(grammarAccess.getManagerAccess().getWorks_onAssignment_5()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1448:1: ( rule__Manager__Works_onAssignment_5 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1448:2: rule__Manager__Works_onAssignment_5
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1447:1: ( rule__Manager__Works_onAssignment_5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1447:2: rule__Manager__Works_onAssignment_5
             {
             pushFollow(FOLLOW_rule__Manager__Works_onAssignment_5_in_rule__Manager__Group__5__Impl2853);
             rule__Manager__Works_onAssignment_5();
@@ -3809,14 +3808,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__6"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1458:1: rule__Manager__Group__6 : rule__Manager__Group__6__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1457:1: rule__Manager__Group__6 : rule__Manager__Group__6__Impl ;
     public final void rule__Manager__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1462:1: ( rule__Manager__Group__6__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1463:2: rule__Manager__Group__6__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1461:1: ( rule__Manager__Group__6__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1462:2: rule__Manager__Group__6__Impl
             {
             pushFollow(FOLLOW_rule__Manager__Group__6__Impl_in_rule__Manager__Group__62883);
             rule__Manager__Group__6__Impl();
@@ -3842,17 +3841,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group__6__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1469:1: rule__Manager__Group__6__Impl : ( '}' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1468:1: rule__Manager__Group__6__Impl : ( '}' ) ;
     public final void rule__Manager__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1473:1: ( ( '}' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1474:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1472:1: ( ( '}' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1473:1: ( '}' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1474:1: ( '}' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1475:1: '}'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1473:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1474:1: '}'
             {
              before(grammarAccess.getManagerAccess().getRightCurlyBracketKeyword_6()); 
             match(input,17,FOLLOW_17_in_rule__Manager__Group__6__Impl2911); 
@@ -3879,14 +3878,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group_3__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1502:1: rule__Manager__Group_3__0 : rule__Manager__Group_3__0__Impl rule__Manager__Group_3__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1501:1: rule__Manager__Group_3__0 : rule__Manager__Group_3__0__Impl rule__Manager__Group_3__1 ;
     public final void rule__Manager__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1506:1: ( rule__Manager__Group_3__0__Impl rule__Manager__Group_3__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1507:2: rule__Manager__Group_3__0__Impl rule__Manager__Group_3__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1505:1: ( rule__Manager__Group_3__0__Impl rule__Manager__Group_3__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1506:2: rule__Manager__Group_3__0__Impl rule__Manager__Group_3__1
             {
             pushFollow(FOLLOW_rule__Manager__Group_3__0__Impl_in_rule__Manager__Group_3__02956);
             rule__Manager__Group_3__0__Impl();
@@ -3917,17 +3916,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group_3__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1514:1: rule__Manager__Group_3__0__Impl : ( 'salary' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1513:1: rule__Manager__Group_3__0__Impl : ( 'salary' ) ;
     public final void rule__Manager__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1518:1: ( ( 'salary' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1519:1: ( 'salary' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1517:1: ( ( 'salary' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1518:1: ( 'salary' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1519:1: ( 'salary' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1520:1: 'salary'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1518:1: ( 'salary' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1519:1: 'salary'
             {
              before(grammarAccess.getManagerAccess().getSalaryKeyword_3_0()); 
             match(input,23,FOLLOW_23_in_rule__Manager__Group_3__0__Impl2987); 
@@ -3954,14 +3953,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group_3__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1533:1: rule__Manager__Group_3__1 : rule__Manager__Group_3__1__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1532:1: rule__Manager__Group_3__1 : rule__Manager__Group_3__1__Impl ;
     public final void rule__Manager__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1537:1: ( rule__Manager__Group_3__1__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1538:2: rule__Manager__Group_3__1__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1536:1: ( rule__Manager__Group_3__1__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1537:2: rule__Manager__Group_3__1__Impl
             {
             pushFollow(FOLLOW_rule__Manager__Group_3__1__Impl_in_rule__Manager__Group_3__13018);
             rule__Manager__Group_3__1__Impl();
@@ -3987,21 +3986,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Group_3__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1544:1: rule__Manager__Group_3__1__Impl : ( ( rule__Manager__SalaryAssignment_3_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1543:1: rule__Manager__Group_3__1__Impl : ( ( rule__Manager__SalaryAssignment_3_1 ) ) ;
     public final void rule__Manager__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1548:1: ( ( ( rule__Manager__SalaryAssignment_3_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1549:1: ( ( rule__Manager__SalaryAssignment_3_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1547:1: ( ( ( rule__Manager__SalaryAssignment_3_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1548:1: ( ( rule__Manager__SalaryAssignment_3_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1549:1: ( ( rule__Manager__SalaryAssignment_3_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1550:1: ( rule__Manager__SalaryAssignment_3_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1548:1: ( ( rule__Manager__SalaryAssignment_3_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1549:1: ( rule__Manager__SalaryAssignment_3_1 )
             {
              before(grammarAccess.getManagerAccess().getSalaryAssignment_3_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1551:1: ( rule__Manager__SalaryAssignment_3_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1551:2: rule__Manager__SalaryAssignment_3_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1550:1: ( rule__Manager__SalaryAssignment_3_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1550:2: rule__Manager__SalaryAssignment_3_1
             {
             pushFollow(FOLLOW_rule__Manager__SalaryAssignment_3_1_in_rule__Manager__Group_3__1__Impl3045);
             rule__Manager__SalaryAssignment_3_1();
@@ -4034,14 +4033,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1565:1: rule__Employee_Impl__Group__0 : rule__Employee_Impl__Group__0__Impl rule__Employee_Impl__Group__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1564:1: rule__Employee_Impl__Group__0 : rule__Employee_Impl__Group__0__Impl rule__Employee_Impl__Group__1 ;
     public final void rule__Employee_Impl__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1569:1: ( rule__Employee_Impl__Group__0__Impl rule__Employee_Impl__Group__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1570:2: rule__Employee_Impl__Group__0__Impl rule__Employee_Impl__Group__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1568:1: ( rule__Employee_Impl__Group__0__Impl rule__Employee_Impl__Group__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1569:2: rule__Employee_Impl__Group__0__Impl rule__Employee_Impl__Group__1
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__0__Impl_in_rule__Employee_Impl__Group__03079);
             rule__Employee_Impl__Group__0__Impl();
@@ -4072,17 +4071,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1577:1: rule__Employee_Impl__Group__0__Impl : ( 'Employee' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1576:1: rule__Employee_Impl__Group__0__Impl : ( 'Employee' ) ;
     public final void rule__Employee_Impl__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1581:1: ( ( 'Employee' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1582:1: ( 'Employee' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1580:1: ( ( 'Employee' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1581:1: ( 'Employee' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1582:1: ( 'Employee' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1583:1: 'Employee'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1581:1: ( 'Employee' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1582:1: 'Employee'
             {
              before(grammarAccess.getEmployee_ImplAccess().getEmployeeKeyword_0()); 
             match(input,24,FOLLOW_24_in_rule__Employee_Impl__Group__0__Impl3110); 
@@ -4109,14 +4108,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1596:1: rule__Employee_Impl__Group__1 : rule__Employee_Impl__Group__1__Impl rule__Employee_Impl__Group__2 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1595:1: rule__Employee_Impl__Group__1 : rule__Employee_Impl__Group__1__Impl rule__Employee_Impl__Group__2 ;
     public final void rule__Employee_Impl__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1600:1: ( rule__Employee_Impl__Group__1__Impl rule__Employee_Impl__Group__2 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1601:2: rule__Employee_Impl__Group__1__Impl rule__Employee_Impl__Group__2
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1599:1: ( rule__Employee_Impl__Group__1__Impl rule__Employee_Impl__Group__2 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1600:2: rule__Employee_Impl__Group__1__Impl rule__Employee_Impl__Group__2
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__1__Impl_in_rule__Employee_Impl__Group__13141);
             rule__Employee_Impl__Group__1__Impl();
@@ -4147,21 +4146,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1608:1: rule__Employee_Impl__Group__1__Impl : ( ( rule__Employee_Impl__NameAssignment_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1607:1: rule__Employee_Impl__Group__1__Impl : ( ( rule__Employee_Impl__NameAssignment_1 ) ) ;
     public final void rule__Employee_Impl__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1612:1: ( ( ( rule__Employee_Impl__NameAssignment_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1613:1: ( ( rule__Employee_Impl__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1611:1: ( ( ( rule__Employee_Impl__NameAssignment_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1612:1: ( ( rule__Employee_Impl__NameAssignment_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1613:1: ( ( rule__Employee_Impl__NameAssignment_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1614:1: ( rule__Employee_Impl__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1612:1: ( ( rule__Employee_Impl__NameAssignment_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1613:1: ( rule__Employee_Impl__NameAssignment_1 )
             {
              before(grammarAccess.getEmployee_ImplAccess().getNameAssignment_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1615:1: ( rule__Employee_Impl__NameAssignment_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1615:2: rule__Employee_Impl__NameAssignment_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1614:1: ( rule__Employee_Impl__NameAssignment_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1614:2: rule__Employee_Impl__NameAssignment_1
             {
             pushFollow(FOLLOW_rule__Employee_Impl__NameAssignment_1_in_rule__Employee_Impl__Group__1__Impl3171);
             rule__Employee_Impl__NameAssignment_1();
@@ -4194,14 +4193,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__2"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1625:1: rule__Employee_Impl__Group__2 : rule__Employee_Impl__Group__2__Impl rule__Employee_Impl__Group__3 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1624:1: rule__Employee_Impl__Group__2 : rule__Employee_Impl__Group__2__Impl rule__Employee_Impl__Group__3 ;
     public final void rule__Employee_Impl__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1629:1: ( rule__Employee_Impl__Group__2__Impl rule__Employee_Impl__Group__3 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1630:2: rule__Employee_Impl__Group__2__Impl rule__Employee_Impl__Group__3
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1628:1: ( rule__Employee_Impl__Group__2__Impl rule__Employee_Impl__Group__3 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1629:2: rule__Employee_Impl__Group__2__Impl rule__Employee_Impl__Group__3
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__2__Impl_in_rule__Employee_Impl__Group__23201);
             rule__Employee_Impl__Group__2__Impl();
@@ -4232,17 +4231,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__2__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1637:1: rule__Employee_Impl__Group__2__Impl : ( '{' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1636:1: rule__Employee_Impl__Group__2__Impl : ( '{' ) ;
     public final void rule__Employee_Impl__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1641:1: ( ( '{' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1642:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1640:1: ( ( '{' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1641:1: ( '{' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1642:1: ( '{' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1643:1: '{'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1641:1: ( '{' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1642:1: '{'
             {
              before(grammarAccess.getEmployee_ImplAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,13,FOLLOW_13_in_rule__Employee_Impl__Group__2__Impl3232); 
@@ -4269,14 +4268,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__3"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1656:1: rule__Employee_Impl__Group__3 : rule__Employee_Impl__Group__3__Impl rule__Employee_Impl__Group__4 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1655:1: rule__Employee_Impl__Group__3 : rule__Employee_Impl__Group__3__Impl rule__Employee_Impl__Group__4 ;
     public final void rule__Employee_Impl__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1660:1: ( rule__Employee_Impl__Group__3__Impl rule__Employee_Impl__Group__4 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1661:2: rule__Employee_Impl__Group__3__Impl rule__Employee_Impl__Group__4
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1659:1: ( rule__Employee_Impl__Group__3__Impl rule__Employee_Impl__Group__4 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1660:2: rule__Employee_Impl__Group__3__Impl rule__Employee_Impl__Group__4
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__3__Impl_in_rule__Employee_Impl__Group__33263);
             rule__Employee_Impl__Group__3__Impl();
@@ -4307,20 +4306,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__3__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1668:1: rule__Employee_Impl__Group__3__Impl : ( ( rule__Employee_Impl__Group_3__0 )? ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1667:1: rule__Employee_Impl__Group__3__Impl : ( ( rule__Employee_Impl__Group_3__0 )? ) ;
     public final void rule__Employee_Impl__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1672:1: ( ( ( rule__Employee_Impl__Group_3__0 )? ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1673:1: ( ( rule__Employee_Impl__Group_3__0 )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1671:1: ( ( ( rule__Employee_Impl__Group_3__0 )? ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1672:1: ( ( rule__Employee_Impl__Group_3__0 )? )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1673:1: ( ( rule__Employee_Impl__Group_3__0 )? )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1674:1: ( rule__Employee_Impl__Group_3__0 )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1672:1: ( ( rule__Employee_Impl__Group_3__0 )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1673:1: ( rule__Employee_Impl__Group_3__0 )?
             {
              before(grammarAccess.getEmployee_ImplAccess().getGroup_3()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1675:1: ( rule__Employee_Impl__Group_3__0 )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1674:1: ( rule__Employee_Impl__Group_3__0 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -4329,7 +4328,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1675:2: rule__Employee_Impl__Group_3__0
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1674:2: rule__Employee_Impl__Group_3__0
                     {
                     pushFollow(FOLLOW_rule__Employee_Impl__Group_3__0_in_rule__Employee_Impl__Group__3__Impl3293);
                     rule__Employee_Impl__Group_3__0();
@@ -4365,14 +4364,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__4"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1685:1: rule__Employee_Impl__Group__4 : rule__Employee_Impl__Group__4__Impl rule__Employee_Impl__Group__5 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1684:1: rule__Employee_Impl__Group__4 : rule__Employee_Impl__Group__4__Impl rule__Employee_Impl__Group__5 ;
     public final void rule__Employee_Impl__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1689:1: ( rule__Employee_Impl__Group__4__Impl rule__Employee_Impl__Group__5 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1690:2: rule__Employee_Impl__Group__4__Impl rule__Employee_Impl__Group__5
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1688:1: ( rule__Employee_Impl__Group__4__Impl rule__Employee_Impl__Group__5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1689:2: rule__Employee_Impl__Group__4__Impl rule__Employee_Impl__Group__5
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__4__Impl_in_rule__Employee_Impl__Group__43324);
             rule__Employee_Impl__Group__4__Impl();
@@ -4403,17 +4402,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__4__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1697:1: rule__Employee_Impl__Group__4__Impl : ( 'works on' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1696:1: rule__Employee_Impl__Group__4__Impl : ( 'works on' ) ;
     public final void rule__Employee_Impl__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1701:1: ( ( 'works on' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1702:1: ( 'works on' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1700:1: ( ( 'works on' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1701:1: ( 'works on' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1702:1: ( 'works on' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1703:1: 'works on'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1701:1: ( 'works on' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1702:1: 'works on'
             {
              before(grammarAccess.getEmployee_ImplAccess().getWorksOnKeyword_4()); 
             match(input,22,FOLLOW_22_in_rule__Employee_Impl__Group__4__Impl3355); 
@@ -4440,14 +4439,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1716:1: rule__Employee_Impl__Group__5 : rule__Employee_Impl__Group__5__Impl rule__Employee_Impl__Group__6 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1715:1: rule__Employee_Impl__Group__5 : rule__Employee_Impl__Group__5__Impl rule__Employee_Impl__Group__6 ;
     public final void rule__Employee_Impl__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1720:1: ( rule__Employee_Impl__Group__5__Impl rule__Employee_Impl__Group__6 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1721:2: rule__Employee_Impl__Group__5__Impl rule__Employee_Impl__Group__6
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1719:1: ( rule__Employee_Impl__Group__5__Impl rule__Employee_Impl__Group__6 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1720:2: rule__Employee_Impl__Group__5__Impl rule__Employee_Impl__Group__6
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__5__Impl_in_rule__Employee_Impl__Group__53386);
             rule__Employee_Impl__Group__5__Impl();
@@ -4478,21 +4477,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__5__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1728:1: rule__Employee_Impl__Group__5__Impl : ( ( rule__Employee_Impl__Works_onAssignment_5 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1727:1: rule__Employee_Impl__Group__5__Impl : ( ( rule__Employee_Impl__Works_onAssignment_5 ) ) ;
     public final void rule__Employee_Impl__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1732:1: ( ( ( rule__Employee_Impl__Works_onAssignment_5 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1733:1: ( ( rule__Employee_Impl__Works_onAssignment_5 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1731:1: ( ( ( rule__Employee_Impl__Works_onAssignment_5 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1732:1: ( ( rule__Employee_Impl__Works_onAssignment_5 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1733:1: ( ( rule__Employee_Impl__Works_onAssignment_5 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1734:1: ( rule__Employee_Impl__Works_onAssignment_5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1732:1: ( ( rule__Employee_Impl__Works_onAssignment_5 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1733:1: ( rule__Employee_Impl__Works_onAssignment_5 )
             {
              before(grammarAccess.getEmployee_ImplAccess().getWorks_onAssignment_5()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1735:1: ( rule__Employee_Impl__Works_onAssignment_5 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1735:2: rule__Employee_Impl__Works_onAssignment_5
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1734:1: ( rule__Employee_Impl__Works_onAssignment_5 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1734:2: rule__Employee_Impl__Works_onAssignment_5
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Works_onAssignment_5_in_rule__Employee_Impl__Group__5__Impl3416);
             rule__Employee_Impl__Works_onAssignment_5();
@@ -4525,14 +4524,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__6"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1745:1: rule__Employee_Impl__Group__6 : rule__Employee_Impl__Group__6__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1744:1: rule__Employee_Impl__Group__6 : rule__Employee_Impl__Group__6__Impl ;
     public final void rule__Employee_Impl__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1749:1: ( rule__Employee_Impl__Group__6__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1750:2: rule__Employee_Impl__Group__6__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1748:1: ( rule__Employee_Impl__Group__6__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1749:2: rule__Employee_Impl__Group__6__Impl
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group__6__Impl_in_rule__Employee_Impl__Group__63446);
             rule__Employee_Impl__Group__6__Impl();
@@ -4558,17 +4557,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group__6__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1756:1: rule__Employee_Impl__Group__6__Impl : ( '}' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1755:1: rule__Employee_Impl__Group__6__Impl : ( '}' ) ;
     public final void rule__Employee_Impl__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1760:1: ( ( '}' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1761:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1759:1: ( ( '}' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1760:1: ( '}' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1761:1: ( '}' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1762:1: '}'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1760:1: ( '}' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1761:1: '}'
             {
              before(grammarAccess.getEmployee_ImplAccess().getRightCurlyBracketKeyword_6()); 
             match(input,17,FOLLOW_17_in_rule__Employee_Impl__Group__6__Impl3474); 
@@ -4595,14 +4594,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group_3__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1789:1: rule__Employee_Impl__Group_3__0 : rule__Employee_Impl__Group_3__0__Impl rule__Employee_Impl__Group_3__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1788:1: rule__Employee_Impl__Group_3__0 : rule__Employee_Impl__Group_3__0__Impl rule__Employee_Impl__Group_3__1 ;
     public final void rule__Employee_Impl__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1793:1: ( rule__Employee_Impl__Group_3__0__Impl rule__Employee_Impl__Group_3__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1794:2: rule__Employee_Impl__Group_3__0__Impl rule__Employee_Impl__Group_3__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1792:1: ( rule__Employee_Impl__Group_3__0__Impl rule__Employee_Impl__Group_3__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1793:2: rule__Employee_Impl__Group_3__0__Impl rule__Employee_Impl__Group_3__1
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group_3__0__Impl_in_rule__Employee_Impl__Group_3__03519);
             rule__Employee_Impl__Group_3__0__Impl();
@@ -4633,17 +4632,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group_3__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1801:1: rule__Employee_Impl__Group_3__0__Impl : ( 'salary' ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1800:1: rule__Employee_Impl__Group_3__0__Impl : ( 'salary' ) ;
     public final void rule__Employee_Impl__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1805:1: ( ( 'salary' ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1806:1: ( 'salary' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1804:1: ( ( 'salary' ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1805:1: ( 'salary' )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1806:1: ( 'salary' )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1807:1: 'salary'
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1805:1: ( 'salary' )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1806:1: 'salary'
             {
              before(grammarAccess.getEmployee_ImplAccess().getSalaryKeyword_3_0()); 
             match(input,23,FOLLOW_23_in_rule__Employee_Impl__Group_3__0__Impl3550); 
@@ -4670,14 +4669,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group_3__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1820:1: rule__Employee_Impl__Group_3__1 : rule__Employee_Impl__Group_3__1__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1819:1: rule__Employee_Impl__Group_3__1 : rule__Employee_Impl__Group_3__1__Impl ;
     public final void rule__Employee_Impl__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1824:1: ( rule__Employee_Impl__Group_3__1__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1825:2: rule__Employee_Impl__Group_3__1__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1823:1: ( rule__Employee_Impl__Group_3__1__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1824:2: rule__Employee_Impl__Group_3__1__Impl
             {
             pushFollow(FOLLOW_rule__Employee_Impl__Group_3__1__Impl_in_rule__Employee_Impl__Group_3__13581);
             rule__Employee_Impl__Group_3__1__Impl();
@@ -4703,21 +4702,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Group_3__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1831:1: rule__Employee_Impl__Group_3__1__Impl : ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1830:1: rule__Employee_Impl__Group_3__1__Impl : ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) ) ;
     public final void rule__Employee_Impl__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1835:1: ( ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1836:1: ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1834:1: ( ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1835:1: ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1836:1: ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1837:1: ( rule__Employee_Impl__SalaryAssignment_3_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1835:1: ( ( rule__Employee_Impl__SalaryAssignment_3_1 ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1836:1: ( rule__Employee_Impl__SalaryAssignment_3_1 )
             {
              before(grammarAccess.getEmployee_ImplAccess().getSalaryAssignment_3_1()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1838:1: ( rule__Employee_Impl__SalaryAssignment_3_1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1838:2: rule__Employee_Impl__SalaryAssignment_3_1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1837:1: ( rule__Employee_Impl__SalaryAssignment_3_1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1837:2: rule__Employee_Impl__SalaryAssignment_3_1
             {
             pushFollow(FOLLOW_rule__Employee_Impl__SalaryAssignment_3_1_in_rule__Employee_Impl__Group_3__1__Impl3608);
             rule__Employee_Impl__SalaryAssignment_3_1();
@@ -4750,14 +4749,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1852:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1851:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1856:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1857:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1855:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1856:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
             pushFollow(FOLLOW_rule__EInt__Group__0__Impl_in_rule__EInt__Group__03642);
             rule__EInt__Group__0__Impl();
@@ -4788,20 +4787,20 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1864:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1863:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1868:1: ( ( ( '-' )? ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1869:1: ( ( '-' )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1867:1: ( ( ( '-' )? ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1868:1: ( ( '-' )? )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1869:1: ( ( '-' )? )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1870:1: ( '-' )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1868:1: ( ( '-' )? )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1869:1: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1871:1: ( '-' )?
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1870:1: ( '-' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -4810,7 +4809,7 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1872:2: '-'
+                    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1871:2: '-'
                     {
                     match(input,25,FOLLOW_25_in_rule__EInt__Group__0__Impl3674); 
 
@@ -4842,14 +4841,14 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1883:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1882:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1887:1: ( rule__EInt__Group__1__Impl )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1888:2: rule__EInt__Group__1__Impl
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1886:1: ( rule__EInt__Group__1__Impl )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1887:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_rule__EInt__Group__1__Impl_in_rule__EInt__Group__13707);
             rule__EInt__Group__1__Impl();
@@ -4875,17 +4874,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1894:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1893:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1898:1: ( ( RULE_INT ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1899:1: ( RULE_INT )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1897:1: ( ( RULE_INT ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1898:1: ( RULE_INT )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1899:1: ( RULE_INT )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1900:1: RULE_INT
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1898:1: ( RULE_INT )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1899:1: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__EInt__Group__1__Impl3734); 
@@ -4912,17 +4911,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__NameAssignment_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1916:1: rule__Model__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1915:1: rule__Model__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Model__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1920:1: ( ( RULE_ID ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1921:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1919:1: ( ( RULE_ID ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1920:1: ( RULE_ID )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1921:1: ( RULE_ID )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1922:1: RULE_ID
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1920:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1921:1: RULE_ID
             {
              before(grammarAccess.getModelAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Model__NameAssignment_13772); 
@@ -4949,17 +4948,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__CompaniesAssignment_2"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1931:1: rule__Model__CompaniesAssignment_2 : ( ruleCompany ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1930:1: rule__Model__CompaniesAssignment_2 : ( ruleCompany ) ;
     public final void rule__Model__CompaniesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1935:1: ( ( ruleCompany ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1936:1: ( ruleCompany )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1934:1: ( ( ruleCompany ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1935:1: ( ruleCompany )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1936:1: ( ruleCompany )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1937:1: ruleCompany
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1935:1: ( ruleCompany )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1936:1: ruleCompany
             {
              before(grammarAccess.getModelAccess().getCompaniesCompanyParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleCompany_in_rule__Model__CompaniesAssignment_23803);
@@ -4990,17 +4989,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Model__CompaniesAssignment_3"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1946:1: rule__Model__CompaniesAssignment_3 : ( ruleCompany ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1945:1: rule__Model__CompaniesAssignment_3 : ( ruleCompany ) ;
     public final void rule__Model__CompaniesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1950:1: ( ( ruleCompany ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1951:1: ( ruleCompany )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1949:1: ( ( ruleCompany ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1950:1: ( ruleCompany )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1951:1: ( ruleCompany )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1952:1: ruleCompany
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1950:1: ( ruleCompany )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1951:1: ruleCompany
             {
              before(grammarAccess.getModelAccess().getCompaniesCompanyParserRuleCall_3_0()); 
             pushFollow(FOLLOW_ruleCompany_in_rule__Model__CompaniesAssignment_33834);
@@ -5031,17 +5030,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__NameAssignment_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1961:1: rule__Company__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1960:1: rule__Company__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Company__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1965:1: ( ( RULE_ID ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1966:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1964:1: ( ( RULE_ID ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1965:1: ( RULE_ID )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1966:1: ( RULE_ID )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1967:1: RULE_ID
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1965:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1966:1: RULE_ID
             {
              before(grammarAccess.getCompanyAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Company__NameAssignment_13865); 
@@ -5068,17 +5067,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__PositionsAssignment_5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1976:1: rule__Company__PositionsAssignment_5 : ( rulePosition ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1975:1: rule__Company__PositionsAssignment_5 : ( rulePosition ) ;
     public final void rule__Company__PositionsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1980:1: ( ( rulePosition ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1981:1: ( rulePosition )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1979:1: ( ( rulePosition ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1980:1: ( rulePosition )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1981:1: ( rulePosition )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1982:1: rulePosition
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1980:1: ( rulePosition )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1981:1: rulePosition
             {
              before(grammarAccess.getCompanyAccess().getPositionsPositionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_rulePosition_in_rule__Company__PositionsAssignment_53896);
@@ -5109,17 +5108,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__PositionsAssignment_6_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1991:1: rule__Company__PositionsAssignment_6_1 : ( rulePosition ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1990:1: rule__Company__PositionsAssignment_6_1 : ( rulePosition ) ;
     public final void rule__Company__PositionsAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1995:1: ( ( rulePosition ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1996:1: ( rulePosition )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1994:1: ( ( rulePosition ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1995:1: ( rulePosition )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1996:1: ( rulePosition )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1997:1: rulePosition
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1995:1: ( rulePosition )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:1996:1: rulePosition
             {
              before(grammarAccess.getCompanyAccess().getPositionsPositionParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_rulePosition_in_rule__Company__PositionsAssignment_6_13927);
@@ -5150,17 +5149,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__DepartmentsAssignment_8"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2006:1: rule__Company__DepartmentsAssignment_8 : ( ruleDepartment ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2005:1: rule__Company__DepartmentsAssignment_8 : ( ruleDepartment ) ;
     public final void rule__Company__DepartmentsAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2010:1: ( ( ruleDepartment ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2011:1: ( ruleDepartment )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2009:1: ( ( ruleDepartment ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2010:1: ( ruleDepartment )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2011:1: ( ruleDepartment )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2012:1: ruleDepartment
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2010:1: ( ruleDepartment )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2011:1: ruleDepartment
             {
              before(grammarAccess.getCompanyAccess().getDepartmentsDepartmentParserRuleCall_8_0()); 
             pushFollow(FOLLOW_ruleDepartment_in_rule__Company__DepartmentsAssignment_83958);
@@ -5191,17 +5190,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Company__DepartmentsAssignment_9"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2021:1: rule__Company__DepartmentsAssignment_9 : ( ruleDepartment ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2020:1: rule__Company__DepartmentsAssignment_9 : ( ruleDepartment ) ;
     public final void rule__Company__DepartmentsAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2025:1: ( ( ruleDepartment ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2026:1: ( ruleDepartment )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2024:1: ( ( ruleDepartment ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2025:1: ( ruleDepartment )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2026:1: ( ruleDepartment )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2027:1: ruleDepartment
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2025:1: ( ruleDepartment )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2026:1: ruleDepartment
             {
              before(grammarAccess.getCompanyAccess().getDepartmentsDepartmentParserRuleCall_9_0()); 
             pushFollow(FOLLOW_ruleDepartment_in_rule__Company__DepartmentsAssignment_93989);
@@ -5232,17 +5231,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__NameAssignment_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2036:1: rule__Department__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2035:1: rule__Department__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Department__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2040:1: ( ( RULE_ID ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2041:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2039:1: ( ( RULE_ID ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2040:1: ( RULE_ID )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2041:1: ( RULE_ID )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2042:1: RULE_ID
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2040:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2041:1: RULE_ID
             {
              before(grammarAccess.getDepartmentAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Department__NameAssignment_14020); 
@@ -5269,17 +5268,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__ManagerAssignment_3"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2051:1: rule__Department__ManagerAssignment_3 : ( ruleManager ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2050:1: rule__Department__ManagerAssignment_3 : ( ruleManager ) ;
     public final void rule__Department__ManagerAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2055:1: ( ( ruleManager ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2056:1: ( ruleManager )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2054:1: ( ( ruleManager ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2055:1: ( ruleManager )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2056:1: ( ruleManager )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2057:1: ruleManager
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2055:1: ( ruleManager )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2056:1: ruleManager
             {
              before(grammarAccess.getDepartmentAccess().getManagerManagerParserRuleCall_3_0()); 
             pushFollow(FOLLOW_ruleManager_in_rule__Department__ManagerAssignment_34051);
@@ -5310,17 +5309,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__EmployeesAssignment_4"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2066:1: rule__Department__EmployeesAssignment_4 : ( ruleEmployee ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2065:1: rule__Department__EmployeesAssignment_4 : ( ruleEmployee ) ;
     public final void rule__Department__EmployeesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2070:1: ( ( ruleEmployee ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2071:1: ( ruleEmployee )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2069:1: ( ( ruleEmployee ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2070:1: ( ruleEmployee )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2071:1: ( ruleEmployee )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2072:1: ruleEmployee
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2070:1: ( ruleEmployee )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2071:1: ruleEmployee
             {
              before(grammarAccess.getDepartmentAccess().getEmployeesEmployeeParserRuleCall_4_0()); 
             pushFollow(FOLLOW_ruleEmployee_in_rule__Department__EmployeesAssignment_44082);
@@ -5351,17 +5350,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__EmployeesAssignment_5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2081:1: rule__Department__EmployeesAssignment_5 : ( ruleEmployee ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2080:1: rule__Department__EmployeesAssignment_5 : ( ruleEmployee ) ;
     public final void rule__Department__EmployeesAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2085:1: ( ( ruleEmployee ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2086:1: ( ruleEmployee )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2084:1: ( ( ruleEmployee ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2085:1: ( ruleEmployee )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2086:1: ( ruleEmployee )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2087:1: ruleEmployee
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2085:1: ( ruleEmployee )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2086:1: ruleEmployee
             {
              before(grammarAccess.getDepartmentAccess().getEmployeesEmployeeParserRuleCall_5_0()); 
             pushFollow(FOLLOW_ruleEmployee_in_rule__Department__EmployeesAssignment_54113);
@@ -5392,17 +5391,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Department__Sub_departmentAssignment_6_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2096:1: rule__Department__Sub_departmentAssignment_6_1 : ( ruleDepartment ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2095:1: rule__Department__Sub_departmentAssignment_6_1 : ( ruleDepartment ) ;
     public final void rule__Department__Sub_departmentAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2100:1: ( ( ruleDepartment ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2101:1: ( ruleDepartment )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2099:1: ( ( ruleDepartment ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2100:1: ( ruleDepartment )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2101:1: ( ruleDepartment )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2102:1: ruleDepartment
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2100:1: ( ruleDepartment )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2101:1: ruleDepartment
             {
              before(grammarAccess.getDepartmentAccess().getSub_departmentDepartmentParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_ruleDepartment_in_rule__Department__Sub_departmentAssignment_6_14144);
@@ -5433,17 +5432,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Position__NameAssignment_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2111:1: rule__Position__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2110:1: rule__Position__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Position__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2115:1: ( ( RULE_ID ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2116:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2114:1: ( ( RULE_ID ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2115:1: ( RULE_ID )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2116:1: ( RULE_ID )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2117:1: RULE_ID
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2115:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2116:1: RULE_ID
             {
              before(grammarAccess.getPositionAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Position__NameAssignment_14175); 
@@ -5470,17 +5469,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__NameAssignment_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2126:1: rule__Manager__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2125:1: rule__Manager__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Manager__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2130:1: ( ( RULE_ID ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2131:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2129:1: ( ( RULE_ID ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2130:1: ( RULE_ID )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2131:1: ( RULE_ID )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2132:1: RULE_ID
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2130:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2131:1: RULE_ID
             {
              before(grammarAccess.getManagerAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Manager__NameAssignment_14206); 
@@ -5507,17 +5506,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__SalaryAssignment_3_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2141:1: rule__Manager__SalaryAssignment_3_1 : ( ruleEInt ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2140:1: rule__Manager__SalaryAssignment_3_1 : ( ruleEInt ) ;
     public final void rule__Manager__SalaryAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2145:1: ( ( ruleEInt ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2146:1: ( ruleEInt )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2144:1: ( ( ruleEInt ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2145:1: ( ruleEInt )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2146:1: ( ruleEInt )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2147:1: ruleEInt
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2145:1: ( ruleEInt )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2146:1: ruleEInt
             {
              before(grammarAccess.getManagerAccess().getSalaryEIntParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_ruleEInt_in_rule__Manager__SalaryAssignment_3_14237);
@@ -5548,21 +5547,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Manager__Works_onAssignment_5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2156:1: rule__Manager__Works_onAssignment_5 : ( ( ruleEString ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2155:1: rule__Manager__Works_onAssignment_5 : ( ( ruleEString ) ) ;
     public final void rule__Manager__Works_onAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2160:1: ( ( ( ruleEString ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2161:1: ( ( ruleEString ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2159:1: ( ( ( ruleEString ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2160:1: ( ( ruleEString ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2161:1: ( ( ruleEString ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2162:1: ( ruleEString )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2160:1: ( ( ruleEString ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2161:1: ( ruleEString )
             {
              before(grammarAccess.getManagerAccess().getWorks_onPositionCrossReference_5_0()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2163:1: ( ruleEString )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2164:1: ruleEString
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2162:1: ( ruleEString )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2163:1: ruleEString
             {
              before(grammarAccess.getManagerAccess().getWorks_onPositionEStringParserRuleCall_5_0_1()); 
             pushFollow(FOLLOW_ruleEString_in_rule__Manager__Works_onAssignment_54272);
@@ -5597,17 +5596,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__NameAssignment_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2175:1: rule__Employee_Impl__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2174:1: rule__Employee_Impl__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Employee_Impl__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2179:1: ( ( RULE_ID ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2180:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2178:1: ( ( RULE_ID ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2179:1: ( RULE_ID )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2180:1: ( RULE_ID )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2181:1: RULE_ID
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2179:1: ( RULE_ID )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2180:1: RULE_ID
             {
              before(grammarAccess.getEmployee_ImplAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Employee_Impl__NameAssignment_14307); 
@@ -5634,17 +5633,17 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__SalaryAssignment_3_1"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2190:1: rule__Employee_Impl__SalaryAssignment_3_1 : ( ruleEInt ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2189:1: rule__Employee_Impl__SalaryAssignment_3_1 : ( ruleEInt ) ;
     public final void rule__Employee_Impl__SalaryAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2194:1: ( ( ruleEInt ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2195:1: ( ruleEInt )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2193:1: ( ( ruleEInt ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2194:1: ( ruleEInt )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2195:1: ( ruleEInt )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2196:1: ruleEInt
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2194:1: ( ruleEInt )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2195:1: ruleEInt
             {
              before(grammarAccess.getEmployee_ImplAccess().getSalaryEIntParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_ruleEInt_in_rule__Employee_Impl__SalaryAssignment_3_14338);
@@ -5675,21 +5674,21 @@ public class InternalIOIParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Employee_Impl__Works_onAssignment_5"
-    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2205:1: rule__Employee_Impl__Works_onAssignment_5 : ( ( ruleEString ) ) ;
+    // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2204:1: rule__Employee_Impl__Works_onAssignment_5 : ( ( ruleEString ) ) ;
     public final void rule__Employee_Impl__Works_onAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2209:1: ( ( ( ruleEString ) ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2210:1: ( ( ruleEString ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2208:1: ( ( ( ruleEString ) ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2209:1: ( ( ruleEString ) )
             {
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2210:1: ( ( ruleEString ) )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2211:1: ( ruleEString )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2209:1: ( ( ruleEString ) )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2210:1: ( ruleEString )
             {
              before(grammarAccess.getEmployee_ImplAccess().getWorks_onPositionCrossReference_5_0()); 
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2212:1: ( ruleEString )
-            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2213:1: ruleEString
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2211:1: ( ruleEString )
+            // ../org.ioicompanies.lang.ioi.ui/src-gen/org/ioicompanies/lang/ui/contentassist/antlr/internal/InternalIOI.g:2212:1: ruleEString
             {
              before(grammarAccess.getEmployee_ImplAccess().getWorks_onPositionEStringParserRuleCall_5_0_1()); 
             pushFollow(FOLLOW_ruleEString_in_rule__Employee_Impl__Works_onAssignment_54373);

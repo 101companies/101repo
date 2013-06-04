@@ -1,0 +1,74 @@
+IOICompaniesModel example
+
+Company ACME {
+	Positions: (managing_as_hell, working_as_hell, slacking_as_hell)
+	
+	Department Concrete {
+		Manager Karl {
+			salary 1
+			works on managing_as_hell
+		}
+		Employee Heinz {
+			salary 1
+			works on working_as_hell
+		}
+		Employee ZwoDrei {
+			salary 1
+			works on working_as_hell
+		}
+		
+		Employee VierNull {
+			salary 10000
+			works on slacking_as_hell
+		}
+	}
+	Department Explosives {
+		Manager Karl {
+			salary 6
+			works on managing_as_hell
+		}
+		Employee Heinz {
+			salary 5
+			works on working_as_hell
+		}		
+		subdepartment Department TNT {
+			
+			Manager Karl {
+				salary 1
+				works on managing_as_hell
+			}
+			Employee Heinz {
+				salary 1
+				works on working_as_hell
+			}
+			Employee ZwoDrei {
+				salary 1
+				works on working_as_hell
+			}
+		}
+	}
+}
+
+Company BACME {
+	Positions: (managing_as_hell, working_as_hell, slacking_as_hell)
+	
+	Department Concrete {
+		Manager Karl {
+			salary 1
+			works on managing_as_hell
+		}
+		Employee Heinz {
+			salary 1
+			works on working_as_hell
+		}
+		Employee ZwoDrei {
+			salary 1
+			works on working_as_hell
+		}
+		
+		Employee VierNull {
+			salary 1
+			works on slacking_as_hell
+		}
+	}
+}

@@ -1,0 +1,41 @@
+{ 
+  "name" : "Acme Corporation",
+  "departments" : [
+    {
+      "name" : "Research",
+      "manager" : {
+        "name" : "Fred",
+        "salary" : 88888
+      }   
+    },
+    {
+      "name" : "Development",
+      "manager" : {
+        "name" : "Marie",
+        "salary" : 77777
+      },
+      "departments" : [
+        {
+          "name" : "Dev1",
+          "manager" : {
+            "name" : "Bob",
+            "salary" : 77776
+          }
+        },
+        {
+          "name" : "Dev2",
+          "manager" : {
+            "name" : "Alice",
+            "salary" : 77775
+          },
+          "employees" : [
+            {
+              "name" : "Ralf",
+              "salary" : 4711
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

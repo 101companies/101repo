@@ -39,6 +39,5 @@ public class IOIStandaloneSetupGenerated implements ISetup {
 
 
 
-
 	}
 }

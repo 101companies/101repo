@@ -1,66 +1,30 @@
 [
  {
   "filename" : "js/companies101.js",
-  "fragment" : {
-	"method": "companies101.Company.prototype.cut"
-  },
+  "fragment" : "method/companies101.Company.prototype.cut",
   "metadata" : {
 	"phrase" : ["Cut", "Company"]
   }
  },
  {
   "filename" : "js/companies101.js",
-  "fragment" : {
-	"method": "companies101.Department.prototype.cut"
-  },
+  "fragment" : "method/companies101.Department.prototype.cut",
   "metadata" : {
 	"phrase" : ["Cut", "Department"]
   }
  },
  {
   "filename" : "js/companies101.js",
-  "fragment" : {
-	"method": "companies101.Employee.prototype.cut"
-  },
+  "fragment" : "method/companies101.Employee.prototype.cut",
   "metadata" : {
 	"phrase" : ["Cut", "Employee"]
   }
  },
  {
   "filename" : "js/companies101.js",
-  "fragment" : {
-   "method": "companies101.Company.deserializeFromJson"
-  },
+  "fragment" : "method/companies101.Company.deserializeFromJson",
   "metadata" : {
 	"phrase" : ["Deserialize", "Company"]
   }
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap-responsive.min.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap-responsive.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
- },
- {
- 	"filename" : "contributions/jsPrototyping/css/bootstrap.min.css",
-	"metadata" : [
-		{"dominator" : "validator"},
-		{"comment" : "3rd party library - no validation needed"}
-	]
  }
 ]

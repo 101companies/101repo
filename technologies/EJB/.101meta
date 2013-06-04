@@ -1,25 +1,25 @@
 [
-  {
-    "metadata": [
-      {
-        "language": "Java"
-      },
-      {
-        "dependsOn": "EJB"
-      }
-    ],
-    "suffix": ".java",
-    "predicate": "technologies/Java_platform/javaImport.sh",
-    "args": [
-      "javax.ejb"
-    ]
-  },
-  {
-    "metadata": [
-      {
-        "dependsOn": "EJB"
-      }
-    ],
-    "basename": "#^ejb-api[.]jar$#"
-  }
+    {
+        "predicate": "technologies/Java_platform/javaImport.py",
+        "args": [
+            "javax.ejb"
+        ],
+        "suffix": ".java",
+        "metadata": [
+            {
+                "language": "Java"
+            },
+            {
+                "dependsOn": "EJB"
+            }
+        ]
+    },
+    {
+        "basename": "#^ejb-api[.]jar$#",
+        "metadata": [
+            {
+                "dependsOn": "EJB"
+            }
+        ]
+    }
 ]

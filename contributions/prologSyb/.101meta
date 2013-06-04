@@ -37,18 +37,14 @@
  },
  {
   "filename" : "contributions/prolog/Cut.pro",
-  "fragment": {
-	"predicate" : "updateSalary"
-  },
+  "fragment": "predicate/updateSalary",
   "metadata": {
 	"phrase": ["Cut", "Employee"]
   }
  },
  {
   "filename" : "contributions/prolog/Total.pro",
-  "fragment": {
-	"predicate" : "total"
-  },
+  "fragment": "predicate/total",
   "metadata": {
 	"phrase": ["Total", "Employee"]
   }
