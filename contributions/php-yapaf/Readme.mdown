@@ -1,0 +1,5 @@
+See PHP-contribution to 101companies for details about PHP.
+
+This contribution uses YAPAF[1] within 101companies.
+
+[1] https://github.com/SchulteMarkus/YAPAF
