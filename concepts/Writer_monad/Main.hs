@@ -42,10 +42,10 @@ The present implementation is kept as simple as possible; specifically:
 
 -}
 
--- A Writer computation consists of output and a value.
+-- Computations as pairs of value and "output"
 newtype Writer w a = Writer { runWriter :: (a, w) }
 
--- We set up the Monad type-class instance for writers.
+-- Monad instance for Writer
 instance Monoid w => Monad (Writer w)
   where
     return a = Writer (a, mempty)
@@ -53,7 +53,7 @@ instance Monoid w => Monad (Writer w)
       let (Writer (b, w')) = f a in
         (Writer (b, w `mappend` w'))
 
--- Writer monads are monads with a tell action.
+-- Produce output
 tell :: w -> Writer w ()
 tell w = Writer ((), w)
 
