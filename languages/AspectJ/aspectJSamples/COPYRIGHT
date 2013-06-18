@@ -1,0 +1,11 @@
+Several samples in this project were adopted from an AspectJ distribution.
+Other samples in this project were adopted from a BCEL distribution.
+Hence the COPYRIGHTs of that software applies in those cases.
+See COPYRIGHT/LICENSE files in those subdirectories.
+For all other packages, the following copyright notice applies.
+
+(C) 2009 Ralf Laemmel
+
+All rights reserved.
+This material is made available for teaching purposes.
+No distribution permitted.

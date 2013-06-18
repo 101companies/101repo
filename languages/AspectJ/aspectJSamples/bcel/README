@@ -1,0 +1,5 @@
+See the Makefile for a demo.
+The enclosing Eclipse project does *not* include the .java files in the buildpath.
+This avoids confusion between different states the class files.
+BCEL is not part of AspectJ.
+We include these BCEL examples merely as support for explaining the mechanics of AspectJ.

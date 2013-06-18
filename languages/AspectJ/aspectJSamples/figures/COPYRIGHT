@@ -1,0 +1,11 @@
+The sources of this package have been adopted, to some extent, from the following slide deck:
+Aspect-Oriented Programming with AspectJ™,
+Julie Waterhouse, Mik Kersten, eclipse.org/aspectj, IBM, UBC:
+http://kerstens.org/mik/publications/aspectj-tutorial-oopsla2004.ppt
+
+To the remaining extent, the following COPYRIGHT rule applies.
+
+(C) 2008 Ralf Laemmel
+All rights reserved.
+This material is made available for teaching purposes.
+No distribution permitted.

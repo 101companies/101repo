@@ -1,0 +1,7 @@
+This directory is used as a class pool for the class-loading sample.
+That is, we store some .java files over here that are not under the compilation management of Eclipse.
+Also, this location is not part of the regular class path.
+Hence, it is really up to our clever class loader to find and load and perhaps even compile these classes.
+
+It is recommended to start from a "clean" directory.
+See the Makefile.
