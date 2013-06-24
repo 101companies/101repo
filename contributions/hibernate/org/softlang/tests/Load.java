@@ -3,7 +3,7 @@ package org.softlang.tests;
 import org.junit.Test;
 import org.softlang.features.Persistence;
 
-// See README for detailed usage instructions
+// See online documentation for detailed instructions
 
 public class Load {
 

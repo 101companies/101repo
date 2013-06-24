@@ -1,7 +1,7 @@
 #
 # Use of the Makefile is optional.
 # This distribution works fine just with Eclipse.
-# See the README
+# See README.md for a pointer to online documentation.
 #
 
 none:
@@ -10,7 +10,6 @@ none:
 # Start HSQL DB server
 
 start-db:
-	mkdir -p data
 	cd data; java -cp ../lib/hsqldb.jar org.hsqldb.Server &
 
 

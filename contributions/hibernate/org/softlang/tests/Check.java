@@ -6,9 +6,9 @@ import org.softlang.company.Company;
 import org.softlang.features.Persistence;
 import org.softlang.features.Mentoring;
 
-// See README for detailed usage instructions
+// See online documentation for detailed instructions
 
-public class Constraints {
+public class Check {
 
 	@Test
 	public void test() {

@@ -9,9 +9,9 @@ import org.softlang.features.Cut;
 import org.softlang.features.Persistence;
 import org.softlang.features.Total;
 
-// See README for detailed usage instructions
+// See online documentation for detailed instructions
 
-public class Save {
+public class TransformNoSave {
 
 	Persistence p = new Persistence();
 	Company meganalysis;
@@ -22,19 +22,10 @@ public class Save {
 	}
 
 	@Test
-	public void testPersistence() {
-
-		// Cut first department
-		Cut.cut(meganalysis.getDepts().iterator().next());
+	public void testCut() {
 		double total1 = Total.total(meganalysis);
-
-		// Save and reload
-		p.saveCompany(meganalysis);
-		meganalysis = p.loadCompany("meganalysis");
-
-		// Check that save succeeded
+		Cut.cut(meganalysis);
 		double total2 = Total.total(meganalysis);
-		assertEquals(total1, total2, 0.0);
+		assertEquals(total1 / 2.0, total2, 0.0);
 	}
-
 }
