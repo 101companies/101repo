@@ -28,5 +28,4 @@ start-gui:
 # Remove/replace all files so that we get a clean setup
 
 clean:
-	rm -f *~
 	rm -f data/*
