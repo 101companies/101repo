@@ -1,39 +1,30 @@
 package org.softlang.tests;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
-import org.softlang.company.Company;
 import org.softlang.features.Cut;
-import org.softlang.features.Persistence;
 import org.softlang.features.Total;
 
 // See online documentation for detailed instructions
 
-public class TransformAndSave {
-
-	Persistence p = new Persistence();
-	Company meganalysis;
-
-	@Before
-	public void loadCompany() {
-		meganalysis = p.loadCompany("meganalysis");
-	}
+public class TransformAndSave extends Load {
 
 	@Test
 	public void testPersistence() {
 
+		// Load for the first time
+		load();
+		
 		// Cut first department
-		Cut.cut(meganalysis.getDepts().iterator().next());
-		double total1 = Total.total(meganalysis);
+		Cut.cut(sampleCompany.getDepts().iterator().next());
+		double total1 = Total.total(sampleCompany);
 
 		// Save and reload
-		p.saveCompany(meganalysis);
-		meganalysis = p.loadCompany("meganalysis");
+		manager.saveCompany(sampleCompany);
+		load();
 
 		// Check that save succeeded
-		double total2 = Total.total(meganalysis);
+		double total2 = Total.total(sampleCompany);
 		assertEquals(total1, total2, 0.0);
 	}
 

@@ -5,7 +5,7 @@ import java.sql.Connection;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 /**
- * Factored connection code for test cases
+ * Factored connection code for test cases.
  */
 public class Connect {
 

@@ -1,4 +1,4 @@
-insert into COMPANY (NAME) values ('meganalysis'); -- ID = 1
+insert into COMPANY (NAME) values ('Acme Corporation'); -- ID = 1
 
 insert into DEPARTMENT (NAME, COMP_ID) values ('Research',1); -- ID = 1
 insert into DEPARTMENT (NAME, COMP_ID) values ('Development',1); -- ID = 2
