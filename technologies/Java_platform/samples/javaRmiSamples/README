@@ -1,0 +1,71 @@
+Content
+
+Package helloworld:
+A trivial, illustrative project for RMI.
+See the local Makefile for help on running the demo.
+
+Package banking.local:
+A naive, non-distributed implementation of a banking scenario.
+Both "bank" and "teller" are plain objects in one application.
+This package is the basis for developing a distributed version.
+
+Packages remote.*:
+A sophistication of the banking scenario.
+RMI is leveraged to provide a distributed implementation.
+The services of a "bank" are provided by a server.
+The use of the service is localized in the "teller".
+See the local Makefile for help on running the demo.
+
+Package sumwordlength.distributed:
+This is a continuation of the sumwordlength scenario started in the threads project.
+In this implementation, we compute length of an array of words with RMI & in parallel.
+See the local Makefile for help on running the demo.
+
+--------------------------------------------------
+
+General tips and tricks on RMI
+
+a) Running the applications
+
+Even if you are not using make, look at the Makefiles for illustration.
+
+b) Running both server and client on the local machine.
+
+The following advice may be helpful in running both the client and the
+server parts of an RMI application on a single machine. When you use
+RMI, and you want to connect in the client to the server, you need to
+know the IP address (hostname) of the server. For testing purposes, it
+is indeed common to run both client and server on the same
+machine. One typically refers to the given machine by localhost or
+127.0.0.1. However, these two addresses may fail to work depending on
+network setup. Instead, the actual IP address of the given machine (or
+its DNS-resolvable name) has to be used. One can determine the actual
+IP address in different ways, also varying per operating system. For
+instance, in Windows, one can run "ipconfig /all" in a command shell
+(start, run, "cmd"). One may want to add the IP address to the hosts
+file, thereby assigning also a name to the current IP address. The
+location of the hosts file varies per operating system. A typical
+location under Windows is this one: C:\WINDOWS\system32\drivers\etc
+
+c) Ports and firewall exceptions
+
+RMI requires some ports to be accessible.
+Also RMI may require special firewall settings.
+
+RMI uses port 1099 by default.
+See: "LocateRegistry.createRegistry(Registry.REGISTRY_PORT);"
+All ports from 1024 may be used.
+
+In Windows, the following firewall exceptions may be needed:
+ C:\WINDOWS\system32\java.exe
+ C:\Programme\Java\jdk1.6.0_06\bin\rmiregistry.exe
+ C:\Programme\Java\jdk1.6.0_06\bin\java.exe
+
+d) Security policy
+ 
+The server of the banking application is started with a security manager.
+See banking.remote.server.Server.java.
+Hence we *must* grant some RMI-related rights; see file security.policy.
+Also, the policy file must be passed to the server.
+See Makefile.
+The policy is very permissive; see the wildcard.

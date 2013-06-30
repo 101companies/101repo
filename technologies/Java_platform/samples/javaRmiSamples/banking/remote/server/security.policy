@@ -1,0 +1,12 @@
+grant{
+//
+// The following wildcard effectively turns off the security manager
+//
+  permission java.net.SocketPermission "*:1024-", "accept, connect, resolve";
+//
+// Some more restrictive samples:
+//
+// permission java.net.SocketPermission "linux.uni-koblenz.de:1024-", "accept, connect, resolve"; // for a server
+// permission java.net.SocketPermission "10.211.55.5:1024-", "accept, connect, resolve"; // for a server
+// permission java.net.SocketPermission "141.26.67.2:1024-", "accept, resolve"; // for a client
+};

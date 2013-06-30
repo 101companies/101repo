@@ -1,3 +1,5 @@
+{- Illustration of QuickCheck -}
+
 import Data.List (sort)
 import Data.Monoid
 import Test.QuickCheck
