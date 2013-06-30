@@ -1,4 +1,5 @@
-# Intent
-Distribute company objects with RMI in Java
+This is an implementation of the 101companies System.
 
-For more information visit the [101companies wiki](http://www.101companies.org).
+Headline: Distribution based on RMI in Java
+
+Documentation: http://101companies.org/wiki/Contribution:javaRmi

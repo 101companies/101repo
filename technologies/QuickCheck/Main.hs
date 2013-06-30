@@ -6,7 +6,7 @@ import Test.QuickCheck
 prop_double_negation x = not (not x) == x
 
 -- Addition on number types is commutative
-prop_addition_commutative x y = x * y == y * x
+prop_addition_commutative x y = x + y == y + x
 
 -- A monoid's mempty is a unit (identity)
 prop_identity x = prop_left_identity && prop_right_identity
@@ -21,11 +21,46 @@ instance (Num x, Arbitrary x) => Arbitrary (Sum x)
       x <- arbitrary
       return (Sum x)
 
--- take n returns a list of length shorter or equal than n
-prop_take n l = length (take n l) <= n
+-- Simple expression forms
+data Expr = Const Int | Add Expr Expr
+ deriving (Eq, Show, Read)
 
--- This would be a too strong property for take
+-- Evaluation of expressions
+eval :: Expr -> Int
+eval (Const x) = x
+eval (Add x y) = eval x + eval y
+
+-- Simplification based on the unit law for addition
+simplify :: Expr -> Expr
+simplify (Add (Const 0) x) = simplify x
+simplify (Add x (Const 0)) = simplify x
+simplify x = x
+
+-- Simplification preserves evaluation
+prop_simplify x = eval x == eval (simplify x)
+
+-- A generator for expressions
+instance Arbitrary Expr
+  where
+    arbitrary = do
+      -- Pick either "Const" or "Add"
+      n <- choose (0, 1) :: Gen Int
+      case n of
+        0 -> do
+          -- Pick a constant in the range [0..10]
+          x <- choose (0,10) :: Gen Int
+          return (Const x)
+        1 -> do
+          -- Pick "arbitrary" operands for addition
+          x <- arbitrary 
+          y <- arbitrary
+          return (Add x y)
+
+-- An unreasonable property for take
 no'prop_take n l = length (take n l) == n
+
+-- A reasonable property for take
+prop_take n l = length (take n l) <= n
 
 -- Data.list.sort sorts
 prop_sorting :: [Int] -> Bool
@@ -49,35 +84,3 @@ prop_sorting x = sorted y && permutation x y
     sorted [] = True
     sorted [x] = True
     sorted (x1:x2:xs) = x1 <= x2 && sorted (x2:xs)
-
--- Simple expression forms
-data Expr = Const Int | Add Expr Expr
- deriving (Eq, Show, Read)
-
--- Simplification of an expressions preserves evaluation result
-prop_simplify x = eval x == eval (simplify x)
-
--- Evaluation of expressions
-eval :: Expr -> Int
-eval (Const x) = x
-eval (Add x y) = eval x + eval y
-
--- Simplification based unit on unit laws
-simplify :: Expr -> Expr
-simplify (Add (Const 0) x) = simplify x
-simplify (Add x (Const 0)) = simplify x
-simplify x = x
-
--- A generator for expressions
-instance Arbitrary Expr
-  where
-    arbitrary = do
-      n <- choose (0, 1) :: Gen Int
-      case n of
-        0 -> do
-          x <- choose (0,10) :: Gen Int
-          return (Const x)
-        1 -> do
-          x <- arbitrary 
-          y <- arbitrary
-          return (Add x y)
