@@ -16,8 +16,8 @@ The services of a "bank" are provided by a server.
 The use of the service is localized in the "teller".
 See the local Makefile for help on running the demo.
 
-Package sumwordlength.distributed:
-This is a continuation of the sumwordlength scenario started in the threads project.
+Package sumlength.distributed:
+This is a continuation of the sumlength scenario started with javaThreadSamples.
 In this implementation, we compute length of an array of words with RMI & in parallel.
 See the local Makefile for help on running the demo.
 

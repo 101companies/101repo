@@ -20,8 +20,6 @@ Only the basic thread library and expressiveness of Java is used.
 
 - sumlength.parallel: compute sum of length of an array of strings (in parallel)
 
-- sumlength.distributed: compute sum of length of an array of strings (in parallel/distributed manner)
-
 - slowstringreverser: reverse string with a thread and poke at result with future
 
 - concurrent: an implementation of semaphores with logging
