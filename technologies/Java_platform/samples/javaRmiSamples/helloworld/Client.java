@@ -14,7 +14,7 @@ public class Client {
 			InetAddress addr = InetAddress.getLocalHost();
 			String hostname = addr.getHostName();
 			Service s = (Service) Naming.lookup("rmi://"+hostname+"/Service");
-			System.out.println(s.inc(42));
+			System.out.println(s.inc(41));
 		} catch (UnknownHostException uhoste) {
 			// ... TODO ...
 		} catch (MalformedURLException murle) {
