@@ -9,7 +9,7 @@ A naive, non-distributed implementation of a banking scenario.
 Both "bank" and "teller" are plain objects in one application.
 This package is the basis for developing a distributed version.
 
-Packages remote.*:
+Packages banking.remote.*:
 A sophistication of the banking scenario.
 RMI is leveraged to provide a distributed implementation.
 The services of a "bank" are provided by a server.
@@ -17,7 +17,7 @@ The use of the service is localized in the "teller".
 See the local Makefile for help on running the demo.
 
 Package sumlength.distributed:
-This is a continuation of the sumlength scenario started with javaThreadSamples.
+This is a continuation of the sumlength scenario started with javaThreadsSamples.
 In this implementation, we compute length of an array of words with RMI & in parallel.
 See the local Makefile for help on running the demo.
 
