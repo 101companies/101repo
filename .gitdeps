@@ -79,19 +79,19 @@
   {
     "sourcerepo": "https://github.com/MightyNoob/contributions.git",
     "sourcedir" : "/",
-    "targetdir" : "fsharpNonMonadicLogging,
+    "targetdir" : "fsharpNonMonadicLogging",
     "mode" : "subdirsonly"
   },
   {
     "sourcerepo": "https://github.com/MightyNoob/contributions.git",
     "sourcedir" : "/",
-    "targetdir" : "fsharpClasses,
+    "targetdir" : "fsharpClasses",
     "mode" : "subdirsonly"
   },
   {
     "sourcerepo": "https://github.com/MightyNoob/contributions.git",
     "sourcedir" : "/",
-    "targetdir" : "fsharpRecords,
+    "targetdir" : "fsharpRecords",
     "mode" : "subdirsonly"
   }
 ]
