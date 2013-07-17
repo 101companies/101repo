@@ -75,5 +75,23 @@
     "sourcedir" : "/services",
     "targetdir" : "services",
     "mode" : "subdirsonly"
+  },
+  {
+    "sourcerepo": "https://github.com/MightyNoob/contributions.git",
+    "sourcedir" : "/",
+    "targetdir" : "fsharpNonMonadicLogging,
+    "mode" : "subdirsonly"
+  },
+  {
+    "sourcerepo": "https://github.com/MightyNoob/contributions.git",
+    "sourcedir" : "/",
+    "targetdir" : "fsharpClasses,
+    "mode" : "subdirsonly"
+  },
+  {
+    "sourcerepo": "https://github.com/MightyNoob/contributions.git",
+    "sourcedir" : "/",
+    "targetdir" : "fsharpRecords,
+    "mode" : "subdirsonly"
   }
 ]
