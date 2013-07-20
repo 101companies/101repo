@@ -1,26 +1,12 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 
 import commands
 import os.path
 import simplejson
 import sys
+import subprocess
 
-if len(sys.argv) != 3 and len(sys.argv) != 4:
-    sys.exit("Usage: locator.py inputFile fragmentFile linesFile\nUsage (alternative): locator.py inputFile fragmentDescription")
 locatorPy = sys.argv[0]
 x = os.path.dirname(locatorPy)
-command = "cd " + x + "; make"
-status, output = commands.getstatusoutput(command)
-if (status):
-    print output
-    sys.exit(status)
-command = "mono " + x + "/locator/bin/Debug/locator.exe " + sys.argv[1] + " " + sys.argv[2]
-if len(sys.argv) == 4:
-    command += " " + sys.argv[3]
-status, output = commands.getstatusoutput(command)
-print output
-#if (status):
-#    print output
-#    sys.exit(status)
-
-#print output
+command = "mono " + x + "/locator/bin/Debug/locator.exe {0}".format(sys.argv[1]) 
+subprocess.call([command], shell=True)

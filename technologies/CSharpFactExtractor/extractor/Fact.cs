@@ -61,25 +61,35 @@ namespace CSharpFactExtractor {
 		
 		public string asJson() {
 			string json = "\t\t{\n";
-			json += "\t\t\t\"class\" : \"" + className + "\",\n";
-			
-			json += "\t\t\t\"methods\" : [\n";
+			json += "\t\t\t\"name\" : \"" + className + "\",\n";
+			json += "\t\t\t\"classifier\" : \"" + "class" + "\",\n";
+
+			json += "\t\t\t\"fragments\" : [\n";
 			//add methods
 			List<string> methodsList = new List<string>(methods);
-			for (int i = 0; i < methodsList.Count-1; i++)
-				json += "\t\t\t\t\"" + methodsList[i] + "\",\n";
-			if (methods.Count > 0)
-				json += "\t\t\t\t\"" + methodsList[methods.Count-1] + "\"\n";
-			json += "\t\t\t],\n";
+			for (int i = 0; i < methodsList.Count-1; i++) {
+				json += "\t\t\t\t{\n";
+				json += "\t\t\t\t\t\"name\" : \"" + methodsList[i] + "\",\n";
+				json += "\t\t\t\t\t\"classifier\" : \"" + "method" + "\"\n";
+				json += "\t\t\t\t},\n";
+			}
+
+			if (methods.Count > 0) {
+				json += "\t\t\t\t{\n";
+				json += "\t\t\t\t\t\"name\" : \"" + methodsList[methods.Count-1] + "\",\n";
+				json += "\t\t\t\t\t\"classifier\" : \"" + "method" + "\"\n";
+				json += "\t\t\t\t}\n";
+			}
+			json += "\t\t\t]\n";
 			
-			json += "\t\t\t\"attributes\" : [\n";
+			/*json += "\t\t\t\"attributes\" : [\n";
 			//add annotations
 			List<string> attributesList = new List<string>(attributes);
 			for (int i = 0; i < attributesList.Count-1; i++)
 				json += "\t\t\t\t\"" + attributesList[i] + "\",\n";
 			if (attributes.Count > 0)
 				json += "\t\t\t\t\"" + attributesList[attributesList.Count-1] + "\"\n";
-			json += "\t\t\t]\n";
+			json += "\t\t\t]\n";*/
 			json += "\t\t}";
 			
 			return json;
@@ -95,20 +105,16 @@ namespace CSharpFactExtractor {
 		private List<Declaration> declarations = new List<Declaration>();
 		private List<Comment> comments = new List<Comment>();
 		
-		public Fact (String filePath) {
-			TextReader reader = File.OpenText(filePath);
-			
-			
+		public Fact (TextReader input) {			
+
 			CSharpParser parser = new CSharpParser();
+			CompilationUnit unit = parser.Parse(input, "");
 			
-			CompilationUnit unit = parser.Parse(reader, filePath);
-		
 			this.VisitCompilationUnit(unit);
 			
 			for (int j = 0; j < comments.Count; j++)
 				if (comments[j].StartLocation.Line< firstClassStartLine)
 					comment += comments[j].GetText().Replace("//","").Replace("\n", "\\n");
-			
 		}
 		
 		
@@ -134,8 +140,6 @@ namespace CSharpFactExtractor {
 		
 		public override void VisitAttribute (ICSharpCode.NRefactory.CSharp.Attribute attribute)
 		{
-			
-//			Console.WriteLine(attribute);
 			base.VisitAttribute (attribute);
 		}
 		
@@ -151,7 +155,7 @@ namespace CSharpFactExtractor {
 		
 		public string asJson() {
 			string json = "{\n";
-			json += "\t\"comment\" : \"" + comment + "\",\n";
+			//json += "\t\"comment\" : \"" + comment + "\",\n";
 			json += "\t\"package\" : \"" + package + "\",\n";
 			
 			json += "\t\"imports\" : [\n";
@@ -162,7 +166,7 @@ namespace CSharpFactExtractor {
 				json += "\t\t\""+importList[importList.Count-1]+"\"\n";
 			json += "\t],\n";
 			
-			json += "\t\"declarations\" : [\n";
+			json += "\t\"fragments\" : [\n";
 			for (int i = 0; i < declarations.Count-1; i++)
 				json += declarations[i].asJson() + ",\n";
 			if (declarations.Count > 0)

@@ -5,11 +5,8 @@ locator/bin: locator/*.cs Makefile
 	xbuild locator/locator.csproj
 
 test:
-	mono locator/bin/Debug/locator.exe Company.cs fragment.json lines.json
-	diff -w baseline.json lines.json	
-
-fragmentDescriptionTest:
-	./locator.py Company.cs Cut/0
+	@./locator.py class/Company/method/Cut/1 < Company.cs > lines.json
+	@diff lines.json baseline.json 
 
 clean:
 	rm -rf locator/bin

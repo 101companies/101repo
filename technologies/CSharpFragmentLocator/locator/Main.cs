@@ -5,39 +5,48 @@ using System.Collections;
 namespace CSharpFragmentLocator {
 	class MainClass {
 		public static void Main (string[] args)	{
-			String inputFile    = args[0];
-			String fragmentFile = args[1];
-			Hashtable fragment = null;			
+			//String inputFile    = args[0];
+			//String fragmentFile = args[1];
+			//Hashtable fragment = null;			
 			
-			if (args.Length == 3) {
-				String jsonText = File.ReadAllText(fragmentFile);
-				fragment = (Hashtable) Procurios.Public.JSON.JsonDecode(jsonText);
-			} else {
-				string[] split = fragmentFile.Split('/');
-				fragment = new Hashtable();
-				fragment.Add("method", split[0]);
-				if (split.Length > 1)
-					fragment.Add("overload", split[1]);
+			//if (args.Length == 3) {
+			//	String jsonText = File.ReadAllText(fragmentFile);
+			//	fragment = (Hashtable) Procurios.Public.JSON.JsonDecode(jsonText);
+			//} else {
+			//	string[] split = fragmentFile.Split('/');
+			//	fragment = new Hashtable();
+			//	fragment.Add("method", split[0]);
+			//	if (split.Length > 1)
+			//		fragment.Add("overload", split[1]);
+			//}
+			//bool overload = fragment.ContainsKey("overload");
+			string[] queryParts = args[0].Split('/');
+			LocatorCSharpParser locator = new LocatorCSharpParser(Console.In);
+
+			string classifier = queryParts[0];
+			string name = queryParts[1];
+			TypeDeclDict decls = null;
+
+			if (classifier == "class") {
+				decls = locator.getClassDefinitions(name);
 			}
-			bool overload = fragment.ContainsKey("overload");
-			LocatorCSharpParser locator = new LocatorCSharpParser(inputFile, overload);
+
+			if (queryParts.Length == 2) {
+				Console.WriteLine(decls.TypeDeclTupel.toJSON());
+			} else {
+				classifier = queryParts[2];
+				name = queryParts[3];
+				if (queryParts.Length > 4)
+					name += queryParts[4];
+				else
+					name += "0";
+
+				Console.WriteLine(decls[name].toJSON());
+			}
 			
 			
-			string methodName = (string)fragment["method"];
-			if (overload)
-				methodName += (string)fragment["overload"];
-			if (args.Length > 2)
-				writeOutput(args[2], locator[methodName].toJSON());
-			else
-				Console.WriteLine(locator[methodName].toJSON());
 		}
-		
-		
-		private static void writeOutput(string path, string content) {
-			TextWriter writer = File.CreateText(path);
-			writer.WriteLine(content);
-			writer.Close();
-		}
+
 	}
 	
 
