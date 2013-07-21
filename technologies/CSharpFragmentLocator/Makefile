@@ -6,7 +6,8 @@ locator/bin: locator/*.cs Makefile
 
 test:
 	@./locator.py class/Company/method/Cut/1 < Company.cs > lines.json
-	@diff lines.json baseline.json 
+	@diff -w lines.json baseline.json
+	@echo Tests passed
 
 clean:
 	rm -rf locator/bin

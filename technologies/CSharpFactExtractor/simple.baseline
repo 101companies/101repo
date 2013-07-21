@@ -1,6 +1,9 @@
 {
-	"package" : "",
+	"package" : "csharpBaseline.CompanyModel",
 	"imports" : [
+		"System",
+		"System.Collections.Generic",
+		"System.Linq"
 	],
 	"fragments" : [
 		{
@@ -8,7 +11,7 @@
 			"classifier" : "class",
 			"fragments" : [
 				{
-					"name" : "Clone",
+					"name" : "Id",
 					"classifier" : "method"
 				},
 				{
@@ -16,517 +19,44 @@
 					"classifier" : "method"
 				},
 				{
-					"name" : "Department",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Employee",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetSchemaSerializable",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetTypedDataSetSchema",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitClass",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitializeDerivedDataSet",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitVars",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Manager",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ReadXmlSerializable",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Relations",
-					"classifier" : "method"
-				},
-				{
-					"name" : "SchemaChanged",
-					"classifier" : "method"
-				},
-				{
-					"name" : "SchemaSerializationMode",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ShouldSerializeDepartment",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ShouldSerializeEmployee",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ShouldSerializeManager",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ShouldSerializeRelations",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ShouldSerializeTables",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Tables",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "DepartmentDataTable",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "AddDepartmentRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Clone",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Count",
-					"classifier" : "method"
-				},
-				{
-					"name" : "CreateInstance",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Department_Id_0Column",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Department_IdColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "DepartmentDataTable",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetEnumerator",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetRowType",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetTypedTableSchema",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitClass",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitVars",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NameColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NewDepartmentRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NewRowFromBuilder",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowChanged",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowChanging",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowDeleted",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowDeleting",
-					"classifier" : "method"
-				},
-				{
-					"name" : "RemoveDepartmentRow",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "ManagerDataTable",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "AddManagerRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "AddressColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Clone",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Count",
-					"classifier" : "method"
-				},
-				{
-					"name" : "CreateInstance",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Department_IdColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetEnumerator",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetRowType",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetTypedTableSchema",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitClass",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitVars",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ManagerDataTable",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NameColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NewManagerRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NewRowFromBuilder",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowChanged",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowChanging",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowDeleted",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowDeleting",
-					"classifier" : "method"
-				},
-				{
-					"name" : "RemoveManagerRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "SalaryColumn",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "EmployeeDataTable",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "AddEmployeeRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "AddressColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Clone",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Count",
-					"classifier" : "method"
-				},
-				{
-					"name" : "CreateInstance",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Department_IdColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "EmployeeDataTable",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetEnumerator",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetRowType",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetTypedTableSchema",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitClass",
-					"classifier" : "method"
-				},
-				{
-					"name" : "InitVars",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NameColumn",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NewEmployeeRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "NewRowFromBuilder",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowChanged",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowChanging",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowDeleted",
-					"classifier" : "method"
-				},
-				{
-					"name" : "OnRowDeleting",
-					"classifier" : "method"
-				},
-				{
-					"name" : "RemoveEmployeeRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "SalaryColumn",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "DepartmentRow",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "Department_Id",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Department_Id_0",
-					"classifier" : "method"
-				},
-				{
-					"name" : "DepartmentRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "DepartmentRowParent",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetDepartmentRows",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetEmployeeRows",
-					"classifier" : "method"
-				},
-				{
-					"name" : "GetManagerRows",
-					"classifier" : "method"
-				},
-				{
-					"name" : "IsDepartment_Id_0Null",
-					"classifier" : "method"
-				},
-				{
 					"name" : "Name",
 					"classifier" : "method"
 				},
 				{
-					"name" : "SetDepartment_Id_0Null",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "ManagerRow",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "Address",
+					"name" : "Departments",
 					"classifier" : "method"
 				},
 				{
-					"name" : "Department_Id",
+					"name" : "AllDepartments",
 					"classifier" : "method"
 				},
 				{
-					"name" : "DepartmentRow",
+					"name" : "GetAllDepartments",
 					"classifier" : "method"
 				},
 				{
-					"name" : "IsDepartment_IdNull",
+					"name" : "Cut",
 					"classifier" : "method"
 				},
 				{
-					"name" : "ManagerRow",
+					"name" : "Cut",
+					"index" : "1",
 					"classifier" : "method"
 				},
 				{
-					"name" : "Name",
+					"name" : "Total",
 					"classifier" : "method"
 				},
 				{
-					"name" : "Salary",
+					"name" : "Depth",
 					"classifier" : "method"
 				},
 				{
-					"name" : "SetDepartment_IdNull",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "EmployeeRow",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "Address",
+					"name" : "Equals",
 					"classifier" : "method"
 				},
 				{
-					"name" : "Department_Id",
-					"classifier" : "method"
-				},
-				{
-					"name" : "DepartmentRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "EmployeeRow",
-					"classifier" : "method"
-				},
-				{
-					"name" : "IsDepartment_IdNull",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Name",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Salary",
-					"classifier" : "method"
-				},
-				{
-					"name" : "SetDepartment_IdNull",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "DepartmentRowChangeEvent",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "Action",
-					"classifier" : "method"
-				},
-				{
-					"name" : "DepartmentRowChangeEvent",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Row",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "ManagerRowChangeEvent",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "Action",
-					"classifier" : "method"
-				},
-				{
-					"name" : "ManagerRowChangeEvent",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Row",
-					"classifier" : "method"
-				}
-			]
-		},
-		{
-			"name" : "EmployeeRowChangeEvent",
-			"classifier" : "class",
-			"fragments" : [
-				{
-					"name" : "Action",
-					"classifier" : "method"
-				},
-				{
-					"name" : "EmployeeRowChangeEvent",
-					"classifier" : "method"
-				},
-				{
-					"name" : "Row",
+					"name" : "GetHashCode0",
 					"classifier" : "method"
 				}
 			]

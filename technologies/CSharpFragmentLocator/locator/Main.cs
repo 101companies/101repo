@@ -29,6 +29,12 @@ namespace CSharpFragmentLocator {
 
 			if (classifier == "class") {
 				decls = locator.getClassDefinitions(name);
+			} else if (classifier == "struct") {
+				decls = locator.getStructDefinitions(name);
+			} else if (classifier == "interface") {
+				decls = locator.getInterfaceDefinitions(name);
+			} else if (classifier == "enum") {
+				decls = locator.getEnumDefinitions(name);
 			}
 
 			if (queryParts.Length == 2) {

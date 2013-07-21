@@ -83,6 +83,18 @@ namespace CSharpFragmentLocator {
 			return this._classes[className];
 		}
 
+		public TypeDeclDict getStructDefinitions(string structName) {
+			return this._structs[structName];
+		}
+
+		public TypeDeclDict getInterfaceDefinitions(string interfaceName) {
+			return this._interfaces[interfaceName];
+		}
+
+		public TypeDeclDict getEnumDefinitions(string enumName) {
+			return this._enums[enumName];
+		}
+
 		public override void VisitTypeDeclaration (TypeDeclaration typeDeclaration)
 		{
 			_current = new TypeDeclDict(new Tupel(typeDeclaration.StartLocation.Line, typeDeclaration.EndLocation.Line));

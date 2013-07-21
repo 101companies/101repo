@@ -5,13 +5,15 @@ using ICSharpCode.NRefactory.CSharp;
 
 namespace CSharpFactExtractor {
 	class Declaration {
-		private String className;
-		private SortedSet<String> methods = new SortedSet<String>();
+		private string name;
+		private string classifier;
+		private List<string> methods = new List<string>();
+		private Dictionary<string, int> methodCnt = new Dictionary<string, int>();
 		private SortedSet<String> attributes = new SortedSet<String>();
 		
-		public string ClassName
+		public string Name
 		{ 
-			get { return className; }
+			get { return name; }
 		}
 		
 		public IEnumerable<String> Methods
@@ -33,27 +35,41 @@ namespace CSharpFactExtractor {
 						}
 				}
 		}
+
+		private void countMethods(string name) {
+			if (methodCnt.ContainsKey(name))
+				methodCnt[name]++;
+			else
+				methodCnt[name] = 0;	
+		}
 		
-		public Declaration(TypeDeclaration typeDeclaration) {
-			className = typeDeclaration.Name;
+		public Declaration(TypeDeclaration typeDeclaration, string classifier) {
+			name = typeDeclaration.Name;
+			this.classifier = classifier;
 			extractAttributes(typeDeclaration.Attributes);
 
 			
 			foreach (AstNode node in typeDeclaration.Children) {
 				ConstructorDeclaration c = node as ConstructorDeclaration;
 				if (c != null) {
+					countMethods(c.Name);
+
 					extractAttributes(c.Attributes);
-					methods.Add(c.Name);
+					methods.Add(c.Name + methodCnt[c.Name]);
 				}
 				MethodDeclaration d = node as MethodDeclaration;
 				if (d != null) {
+					countMethods(d.Name);
+
 					extractAttributes(d.Attributes);
-					methods.Add(d.Name);
+					methods.Add(d.Name + methodCnt[d.Name]);
 				}
 				PropertyDeclaration p = node as PropertyDeclaration;
 				if (p != null) {
+					countMethods(p.Name);
+
 					extractAttributes(p.Attributes);
-					methods.Add(p.Name);
+					methods.Add(p.Name + methodCnt[p.Name]);
 				}
 				
  			}
@@ -61,15 +77,25 @@ namespace CSharpFactExtractor {
 		
 		public string asJson() {
 			string json = "\t\t{\n";
-			json += "\t\t\t\"name\" : \"" + className + "\",\n";
-			json += "\t\t\t\"classifier\" : \"" + "class" + "\",\n";
+			json += "\t\t\t\"name\" : \"" + name + "\",\n";
+			json += "\t\t\t\"classifier\" : \"" + classifier + "\",\n";
 
 			json += "\t\t\t\"fragments\" : [\n";
 			//add methods
+			//add method overloading
 			List<string> methodsList = new List<string>(methods);
 			for (int i = 0; i < methodsList.Count-1; i++) {
 				json += "\t\t\t\t{\n";
-				json += "\t\t\t\t\t\"name\" : \"" + methodsList[i] + "\",\n";
+				string methodName = methodsList[i].Substring(0, methodsList[i].Length-1);
+				string index = methodsList[i].Substring(methodsList[i].Length-1);
+
+				json += "\t\t\t\t\t\"name\" : \"" + methodName + "\",\n";
+				if (index != "0")
+					json += "\t\t\t\t\t\"index\" : \"" + index + "\",\n";
+
+				//if (methodCnt[methodsList[i]] > 0)
+				//	json += "\t\t\t\t\t\"index\" : \"" + methodCnt[methodsList[i]] + "\",\n";
+				
 				json += "\t\t\t\t\t\"classifier\" : \"" + "method" + "\"\n";
 				json += "\t\t\t\t},\n";
 			}
@@ -145,10 +171,16 @@ namespace CSharpFactExtractor {
 		
 		public override void VisitTypeDeclaration (TypeDeclaration typeDeclaration)
 		{
-			if (typeDeclaration.ClassType == ClassType.Class) {
-				if (firstClassStartLine == -1)
+			if (firstClassStartLine == -1)
 					firstClassStartLine = typeDeclaration.StartLocation.Line;
-				declarations.Add(new Declaration(typeDeclaration));
+			if (typeDeclaration.ClassType == ClassType.Class) {
+				declarations.Add(new Declaration(typeDeclaration, "class"));
+			} else if (typeDeclaration.ClassType == ClassType.Struct) {
+				declarations.Add(new Declaration(typeDeclaration, "struct"));
+			} else if (typeDeclaration.ClassType == ClassType.Interface) {
+				declarations.Add(new Declaration(typeDeclaration, "interface"));
+			} else if (typeDeclaration.ClassType == ClassType.Enum) {
+				declarations.Add(new Declaration(typeDeclaration, "enum"));
 			}
 			base.VisitTypeDeclaration (typeDeclaration);
 		}

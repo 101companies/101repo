@@ -12,8 +12,9 @@ csharpfactextractor/CSharpFactExtractor.exe: extractor/*.cs Makefile
 	cp lib/*.so bin
 
 test:
-	./extractor.py < Company.cs > Company.cs.facts.json
-	diff --ignore-all-space simple.baseline Company.cs.facts.json
+	@./extractor.py < Company.cs > Company.cs.facts.json
+	@diff --ignore-all-space simple.baseline Company.cs.facts.json
+	@echo Tests passed
 
 clean:
 	rm -rf bin/*.exe
