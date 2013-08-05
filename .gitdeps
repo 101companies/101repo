@@ -93,5 +93,11 @@
     "sourcedir" : "/",
     "targetdir" : "fsharpRecords",
     "mode" : "subdirsonly"
+  },
+  {
+    "sourcerepo" : "https://github.com/ydupont/101repo.git",
+    "sourcedir" : "/contributions",
+    "targetdir" : "contributions",
+    "mode" : "subdirsonly"
   }
 ]
