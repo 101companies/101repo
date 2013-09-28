@@ -30,7 +30,7 @@
     "targetdir" : "contributions/grails"
   },
   {
-    "sourcerepo" : "https://github.com/101companies/101haskell.git",
+    "sourcerepo" : "https://github.com/101clonesbot/101haskelloriginals.git",
     "sourcedir" : "/contributions",
     "targetdir" : "contributions",
     "mode" : "subdirsonly"
