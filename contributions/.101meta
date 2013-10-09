@@ -11,5 +11,11 @@
       "metadata" : [
          {"nature" : "binary"}
       ]
+   },
+   {
+      "filename" : "contributions/haskellSyb/src/Main.hs",
+      "metadata" : [
+         {"relevance" : "test"}
+      ]
    }
 ]

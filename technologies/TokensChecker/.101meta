@@ -1,5 +1,38 @@
 [
     {
+        "basename": "#(.*\\.hs)|(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",
+        "args": [
+            "department"
+        ],
+        "predicate": "technologies/TokensChecker/tokensChecker.py",
+        "metadata": {
+            "comment": "based on refinedTokens",
+            "feature": "hierarchical_company"
+        }
+    },
+    {
+        "basename": "#(.*\\.hs)|(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",
+        "args": [
+            "total"
+        ],
+        "predicate": "technologies/TokensChecker/tokensChecker.py",
+        "metadata": {
+            "comment": "based on refinedTokens",
+            "feature": "total"
+        }
+    },
+    {
+        "basename": "#(.*\\.hs)|(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",
+        "args": [
+            "cut"
+        ],
+        "predicate": "technologies/TokensChecker/tokensChecker.py",
+        "metadata": {
+            "comment": "based on refinedTokens",
+            "feature": "cut"
+        }
+    },
+    {
         "basename": "#(.*\\.rb)|(.*\\.cs)|(.*\\.wsdl)|(.*\\.py)|(.*\\.cpp)|(.*\\.xml)|(.*\\.g)|(.*\\.ser)|(.*\\.zip)|(.*\\.sqlcmdvars)|(.*\\.xq)|(.*\\.sqldeployment)|(.*\\.xmi)|(.*\\.prefs)|(.*\\.config)|(.*\\.pro)|(.*\\.scala)|(.*\\.ecore)|(.*\\.ini)|(.*\\.fs)|(.*\\.bat)|(.*\\.csproj)|(.*\\.xhtml)|(.*\\.sh)|(.*\\.rsc)|(.*\\.jsp)|(.*\\.xsd)|(.*\\.js)|(.*\\.Company)|(.*\\.erl)|(.*\\.properties)|(.*\\.launch)|(.*\\.cob)|(.*\\.erb)|(.*\\.st)|(.*\\.sqlsettings)|(.*\\.sql)|(.*\\.php)|(.*\\.aj)|(.*\\.json)|(.*\\.hpp)|(.*\\.css)|(.*\\.gif)|(.*\\.txt)|(.*\\.atl)|(.*\\.html)|(.*\\.java)|(.*\\.sqlpermissions)$#",
         "args": [
             "cut"

@@ -1,6 +1,7 @@
 [
     {
         "fpredicate": "technologies/fpredicate_generic_platform/tokens.py",
+	"suffix":".dadada"
         "args": [
             "total"
         ],
