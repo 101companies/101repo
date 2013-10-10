@@ -17,5 +17,23 @@
       "metadata" : [
          {"relevance" : "test"}
       ]
+   },
+   {
+      "filename" : "contributions/haskellSyb/src/Company/Data.hs",
+      "metadata" : [
+         {"feature" : "hierarchical company"}
+      ]
+   },
+   {
+      "filename" : "contributions/haskellSyb/src/Company/Cut.hs",
+      "metadata" : [
+         {"feature" : "cut"}
+      ]
+   },
+   {
+      "filename" : "contributions/haskellSyb/src/Company/Total.hs",
+      "metadata" : [
+         {"feature" : "total"}
+      ]
    }
 ]

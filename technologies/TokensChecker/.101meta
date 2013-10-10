@@ -7,7 +7,7 @@
         "predicate": "technologies/TokensChecker/tokensChecker.py",
         "metadata": {
             "comment": "based on refinedTokens",
-            "feature": "hierarchical_company"
+            "feature": "hierarchical_company_automated"
         }
     },
     {
