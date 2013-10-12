@@ -1,0 +1,18 @@
+[
+	{
+		"suffix": ".hs",
+		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"args": ["data", "department"],
+		"metadata": [
+			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
+		]
+	},
+	{
+		"suffix": ".java",
+		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"args": ["class", "department"],
+		"metadata": [
+			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
+		]
+	}
+]
