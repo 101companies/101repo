@@ -21,19 +21,61 @@
    {
       "filename" : "contributions/haskellSyb/src/Company/Data.hs",
       "metadata" : [
-         {"feature" : "hierarchical company"}
+         {"feature" : "hierarchical company", "comment":"manual tagging"}
       ]
    },
    {
       "filename" : "contributions/haskellSyb/src/Company/Cut.hs",
       "metadata" : [
-         {"feature" : "cut"}
+         {"feature" : "cut", "comment":"manual tagging"}
       ]
    },
    {
       "filename" : "contributions/haskellSyb/src/Company/Total.hs",
       "metadata" : [
-         {"feature" : "total"}
+         {"feature" : "total", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "contributions/haskellComposition/src/Main.hs",
+      "metadata" : [
+         {"relevance" : "test"}
+      ]
+   },
+   {
+      "filename" : "contributions/haskellComposition/src/Company/Data.hs",
+      "metadata" : [
+         {"feature" : "hierarchical company", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "contributions/haskellComposition/src/Company/Cut.hs",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "contributions/haskellComposition/src/Company/Total.hs",
+      "metadata" : [
+         {"feature" : "total", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "contributions/javaComposition/src/main/java/org/softlang/company/features/Cut.java",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/javaComposition/src/main/java/org/softlang/company/model/.*#",
+      "metadata" : [
+         {"feature" : "hierarchical company", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/javaComposition/src/test/.*#",
+      "metadata" : [
+         {"relevance" : "test"}
       ]
    }
 ]
