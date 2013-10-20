@@ -67,6 +67,12 @@
       ]
    },
    {
+      "filename" : "contributions/javaComposition/src/main/java/org/softlang/company/features/Total.java",
+      "metadata" : [
+         {"feature" : "total", "comment":"manual tagging"}
+      ]
+   },
+   {
       "filename" : "#contributions/javaComposition/src/main/java/org/softlang/company/model/.*#",
       "metadata" : [
          {"feature" : "hierarchical company", "comment":"manual tagging"}
@@ -74,6 +80,78 @@
    },
    {
       "filename" : "#contributions/javaComposition/src/test/.*#",
+      "metadata" : [
+         {"relevance" : "test"}
+      ]
+   },
+   {
+      "filename" : "contributions/javaStatic/src/main/java/org/softlang/company/features/Cut.java",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "contributions/javaStatic/src/main/java/org/softlang/company/features/Total.java",
+      "metadata" : [
+         {"feature" : "total", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/javaStatic/src/main/java/org/softlang/company/model/.*#",
+      "metadata" : [
+         {"feature" : "hierarchical company", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/javaStatic/src/test/.*#",
+      "metadata" : [
+         {"relevance" : "test"}
+      ]
+   },
+   {
+      "filename" : "contributions/javaInheritance/src/main/java/org/softlang/company/features/Cut.java",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "contributions/javaInheritance/src/main/java/org/softlang/company/features/Total.java",
+      "metadata" : [
+         {"feature" : "total", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/javaInheritance/src/main/java/org/softlang/company/model/.*#",
+      "metadata" : [
+         {"feature" : "hierarchical company", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/javaInheritance/src/test/.*#",
+      "metadata" : [
+         {"relevance" : "test"}
+      ]
+   },
+   {
+      "filename" : "contributions/jdom/src/main/java/org/softlang/company/features/Cut.java",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "contributions/jdom/src/main/java/org/softlang/company/features/Total.java",
+      "metadata" : [
+         {"feature" : "total", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/jdom/src/main/java/org/softlang/company/model/.*#",
+      "metadata" : [
+         {"feature" : "hierarchical company", "comment":"manual tagging"}
+      ]
+   },
+   {
+      "filename" : "#contributions/jdom/src/test/.*#",
       "metadata" : [
          {"relevance" : "test"}
       ]
