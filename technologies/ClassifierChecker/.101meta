@@ -14,5 +14,29 @@
 		"metadata": [
 			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
 		]
+	},
+	{
+		"suffix": ".java",
+		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"args": ["class", "company"],
+		"metadata": [
+			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
+		]
+	},
+	{
+		"suffix": ".java",
+		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"args": ["class", "employee"],
+		"metadata": [
+			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
+		]
+	},
+	{
+		"suffix": ".java",
+		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"args": ["class", "subunit"],
+		"metadata": [
+			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
+		]
 	}
 ]

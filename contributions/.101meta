@@ -21,19 +21,19 @@
    {
       "filename" : "contributions/haskellSyb/src/Company/Data.hs",
       "metadata" : [
-         {"feature" : "hierarchical company", "comment":"manual tagging"}
+         {"feature" : "hierarchical company", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/haskellSyb/src/Company/Cut.hs",
       "metadata" : [
-         {"feature" : "cut", "comment":"manual tagging"}
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/haskellSyb/src/Company/Total.hs",
       "metadata" : [
-         {"feature" : "total", "comment":"manual tagging"}
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
       ]
    },
    {
@@ -45,37 +45,57 @@
    {
       "filename" : "contributions/haskellComposition/src/Company/Data.hs",
       "metadata" : [
-         {"feature" : "hierarchical company", "comment":"manual tagging"}
+         {"feature" : "hierarchical company", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/haskellComposition/src/Company/Cut.hs",
       "metadata" : [
-         {"feature" : "cut", "comment":"manual tagging"}
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/haskellComposition/src/Company/Total.hs",
       "metadata" : [
-         {"feature" : "total", "comment":"manual tagging"}
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/javaComposition/src/main/java/org/softlang/company/features/Cut.java",
       "metadata" : [
-         {"feature" : "cut", "comment":"manual tagging"}
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/javaComposition/src/main/java/org/softlang/company/features/Total.java",
       "metadata" : [
-         {"feature" : "total", "comment":"manual tagging"}
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "#contributions/javaComposition/src/main/java/org/softlang/company/model/.*#",
       "metadata" : [
-         {"feature" : "hierarchical company", "comment":"manual tagging"}
+         {"feature" : "hierarchical company", "comment":"manual tagging", "manual":true}
+      ]
+   },
+   {
+      "filename" : "contributions/javaComposition/src/main/java/org/softlang/company/model/Company.java",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging", "manual":true},
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
+      ]
+   },
+   {
+      "filename" : "contributions/javaComposition/src/main/java/org/softlang/company/model/Department.java",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging", "manual":true},
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
+      ]
+   },
+   {
+      "filename" : "contributions/javaComposition/src/main/java/org/softlang/company/model/Employee.java",
+      "metadata" : [
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
@@ -87,19 +107,19 @@
    {
       "filename" : "contributions/javaStatic/src/main/java/org/softlang/company/features/Cut.java",
       "metadata" : [
-         {"feature" : "cut", "comment":"manual tagging"}
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/javaStatic/src/main/java/org/softlang/company/features/Total.java",
       "metadata" : [
-         {"feature" : "total", "comment":"manual tagging"}
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "#contributions/javaStatic/src/main/java/org/softlang/company/model/.*#",
       "metadata" : [
-         {"feature" : "hierarchical company", "comment":"manual tagging"}
+         {"feature" : "hierarchical company", "comment":"manual tagging", "manual":true}
       ]
    },
    {
@@ -111,19 +131,21 @@
    {
       "filename" : "contributions/javaInheritance/src/main/java/org/softlang/company/features/Cut.java",
       "metadata" : [
-         {"feature" : "cut", "comment":"manual tagging"}
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/javaInheritance/src/main/java/org/softlang/company/features/Total.java",
       "metadata" : [
-         {"feature" : "total", "comment":"manual tagging"}
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "#contributions/javaInheritance/src/main/java/org/softlang/company/model/.*#",
       "metadata" : [
-         {"feature" : "hierarchical company", "comment":"manual tagging"}
+         {"feature" : "hierarchical company", "comment":"manual tagging", "manual":true},
+         {"feature" : "total", "comment":"manual tagging", "manual":true},
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
@@ -135,25 +157,31 @@
    {
       "filename" : "contributions/jdom/src/main/java/org/softlang/company/features/Cut.java",
       "metadata" : [
-         {"feature" : "cut", "comment":"manual tagging"}
+         {"feature" : "cut", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "contributions/jdom/src/main/java/org/softlang/company/features/Total.java",
       "metadata" : [
-         {"feature" : "total", "comment":"manual tagging"}
-      ]
-   },
-   {
-      "filename" : "#contributions/jdom/src/main/java/org/softlang/company/model/.*#",
-      "metadata" : [
-         {"feature" : "hierarchical company", "comment":"manual tagging"}
+         {"feature" : "total", "comment":"manual tagging", "manual":true}
       ]
    },
    {
       "filename" : "#contributions/jdom/src/test/.*#",
       "metadata" : [
          {"relevance" : "test"}
+      ]
+   },
+   {
+      "filename" : "contributions/pyjson/cut.py",
+      "metadata" : [
+         {"feature":"cut", "comment":"manual tagging", "manual":true}
+      ]
+   },
+   {
+      "filename" : "contributions/pyjson/total.py",
+      "metadata" : [
+         {"feature":"total", "comment":"manual tagging", "manual":true}
       ]
    }
 ]
