@@ -51,7 +51,7 @@ class SQLFactExtractor(object):
 		fragment_result = {"classifier": CLASSIFIER_FILE, "fragments": []}
 		constraints_list = []
 
-		for each in sqlparse.parse(open(self.sqlDatei).read()):
+		for each in sqlparse.parse(self.sqlDatei.read()):
 			if each.get_type() != "UNKNOWN":
 				statement_type = self.get_statement_type(each)
 				if self.StatementType.CREATE == statement_type:#create
@@ -180,7 +180,7 @@ class SQLFactExtractor(object):
 	def add_code_linenumbers(self, fragment_result):
 		self.add_file_linenumbers(fragment_result)
 
-		self.add_fragment_linenumbers(fragment_result["fragments"], 1, self.get_file_length(self.sqlDatei))
+		self.add_fragment_linenumbers(fragment_result["fragments"], 1, self.get_file_length())
 
 	def add_fragment_linenumbers(self, fragment_pointer, start, end):
 		if type(fragment_pointer) == list:
@@ -193,7 +193,9 @@ class SQLFactExtractor(object):
 			print("ERROR: add_code_linenumbers UNKNOWN type:"+str(type(fragment_pointer)))
 
 	def derive_linenumber(self, fragment_pointer, start, end):
-		open_file = open(self.sqlDatei, "r")
+		open_file = self.sqlDatei
+		position_in_file = self.sqlDatei.tell()
+		open_file.seek(0)
 
 		self.go_to_line(open_file, start)
 
@@ -214,16 +216,23 @@ class SQLFactExtractor(object):
 		fragment_pointer["line_start"] = start_line
 		fragment_pointer["line_end"] = line_counter
 
+		self.sqlDatei.seek(position_in_file)
+
 	def go_to_line(self, open_file, start):
 		for times in range(1,start):
 			open_file.readline()
 
 	def add_file_linenumbers(self, fragment_result):
 		fragment_result["line_start"] = 1
-		fragment_result["line_end"] = self.get_file_length(self.sqlDatei)
+		fragment_result["line_end"] = self.get_file_length()
 
-	def get_file_length(self, file_string):
+	def get_file_length(self):
+		position_in_file = self.sqlDatei.tell()
+		self.sqlDatei.seek(0)
+
 		linenumber = 0
-		for line in open(self.sqlDatei):
+		for line in self.sqlDatei:
 			linenumber += 1
+
+		self.sqlDatei.seek(position_in_file)
 		return linenumber

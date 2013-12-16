@@ -3,7 +3,9 @@
 		"suffix" : ".sql",
 		"metadata" : [
 			{"geshi":"sql"},
-			{"language":"SQL"}
+			{"language":"SQL"},
+			{"extractor": "technologies/SqlFactExtractor/extractor.py"},
+			{"locator": "technologies/SqlFragmentLocator/locator.py"}
 		]
 	},
 	{
