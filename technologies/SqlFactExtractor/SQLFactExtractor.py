@@ -1,9 +1,9 @@
-import sqlparse
-import sys
-import json
-import re
 import os
+import sqlparse
+import re
+
 from SQLClassifier import *
+
 
 class SQLFactExtractor(object):
 	"""docstring for SQLFactExtractor"""
@@ -12,72 +12,47 @@ class SQLFactExtractor(object):
 		enums = dict(zip(sequential, range(len(sequential))), **named)
 		return type('Enum', (), enums)
 
-	StatementType = enumerate_auto(
-		'CREATE',
-		'ALTER',
-		'UNKNOWN'
-	)
+	StatementType = enumerate_auto('CREATE', 'ALTER', 'UNKNOWN')
+	ExpectedToken = enumerate_auto('NONE', 'BEGIN', 'VARIABLE_NAME', 'VARIABLE_TYPE')
 
-	ExpectedToken = enumerate_auto(
-		'NONE',
-		'BEGIN',
-		'VARIABLE_NAME',
-		'VARIABLE_TYPE'
-	)
-
-	def __init__(self, file, log_code):
-		self.sqlDatei = file
-		self.load_reserved_sql_keywords()
-		self.log_code = log_code
-		
-	def load_reserved_sql_keywords(self):
+	def __init__(self, sql_file):
+		self.sql_file = sql_file
 		self.reserved_keywords = []
+		self.load_reserved_sql_keywords()
+
+	def load_reserved_sql_keywords(self):
 		file_name = "sqlKeyWords.txt"
 		base_name = os.path.dirname(os.path.realpath(__file__))
-		file_loc = os.path.join(base_name,file_name)
+		file_loc = os.path.join(base_name, file_name)
 		for line in open(file_loc, "r"):
 			self.reserved_keywords.append(str.lower(line.rstrip()))
-	
-	def get_statement_type(self,statement):
-		for my_token in statement.tokens:
-			if str.upper(str(my_token)) == "CREATE":
-				return self.StatementType.CREATE
-			elif str.upper(str(my_token)) == "ALTER":
-				return self.StatementType.ALTER
-		return self.StatementType.UNKNOWN
-
-	def miss_whitespace(self,tokens_generator_elem):
-		while tokens_generator_elem.is_whitespace():
-			tokens_generator_elem = tokens_generator_elem.next();
-			return tokens_generator_elem
 
 	def extract_file(self):
-		fragment_result = {"classifier": CLASSIFIER_FILE, "fragments": []}
-		constraints_list = []
+		fragment_result = {"fragments": []}
 
-		for each in sqlparse.parse(self.sqlDatei.read()):
+		for each in sqlparse.parse(self.sql_file.read()):
 			if each.get_type() != "UNKNOWN":
 				statement_type = self.get_statement_type(each)
-				if self.StatementType.CREATE == statement_type:#create
+				if self.StatementType.CREATE == statement_type:  # create
 					self.extract_create_statement(each, fragment_result)
-				elif self.StatementType.ALTER == statement_type:#alter
-					self.extract_alter_statement(each, constraints_list)
+				elif self.StatementType.ALTER == statement_type:  # alter
+					self.extract_alter_statement(each, fragment_result)
 
-		self.add_contraints(fragment_result, constraints_list)
-		if self.log_code:
-			self.add_code_linenumbers(fragment_result)	
+		self.add_code_line_numbers(fragment_result)
 
 		return fragment_result
+
+	@staticmethod
+	def extract_alter_statement(each, fragment_result):
+		fragment_result["fragments"].append({"classifier": CLASSIFIER_ALTER, "fragments": [], "code": str(each)})
 
 	def extract_create_statement(self, each, fragment_result):
 		subject_token = None
 		item_list = []
 		expected_token = self.ExpectedToken.BEGIN
-		
+
 		#get Relevant Data
 		for token in each.tokens:
-			#print(dir(token))
-			#print(token.value)
 			if str(token) not in ['create', 'table'] and not token.is_whitespace() and str(token) != ";":
 				subject_token = token.flatten().next()
 				for sub_token in token.flatten():
@@ -94,111 +69,35 @@ class SQLFactExtractor(object):
 						expected_token = self.ExpectedToken.NONE
 					elif self.ExpectedToken.NONE == expected_token and ',' in str(sub_token):
 						expected_token = self.ExpectedToken.VARIABLE_NAME
-					# create fragments as JSON
-		statement_fragment = {"classifier": CLASSIFIER_CREATE, "fragments": []}
-		table_fragment = {"classifier": CLASSIFIER_TABLE, "name": str(subject_token), "fragments": []}
+		# create fragments as JSON
+		create_fragment = {"classifier": CLASSIFIER_CREATE, "name": str(subject_token), "fragments": []}
 		i = 0
 		while i < len(item_list):
-			table_fragment["fragments"].append(
-				{"classifier": CLASSIFIER_COLUMN, "name": item_list[i], "type": item_list[i + 1], "fragments": []})
+			create_fragment["fragments"].append(
+				{"classifier": CLASSIFIER_COLUMN, "name": item_list[i], "type": item_list[i + 1], "fragments": []}
+			)
 			i += 2
-		statement_fragment["fragments"].append(table_fragment)
-		fragment_result["fragments"].append(statement_fragment)
+		fragment_result["fragments"].append(create_fragment)
 
-		self.add_code_to_fragments(each, statement_fragment)
+		self.add_code_to_fragments(each, create_fragment)
 
+	def add_code_line_numbers(self, fragment_result):
+		self.add_fragment_line_numbers(fragment_result["fragments"], 1, self.get_file_length())
 
-	def extract_alter_statement(self, each, constraints_list):
-		subject_table = None
-		constraint_name = ""
-		foreign_key_var = ""
-		references = ""
-		#get Relevant Data
-		i = 0
-		while str.lower(str(each.tokens[i])) in ['alter', 'table'] or each.tokens[i].is_whitespace():
-			i += 1
-		subject_table = str(each.tokens[i])
-		while str.lower(str(each.tokens[i])) != 'constraint' or each.tokens[i].is_whitespace():
-			i += 1
-		constraint_name = str(each.tokens[i + 2])
-		while (str.lower(str(each.tokens[i])) != 'foreign' and str.lower(str(each.tokens[i + 2])) != 'key') or \
-				each.tokens[i].is_whitespace():
-			i += 1
-		foreign_key_var = str(each.tokens[i + 4])
-		foreign_key_var = foreign_key_var[1:len(foreign_key_var) - 1]
-		while str.lower(str(each.tokens[i])) != 'references' or each.tokens[i].is_whitespace():
-			i += 1
-		references = str(each.tokens[i + 2])
-
-		constraints_list.append({
-		"subject_table": subject_table,
-		"constraint_name": constraint_name,
-		"foreign_key_var": foreign_key_var,
-		"references": references
-		})
-
-	def add_code_to_fragments(self, each, statement_fragment):
-		if self.log_code:
-			statement_fragment["code"] = str(each)
-			statement_fragment["fragments"][0]["code"] = self.delete_beginning_control_characters(self.remouve_beginning_create(str(each)))
-
-			#filter column code
-			long_string = str(each)
-			long_string = long_string[long_string.find("(")+1:]
-			column_code_list = self.format_end_of_column_generation( long_string.split(","))
-
-			for column_id in range(0, len(statement_fragment["fragments"][0]["fragments"])):
-				statement_fragment["fragments"][0]["fragments"][column_id]["code"] = self.delete_beginning_control_characters(column_code_list[column_id])
-
-	def remouve_beginning_create(self, code_string):
-		return code_string[code_string.find("table"):]
-
-	def format_end_of_column_generation(self, column_codes):
-		column_codes[-1] = self.delete_last_char_if_equals(column_codes[-1], ";")
-		column_codes[-1] = self.delete_last_char_if_equals(column_codes[-1], ")")
-
-		return column_codes
-
-	def delete_last_char_if_equals(self, string, char):
-		if char == string[-1]:
-			string = string[:-1]
-		return string
-
-	def delete_beginning_control_characters(self, string):
-		return string[re.search("\w",string).start() :]
-
-	def add_contraints(self, fragment_result, constraints_list):
-		for constraint in constraints_list:
-			#find table
-			for create in fragment_result["fragments"]:
-				if create["fragments"][0]["name"] == constraint["subject_table"]:
-					#find column
-					for column in create["fragments"][0]["fragments"]:
-						if column["name"] == constraint["foreign_key_var"]:
-							column["constraints"] = [{
-													 "type": "foreign_key",
-													 "references": constraint["references"],
-													 "name": constraint["constraint_name"]
-													 }]	
-	
-	def add_code_linenumbers(self, fragment_result):
-		self.add_file_linenumbers(fragment_result)
-
-		self.add_fragment_linenumbers(fragment_result["fragments"], 1, self.get_file_length())
-
-	def add_fragment_linenumbers(self, fragment_pointer, start, end):
+	def add_fragment_line_numbers(self, fragment_pointer, start, end):
 		if type(fragment_pointer) == list:
 			for frag_elem in fragment_pointer:
-				self.add_fragment_linenumbers(frag_elem, start, end)
+				self.add_fragment_line_numbers(frag_elem, start, end)
 		elif type(fragment_pointer) == dict:
-			self.derive_linenumber(fragment_pointer, start, end)
-			self.add_fragment_linenumbers(fragment_pointer["fragments"], fragment_pointer["line_start"], fragment_pointer["line_end"])
+			self.derive_line_numbers(fragment_pointer, start, end)
+			self.add_fragment_line_numbers(fragment_pointer["fragments"], fragment_pointer["startLine"],
+											fragment_pointer["endLine"])
 		else:
-			print("ERROR: add_code_linenumbers UNKNOWN type:"+str(type(fragment_pointer)))
+			print("ERROR: add_code_line_numbers UNKNOWN type:" + str(type(fragment_pointer)))
 
-	def derive_linenumber(self, fragment_pointer, start, end):
-		open_file = self.sqlDatei
-		position_in_file = self.sqlDatei.tell()
+	def derive_line_numbers(self, fragment_pointer, start, end):
+		open_file = self.sql_file
+		position_in_file = self.sql_file.tell()
 		open_file.seek(0)
 
 		self.go_to_line(open_file, start)
@@ -208,7 +107,7 @@ class SQLFactExtractor(object):
 		start_line = start
 		while char_pointer_fragment < len(fragment_pointer["code"]):
 			char = open_file.read(1)
-			if("\n" == char):
+			if "\n" == char:
 				line_counter += 1
 			if char == fragment_pointer["code"][char_pointer_fragment]:
 				if char_pointer_fragment == 0:
@@ -217,26 +116,60 @@ class SQLFactExtractor(object):
 			else:
 				char_pointer_fragment = 0
 
-		fragment_pointer["line_start"] = start_line
-		fragment_pointer["line_end"] = line_counter
+		fragment_pointer["startLine"] = start_line
+		fragment_pointer["endLine"] = line_counter
+		fragment_pointer.pop("code")
 
-		self.sqlDatei.seek(position_in_file)
+		self.sql_file.seek(position_in_file)
 
-	def go_to_line(self, open_file, start):
-		for times in range(1,start):
+	@staticmethod
+	def go_to_line(open_file, start):
+		for times in range(1, start):
 			open_file.readline()
 
-	def add_file_linenumbers(self, fragment_result):
-		fragment_result["line_start"] = 1
-		fragment_result["line_end"] = self.get_file_length()
-
 	def get_file_length(self):
-		position_in_file = self.sqlDatei.tell()
-		self.sqlDatei.seek(0)
+		position_in_file = self.sql_file.tell()
+		self.sql_file.seek(0)
 
-		linenumber = 0
-		for line in self.sqlDatei:
-			linenumber += 1
+		line_number = 0
+		for _ in self.sql_file:
+			line_number += 1
 
-		self.sqlDatei.seek(position_in_file)
-		return linenumber
+		self.sql_file.seek(position_in_file)
+		return line_number
+
+	def get_statement_type(self, statement):
+		for my_token in statement.tokens:
+			if str.upper(str(my_token)) == "CREATE":
+				return self.StatementType.CREATE
+			elif str.upper(str(my_token)) == "ALTER":
+				return self.StatementType.ALTER
+		return self.StatementType.UNKNOWN
+
+	def add_code_to_fragments(self, each, statement_fragment):
+		statement_fragment["code"] = str(each)
+
+		#filter column code
+		long_string = str(each)
+		long_string = long_string[long_string.find("(") + 1:]
+		column_code_list = self.format_end_of_column_generation(long_string.split(","))
+
+		for column_id in range(0, len(statement_fragment["fragments"])):
+			statement_fragment["fragments"][column_id]["code"] = self.delete_beginning_control_characters(
+				column_code_list[column_id])
+
+	def format_end_of_column_generation(self, column_codes):
+		column_codes[-1] = self.delete_last_char_if_equals(column_codes[-1], ";")
+		column_codes[-1] = self.delete_last_char_if_equals(column_codes[-1], ")")
+
+		return column_codes
+
+	@staticmethod
+	def delete_last_char_if_equals(string, char):
+		if char == string[-1]:
+			string = string[:-1]
+		return string
+
+	@staticmethod
+	def delete_beginning_control_characters(string):
+		return string[re.search("\w", string).start():]
