@@ -2,6 +2,7 @@ import sqlparse
 import sys
 import json
 import re
+import os
 from SQLClassifier import *
 
 class SQLFactExtractor(object):
@@ -31,7 +32,10 @@ class SQLFactExtractor(object):
 		
 	def load_reserved_sql_keywords(self):
 		self.reserved_keywords = []
-		for line in open("sqlKeyWords.txt", "r"):
+		file_name = "sqlKeyWords.txt"
+		base_name = os.path.dirname(os.path.realpath(__file__))
+		file_loc = os.path.join(base_name,file_name)
+		for line in open(file_loc, "r"):
 			self.reserved_keywords.append(str.lower(line.rstrip()))
 	
 	def get_statement_type(self,statement):
