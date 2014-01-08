@@ -23,11 +23,15 @@ public class Fragment {
     private List<String> annotations = new ArrayList<String>();
     private Integer index = null;
     private transient Fragment parent = null;
+    private int startLine;
+    private int endLine;
     
     public Fragment(ClassOrInterfaceDeclaration declaration) {
         classifier = "class";
-        name = declaration.getName();
         fragments = new ArrayList<Fragment>();
+        name = declaration.getName();
+        startLine = declaration.getBeginLine();
+        endLine = declaration.getEndLine();
         
         if (declaration.getAnnotations() != null)
                 for (AnnotationExpr expr : declaration.getAnnotations())
@@ -50,6 +54,8 @@ public class Fragment {
         name = declaration.getName();
         this.parent = parent;
         fragments = null;
+        startLine = declaration.getBeginLine();
+        endLine = declaration.getEndLine();
         
         doOverloadChecking();
         
@@ -63,6 +69,8 @@ public class Fragment {
         name = declaration.getName();
         this.parent = parent;
         fragments = null;
+        startLine = declaration.getBeginLine();
+        endLine = declaration.getEndLine();
         
         doOverloadChecking();
         

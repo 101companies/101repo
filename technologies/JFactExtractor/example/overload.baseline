@@ -12,22 +12,30 @@
           "classifier": "method",
           "name": "cut",
           "annotations": [],
-          "index": 1
+          "index": 1,
+          "startLine": 7,
+          "endLine": 10
         },
         {
           "classifier": "method",
           "name": "cut",
           "annotations": [],
-          "index": 2
+          "index": 2,
+          "startLine": 12,
+          "endLine": 18
         },
         {
           "classifier": "method",
           "name": "cut",
           "annotations": [],
-          "index": 3
+          "index": 3,
+          "startLine": 20,
+          "endLine": 22
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "startLine": 5,
+      "endLine": 23
     }
   ]
 }
