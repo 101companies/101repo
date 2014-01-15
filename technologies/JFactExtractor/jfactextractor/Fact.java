@@ -4,14 +4,20 @@
  */
 package jfactextractor;
 
-import com.google.gson.annotations.SerializedName;
+import japa.parser.ast.Comment;
 import japa.parser.ast.CompilationUnit;
 import japa.parser.ast.ImportDeclaration;
 import japa.parser.ast.body.ClassOrInterfaceDeclaration;
 import japa.parser.ast.body.TypeDeclaration;
-import java.io.File;
+
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  *
@@ -45,7 +51,7 @@ public class Fact {
     private void analyze(CompilationUnit unit) {
         for (TypeDeclaration decl : unit.getTypes()) {
             if (decl instanceof ClassOrInterfaceDeclaration) {
-                fragments.add(new Fragment((ClassOrInterfaceDeclaration)decl));
+                fragments.add(new Fragment((ClassOrInterfaceDeclaration)decl, unit));
             }
         }
     }
