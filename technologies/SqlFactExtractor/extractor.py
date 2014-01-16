@@ -4,4 +4,4 @@ import json
 from SQLFactExtractor import * 
 
 extractor = SQLFactExtractor(sys.stdin)
-print(json.dumps(extractor.extract_file()))
+print(json.dumps(extractor.extract_file(), indent=2))

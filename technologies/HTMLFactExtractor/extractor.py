@@ -95,8 +95,6 @@ class FragmentHTMLParser(HTMLParser):
 	def get_fragments(self):
 		return self.fragments
 
-
-
 parser = FragmentHTMLParser()
 parser.feed(sys.stdin.read())
-print(json.dumps(parser.get_fragments()))
+print(json.dumps(parser.get_fragments(), indent=2))
