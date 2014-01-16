@@ -4,7 +4,8 @@
 		"metadata" : [
 			{"geshi":"css"},
 			{"language":"CSS"},
-			{"validator": "technologies/W3CValidator/validator.py"}
+			{"validator": "technologies/W3CValidator/validator.py"},
+			{"extractor": "technologies/CSSFactExtractor/extractor.py"}
 		]
 	}
 ]

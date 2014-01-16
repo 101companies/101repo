@@ -5,7 +5,7 @@
 			{"geshi":"html"},
 			{"language":"HTML"},
 			{"validator": "technologies/JTidyValidator/validator.py"},
-			{"extractor": "technologies/JFactExtractor/extractor.py"}
+			{"extractor": "technologies/HTMLFactExtractor/extractor.py"}
 		]
 	}
 ]
