@@ -50,6 +50,9 @@ class FragmentXmlParser(Sax.handler.ContentHandler):
 		if push_tree_stack:
 			self.tree_stack.append(count_of_fragments)
 
+	def set_error_message(self, msg):
+		self.fragments['errors'] = msg
+
 	#Begin Override Functions
 	def startElement(self, name, attrs):
 		self.add_fragment(
@@ -76,5 +79,8 @@ class FragmentXmlParser(Sax.handler.ContentHandler):
 		return self.fragments
 
 parser = FragmentXmlParser()
-Sax.parse(sys.stdin, parser)
+try:
+	Sax.parse(sys.stdin, parser)
+except Sax.SAXException as msg:
+	parser.set_error_message(str(msg))
 print(json.dumps(parser.get_fragments(), indent=2))
