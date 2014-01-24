@@ -3,7 +3,8 @@
 		"suffix" : ".json",
 		"metadata" : [
 			{"geshi":"javascript"},
-			{"language":"JSON"}
+			{"language":"JSON"},
+			{"extractor": "technologies/JSONFactExtractor/extractor.py"}
 		]
 	}
 ]
