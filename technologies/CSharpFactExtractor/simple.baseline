@@ -9,55 +9,81 @@
 		{
 			"name" : "Company",
 			"classifier" : "class",
+			"startLine" : "7",
+			"startLine" : "93",
 			"fragments" : [
 				{
 					"name" : "Id",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "9",
+					"endLine" : "9"
 				},
 				{
 					"name" : "Company",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "11",
+					"endLine" : "15"
 				},
 				{
 					"name" : "Name",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "16",
+					"endLine" : "16"
 				},
 				{
 					"name" : "Departments",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "17",
+					"endLine" : "17"
 				},
 				{
 					"name" : "AllDepartments",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "19",
+					"endLine" : "22"
 				},
 				{
 					"name" : "GetAllDepartments",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "24",
+					"endLine" : "35"
 				},
 				{
 					"name" : "Cut",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "37",
+					"endLine" : "43"
 				},
 				{
 					"name" : "Cut",
 					"index" : "1",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "45",
+					"endLine" : "47"
 				},
 				{
 					"name" : "Total",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "49",
+					"endLine" : "55"
 				},
 				{
 					"name" : "Depth",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "57",
+					"endLine" : "69"
 				},
 				{
 					"name" : "Equals",
-					"classifier" : "method"
+					"classifier" : "method",
+					"startLine" : "71",
+					"endLine" : "84"
 				},
 				{
-					"name" : "GetHashCode0",
-					"classifier" : "method"
+					"name" : "GetHashCode",
+					"classifier" : "method",
+					"startLine" : "86",
+					"endLine" : "92"
 				}
 			]
 		}
