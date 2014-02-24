@@ -7,5 +7,13 @@
 			{"validator": "technologies/W3CValidator/validator.py"},
 			{"extractor": "technologies/CSSFactExtractor/extractor.py"}
 		]
+	},
+	{
+		"suffix" : ".min.css",
+		"metadata" : {
+			"concept" : "Minification",
+ 			"dominator":"extractor",
+			"comment" : "Minified CSS code"
+		}
 	}
 ]

@@ -11,6 +11,7 @@
 		"suffix" : ".min.js",
 		"metadata" : {
 			"concept" : "Minification",
+ 			"dominator":"extractor",
 			"comment" : "Minified JavaScript source code"
 		}
 	}
