@@ -4,15 +4,15 @@
 		"metadata" : [
 			{"geshi":"javascript"},
 			{"language":"JavaScript"},
-			{"extractor": "technologies/JSFactExtractor/program.js"},
+			{"extractor": "technologies/JSFactExtractor/program.js"}
 		]
 	},
 	{
 		"suffix" : ".min.js",
-		"metadata" : {
-			"concept" : "Minification",
- 			"dominator":"extractor",
-			"comment" : "Minified JavaScript source code"
-		}
+		"metadata" : [
+			{"concept" : "Minification"},
+ 			{"dominator":"extractor"},
+			{"comment" : "Minified JavaScript source code"}
+		]
 	}
 ]
