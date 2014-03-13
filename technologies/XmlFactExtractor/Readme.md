@@ -29,4 +29,4 @@ See the Makefile for details.
 
 The fact extractor is coded in Python. 
 
-It uses the ETree Library, that is included in Python, for parsing the XML code.
+It uses the Sax Library, that is included in Python, for parsing the XML code.

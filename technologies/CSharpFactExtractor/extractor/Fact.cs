@@ -4,10 +4,26 @@ using System.IO;
 using ICSharpCode.NRefactory.CSharp;
 
 namespace CSharpFactExtractor {
+	class Method {
+		public string name;
+		public int index;
+		public int startLine;
+		public int endLine;
+		
+		public Method(string name, int index, int startLine, int endLine){
+			this.name = name;
+			this.index = index;
+			this.startLine = startLine;
+			this.endLine = endLine;
+		}
+	}
+	
 	class Declaration {
 		private string name;
 		private string classifier;
-		private List<string> methods = new List<string>();
+		private int startLine;
+		private int endLine;
+		private List<Method> methods = new List<Method>();
 		private Dictionary<string, int> methodCnt = new Dictionary<string, int>();
 		private SortedSet<String> attributes = new SortedSet<String>();
 		
@@ -16,7 +32,7 @@ namespace CSharpFactExtractor {
 			get { return name; }
 		}
 		
-		public IEnumerable<String> Methods
+		public IEnumerable<Method> Methods
 		{
 			get { return methods; }
 		}
@@ -46,6 +62,9 @@ namespace CSharpFactExtractor {
 		public Declaration(TypeDeclaration typeDeclaration, string classifier) {
 			name = typeDeclaration.Name;
 			this.classifier = classifier;
+			this.startLine = typeDeclaration.StartLocation.Line;
+			this.endLine = typeDeclaration.EndLocation.Line;
+			
 			extractAttributes(typeDeclaration.Attributes);
 
 			
@@ -55,21 +74,21 @@ namespace CSharpFactExtractor {
 					countMethods(c.Name);
 
 					extractAttributes(c.Attributes);
-					methods.Add(c.Name + methodCnt[c.Name]);
+					methods.Add(new Method(c.Name, methodCnt[c.Name], c.StartLocation.Line, c.EndLocation.Line));
 				}
 				MethodDeclaration d = node as MethodDeclaration;
 				if (d != null) {
 					countMethods(d.Name);
 
 					extractAttributes(d.Attributes);
-					methods.Add(d.Name + methodCnt[d.Name]);
+					methods.Add(new Method(d.Name, methodCnt[d.Name], d.StartLocation.Line, d.EndLocation.Line));
 				}
 				PropertyDeclaration p = node as PropertyDeclaration;
 				if (p != null) {
 					countMethods(p.Name);
 
 					extractAttributes(p.Attributes);
-					methods.Add(p.Name + methodCnt[p.Name]);
+					methods.Add(new Method(p.Name, methodCnt[p.Name], p.StartLocation.Line, p.EndLocation.Line));
 				}
 				
  			}
@@ -79,33 +98,34 @@ namespace CSharpFactExtractor {
 			string json = "\t\t{\n";
 			json += "\t\t\t\"name\" : \"" + name + "\",\n";
 			json += "\t\t\t\"classifier\" : \"" + classifier + "\",\n";
-
+			json += "\t\t\t\"startLine\" : \"" + startLine + "\",\n";
+			json += "\t\t\t\"startLine\" : \"" + endLine + "\",\n";
+			
 			json += "\t\t\t\"fragments\" : [\n";
 			//add methods
 			//add method overloading
-			List<string> methodsList = new List<string>(methods);
-			for (int i = 0; i < methodsList.Count-1; i++) {
+			for (int i = 0; i < methods.Count; i++) {
 				json += "\t\t\t\t{\n";
-				string methodName = methodsList[i].Substring(0, methodsList[i].Length-1);
-				string index = methodsList[i].Substring(methodsList[i].Length-1);
+				string methodName = methods[i].name;
+				string index = methods[i].index.ToString();
 
 				json += "\t\t\t\t\t\"name\" : \"" + methodName + "\",\n";
 				if (index != "0")
 					json += "\t\t\t\t\t\"index\" : \"" + index + "\",\n";
-
-				//if (methodCnt[methodsList[i]] > 0)
-				//	json += "\t\t\t\t\t\"index\" : \"" + methodCnt[methodsList[i]] + "\",\n";
 				
-				json += "\t\t\t\t\t\"classifier\" : \"" + "method" + "\"\n";
-				json += "\t\t\t\t},\n";
+				json += "\t\t\t\t\t\"classifier\" : \"" + "method" + "\",\n";
+				json += "\t\t\t\t\t\"startLine\" : \"" + methods[i].startLine + "\",\n";
+				json += "\t\t\t\t\t\"endLine\" : \"" + methods[i].endLine + "\"\n";
+				
+				//last JSON-Object does not have the ","
+				if(i == methods.Count - 1){
+					json += "\t\t\t\t}\n";
+				}else{
+					json += "\t\t\t\t},\n";
+				}
+				
 			}
-
-			if (methods.Count > 0) {
-				json += "\t\t\t\t{\n";
-				json += "\t\t\t\t\t\"name\" : \"" + methodsList[methods.Count-1] + "\",\n";
-				json += "\t\t\t\t\t\"classifier\" : \"" + "method" + "\"\n";
-				json += "\t\t\t\t}\n";
-			}
+			
 			json += "\t\t\t]\n";
 			
 			/*json += "\t\t\t\"attributes\" : [\n";

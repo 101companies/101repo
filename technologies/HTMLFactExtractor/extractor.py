@@ -1,20 +1,29 @@
-#!/usr/bin/python
-
-import sys
+#! /usr/bin/env python
+from HTMLParser import HTMLParser
 import json
 import re
-import xml.sax as Sax
+import sys
 
 
-class FragmentXmlParser(Sax.handler.ContentHandler):
+class FragmentHTMLParser(HTMLParser):
 	tree_stack = []
 	fragments = {"fragments": []}
 
 	def __init__(self):
-		Sax.handler.ContentHandler.__init__(self)
+		HTMLParser.__init__(self)
+		# position 0 means no comment
+		self.last_comment_position = 0
 
 	def get_line_number(self):
-		return self._locator.getLineNumber()
+		return self.getpos()[0]
+
+	def get_tag_line_number(self):
+		if self.last_comment_position != 0:
+			tag_pos = self.last_comment_position
+			self.last_comment_position = 0
+			return tag_pos
+		else:
+			return self.get_line_number()
 
 	def count_fragments(self, new_fragment):
 		fragment_count = 0
@@ -50,37 +59,42 @@ class FragmentXmlParser(Sax.handler.ContentHandler):
 		if push_tree_stack:
 			self.tree_stack.append(count_of_fragments)
 
-	def set_error_message(self, msg):
-		self.fragments['errors'] = msg
-
 	#Begin Override Functions
-	def startElement(self, name, attrs):
+	def handle_starttag(self, tag, attrs):
 		self.add_fragment(
-			{"name": name, "startLine": self.get_line_number(), "fragments": [], "classifier": "element"}, True)
-
-		for attribute_name in attrs.getNames():
-			attribute_fragment = {"name": attribute_name, "startLine": self.get_line_number(),
+			{"name": str(tag), "startLine": self.get_tag_line_number(), "fragments": [], "classifier": "tag"}, True)
+		for attribute in attrs:
+			attribute_fragment = {"name": str(attribute[0]), "startLine": self.get_line_number(),
 								  "endLine": self.get_line_number(), "fragments": [], "classifier": "attribute",
-								  "value": attrs.getValue(attribute_name)}
+								  "value": str(attribute[1])}
 			self.get_current_position()["fragments"].append(attribute_fragment)
+		#debugBegin
+		#print("Beg " + str(tag) + str(self.tree_stack))
 
-	def endElement(self, name):
+	def handle_endtag(self, tag):
 		self.get_current_position()["endLine"] = self.get_line_number()
 		self.tree_stack.pop()
 
-	def characters(self, content):
-		if re.search("\S", content):
-			end_line = self.get_line_number() + len(content.splitlines()) - 1
+		#debugBegin
+		#print("End " + str(tag) + str(self.tree_stack))
+
+	def handle_data(self, data):
+		#ignore comments if they are not directly before the tag
+		if len(data.splitlines()) > 1:
+			self.last_comment_position = 0
+
+		if re.search("\S", data):
+			end_line = self.get_line_number() + len(data.splitlines()) - 1
 			text_fragment = {"name": "text", "startLine": self.get_line_number(), "endLine": end_line,
 							 "fragments": [], "classifier": "text"}
 			self.add_fragment(text_fragment, False)
 
+	def handle_comment(self, data):
+		self.last_comment_position = self.get_line_number()
+
 	def get_fragments(self):
 		return self.fragments
 
-parser = FragmentXmlParser()
-try:
-	Sax.parse(sys.stdin, parser)
-except Sax.SAXException as msg:
-	parser.set_error_message(str(msg))
+parser = FragmentHTMLParser()
+parser.feed(sys.stdin.read())
 print(json.dumps(parser.get_fragments(), indent=2))

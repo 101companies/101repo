@@ -4,7 +4,8 @@
 		"metadata" : [
 			{"geshi":"html"},
 			{"language":"HTML"},
-			{"validator": "technologies/JTidyValidator/validator.py"}
+			{"validator": "technologies/JTidyValidator/validator.py"},
+			{"extractor": "technologies/HTMLFactExtractor/extractor.py"}
 		]
 	}
 ]

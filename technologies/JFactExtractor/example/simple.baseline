@@ -14,20 +14,28 @@
         {
           "classifier": "method",
           "name": "initializeJaxbContext",
-          "annotations": []
+          "annotations": [],
+          "startLine": 22,
+          "endLine": 28
         },
         {
           "classifier": "method",
           "name": "serializeCompany",
-          "annotations": []
+          "annotations": [],
+          "startLine": 30,
+          "endLine": 41
         },
         {
           "classifier": "method",
           "name": "deserializeCompany",
-          "annotations": []
+          "annotations": [],
+          "startLine": 43,
+          "endLine": 49
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "startLine": 18,
+      "endLine": 51
     }
   ]
 }
