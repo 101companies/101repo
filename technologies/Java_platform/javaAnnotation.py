@@ -21,23 +21,24 @@ def hasAnnotation(annotation, fragments):
 
     return False
 
+def run(args=None, filePath=None):
 
-if len(sys.argv) < 3:
-    sys.exit("Usage: javaAnnotation.py attribute [attribute ...] sourceFile")
+    if const101.sRoot in filePath:
+        filePath = filePath[len(const101.sRoot) + 1:]
 
-path = sys.argv[len(sys.argv) - 1]
-if const101.sRoot in path:
-    path = path[len(const101.sRoot) + 1:]
+    extractPath = os.path.join(const101.tRoot, filePath + '.extractor.json')
 
-extractPath = os.path.join(const101.tRoot, path + '.extractor.json')
+    if not os.path.exists(extractPath):
+        return False
 
-factsFile = open(extractPath)
-facts = json.load(factsFile)
+    factsFile = open(extractPath)
 
-for i in range(1, len(sys.argv) - 1):
-    if hasAnnotation(sys.argv[i], facts['fragments']):
-        #exit with status code 0 indicating success - import has been found
-        sys.exit()
+    facts = json.load(factsFile)
+    for arg in args:
+        if hasAnnotation(arg, facts['fragments']):
+            #return True, indicating success - import has been found
+            return True
+    else:
+        return False # indicating failure - import has not been found
 
-#exit with status code 1, indicating failure - import has not been found
-sys.exit(1)
+

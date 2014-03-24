@@ -6,6 +6,7 @@ import sys
 sys.path.append('../../libraries/101meta')
 import const101
 
+
 def search(fragment, classifier, name):
 	if fragment['classifier'] == classifier and name in fragment['name'].lower():
 		return True
@@ -15,21 +16,26 @@ def search(fragment, classifier, name):
 	
 	return False
 
-classifier = sys.argv[1]
-name = sys.argv[2]
 
-extractorExt = '.extractor.json'
-toReplace = '../../../101results/101repo/'
+def run(args=None, filePath=None):
 
-fileName = sys.argv[len(sys.argv)-1].replace(toReplace, '') + extractorExt
-filePath = os.path.join(const101.tRoot, fileName)
-if not os.path.exists(filePath):
-	sys.exit(1)
-extracted = json.load(open(filePath, 'r'))
+    classifier = args[0]
+    name = args[1]
 
-for fragment in extracted['fragments']:
-	if search(fragment, classifier, name):
-		sys.exit()
+    extractorExt = '.extractor.json'
+    toReplace = '../../../101results/101repo/'
 
+    factsFileName = filePath.replace(toReplace, '') + extractorExt
+    factsFilePath = os.path.join(const101.tRoot, factsFileName)
 
-sys.exit(1)
+    if not os.path.exists(factsFilePath):
+        return False
+
+    extracted = json.load(open(factsFilePath))
+
+    for fragment in extracted['fragments']:
+        if search(fragment, classifier, name):
+            return True
+    else:
+        return False
+

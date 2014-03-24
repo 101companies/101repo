@@ -1,30 +1,27 @@
 #! /usr/bin/env python
 
 import sys
-import json
-import os
-
 sys.path.append('../../libraries/101meta')
 import const101
+import os
+import json
 
+def run(args=None, filePath=None):
 
-if len(sys.argv) < 3:
-    sys.exit("Usage: javaImport.py import [import ...] sourceFile")
+    if const101.sRoot in filePath:
+        filePath = filePath[len(const101.sRoot) + 1:]
 
-path = sys.argv[len(sys.argv) - 1]
-if const101.sRoot in path:
-    path = path[len(const101.sRoot) + 1:]
+    extractPath = os.path.join(const101.tRoot, filePath + '.extractor.json')
 
-extractPath = os.path.join(const101.tRoot, path + '.extractor.json')
+    if not os.path.exists(extractPath):
+        return False
 
-factsFile = open(extractPath)
-facts = json.load(factsFile)
+    factsFile = open(extractPath)
 
-for x in facts["imports"]:
-    for i in range(1, len(sys.argv) - 1):
-        if x == sys.argv[i]:
-            #exit with status code 0 indicating success - import has been found
-            sys.exit()
-
-#exit with status code 1, indicating failure - import has not been found
-sys.exit(1)
+    facts = json.load(factsFile)
+    for x in facts["imports"]:
+        for arg in args:
+            if x == arg:
+                return True
+    else:
+        return False

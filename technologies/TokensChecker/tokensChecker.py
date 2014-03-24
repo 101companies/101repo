@@ -6,20 +6,23 @@ import sys
 sys.path.append('../../libraries/101meta')
 import const101
 
-tokensExt = '.refinedTokens.json'
-toReplace = '../../../101results/101repo/'
+def run(args=None, filePath=None):
 
-fileName = sys.argv[len(sys.argv)-1].replace(toReplace, '') + tokensExt
-filePath = os.path.join(const101.tRoot, fileName)
-if not os.path.exists(filePath):
-	sys.exit(1)
-refined = json.load(open(filePath))
+    tokensExt = '.refinedTokens.json'
+    toReplace = '../../../101results/101repo/'
 
-terms = []
-for i in range(1, len(sys.argv)-1):
-	terms.append(sys.argv[i])
+    fileName = filePath.replace(toReplace, '') + tokensExt
+    tokenFile = os.path.join(const101.tRoot, fileName)
+    if not os.path.exists(tokenFile):
+        return False
 
-if set(terms).issubset(refined):
-	sys.exit()
+    refined = json.load(open(tokenFile))
+    terms = []
 
-sys.exit(1)
+    for arg in args:
+        terms.append(arg)
+
+    if set(terms).issubset(refined):
+        return True
+    else:
+        return False
