@@ -39,12 +39,13 @@ class SQLFactExtractor(object):
 					self.extract_alter_statement(each, fragment_result)
 
 		self.add_code_line_numbers(fragment_result)
+		self.add_alter_statement_indexes(fragment_result)
 
 		return fragment_result
 
 	@staticmethod
 	def extract_alter_statement(each, fragment_result):
-		fragment_result["fragments"].append({"classifier": CLASSIFIER_ALTER, "fragments": [], "code": str(each)})
+		fragment_result["fragments"].append({"classifier": CLASSIFIER_ALTER, "name": CLASSIFIER_ALTER, "fragments": [], "code": str(each)})
 
 	def extract_create_statement(self, each, fragment_result):
 		subject_token = None
@@ -173,3 +174,17 @@ class SQLFactExtractor(object):
 	@staticmethod
 	def delete_beginning_control_characters(string):
 		return string[re.search("\w", string).start():]
+
+	def add_alter_statement_indexes(self, fragment_result):
+		if self.count_alter_statements(fragment_result) > 1:
+			index = 1
+			for fragment in fragment_result["fragments"]:
+				fragment["index"] = index
+				index += 1
+
+	def count_alter_statements(self, fragment_result):
+		count = 0
+		for fragment in fragment_result["fragments"]:
+			if fragment["classifier"] == CLASSIFIER_ALTER:
+				count += 1
+		return count

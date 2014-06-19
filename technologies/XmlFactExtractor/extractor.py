@@ -66,6 +66,10 @@ class FragmentXmlParser(Sax.handler.ContentHandler):
 
 	def endElement(self, name):
 		self.get_current_position()["endLine"] = self.get_line_number()
+		#give all attributes the current linenumber as endLine
+		for fragment in self.get_current_position()["fragments"]:
+			if "attribute" == fragment["classifier"]:
+				fragment["endLine"] = self.get_line_number()
 		self.tree_stack.pop()
 
 	def characters(self, content):

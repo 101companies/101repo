@@ -8,10 +8,26 @@ jfactextractor/JFactExtractor.class: jfactextractor/*.java Makefile
 		jfactextractor/*.java
 
 test: 
-	./extractor.py < example/Serialization.java > example/facts_simple.json
-	diff --ignore-all-space example/simple.baseline example/facts_simple.json
-	./extractor.py < example/Cut.java > example/facts_overload.json
-	diff --ignore-all-space example/overload.baseline example/facts_overload.json
+	./extractor.py < test/Basic.java > test/output/Basic.json
+	diff --ignore-all-space test/baseline/Basic.baseline test/output/Basic.json
+	./extractor.py < test/Indexing.java > test/output/Indexing.json
+	diff --ignore-all-space test/baseline/Indexing.baseline test/output/Indexing.json
+	./extractor.py < test/SingleLineComment.java > test/output/SingleLineComment.json
+	./extractor.py < test/MultiLineComment.java > test/output/MultiLineComment.json
+	./extractor.py < test/CommentExcluded.java > test/output/CommentExcluded.json
+	diff --ignore-all-space test/baseline/SingleLineComment.baseline test/output/SingleLineComment.json
+	diff --ignore-all-space test/baseline/MultiLineComment.baseline test/output/MultiLineComment.json
+	diff --ignore-all-space test/baseline/CommentExcluded.baseline test/output/CommentExcluded.json
+	./extractor.py < test/Import.java > test/output/Import.json
+	./extractor.py < test/Package.java > test/output/Package.json
+	diff --ignore-all-space test/baseline/Import.baseline test/output/Import.json
+	diff --ignore-all-space test/baseline/Package.baseline test/output/Package.json
+
+	make reset-test
+
+reset-test:
+	@rm -f test/output/*.json
+
 clean: 
 	@rm -f jfactextractor/*.class
-	@rm -f example/*.json
+	make reset-test
