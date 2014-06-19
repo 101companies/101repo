@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<company>
+	<department>
+		<employee>
+			<name>Erik</name>
+		</employee>
+		<employee>
+			<name>Ralf</name>
+		</employee>
+	</department>
+
+	<department>
+	</department>
+</company>

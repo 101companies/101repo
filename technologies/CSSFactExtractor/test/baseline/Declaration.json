@@ -1,0 +1,148 @@
+{
+  "fragments": [
+    {
+      "endLine": 11, 
+      "startLine": 1, 
+      "classifier": "rule", 
+      "name": "h3", 
+      "fragments": [
+        {
+          "startLine": 2, 
+          "name": "background-color", 
+          "fragments": [], 
+          "value": "#708090", 
+          "endLine": 2, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 3, 
+          "name": "text-align", 
+          "fragments": [], 
+          "value": "center", 
+          "endLine": 3, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 4, 
+          "name": "font-weight", 
+          "fragments": [], 
+          "value": "bold", 
+          "endLine": 4, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 5, 
+          "name": "color", 
+          "fragments": [], 
+          "value": "white", 
+          "endLine": 5, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 6, 
+          "name": "font-size", 
+          "fragments": [], 
+          "value": "30px", 
+          "endLine": 6, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 7, 
+          "name": "margin-bottom", 
+          "fragments": [], 
+          "value": "20px", 
+          "endLine": 7, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 8, 
+          "name": "width", 
+          "fragments": [], 
+          "value": "450px", 
+          "endLine": 8, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 9, 
+          "name": "padding", 
+          "fragments": [], 
+          "value": "18px 0px 18px 0px", 
+          "endLine": 9, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 10, 
+          "name": "border", 
+          "fragments": [], 
+          "value": "solid #121333 3px", 
+          "endLine": 10, 
+          "classifier": "declaration"
+        }
+      ]
+    }, 
+    {
+      "endLine": 19, 
+      "startLine": 13, 
+      "classifier": "rule", 
+      "name": ".button", 
+      "fragments": [
+        {
+          "startLine": 14, 
+          "name": "color", 
+          "fragments": [], 
+          "value": "white", 
+          "endLine": 14, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 15, 
+          "name": "font-size", 
+          "fragments": [], 
+          "value": "18px", 
+          "endLine": 15, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 16, 
+          "name": "text-align", 
+          "fragments": [], 
+          "value": "center", 
+          "endLine": 16, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 17, 
+          "name": "margin-top", 
+          "fragments": [], 
+          "value": "12px", 
+          "endLine": 17, 
+          "classifier": "declaration"
+        }, 
+        {
+          "startLine": 18, 
+          "name": "border-color", 
+          "fragments": [], 
+          "value": "white #121333 #121333 white", 
+          "endLine": 18, 
+          "classifier": "declaration"
+        }
+      ]
+    }, 
+    {
+      "endLine": 23, 
+      "startLine": 21, 
+      "classifier": "rule", 
+      "name": ".button:HOVER", 
+      "fragments": [
+        {
+          "startLine": 22, 
+          "name": "background-color", 
+          "fragments": [], 
+          "value": "#121333", 
+          "endLine": 22, 
+          "classifier": "declaration"
+        }
+      ]
+    }
+  ]
+}

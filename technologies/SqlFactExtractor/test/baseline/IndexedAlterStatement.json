@@ -1,0 +1,36 @@
+{
+  "fragments": [
+    {
+      "index": 1, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 1, 
+      "endLine": 1, 
+      "fragments": []
+    }, 
+    {
+      "index": 2, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 2, 
+      "endLine": 2, 
+      "fragments": []
+    }, 
+    {
+      "index": 3, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 3, 
+      "endLine": 3, 
+      "fragments": []
+    }, 
+    {
+      "index": 4, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 4, 
+      "endLine": 4, 
+      "fragments": []
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "fragments": [
+    {
+      "endLine": 11, 
+      "fragments": [
+        {
+          "index": 1, 
+          "startLine": 3, 
+          "name": "text", 
+          "fragments": [], 
+          "endLine": 3, 
+          "classifier": "text"
+        }, 
+        {
+          "endLine": 4, 
+          "fragments": [
+            {
+              "endLine": 4, 
+              "startLine": 4, 
+              "classifier": "text", 
+              "name": "text", 
+              "fragments": []
+            }
+          ], 
+          "startLine": 4, 
+          "name": "name", 
+          "classifier": "element"
+        }, 
+        {
+          "index": 2, 
+          "startLine": 5, 
+          "name": "text", 
+          "fragments": [], 
+          "endLine": 5, 
+          "classifier": "text"
+        }, 
+        {
+          "endLine": 10, 
+          "fragments": [
+            {
+              "index": 1, 
+              "startLine": 7, 
+              "name": "text", 
+              "fragments": [], 
+              "endLine": 7, 
+              "classifier": "text"
+            }, 
+            {
+              "endLine": 8, 
+              "fragments": [
+                {
+                  "endLine": 8, 
+                  "startLine": 8, 
+                  "classifier": "text", 
+                  "name": "text", 
+                  "fragments": []
+                }
+              ], 
+              "startLine": 8, 
+              "name": "name", 
+              "classifier": "element"
+            }, 
+            {
+              "index": 2, 
+              "startLine": 9, 
+              "name": "text", 
+              "fragments": [], 
+              "endLine": 9, 
+              "classifier": "text"
+            }
+          ], 
+          "startLine": 6, 
+          "name": "value", 
+          "classifier": "element"
+        }
+      ], 
+      "startLine": 2, 
+      "name": "company", 
+      "classifier": "element"
+    }
+  ]
+}

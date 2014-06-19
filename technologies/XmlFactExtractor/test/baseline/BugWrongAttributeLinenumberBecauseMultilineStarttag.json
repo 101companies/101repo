@@ -1,0 +1,28 @@
+{
+  "fragments": [
+    {
+      "endLine": 5, 
+      "fragments": [
+        {
+          "startLine": 2, 
+          "name": "xmlns:xsi", 
+          "fragments": [], 
+          "value": "http://www.w3.org/2001/XMLSchema-instance", 
+          "endLine": 5, 
+          "classifier": "attribute"
+        }, 
+        {
+          "startLine": 2, 
+          "name": "xmlns", 
+          "fragments": [], 
+          "value": "http://www.softlang.org/company.xsd", 
+          "endLine": 5, 
+          "classifier": "attribute"
+        }
+      ], 
+      "startLine": 2, 
+      "name": "company", 
+      "classifier": "element"
+    }
+  ]
+}

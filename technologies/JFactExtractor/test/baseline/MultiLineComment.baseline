@@ -1,0 +1,22 @@
+{
+  "package": "org.softlang.behavior",
+  "imports": [],
+  "fragments": [
+    {
+      "classifier": "class",
+      "name": "Cut",
+      "fragments": [
+        {
+          "classifier": "method",
+          "name": "cut",
+          "annotations": [],
+          "startLine": 5,
+          "endLine": 10
+        }
+      ],
+      "annotations": [],
+      "startLine": 3,
+      "endLine": 11
+    }
+  ]
+}

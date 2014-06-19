@@ -1,0 +1,36 @@
+{
+  "fragments": [
+    {
+      "name": "COMPANY", 
+      "classifier": "create_statement", 
+      "startLine": 1, 
+      "endLine": 5, 
+      "fragments": [
+        {
+          "startLine": 4, 
+          "name": "name", 
+          "endLine": 5, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }
+      ]
+    }, 
+    {
+      "name": "DEPARTMENT", 
+      "classifier": "create_statement", 
+      "startLine": 6, 
+      "endLine": 11, 
+      "fragments": [
+        {
+          "startLine": 10, 
+          "name": "name", 
+          "endLine": 11, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }
+      ]
+    }
+  ]
+}

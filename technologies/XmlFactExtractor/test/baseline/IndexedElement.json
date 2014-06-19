@@ -1,0 +1,77 @@
+{
+  "fragments": [
+    {
+      "endLine": 14, 
+      "fragments": [
+        {
+          "index": 1, 
+          "startLine": 3, 
+          "name": "department", 
+          "classifier": "element", 
+          "endLine": 10, 
+          "fragments": [
+            {
+              "index": 1, 
+              "startLine": 4, 
+              "name": "employee", 
+              "classifier": "element", 
+              "endLine": 6, 
+              "fragments": [
+                {
+                  "endLine": 5, 
+                  "fragments": [
+                    {
+                      "endLine": 5, 
+                      "startLine": 5, 
+                      "classifier": "text", 
+                      "name": "text", 
+                      "fragments": []
+                    }
+                  ], 
+                  "startLine": 5, 
+                  "name": "name", 
+                  "classifier": "element"
+                }
+              ]
+            }, 
+            {
+              "index": 2, 
+              "startLine": 7, 
+              "name": "employee", 
+              "classifier": "element", 
+              "endLine": 9, 
+              "fragments": [
+                {
+                  "endLine": 8, 
+                  "fragments": [
+                    {
+                      "endLine": 8, 
+                      "startLine": 8, 
+                      "classifier": "text", 
+                      "name": "text", 
+                      "fragments": []
+                    }
+                  ], 
+                  "startLine": 8, 
+                  "name": "name", 
+                  "classifier": "element"
+                }
+              ]
+            }
+          ]
+        }, 
+        {
+          "index": 2, 
+          "startLine": 12, 
+          "name": "department", 
+          "classifier": "element", 
+          "endLine": 13, 
+          "fragments": []
+        }
+      ], 
+      "startLine": 2, 
+      "name": "company", 
+      "classifier": "element"
+    }
+  ]
+}

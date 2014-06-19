@@ -1,0 +1,25 @@
+h3 {
+	background-color: #708090;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	font-size: 30px;
+	margin-bottom: 20px;
+	width: 450px;
+	padding: 18px 0px 18px 0px;
+	border: solid #121333 3px;
+}
+
+.button {
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	margin-top: 12px;
+	border-color: white #121333 #121333 white;
+}
+
+.button:HOVER {
+	background-color: #121333;
+}
+
+

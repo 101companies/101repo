@@ -1,0 +1,14 @@
+{
+  "package": "org.softlang.qualities",
+  "imports": [],
+  "fragments": [
+    {
+      "classifier": "class",
+      "name": "Serialization",
+      "fragments": [],
+      "annotations": [],
+      "startLine": 3,
+      "endLine": 5
+    }
+  ]
+}

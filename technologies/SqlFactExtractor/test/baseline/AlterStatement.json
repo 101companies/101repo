@@ -1,0 +1,11 @@
+{
+  "fragments": [
+    {
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 1, 
+      "endLine": 1, 
+      "fragments": []
+    }
+  ]
+}

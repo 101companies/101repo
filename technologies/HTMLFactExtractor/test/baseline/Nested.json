@@ -1,0 +1,338 @@
+{
+  "fragments": [
+    {
+      "endLine": 38, 
+      "fragments": [
+        {
+          "endLine": 8, 
+          "fragments": [
+            {
+              "endLine": 6, 
+              "fragments": [
+                {
+                  "startLine": 6, 
+                  "name": "rel", 
+                  "fragments": [], 
+                  "value": "stylesheet", 
+                  "endLine": 6, 
+                  "classifier": "attribute"
+                }, 
+                {
+                  "startLine": 6, 
+                  "name": "type", 
+                  "fragments": [], 
+                  "value": "text/css", 
+                  "endLine": 6, 
+                  "classifier": "attribute"
+                }, 
+                {
+                  "startLine": 6, 
+                  "name": "href", 
+                  "fragments": [], 
+                  "value": "style.css", 
+                  "endLine": 6, 
+                  "classifier": "attribute"
+                }
+              ], 
+              "startLine": 6, 
+              "name": "link", 
+              "classifier": "tag"
+            }, 
+            {
+              "endLine": 7, 
+              "fragments": [], 
+              "startLine": 7, 
+              "name": "title", 
+              "classifier": "tag"
+            }
+          ], 
+          "startLine": 4, 
+          "name": "head", 
+          "classifier": "tag"
+        }, 
+        {
+          "endLine": 37, 
+          "fragments": [
+            {
+              "endLine": 35, 
+              "fragments": [
+                {
+                  "index": 1, 
+                  "startLine": 18, 
+                  "name": "script", 
+                  "classifier": "tag", 
+                  "endLine": 18, 
+                  "fragments": [
+                    {
+                      "startLine": 18, 
+                      "name": "type", 
+                      "fragments": [], 
+                      "value": "text/javascript", 
+                      "endLine": 18, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 18, 
+                      "name": "src", 
+                      "fragments": [], 
+                      "value": "head.js", 
+                      "endLine": 18, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "endLine": 20, 
+                  "fragments": [
+                    {
+                      "endLine": 20, 
+                      "startLine": 20, 
+                      "classifier": "text", 
+                      "name": "text", 
+                      "fragments": []
+                    }
+                  ], 
+                  "startLine": 20, 
+                  "name": "h3", 
+                  "classifier": "tag"
+                }, 
+                {
+                  "index": 2, 
+                  "startLine": 22, 
+                  "name": "script", 
+                  "classifier": "tag", 
+                  "endLine": 22, 
+                  "fragments": [
+                    {
+                      "startLine": 22, 
+                      "name": "type", 
+                      "fragments": [], 
+                      "value": "text/javascript", 
+                      "endLine": 22, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 22, 
+                      "name": "src", 
+                      "fragments": [], 
+                      "value": "company.js", 
+                      "endLine": 22, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "index": 3, 
+                  "startLine": 23, 
+                  "name": "script", 
+                  "classifier": "tag", 
+                  "endLine": 23, 
+                  "fragments": [
+                    {
+                      "startLine": 23, 
+                      "name": "type", 
+                      "fragments": [], 
+                      "value": "text/javascript", 
+                      "endLine": 23, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 23, 
+                      "name": "src", 
+                      "fragments": [], 
+                      "value": "companyController.js", 
+                      "endLine": 23, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "index": 4, 
+                  "startLine": 24, 
+                  "name": "script", 
+                  "classifier": "tag", 
+                  "endLine": 24, 
+                  "fragments": [
+                    {
+                      "startLine": 24, 
+                      "name": "type", 
+                      "fragments": [], 
+                      "value": "text/javascript", 
+                      "endLine": 24, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 24, 
+                      "name": "src", 
+                      "fragments": [], 
+                      "value": "companyView.js", 
+                      "endLine": 24, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "index": 5, 
+                  "startLine": 25, 
+                  "name": "script", 
+                  "classifier": "tag", 
+                  "endLine": 25, 
+                  "fragments": [
+                    {
+                      "startLine": 25, 
+                      "name": "type", 
+                      "fragments": [], 
+                      "value": "text/javascript", 
+                      "endLine": 25, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 25, 
+                      "name": "src", 
+                      "fragments": [], 
+                      "value": "companyModel.js", 
+                      "endLine": 25, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "index": 1, 
+                  "startLine": 27, 
+                  "name": "div", 
+                  "classifier": "tag", 
+                  "endLine": 27, 
+                  "fragments": [
+                    {
+                      "startLine": 27, 
+                      "name": "id", 
+                      "fragments": [], 
+                      "value": "content", 
+                      "endLine": 27, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 27, 
+                      "name": "name", 
+                      "fragments": [], 
+                      "value": "content", 
+                      "endLine": 27, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "index": 1, 
+                  "startLine": 27, 
+                  "name": "br", 
+                  "classifier": "tag", 
+                  "endLine": 27, 
+                  "fragments": []
+                }, 
+                {
+                  "index": 2, 
+                  "startLine": 28, 
+                  "name": "div", 
+                  "classifier": "tag", 
+                  "endLine": 28, 
+                  "fragments": [
+                    {
+                      "startLine": 28, 
+                      "name": "id", 
+                      "fragments": [], 
+                      "value": "reset", 
+                      "endLine": 28, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 28, 
+                      "name": "name", 
+                      "fragments": [], 
+                      "value": "reset", 
+                      "endLine": 28, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "index": 2, 
+                  "startLine": 28, 
+                  "name": "br", 
+                  "classifier": "tag", 
+                  "endLine": 28, 
+                  "fragments": []
+                }, 
+                {
+                  "index": 3, 
+                  "startLine": 29, 
+                  "name": "div", 
+                  "classifier": "tag", 
+                  "endLine": 29, 
+                  "fragments": [
+                    {
+                      "startLine": 29, 
+                      "name": "id", 
+                      "fragments": [], 
+                      "value": "test", 
+                      "endLine": 29, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "startLine": 29, 
+                      "name": "name", 
+                      "fragments": [], 
+                      "value": "test", 
+                      "endLine": 29, 
+                      "classifier": "attribute"
+                    }
+                  ]
+                }, 
+                {
+                  "index": 3, 
+                  "startLine": 29, 
+                  "name": "br", 
+                  "classifier": "tag", 
+                  "endLine": 29, 
+                  "fragments": []
+                }, 
+                {
+                  "index": 6, 
+                  "startLine": 31, 
+                  "name": "script", 
+                  "classifier": "tag", 
+                  "endLine": 34, 
+                  "fragments": [
+                    {
+                      "startLine": 31, 
+                      "name": "type", 
+                      "fragments": [], 
+                      "value": "text/javascript", 
+                      "endLine": 31, 
+                      "classifier": "attribute"
+                    }, 
+                    {
+                      "endLine": 33, 
+                      "startLine": 31, 
+                      "classifier": "text", 
+                      "name": "text", 
+                      "fragments": []
+                    }
+                  ]
+                }
+              ], 
+              "startLine": 14, 
+              "name": "center", 
+              "classifier": "tag"
+            }
+          ], 
+          "startLine": 11, 
+          "name": "body", 
+          "classifier": "tag"
+        }
+      ], 
+      "startLine": 2, 
+      "name": "html", 
+      "classifier": "tag"
+    }
+  ]
+}

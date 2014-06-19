@@ -1,0 +1,59 @@
+{
+  "fragments": [
+    {
+      "endLine": 10, 
+      "fragments": [
+        {
+          "endLine": 6, 
+          "fragments": [
+            {
+              "endLine": 5, 
+              "fragments": [
+                {
+                  "startLine": 5, 
+                  "name": "rel", 
+                  "fragments": [], 
+                  "value": "stylesheet", 
+                  "endLine": 5, 
+                  "classifier": "attribute"
+                }, 
+                {
+                  "startLine": 5, 
+                  "name": "type", 
+                  "fragments": [], 
+                  "value": "text/css", 
+                  "endLine": 5, 
+                  "classifier": "attribute"
+                }, 
+                {
+                  "startLine": 5, 
+                  "name": "href", 
+                  "fragments": [], 
+                  "value": "style.css", 
+                  "endLine": 5, 
+                  "classifier": "attribute"
+                }
+              ], 
+              "startLine": 5, 
+              "name": "link", 
+              "classifier": "tag"
+            }
+          ], 
+          "startLine": 3, 
+          "name": "head", 
+          "classifier": "tag"
+        }, 
+        {
+          "endLine": 9, 
+          "fragments": [], 
+          "startLine": 8, 
+          "name": "body", 
+          "classifier": "tag"
+        }
+      ], 
+      "startLine": 2, 
+      "name": "html", 
+      "classifier": "tag"
+    }
+  ]
+}

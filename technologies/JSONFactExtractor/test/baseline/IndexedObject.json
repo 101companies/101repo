@@ -1,0 +1,50 @@
+{
+  "fragments": {
+    "endLine": 20, 
+    "fragments": [
+      {
+        "endLine": 19, 
+        "fragments": [
+          {
+            "index": 1, 
+            "startLine": 3, 
+            "name": "object", 
+            "classifier": "object", 
+            "endLine": 6, 
+            "fragments": []
+          }, 
+          {
+            "index": 2, 
+            "startLine": 7, 
+            "name": "object", 
+            "classifier": "object", 
+            "endLine": 10, 
+            "fragments": []
+          }, 
+          {
+            "index": 3, 
+            "startLine": 11, 
+            "name": "object", 
+            "classifier": "object", 
+            "endLine": 14, 
+            "fragments": []
+          }, 
+          {
+            "index": 4, 
+            "startLine": 15, 
+            "name": "object", 
+            "classifier": "object", 
+            "endLine": 18, 
+            "fragments": []
+          }
+        ], 
+        "startLine": 2, 
+        "classifier": "list", 
+        "name": "fragments"
+      }
+    ], 
+    "startLine": 1, 
+    "classifier": "object", 
+    "name": "object"
+  }
+}

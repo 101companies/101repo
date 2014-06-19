@@ -1,0 +1,68 @@
+{
+  "fragments": [
+    {
+      "name": "COMPANY", 
+      "classifier": "create_statement", 
+      "startLine": 1, 
+      "endLine": 7, 
+      "fragments": [
+        {
+          "startLine": 4, 
+          "name": "ID", 
+          "endLine": 4, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 5, 
+          "name": "name", 
+          "endLine": 5, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }
+      ]
+    }, 
+    {
+      "name": "DEPARTMENT", 
+      "classifier": "create_statement", 
+      "startLine": 8, 
+      "endLine": 17, 
+      "fragments": [
+        {
+          "startLine": 12, 
+          "name": "ID", 
+          "endLine": 12, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 13, 
+          "name": "name", 
+          "endLine": 13, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 14, 
+          "name": "COMP_ID", 
+          "endLine": 14, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 15, 
+          "name": "DEPT_ID", 
+          "endLine": 15, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }
+      ]
+    }
+  ]
+}

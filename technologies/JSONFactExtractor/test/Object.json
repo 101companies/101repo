@@ -1,0 +1,8 @@
+{
+  "fragments": [
+    {
+      "classifier": "type",
+      "name": "MyType"
+    }
+	]
+}

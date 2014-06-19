@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+
+<body>
+
+<script></script>
+<script></script>
+<script></script>
+<script></script>
+
+<div></div><br>
+<div></div><br>
+<div></div><br>
+
+<script type="text/javascript">
+model.loadCompany();
+
+</script>
+
+</body>
+</html>

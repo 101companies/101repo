@@ -1,0 +1,19 @@
+{
+  "package": "",
+  "imports": [
+    "javax.xml.stream",
+    "java.io",
+    "javax.xml.bind",
+    "org.softlang.model"
+  ],
+  "fragments": [
+    {
+      "classifier": "class",
+      "name": "Serialization",
+      "fragments": [],
+      "annotations": [],
+      "startLine": 16,
+      "endLine": 18
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "fragments": [
+    {
+      "endLine": 23, 
+      "fragments": [
+        {
+          "endLine": 4, 
+          "fragments": [], 
+          "startLine": 3, 
+          "name": "head", 
+          "classifier": "tag"
+        }, 
+        {
+          "endLine": 22, 
+          "fragments": [
+            {
+              "index": 1, 
+              "startLine": 8, 
+              "name": "script", 
+              "classifier": "tag", 
+              "endLine": 8, 
+              "fragments": []
+            }, 
+            {
+              "index": 2, 
+              "startLine": 9, 
+              "name": "script", 
+              "classifier": "tag", 
+              "endLine": 9, 
+              "fragments": []
+            }, 
+            {
+              "index": 3, 
+              "startLine": 10, 
+              "name": "script", 
+              "classifier": "tag", 
+              "endLine": 10, 
+              "fragments": []
+            }, 
+            {
+              "index": 4, 
+              "startLine": 11, 
+              "name": "script", 
+              "classifier": "tag", 
+              "endLine": 11, 
+              "fragments": []
+            }, 
+            {
+              "index": 1, 
+              "startLine": 13, 
+              "name": "div", 
+              "classifier": "tag", 
+              "endLine": 13, 
+              "fragments": []
+            }, 
+            {
+              "index": 1, 
+              "startLine": 13, 
+              "name": "br", 
+              "classifier": "tag", 
+              "endLine": 13, 
+              "fragments": []
+            }, 
+            {
+              "index": 2, 
+              "startLine": 14, 
+              "name": "div", 
+              "classifier": "tag", 
+              "endLine": 14, 
+              "fragments": []
+            }, 
+            {
+              "index": 2, 
+              "startLine": 14, 
+              "name": "br", 
+              "classifier": "tag", 
+              "endLine": 14, 
+              "fragments": []
+            }, 
+            {
+              "index": 3, 
+              "startLine": 15, 
+              "name": "div", 
+              "classifier": "tag", 
+              "endLine": 15, 
+              "fragments": []
+            }, 
+            {
+              "index": 3, 
+              "startLine": 15, 
+              "name": "br", 
+              "classifier": "tag", 
+              "endLine": 15, 
+              "fragments": []
+            }, 
+            {
+              "index": 5, 
+              "startLine": 17, 
+              "name": "script", 
+              "classifier": "tag", 
+              "endLine": 20, 
+              "fragments": [
+                {
+                  "endLine": 19, 
+                  "startLine": 17, 
+                  "classifier": "text", 
+                  "name": "text", 
+                  "fragments": []
+                }
+              ]
+            }
+          ], 
+          "startLine": 6, 
+          "name": "body", 
+          "classifier": "tag"
+        }
+      ], 
+      "startLine": 2, 
+      "name": "html", 
+      "classifier": "tag"
+    }
+  ]
+}

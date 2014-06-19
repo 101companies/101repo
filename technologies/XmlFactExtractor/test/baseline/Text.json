@@ -1,0 +1,34 @@
+{
+  "fragments": [
+    {
+      "endLine": 5, 
+      "fragments": [
+        {
+          "endLine": 3, 
+          "fragments": [
+            {
+              "endLine": 3, 
+              "startLine": 3, 
+              "classifier": "text", 
+              "name": "text", 
+              "fragments": []
+            }
+          ], 
+          "startLine": 3, 
+          "name": "name", 
+          "classifier": "element"
+        }, 
+        {
+          "endLine": 4, 
+          "startLine": 4, 
+          "classifier": "text", 
+          "name": "text", 
+          "fragments": []
+        }
+      ], 
+      "startLine": 2, 
+      "name": "company", 
+      "classifier": "element"
+    }
+  ]
+}

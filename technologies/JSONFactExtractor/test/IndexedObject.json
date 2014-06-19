@@ -1,0 +1,20 @@
+{
+  "fragments": [
+    {
+      "classifier": "type",
+      "name": "MyType"
+    },
+    {
+      "classifier": "data",
+      "name": "MyData"
+    },
+    {
+      "classifier": "newtype",
+      "name": "MyNewtype"
+    },
+    {
+      "classifier": "function",
+      "name": "f"
+    }
+	]
+}

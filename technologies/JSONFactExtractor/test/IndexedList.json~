@@ -1,0 +1,14 @@
+{
+  "imports": [
+    "Data.Maybe",
+    "Control.Monad",
+    "Data.Map",
+    "Data.List"
+  ],
+  "fragments": [
+    {
+      "classifier": "function",
+      "name": "f2"
+    }
+  ]
+}
