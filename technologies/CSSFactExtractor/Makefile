@@ -1,6 +1,4 @@
 # Comments are not supported.
-#
-# BugWrongAttributeLinenumberBecauseMultilineStarttag solved (only workaround), attributes get the same endline value as the parent elements
 
 test: 
 	./extractor.py < test/Declaration.css > test/output/Declaration.json
