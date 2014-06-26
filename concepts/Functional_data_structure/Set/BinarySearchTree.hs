@@ -1,6 +1,8 @@
 {-
 
-Source: Handbook of Data Structures and Applications; Chapter on Functional Data Structures by Chris Okasaki. The style was adjusted to make use of record types. Also, some other refactorings were applied.
+Source: Handbook of Data Structures and Applications; Chapter on
+Functional Data Structures by Chris Okasaki. The style was adjusted to
+make use of record types. Also, some other refactorings were applied.
 
 -}
 

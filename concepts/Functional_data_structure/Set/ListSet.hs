@@ -2,6 +2,7 @@ module ListSet where
 
 import Set
 
+-- A naive, equality- and list-based implementation of sets
 set :: Eq e => Set e []
 set = Set {
 
