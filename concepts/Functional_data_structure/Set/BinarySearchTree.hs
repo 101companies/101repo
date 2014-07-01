@@ -8,6 +8,8 @@ make use of record types. Also, some other refactorings were applied.
 
 module BinarySearchTree where
 
+import Control.DeepSeq
+
 import Set
 
 data BST e = Empty | Node (BST e) e (BST e)
@@ -38,3 +40,7 @@ set = Set {
             else True
 
 }
+
+instance (NFData a) => NFData (BST a) where
+  rnf Empty = ()
+  rnf (Node s1 e s2) = rnf s1 `seq` rnf e `seq` rnf s2
