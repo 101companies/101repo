@@ -29,6 +29,6 @@ benchmarks = [
     bench "insert" (nf evenBiggerSet BST.set),
     bench "search" (nf (searchNumbers BST.set) (evenBiggerSet BST.set))]]
 
--- Run all tests and communicate through exit code
+-- Run all benchmarks
 main = defaultMain benchmarks
 
