@@ -13,8 +13,8 @@ sampleNLTree =
 
 instance Functor NLTree
   where
-    fmap f (NLTree x ts) = NLTree (f x) (map (fmap f) ts)
+    fmap f (NLTree x ts) = NLTree (f x) (fmap (fmap f) ts)
 
 instance Foldable NLTree
   where
-    foldr f z (NLTree x ts) = foldr f z (x : concat (map toList ts))
+    foldr f z (NLTree x ts) = foldr f z (x : concat (fmap toList ts))

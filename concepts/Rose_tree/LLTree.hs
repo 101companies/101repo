@@ -14,9 +14,9 @@ sampleLLTree =
 instance Functor LLTree
   where
     fmap f (Leaf x) = Leaf (f x)
-    fmap f (Fork ts) = Fork (map (fmap f) ts)
+    fmap f (Fork ts) = Fork (fmap (fmap f) ts)
 
 instance Foldable LLTree
   where
     foldr f z (Leaf x) = x `f` z
-    foldr f z (Fork ts) = foldr f z (concat (map toList ts))
+    foldr f z (Fork ts) = foldr f z (concat (fmap toList ts))
