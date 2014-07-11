@@ -1,3 +1,5 @@
+// Source: Chapter 40: Functional Data Structures by C. Okasaki. In: Handbook of Data Structures and Applications. Chapman & Hall/CRC.
+
 public class Skew {
     private int elem;
     private Skew left,right;
