@@ -1,14 +1,14 @@
 module Main where
 
 import Set
-import ListSet as LS
+import NaiveSet as Naive
 import BinarySearchTree as BST
 import Test.HUnit
 import System.Exit
 
 -- All tests for all implementations
 tests :: Test
-tests = TestList (tests' LS.set ++ tests' BST.set)
+tests = TestList (tests' Naive.set ++ tests' BST.set)
 
 -- All tests for one implementation
 tests' :: Set Int s -> [Test]
