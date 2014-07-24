@@ -1,0 +1,164 @@
+{
+  "fragments": [
+    {
+      "name": "COMPANY", 
+      "classifier": "create_statement", 
+      "startLine": 1, 
+      "endLine": 1, 
+      "fragments": [
+        {
+          "startLine": 1, 
+          "name": "ID", 
+          "endLine": 1, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 1, 
+          "name": "name", 
+          "endLine": 1, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }
+      ]
+    }, 
+    {
+      "name": "DEPARTMENT", 
+      "classifier": "create_statement", 
+      "startLine": 2, 
+      "endLine": 2, 
+      "fragments": [
+        {
+          "startLine": 2, 
+          "name": "ID", 
+          "endLine": 2, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 2, 
+          "name": "name", 
+          "endLine": 2, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 2, 
+          "name": "COMP_ID", 
+          "endLine": 2, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 2, 
+          "name": "DEPT_ID", 
+          "endLine": 2, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }
+      ]
+    }, 
+    {
+      "name": "EMPLOYEE", 
+      "classifier": "create_statement", 
+      "startLine": 3, 
+      "endLine": 3, 
+      "fragments": [
+        {
+          "startLine": 3, 
+          "name": "ID", 
+          "endLine": 3, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 3, 
+          "name": "name", 
+          "endLine": 3, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 3, 
+          "name": "address", 
+          "endLine": 3, 
+          "fragments": [], 
+          "type": "varchar", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 3, 
+          "name": "salary", 
+          "endLine": 3, 
+          "fragments": [], 
+          "type": "double", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 3, 
+          "name": "manager", 
+          "endLine": 3, 
+          "fragments": [], 
+          "type": "bit", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 3, 
+          "name": "MENTOR", 
+          "endLine": 3, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }, 
+        {
+          "startLine": 3, 
+          "name": "DEPT_ID", 
+          "endLine": 3, 
+          "fragments": [], 
+          "type": "bigint", 
+          "classifier": "column"
+        }
+      ]
+    }, 
+    {
+      "index": 1, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 4, 
+      "endLine": 4, 
+      "fragments": []
+    }, 
+    {
+      "index": 2, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 5, 
+      "endLine": 5, 
+      "fragments": []
+    }, 
+    {
+      "index": 3, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 6, 
+      "endLine": 6, 
+      "fragments": []
+    }, 
+    {
+      "index": 4, 
+      "name": "alter_statement", 
+      "classifier": "alter_statement", 
+      "startLine": 7, 
+      "endLine": 7, 
+      "fragments": []
+    }
+  ]
+}

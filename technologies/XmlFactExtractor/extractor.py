@@ -83,6 +83,8 @@ class FragmentXmlParser(Sax.handler.ContentHandler):
 		return self.fragments
 
 parser = FragmentXmlParser()
+parser.feature_external_ges = False
+parser.feature_external_pes = False
 try:
 	Sax.parse(sys.stdin, parser)
 except Sax.SAXException as msg:

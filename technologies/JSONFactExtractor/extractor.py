@@ -70,13 +70,12 @@ class JSONFactExtractor:
 					actual_index += 1
 
 	def find_line_number(self, element_string):
-		org_file = re.sub('\s', '', self.json_file)
+		org_file = re.sub('\s', '', json.dumps(json.loads(self.json_file)))
 		find_part = re.sub('\s', '', json.dumps(element_string))
 
 		start_line_index = org_file.find(find_part, self.ln_char_index_no_doubling)
 		end_line_index = start_line_index + len(find_part)
 		self.ln_char_index_no_doubling = start_line_index + 1
-
 		return {'startLine': self.line_number_mapping_table[start_line_index],
 				'endLine': self.line_number_mapping_table[end_line_index - 1]}
 
@@ -92,6 +91,7 @@ class JSONFactExtractor:
 					json_file_line += 1
 				json_file_index += 1
 			mt[cleared_json_file_index] = json_file_line
+
 		return mt
 
 

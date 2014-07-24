@@ -123,8 +123,7 @@ class SQLFactExtractor(object):
 
 		self.sql_file.seek(position_in_file)
 
-	@staticmethod
-	def go_to_line(open_file, start):
+	def go_to_line(self, open_file, start):
 		for times in range(1, start):
 			open_file.readline()
 
@@ -165,22 +164,21 @@ class SQLFactExtractor(object):
 
 		return column_codes
 
-	@staticmethod
-	def delete_last_char_if_equals(string, char):
+	def delete_last_char_if_equals(self, string, char):
 		if char == string[-1]:
 			string = string[:-1]
 		return string
 
-	@staticmethod
-	def delete_beginning_control_characters(string):
+	def delete_beginning_control_characters(self, string):
 		return string[re.search("\w", string).start():]
 
 	def add_alter_statement_indexes(self, fragment_result):
 		if self.count_alter_statements(fragment_result) > 1:
 			index = 1
 			for fragment in fragment_result["fragments"]:
-				fragment["index"] = index
-				index += 1
+				if "alter_statement" == fragment["classifier"]:
+					fragment["index"] = index
+					index += 1
 
 	def count_alter_statements(self, fragment_result):
 		count = 0
