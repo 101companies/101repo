@@ -11,6 +11,7 @@ test:
 	./extractor.py < test/SingleLineComment.html > test/output/SingleLineComment.json
 	./extractor.py < test/Tag.html > test/output/Tag.json
 	./extractor.py < test/Text.html > test/output/Text.json
+	./extractor.py < test/BugDeprecatedAtomicTags.html > test/output/BugDeprecatedAtomicTags.json
 		
 	diff --ignore-all-space test/baseline/Attribute.json test/output/Attribute.json
 	diff --ignore-all-space test/baseline/ExcludedComment.json test/output/ExcludedComment.json
@@ -21,6 +22,7 @@ test:
 	diff --ignore-all-space test/baseline/SingleLineComment.json test/output/SingleLineComment.json
 	diff --ignore-all-space test/baseline/Tag.json test/output/Tag.json
 	diff --ignore-all-space test/baseline/Text.json test/output/Text.json
+	diff --ignore-all-space test/baseline/BugDeprecatedAtomicTags.json test/output/BugDeprecatedAtomicTags.json
 
 	make reset-test
 	

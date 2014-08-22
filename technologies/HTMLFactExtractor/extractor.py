@@ -95,6 +95,15 @@ class FragmentHTMLParser(HTMLParser):
 	def get_fragments(self):
 		return self.fragments
 
+
+def preprocess_to_eliminate_single_tags(html_file):
+	return re.sub(r'<br>', "<br />", html_file, flags=re.IGNORECASE)
+
+
 parser = FragmentHTMLParser()
-parser.feed(sys.stdin.read())
+html_file = preprocess_to_eliminate_single_tags(sys.stdin.read())
+#print html_file
+parser.feed(html_file)
 print(json.dumps(parser.get_fragments(), indent=2))
+
+
