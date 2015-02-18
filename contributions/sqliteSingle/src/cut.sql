@@ -1,0 +1,3 @@
+BEGIN TRANSACTION;
+UPDATE Employee SET salary = salary / 2;
+END TRANSACTION;

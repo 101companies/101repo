@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="22cm" height="6cm" viewBox="354 54 425 119" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="376.376" y="70.368" width="195.4" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="376.376" y="70.368" width="195.4" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="474.076" y="84.368">Department</text>
+    <rect style="fill: #ffffff" x="376.376" y="88.368" width="195.4" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="376.376" y="88.368" width="195.4" height="52"/>
+    <polygon style="fill: #000000" points="379.376,98.368 381.376,101.368 383.376,98.368 381.376,95.368 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="385.376" y="104.368">ID</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="510.876" y="104.368">INTEGER</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="385.376" y1="105.968" x2="564.776" y2="105.968"/>
+    <ellipse style="fill: #000000" cx="381.376" cy="114.368" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.376" y="120.368">name</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="510.876" y="120.368">TEXT</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="381.376" cy="130.368" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="385.376" y="136.368">superdepartment</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="510.876" y="136.368">INTEGER</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="622.146" y="54.368" width="156.9" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="622.146" y="54.368" width="156.9" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="700.596" y="68.368">Employee</text>
+    <rect style="fill: #ffffff" x="622.146" y="72.368" width="156.9" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="622.146" y="72.368" width="156.9" height="100"/>
+    <polygon style="fill: #000000" points="625.146,82.368 627.146,85.368 629.146,82.368 627.146,79.368 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="631.146" y="88.368">ID</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="718.146" y="88.368">INTEGER</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="631.146" y1="89.968" x2="772.046" y2="89.968"/>
+    <ellipse style="fill: #000000" cx="627.146" cy="98.368" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="631.146" y="104.368">department</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="718.146" y="104.368">INTEGER</text>
+    <ellipse style="fill: #000000" cx="627.146" cy="114.368" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="631.146" y="120.368">name</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="718.146" y="120.368">TEXT</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="627.146" cy="130.368" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="631.146" y="136.368">address</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="718.146" y="136.368">TEXT</text>
+    <ellipse style="fill: #000000" cx="627.146" cy="146.368" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="631.146" y="152.368">salary</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="718.146" y="152.368">REAL</text>
+    <ellipse style="fill: #000000" cx="627.146" cy="162.368" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="631.146" y="168.368">isManager</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="718.146" y="168.368">BOOLEAN</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="376.376,130.368 356.376,130.368 356.376,98.368 371.904,98.368 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="364.14,103.368 374.14,98.368 364.14,93.368 "/>
+    <text font-size="9.6" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="372.376" y="126.368">n</text>
+    <text font-size="9.6" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="372.376" y="94.368">0,1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="622.146,98.368 622.146,98.368 576.248,98.368 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="584.012,93.368 574.012,98.368 584.012,103.368 "/>
+    <text font-size="9.6" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="626.146" y="110.368">1</text>
+    <text font-size="9.6" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="575.776" y="94.368">n</text>
+  </g>
+</svg>
