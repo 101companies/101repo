@@ -1,7 +1,7 @@
 [
 	{
 		"suffix": ".hs",
-		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"predicate": "classifierChecker",
 		"args": ["data", "department"],
 		"metadata": [
 			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
@@ -9,7 +9,7 @@
 	},
 	{
 		"suffix": ".java",
-		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"predicate": "classifierChecker",
 		"args": ["class", "department"],
 		"metadata": [
 			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
@@ -17,7 +17,7 @@
 	},
 	{
 		"suffix": ".java",
-		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"predicate": "classifierChecker",
 		"args": ["class", "company"],
 		"metadata": [
 			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
@@ -25,7 +25,7 @@
 	},
 	{
 		"suffix": ".java",
-		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"predicate": "classifierChecker",
 		"args": ["class", "employee"],
 		"metadata": [
 			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}
@@ -33,7 +33,7 @@
 	},
 	{
 		"suffix": ".java",
-		"predicate": "technologies/ClassifierChecker/classifierChecker.py",
+		"predicate": "classifierChecker",
 		"args": ["class", "subunit"],
 		"metadata": [
 			{"feature":"hierarchical company", "comment":"based on .extractor.json files"}

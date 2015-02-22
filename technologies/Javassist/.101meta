@@ -1,6 +1,6 @@
 [
     {
-        "predicate": "technologies/Java_platform/javaImport.py",
+        "predicate": "javaImport",
         "args": [
             "javassist"
         ],

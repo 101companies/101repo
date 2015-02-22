@@ -1,6 +1,6 @@
 [
     {
-        "predicate": "technologies/Java_platform/javaImport.py",
+        "predicate": "javaImport",
         "args": [
             "javax.swing"
         ],
@@ -15,7 +15,7 @@
         ]
     },
     {
-        "predicate": "technologies/Java_platform/javaImport.py",
+        "predicate": "javaImport",
         "args": [
             "com.sun.swing"
         ],

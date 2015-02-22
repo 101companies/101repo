@@ -1,6 +1,6 @@
 [
     {
-        "predicate": "technologies/Java_platform/javaAnnotation.py",
+        "predicate": "javaAnnotation",
         "args": [
             "Test",
             "Suite.SuiteClasses",
@@ -21,7 +21,7 @@
         ]
     },
     {
-        "predicate": "technologies/Java_platform/javaImport.py",
+        "predicate": "javaImport",
         "args": [
             "junit"
         ],
@@ -36,7 +36,7 @@
         ]
     },
     {
-        "predicate": "technologies/Java_platform/javaImport.py",
+        "predicate": "javaImport",
         "args": [
             "org.junit"
         ],

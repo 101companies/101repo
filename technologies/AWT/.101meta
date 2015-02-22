@@ -1,6 +1,6 @@
 [
     {
-        "predicate": "technologies/Java_platform/javaImport.py",
+        "predicate": "javaImport",
         "args": [
             "java.awt"
         ],
@@ -15,7 +15,7 @@
         ]
     },
     {
-        "predicate": "technologies/Java_platform/javaImport.py",
+        "predicate": "javaImport",
         "args": [
             "sun.awt"
         ],

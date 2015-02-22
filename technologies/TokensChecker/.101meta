@@ -4,7 +4,7 @@
         "args": [
             "total"
         ],
-        "predicate": "technologies/TokensChecker/tokensChecker.py",
+        "predicate": "tokensChecker",
         "metadata": {
             "comment": "based on refinedTokens",
             "feature": "total"
@@ -15,7 +15,7 @@
         "args": [
             "cut"
         ],
-        "predicate": "technologies/TokensChecker/tokensChecker.py",
+        "predicate": "tokensChecker",
         "metadata": {
             "comment": "based on refinedTokens",
             "feature": "cut"

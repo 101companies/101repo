@@ -8,7 +8,7 @@
         }
     },
     {
-        "predicate": "technologies/Java_platform/javaImport.sh",
+        "predicate": "javaImport",
         "args": [
             "javax.xml.bind"
         ],
