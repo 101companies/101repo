@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "javax.print"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Java Print Service"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["javax.print"], "language": "Java", "metadata": [{}, {"dependsOn": "Java Print Service"}]}]

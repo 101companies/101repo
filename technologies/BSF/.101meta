@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.apache.bsf"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "BSF"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.apache.bsf"], "language": "Java", "metadata": [{}, {"dependsOn": "BSF"}]}]

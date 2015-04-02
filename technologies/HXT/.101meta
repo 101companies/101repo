@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "Text.XML.HXT"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Haskell"
-            },
-            {
-                "dependsOn": "HXT"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["Text.XML.HXT"], "language": "Java", "metadata": [{}, {"dependsOn": "HXT"}]}]

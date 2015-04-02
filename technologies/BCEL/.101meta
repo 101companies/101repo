@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.apache.bcel"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "BCEL"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.apache.bcel"], "language": "Java", "metadata": [{}, {"dependsOn": "BCEL"}]}]

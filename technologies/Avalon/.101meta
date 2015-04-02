@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.apache.avalon"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Avalon"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.apache.avalon"], "language": "Java", "metadata": [{}, {"dependsOn": "Avalon"}]}]

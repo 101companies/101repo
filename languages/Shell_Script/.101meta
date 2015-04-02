@@ -1,16 +1,1 @@
-[
-	{
-		"suffix" : ".sh",
-		"metadata" : [
-			{"geshi":"text"},
-			{"language":"Shell_Script"}
-		]
-	},
-	{
-		"suffix" : ".bat",
-		"metadata" : [
-			{"geshi":"text"},
-			{"language":"Shell_Script"}
-		]
-	}
-]
+[{"suffix": ".sh", "metadata": [{"geshi": "text"}, {"language": "Shell_Script"}]}, {"suffix": ".bat", "metadata": [{"geshi": "text"}, {"language": "Shell_Script"}]}]

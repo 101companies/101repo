@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "javax.naming"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "JNDI"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["javax.naming"], "language": "Java", "metadata": [{}, {"dependsOn": "JNDI"}]}]

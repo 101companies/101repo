@@ -1,11 +1,1 @@
-[
-	{
-		"suffix" : ".py",
-		"metadata" : [
-			{"geshi":"python"},
-			{"language":"Python"},
-			{"extractor": "technologies/PyFactExtractor/extractor.py"},
-			{"locator": "technologies/PyFragmentLocator/locator.py"}
-		]
-	}
-]
+[{"suffix": ".py", "metadata": [{"geshi": "python"}, {"language": "Python"}, {}, {"locator": "technologies/PyFragmentLocator/locator.py"}]}]

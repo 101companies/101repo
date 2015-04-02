@@ -1,9 +1,1 @@
-[
-	{
-		"suffix":".config",
-		"metadata": [
-			{"geshi":"xml"},
-			{"language":"Config"}
-		]
-	}
-]
+[{"suffix": ".config", "metadata": [{"geshi": "xml"}, {"language": "Config"}]}]

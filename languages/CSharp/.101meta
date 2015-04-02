@@ -1,12 +1,1 @@
-[
-	{
-		"suffix" : ".cs",
-		"metadata" : [
-			{"geshi":"csharp"},
-			{"language":"CSharp"},
-			{"validator": "technologies/CSharpValidator/validator.py"},
-			{"extractor": "technologies/CSharpFactExtractor/extractor.py"},            
-			{"locator": "technologies/CSharpFragmentLocator/locator.py"}
-		]
-	}
-]
+[{"suffix": ".cs", "metadata": [{"geshi": "csharp"}, {"language": "CSharp"}, {"validator": "CSharpValidator"}, {}, {"locator": "technologies/CSharpFragmentLocator/locator.py"}]}]

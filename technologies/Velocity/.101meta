@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.apache.velocity"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Velocity"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.apache.velocity"], "language": "Java", "metadata": [{}, {"dependsOn": "Velocity"}]}]

@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.apache.ecs"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "ECS"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.apache.ecs"], "language": "Java", "metadata": [{}, {"dependsOn": "ECS"}]}]

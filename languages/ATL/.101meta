@@ -1,15 +1,1 @@
-[
-	{
-		"suffix" : ".atl",
-		"metadata" : [
-			{"geshi":"text"},
-			{"language":"ATL"}
-		]
-	},
-	{
-		"suffix" : ".asm",
-		"metadata" : [
-			{"relevance" : "derive"}
-		]
-	}
-]
+[{"suffix": ".atl", "metadata": [{"geshi": "text"}, {"language": "ATL"}]}, {"suffix": ".asm", "metadata": [{"relevance": "derive"}]}]

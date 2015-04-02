@@ -1,10 +1,1 @@
-[
-	{
-		"suffix" : ".ecore",
-		"metadata" : [
-			{"geshi":"xml"},
-			{"language":"Ecore"},
-			{"locator": "technologies/XmlFragmentLocator/locator.py"}
-		]
-	}
-]
+[{"suffix": ".ecore", "metadata": [{"geshi": "xml"}, {"language": "Ecore"}, {"locator": "technologies/XmlFragmentLocator/locator.py"}]}]

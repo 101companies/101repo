@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "com.apple.eawt"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Java_platform"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["com.apple.eawt"], "language": "Java", "metadata": [{}, {"dependsOn": "Java_platform"}]}]

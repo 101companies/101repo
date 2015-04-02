@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "com.google.common"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Guava"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["com.google.common"], "language": "Java", "metadata": [{}, {"dependsOn": "Guava"}]}]

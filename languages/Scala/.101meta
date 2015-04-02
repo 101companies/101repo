@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".scala",
-		"metadata" : [
-			{"geshi":"scala"},
-			{"language":"Scala"}
-		]
-	}
-]
+[{"suffix": ".scala", "metadata": [{"geshi": "scala"}, {"language": "Scala"}]}]

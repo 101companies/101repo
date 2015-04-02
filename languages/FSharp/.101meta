@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".fs",
-		"metadata" : [
-			{"geshi":"text"},
-			{"language":"FSharp"}
-		]
-	}
-]
+[{"suffix": ".fs", "metadata": [{"geshi": "text"}, {"language": "FSharp"}]}]

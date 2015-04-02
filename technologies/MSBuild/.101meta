@@ -1,13 +1,1 @@
-[
-    {
-        "suffix": ".csproj",
-        "metadata": [
-            {
-                "geshi": "xml"
-            },
-            {
-                "dependsOn": "MSBuild"
-            }
-        ]
-    }
-]
+[{"suffix": ".csproj", "metadata": [{"geshi": "xml"}, {"dependsOn": "MSBuild"}]}]

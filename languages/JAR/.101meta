@@ -1,7 +1,1 @@
-{ 
-    "suffix" : ".jar", 
-    "metadata" : [ 
-      { "language" : "JAR" },
-      { "nature" : "archive" }
-    ]
-}
+{"suffix": ".jar", "metadata": [{"language": "JAR"}, {"nature": "archive"}]}

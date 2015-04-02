@@ -1,11 +1,1 @@
-[
-	{
-		"suffix" : ".html",
-		"metadata" : [
-			{"geshi":"html"},
-			{"language":"HTML"},
-			{"validator": "technologies/JTidyValidator/validator.py"},
-			{"extractor": "technologies/HTMLFactExtractor/extractor.py"}
-		]
-	}
-]
+[{"suffix": ".html", "metadata": [{"geshi": "html"}, {"language": "HTML"}, {"validator": "JTidyValidator"}, {}]}]

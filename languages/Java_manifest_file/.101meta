@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".mf",
-		"metadata" : [
-			{"geshi":"text"},
-			{"language":"Java_manifest_file"}
-		]
-	}
-]
+[{"suffix": ".mf", "metadata": [{"geshi": "text"}, {"language": "Java_manifest_file"}]}]

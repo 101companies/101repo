@@ -1,15 +1,1 @@
-[
-  {
-    "dirname" : "contributions/xsdDataSet/Properties",
-    "metadata" : {
-      "relevance" : "ignore",
-      "comment" : "Project properties file"
-    }
-  },
-  {
-    "filename" : "contributions/xsdDataSet/make.bat",
-    "metadata" : {
-      "comment" : "Batch script to execute the transformation"
-    }
-  }
-]
+[{"dirname": "contributions/xsdDataSet/Properties", "metadata": {"relevance": "ignore", "comment": "Project properties file"}}, {"metadata": {"comment": "Batch script to execute the transformation"}, "filename": "contributions/xsdDataSet/make.bat"}]

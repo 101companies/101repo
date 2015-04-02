@@ -1,10 +1,1 @@
-[
-	{
-		"suffix" : ".xhtml",
-		"metadata" : [
-			{"geshi":"html"},
-			{"language":"XHTML"},
-			{"validator": "technologies/JTidyValidator/validator.py"}
-		]
-	}
-]
+[{"suffix": ".xhtml", "metadata": [{"geshi": "html"}, {"language": "XHTML"}, {"validator": "JTidyValidator"}]}]

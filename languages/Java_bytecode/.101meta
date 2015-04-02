@@ -1,8 +1,1 @@
-[
-	{
-		"suffix" : ".class",
-		"metadata" : [
-			{"language":"Java_bytecode"}
-		]
-	}
-]
+[{"suffix": ".class", "metadata": [{"language": "Java_bytecode"}]}]

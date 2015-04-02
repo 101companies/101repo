@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".aj",
-		"metadata" : [
-			{"geshi":"text"},
-			{"language":"AspectJ"}
-		]
-	}
-]
+[{"suffix": ".aj", "metadata": [{"geshi": "text"}, {"language": "AspectJ"}]}]

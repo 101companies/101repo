@@ -1,8 +1,1 @@
-[
-	{
-		"suffix" : ".gif",
-		"metadata" : [
-			{"language":"Graphics Interchange Format"}
-		]
-	}
-]
+[{"suffix": ".gif", "metadata": [{"language": "Graphics Interchange Format"}]}]

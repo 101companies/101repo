@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".st",
-		"metadata" : [
-			{"geshi":"smalltalk"},
-			{"language":"Smalltalk"}
-		]
-	}
-]
+[{"suffix": ".st", "metadata": [{"geshi": "smalltalk"}, {"language": "Smalltalk"}]}]

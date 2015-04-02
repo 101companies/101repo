@@ -1,10 +1,1 @@
-[
-    {
-        "basename": "#^gretl[.]jar$#",
-        "metadata": [
-            {
-                "dependsOn": "GReTL"
-            }
-        ]
-    }
-]
+[{"basename": "#^gretl[.]jar$#", "metadata": [{"dependsOn": "GReTL"}]}]

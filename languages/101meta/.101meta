@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".101meta",
-		"metadata" : [
-			{"geshi":"javascript"},
-			{"language":"101meta"}
-		]
-	}
-]
+[{"suffix": ".101meta", "metadata": [{"geshi": "javascript"}, {"language": "101meta"}]}]

@@ -1,16 +1,1 @@
-[
-	{
-		"suffix" : ".cpp",
-		"metadata" : [
-			{"geshi":"cpp"},
-			{"language":"CPlusPlus"}
-		]
-	},
-	{
-		"suffix" : ".hpp",
-		"metadata" : [
-			{"geshi":"cpp"},
-			{"language":"CPlusPlus"}
-		]
-	}
-]
+[{"suffix": ".cpp", "metadata": [{"geshi": "cpp"}, {"language": "CPlusPlus"}]}, {"suffix": ".hpp", "metadata": [{"geshi": "cpp"}, {"language": "CPlusPlus"}]}]

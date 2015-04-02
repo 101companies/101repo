@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "javassist"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Javassist"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["javassist"], "language": "Java", "metadata": [{}, {"dependsOn": "Javassist"}]}]

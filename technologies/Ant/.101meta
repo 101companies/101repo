@@ -1,10 +1,1 @@
-[
-    {
-        "basename": "#^build[.]xml$#",
-        "metadata": [
-            {
-                "dependsOn": "Ant"
-            }
-        ]
-    }
-]
+[{"basename": "#^build[.]xml$#", "metadata": [{"dependsOn": "Ant"}]}]

@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.jaxen"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Jaxen"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.jaxen"], "language": "Java", "metadata": [{}, {"dependsOn": "Jaxen"}]}]

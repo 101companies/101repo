@@ -1,16 +1,1 @@
-[
-	{
-		"filename" : "contributions/ruby/company/company.rb",
-		"fragment" : "def/total/^[def]*",
-		"metadata": {
-			"phrase" : ["Total", "Company"]
-		}
-	},
-	{
-		"filename" : "contributions/ruby/company/company.rb",
-		"fragment" : "def/cut/.*/>/end$",
-		"metadata": {
-			"phrase" : ["Cut", "Company"]
-		}
-	}
-]
+[{"fragment": "def/total/^[def]*", "metadata": {"phrase": ["Total", "Company"]}, "filename": "contributions/ruby/company/company.rb"}, {"fragment": "def/cut/.*/>/end$", "metadata": {"phrase": ["Cut", "Company"]}, "filename": "contributions/ruby/company/company.rb"}]

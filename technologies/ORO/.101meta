@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.apache.oro"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "ORO"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.apache.oro"], "language": "Java", "metadata": [{}, {"dependsOn": "ORO"}]}]

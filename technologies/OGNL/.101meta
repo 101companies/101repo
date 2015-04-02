@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "ognl"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "OGNL"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["ognl"], "language": "Java", "metadata": [{}, {"dependsOn": "OGNL"}]}]

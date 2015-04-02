@@ -1,12 +1,1 @@
-[
-    {
-        "fpredicate": "technologies/fpredicate_generic_platform/tokens.py",
-	"suffix":".dadada"
-        "args": [
-            "total"
-        ],
-        "metadata": [
-            {"feature": "total"}
-        ]
-    }
-]
+[{"dirname": "contributions/xsdDataSet/Properties", "metadata": {"relevance": "ignore", "comment": "Project properties file"}}, {"metadata": {"comment": "Batch script to execute the transformation"}, "filename": "contributions/xsdDataSet/make.bat"}]

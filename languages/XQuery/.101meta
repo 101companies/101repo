@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".xq",
-		"metadata" : [
-			{"geshi":"xml"},
-			{"language":"XQuery"}
-		]
-	}
-]
+[{"suffix": ".xq", "metadata": [{"geshi": "xml"}, {"language": "XQuery"}]}]

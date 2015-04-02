@@ -1,17 +1,1 @@
-[
-    {
-        "predicate": "javaImport",
-        "args": [
-            "org.bouncycastle"
-        ],
-        "suffix": ".java",
-        "metadata": [
-            {
-                "language": "Java"
-            },
-            {
-                "dependsOn": "Bouncy Castle"
-            }
-        ]
-    }
-]
+[{"predicate": "javaImport", "args": ["org.bouncycastle"], "language": "Java", "metadata": [{}, {"dependsOn": "Bouncy Castle"}]}]

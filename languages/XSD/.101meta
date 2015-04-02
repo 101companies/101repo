@@ -1,12 +1,1 @@
-[
-	{
-		"suffix" : ".xsd",
-		"metadata" : [
-			{"geshi":"xml"},
-			{"language":"XSD"},
-			{"validator": "technologies/XSDValidator/validator.py"},
-			{"extractor": "technologies/XmlFactExtractor/extractor.py"},            
-			{"locator": "technologies/XmlFragmentLocator/locator.py"}
-		]
-	}
-]
+[{"suffix": ".xsd", "metadata": [{"geshi": "xml"}, {"language": "XSD"}, {"validator": "XSDValidator"}, {}, {"locator": "technologies/XmlFragmentLocator/locator.py"}]}]

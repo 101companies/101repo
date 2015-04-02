@@ -1,9 +1,1 @@
-[
-	{
-		"suffix" : ".cob",
-		"metadata" : [
-			{"geshi":"cobol"},
-			{"language":"Cobol"}
-		]
-	}
-]
+[{"suffix": ".cob", "metadata": [{"geshi": "cobol"}, {"language": "Cobol"}]}]
