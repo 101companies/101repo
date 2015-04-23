@@ -1,1 +1,1 @@
-[{"suffix": ".hs", "metadata": [{"geshi": "haskell"}, {"language": "Haskell"}, {"locator": "technologies/HsFragmentLocator/HsFragmentLocator"}, {}, {"matcher": "technologies/HsImportMatcher/matcher.py"}]}]
+[{"suffix": ".hs", "metadata": [{"geshi": "haskell"}, {"language": "Haskell"}, {"locator": "technologies/HsFragmentLocator/HsFragmentLocator"}, {"matcher": "technologies/HsImportMatcher/matcher.py"}]}]

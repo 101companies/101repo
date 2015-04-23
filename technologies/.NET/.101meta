@@ -1,1 +1,1 @@
-[{"predicate": "dotNETImport", "args": ["System.Xml"], "language": "CSharp", "metadata": [{}, {}, {"dependsOn": ".NET"}]}]
+[{"predicate": "dotNETImport", "args": ["System.Xml"], "language": "CSharp", "metadata": [{}, {"dependsOn": ".NET"}]}]
