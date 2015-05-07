@@ -1,0 +1,92 @@
+The following procedure has been tested on the following configuration:
+- Eclipse 3.6 (EE)
+- JBoss 5.1
+- Mac OS Snow Leopard
+- Java 1.6
+
+------------------------------------------------------
+
+How to install JBoss in Eclipse 
+
+1.
+
+Make sure you have an appropriate Eclipse version:
+Eclipse for Java EE developers
+
+2.
+
+Make sure you have JBoss 5.
+http://www.jboss.org/jbossas/downloads/
+This project has been tested with 5.1.0.GA.
+Look for the following archive in particular:
+jboss-5.1.0.GA.zip
+
+3.
+
+This project relies on Java 6.
+
+(
+For JBoss 5 to work with Java 6 you need to follow these instructions:
+http://www.jboss.org/file-access/default/members/jbossas/freezone/docs/Installation_And_Getting_Started_Guide/5/html/source_installation.html#Java6_Notes
+We explain the relevant issues below.
+Hence, you can skip the above link.
+)
+
+4. 
+
+Click right mouse on Project and select
+New->Server->JBoss v5.0 and provide path to JBoss directory. 
+Don't forget to select JDK 1.6
+
+5. 
+
+It's VERY advisable to change timeout for server's startup (unless you have a very fast system). 
+DOUBLE CLICK on the servers in "Servers" tab (next to console) and increase timeout time in "Timeouts" section.
+(Add "0" in the end to get factor 10 increase.)
+
+6.
+
+It's time to test the sever.
+Run the JBoss server.
+One way to do is to select a JBoss project with a WebService and to run through JBoss.
+To this end, do something like this:
+Click right mouse on Project and select
+"Run As ... " Run on the Server.
+Select JBoss 5 Server.
+Press Finish.
+
+In the Console window, you should see the Server starting shortly.
+In the Service tab, you should find the service listed under the Server.
+
+6.
+
+Stop the server.
+
+------------------------------------------------------
+
+Running projects with the JBoss Server
+
+1. 
+
+Make sure JBoss Server is properly installed; see above.
+
+2.
+
+Make sure the project has been ran once as described above.
+
+3.
+
+The run configuration for the server needs to be refined.
+Open "Run configurations", select Generic servers -> JBoss server, open tab "Arguments".
+Look at the VM settings.
+You should see something like this:
+-Dprogram.name=run.bat -Xms128m -Xmx512m  -XX:MaxPermSize=256m 
+These settings would have been set up by the previous step.
+Add the following to the field "VM arguments"
+-Djava.endorsed.dirs=/JBOSS_HOME/lib/endorsed/
+For example:
+-Dprogram.name=run.bat -Xms128m -Xmx512m  -XX:MaxPermSize=256m -Djava.endorsed.dirs=/Users/laemmel/software/jboss-5.0.0.GA/lib/endorsed/
+
+4. 
+
+You can now start the server and proceed with building and testing the client.

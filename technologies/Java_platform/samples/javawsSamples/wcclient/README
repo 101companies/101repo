@@ -1,0 +1,6 @@
+Run a client to make use of the "word count" service.
+The service may be running on the same machine or remotely.
+(Adjust the service URI in the Main.java file.)
+The JAR for the web service was built using Java (wsimport) 6.
+See the Makefile for the record of the build process.
+See the subdir wsdl for the JAXB-generated classes for the service.

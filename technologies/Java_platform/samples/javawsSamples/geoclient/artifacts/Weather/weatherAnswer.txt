@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-16"?>
+<CurrentWeather>
+  <Location>Koeln / Bonn, Germany (EDDK) 50-52N 007-10E 100M</Location>
+  <Time>Jun 12, 2009 - 10:50 AM EDT / 2009.06.12 1450 UTC</Time>
+  <Wind> from the WNW (290 degrees) at 18 MPH (16 KT):0</Wind>
+  <Visibility> greater than 7 mile(s):0</Visibility>
+  <Temperature> 66 F (19 C)</Temperature>
+  <DewPoint> 37 F (3 C)</DewPoint>
+  <RelativeHumidity> 34%</RelativeHumidity>
+  <Pressure> 30.12 in. Hg (1020 hPa)</Pressure>
+  <Status>Success</Status>
+</CurrentWeather>
