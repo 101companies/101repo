@@ -1,6 +1,6 @@
 -- Test for two lists to be permutations of each other
 permutation :: Eq a => [a] -> [a] -> Bool
-permutation [] [] = True
+permutation [] ys = null ys
 permutation (x:xs) ys = remove ys []
   where
     -- Repeat removal of equal elements
