@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.hamcrest"], "language": "Java", "metadata": [ {"dependsOn": "Hamcrest"}]}]
+[{"predicate": "javaImport", "args": ["org.hamcrest"], "language": "Java", "metadata": [{"dependsOn": "Hamcrest"}]}]

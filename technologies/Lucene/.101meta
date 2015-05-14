@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.apache.lucene"], "language": "Java", "metadata": [ {"dependsOn": "Lucene"}]}, {"basename": "#^lucene-core[.]jar$#", "metadata": [{"dependsOn": "Lucene"}]}]
+[{"predicate": "javaImport", "args": ["org.apache.lucene"], "language": "Java", "metadata": [{"dependsOn": "Lucene"}]}, {"basename": "#^lucene-core[.]jar$#", "metadata": [{"dependsOn": "Lucene"}]}]

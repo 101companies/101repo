@@ -1,1 +1,1 @@
-[{"suffix": ".css", "metadata": [{"geshi": "css"}, {"language": "CSS"}, {"validator": "W3CValidator"}]}, {"suffix": ".min.css", "metadata": {"dominator": "extractor", "comment": "Minified CSS code", "concept": "Minification"}}]
+[{"suffix": ".css", "metadata": [{"geshi": "css"}, {"language": "CSS"}, {}]}, {"suffix": ".min.css", "metadata": {"dominator": "extractor", "comment": "Minified CSS code", "concept": "Minification"}}]

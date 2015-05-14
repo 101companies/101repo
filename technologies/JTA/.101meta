@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["javax.transaction"], "language": "Java", "metadata": [ {"dependsOn": "JTA"}]}, {"basename": "#^jta[.]jar$#", "metadata": [{"dependsOn": "JTA"}]}]
+[{"predicate": "javaImport", "args": ["javax.transaction"], "language": "Java", "metadata": [{"dependsOn": "JTA"}]}, {"basename": "#^jta[.]jar$#", "metadata": [{"dependsOn": "JTA"}]}]

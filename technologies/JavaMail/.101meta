@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["javax.mail"], "language": "Java", "metadata": [ {"dependsOn": "JavaMail"}]}, {"basename": "#^mail[.]jar$#", "metadata": [{"dependsOn": "JavaMail"}]}]
+[{"predicate": "javaImport", "args": ["javax.mail"], "language": "Java", "metadata": [{"dependsOn": "JavaMail"}]}, {"basename": "#^mail[.]jar$#", "metadata": [{"dependsOn": "JavaMail"}]}]

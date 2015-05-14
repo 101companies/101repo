@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.springframework"], "language": "Java", "metadata": [ {"dependsOn": "Spring"}]}, {"basename": "#^spring[.]jar$#", "metadata": [{"dependsOn": "Spring"}]}]
+[{"predicate": "javaImport", "args": ["org.springframework"], "language": "Java", "metadata": [{"dependsOn": "Spring"}]}, {"basename": "#^spring[.]jar$#", "metadata": [{"dependsOn": "Spring"}]}]

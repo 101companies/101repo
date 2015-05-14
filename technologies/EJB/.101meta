@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["javax.ejb"], "language": "Java", "metadata": [ {"dependsOn": "EJB"}]}, {"basename": "#^ejb-api[.]jar$#", "metadata": [{"dependsOn": "EJB"}]}]
+[{"predicate": "javaImport", "args": ["javax.ejb"], "language": "Java", "metadata": [{"dependsOn": "EJB"}]}, {"basename": "#^ejb-api[.]jar$#", "metadata": [{"dependsOn": "EJB"}]}]
