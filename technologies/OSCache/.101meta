@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["com.opensymphony.oscache"], "language": "Java", "metadata": [{}, {"dependsOn": "OSCache"}]}]
+[{"predicate": "javaImport", "args": ["com.opensymphony.oscache"], "language": "Java", "metadata": [ {"dependsOn": "OSCache"}]}]

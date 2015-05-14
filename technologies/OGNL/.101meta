@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["ognl"], "language": "Java", "metadata": [{}, {"dependsOn": "OGNL"}]}]
+[{"predicate": "javaImport", "args": ["ognl"], "language": "Java", "metadata": [ {"dependsOn": "OGNL"}]}]

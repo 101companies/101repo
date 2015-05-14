@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.hibernate"], "language": "Java", "metadata": [{}, {"dependsOn": "Hibernate"}]}, {"basename": "#^hibernate(.*)[.]jar$#", "metadata": [{"dependsOn": "Hibernate"}]}]
+[{"predicate": "javaImport", "args": ["org.hibernate"], "language": "Java", "metadata": [ {"dependsOn": "Hibernate"}]}, {"basename": "#^hibernate(.*)[.]jar$#", "metadata": [{"dependsOn": "Hibernate"}]}]

@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.w3c.tidy"], "language": "Java", "metadata": [{}, {"dependsOn": "Tidy"}]}]
+[{"predicate": "javaImport", "args": ["org.w3c.tidy"], "language": "Java", "metadata": [ {"dependsOn": "Tidy"}]}]

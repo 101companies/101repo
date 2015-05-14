@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.jdom"], "language": "Java", "metadata": [{}, {"dependsOn": "JDOM"}]}, {"basename": "#^jdom-(.*)[.]jar$#", "metadata": [{"dependsOn": "JDOM"}]}]
+[{"predicate": "javaImport", "args": ["org.jdom"], "language": "Java", "metadata": [ {"dependsOn": "JDOM"}]}, {"basename": "#^jdom-(.*)[.]jar$#", "metadata": [{"dependsOn": "JDOM"}]}]

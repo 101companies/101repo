@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["javax.media"], "language": "Java", "metadata": [{}, {"dependsOn": "JMF"}]}]
+[{"predicate": "javaImport", "args": ["javax.media"], "language": "Java", "metadata": [ {"dependsOn": "JMF"}]}]

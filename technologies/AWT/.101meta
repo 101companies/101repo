@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["java.awt"], "language": "Java", "metadata": [{}, {"dependsOn": "AWT"}]}, {"predicate": "javaImport", "args": ["sun.awt"], "language": "Java", "metadata": [{}, {"dependsOn": "AWT"}]}]
+[{"predicate": "javaImport", "args": ["java.awt"], "language": "Java", "metadata": [ {"dependsOn": "AWT"}]}, {"predicate": "javaImport", "args": ["sun.awt"], "language": "Java", "metadata": [{}, {"dependsOn": "AWT"}]}]

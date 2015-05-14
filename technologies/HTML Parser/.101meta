@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.htmlparser"], "language": "Java", "metadata": [{}, {"dependsOn": "HTML Parser"}]}, {"basename": "#^htmlparser[.]jar$#", "metadata": [{"dependsOn": "HTML Parser"}]}]
+[{"predicate": "javaImport", "args": ["org.htmlparser"], "language": "Java", "metadata": [ {"dependsOn": "HTML Parser"}]}, {"basename": "#^htmlparser[.]jar$#", "metadata": [{"dependsOn": "HTML Parser"}]}]

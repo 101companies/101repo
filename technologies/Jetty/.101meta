@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.mortbay.jetty"], "language": "Java", "metadata": [{}, {"dependsOn": "Jetty"}]}]
+[{"predicate": "javaImport", "args": ["org.mortbay.jetty"], "language": "Java", "metadata": [ {"dependsOn": "Jetty"}]}]

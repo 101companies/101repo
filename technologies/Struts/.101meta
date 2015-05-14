@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.apache.struts"], "language": "Java", "metadata": [{}, {"dependsOn": "Struts"}]}]
+[{"predicate": "javaImport", "args": ["org.apache.struts"], "language": "Java", "metadata": [ {"dependsOn": "Struts"}]}]

@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["java_cup.runtime"], "language": "Java", "metadata": [{}, {"dependsOn": "CUP"}]}]
+[{"predicate": "javaImport", "args": ["java_cup.runtime"], "language": "Java", "metadata": [ {"dependsOn": "CUP"}]}]

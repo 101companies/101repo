@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.python"], "language": "Java", "metadata": [{}, {"dependsOn": "Jython"}]}]
+[{"predicate": "javaImport", "args": ["org.python"], "language": "Java", "metadata": [ {"dependsOn": "Jython"}]}]

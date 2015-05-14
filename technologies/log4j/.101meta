@@ -1,1 +1,1 @@
-[{"predicate": "javaImport", "args": ["org.apache.log4j"], "language": "Java", "metadata": [{}, {"dependsOn": "log4j"}]}, {"basename": "#^log4j[.]jar$#", "metadata": [{"dependsOn": "log4j"}]}, {"basename": "#^log4j-(.*)[.]jar$#", "metadata": [{"dependsOn": "log4j"}]}]
+[{"predicate": "javaImport", "args": ["org.apache.log4j"], "language": "Java", "metadata": [ {"dependsOn": "log4j"}]}, {"basename": "#^log4j[.]jar$#", "metadata": [{"dependsOn": "log4j"}]}, {"basename": "#^log4j-(.*)[.]jar$#", "metadata": [{"dependsOn": "log4j"}]}]
