@@ -21,8 +21,8 @@ public class Account
 		int preview = balance - amount;
 		
 		// activate the next two lines of code to decrease thread safety
-		try { Thread.sleep(100); }
-		catch (InterruptedException e) { return false; }
+//		try { Thread.sleep(100); }
+//		catch (InterruptedException e) { return false; }
 		
 		if (preview<0)
 			return false;

@@ -19,6 +19,7 @@ public class Demo {
 		System.out.print("Without reflection: ");
 		Exemplar obj = new Exemplar();
 		obj.run();
+		System.out.println("Class of object:" + obj.getClass());
 		 
 		// Reflection API with raw types for simplicity
 		try { 

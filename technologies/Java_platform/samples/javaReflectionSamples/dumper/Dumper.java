@@ -33,11 +33,12 @@ public class Dumper {
 				System.out.print(f.getType().getName() + " " + f.getName() + " = ");
 				if (f.getType().isPrimitive())
 					System.out.println(v);
-				else if (v==null)
+				else 
+					if (v==null)
 					System.out.println("NULL");
 				else {
 					System.out.println();
-					dump(i+1,f.get(obj));
+					dump(i+1, v);
 				}
 			}
 			catch (IllegalAccessException e) {
