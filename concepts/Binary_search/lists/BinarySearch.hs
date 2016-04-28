@@ -1,6 +1,7 @@
 module BinarySearch where
 
 -- Polymorphic binary search
+-- Assume that input list is sorted
 search :: Ord a => [a] -> a -> Bool
 search [] _ = False
 search xs x =
