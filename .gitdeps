@@ -99,11 +99,5 @@
     "sourcedir" : "/contributions",
     "targetdir" : "contributions",
     "mode" : "subdirsonly"
-  },
-  {
-    "sourcerepo" : "https://github.com/tschmorleiz/101haskellclones.git",
-    "sourcedir" : "/contributions",
-    "targetdir" : "contributions",
-    "mode" : "subdirsonly"
   }
 ]
