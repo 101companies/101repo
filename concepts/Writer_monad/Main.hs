@@ -1,19 +1,23 @@
-import Control.Monad
+import Control.Monad (ap)
+-- import Control.Applicative
 import Data.Monoid
 
 -- Simple Boolean expressions
-data Expr = Const Bool | And Expr Expr | Or Expr Expr
+data Expr = Constant Bool | And Expr Expr | Or Expr Expr
   deriving (Eq, Show, Read)
 
--- Plain interpreter
+-- A sample term with two operations
+sample = And (Constant True) (Or (Constant False) (Constant True))
+
+-- A straightforward interpreter
 eval :: Expr -> Bool
-eval (Const b) = b
+eval (Constant b) = b
 eval (And e1 e2) = eval e1 && eval e2
 eval (Or e1 e2) = eval e1 || eval e2
 
 -- Interpreter with counting operations
 eval' :: Expr -> (Bool, Int)
-eval' (Const b) = (b, 0)
+eval' (Constant b) = (b, 0)
 eval' (And e1 e2) = 
   let 
    (b1,i) = eval' e1
@@ -24,6 +28,34 @@ eval' (Or e1 e2) =
    (b1,i) = eval' e1
    (b2,i') = eval' e2
   in (b1 || b2, i+i'+1) 
+
+-- Monadic style interpreter
+evalM :: Expr -> Writer (Sum Int) Bool
+evalM (Constant b) = return b
+evalM (And e1 e2) = 
+  evalM e1 >>= \b1 ->
+  evalM e2 >>= \b2 ->
+  tell (Sum 1) >> 
+  return (b1 && b2)
+evalM (Or e1 e2) = 
+  evalM e1 >>= \b1 ->
+  evalM e2 >>= \b2 ->
+  tell (Sum 1) >> 
+  return (b1 || b2)
+
+-- Monadic style interpreter in do notation
+evalM' :: Expr -> Writer (Sum Int) Bool
+evalM' (Constant b) = return b
+evalM' (And e1 e2) = do
+  b1 <- evalM' e1
+  b2 <- evalM' e2
+  tell (Sum 1)
+  return (b1 && b2)
+evalM' (Or e1 e2) = do
+  b1 <- evalM' e1
+  b2 <- evalM' e2
+  tell (Sum 1)
+  return (b1 || b2)
 
 {-
 
@@ -57,36 +89,18 @@ instance Monoid w => Monad (Writer w)
 tell :: w -> Writer w ()
 tell w = Writer ((), w)
 
--- Monadic style interpreter
-evalM :: Expr -> Writer (Sum Int) Bool
-evalM (Const b) = return b
-evalM (And e1 e2) = 
-  evalM e1 >>= \b1 ->
-  evalM e2 >>= \b2 ->
-  tell (Sum 1) >> 
-  return (b1 && b2)
-evalM (Or e1 e2) = 
-  evalM e1 >>= \b1 ->
-  evalM e2 >>= \b2 ->
-  tell (Sum 1) >> 
-  return (b1 || b2)
+-- Applicative instance for Writer
+-- These days, Applicative is now a superclass of Monad.
+instance Monoid w => Applicative (Writer w)
+  where
+    pure x = return x
+    (<*>) = ap
 
--- Monadic style interpreter in do notation
-evalM' :: Expr -> Writer (Sum Int) Bool
-evalM' (Const b) = return b
-evalM' (And e1 e2) = do
-  b1 <- evalM' e1
-  b2 <- evalM' e2
-  tell (Sum 1)
-  return (b1 && b2)
-evalM' (Or e1 e2) = do
-  b1 <- evalM' e1
-  b2 <- evalM' e2
-  tell (Sum 1)
-  return (b1 || b2)
-
--- A sample term with two operations
-sample = And (Const True) (Or (Const False) (Const True))
+-- Functor instance for Writer
+-- These days, Functor is a superclass of Applicative.
+instance Functor (Writer w)
+  where
+    fmap f c = Writer (let (x, w) = runWriter c in (f x, w))
 
 -- Test interpretation
 main = do

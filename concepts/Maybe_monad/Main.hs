@@ -1,22 +1,28 @@
 import Prelude hiding (Maybe, Nothing, Just, maybe)
-
--- The Maybe type constructor
-data Maybe a = Nothing | Just a
- deriving (Read, Show, Eq)
+import Control.Monad (ap)
+-- import Control.Applicative
 
 -- Simple arithmetic expressions
-data Expr = Const Float | Add Expr Expr | Sqrt Expr
+data Expr = Constant Float | Add Expr Expr | Sqrt Expr
   deriving (Eq, Show, Read)
 
--- An interpreter with a potential NaN (not a number) result
+-- Sample terms
+sample = Sqrt (Constant 4)
+sample' = Sqrt (Constant (-1))
+
+-- A straightforward interpreter
 eval :: Expr -> Float
-eval (Const f) = f
+eval (Constant f) = f
 eval (Add e1 e2) = eval e1 + eval e2
 eval (Sqrt e) = sqrt (eval e)
 
+-- The Maybe type constructor; repeated from the library
+data Maybe a = Nothing | Just a
+ deriving (Read, Show, Eq)
+
 -- An interpreter using a Maybe type for partiality
 eval' :: Expr -> Maybe Float
-eval' (Const f) = Just f
+eval' (Constant f) = Just f
 eval' (Add e1 e2) = 
   case eval' e1 of
     Nothing -> Nothing
@@ -38,7 +44,7 @@ maybe _ f (Just a) = f a
 
 -- An interpreter using fold over maybe
 eval'' :: Expr -> Maybe Float
-eval'' (Const f) = Just f
+eval'' (Constant f) = Just f
 eval'' (Add e1 e2) = 
   maybe Nothing
         (\f1 -> maybe Nothing
@@ -49,6 +55,30 @@ eval'' (Sqrt e) =
   maybe Nothing
         (\f -> if f < 0.0 then Nothing else Just (sqrt f))
         (eval'' e)    
+
+-- A monadic style interpreter
+evalM :: Expr -> Maybe Float
+evalM (Constant f) = return f
+evalM (Add e1 e2) =
+  evalM e1 >>= \f1 ->
+  evalM e2 >>= \f2 ->
+  return (f1 + f2)
+evalM (Sqrt e) =
+  evalM e >>= \f ->
+  guard (f >= 0.0) >>
+  return (sqrt f)
+
+-- A monadic style interpreter in do notation
+evalM' :: Expr -> Maybe Float
+evalM' (Constant f) = return f
+evalM' (Add e1 e2) = do
+  f1 <- evalM' e1
+  f2 <- evalM' e2
+  return (f1 + f2)
+evalM' (Sqrt e) = do
+  f <- evalM' e
+  guard (f >= 0.0)
+  return (sqrt f)
 
 -- Monad instance for Maybe
 instance Monad Maybe
@@ -74,33 +104,19 @@ instance MonadPlus Maybe
 guard :: MonadPlus m => Bool -> m ()
 guard b = if b then return () else mzero
 
--- A monadic style interpreter
-evalM :: Expr -> Maybe Float
-evalM (Const f) = return f
-evalM (Add e1 e2) =
-  evalM e1 >>= \f1 ->
-  evalM e2 >>= \f2 ->
-  return (f1 + f2)
-evalM (Sqrt e) =
-  evalM e >>= \f ->
-  guard (f >= 0.0) >>
-  return (sqrt f)
+-- Applicative instance for Maybe
+-- These days, Applicative is now a superclass of Monad.
+instance Applicative Maybe
+  where
+    pure x = return x
+    (<*>) = ap
 
--- A monadic style interpreter in do notation
-evalM' :: Expr -> Maybe Float
-evalM' (Const f) = return f
-evalM' (Add e1 e2) = do
-  f1 <- evalM' e1
-  f2 <- evalM' e2
-  return (f1 + f2)
-evalM' (Sqrt e) = do
-  f <- evalM' e
-  guard (f >= 0.0)
-  return (sqrt f)
-
--- Sample terms
-sample = Sqrt (Add (Const 2) (Const 2))
-sample' = Sqrt (Add (Const (-2)) (Const (-2)))
+-- Functor instance for Maybe
+-- These days, Functor is a superclass of Applicative.
+instance Functor Maybe
+  where
+    fmap _ Nothing = Nothing
+    fmap f (Just x) = Just (f x)
 
 -- Test interpretation
 main = do
