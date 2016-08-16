@@ -1,6 +1,7 @@
-import Test.HUnit
+import Test.HUnit (runTestTT, Test(TestList, TestLabel), (~=?))
 
 -- The tests
+tests :: Test
 tests =
     TestList [
       TestLabel "notNotTrue" (doubleNegation True),
