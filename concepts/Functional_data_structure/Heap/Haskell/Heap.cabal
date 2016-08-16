@@ -15,13 +15,13 @@ library
                        Tree,
                        NaiveHeap,
                        SkewHeap
-  build-depends:       base >=4.6 && <4.7
+  build-depends:       base >=4.6 && <=4.10
   default-language:    Haskell2010
 
 Test-Suite Tests
   type:                exitcode-stdio-1.0
   main-is:             Tests.hs
-  build-depends:       base >=4.6 && <4.7,
-                       HUnit >=1.2 && <1.3
+  build-depends:       base >=4.6 && <=4.10,
+                       HUnit >=1.2 && <1.5
   default-language:    Haskell2010
 
