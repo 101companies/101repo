@@ -1,5 +1,5 @@
 name:                Cabal
-version:             0.1.0.0
+version:             0.1.0.1
 synopsis:            Naive and skew heaps
 homepage:            http://101companies.org/wiki/Functional_data_structure
 license:             BSD3
