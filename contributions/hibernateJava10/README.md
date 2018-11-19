@@ -11,6 +11,18 @@ In addition to the wiki-listed developers and reviewers, these sources are ackno
 
 # Contribution Documentation Changes
 
+== Headline ==
+
+[[Object-Relational mapping]] for [[Language:Java|Java]] with [[Technology:Hibernate|Hibernate]].
+
+== Characteristics ==
+
+The contribution demonstrates [[Object-Relational mapping]] or [[persistence]] on the Java platform. A mapping is defined in additional XML files.
+
+== Relationships ==
+
+[[Contribution:hibernateJava10|Contribution:hibernateJava10]] is a variation of [[Contribution:hibernate|hibernate]]. The variation is concerned with the addition of [[Technology:Gradle]] and the modernization of [[Feature:Total]], [[Feature:Cut]], [[Feature:Mentoring]].
+
 == Usage ==
 
 Please follow these steps carefully.
