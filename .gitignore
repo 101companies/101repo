@@ -30,3 +30,5 @@ technologies/XMLValidator/bin/Debug/XMLValidator.exe.mdb
 /contributions/sqlServer/Debug.publish.xml
 /contributions/sqlServer/obj
 /contributions/sqlServer/sql
+
+/concepts/Subset_sum_problem/__pycache__

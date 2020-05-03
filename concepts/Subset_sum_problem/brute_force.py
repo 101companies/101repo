@@ -1,5 +1,5 @@
 '''
-Brute force solution to the subset-sum problem.
+This is a brute force solution to the subset-sum problem.
 We iterate over all pow(2, len(values)) combinations.
 To this end, we use a list of bits on which we perform all those many increments.
 We maintain a current sum along the way.

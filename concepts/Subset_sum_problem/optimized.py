@@ -1,5 +1,5 @@
 '''
-Optimized solution to the subset-sum problem.
+This is an optimized solution to the subset-sum problem.
 We use recursion to choose to select any given value or not.
 We enforce some bounds for opptimization, thereby curtail recursion.
 '''
