@@ -1,0 +1,124 @@
+apply plugin: 'java'
+
+import groovy.sql.Sql
+
+task start() {
+    group = 'database'
+    outputs.upToDateWhen {
+        return !available()
+    }
+    doLast {
+        def dbUser = project.properties['dbUser'] ?: gradle.dbUser
+        def dbPassword = project.properties['dbPassword'] ?: gradle.dbPassword
+        def dbFile = project.properties['dbFile'] ?: gradle.dbFile
+
+        def className = "org.hsqldb.server.Server"
+        def filePath = "file:${projectDir}/${dbFile};user=${dbUser};password=${dbPassword}"
+
+        def process = buildProcess(className, filePath)
+        wait(process)
+    }
+}
+
+def buildProcess(className, filePath) {
+    def classpath = project.buildscript.configurations.classpath.asPath
+
+    def builder = new ProcessBuilder(javaBin(), "-cp", classpath, className, "-database.0", filePath)
+    builder.redirectErrorStream(true)
+    builder.directory(projectDir)
+    def process = builder.start()
+    process
+}
+
+def wait(Process process) {
+    def ready = "From command line, use [Ctrl]+[C] to abort abruptly"
+    def reader = new BufferedReader(new InputStreamReader(process.getInputStream()))
+
+    def line
+    while ((line = reader.readLine()) != null) {
+        logger.quiet line
+        if (line.contains(ready)) {
+            break
+        }
+    }
+}
+
+task stop() {
+    group = 'database'
+    outputs.upToDateWhen {
+        return available()
+    }
+    doLast {
+        Sql sql = getSqlInstance()
+        sql.execute('SHUTDOWN;')
+        sql.close()
+    }
+}
+
+task clear() {
+    group = 'database'
+    outputs.upToDateWhen {
+        return available()
+    }
+    doLast {
+        Sql sql = getSqlInstance()
+        sql.execute(project.file("scripts/DropTables.sql").text)
+        sql.close()
+    }
+}
+
+task populate() {
+    group = 'database'
+    outputs.upToDateWhen {
+        return available()
+    }
+    doLast {
+        Sql sql = getSqlInstance()
+        sql.execute(project.file("scripts/CreateTables.sql").text)
+        sql.execute(project.file("scripts/AlterTables.sql").text)
+        sql.execute(project.file("scripts/PopulateTables.sql").text)
+        sql.close()
+    }
+}
+
+task openDbManager() {
+    group = 'database'
+    doLast {
+        logger.quiet("\nSelect HSQL Database Engine Server!")
+        def classpath = project.buildscript.configurations.classpath.asPath
+        def builder = new ProcessBuilder(javaBin(), "-cp", classpath, "org.hsqldb.util.DatabaseManagerSwing")
+        builder.start()
+    }
+}
+
+Sql getSqlInstance(){
+    def dbUser = project.properties['dbUser'] ?: gradle.dbUser
+    def dbPassword = project.properties['dbPassword'] ?: gradle.dbPassword
+    def dbUrl = project.properties['dbUrl'] ?: gradle.dbUrl
+    def dbDrive = project.properties['dbDrive'] ?: gradle.dbDrive
+
+    ClassLoader loader = Sql.class.classLoader
+    project.buildscript.configurations.classpath.each { File file ->
+        loader.addURL(file.toURI().toURL())
+    }
+
+    return Sql.newInstance(dbUrl, dbUser, dbPassword, dbDrive) as Sql
+}
+
+def static javaBin(){
+    def javaHome = System.getProperty("java.home")
+    javaHome + File.separator + "bin" + File.separator + "java"
+}
+
+boolean available() {
+    try {
+        int dbPort = project.properties['dbPort'] ?: gradle.dbPort as int
+        String dbHost = project.properties['dbHost'] ?: gradle.dbHost
+        Socket ignored = new Socket(dbHost, dbPort)
+        ignored.close()
+        return false
+    }
+    catch (IOException ignored) {
+        return true
+    }
+}

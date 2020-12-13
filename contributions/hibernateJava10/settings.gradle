@@ -1,0 +1,12 @@
+rootProject.name = 'hibernate'
+
+//lib version
+gradle.ext.hsqldbVersion = '2.4.1'
+//default database config
+gradle.ext.dbFile = "data/dbFile"
+gradle.ext.dbUser = "sa"
+gradle.ext.dbPassword = ""
+gradle.ext.dbPort = 9001
+gradle.ext.dbHost = "localhost"
+gradle.ext.dbUrl = "jdbc:hsqldb:hsql://${gradle.dbHost}:${gradle.dbPort}"
+gradle.ext.dbDrive = "org.hsqldb.jdbc.JDBCDriver"
