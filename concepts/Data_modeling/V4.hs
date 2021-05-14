@@ -1,4 +1,12 @@
--- V4: Making department manager optional
+{-
+
+V4: Making department manager optional.
+Previously, each department had to have a manager.
+In this new version, there is a choice.
+We put to work the Maybe type constructor to this end.
+
+-}
+
 type Company = Either [Employee] [Department]
 type Employee = (Name, Salary)
 type Department = (Name, Manager, [Employee])
@@ -6,53 +14,37 @@ type Manager = Maybe Employee
 type Name = String
 type Salary = Float
 
--- Some employees
+-- The same employees as before
 e1 = ("Max", 42)
 e2 = ("Nina", 77)
 e3 = ("Sean", 66)
 
-sampleCompany1 :: Company
+-- One department with a manager, another one without
+d1 = ("Haskell", Just e1, [])
+d2 = ("C++", Nothing, [e2, e3])
+
+-- Sample companies as in previous versions
+sampleCompany1, sampleCompany2 :: Company
 sampleCompany1 = Left [e1, e2, e3]
-
-sampleCompany2 :: Company
 sampleCompany2 = Right [d1, d2]
-  where
-    d1 = ("Haskell", m1, [])
-    d2 = ("C++", m2, [e2, e3])
-    m1 = Just e1
-    m2 = Nothing
 
-total :: Company -> Float
-{-
--- More basic code shown for comparison
-total (Left es) = totalEs es
-total (Right ds) = totalDs ds
--}
+total :: Company -> Salary
 total = either totalEs totalDs
 
-totalEs :: [Employee] -> Float
-{-
--- More basic code shown for comparison
-totalEs [] = 0
-totalEs ((_, s):es) = s + totalEs es
--}
+totalEs :: [Employee] -> Salary
 totalEs = sum . map snd
 
-totalDs :: [Department] -> Float
-{-
--- More basic code shown for comparison
-totalDs [] = 0
-totalDs ((_, m, es):ds) = totalM m + totalEs es + totalDs ds
--}
+totalDs :: [Department] -> Salary
 totalDs = sum . map totalD
-
-totalD :: Department -> Float
-totalD (_, m, es) = totalM m + totalEs es
-
-totalM :: Manager -> Float
-{-
--- More basic code shown for comparison
-totalM Nothing = 0
-totalM (Just (_, s)) = s
--}
-totalM = maybe 0 snd
+  where
+    totalD :: Department -> Salary
+    totalD (_, m, es) = totalM m + totalEs es
+      where
+        -- Totaling a manager means to process the maybe value.
+        totalM :: Manager -> Salary
+        {-
+        -- More basic code shown for comparison
+        totalM Nothing = 0
+        totalM (Just (_, s)) = s
+        -}
+        totalM = maybe 0 snd

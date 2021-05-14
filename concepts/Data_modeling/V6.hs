@@ -1,4 +1,10 @@
--- V6: Replacing Either by a problem-specific type
+{-
+
+V6: Replacing Either by a problem-specific type.
+Arguably, this improves clarity of the data model.
+
+-}
+
 data Company
   = FlatCompany [Employee]
   | HiearchicalCompany [Department]
@@ -8,36 +14,40 @@ type Manager = Maybe Employee
 type Name = String
 type Salary = Float
 
--- Some employees
+-- The same employees as before
 e1 = ("Max", 42)
 e2 = ("Nina", 77)
 e3 = ("Sean", 66)
 
-sampleCompany1 :: Company
+-- The same departments as before
+d1 = Department "Haskell" (Just e1) [] []
+d2 = Department "C++" Nothing [e2] [d21]
+d21 = Department "C++ Vx" Nothing [e3] []
+
+-- Sample companies as in previous versions
+sampleCompany1, sampleCompany2 :: Company
 sampleCompany1 = FlatCompany [e1, e2, e3]
-
-sampleCompany2 :: Company
 sampleCompany2 = HiearchicalCompany [d1, d2]
-  where
-    d1 = Department "Haskell" m1 [] []
-    d2 = Department "C++" m2 [e2] [d21]
-    d21 = Department "C++ Vx" m3 [e3] []
-    m1 = Just e1
-    m2 = Nothing
-    m3 = Nothing
 
+-- We pattern match on the Company type instead of Either.
 total :: Company -> Float
 total (FlatCompany es) = totalEs es
 total (HiearchicalCompany ds) = totalDs ds
 
-totalEs :: [Employee] -> Float
+{-
+
+The rest of the code is identical to the previous version.
+
+-}
+
+totalEs :: [Employee] -> Salary
 totalEs = sum . map snd
 
-totalDs :: [Department] -> Float
+totalDs :: [Department] -> Salary
 totalDs = sum . map totalD
-
-totalD :: Department -> Float
-totalD (Department _ m es ds) = totalM m + totalEs es + totalDs ds
-
-totalM :: Manager -> Float
-totalM = maybe 0 snd
+  where
+    totalD :: Department -> Salary
+    totalD (Department _ m es ds) = totalM m + totalEs es + totalDs ds
+      where
+        totalM :: Manager -> Salary
+        totalM = maybe 0 snd

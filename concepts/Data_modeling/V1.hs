@@ -1,4 +1,11 @@
--- V1: A company as a list of employees
+{-
+
+V1: A company as a list of employees.
+This is our baseline model which we are going to enhance in many different ways.
+These enhancements allow us to demonstrate many aspects of data modeling in Haskell.
+
+-}
+
 type Company = [Employee]
 type Employee = (String, Float)
 
