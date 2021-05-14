@@ -1,8 +1,8 @@
 {-
 
 V7: Use record types for clarifying the roles of structural components.
-We use a record type to combine name and salary into an employee.
-We use another record type for departments.
+We use a record type for departments to refer to the components more easily.
+We use also a record type for employees -- for clarity's sake.
 Haskell's record types are algebraic data types with names for the constructor components.
 
 -}
@@ -10,15 +10,15 @@ Haskell's record types are algebraic data types with names for the constructor c
 data Company
   = FlatCompany [Employee]
   | HiearchicalCompany [Department]
-data Employee = Employee {
-    getEmployeeName :: Name,
-    getSalary :: Salary
-}
 data Department = Department {
-    getDepartmentName :: String,
+    getDepartmentName :: Name,
     getManager :: Maybe Employee,
     getEmployees :: [Employee],
     getSubDepartments :: [Department]
+}
+data Employee = Employee {
+    getEmployeeName :: Name,
+    getSalary :: Salary
 }
 type Name = String
 type Salary = Float
