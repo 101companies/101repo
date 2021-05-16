@@ -10,11 +10,11 @@ Thus, the size can be returned without traversing the stack.
 module StacksWithConstantTimeSize (
   Stack,
   empty,
-  isEmpty,
   push,
+  isEmpty,
+  size,
   top,
-  pop,
-  size
+  pop
 ) where
 
 -- | Data structure for representation of stacks
@@ -26,10 +26,6 @@ data Stack a = Stack { getStack :: [a], getSize :: Int }
 empty :: Stack a
 empty = Stack [] 0
  
--- | Test for the empty stack
-isEmpty :: Stack a -> Bool
-isEmpty = null . getStack
- 
 -- | Push an element onto the stack
 push :: a -> Stack a -> Stack a
 push x s
@@ -37,7 +33,16 @@ push x s
       getStack = x : getStack s,
       getSize = getSize s + 1
     }
- 
+
+
+-- | Test for the empty stack
+isEmpty :: Stack a -> Bool
+isEmpty = null . getStack
+
+-- | Compute size of stack
+size :: Stack a -> Int
+size = getSize
+
 -- | Retrieve the top-of-stack, if available
 top :: Stack a -> Maybe a
 top s =
@@ -56,7 +61,3 @@ pop s =
           getSize = getSize s - 1
         }
       )
-
--- | Compute size of stack
-size :: Stack a -> Int
-size = getSize

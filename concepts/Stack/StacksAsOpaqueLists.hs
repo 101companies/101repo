@@ -8,11 +8,11 @@ That is, the representation type is hidden.
 module StacksAsOpaqueLists (
   Stack,
   empty,
-  isEmpty,
   push,
+  isEmpty,
+  size,
   top,
-  pop,
-  size
+  pop
 ) where
 
 -- | Data structure for representation of stacks
@@ -24,14 +24,18 @@ newtype Stack a = Stack { getStack :: [a] }
 empty :: Stack a
 empty = Stack []
  
--- | Test for the empty stack
-isEmpty :: Stack a -> Bool
-isEmpty = null . getStack
- 
 -- | Push an element onto the stack
 push :: a -> Stack a -> Stack a
 push x s = Stack ( x : getStack s)
- 
+
+-- | Test for the empty stack
+isEmpty :: Stack a -> Bool
+isEmpty = null . getStack
+
+-- | Compute size of stack
+size :: Stack a -> Int
+size = length . getStack
+
 -- | Retrieve the top-of-stack, if available
 top :: Stack a -> Maybe a
 top s =
@@ -43,7 +47,3 @@ pop :: Stack a -> Maybe (Stack a)
 pop s =
   let l = getStack s in
     if null l then Nothing else Just (Stack (tail l)) 
-
--- | Compute size of stack
-size :: Stack a -> Int
-size = length . getStack
