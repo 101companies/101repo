@@ -5,7 +5,7 @@ That is, the representation type is not hidden.
 
 -}
 
-module LeakyListStack (
+module StacksAsLists (
   Stack,
   empty,
   isEmpty,
@@ -16,30 +16,30 @@ module LeakyListStack (
 ) where
 
 -- | Data structure for representation of stacks
-type Stack = [Int]
+type Stack a = [a]
  
 {- Operations on stacks -}
  
 -- | Return the empty stack
-empty :: Stack
+empty :: Stack a
 empty = []
  
 -- | Test for the empty stack
-isEmpty :: Stack -> Bool
+isEmpty :: Stack a -> Bool
 isEmpty = null
  
 -- | Push an element onto the stack
-push :: Int -> Stack -> Stack
+push :: a -> Stack a -> Stack a
 push = (:)
  
 -- | Retrieve the top-of-stack, if available
-top :: Stack -> Int
-top = head
+top :: Stack a -> Maybe a
+top s = if null s then Nothing else Just (head s)
  
 -- | Remove the top-of-stack, if available
-pop :: Stack -> Stack
-pop = tail
+pop :: Stack a -> Maybe (Stack a)
+pop s = if null s then Nothing else Just (tail s)
 
 -- | Compute size of stack
-size :: Stack -> Int
+size :: Stack a -> Int
 size = length

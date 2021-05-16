@@ -1,0 +1,40 @@
+{- 
+
+Illustration of different stack implementations.
+We run the same tests on the different implementations.
+
+-}
+
+import SimpleStackADT as V1
+import StacksAsLists as V2
+import StacksAsOpaqueLists as V3
+import StacksWithConstantTimeSize as V4
+import Test.HUnit
+import System.Exit
+import Data.Maybe (fromJust)
+
+getTests v empty push size top pop isEmpty =
+  [
+    TestLabel (v ++ "size1") (1 ~=? size stack1),
+    TestLabel (v ++ "size2") (2 ~=? size stack2),
+    TestLabel (v ++ "top1") (Just "foo" ~=? top stack1),
+    TestLabel (v ++ "top2") (Just "bar" ~=? top stack2),
+    TestLabel (v ++ "pop") (Just "foo" ~=? top (fromJust (pop stack2))),
+    TestLabel (v ++ "isEmpty1") (True ~=? isEmpty (fromJust (pop stack1))),
+    TestLabel (v ++ "isEmpty2") (False ~=? isEmpty (fromJust (pop stack2)))
+  ]
+  where
+    stack1 = push "foo" empty
+    stack2 = push "bar" stack1
+    
+
+main = do
+ let v1 = getTests "V1:" V1.empty V1.push V1.size V1.top V1.pop V1.isEmpty
+ let v2 = getTests "V2:" V2.empty V2.push V2.size V2.top V2.pop V2.isEmpty
+ let v3 = getTests "V3:" V3.empty V3.push V3.size V3.top V3.pop V3.isEmpty
+ let v4 = getTests "V4:" V4.empty V4.push V4.size V4.top V4.pop V4.isEmpty
+ let tests = TestList (v1 ++ v2 ++ v3 ++ v4)
+ counts <- runTestTT tests
+ if (errors counts > 0 || failures counts > 0)
+   then exitFailure
+   else exitSuccess

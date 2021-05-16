@@ -1,6 +1,6 @@
 {-| A simple implementation of stacks in Haskell -}
 
-module Stack (
+module SimpleStackADT (
   Stack,
   empty,
   isEmpty,
@@ -11,33 +11,34 @@ module Stack (
 ) where
 
 -- | Data structure for representation of stacks
-data Stack = Empty | Push Int Stack
+data Stack a = Empty | Push a (Stack a)
  
 {- Operations on stacks -}
  
 -- | Return the empty stack
-empty :: Stack
+empty :: Stack a
 empty = Empty
  
 -- | Test for the empty stack
-isEmpty :: Stack -> Bool
+isEmpty :: Stack a -> Bool
 isEmpty Empty = True
 isEmpty (Push _ _) = False
  
 -- | Push an element onto the stack
-push :: Int -> Stack -> Stack
+push :: a -> Stack a -> Stack a
 push = Push
  
 -- | Retrieve the top-of-stack, if available
-top :: Stack -> Int
-top (Push x s) = x
+top :: Stack a -> Maybe a
+top Empty = Nothing
+top (Push x s) = Just x
  
 -- | Remove the top-of-stack, if available
-pop :: Stack -> Stack
-pop (Push x s) = s
+pop :: Stack a -> Maybe (Stack a)
+pop Empty = Nothing
+pop (Push x s) = Just s
 
 -- | Compute size of stack
-size :: Stack -> Int
+size :: Stack a -> Int
 size Empty = 0
 size (Push _ s) = 1 + size s
-
