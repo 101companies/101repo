@@ -37,9 +37,9 @@ size :: Stack a -> Int
 size = length
 
 -- | Retrieve the top-of-stack, if available
-top :: Stack a -> Maybe a
-top s = if null s then Nothing else Just (head s)
+top :: Stack a -> a
+top = head
  
 -- | Remove the top-of-stack, if available
-pop :: Stack a -> Maybe (Stack a)
-pop s = if null s then Nothing else Just (tail s)
+pop :: Stack a -> Stack a
+pop = tail

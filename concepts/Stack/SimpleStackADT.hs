@@ -34,11 +34,9 @@ size Empty = 0
 size (Push _ s) = 1 + size s
 
 -- | Retrieve the top-of-stack, if available
-top :: Stack a -> Maybe a
-top Empty = Nothing
-top (Push x s) = Just x
+top :: Stack a -> a
+top (Push x s) = x
  
 -- | Remove the top-of-stack, if available
-pop :: Stack a -> Maybe (Stack a)
-pop Empty = Nothing
-pop (Push x s) = Just s
+pop :: Stack a -> Stack a
+pop (Push x s) = s

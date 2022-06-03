@@ -44,20 +44,17 @@ size :: Stack a -> Int
 size = getSize
 
 -- | Retrieve the top-of-stack, if available
-top :: Stack a -> Maybe a
+top :: Stack a -> a
 top s =
   let l = getStack s in
-    if null l then Nothing else Just (head l) 
+    head l
  
 -- | Remove the top-of-stack, if available
-pop :: Stack a -> Maybe (Stack a)
+pop :: Stack a -> Stack a
 pop s =
   let l = getStack s in
-    if null l
-      then Nothing
-      else Just (
         Stack {
           getStack = tail l,
           getSize = getSize s - 1
         }
-      )
+

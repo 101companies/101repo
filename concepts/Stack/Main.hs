@@ -17,11 +17,11 @@ getTests v empty push isEmpty size top pop =
   [
     TestLabel (v ++ "size1") (1 ~=? size stack1),
     TestLabel (v ++ "size2") (2 ~=? size stack2),
-    TestLabel (v ++ "top1") (Just "foo" ~=? top stack1),
-    TestLabel (v ++ "top2") (Just "bar" ~=? top stack2),
-    TestLabel (v ++ "pop") (Just "foo" ~=? top (fromJust (pop stack2))),
-    TestLabel (v ++ "isEmpty1") (True ~=? isEmpty (fromJust (pop stack1))),
-    TestLabel (v ++ "isEmpty2") (False ~=? isEmpty (fromJust (pop stack2)))
+    TestLabel (v ++ "top1") ("foo" ~=? top stack1),
+    TestLabel (v ++ "top2") ("bar" ~=? top stack2),
+    TestLabel (v ++ "pop") ("foo" ~=? top (pop stack2)),
+    TestLabel (v ++ "isEmpty1") (True ~=? isEmpty (pop stack1)),
+    TestLabel (v ++ "isEmpty2") (False ~=? isEmpty (pop stack2))
   ]
   where
     stack1 = push "foo" empty
