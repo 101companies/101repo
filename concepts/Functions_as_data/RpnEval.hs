@@ -11,13 +11,13 @@ eval si = loop (getEmpty si)
   where
     -- Loop over input
     loop :: s Int -> RPN -> Int
-    loop s es =
-      if null es
+    loop s i =
+      if null i
         then if getSize si s == 1
                then getTop si s
                else rpnError
         else
-          loop (step (head es) s) (tail es) 
+          loop (step (head i) s) (tail i) 
 
     -- Process head of input
     step :: Entry -> s Int -> s Int
