@@ -1,21 +1,15 @@
-module RPN where
+module RpnEval where
 
-import Stack
+import RpnSyntax
 
--- RPN as lists of operators and operands
-type RPN = [Entry]
-data Entry = Operator Operator | Operand Operand
-  deriving (Show)
-data Operator = Plus | Minus | Times
-  deriving (Show)
-type Operand = Int
+import StacksAsLists
 
 -- Evaluation of RPN via stack
 eval :: RPN -> Int
 eval = loop empty
   where
     -- Loop over input
-    loop :: Stack -> RPN -> Int
+    loop :: Stack Int -> RPN -> Int
     loop s i =
       if null i
         then if size s == 1
@@ -25,7 +19,7 @@ eval = loop empty
           loop (step (head i) s) (tail i)
 
     -- Process head of input
-    step :: Entry -> Stack -> Stack
+    step :: Entry -> Stack Int -> Stack Int
     step h s =
       case h of
         Operand x -> push x s
@@ -36,12 +30,6 @@ eval = loop empty
               let (y,s'') = (top s', pop s') in
               push (apply f y x) s''
            else rpnError     
-
--- Interpretation of operator symbols
-apply :: Operator -> Int -> Int -> Int
-apply Plus = (+)
-apply Minus = (-)
-apply Times = (*)
 
 -- Reusable error
 rpnError :: a
