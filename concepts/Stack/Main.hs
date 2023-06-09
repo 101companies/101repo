@@ -9,6 +9,7 @@ import SimpleStackADT as V1
 import StacksAsLists as V2
 import StacksAsOpaqueLists as V3
 import StacksWithConstantTimeSize as V4
+import StacksViaSimpleImpl as V5
 import Test.HUnit
 import System.Exit
 import Data.Maybe (fromJust)
@@ -33,7 +34,8 @@ main = do
  let v2 = getTests "V2:" V2.empty V2.push V2.isEmpty V2.size V2.top V2.pop
  let v3 = getTests "V3:" V3.empty V3.push V3.isEmpty V3.size V3.top V3.pop
  let v4 = getTests "V4:" V4.empty V4.push V4.isEmpty V4.size V4.top V4.pop
- let tests = TestList (v1 ++ v2 ++ v3 ++ v4)
+ let v5 = getTests "V5:" V5.empty V5.push V5.isEmpty V5.size V5.top V5.pop
+ let tests = TestList (v1 ++ v2 ++ v3 ++ v4 ++ v5)
  counts <- runTestTT tests
  if (errors counts > 0 || failures counts > 0)
    then exitFailure
