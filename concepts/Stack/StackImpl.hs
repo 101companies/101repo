@@ -1,50 +1,63 @@
+{- 
+
+We repackage some stack implementations as data structures so that we
+can parametrize in implementations.
+
+-}
+
 module StackImpl(
   StackImpl(..),
-  simpleImpl,
-  opaqueImpl,
-  constantImpl
+  simpleStackADT,
+  stacksAsLists,
+  stacksAsOpaqueLists,
+  stacksWithConstantTimeSize
 ) where
 
-import qualified SimpleStackADT as Simple
-import qualified StacksAsOpaqueLists as Opaque
-import qualified StacksWithConstantTimeSize as Constant
+import StackImplType
+import qualified SimpleStackADT
+import qualified StacksAsLists
+import qualified StacksAsOpaqueLists
+import qualified StacksWithConstantTimeSize
 
-data StackImpl s a =
-  StackImpl {
-    getEmpty :: s a,
-    getPush :: a -> s a -> s a,
-    getPop :: s a -> s a,
-    getTop :: s a -> a,
-    getIsEmpty :: s a -> Bool,
-    getSize :: s a -> Int
-  }
-
-simpleImpl :: StackImpl Simple.Stack a
-simpleImpl = StackImpl {
-   getEmpty = Simple.empty,
-   getPush = Simple.push,
-   getPop = Simple.pop,
-   getTop = Simple.top,
-   getIsEmpty = Simple.isEmpty,
-   getSize = Simple.size
+simpleStackADT :: StackImpl SimpleStackADT.Stack a
+simpleStackADT = StackImpl {
+   getEmpty = SimpleStackADT.empty,
+   getPush = SimpleStackADT.push,
+   getPop = SimpleStackADT.pop,
+   getTop = SimpleStackADT.top,
+   getIsEmpty = SimpleStackADT.isEmpty,
+   getSize = SimpleStackADT.size
  }
 
-opaqueImpl :: StackImpl Opaque.Stack a
-opaqueImpl = StackImpl {
-   getEmpty = Opaque.empty,
-   getPush = Opaque.push,
-   getPop = Opaque.pop,
-   getTop = Opaque.top,
-   getIsEmpty = Opaque.isEmpty,
-   getSize = Opaque.size
+-- We have to use a hack to get along without Haskell extensions.
+-- That is, we cannot use the type synonym Stack as a kind *->* type constructor.
+-- Thus, we just use [] (to which Stack redirects anyway).
+stacksAsLists :: StackImpl [] a
+stacksAsLists = StackImpl {
+   getEmpty = StacksAsLists.empty,
+   getPush = StacksAsLists.push,
+   getPop = StacksAsLists.pop,
+   getTop = StacksAsLists.top,
+   getIsEmpty = StacksAsLists.isEmpty,
+   getSize = StacksAsLists.size
  }
 
-constantImpl :: StackImpl Constant.Stack a
-constantImpl = StackImpl {
-   getEmpty = Constant.empty,
-   getPush = Constant.push,
-   getPop = Constant.pop,
-   getTop = Constant.top,
-   getIsEmpty = Constant.isEmpty,
-   getSize = Constant.size
+stacksAsOpaqueLists :: StackImpl StacksAsOpaqueLists.Stack a
+stacksAsOpaqueLists = StackImpl {
+   getEmpty = StacksAsOpaqueLists.empty,
+   getPush = StacksAsOpaqueLists.push,
+   getPop = StacksAsOpaqueLists.pop,
+   getTop = StacksAsOpaqueLists.top,
+   getIsEmpty = StacksAsOpaqueLists.isEmpty,
+   getSize = StacksAsOpaqueLists.size
+ }
+
+stacksWithConstantTimeSize :: StackImpl StacksWithConstantTimeSize.Stack a
+stacksWithConstantTimeSize = StackImpl {
+   getEmpty = StacksWithConstantTimeSize.empty,
+   getPush = StacksWithConstantTimeSize.push,
+   getPop = StacksWithConstantTimeSize.pop,
+   getTop = StacksWithConstantTimeSize.top,
+   getIsEmpty = StacksWithConstantTimeSize.isEmpty,
+   getSize = StacksWithConstantTimeSize.size
  }
