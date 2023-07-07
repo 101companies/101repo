@@ -1,0 +1,36 @@
+data Exp
+  = Var String
+  | Val Int
+  | Add Exp Exp
+
+-- Environments with a fetch (lookup) function
+type Env = [(String, Int)]
+fetch x ((y,v):n) = if x==y then v else fetch x n
+
+-- Straightforward interpreter; we take care of environment passing
+eval :: Exp -> Env -> Int
+eval (Var x) n = fetch x n
+eval (Val v) _ = v
+eval (Add e1 e2) n = eval e1 n + eval e2 n
+
+-- More point-free, combinatorial interpreter hiding some environment passing
+eval' :: Exp -> Env -> Int
+eval' (Var x) = fetch x
+eval' (Val v) = k v
+eval' (Add e1 e2) = k (+) `s` eval' e1 `s` eval' e2
+
+-- https://en.wikipedia.org/wiki/SKI_combinator_calculus
+i x = x -- aka id
+k x y = x -- aka const
+s x y z = x z (y z) -- aka <*> of applicative
+
+-- Switch to applicative functor style, thereby demonstrating a general pattern
+eval'' :: Exp -> Env -> Int
+eval'' (Var x) = fetch x
+eval'' (Val v) = pure v
+eval'' (Add e1 e2) = pure (+) <*> eval'' e1 <*> eval'' e2
+
+main = do
+  print $ eval (Add (Var "x") (Val 22)) [("x", 20)]
+  print $ eval' (Add (Var "x") (Val 22)) [("x", 20)]
+  print $ eval'' (Add (Var "x") (Val 22)) [("x", 20)]
