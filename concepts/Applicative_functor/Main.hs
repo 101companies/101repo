@@ -18,7 +18,7 @@ eval (Add e1 e2) n = eval e1 n + eval e2 n
 -- More point-free, combinatorial interpreter hiding some environment passing
 eval' :: Exp -> Env -> Int
 eval' (Var x) = fetch x
-eval' (Val v) = k v
+eval' (Val v) = k v -- const
 eval' (Add e1 e2) = k (+) `s` eval' e1 `s` eval' e2
 
 -- https://en.wikipedia.org/wiki/SKI_combinator_calculus
