@@ -1,5 +1,6 @@
 -- Example inspired by https://www.staff.city.ac.uk/~ross/papers/Applicative.pdf
 
+-- Some expression forms to be interpreted
 data Exp
   = Var String
   | Val Int
@@ -18,7 +19,7 @@ eval (Add e1 e2) n = eval e1 n + eval e2 n
 -- More point-free, combinatorial interpreter hiding some environment passing
 eval' :: Exp -> Env -> Int
 eval' (Var x) = fetch x
-eval' (Val v) = k v -- const
+eval' (Val v) = k v -- aka const
 eval' (Add e1 e2) = k (+) `s` eval' e1 `s` eval' e2
 
 -- https://en.wikipedia.org/wiki/SKI_combinator_calculus
@@ -35,7 +36,11 @@ eval'' (Var x) = fetch x
 eval'' (Val v) = pure v
 eval'' (Add e1 e2) = pure (+) <*> eval'' e1 <*> eval'' e2
 
+-- A bit of testing code
+-- "42" should be printed in all cases.
+sampleExp = Add (Var "x") (Val 22)
+sampleEnv = [("x", 20)]
 main = do
-  print $ eval (Add (Var "x") (Val 22)) [("x", 20)]
-  print $ eval' (Add (Var "x") (Val 22)) [("x", 20)]
-  print $ eval'' (Add (Var "x") (Val 22)) [("x", 20)]
+  print $ eval sampleExp sampleEnv
+  print $ eval' sampleExp sampleEnv
+  print $ eval'' sampleExp sampleEnv
