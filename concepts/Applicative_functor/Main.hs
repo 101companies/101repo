@@ -1,3 +1,5 @@
+-- Example inspired by https://www.staff.city.ac.uk/~ross/papers/Applicative.pdf
+
 data Exp
   = Var String
   | Val Int
@@ -20,8 +22,11 @@ eval' (Val v) = k v
 eval' (Add e1 e2) = k (+) `s` eval' e1 `s` eval' e2
 
 -- https://en.wikipedia.org/wiki/SKI_combinator_calculus
+i :: a -> a
 i x = x -- aka id
+k :: a -> b -> a
 k x y = x -- aka const
+s :: (a -> b -> c) -> (a -> b) -> a -> c
 s x y z = x z (y z) -- aka <*> of applicative
 
 -- Switch to applicative functor style, thereby demonstrating a general pattern
