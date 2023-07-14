@@ -1,5 +1,27 @@
-import Control.Monad (ap)
--- import Control.Applicative
+{-
+
+A simple example demonstrating a state monad.
+The demo is about handling logging within an interpreter.
+We show a trivialized implementation of a writer monad.
+See here for a proper implementation:
+http://hackage.haskell.org/packages/archive/mtl/latest/doc/html/Control-Monad-Writer.html
+Concerns ignored by our illustrative implementation:
+- Monad transformers are not used.
+- No designated type class is defined for writer monads.
+- Typical convenience operations of writer monads are omitted.
+- The issue of laziness vs. strictness is neglected.
+
+The example goes through this milestones:
+* Baseline interpreter without logging.
+* Non-monadic interpreter with logging.
+* Monadic interpreter with logging.
+* Variation on monadic interpreter with do notation.
+
+-}
+
+import Control.Monad (guard)
+import Control.Applicative
+import Control.Monad
 import Data.Monoid
 
 -- Simple Boolean expressions
@@ -57,54 +79,41 @@ evalM' (Or e1 e2) = do
   tell (Sum 1)
   return (b1 || b2)
 
-{-
-
-This is a trivialized implementation of a writer monad.
-
-See here for a proper implementation:
-
-http://hackage.haskell.org/packages/archive/mtl/latest/doc/html/Control-Monad-Writer.html
-
-The present implementation is kept as simple as possible; specifically:
-- Monad transformers are not used.
-- No designated type class is defined for writer monads.
-- Typical convenience operations of writer monads are omitted.
-- The issue of laziness and strictness is neglected.
-- ...
-
--}
-
 -- Computations as pairs of value and "output"
 newtype Writer w a = Writer { runWriter :: (a, w) }
+
+-- Important Writer operation: tell to produce output
+tell :: w -> Writer w ()
+tell w = Writer ((), w)
+
+-- Functor instance for Writer
+instance Functor (Writer w)
+  where
+    fmap f c = Writer (f x, w)
+      where
+        (x, w) = runWriter c
+        
+
+-- Applicative instance for Writer
+instance Monoid w => Applicative (Writer w)
+  where
+    pure x = Writer (x, mempty)
+    f <*> x = Writer (g y, w1 `mappend` w2)
+      where
+        (g, w1) = runWriter f
+        (y, w2) = runWriter x
 
 -- Monad instance for Writer
 instance Monoid w => Monad (Writer w)
   where
-    return a = Writer (a, mempty)
-    (Writer (a, w)) >>= f =
-      let (Writer (b, w')) = f a in
-        (Writer (b, w `mappend` w'))
-
--- Produce output
-tell :: w -> Writer w ()
-tell w = Writer ((), w)
-
--- Applicative instance for Writer
--- These days, Applicative is now a superclass of Monad.
-instance Monoid w => Applicative (Writer w)
-  where
-    pure x = return x
-    (<*>) = ap
-
--- Functor instance for Writer
--- These days, Functor is a superclass of Applicative.
-instance Functor (Writer w)
-  where
-    fmap f c = Writer (let (x, w) = runWriter c in (f x, w))
+    return = pure
+    (Writer (x, w)) >>= f = Writer (y, w `mappend` w')
+      where
+        Writer (y, w') = f x
 
 -- Test interpretation
 main = do
-  print $ eval sample
-  print $ eval' sample
-  print $ runWriter (evalM sample)
-  print $ runWriter (evalM' sample)
+  guard $ True == eval sample
+  guard $ (True, 2) == eval' sample
+  guard $ (True,Sum 2) == runWriter (evalM sample)
+  guard $ (True,Sum 2) == runWriter (evalM' sample)
