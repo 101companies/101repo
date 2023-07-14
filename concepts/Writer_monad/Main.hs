@@ -19,7 +19,6 @@ The example goes through this milestones:
 
 -}
 
-import Control.Monad (guard)
 import Control.Applicative
 import Control.Monad
 import Data.Monoid

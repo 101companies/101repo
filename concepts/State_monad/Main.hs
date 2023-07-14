@@ -15,7 +15,6 @@ The example goes through this milestones:
 * Variation on monadic interpreter with do notation.
 
 -}
-import Control.Monad (guard)
 import Control.Applicative
 import Control.Monad
 
