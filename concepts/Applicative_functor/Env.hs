@@ -1,4 +1,14 @@
--- Example inspired by https://www.staff.city.ac.uk/~ross/papers/Applicative.pdf
+{-
+
+A simple example demonstrating "->a" as an applicative (functor).
+"->a" can be thought of as enabling environment passing.
+The demo is about interpretation with the use of an environment.
+The example inspired by the original paper on applicative functors:
+https://www.staff.city.ac.uk/~ross/papers/Applicative.pdf
+
+-}
+
+import Control.Monad (guard)
 
 -- Some expression forms to be interpreted
 data Exp
@@ -41,6 +51,6 @@ eval'' (Add e1 e2) = pure (+) <*> eval'' e1 <*> eval'' e2
 sampleExp = Add (Var "x") (Val 22)
 sampleEnv = [("x", 20)]
 main = do
-  print $ eval sampleExp sampleEnv
-  print $ eval' sampleExp sampleEnv
-  print $ eval'' sampleExp sampleEnv
+  guard $ 42 == eval sampleExp sampleEnv
+  guard $ 42 == eval' sampleExp sampleEnv
+  guard $ 42 == eval'' sampleExp sampleEnv
