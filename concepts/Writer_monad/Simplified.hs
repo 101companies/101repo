@@ -1,15 +1,20 @@
 {-
 
-A simple example demonstrating a state monad.
+A simple example demonstrating a writer monad.
 The demo is about handling logging within an interpreter.
 We show a trivialized implementation of a writer monad.
-See here for a proper implementation:
-http://hackage.haskell.org/packages/archive/mtl/latest/doc/html/Control-Monad-Writer.html
-Concerns ignored by our illustrative implementation:
+
+Please note: We ignore today's library for the Monad type class.
+That is, we bypass the superclass constraint Applicative.
+
+Other concerns regarding the illustration at hand:
 - Monad transformers are not used.
 - No designated type class is defined for writer monads.
 - Typical convenience operations of writer monads are omitted.
 - The issue of laziness vs. strictness is neglected.
+
+See here for a proper implementation:
+http://hackage.haskell.org/packages/archive/mtl/latest/doc/html/Control-Monad-Writer.html
 
 The example goes through this milestones:
 * Baseline interpreter without logging.
@@ -19,8 +24,8 @@ The example goes through this milestones:
 
 -}
 
-import Control.Applicative
-import Control.Monad
+import Prelude hiding (Monad, return, (>>=), (>>))
+import Control.Monad (guard)
 import Data.Monoid
 
 -- Simple Boolean expressions
@@ -64,20 +69,6 @@ evalM (Or e1 e2) =
   tell (Sum 1) >> 
   return (b1 || b2)
 
--- Monadic style interpreter in do notation
-evalM' :: Expr -> Writer (Sum Int) Bool
-evalM' (Constant b) = return b
-evalM' (And e1 e2) = do
-  b1 <- evalM' e1
-  b2 <- evalM' e2
-  tell (Sum 1)
-  return (b1 && b2)
-evalM' (Or e1 e2) = do
-  b1 <- evalM' e1
-  b2 <- evalM' e2
-  tell (Sum 1)
-  return (b1 || b2)
-
 -- Computations as pairs of value and "output"
 newtype Writer w a = Writer { runWriter :: (a, w) }
 
@@ -85,27 +76,20 @@ newtype Writer w a = Writer { runWriter :: (a, w) }
 tell :: w -> Writer w ()
 tell w = Writer ((), w)
 
--- Functor instance for Writer
-instance Functor (Writer w)
+-- We define the Monad type class from scratch.
+-- In particular, we omit the superclass constraint Applicative.
+class Monad m
   where
-    fmap f c = Writer (f x, w)
-      where
-        (x, w) = runWriter c
-        
-
--- Applicative instance for Writer
-instance Monoid w => Applicative (Writer w)
-  where
-    pure x = Writer (x, mempty)
-    f <*> x = Writer (g y, w1 `mappend` w2)
-      where
-        (g, w1) = runWriter f
-        (y, w2) = runWriter x
+    return :: a -> m a
+    (>>=) :: m a -> (a -> m b) -> m b
+    -- Optional
+    (>>) :: m a -> m b -> m b
+    c >> c' = c >>= (\_ -> c')
 
 -- Monad instance for Writer
 instance Monoid w => Monad (Writer w)
   where
-    return = pure
+    return x = Writer (x, mempty)
     (Writer (x, w)) >>= f = Writer (y, w `mappend` w')
       where
         Writer (y, w') = f x
@@ -115,4 +99,3 @@ main = do
   guard $ True == eval sample
   guard $ (True, 2) == eval' sample
   guard $ (True,Sum 2) == runWriter (evalM sample)
-  guard $ (True,Sum 2) == runWriter (evalM' sample)

@@ -6,7 +6,10 @@ In particular, we count operations performed.
 Logging is complicated enough that a state monad is needed.
 That is, we also need to reset the counter potentially.
 (A writer monad would not be sufficient.)
-We show a trivialized implementation of a state monad.
+We show a trivial implementation of a state monad.
+
+Please note: We ignore today's library for the Monad type class.
+That is, we bypass the superclass constraint Applicative.
 
 The example goes through this milestones:
 * Baseline interpreter without counting.
@@ -15,8 +18,8 @@ The example goes through this milestones:
 * Variation on monadic interpreter with do notation.
 
 -}
-import Control.Applicative
-import Control.Monad
+import Prelude hiding (Monad, return, (>>=), (>>))
+import Control.Monad (guard)
 
 -- Simple Boolean expressions
 -- We add a special construct "Hide".
@@ -79,25 +82,6 @@ evalM (Hide e) =
   put i >>= \() ->
   return b
 
--- Monadic style interpreter in do notation
-evalM' :: Expr -> State Int Bool
-evalM' (Constant b) = return b
-evalM' (And e1 e2) = do
-  b1 <- evalM' e1
-  b2 <- evalM' e2
-  modify (+1)
-  return (b1 && b2)
-evalM' (Or e1 e2) = do
-  b1 <- evalM' e1
-  b2 <- evalM' e2
-  modify (+1)
-  return (b1 || b2)
-evalM' (Hide e) = do
-  i <- get
-  b <- evalM e
-  put i
-  return b
-
 -- Data type for the state monad repeated from the library
 newtype State s a = State { runState :: s -> (a,s) }
 
@@ -110,25 +94,17 @@ put s = State (\_ -> ((), s))
 
 -- Composition of get and put
 modify :: (s -> s) -> State s ()
-modify f = do { x <- get; put (f x) }
+modify f = get >>= \x -> put (f x)
 
--- Functor instance for State
-instance Functor (State s)
+-- We define the Monad type class from scratch.
+-- In particular, we omit the superclass constraint Applicative.
+class Monad m
   where
-    fmap f c = State (
-      \s ->
-        let (x, s') = runState c s
-        in (f x, s'))
-
--- Applicative instance for State
-instance Applicative (State s)
-  where
-    pure x = State (\s -> (x, s))
-    f <*> x =
-      State (\s ->
-        let (g, s') = runState f s in
-          let (y, s'') = runState x s' in
-            (g y, s'')) 
+    return :: a -> m a
+    (>>=) :: m a -> (a -> m b) -> m b
+    -- Optional
+    (>>) :: m a -> m b -> m b
+    c >> c' = c >>= (\_ -> c')
 
 -- Monad instance for State
 instance Monad (State s)
@@ -144,4 +120,3 @@ main = do
   guard $ True == eval sample
   guard $ (True, 2) == eval' sample 0
   guard $ (True, 2) == runState (evalM sample) 0
-  guard $ (True, 2) == runState (evalM' sample) 0
