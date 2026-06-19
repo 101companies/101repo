@@ -5,7 +5,30 @@ The demo is about handling the partiality within an interpreter.
 
 -}
 
+-- For illustrative puproses, we defined Functor and Applicative from scratch.
+import Prelude hiding (Functor, fmap, (<$>), Applicative, pure, (<*>))
 import Control.Monad (guard)
+
+infixl 4 <$>
+infixl 4 <*>
+
+class Functor f where
+  fmap :: (a -> b) -> f a -> f b
+
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+(<$>) = fmap
+
+class Functor f => Applicative f where
+  pure :: a -> f a
+  (<*>) :: f (a -> b) -> f a -> f b
+
+instance Functor Maybe where
+  fmap f = maybe Nothing (Just . f)
+
+instance Applicative Maybe where
+  pure = Just
+  Nothing <*> x = Nothing
+  (Just f) <*> x = fmap f x
 
 -- Trivial expression language
 data Exp
