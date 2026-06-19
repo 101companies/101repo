@@ -8,7 +8,7 @@ https://www.staff.city.ac.uk/~ross/papers/Applicative.pdf
 
 -}
 
--- For illustrative puproses, we defined Functor and Applicative from scratch.
+-- For illustrative puproses, we define and instantiate Functor and Applicative from scratch.
 import Prelude hiding (Functor, fmap, (<$>), Applicative, pure, (<*>))
 import Control.Monad (guard)
 
@@ -48,7 +48,8 @@ eval (Var x) n = fetch x n
 eval (Val v) _ = v
 eval (Add e1 e2) n = eval e1 n + eval e2 n
 
--- More point-free, combinatorial interpreter hiding some environment passing
+-- Beware -- a bit tough!
+-- A point-free, combinatorial interpreter hiding some environment passing
 eval' :: Exp -> Env -> Int
 eval' (Var x) = fetch x
 eval' (Val v) = k v -- aka const
@@ -68,8 +69,7 @@ eval'' (Var x) = fetch x
 eval'' (Val v) = pure v
 eval'' (Add e1 e2) = pure (+) <*> eval'' e1 <*> eval'' e2
 
--- A bit of testing code
--- "42" should be printed in all cases.
+-- Testing is due
 sampleExp = Add (Var "x") (Val 22)
 sampleEnv = [("x", 20)]
 main = do

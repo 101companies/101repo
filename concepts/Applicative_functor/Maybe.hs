@@ -5,7 +5,7 @@ The demo is about handling the partiality within an interpreter.
 
 -}
 
--- For illustrative puproses, we defined Functor and Applicative from scratch.
+-- For illustrative puproses, we define and instantiate Functor and Applicative from scratch.
 import Prelude hiding (Functor, fmap, (<$>), Applicative, pure, (<*>))
 import Control.Monad (guard)
 
