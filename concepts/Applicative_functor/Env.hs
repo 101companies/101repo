@@ -8,7 +8,29 @@ https://www.staff.city.ac.uk/~ross/papers/Applicative.pdf
 
 -}
 
+-- For illustrative puproses, we defined Functor and Applicative from scratch.
+import Prelude hiding (Functor, fmap, (<$>), Applicative, pure, (<*>))
 import Control.Monad (guard)
+
+infixl 4 <$>
+infixl 4 <*>
+
+class Functor f where
+  fmap :: (a -> b) -> f a -> f b
+
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+(<$>) = fmap
+
+class Functor f => Applicative f where
+  pure :: a -> f a
+  (<*>) :: f (a -> b) -> f a -> f b
+
+instance Functor ((->) r) where
+  fmap = (.)
+
+instance Applicative ((->) r) where
+  pure x = \_ -> x
+  f <*> g = \x -> f x (g x)
 
 -- Some expression forms to be interpreted
 data Exp
