@@ -17,7 +17,6 @@ prop_reverseAppend :: [Int] -> [Int] -> Bool
 prop_reverseAppend xs ys =
   reverse (xs ++ ys) == reverse ys ++ reverse xs
 
-main :: IO ()
 main = do
   quickCheck prop_reverseReverse
   quickCheck prop_reverseLength

@@ -47,7 +47,6 @@ prop_addCommutative x y =
   eval (Add x y) == eval (Add y x)
 
 -- Commented out runs fail!
-main :: IO ()
 main = do
   quickCheck prop_addZero
   quickCheck prop_doubleNegation
