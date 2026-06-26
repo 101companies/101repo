@@ -4,6 +4,7 @@ all:
 	make Stack
 	make Monoids
 	make Evaluation
+	make GenDemo
 
 Reverse:
 	@echo main | ghci Reverse.hs
@@ -19,3 +20,6 @@ Monoids:
 
 Evaluation:
 	@echo main | ghci Evaluation.hs
+
+GenDemo:
+	@echo main | ghci GenDemo.hs
