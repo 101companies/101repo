@@ -1,6 +1,7 @@
 all:
 	make Reverse
 	make Sorting
+	make Classification
 	make Stack
 	make Monoids
 	make Evaluation
@@ -11,6 +12,9 @@ Reverse:
 
 Sorting:
 	@echo main | ghci Sorting.hs
+
+Classification:
+	@echo main | ghci Classification.hs
 
 Stack:
 	@echo main | ghci -i../../concepts/Stack Stack.hs

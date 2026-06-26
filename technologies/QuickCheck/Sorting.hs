@@ -36,14 +36,6 @@ isSorted (x:y:xs) = x <= y && isSorted (y:xs)
 count :: Eq a => a -> [a] -> Int
 count x = length . filter (== x)
 
--- From Bool to Property -- note "==="
-prop_reverseReverse_classified :: [Int] -> Property
-prop_reverseReverse_classified xs =
-  classify (null xs) "empty" $
-  classify (length xs == 1) "singleton" $
-  classify (length xs > 10) "long" $
-    reverse (reverse xs) === xs
-
 -- Commented out runs fail!
 main = do
   quickCheck (prop_sortIdempotent sort)
@@ -54,7 +46,6 @@ main = do
   -- quickCheck (prop_sortMinimumFirst badSort)
   quickCheck (prop_sortSpec sort)
   -- quickCheck (prop_sortSpec badSort)
-  quickCheck prop_reverseReverse_classified
 
 {-
 
@@ -63,10 +54,5 @@ ghci> quickCheck (prop_sortSpec sort)
 ghci> quickCheck (prop_sortSpec badSort)
 *** Failed! Falsified (after 4 tests and 1 shrink):     
 [0,-1]
-ghci> quickCheck prop_reverseReverse_classified
-+++ OK, passed 100 tests:
-66% long
- 6% singleton
- 3% empty
 
 -}
